@@ -1,26 +1,139 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #080c14;
+  --foreground: #e2e8f0;
+  --accent: #00e8ff;
+  --accent-dim: #00b8cc;
+  --card: #111a2e;
+  --card-hover: #162035;
+  --card-border: #1e2d4a;
+  --surface: #0d1220;
+  --muted: #64748b;
+  --danger: #ef4444;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --purple: #8b5cf6;
+  --pink: #ec4899;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+  --color-card-border: var(--card-border);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans, Arial, Helvetica, sans-serif);
+  min-height: 100vh;
 }
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* Typewriter animation */
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(0, 232, 255, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(0, 232, 255, 0.6); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes xp-pop {
+  0% { transform: scale(0) translateY(0); opacity: 0; }
+  50% { transform: scale(1.3) translateY(-20px); opacity: 1; }
+  100% { transform: scale(1) translateY(-40px); opacity: 0; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes critical-hit {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.5) rotate(-5deg); }
+  50% { transform: scale(1.8) rotate(5deg); }
+  75% { transform: scale(1.3) rotate(-3deg); }
+  100% { transform: scale(1); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-xp-pop {
+  animation: xp-pop 1s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+}
+
+.animate-critical-hit {
+  animation: critical-hit 0.6s ease-out;
+}
+
+/* Markdown styling for library content */
+.prose-cissp h1 { font-size: 1.5rem; font-weight: 700; color: var(--accent); margin-bottom: 0.75rem; }
+.prose-cissp h2 { font-size: 1.25rem; font-weight: 600; color: var(--foreground); margin: 1.5rem 0 0.5rem; }
+.prose-cissp h3 { font-size: 1.1rem; font-weight: 600; color: var(--foreground); margin: 1rem 0 0.5rem; }
+.prose-cissp p { margin: 0.75rem 0; line-height: 1.7; color: #cbd5e1; }
+.prose-cissp ul, .prose-cissp ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+.prose-cissp li { margin: 0.25rem 0; line-height: 1.6; color: #cbd5e1; }
+.prose-cissp ul { list-style-type: disc; }
+.prose-cissp ol { list-style-type: decimal; }
+.prose-cissp code { background: var(--surface); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9em; color: var(--accent); }
+.prose-cissp pre { background: var(--surface); padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
+.prose-cissp pre code { background: none; padding: 0; }
+.prose-cissp strong { color: var(--foreground); font-weight: 600; }
+.prose-cissp blockquote { border-left: 3px solid var(--accent); padding-left: 1rem; margin: 1rem 0; color: #94a3b8; }
+.prose-cissp table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.prose-cissp th { background: var(--surface); padding: 0.5rem; text-align: left; border: 1px solid var(--card-border); color: var(--accent); }
+.prose-cissp td { padding: 0.5rem; border: 1px solid var(--card-border); color: #cbd5e1; }

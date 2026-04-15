@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx next build:*)",
+      "Bash(timeout 15 npx next dev:*)",
+      "Bash(tail:*)",
+      "Bash(cd \"C:/Users/Seymour/OneDrive/Desktop/cissp-quest\" && rm -rf .next && npx next build 2>&1)",
+      "Bash(pip install:*)",
+      "Bash(python3:*)",
+      "Bash(pip show:*)",
+      "Bash(python:*)",
+      "Bash(npx tsc:*)",
+      "Bash(ls:*)",
+      "Bash(do echo:*)",
+      "Bash(echo \"=== ACT 1 ===\" && echo \"Nodes:\" && grep -c \"^\\\\s*{\" src/data/story/domain1/act1.ts | head -1 && grep -oP \"id: '[^']+'\" src/data/story/domain1/act1.ts | wc -l && echo \"Scenes \\(by SCENE comments\\):\" && grep -ciP \"SCENE \\\\d\" src/data/story/domain1/act1.ts && echo \"=== ACT 2 ===\" && grep -oP \"id: '[^']+'\" src/data/story/domain1/act2.ts | wc -l && echo \"Scenes:\" && grep -ciP \"SCENE \\\\d\" src/data/story/domain1/act2.ts && echo \"=== ACT 4 ===\" && grep -oP \"id: '[^']+'\" src/data/story/domain1/act4.ts | wc -l && echo \"Scenes:\" && grep -ciP \"SCENE \\\\d\" src/data/story/domain1/act4.ts)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(cd:*)"
+    ]
+  }
+}
