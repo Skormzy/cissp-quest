@@ -1,0 +1,125 @@
+start	end	text
+0	14000	FEDERATED IDENTITY MANAGEMENT
+14000	16000	FEDERATED IDENTITY MANAGEMENT
+16000	20000	Let's talk about what this looks like from user's perspective.
+20000	34000	FEDERATED IDENTITY MANAGEMENT
+34000	36000	FEDERATED IDENTITY MANAGEMENT
+36000	40000	Let's talk about what this looks like from user's perspective.
+40000	44000	From user's perspective, they can log in once, usually with their corporate credentials,
+44000	48000	and then magically get access to a bunch of different systems.
+48000	51000	Sounds just like single sign on, doesn't it?
+51000	57000	But there's a really important difference between FEDERATED IDENTITY MANAGEMENT and single sign on.
+57000	62000	And the key difference is that single sign on is typically only within one organization,
+62000	66000	and it only enables access to one organization's systems,
+66000	74000	whereas FEDERATED IDENTITY MANAGEMENT is allowing users to access multiple different entities systems.
+74000	78000	So let's start with an example to kind of put this into the real world.
+78000	82000	So let's think of how when you're browsing the web nowadays,
+82000	88000	there's lots of websites that you can go to where instead of having a unique username and password on that website,
+88000	94000	instead what you have is it gives you the website, will give you the ability to log in with Google or Facebook,
+94000	97000	or your Amazon ID, or something like that.
+97000	100000	So let's pick Facebook as an example.
+100000	105000	And let's try and think of a company that Facebook doesn't yet own.
+105000	108000	It's genuinely difficult to think of a company that they don't own yet.
+108000	110000	Spotify. I don't think they own Spotify yet.
+110000	112000	So let's go with them, for example, okay?
+112000	115000	So here's how this would work.
+115000	118000	If I go to Spotify.com, and I go to Login,
+118000	122000	instead of providing a unique username and password for Spotify.com,
+122000	126000	instead I click the button that says Login with Facebook.
+126000	128000	And then what will happen is a window will come up.
+128000	132000	And what do I type in there? I type in my Facebook credentials.
+132000	138000	And I essentially log in and I'm identified and authenticated by Facebook.
+138000	141000	And then when that Facebook has authenticated me,
+141000	144000	I'm then able to log in to Spotify.
+144000	147000	This is exactly what Federated Access Management is.
+147000	152000	It's a trust relationship between three entities.
+152000	154000	You've got your user or your principal.
+154000	157000	That's the person who's actually logging in.
+157000	160000	You've got your identity provider.
+160000	163000	This is the entity that stores the user's identity,
+163000	167000	their account, and knows the user's username and password,
+167000	171000	or whatever they authenticate with knowledge, ownership, or characteristic.
+171000	174000	And then the third entity in the trust relationship
+174000	178000	is the relying party or the service provider
+178000	180000	that the user actually wants to access.
+180000	182000	So in the example that we just talked about,
+182000	184000	let's relate who each of the entities are.
+184000	188000	So the user principal, that's obviously the person that's logging in.
+188000	194000	The website that the person ultimately wanted to access was Spotify.
+194000	199000	So Spotify would be the relying party or another term for this is service provider.
+199000	202000	So relying party service provider means the same thing.
+202000	205000	That's the entity the user actually wants to access.
+205000	208000	But the user didn't authenticate with the relying party.
+208000	211000	Instead the user authenticated with Facebook.
+211000	213000	So in the example here that I've just given you,
+213000	215000	Facebook would be the identity provider.
+215000	219000	The way this works in most corporations is that the user will authenticate
+219000	222000	with the corporate credentials, usually through Active Directory.
+222000	226000	And then, because most organizations nowadays have all sorts of cloud services,
+226000	231000	what the user is able to magically access through their corporate credentials
+231000	235000	is things like service now and concur and all these online software
+235000	236000	is a service application.
+236000	239000	So that's the idea behind federated access.
+239000	243000	It's a trust relationship between at least three entities.
+243000	251000	The user, the identity provider, and one or more relying parties or service providers.
+251000	257000	Now there's a number of different protocols or standards that will enable federated access.
+257000	260000	The major one that you need to know about is SAML,
+260000	263000	the security assertion markup language.
+263000	266000	And SAML actually has two capabilities.
+266000	270000	It does both authentication and authorization.
+270000	273000	And we'll talk about SAML in a bit more detail in a moment.
+273000	275000	And it's very commonly on the exam.
+275000	278000	So it's one of the protocols you need to know a bit about.
+278000	283000	Three other protocols that enable federated access that I would suggest you just know at a high level.
+283000	285000	You don't need to know any great detail on them.
+285000	290000	RWS Federation, which does both authentication and authorization.
+290000	294000	And two more open ID and OAuth.
+294000	300000	Open ID by itself only does the identification and the authentication.
+300000	303000	OAuth on the other hand does the authorization.
+303000	310000	And so these two protocols are typically work together to achieve both the authentication and the authorization.
+310000	313000	Now let's dig into SAML in a little more detail.
+313000	321000	And just like we talked about with Kerberos, SAML uses this idea of having tickets or tokens that are passed back and forth.
+321000	326000	So let's say the user wants to log into the, here we've called it the service provider.
+326000	328000	Otherwise known as the relying party.
+328000	331000	Let's say the user wants to log into the service provider.
+331000	335000	The first thing the user will do is send a request saying, I'd like to log in.
+335000	345000	Now if the user does not currently have a valid ticket or token, what's going to happen is the user is going to be redirected back to the identity provider.
+345000	348000	So that the user can authenticate themselves.
+348000	353000	So the user will be redirected back to the identity provider, maybe something like Active Directory.
+353000	360000	The user will then authenticate themselves through knowledge, ownership, or characteristic, or some combination thereof.
+360000	368000	And once the user is authenticated, the user will be given a SAML assertion, ticket, or token.
+368000	372000	And it's really important to understand what this contains, what this ticket or token contains.
+372000	377000	It contains some assertion statements, some information on the user.
+377000	381000	Maybe what their username is, what their role is, what sort of access they should have.
+381000	387000	But very importantly, and listen carefully here, it does not contain their authentication information.
+387000	392000	And by that I mean it would not contain their password or their biometric data or anything like that.
+392000	399000	That data is not contained in the ticket or token because the relying party has no idea what the user's password is.
+399000	406000	And you don't want them to because the whole point of federated access is that we're letting our users log into different service providers.
+406000	411000	And you would not want those service providers to know your users corporate credentials.
+411000	420000	So once the user authenticates, gets their ticket or token, they can then take that ticket or token and pass it back to the relying party or the service provider.
+420000	426000	So we'll then read through the assertion statements inside that ticket or token and make an authorization decision.
+426000	431000	What is the user going to be authorized to access in this particular service provider?
+431000	435000	And then if the user is allowed in, they'll get access.
+435000	438000	So that's the basic steps that SAML goes through.
+438000	441000	And there's a couple major things that you should know about SAML.
+441000	449000	As I mentioned, it uses this concept of tickets or tokens and these tickets or tokens contain assertion statements.
+449000	453000	And those assertion statements are written in a particular language or protocol.
+453000	457000	It's known as XML, the extensible markup language.
+457000	465000	This is simply a language that is both human and machine readable and it's what those assertion statements are written in within the SAML ticket or token.
+465000	476000	The final piece that you should know about SAML is some of the major components that are always required to actually send SAML authentication and authorization information between these different entities.
+477000	481000	And the four major components of SAML are first the assertion.
+481000	484000	And the assertion is what we just talked about.
+484000	492000	That's those assertion statements contained within the ticket or token, containing the authentication and authorization information and some other attributes.
+492000	496000	The next component is what we call the protocol.
+496000	505000	And this is simply defines how the different entities in that trust relationship actually communicate with each other, defines how they talk to each other.
+506000	509000	The next piece is what is known as the bindings.
+509000	514000	The bindings define how the SAML assertion information is actually sent across the network.
+514000	517000	So for instance, you can bind it to HTTP.
+517000	521000	So the SAML assertion information is sent over the HTTP protocol.
+521000	524000	And the final piece is what are known as profiles.
+524000	527000	You can set up SAML to have different profiles.
+527000	530000	In other words, to serve different business purposes.
+530000	534000	So one usage of SAML might be for web application authentication.
+534000	537000	Another use might be for connecting to say the LDAP system.
+537000	543000	So you can set up different profiles to allow for different business uses of SAML.
+543000	545000	So there you go. That's federated access.

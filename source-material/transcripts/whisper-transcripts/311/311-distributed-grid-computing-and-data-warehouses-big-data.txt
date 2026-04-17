@@ -1,0 +1,112 @@
+We're continuing our discussion of the major components and systems that we use within IT and we're now...
+We're continuing our discussion of the major components and systems that we use within IT and we're now have arrived at distributed systems.
+So what are those, John?
+Yeah, distributed systems. I think the easiest way to think of what a distributed system is is a network.
+A distributed system is simply a bunch of devices, nodes that are connected to each other for whatever purpose.
+Either communications or sharing tasks or doing things that are important today.
+Think of a network as a distributed system.
+Yeah, the largest distributed system in the world is the Internet.
+Yeah, we use distributed systems all the time.
+So what's a grid computing then?
+Well, I think if you look at the slide here, it gives us a good indication of what grid computing is.
+Simply a whole bunch of devices that are connected to each other to work towards one common task so that they can all contribute and make the task much easier or even possible to achieve.
+In fact, I think you've got a pretty good example.
+Yeah, so there's this organization called SETI and they are looking for aliens, little green people.
+Why they always green? I don't know.
+Here's the problem with SETI. They're searching for aliens, but as you can imagine, they're not super well-funded.
+It's hard to get academic grants for looking for aliens.
+So SETI has managed over the years to get access to radio telescopes to listen to the night sky and to pick up the signals that ET might be sending, radio signals.
+And so SETI has managed to get time on radio telescopes and now they have all this data, but they have a big problem.
+They need to scan through this data to look for patterns and that takes a lot of computing power and they don't have any budgets.
+So what they figured out, and this is really cool, they did this like 20 years ago, it was called SETI at home.
+It was a screensaver you could install on your computer and what would happen is you would download your computer when the screensaver ran,
+would download a little slice of this radio data and then your computer would scan through that data looking for signals or aliens.
+And then when your computer was done, it would send back that little slice of data to the SETI organization and you'd get the new one.
+And they called the SETI at home and they made a bit of a, they kind of gamified it, they made a bit of a competition out of it where there was a leader board as to exactly how many people were computing so many chunks of data per day and so forth.
+And it ended up being at the time the largest grid computer in the world.
+There was millions of systems all working on this at once and so that created a massive grid computer.
+And that's what grid computing is, a whole bunch of systems working together trying to solve a single problem.
+Yep and you know obviously we have to relate this to security correct so if you look at the slide that you have in front of you, you know that's what the architecture looks like but from a security perspective you need to protect not only that server in the middle for example that drives everything but also all of the individual components that are part of that grid computing architecture because they may have very valuable information that belongs to organizations.
+So just like anything else you have to break the architecture down into components and to protect each one as we know.
+Next topic, data warehouses, what are those John?
+Well companies have been doing this because you know when you look at the history of databases companies have been building databases so that we can store valuable and meaningful information in these formats.
+But then you know looking at the databases and updating them is what drives business decisions.
+And so we found value because historically we had different databases that companies had built for different purposes and they may have their own little data store.
+And if you're trying to analyze the data in a centralized place, if you're trying to analyze data it's very hard to do that when it's all fragmented spread across all these systems.
+Yeah so companies figured out that there's value in taking all of this different information possibly in different formats and putting it all together because if you put information all together gives you the ability to analyze that data and you can find much more meaningful information related to what trends, relationships, correlations, patterns, all of that invisible data that is now visible because you put everything together.
+Yeah to make better business decisions is what it's all about. But of course now the no one wants to talk about data warehouses anymore.
+The new sexy thing is of course big data. So what's the difference between a data warehouse and big data because the whole idea behind big data is that you bring in data from all these different sources and you analyze the data.
+It sounds just like a data warehouse. So what's the big difference?
+The way I like to remember it and it's pretty common in the industry you've got the three V's volume velocity and variety.
+And let's start with volume. With a data warehouse you tend to be restricted to the computing capacity capacity storage capacity of a single even high power system.
+But in big data you can store data across thousands of systems. And it's worth maybe taking a step back for a moment and think about where did big data actually come from? Where did this concept originate?
+And the creators, the idea where big data first came from was essentially Google because they had a pretty big data problem.
+They were trying to index the entire internet and then be able to search that entire internet in milliseconds. They're still proud of this to this date right.
+They'll show at the bottom of search page how many results how many millions of results were returned in like three milliseconds.
+And so they needed to store a huge amount of data. So that's the volume of data in a big data warehouse.
+In big data you can store your data set across thousands of systems and the other big thing variety.
+With data warehouses you could typically only store relational or nice and clean table database where there's rows and columns.
+But in big data you can store files, unorganized text, pictures, videos, so all this different variety of data.
+And then volume is just how quickly you can ingest it, analyze it, and output it. That's kind of the difference.
+But otherwise both of these are all about doing what?
+Well the whole purpose is to gain business intelligence, metadata, valuable information that can drive better decisions.
+And we often refer to that as data mining or analytics.
+Now there's two kind of major risks we have to be aware of with both of these, right?
+Inference and aggregation.
+Yeah, although you know what's important for us to understand is that aggregation on its own is not a problem.
+And neither is inference, correct? Because that's why we're putting information together to have the ability for us to be able to infer more business decisions and valuable information.
+So I mean this is the reason why we have databases and big data and so on.
+Data mining is all about aggregation putting things together and then being able to infer more sensitive valuable information.
+So this is why we do it. The problem is unauthorized inference and aggregation.
+Because if you put all of this information together to allow us to analyze it, you know that may be easier for unauthorized people to analyze information that you don't want them to do.
+You don't want them to be able to infer or making or inferring things that maybe they're not supposed to, even for real employees.
+So I've got a good example of this and I can talk about it because this was a real world event.
+It was published in a number of papers. It was actually quite a while ago, over six or seven years ago, I think.
+Here's the story. It's kind of a fun one.
+So a man walked into a target store and this guy was just irate. He was furious.
+He just managed to see the store manager and when he got into the store manager's office, he just unleashed on this poor store manager.
+What is wrong with you? What sort of soulless, heartless, disgusting, corporate.
+He was furious and the store manager just at first couldn't understand why this guy was so angry about because he was just like,
+off out of his mind. But as he started to cool down, the story came out.
+And what this guy was so incredibly angry about is that target had been sending pregnancy-related coupons to his teenage daughter.
+Basically saying is like, what is wrong with you people? Are you trying to encourage teen pregnancy? Like, do you have no morals? What is wrong with you?
+So this is what he was so incredibly upset about. So he just unleashed on the store manager and then he left.
+But then he came back a few days later. He asked to see the store manager again.
+And this time, he was a little calmer. In fact, he was a little sheepish.
+And when he got into the store manager's office, he said, I'm here to apologize.
+The reason he had to apologize, turns out she was pregnant.
+So here's the interesting question. How did Target know that his teenage daughter was pregnant before he knew?
+And to be clear, Target did know that his teenage daughter was pregnant before the dad knew.
+How? Well, to me, it's obvious. It was the store manager that got her pregnant.
+I mean, all comes Razor, maybe, you know, maybe even though it's not the real reason. No. Although I can make sense.
+The real reason they knew is, inference and aggregation, Target collects a huge amount of data on their customers.
+They've got, you know, all their brick and mortar stores, all their online presence. They track whatever people are buying.
+They used to have, maybe they still do not an expert on Target, but they used to, they have drug stores in their stores.
+So they would know what sort of drugs you were buying. They had their red card.
+So they were able to track user purposes. They even had debit card or I think credit card services.
+They knew a lot of financial information. And then they do what all these big companies do.
+They combine that through sources like Lexus Nexus and with other things like Google and Facebook.
+And it is remarkable how much these big organizations know about an individual. They'll know your age, your gender, your race, where you live, your socio-economic situation.
+And they know exactly what you're buying. And they employ huge teams of data scientists to look for these little indicators.
+Like if you suddenly switch from scented to unscented hand cream and you start buying this versus that, then the probability that you're pregnant goes way up.
+And that's exactly what they were measuring. And that's how they knew.
+And so the thing I was like to think about here was, was what Target was doing illegal. And I don't want to be clear here.
+Like all the big companies do this. I'm not just picking on Target here. But was what Target was what they were doing, was it illegal?
+And the answer is absolutely not. It was creepy, but not illegal.
+And maybe just to finish this one off, there's one little funny piece here. And that is, so did Target change their ways? Did they suddenly stop doing this?
+No, they just got smarter. They still send out all sorts of targeted advertising, but they make it look less targeted.
+They'll throw in, instead of just being all pregnancy related items, they'll throw in a lawn tractor and a pool table or something else to make it look less targeted.
+So that's the problem of unauthorized inference and aggregation. It's not just Target that does it.
+I'm sure Walmart and other retailers and other industries do it as well. It's all available. It's easy to put all of that information together.
+Let me share one other example that I think really kind of highlights this. So think of a big bank, okay? Big banks often have multiple divisions.
+One division might be the stock traders. They're buying and selling stocks to try and make a profit.
+The other division is your M&A people. They are helping companies buy each other or buy each other, merge.
+Now, what would happen if the stock traders knew what the M&A people were up to? If they knew, for instance, that this company was about to buy that company?
+Would that be useful information to have to buy and sell stocks? It absolutely would be. But what do we call that, John?
+Business intelligence. We call that insider trading, and it is absolutely illegal.
+So that's a perfect example where even within one company, you've got to be very careful about what your employees are allowed to infer from what other employees may be doing because you can easily be guilty of insider trading.
+So how do we prevent this, John?
+Well, there is something that you need to remember. So for unauthorized inference and aggregation, the way that we can prevent to some degree, all of that, is through what we call poly instantiation.
+And if you take that word apart, poly means many, instantiation means instances. It really means allowing information to exist at different classification levels for the purpose of preventing unauthorized inference and aggregation.
+And we're actually going to look at this in more detail later on when we get into domain number eight, because it really applies there.
+We build poly instantiation techniques into our applications to prevent unauthorized risk of inference and aggregation.

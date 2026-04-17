@@ -1,0 +1,203 @@
+WEBVTT
+
+00:00.000 --> 00:18.840
+Now if you think about how security controls need to be preventive, detective, and corrective,
+
+00:18.840 --> 00:33.720
+we've been talking about how...
+
+00:33.720 --> 00:38.920
+Now if you think about how security controls need to be preventive, detective, and corrective,
+
+00:38.920 --> 00:46.400
+we've been talking about how detective capabilities are provided through IDS and IPS systems.
+
+00:46.400 --> 00:52.720
+Now the corrective action that needs to happen after we detect that something is wrong or
+
+00:52.720 --> 00:56.240
+against the rules is what this section deals with.
+
+00:56.240 --> 01:01.440
+So for example, one of the very first things that we can do is activate sandboxes, and I
+
+01:01.440 --> 01:08.160
+know that we've talked about sandboxes before, but a sandbox is like a safe play area.
+
+01:08.160 --> 01:13.960
+It's an environment where we can test things, for example, and be able to determine if something
+
+01:13.960 --> 01:18.200
+is malicious or not, and that's what we call a sandbox environment.
+
+01:18.200 --> 01:24.840
+So one of the things that your IDS, IPS technologies can correct and activate the corrective action
+
+01:24.840 --> 01:31.200
+would be to test something in a sandbox environment, and we can determine whether something is either
+
+01:31.200 --> 01:36.200
+malicious or not or safe to run in our production environment.
+
+01:36.200 --> 01:41.680
+Now when we talk about IDS as an IPS, I think we've talked about this before, however, it's
+
+01:41.680 --> 01:46.760
+really important to understand the result that may be returned.
+
+01:46.760 --> 01:53.280
+And there are questions on the exam that address this, but basically a IDS slash IPS system
+
+01:53.280 --> 01:58.920
+can return what are called false positives and false negatives.
+
+01:58.920 --> 02:04.600
+Now don't confuse these with what we talked about in the biometric section, which were
+
+02:04.600 --> 02:09.400
+type 1s and type 2s, false rejects and false accepts.
+
+02:09.400 --> 02:11.640
+That's not what we're talking about here.
+
+02:11.640 --> 02:17.240
+Here the terminology is different, false positives and false negatives.
+
+02:17.240 --> 02:24.560
+A false positive is where the IDS system tells us that it is an attack, but in fact it is
+
+02:24.560 --> 02:25.560
+not.
+
+02:25.560 --> 02:32.160
+And that would actually require the organization to launch into its incident response capability
+
+02:32.160 --> 02:37.960
+and at some point determine that it's not a real attack, but we've had to launch into
+
+02:38.000 --> 02:40.360
+our incident management capability.
+
+02:40.360 --> 02:46.360
+That's a false positive where the IDS system thinks it's an attack, but really isn't.
+
+02:46.360 --> 02:52.760
+What's much more critical is what we call a false negative.
+
+02:52.760 --> 02:58.480
+This is where the IDS IPS system does not catch something that it should.
+
+02:58.480 --> 03:02.800
+And from an organization's perspective, that's much more critical because we should be
+
+03:02.880 --> 03:09.880
+catching something that is an issue or an incident, but the IDS IPS system was not able
+
+03:09.880 --> 03:11.120
+to do it.
+
+03:11.120 --> 03:18.120
+And we've talked about how it's important to fine tune your IDS IPS capabilities so that
+
+03:18.120 --> 03:26.320
+we lower, for example, the false positives, but we also try and raise the false negatives.
+
+03:26.800 --> 03:33.800
+I mean, we want the IDS IPS system to be as valuable as possible so that it catches everything.
+
+03:33.800 --> 03:40.800
+And that requires constant fine tuning so that it returns better decisions on an ongoing
+
+03:40.800 --> 03:42.160
+basis.
+
+03:42.160 --> 03:47.280
+Now one of the other corrective things that can happen is what a lot of companies have
+
+03:47.280 --> 03:50.680
+been focusing on for the last number of years.
+
+03:50.680 --> 03:55.400
+And that is to have what are called honeypots and honey nets.
+
+03:55.400 --> 04:01.080
+And if you know anything about these, these are fake environments that companies create
+
+04:01.080 --> 04:07.200
+to look very attractive so that if an intruder has intruded into your network, you lure
+
+04:07.200 --> 04:11.440
+them into these fake environments because they look attractive.
+
+04:11.440 --> 04:17.160
+But because they are fake, they can lure these people into those environments so that you
+
+04:17.160 --> 04:19.800
+can protect your real environments.
+
+04:19.800 --> 04:23.520
+That's the whole purpose of these is to protect your real environments because you're
+
+04:23.520 --> 04:30.440
+luring them into fake environments and at the same time, potentially capturing evidence
+
+04:30.440 --> 04:31.960
+against the perpetrators.
+
+04:31.960 --> 04:40.480
+Now the only difference between honeypot and honeynet is a collection of honeypots.
+
+04:40.480 --> 04:46.080
+And what's really important to understand is the legality of these.
+
+04:46.080 --> 04:52.720
+Depending on where you put them, they can either be an example of enticement or entrapment.
+
+04:52.720 --> 05:00.120
+But the bottom line is companies can use these if someone has already committed a crime.
+
+05:00.120 --> 05:06.480
+Someone has already intruded into your network, then we can lure them into these fake environments
+
+05:06.480 --> 05:11.560
+and that would be considered to be enticement as opposed to entrapment.
+
+05:11.560 --> 05:15.160
+So where you place them is really important part.
+
+05:15.160 --> 05:19.680
+And that's what we're trying to highlight here in this very simple network diagram.
+
+05:19.680 --> 05:24.480
+The honey nets and the honeypots need to be placed in the right environments so that you
+
+05:24.480 --> 05:30.960
+are not entraping individuals but rather enticing them into these fake environments because
+
+05:30.960 --> 05:34.960
+they've already done something that is illegal.
+
+05:34.960 --> 05:42.080
+And as a final slide here in this section, we need to understand the difference between
+
+05:42.080 --> 05:45.720
+enticement and entrapment from a legal perspective.
+
+05:45.720 --> 05:51.640
+And this is why we understand that enticement is legal because someone has already committed
+
+05:51.640 --> 05:57.920
+a crime and therefore honey nets and honeypots become examples of enticement.
+
+05:57.920 --> 06:04.960
+Whereas entrapment would not be legal because you are inducing someone to commit a crime
+
+06:04.960 --> 06:08.280
+that they weren't contemplating doing in the first place.
+
+06:08.280 --> 06:13.240
+So because they've intruded into your network and then you lure them into your honeypot,
+
+06:13.240 --> 06:17.480
+for example, that is an example of enticement.
+

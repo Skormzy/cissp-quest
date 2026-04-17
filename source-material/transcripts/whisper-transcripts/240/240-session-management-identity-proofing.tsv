@@ -1,0 +1,73 @@
+start	end	text
+0	20000	Let's start by defining what is the session.
+20000	40000	Well, let's start by defining what is the session.
+40000	46000	Well, when a user logs into a system, when they've properly identified themselves, when they've authenticated themselves,
+46000	51000	and they've been authorized into the system, that begins what is known as a session.
+51000	56000	And we want to manage these sessions. We want to make sure that these sessions are secure.
+56000	61000	Because one of the major things we want to watch out for is something called session hijacking.
+61000	67000	Session hijacking is where an attacker, a baddie, somehow takes over a user session.
+67000	71000	And a session, of course, means that the user is authenticated. They have access to the system.
+71000	76000	So if someone takes over hijacks your session, it means that they would have the same rights as you.
+76000	80000	There's a bunch of different ways of conducting session hijacking.
+80000	87000	It can be very complicated. It can also be very simple. For instance, if I were to log into my laptop and then walk away,
+87000	92000	while my laptop is still logged in, and someone else was to come up to my laptop and start using a laptop,
+92000	96000	what have they done with my session? They have hijacked it.
+96000	102000	So it can be as simple as that. It can also be very complicated, hijacking, VPN sessions, all sorts of things like that.
+102000	109000	Here's a good question. What's the very best way of preventing session hijacking?
+109000	114000	Well, the very best way is to actually force reauthentication.
+114000	117000	So if your screensaver comes up and requires you to log back in,
+117000	120000	if you require someone to put in their password again,
+120000	125000	it's going to, if you terminate the session and then require someone to reauthenticate,
+125000	128000	anyone that had hijacked the session has now lost access.
+128000	132000	So the perfect answer of how we prevent session hijacking is very simple.
+132000	135000	It's actually to force reauthentication.
+135000	141000	And if you're really concerned about high session hijacking, you might even move to almost continuous reauthentication.
+141000	145000	For example, some VPN solutions are actually doing this behind the scenes,
+145000	152000	without us even realizing they're constantly reauthenticating to trying to prevent something like session hijacking.
+152000	158000	Now let's talk about some of the different methods that we use for managing sessions.
+158000	161000	The first one, known as schedule limitations,
+161000	165000	actually controls when you're allowed to open or create a session.
+165000	172000	So the idea here is that if an organization's employees all work from 8 a.m. to 5 p.m. Monday through Friday,
+172000	179000	then schedule limitations could be set up to only allow users to create a session to log in to their system
+179000	183000	between, say, 8 a.m. and 5 p.m. Monday through Friday.
+183000	188000	If someone tried it Saturday night at 2 a.m., they would just be blocked.
+188000	191000	They would say, nope, session cannot be created right now.
+191000	194000	So that's the idea of session limitations.
+194000	197000	The next one is log in limitations.
+198000	202000	And this goes back to this idea that we never want to have shared accounts.
+202000	205000	We want to have one account to one user.
+205000	208000	And that one user should only be logged in once because they have one system.
+208000	214000	So log in limitation is about only letting a user log in with a certain set of credentials once.
+214000	220000	And if someone else is trying to log in with the same credentials, then you know that's a problem.
+220000	222000	Next is timeouts.
+222000	224000	And we use timeouts all the time.
+224000	227000	Perfect example is your screensaver.
+227000	230000	Your screensaver is usually set for something like 5 minutes.
+230000	233000	And at 5 minutes of inactivity, what happens?
+233000	235000	Well, your screensaver comes up.
+235000	239000	And when you go back to the system and you try and you jiggle the mouse,
+239000	241000	you get the screensaver to go away.
+241000	244000	Before you can use the system again, what do you have to do?
+244000	245000	Log in.
+245000	248000	So this is an example of session timeout.
+248000	251000	And lots of different systems do this, like an online banking system, for instance.
+251000	255000	Well, often like log you out after 5 minutes of inactivity.
+255000	260000	Now, let's talk about registration or the idea of identity proofing.
+260000	265000	So identity proofing is this concept that when a new employee joins the organization,
+265000	268000	you want to make sure that they actually are who they say they are.
+268000	269000	You've done interviews.
+269000	270000	You've done background checks.
+270000	273000	You've made sure that this is the perfect employee for your organization.
+273000	277000	But you want to make sure that when they actually show up on their first day of work,
+277000	281000	that they are who they say they are, that you're giving out the badge, the credentials,
+281000	285000	all the keys to the kingdom to the right person.
+285000	287000	So how can we identity proof someone?
+287000	292000	If they first show up for work, how can we confirm that they are who they say they are?
+292000	297000	Well, one of the easiest ways of identity proofing someone is to ask for their government ID,
+297000	300000	something like a driver's license or a passport.
+300000	303000	So that's simply the concept of identity proofing.
+303000	306000	We use it all sorts of places when someone first joins the organization.
+306000	311000	We talked about it, we'll talk about it in relation to certificate authorities
+311000	316000	and how a registration authority in RA will identity proof someone before they give them
+316000	317000	a digital certificate.
+317000	320000	So that's registration and identity proofing.

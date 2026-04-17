@@ -1,0 +1,137 @@
+WEBVTT
+
+00:30.000 --> 00:43.520
+Wow, you're still here.
+
+00:43.520 --> 00:44.520
+That is some perseverance.
+
+00:44.520 --> 00:46.520
+I'm proud of you.
+
+00:46.520 --> 00:47.520
+Let's keep going.
+
+00:47.520 --> 00:51.800
+I'm happy to report this is an easy one.
+
+00:51.800 --> 00:55.000
+Identity as a service.
+
+00:55.000 --> 00:56.000
+What does that mean?
+
+00:56.000 --> 00:59.440
+It means we can do any of the stuff that we have already talked about around identity
+
+00:59.440 --> 01:03.120
+and access management, except that we can do it in the cloud.
+
+01:03.120 --> 01:04.120
+That's identity as a service.
+
+01:04.120 --> 01:07.720
+There's a little more to it than they need to know.
+
+01:07.720 --> 01:09.000
+Here's the table.
+
+01:09.000 --> 01:12.760
+There are a number of different identities that we can use in identity as a service.
+
+01:12.760 --> 01:15.760
+So let's go through each of these and I'll provide you a nice simple definition of each
+
+01:15.760 --> 01:18.920
+one.
+
+01:18.920 --> 01:21.280
+Let's start with cloud identity.
+
+01:21.280 --> 01:26.760
+The idea of a cloud identity is that the identity, your information, your credential
+
+01:26.760 --> 01:32.320
+information is entirely stored in the cloud and you authenticate in the cloud because
+
+01:32.320 --> 01:33.440
+everything is stored in the cloud.
+
+01:33.440 --> 01:35.880
+That's cloud identity.
+
+01:35.880 --> 01:41.320
+Sync identity is where you have an identity in your local corporate store on premise and
+
+01:41.320 --> 01:46.200
+you have an identity in the cloud and sync means that they are connected and a change to
+
+01:46.200 --> 01:50.720
+one is synchronized to the other, a change to this one is synchronized to the other one.
+
+01:50.720 --> 01:53.680
+So sync identities, they're synchronized.
+
+01:53.680 --> 01:59.120
+And the authentication can occur either on premise or in the cloud.
+
+01:59.120 --> 02:03.000
+Federated identity is where you use federated access.
+
+02:03.000 --> 02:07.520
+This whole process that we've already talked through about having three entities, the identity
+
+02:07.520 --> 02:12.240
+provider, the relying party, the service provider, and the user or the principal.
+
+02:12.240 --> 02:16.120
+And where the actual identity provider is located whether it's on premise or in the cloud
+
+02:16.120 --> 02:17.880
+doesn't matter.
+
+02:17.880 --> 02:22.160
+Federated identity is just this concept of using federated access.
+
+02:22.160 --> 02:25.680
+And the last one is known as a linked identity.
+
+02:25.680 --> 02:30.160
+This is where you still have two separate identities, one on premise and one in the cloud.
+
+02:30.160 --> 02:34.240
+But the key difference between linked identity and synced identity, in sync, there was if
+
+02:34.240 --> 02:36.800
+a change was made to one, it was synchronized to the other.
+
+02:36.800 --> 02:40.740
+In linked, there's a connection to say that these are both accounts that belong to the
+
+02:40.740 --> 02:46.680
+same user, but an update to one does not synchronize automatically, update the other.
+
+02:46.680 --> 02:50.120
+And so in linked identity, if you change this account in the cloud, it doesn't automatically
+
+02:50.120 --> 02:54.160
+update this local account and vice versa.
+
+02:54.160 --> 03:00.000
+So those are the major types of accounts that we can use in the cloud.
+
+03:00.000 --> 03:03.640
+And the final piece slide here is just related to what are all the services that we can have
+
+03:03.640 --> 03:05.000
+in identity as a service.
+
+03:05.000 --> 03:08.160
+And like I said, it's anything that you can do on premise, you can do provisioning,
+
+03:08.160 --> 03:12.600
+you can do access management, you can do single sign-on, you can do multi-factor, all
+
+03:12.600 --> 03:14.560
+of this stuff, you can do it in the cloud.
+

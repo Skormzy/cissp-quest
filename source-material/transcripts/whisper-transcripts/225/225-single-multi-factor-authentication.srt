@@ -1,0 +1,184 @@
+1
+00:00:00,000 --> 00:00:19,480
+We've talked about the three factors of authentication, authentication by knowledge, ownership,
+
+2
+00:00:19,480 --> 00:00:34,560
+and
+
+3
+00:00:34,560 --> 00:00:41,600
+We've talked about the three factors of authentication, authentication by knowledge, ownership, and characteristic.
+
+4
+00:00:41,600 --> 00:00:46,360
+We can use these different factors, alone or in combination, to achieve what is often
+
+5
+00:00:46,360 --> 00:00:50,640
+referred to as single or multifactor authentication.
+
+6
+00:00:50,640 --> 00:00:53,320
+Let's start with single factor authentication.
+
+7
+00:00:53,320 --> 00:00:54,560
+What does that mean?
+
+8
+00:00:54,560 --> 00:00:56,640
+Well, at the most basic level,
+
+9
+00:00:56,640 --> 00:00:58,880
+single factor authentication simply means
+
+10
+00:00:58,880 --> 00:01:02,640
+that we use one of those three factors of authentication.
+
+11
+00:01:02,640 --> 00:01:05,240
+So it's simply authentication by knowledge
+
+12
+00:01:05,240 --> 00:01:07,320
+or authentication by ownership
+
+13
+00:01:07,320 --> 00:01:12,120
+or authentication by characteristic by themselves.
+
+14
+00:01:12,120 --> 00:01:13,920
+So if I were to ask you this question,
+
+15
+00:01:13,920 --> 00:01:18,360
+a user logs into a system using an RSA ID token.
+
+16
+00:01:18,360 --> 00:01:19,280
+What is that?
+
+17
+00:01:19,280 --> 00:01:22,160
+Is that multifactor or is that single factor?
+
+18
+00:01:22,160 --> 00:01:23,720
+And the answer of course is that it's
+
+19
+00:01:23,720 --> 00:01:25,800
+single factor authentication
+
+20
+00:01:25,800 --> 00:01:27,320
+because the only factor of authentication
+
+21
+00:01:27,320 --> 00:01:29,560
+they used by just using an RSA ID key
+
+22
+00:01:29,560 --> 00:01:33,880
+is authentication by ownership.
+
+23
+00:01:33,880 --> 00:01:36,640
+Now, what about multifactor authentication?
+
+24
+00:01:36,640 --> 00:01:38,320
+You've undoubtedly heard this term.
+
+25
+00:01:38,320 --> 00:01:40,320
+It gets thrown around all of the place.
+
+26
+00:01:40,320 --> 00:01:42,680
+What is the true and perfect definition
+
+27
+00:01:42,680 --> 00:01:45,320
+of multifactor authentication?
+
+28
+00:01:45,320 --> 00:01:48,080
+The perfect definition is that multifactor authentication
+
+29
+00:01:48,080 --> 00:01:52,520
+is two or more different factors of authentication.
+
+30
+00:01:52,520 --> 00:01:55,400
+And so a key to my bank is a perfect example of this.
+
+31
+00:01:55,400 --> 00:01:56,640
+Just recently, they rolled out
+
+32
+00:01:56,640 --> 00:01:58,720
+this whole multifactor authentication initiative
+
+33
+00:01:58,720 --> 00:01:59,960
+and they were very proud of themselves
+
+34
+00:01:59,960 --> 00:02:03,440
+that they now had MFA multifactor authentication.
+
+35
+00:02:03,440 --> 00:02:05,200
+And what you had to do, what you have to do now,
+
+36
+00:02:05,200 --> 00:02:08,680
+to log in with MFA is you have to provide first your password
+
+37
+00:02:08,680 --> 00:02:11,240
+and then answer a security question.
+
+38
+00:02:11,240 --> 00:02:13,720
+And is that multifactor authentication?
+
+39
+00:02:13,720 --> 00:02:16,000
+Well, it's authentication by knowledge
+
+40
+00:02:16,000 --> 00:02:18,600
+and then authentication by knowledge.
+
+41
+00:02:18,600 --> 00:02:21,280
+Two factors, but they're the same factors.
+
+42
+00:02:21,280 --> 00:02:24,040
+So that is not truly multifactor authentication.
+
+43
+00:02:24,920 --> 00:02:26,440
+So that's the difference between single factor
+
+44
+00:02:26,440 --> 00:02:28,760
+and multifactor authentication.
+
+45
+00:02:29,080 --> 00:02:34,560
+So that means that you're not 100% integrated.
+
+46
+00:02:34,720 --> 00:02:38,080
+That's what you needed.
+

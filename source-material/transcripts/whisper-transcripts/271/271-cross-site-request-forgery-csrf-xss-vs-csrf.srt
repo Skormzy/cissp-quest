@@ -1,0 +1,372 @@
+1
+00:00:00,000 --> 00:00:19,280
+To explain cross-site request forgeries, I want to first go through a little example.
+
+2
+00:00:19,280 --> 00:00:38,160
+And for this example, to explain cross-site request forgeries, I want to first go through
+
+3
+00:00:38,160 --> 00:00:39,360
+a little example.
+
+4
+00:00:39,360 --> 00:00:42,200
+And for this example, we need someone who makes too much money.
+
+5
+00:00:42,200 --> 00:00:43,200
+John?
+
+6
+00:00:43,200 --> 00:00:46,760
+Hey, those Canadian pesos?
+
+7
+00:00:47,760 --> 00:00:48,760
+All right.
+
+8
+00:00:48,760 --> 00:00:51,760
+So let's imagine John here, who obviously makes too much money.
+
+9
+00:00:51,760 --> 00:00:53,760
+He just stands around counting it.
+
+10
+00:00:53,760 --> 00:00:55,760
+So I'd like you to imagine a scenario, okay?
+
+11
+00:00:55,760 --> 00:00:58,760
+So John is, you know, we're going to imagine in the morning, okay?
+
+12
+00:00:58,760 --> 00:01:03,760
+So he's sitting there in the morning, sipping his over-priced latte because he makes too much money, right?
+
+13
+00:01:03,760 --> 00:01:08,760
+And he's reading his newspaper that's been ironed for him because, you know, he's got people to do that.
+
+14
+00:01:08,760 --> 00:01:13,760
+So when John is going through his morning ritual, he also likes to log into his online banking system.
+
+15
+00:01:13,760 --> 00:01:15,760
+Hey, John, who do you bank with?
+
+16
+00:01:15,760 --> 00:01:16,760
+That's okay.
+
+17
+00:01:16,760 --> 00:01:17,760
+Never mind.
+
+18
+00:01:17,760 --> 00:01:18,760
+Don't need to know.
+
+19
+00:01:18,760 --> 00:01:19,760
+I know who it is.
+
+20
+00:01:19,760 --> 00:01:24,760
+So John likes to log into his online bank and check how much money he has there to sort of roll around virtually,
+
+21
+00:01:24,760 --> 00:01:26,760
+like Scrooge McDuck in hell with his money.
+
+22
+00:01:26,760 --> 00:01:29,760
+And I'm going to be the baddie here.
+
+23
+00:01:29,760 --> 00:01:31,760
+And I'm going to know that John is doing that.
+
+24
+00:01:31,760 --> 00:01:35,760
+Okay, so that's the scenario I want you to imagine, okay?
+
+25
+00:01:35,760 --> 00:01:37,760
+So here's what's going to happen.
+
+26
+00:01:37,760 --> 00:01:40,760
+I'm going to send a request to John.
+
+27
+00:01:40,760 --> 00:01:42,760
+I'm going to send to the URL.
+
+28
+00:01:42,760 --> 00:01:47,760
+And that URL, and I'm going to somehow trick him into clicking on that URL.
+
+29
+00:01:47,760 --> 00:01:51,760
+When he clicks on that URL, it's going to send a request to his online bank,
+
+30
+00:01:51,760 --> 00:01:56,760
+requesting fund transfers from his account to my account.
+
+31
+00:01:56,760 --> 00:02:01,760
+Now, when John clicks on that link, what's going to happen?
+
+32
+00:02:01,760 --> 00:02:04,760
+So if he clicks on that link to transfer funds from his account to my account,
+
+33
+00:02:04,760 --> 00:02:07,760
+what's his bank going to do when it receives that request?
+
+34
+00:02:07,760 --> 00:02:12,760
+Well, in setting up this scenario, I said very clearly that John was logged in.
+
+35
+00:02:12,760 --> 00:02:15,760
+And so when he clicks on that URL, what's his online bank going to do?
+
+36
+00:02:15,760 --> 00:02:19,760
+Well, it's going to see a valid request coming from a valid user, John,
+
+37
+00:02:19,760 --> 00:02:21,760
+to transfer funds from his account to my account.
+
+38
+00:02:21,760 --> 00:02:25,760
+So the server is going to execute that request.
+
+39
+00:02:25,760 --> 00:02:30,760
+And all $13 that John has in his account is going to get transferred into my account.
+
+40
+00:02:30,760 --> 00:02:34,760
+This is essentially what cross-state request forageories look like.
+
+41
+00:02:34,760 --> 00:02:36,760
+So let's walk through the technicalities of here.
+
+42
+00:02:37,760 --> 00:02:39,760
+So we have our baddie here.
+
+43
+00:02:39,760 --> 00:02:42,760
+Our baddie forages a request for fund transfers.
+
+44
+00:02:42,760 --> 00:02:46,760
+So he'd obviously, he or she would obviously have to do a little bit of research here
+
+45
+00:02:46,760 --> 00:02:50,760
+to figure out exactly what URL would need to look like to transfer the funds.
+
+46
+00:02:50,760 --> 00:02:53,760
+But let's assume our baddie has figured that out.
+
+47
+00:02:53,760 --> 00:02:56,760
+They forage this request. They create this URL.
+
+48
+00:02:56,760 --> 00:03:01,760
+And then our baddie here sends that URL that hyperlink to our victim here.
+
+49
+00:03:01,760 --> 00:03:03,760
+And through social engineering, something like that,
+
+50
+00:03:03,760 --> 00:03:06,760
+somehow tricks our victim into clicking on that link.
+
+51
+00:03:06,760 --> 00:03:10,760
+And when that user clicks on the link and sends that request to the web server,
+
+52
+00:03:10,760 --> 00:03:12,760
+what's the web server do?
+
+53
+00:03:12,760 --> 00:03:14,760
+Well, it does exactly what it's designed to do.
+
+54
+00:03:14,760 --> 00:03:19,760
+It's receiving a valid request from a valid user, so it executes the requests.
+
+55
+00:03:19,760 --> 00:03:24,760
+And some funds are transferred to, say, the baddie's bank account.
+
+56
+00:03:24,760 --> 00:03:27,760
+So this is the heart of cross-state request forageory.
+
+57
+00:03:27,760 --> 00:03:30,760
+It's that it's a valid request coming from a valid user.
+
+58
+00:03:31,760 --> 00:03:33,760
+And this is not actually as hard as you think it is.
+
+59
+00:03:33,760 --> 00:03:37,760
+Because of one very interesting little technique that we have
+
+60
+00:03:37,760 --> 00:03:39,760
+that we use all the time on the web nowadays.
+
+61
+00:03:39,760 --> 00:03:42,760
+You've probably noticed when you log into a lot of websites,
+
+62
+00:03:42,760 --> 00:03:44,760
+you'll see that little button that tick-pock that says,
+
+63
+00:03:44,760 --> 00:03:46,760
+keep me logged in for two weeks.
+
+64
+00:03:46,760 --> 00:03:50,760
+When you do that, what's being stored on your computer system is a cookie.
+
+65
+00:03:50,760 --> 00:03:53,760
+So your system, every time you go to that website,
+
+66
+00:03:53,760 --> 00:03:55,760
+your system will send that cookie to the web server.
+
+67
+00:03:55,760 --> 00:03:58,760
+And the web server will, that cookie contains a unique identifier.
+
+68
+00:03:59,760 --> 00:04:01,760
+And so the server knows, aha, that's you.
+
+69
+00:04:01,760 --> 00:04:04,760
+And so you don't actually necessarily have to have the user logged in
+
+70
+00:04:04,760 --> 00:04:08,760
+right at that exact moment when the baddie here sends this request.
+
+71
+00:04:08,760 --> 00:04:11,760
+It can often be hours, days later, after someone has logged in.
+
+72
+00:04:11,760 --> 00:04:13,760
+But because of these persistent connections,
+
+73
+00:04:13,760 --> 00:04:15,760
+these keep me logged in for two weeks.
+
+74
+00:04:15,760 --> 00:04:18,760
+These types of attacks can often be performed much, much later.
+
+75
+00:04:18,760 --> 00:04:22,760
+Or the baddie here could first do a cross-site scripting attack
+
+76
+00:04:22,760 --> 00:04:24,760
+to obtain the user's cookie.
+
+77
+00:04:24,760 --> 00:04:26,760
+Lots of different ways of doing this.
+
+78
+00:04:27,760 --> 00:04:30,760
+But here's the key thing that you need to know about cross-site request forgeries.
+
+79
+00:04:30,760 --> 00:04:32,760
+Who's the target of attack?
+
+80
+00:04:32,760 --> 00:04:34,760
+Ultimately, who is the baddie going after here?
+
+81
+00:04:34,760 --> 00:04:37,760
+Is it our user here or is it the web server?
+
+82
+00:04:37,760 --> 00:04:40,760
+And ultimately, in cross-site request forgeries,
+
+83
+00:04:40,760 --> 00:04:43,760
+the target of attack is the server.
+
+84
+00:04:43,760 --> 00:04:45,760
+So here's a quick summary.
+
+85
+00:04:45,760 --> 00:04:47,760
+In a module before we talked about cross-site scripting,
+
+86
+00:04:47,760 --> 00:04:50,760
+here's a quick summary of the diff key differences between cross-site scripting
+
+87
+00:04:50,760 --> 00:04:53,760
+and cross-site request forgeries.
+
+88
+00:04:53,760 --> 00:04:56,760
+So cross-site scripting, the major thing you need to remember here,
+
+89
+00:04:56,760 --> 00:05:02,760
+the target of attack in cross-site scripting is the user's browser, the client's browser.
+
+90
+00:05:02,760 --> 00:05:05,760
+And in cross-site request forgeries,
+
+91
+00:05:05,760 --> 00:05:08,760
+the target of attack is not the user, but the server.
+
+92
+00:05:08,760 --> 00:05:10,760
+That's a very important difference to remember
+
+93
+00:05:10,760 --> 00:05:13,760
+between these two very common types of attacks.
+

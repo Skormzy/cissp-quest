@@ -1,0 +1,161 @@
+WEBVTT
+
+00:00.000 --> 00:03.480
+something trying to actively access an
+
+00:03.480 --> 00:07.560
+object. An object is the passive entity. It's
+
+00:07.560 --> 00:12.360
+whatever is being accessed. It can be another problem.
+
+00:23.840 --> 00:27.360
+We've gone through a brief overview of the reference monitor concept,
+
+00:27.480 --> 00:30.080
+the implementation of which is the security kernel.
+
+00:44.240 --> 00:47.360
+We've gone through a brief overview of the reference monitor concept,
+
+00:47.560 --> 00:51.800
+the implementation of which is the security kernel, and this is one of the
+
+00:51.800 --> 00:55.120
+components within the TCB, the trusted computing base.
+
+00:55.760 --> 00:59.680
+These next few slides are where we delve into each of these pieces in a little more detail.
+
+01:01.280 --> 01:04.880
+Now, we have to start with, of course, what's the subject versus what's an object?
+
+01:05.360 --> 01:11.040
+And the subject is the active entity. It's a person or it's a process. It's something
+
+01:11.040 --> 01:17.760
+trying to actively access an object. And an object is the passive entity. It's
+
+01:17.760 --> 01:22.240
+whatever is being accessed. It can be another process. It could be a database,
+
+01:22.400 --> 01:26.800
+a sharepoint site, a hard drive, could even be a building or a system.
+
+01:27.680 --> 01:34.240
+This is the object. And the reference monitor concept is this whole idea that we want to be
+
+01:34.240 --> 01:41.600
+able to mediate or control a subject's access to an object, control and mediate that access
+
+01:41.600 --> 01:46.880
+based on a set of rules. And all this is logged and monitored. This is the reference monitor
+
+01:47.440 --> 01:53.040
+concept. And of course, for this concept to be effective, we have to implement it.
+
+01:53.680 --> 01:58.320
+And so a security kernel is the implementation of the reference monitor concept.
+
+01:59.200 --> 02:04.080
+And a security kernel can be anything. It can be hardware, firmware, software,
+
+02:04.080 --> 02:09.680
+anything that's actually controlling a subject's access to an object is fundamentally a security
+
+02:10.320 --> 02:16.640
+kernel. So a padlock, a door badge system, a login mechanism on a computer system,
+
+02:17.200 --> 02:21.920
+a operating system controlling access to components with the operating system,
+
+02:21.920 --> 02:26.640
+a hypervisor controlling which virtual machines can connect to which of the underlying
+
+02:26.640 --> 02:30.960
+physical hardware. All of these are fundamentally security kernels.
+
+02:32.800 --> 02:38.080
+And the RMZ and the implementation of which the security kernel has to demonstrate
+
+02:38.080 --> 02:43.920
+three properties to be a good security kernel. First, completeness. And this is about not being
+
+02:43.920 --> 02:50.080
+able to bypass the rules. The subject should not be able to bypass and directly access an object
+
+02:50.080 --> 02:57.600
+and bypass the mediation. So completeness impossible to bypass. Isolation, the rules are
+
+02:57.600 --> 03:04.400
+tamper proof that can only be changed modified by an authorized individual. And verifiability.
+
+03:04.960 --> 03:10.800
+How do you verify that this security kernel is actually working correctly, typically by logging
+
+03:10.800 --> 03:15.200
+and monitoring the activity that's occurring, which subjects are getting to access to which
+
+03:15.200 --> 03:22.880
+objects and which circumstances. And the final piece that we'll talk about here is the tcb.
+
+03:23.520 --> 03:27.200
+And this is where we'll spend a minute here because there's often questions on the tcb and it
+
+03:27.200 --> 03:33.040
+often confuses people a little bit. So here's the perfect definition of the tcb. It's the
+
+03:33.040 --> 03:38.720
+totality of protection mechanisms within an architecture. So what does that actually mean?
+
+03:38.720 --> 03:45.520
+Let's start with the word totality. What does totality mean? It means all everything, the assembly,
+
+03:45.520 --> 03:52.640
+the collection, all of the components. So here's a really big hint for the exam. If you see anything
+
+03:52.640 --> 04:00.080
+that says any word that means all the collection, the assembly, the everything related to the
+
+04:00.080 --> 04:07.200
+protection mechanisms, that is the tcb. So it's all of the mechanisms that are responsible for
+
+04:07.200 --> 04:13.200
+protecting a system. Think of it this way. Picture any type of architecture. Let's take a laptop
+
+04:13.200 --> 04:17.360
+as an example. You might be sitting in front of one right now. Your laptop is going to have all
+
+04:17.360 --> 04:22.160
+starts of components in it. You're going to have a CPU ram. You're going to have a hard drive.
+
+04:22.160 --> 04:26.400
+You're going to have USB ports. You're going to have an operating system and all sorts of
+
+04:26.400 --> 04:30.400
+applications and firmware. These are all the components within the architecture.
+
+04:31.200 --> 04:35.760
+Some of those components are responsible for the security of a system. Things like your anti-malware
+
+04:35.760 --> 04:43.920
+software, your security kernels, your host-based firewall. So the tcb is that subset of if you take
+
+04:43.920 --> 04:48.960
+all of the components, it's the subset that are responsible for security. That is the tcb.
+
+04:49.600 --> 04:54.720
+And so when we say you know what can make up the tcb, it's anything that is responsible for
+
+04:54.720 --> 04:59.520
+security. Could be hardware, could be firmware, could be software, could be processes.
+
+05:00.240 --> 05:05.200
+So that's the tcb. And the next few modules will start to talk through a bunch of different
+
+05:05.200 --> 05:11.520
+components that we have within modern computing systems. And some of these components are in fact
+
+05:11.520 --> 05:22.320
+security kernels and some of them are components within the tcb.
+

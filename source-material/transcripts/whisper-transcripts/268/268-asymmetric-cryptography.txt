@@ -1,0 +1,135 @@
+These two gentlemen, Diffie and Helmann, actually came up with an idea, and they published
+a paper called New Directions in Cryptography.
+In this module, we're going to describe asymmetric key cryptography and how it works, so if you
+remember to what the advantages and disadvantages of symmetric cryptography are, it's very fast,
+but it has this problem of key distribution.
+People have been thinking about this problem of key distribution for thousands of years.
+And in 1976, these two gentlemen, Diffie and Helmann, actually came up with an idea,
+and they published a paper called New Directions in Cryptography, because they talked about
+how there might be a different way to do cryptography that gets rid of the problem of key distribution.
+And so they published a paper called New Directions in Cryptography, and within it, they actually
+described this process, and they actually called it public key cryptography, and that's
+why a lot of people still call it that today.
+But it should really be called asymmetric key cryptography, and what they went on to describe
+basically is that they said, okay, if you think about symmetric, you know, we need the
+same key at both ends, and that requires key distribution, which in many cases is a very
+big problem.
+So they went on to describe how, what if everybody has two keys instead of one?
+So I would have my own two keys.
+You would have your own two keys.
+This person over here has their own two keys.
+Everybody has a key pair.
+But most importantly, the two keys, for example that I have, are related to each other
+mathematically.
+There's a mathematical relationship that links my two keys together.
+The idea is, if I use one to encrypt, you can never use the same one to decrypt.
+It's not possible.
+You have to use the other one.
+And the reason this works is because the two are linked mathematically.
+So if I use this one to encrypt, it's this one that decrypts.
+If I use this one to encrypt, it's this other one that decrypts.
+You can never encrypt and decrypt with the same key.
+So the idea is, I'm going to take one of my keys and I'm going to give it to anyone, the
+whole world possibly, that may want to communicate with me securely.
+And because I'm going to give that key to anyone who may want to communicate with me securely,
+I'm going to call that one my public key.
+So the entire world may have my public key.
+But if anyone wants to communicate with me securely, a secret message, let's say, they
+will encrypt that message with my public key.
+And even though everyone else has my public key, nobody can read that message because you
+can never encrypt and decrypt with the same key, it has to be the other one.
+So if anyone out there encrypts a message with my public key, the only key that can decrypt
+is the other key that I keep private to myself.
+This key, I will never disclose, communicate, divulge or send to anyone else.
+I will always keep it private to myself.
+That's why I'm going to call that my private key.
+So this solves the problem of key distribution, doesn't it?
+Because the only key that I ever have to distribute is my public key and I don't care how many
+people have it.
+In fact, I can assume that the entire world has my public key.
+As long as I keep my other private key that is associated with it, private to myself,
+it's very important to keep the private key private to myself, never disclose it, communicate
+it, and so on.
+This solves the problem of key distribution, but it actually introduces another problem
+that is pretty substantial.
+And that is the only way that this works is because the two keys are related to each
+other mathematically.
+So if I give my public key out to the entire world, I've got to make sure that nobody
+out there can use my public key and compute the mathematical relationship that links my
+two keys together.
+Because if that was possible, anybody out there that has my public key will be able to
+compute the relationship and therefore derive knowledge of my private key by having access
+to my public key.
+And so we have to be able to prevent that.
+And the only way that we can prevent this is to use or to link the two keys together
+using really hard math and use really large numbers in that hard math.
+The idea is whoever has my public key may be able to compute what the relationship is.
+But because we are using hard math and very large numbers, given today's technology in
+our speed of processors, it would take that person hundreds of years in order to be able
+to compute as long as we're using really large numbers to link the two keys together.
+And so it's possible.
+But because we're using really large numbers, it's not feasible and no one's even going
+to try because it's going to take too much computational power to derive knowledge.
+And one of the issues that we have with asymmetric key cryptography is as processors become faster
+and technology improves, guess what we have to do?
+We have to keep increasing the size of those numbers that link the two keys together.
+The problem is this because we have to use hard math and really large numbers.
+This becomes computationally intensive and therefore there's a price to pay.
+The price to pay is that this type of cryptography becomes really slow as a result because of
+that mathematical intensity that links the two keys together.
+So because we're using really large numbers, it's going to take a really long time to encrypt
+and decrypt with the two.
+That's what the price is.
+But if you look at this, it does solve the problem of key distribution, but it makes this
+type of cryptography really slow.
+So if you remember the advantages of symmetric, very fast, but it has the problem of key distribution.
+This is the actual opposite, isn't it?
+Solves the problem of key distribution, but becomes very slow.
+And that's why the two are really complementary to each other.
+And we'll talk about that later on, but most cryptography solutions today end up being
+a combination of symmetric and asymmetric for what they're each good at.
+Symmetric is typically used for bulk and speed and asymmetric is used to exchange the symmetric
+keys that are required in both ends in order to be able to do things quickly.
+So today we have hybrid products, crypto systems that really combine symmetric algorithms
+and asymmetric together to be able to use them both for what they're really good at.
+So in summary, when you look at the advantages and disadvantages of asymmetric, it's going
+to be the opposite of what we had for symmetric.
+The advantage is that it solves the problem of key distribution, but it becomes really
+slow.
+Now one of the other problems that we had with symmetric was the scalability problem.
+If you add a whole bunch of people that need it to communicate securely with each other
+using symmetric key cryptography, the number of keys required was going to grow exponentially.
+In fact, I think we used an example of 1,000 people needing to communicate securely with
+each other, would require almost half a million keys.
+Well, this type of cryptography also solves the problem of scalability, because if we have
+1,000 people that need to communicate securely with each other, all that's required is a total
+of 2,000 keys, because every person has their key pair, private and public key.
+So 1,000 people total of 2,000 keys, that's a whole lot easier to manage than obviously
+almost half a million keys.
+So there are advantages and disadvantages to this, but that's why it makes sense to use
+them together, symmetric and asymmetric.
+So here's a slide that talks about how this works.
+And what you need to focus on here is that you start seeing how this type of cryptography
+actually provides some added advantages that we didn't have before with symmetric.
+But if you want to address confidentiality, what needs to happen here is the person sending
+me, for example, a secret message, will have to encrypt that message with my public key.
+To address confidentiality, you will always encrypt with the receiver's public key.
+All right, so it's the public key of the receiver that allows us to achieve confidentiality,
+because then the receiver will have to use their private key, which nobody else has.
+And so that ensures confidentiality of the message.
+You will always encrypt with the receiver's public key.
+Now here's something else though that we can achieve.
+So if you remember, let's say that I am going to encrypt a message with my private key,
+my private key.
+Who can read that message?
+Well, it's going to be anybody that has my public key, which I have to assume is the
+entire world.
+So why would I ever do that?
+Why would I ever encrypt a message with my private key, knowing that anyone out there
+that has my public key will be able to read that message?
+Because that obviously does not address confidentiality.
+Well here's the answer to that.
+If I encrypt a message with my private key and all of you can decrypt it with what you
+know is my public key, that proves to you where it came from.
+And so we're starting to address possibly something that's very important to address
+in today's environment.

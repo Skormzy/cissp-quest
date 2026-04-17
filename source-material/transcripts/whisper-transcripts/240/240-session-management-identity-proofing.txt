@@ -1,0 +1,72 @@
+Let's start by defining what is the session.
+Well, let's start by defining what is the session.
+Well, when a user logs into a system, when they've properly identified themselves, when they've authenticated themselves,
+and they've been authorized into the system, that begins what is known as a session.
+And we want to manage these sessions. We want to make sure that these sessions are secure.
+Because one of the major things we want to watch out for is something called session hijacking.
+Session hijacking is where an attacker, a baddie, somehow takes over a user session.
+And a session, of course, means that the user is authenticated. They have access to the system.
+So if someone takes over hijacks your session, it means that they would have the same rights as you.
+There's a bunch of different ways of conducting session hijacking.
+It can be very complicated. It can also be very simple. For instance, if I were to log into my laptop and then walk away,
+while my laptop is still logged in, and someone else was to come up to my laptop and start using a laptop,
+what have they done with my session? They have hijacked it.
+So it can be as simple as that. It can also be very complicated, hijacking, VPN sessions, all sorts of things like that.
+Here's a good question. What's the very best way of preventing session hijacking?
+Well, the very best way is to actually force reauthentication.
+So if your screensaver comes up and requires you to log back in,
+if you require someone to put in their password again,
+it's going to, if you terminate the session and then require someone to reauthenticate,
+anyone that had hijacked the session has now lost access.
+So the perfect answer of how we prevent session hijacking is very simple.
+It's actually to force reauthentication.
+And if you're really concerned about high session hijacking, you might even move to almost continuous reauthentication.
+For example, some VPN solutions are actually doing this behind the scenes,
+without us even realizing they're constantly reauthenticating to trying to prevent something like session hijacking.
+Now let's talk about some of the different methods that we use for managing sessions.
+The first one, known as schedule limitations,
+actually controls when you're allowed to open or create a session.
+So the idea here is that if an organization's employees all work from 8 a.m. to 5 p.m. Monday through Friday,
+then schedule limitations could be set up to only allow users to create a session to log in to their system
+between, say, 8 a.m. and 5 p.m. Monday through Friday.
+If someone tried it Saturday night at 2 a.m., they would just be blocked.
+They would say, nope, session cannot be created right now.
+So that's the idea of session limitations.
+The next one is log in limitations.
+And this goes back to this idea that we never want to have shared accounts.
+We want to have one account to one user.
+And that one user should only be logged in once because they have one system.
+So log in limitation is about only letting a user log in with a certain set of credentials once.
+And if someone else is trying to log in with the same credentials, then you know that's a problem.
+Next is timeouts.
+And we use timeouts all the time.
+Perfect example is your screensaver.
+Your screensaver is usually set for something like 5 minutes.
+And at 5 minutes of inactivity, what happens?
+Well, your screensaver comes up.
+And when you go back to the system and you try and you jiggle the mouse,
+you get the screensaver to go away.
+Before you can use the system again, what do you have to do?
+Log in.
+So this is an example of session timeout.
+And lots of different systems do this, like an online banking system, for instance.
+Well, often like log you out after 5 minutes of inactivity.
+Now, let's talk about registration or the idea of identity proofing.
+So identity proofing is this concept that when a new employee joins the organization,
+you want to make sure that they actually are who they say they are.
+You've done interviews.
+You've done background checks.
+You've made sure that this is the perfect employee for your organization.
+But you want to make sure that when they actually show up on their first day of work,
+that they are who they say they are, that you're giving out the badge, the credentials,
+all the keys to the kingdom to the right person.
+So how can we identity proof someone?
+If they first show up for work, how can we confirm that they are who they say they are?
+Well, one of the easiest ways of identity proofing someone is to ask for their government ID,
+something like a driver's license or a passport.
+So that's simply the concept of identity proofing.
+We use it all sorts of places when someone first joins the organization.
+We talked about it, we'll talk about it in relation to certificate authorities
+and how a registration authority in RA will identity proof someone before they give them
+a digital certificate.
+So that's registration and identity proofing.

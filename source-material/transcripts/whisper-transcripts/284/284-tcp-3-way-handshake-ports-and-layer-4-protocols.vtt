@@ -1,0 +1,296 @@
+WEBVTT
+
+00:00.000 --> 00:20.000
+So, at the transport layer, we have two major protocols that are part of TCPIP that provide
+
+00:20.000 --> 00:30.000
+transport services, but as you know, they are very different in the type of service that they do provide.
+
+00:31.000 --> 00:37.000
+There is only one reliable protocol that's part of the entire TCPIP family of protocols, and that is TCP.
+
+00:37.000 --> 00:45.000
+And the other protocol that operates here called UDP provides un-missed protocols that are very different in the type of service that they do provide.
+
+00:45.000 --> 00:54.000
+There is only one reliable protocol that's part of the entire TCPIP family of protocols, and that is TCP.
+
+00:55.000 --> 01:04.000
+And the other protocol that operates here called UDP provides unreliable send and pray that it does what it's supposed to.
+
+01:04.000 --> 01:14.000
+But here we're going to focus on TCP, because it is the only protocol that really provides reliability, but that reliability comes at a price, as you'll see.
+
+01:14.000 --> 01:23.000
+And whenever you see any book or discussion on TCP, they always talk about something called the TCP 3-way handshake.
+
+01:23.000 --> 01:43.000
+And really what that means is that it only takes three easy steps for two hosts to be able to build a road where anything going across that road will be done reliably ordered, but it requires overhead and time to build.
+
+01:44.000 --> 01:48.000
+And that's really what the TCP 3-way handshake is all about.
+
+01:48.000 --> 01:50.000
+So let's take a look here.
+
+01:50.000 --> 01:56.000
+Let's say device A wants to talk to device B, but they need to do it reliably.
+
+01:56.000 --> 02:05.000
+TCP is the only protocol that can provide that reliability, but as I said, this will come at a price.
+
+02:05.000 --> 02:08.000
+And so let's say device A starts the process.
+
+02:08.000 --> 02:13.000
+What happens here is it will send what's called a synchronize request.
+
+02:13.000 --> 02:17.000
+That's what SYN stands for, short for synchronize.
+
+02:17.000 --> 02:28.000
+It sends a synchronize request, and it comes up with what is supposed to be a very random number called a session ID or synchronization number.
+
+02:29.000 --> 02:40.000
+The reason it's supposed to be very random is that if it isn't, and there's a man in the middle that can predict what that session ID number might be, it could lead to session hijacking.
+
+02:40.000 --> 02:44.000
+That's one of the problems that are associated with TCP connection.
+
+02:44.000 --> 02:50.000
+So we want that number to be very random in how in this case device A comes up with it.
+
+02:50.000 --> 02:52.000
+But this is step number one.
+
+02:52.000 --> 02:57.000
+Let's say SYNs that synchronize request 1,000 to device B.
+
+02:57.000 --> 03:00.000
+Now here's where the reliability comes in.
+
+03:00.000 --> 03:05.000
+Anything that is sent and received by a host has to be acknowledged.
+
+03:05.000 --> 03:12.000
+In other words, as soon as device B receives that synchronize 1,000, it has to acknowledge that.
+
+03:12.000 --> 03:20.000
+And the way that it does it is by sending a AC back, and what it does is it increments one to that number.
+
+03:20.000 --> 03:27.000
+And the device B in this case is going to send back a acknowledge 1,001.
+
+03:27.000 --> 03:46.000
+But then because these two hosts want to talk in both directions at the same time, host or device B here has to send its own synchronize request at whatever random number it comes up with, which in this case is represented by 2,000.
+
+03:46.000 --> 03:52.000
+And because device A has received that synchronize 2,000, it has to acknowledge that 2.
+
+03:52.000 --> 03:54.000
+That's basically the third step.
+
+03:54.000 --> 04:05.000
+So in this case device A will acknowledge that it has received that synchronize 2,000 by incrementing 1 to it and sending that back to device B.
+
+04:05.000 --> 04:21.000
+This in effect is that three-way handshake because in three easy steps, these two hosts have been able to establish a full duplex type of connection, which means now they can talk in both directions at the same time.
+
+04:21.000 --> 04:31.000
+But as we've learned, anything that is sent and received by either host will have to be acknowledged and what we do is we increment 1 to the number.
+
+04:31.000 --> 04:42.000
+Now the question is, why do we increment 1 to the number? And the answer to that is not for sequencing because only one thing can go at any given point in time.
+
+04:42.000 --> 04:45.000
+This is ordered type of transmission.
+
+04:45.000 --> 04:50.000
+So we don't use the increment 1 to the number for sequencing.
+
+04:50.000 --> 04:57.000
+The reason it's done is to ensure that every host has received everything that it should have.
+
+04:57.000 --> 05:06.000
+So for example, if I send you a synchronize 1,000, what I expect back from you is something that says 1,000 and 1.
+
+05:06.000 --> 05:10.000
+But let's say I get something back from you that says 1,000 and 3.
+
+05:10.000 --> 05:12.000
+What do I know at that point?
+
+05:12.000 --> 05:17.000
+I know that I'm missing 2 of your packets. I would request that back.
+
+05:17.000 --> 05:26.000
+So the incrementing 1 really provides the reliability so that each host will know that it's received everything that it should have.
+
+05:26.000 --> 05:34.000
+Now the rest of this, let's say we've exchanged all the information and every host has received what it should have.
+
+05:34.000 --> 05:39.000
+What happens in this case now is what we call a graceful close.
+
+05:39.000 --> 05:49.000
+And that is when we've received the last acknowledgement, we send what's called a finish request at whatever number we are at,
+
+05:49.000 --> 05:53.000
+which in this case needs to be acknowledged by the host as well.
+
+05:53.000 --> 06:01.000
+And then we have to finish in the other direction as well, and we have to acknowledge that as well at whatever number we were at.
+
+06:01.000 --> 06:04.000
+And so this is the graceful close that happens.
+
+06:04.000 --> 06:08.000
+We tear down the road basically after we don't need it anymore.
+
+06:08.000 --> 06:23.000
+But this TCP 3-way handshake and the further communication that goes back and forth where each packet is acknowledged allows these hosts to know that they've received information reliably.
+
+06:23.000 --> 06:31.000
+But obviously there's a price to pay here, not only do we have to build that road first, but then everything that is sent back and forth has to be acknowledged.
+
+06:31.000 --> 06:37.000
+But that's what gives us the reliability that only TCP connections can.
+
+06:37.000 --> 06:47.000
+One of the things that we have to worry about here that you may see is obviously when you receive a synchronized request, you have to acknowledge it.
+
+06:47.000 --> 06:55.000
+Let's say you're getting a whole bunch of synchronized requests from a whole bunch of different hosts at the same time.
+
+06:55.000 --> 06:58.000
+You're going to try and acknowledge each one.
+
+06:58.000 --> 07:02.000
+But let's say they're coming faster than you can handle, right?
+
+07:02.000 --> 07:05.000
+You're being bombarded by synchronized requests.
+
+07:05.000 --> 07:08.000
+And so you're going to try and handle each one.
+
+07:08.000 --> 07:16.000
+But if they're coming faster than you can handle, your in-process queue or your connection queue is slowly going to fill up.
+
+07:16.000 --> 07:21.000
+And when it does fill up, you're going to say, oh, I can't do this anymore.
+
+07:21.000 --> 07:23.000
+I'm going to shut down.
+
+07:23.000 --> 07:31.000
+And what I've just described there is what's called the sin-flood attack, which is very prevalent in TCP connections.
+
+07:31.000 --> 07:44.000
+And the best way to protect against that is really to create an application, which we call a proxy, a special application that is going to be built to handle synchronized requests.
+
+07:44.000 --> 07:51.000
+So instead of letting the hosts do it on their own, we're going to create an application that does it.
+
+07:51.000 --> 07:55.000
+And because it's an application that does it, it's never going to go down.
+
+07:55.000 --> 08:00.000
+And therefore we're not going to be subjected to the sin-flood attack.
+
+08:00.000 --> 08:11.000
+And in fact, because it's an application and it runs at layer seven and it has a lot of intelligence, it can have enough intelligence to be able to know that it's being bombarded by synchronized requests.
+
+08:11.000 --> 08:17.000
+And we can just ignore them, for example, so that the host itself never goes down.
+
+08:17.000 --> 08:22.000
+So that's the discussion on TCP.
+
+08:22.000 --> 08:30.000
+The way that we reference things at the transport layer is by using what we call ports and port numbers.
+
+08:30.000 --> 08:35.000
+And you may know that port numbers equate to what we call services.
+
+08:35.000 --> 08:41.000
+Services are applications that have been built to provide a specific service.
+
+08:41.000 --> 08:49.000
+And if you remember what the header portion of the datagram look like, there's a field in there called ports.
+
+08:49.000 --> 08:54.000
+That is 16 bits. 16 bits is how big that field is.
+
+08:54.000 --> 09:02.000
+And so if you do the math, two to the 16, and you work that out, it's going to equal the number that you see here.
+
+09:02.000 --> 09:16.000
+65,536 actually, but because port zero is a valid port, the highest number that we can reference is 65,535.
+
+09:16.000 --> 09:26.000
+Now what the industry has done, remembering that each of these port numbers equate to services, services are special applications that do certain things.
+
+09:26.000 --> 09:35.000
+What the industry has done is they've divided the entire 65,000 into really three categories that you see here.
+
+09:35.000 --> 09:41.000
+What we call well-known ports are always in this range from zero to 1023.
+
+09:41.000 --> 09:47.000
+The rest from here to 49,000 and so on is what we call registered ports.
+
+09:47.000 --> 09:50.000
+They're always used for the same service.
+
+09:50.000 --> 09:56.000
+The rest are dynamically assigned. They can be used for anything.
+
+09:56.000 --> 10:05.000
+Now you might know some of the most well-known ports, like port 80 equals the HTTP service and so on.
+
+10:05.000 --> 10:07.000
+And I'm sure you know some of the other ones.
+
+10:07.000 --> 10:13.000
+As far as the exam is concerned, you definitely do not have to memorize any of these.
+
+10:13.000 --> 10:24.000
+But what's important from a security perspective is to understand the exploits and the vulnerabilities that exist with a lot of these services that we are using still.
+
+10:24.000 --> 10:31.000
+And part of what we call hardening is obviously to shut down some of the ports that we don't need.
+
+10:31.000 --> 10:40.000
+The ones that we do need, we find more secure versions of them and then we patch and we upgrade to the latest versions.
+
+10:40.000 --> 10:57.000
+That's really what we refer to as hardening, which is very important when we're talking about services and ports and anything related to what the transport layer does through what we call services and port numbers.
+
+10:57.000 --> 11:10.000
+And so just to summarize what happens at layer four, the transport layer, we have some two significant TCP IP protocols that provide transport services.
+
+11:10.000 --> 11:11.000
+But they're different.
+
+11:11.000 --> 11:17.000
+TCP provides reliable, ordered type of services.
+
+11:17.000 --> 11:20.000
+Whereas UDP provides unreliable.
+
+11:20.000 --> 11:23.000
+I'll try my best type of services.
+
+11:23.000 --> 11:35.000
+But again, both are useful. This one for reliability, UDP is used for anything that requires speed and DNS requests multimedia, that sort of thing.
+
+11:35.000 --> 11:43.000
+The other significant security protocol that operates at layer four is SSL slash TLS.
+
+11:43.000 --> 11:58.000
+We're going to describe that in a different video for you because it is by far the most commonly used security protocol out there to provide security between any browser and a secure server at the other end.
+
+11:58.000 --> 12:02.000
+It's widely used across the internet itself.
+

@@ -1,0 +1,324 @@
+1
+00:00:00,000 --> 00:00:19,480
+We've talked about the three factors of authentication, authentication by knowledge, authentication
+
+2
+00:00:19,480 --> 00:00:37,800
+by ownership. We've talked about the three factors of authentication, authentication
+
+3
+00:00:37,800 --> 00:00:43,960
+by knowledge, authentication by ownership, and authentication by characteristic. Let's dig
+
+4
+00:00:43,960 --> 00:00:47,760
+into the first two, authentication by knowledge, and authentication by ownership.
+
+5
+00:00:48,000 --> 00:00:52,720
+We're going to start with authentication by knowledge. Authentication by knowledge means
+
+6
+00:00:52,720 --> 00:00:57,840
+something that you know. So what are some examples of that? Well, things like passwords,
+
+7
+00:00:57,840 --> 00:01:04,480
+past phrases, security questions, things like that. What's a past phrase, specifically? Well,
+
+8
+00:01:04,480 --> 00:01:10,560
+a past phrase is meant to be a sentence or a lyric from a song, something that's multiple words
+
+9
+00:01:10,560 --> 00:01:15,360
+long that you can easily remember. And so the idea behind it is to make a password that's very
+
+10
+00:01:15,360 --> 00:01:20,640
+long but still easy to remember. So that's a past phrase. And what are security questions? Well,
+
+11
+00:01:20,640 --> 00:01:25,520
+that's things like, what's your favorite color pumpkin or why do whales smell funny? Things
+
+12
+00:01:25,520 --> 00:01:28,800
+like that. The questions that you would remember the answers to. Maybe those are good ones.
+
+13
+00:01:30,160 --> 00:01:36,160
+Now let's talk about authentication by ownership, which is something that you have. One of the most
+
+14
+00:01:36,160 --> 00:01:42,720
+common types of authentication by ownership is often referred to as OTP or one-time passwords.
+
+15
+00:01:42,720 --> 00:01:48,960
+These are devices that generate one-time passwords that are only used once. And there's two types
+
+16
+00:01:48,960 --> 00:01:56,640
+of one-time password generators. There's soft tokens and hard tokens. Software, soft tokens
+
+17
+00:01:56,640 --> 00:02:03,120
+implies that what's generating the one-time passwords is software. Whereas hard tokens means that
+
+18
+00:02:03,120 --> 00:02:08,880
+the device that's generating the tokens is a piece of hardware, like an RSA ID key. Let me show
+
+19
+00:02:08,880 --> 00:02:14,960
+you an example of a soft token. So on my iPhone here, to log into all my super secure accounts and
+
+20
+00:02:14,960 --> 00:02:20,480
+so forth, I use the Google authenticator. And as you can see, please not log into my accounts. Here are
+
+21
+00:02:20,480 --> 00:02:25,200
+the one-time passwords that are generated for a bunch of the services that I access. And as you'll
+
+22
+00:02:25,200 --> 00:02:30,000
+see in a moment here, these passwords will expire and then new ones will be generated. That's why they're
+
+23
+00:02:30,000 --> 00:02:37,920
+called one-time passwords. The other example of authentication by ownership is things called smart
+
+24
+00:02:37,920 --> 00:02:44,080
+cards or memory cards. And we'll get into those in a moment. First, let's spend a little more
+
+25
+00:02:44,080 --> 00:02:49,680
+time on one-time passwords. Because there's actually two ways that we can generate these one-time
+
+26
+00:02:49,680 --> 00:02:57,680
+passwords, asynchronous and synchronous. So what's the difference? Here's how asynchronous one-time
+
+27
+00:02:57,680 --> 00:03:02,560
+passwords work. The user will start by saying to the server, I would like to authenticate.
+
+28
+00:03:02,640 --> 00:03:09,120
+The server will respond back with a challenge. And it's basically just a code. The user will then
+
+29
+00:03:09,120 --> 00:03:13,680
+have a device. And they have to challenge that or they have to type that challenge into their
+
+30
+00:03:13,680 --> 00:03:20,160
+device, type that code into their device. When they type that code in, their device will generate
+
+31
+00:03:20,160 --> 00:03:25,920
+a response through some sort of software mechanism. It'll generate a response and show it on the
+
+32
+00:03:25,920 --> 00:03:31,520
+screen. The user then has to type that response back into their system. And that response is then
+
+33
+00:03:31,520 --> 00:03:38,400
+sent back to the server. So asynchronous implies that there's a challenge and then a response back.
+
+34
+00:03:39,120 --> 00:03:43,200
+And so it's pretty rare to see these. One perfect example of this is they're the Bloomberg
+
+35
+00:03:43,200 --> 00:03:47,360
+terminal access cards. It's really cool how these work actually. I've seen a couple of them.
+
+36
+00:03:47,360 --> 00:03:50,720
+So what the way this works is you've got this card. And on the back of the card, there's actually
+
+37
+00:03:50,720 --> 00:03:55,200
+a little camera. And when the user wants to authenticate to their very expensive Bloomberg terminal,
+
+38
+00:03:55,200 --> 00:04:00,960
+they actually hold the card up to their screen. And the screen will flash black and white really
+
+39
+00:04:00,960 --> 00:04:07,760
+quickly. And it's actually sending a code a challenge through the screen to the card. The cards
+
+40
+00:04:07,760 --> 00:04:13,440
+camera picks that up and then generates the appropriate response. And it shows it on the screen.
+
+41
+00:04:13,440 --> 00:04:17,520
+The user then has to type in that response along with their other authentication information
+
+42
+00:04:17,520 --> 00:04:22,400
+in order to get access. So that's an example of a asynchronous system. Pretty rare to see those.
+
+43
+00:04:23,600 --> 00:04:29,120
+Now what about synchronous systems? The reason we call these synchronous is because the device
+
+44
+00:04:29,120 --> 00:04:34,720
+and the server are in sync. They're generating the same one-time password every 30 seconds or
+
+45
+00:04:34,720 --> 00:04:40,480
+60 seconds, whatever it happens to be. So how do synchronous devices work? Well, it would be just
+
+46
+00:04:40,480 --> 00:04:45,120
+like what I showed you on my phone here or an RSA ID key. You've got a device either a soft token
+
+47
+00:04:45,120 --> 00:04:52,800
+or a hard token that's generating a one-time password all the time. And whenever you want to log in,
+
+48
+00:04:52,800 --> 00:04:57,200
+you simply read the one-time password off your device, type into the computer system,
+
+49
+00:04:57,200 --> 00:05:03,520
+and send that to the server. The server is in sync with the device. It's generating the same
+
+50
+00:05:03,520 --> 00:05:07,680
+one-time password at the same time. And so if the one-time password that you type in is the same
+
+51
+00:05:07,680 --> 00:05:11,360
+one that it's generated for this period of time, then it will authenticate you.
+
+52
+00:05:13,520 --> 00:05:18,320
+Now let's talk about smart cards and memory cards. And actually, a perfect way to talk about this
+
+53
+00:05:18,320 --> 00:05:22,640
+is by looking at a credit, a modern day credit card. Because it's both a smart card and a memory
+
+54
+00:05:22,640 --> 00:05:25,920
+card. And by the way, this is my real credit card. So I've blacked it out. Please don't
+
+55
+00:05:26,080 --> 00:05:32,560
+steal my card. Now, how does a modern day credit card demonstrate both smart card and memory card?
+
+56
+00:05:32,560 --> 00:05:38,400
+Let's start with a simple aspect, memory card. And memory card implies that it's just some memory,
+
+57
+00:05:38,400 --> 00:05:42,080
+just some data that's stored. And if you look on the back of the credit card, and I'm intentionally
+
+58
+00:05:42,080 --> 00:05:46,000
+covering up my CVV number here, if you look on the back of my credit card, there's a magnetic strip
+
+59
+00:05:46,000 --> 00:05:51,520
+here. That magnetic strip just contains some data, some memory. So when you swipe this card through
+
+60
+00:05:51,520 --> 00:05:57,760
+a reader, it would read that memory and then generate and that data that's read off of the memory
+
+61
+00:05:57,760 --> 00:06:02,880
+area is what would allow your credit card transaction to go through. And this is what made older style
+
+62
+00:06:02,880 --> 00:06:07,360
+credit cards so incredibly easy to copy because all you have to do is exactly copy this data,
+
+63
+00:06:07,360 --> 00:06:10,880
+and as long as you use that data off of there, you could make a credit card payment.
+
+64
+00:06:11,680 --> 00:06:16,640
+Modern credit cards don't use just memory. They are actually smart cards. So if you look at this
+
+65
+00:06:16,640 --> 00:06:21,120
+little piece right here on my credit card, this is actually a little computer chip underneath here.
+
+66
+00:06:21,840 --> 00:06:26,400
+And this is where we have to talk about, there's two types of smart cards that are under known as
+
+67
+00:06:26,400 --> 00:06:32,480
+contact and contact lists. So contact implies that when you put this card into a reader,
+
+68
+00:06:32,480 --> 00:06:37,840
+this chip area here has to actually make contact with the reader. And it's through these metal
+
+69
+00:06:37,840 --> 00:06:43,440
+contacts here that the chip is actually powered. And the way this works in smart cards is that
+
+70
+00:06:43,440 --> 00:06:48,320
+when you plug the card in to a reader, there's a bit of communication that goes back and forth between
+
+71
+00:06:48,480 --> 00:06:53,840
+the card and the reader to process the credit card transaction. And what's important about this is
+
+72
+00:06:53,840 --> 00:06:59,040
+that the numbers that come off of this card are unique every time. So you can't just copy the data
+
+73
+00:06:59,040 --> 00:07:04,240
+off of here and make a copy of the credit card. It's more intelligent than that. So that's contact.
+
+74
+00:07:04,240 --> 00:07:09,760
+It's the same underlying concept of a smart card in that with contact lists, there's a little radio
+
+75
+00:07:09,760 --> 00:07:14,320
+receivaring here. And when you get this near to a reader, the reader is constantly sending out
+
+76
+00:07:14,320 --> 00:07:20,400
+strong pulses. And that pulse will be read by the card. And importantly, that pulse is powerful
+
+77
+00:07:20,400 --> 00:07:25,760
+enough to actually power the card in here or to power the little chip in here for a moment so
+
+78
+00:07:25,760 --> 00:07:31,040
+that it can perform some calculations and then send a signal back to the reader. So all of this is
+
+79
+00:07:31,040 --> 00:07:37,200
+actually powered by pulses being sent out by the reader, powers the chip, comes up with a number,
+
+80
+00:07:37,200 --> 00:07:43,600
+responds back to the reader, and that's how contact lists works. Both examples, contact and contact
+
+81
+00:07:43,600 --> 00:07:58,560
+lists of smart cards, which is a method of authentication by ownership.
+

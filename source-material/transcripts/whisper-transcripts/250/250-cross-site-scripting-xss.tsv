@@ -1,0 +1,98 @@
+start	end	text
+0	3840	Let me start with a little story, because I think it'll help explain the technicalities
+3840	7080	of what's actually happening behind the scenes.
+7080	11560	So imagine a website where you can post images and comments underneath.
+11560	13520	So think of, say, Facebook.
+13520	15880	But I'm not suggesting Facebook is vulnerable to this, okay?
+15880	17400	You need to find a vulnerable website.
+17400	20440	But let's just all think about Facebook, because there's probably a website we're all
+20440	22000	familiar with.
+22000	26120	So I log into Facebook one day, and I noticed that my buddy has posted a picture of him
+26120	27440	and his daughter.
+27440	31080	And being the very good friend that I am, I decide to post a comment underneath.
+31080	33520	And so I write something like, oh, what a lovely picture.
+33520	35400	It's too bad she looks just like you do.
+35400	37720	So that's the crappy comment I leave.
+37720	40640	Now what happens when I hit submit?
+40640	43440	That comment gets sent to Facebook servers.
+43440	46360	The comment is stored in a database somewhere.
+46360	52000	And now every subsequent user that goes and views that picture is going to see my crappy
+52000	54120	comment underneath.
+54120	57920	And so what's happening is my comment data is actually being stored on the server.
+57920	62720	And then every subsequent user that visits the website, that HTML code contains the
+62720	63720	comment.
+63720	67960	And the user's browser is downloading that comment, and it's displaying it, like it's
+67960	69440	supposed to.
+69440	70760	So that's the scenario, okay?
+70760	73680	Now, here's what's going to happen.
+73680	77120	Our baddie here, you can tell they're baddie, right, the fedora.
+77120	81760	Our baddie here is going to discover a vulnerable website, and it has to be a vulnerable website,
+81760	84160	which I'll explain why in a few minutes.
+84160	87080	So our baddie discovers a vulnerable website.
+87080	88360	And here's what our baddie does.
+88360	92200	Our baddie injects some malicious code into the web page.
+92200	94280	And that sounds very technical, doesn't it?
+94280	100920	But it could literally be as simple as typing some code in a comment field and hitting submit.
+100920	105080	And what's the code that you're going to type into the comment field of the website?
+105080	106720	JavaScript.
+106720	109440	Now why does it have to be a vulnerable website?
+109440	114440	Well, because no website should ever just accept JavaScript code as a comment and store
+114440	120400	that code in the database, and especially then redisplay all that code to every user.
+120400	124160	But that's why our baddie discovers a vulnerable website.
+124160	128560	So our baddie injects the code into the web page into the website, they submit their comment,
+128560	131360	the comment gets stored on the server.
+131360	132960	Now what happens?
+132960	137520	Every subsequent user that visits that website, their browser is going to download the web
+137520	142880	page, and embedded in that web page is going to be the JavaScript code.
+142880	145960	And their browser is going to do exactly what it's designed to do.
+145960	150960	Their browser is going to parse the HTML page, it's going to come across the JavaScript,
+150960	156160	and it's going to execute the JavaScript, it's what it's designed to do.
+156160	161520	And now when our victim's browser executes that JavaScript code, what typically happens?
+161520	165920	Well, some data is sent back to our baddie here.
+165920	169360	So this is an example of stored cross-site scripting.
+169360	170720	Why do we call it stored?
+170720	175520	Well, it's because the JavaScript code is stored on the server.
+175520	180400	We also call it persistent, and the reason we call it persistent is because every subsequent
+180400	185120	user that goes to this particular page and views, you know, and downloads this malicious
+185120	188080	code, it's going to execute on their browser.
+188080	192400	So stored, persistent, cross-site scripting.
+192400	195320	Now let's talk about another type of cross-site scripting.
+195320	198360	This is known as reflected cross-site scripting.
+198360	203360	So I'm going to set up another little scenario to help you imagine how this works.
+203360	206400	Imagine going to a website like Google.com.
+206400	211320	When you go to Google, when you go to Google.com, and you type in a search query in the search
+211320	214400	bar and hit search, what happens?
+214400	220040	Well, the search results page says, here are your search results for cat or dog or whatever
+220040	223000	you've searched for.
+223000	225680	So imagine that scenario, OK?
+225680	226760	So here's what's going to happen.
+226760	230360	Our baddie is going to do, again, discover a vulnerable website.
+230360	234040	And our baddie is going to first create a URL.
+234040	236640	A URL stands for a universal resource locator.
+236640	240680	This is what you type up in your browser bar to go to a particular site or page on a
+240680	242160	website.
+242160	245880	And what our baddie is going to do here is think of Google.com again.
+245880	250720	When you type in Google.com and you search for something, the search results URL page will
+250720	257600	say Google.com, question mark, search equals, whatever you searched for.
+257600	261720	Our baddie is going to create a URL for like that, except in the search field, instead of
+261720	267120	putting in some word or some sentence, what's our baddie going to put in the URL?
+267120	268760	JavaScript code.
+268760	273240	So our baddie creates this URL containing the JavaScript code.
+273240	276360	Sends it to our victim here.
+276360	280920	And through some sort of social engineering technique, maybe phishing or something like
+280920	286280	that, our baddie here somehow convinces the user to click on the URL.
+286280	290920	When the user clicks on the URL, that sends the request to the web server.
+290920	294560	The web server is going to then reflect that code back to the user.
+294560	295560	It's like the search.
+295560	299680	It's like the page is saying, here are your search results for JavaScript code.
+299680	304640	So the website is going to reflect the malicious code back to the user.
+304640	309800	The malicious code is going to be contained in the page that comes back to the user.
+309800	313080	And once our users browse are going to do, exactly what it's designed to do.
+313080	319160	It's going to parse through the page, hit the malicious JavaScript code and execute it.
+319160	326400	And once the final step here, well, this malicious code is going to run and it's going to send
+326400	329240	some data back to the baddie once again.
+329240	334400	So overall, it's the same effect, which is the target of attack here is the user.
+334400	339240	And in both stored and reflected and, sorry, in both stored and persistent and reflected
+339240	343400	cross-site scripting, it's all about sending data back to the baddie.
+343400	348360	But in reflected cross-site scripting, there's a few important things to understand here.
+348360	352600	Number one, why do we call it reflected cross-site scripting?

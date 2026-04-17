@@ -1,0 +1,328 @@
+1
+00:00:00,000 --> 00:00:18,360
+All right, we've just talked about firewall technologies and just to refocus here, firewall
+
+2
+00:00:18,360 --> 00:00:37,600
+technologies are, all right, we've just talked about firewall technologies and just to refocus
+
+3
+00:00:37,600 --> 00:00:43,720
+here, firewall technologies are what allows us to be able to make decisions. So we talked
+
+4
+00:00:43,720 --> 00:00:49,720
+about simple packet filtering, we talked about state full firewalls, we talked about proxy
+
+5
+00:00:49,720 --> 00:00:55,480
+firewalls. In this module, we're going to discuss what are called firewall architectures.
+
+6
+00:00:55,480 --> 00:01:01,480
+Now, what's the difference? Well, firewall architectures are how we can architect those
+
+7
+00:01:01,480 --> 00:01:07,240
+technologies that we just discussed in the best way possible. And so we're going to show
+
+8
+00:01:07,240 --> 00:01:12,520
+you from a diagram perspective what these architectures actually look like. And you're
+
+9
+00:01:12,520 --> 00:01:17,240
+going to see that we're going to progress from the simplest architecture to some of the ones
+
+10
+00:01:17,240 --> 00:01:22,760
+that companies obviously use today to provide the best level of security. So these are called
+
+11
+00:01:22,760 --> 00:01:28,680
+firewall architectures. And it's important for you on the exam to focus on those keywords
+
+12
+00:01:28,680 --> 00:01:35,000
+and decide whether and look at whether the question is talking about firewall technologies
+
+13
+00:01:35,000 --> 00:01:41,640
+or firewall architectures. These are architectures. Let's start with the simplest one. In fact,
+
+14
+00:01:41,640 --> 00:01:48,440
+this is a summary of what we're going to look at. These are standard names that the industry
+
+15
+00:01:48,440 --> 00:01:55,480
+uses for firewall architectures. Starting with simple packet filtering and then improving to what
+
+16
+00:01:55,480 --> 00:02:02,920
+we call dual home host firewall architecture, a screened host firewall architecture and screen
+
+17
+00:02:02,920 --> 00:02:11,000
+subnet firewall architectures. And they're listed by increasing security if you want to look at it
+
+18
+00:02:11,000 --> 00:02:17,800
+that way. So let's start with the simplest one, which is a packet filtering firewall. And basically
+
+19
+00:02:17,800 --> 00:02:24,440
+looks exactly like this. We've got our internal network here. We're connected to the internet or
+
+20
+00:02:24,440 --> 00:02:32,120
+some other network that we don't trust. And so what we place in between is a simple router. And
+
+21
+00:02:32,120 --> 00:02:39,720
+because a router operates at layer three, the only decisions that it can make is what's available
+
+22
+00:02:39,720 --> 00:02:46,200
+at layer three. In other words, the header portion of the datagram is what the router can make
+
+23
+00:02:46,200 --> 00:02:54,520
+decisions on. So very simple decisions like source port or source IP address, destination IP
+
+24
+00:02:54,520 --> 00:03:00,760
+address, the type of packet that it is, the service that's being requested. Those are the simple
+
+25
+00:03:00,760 --> 00:03:07,320
+type of decisions that a router can make based on the intelligence that it has. What would be good
+
+26
+00:03:07,320 --> 00:03:14,120
+about this is that it would be very efficient but very limited in the type of decisions that it
+
+27
+00:03:14,120 --> 00:03:21,560
+can make. Now let's get better. And if you look at this diagram, what would be better is if we
+
+28
+00:03:21,560 --> 00:03:30,200
+replace the router with something else that understands the entire OSI model layers. In fact, we would
+
+29
+00:03:30,280 --> 00:03:38,360
+call that a host or a computer. So instead of a router in between our internal network and the
+
+30
+00:03:38,360 --> 00:03:45,480
+internet, we place a computer or a host. And because it's a computer, it can understand all seven
+
+31
+00:03:45,480 --> 00:03:52,040
+layers of the OSI model. And so if you remember back to those firewall technologies that we just
+
+32
+00:03:52,040 --> 00:03:59,320
+looked at in the previous module, this would be able to run them all or a combination of them all.
+
+33
+00:03:59,320 --> 00:04:05,320
+It could do simple packet filtering at the network layer. It could do stateful inspection
+
+34
+00:04:05,320 --> 00:04:11,480
+also at the network layer. But this because it's a computer could also be running proxy firewalls
+
+35
+00:04:11,480 --> 00:04:18,600
+like circuit level or application level. So it's a better architecture simply because it's able to
+
+36
+00:04:18,600 --> 00:04:24,520
+run any of those firewall technologies that we talked about before because it really is a
+
+37
+00:04:24,520 --> 00:04:31,400
+computer that understands all seven layers. Now let's get even better than this. If you were to
+
+38
+00:04:31,400 --> 00:04:37,720
+suggest what something might be even better than this, why don't we combine the two that we just
+
+39
+00:04:37,720 --> 00:04:45,880
+saw. So let's put a router on the outside here facing the internet and let's keep the host
+
+40
+00:04:45,880 --> 00:04:53,000
+in the middle. And this would look like right here. The idea of this and it's called a screened
+
+41
+00:04:53,000 --> 00:05:00,920
+host firewall architecture is the router can handle the first level of decision making that it
+
+42
+00:05:00,920 --> 00:05:07,880
+is subjected to. And then anything that gets through the router can be handled by the host now
+
+43
+00:05:07,880 --> 00:05:14,760
+that can be running proxy firewalls and anything else. Now this serves a second purpose as well
+
+44
+00:05:14,760 --> 00:05:22,280
+because the router that's facing the outside can act as a screen or a protection mechanism for the
+
+45
+00:05:22,280 --> 00:05:28,440
+host that's on the inside. Any attacker that wants to get to the host first of all has to be able to
+
+46
+00:05:28,440 --> 00:05:34,600
+compromise and get through the router itself. So this can act as a screen and that's why it's actually
+
+47
+00:05:34,600 --> 00:05:43,080
+called a screened host firewall architecture. Now we can even get better than this because what we
+
+48
+00:05:43,080 --> 00:05:49,640
+can do is and we've talked many times in this course how good network security requires us to
+
+49
+00:05:49,640 --> 00:05:56,760
+monitor incoming traffic into the internal network because we want to protect the value of what's
+
+50
+00:05:56,760 --> 00:06:03,880
+in here. But companies today need to also monitor what's going out of the network. And in many cases
+
+51
+00:06:03,880 --> 00:06:10,360
+that might be even more important. And the reason for that is for data loss prevention. But there
+
+52
+00:06:10,360 --> 00:06:16,440
+could also be some machines on the inside of the network here that are being used as a channel to
+
+53
+00:06:16,440 --> 00:06:23,240
+attack others for distributed denial service for example. So if we monitored outgoing traffic
+
+54
+00:06:23,240 --> 00:06:30,120
+as well as incoming that's a better way to approach network security. So the next architecture
+
+55
+00:06:30,120 --> 00:06:37,560
+really means let's put a router on the inside as well so that we can protect from the inside and
+
+56
+00:06:37,560 --> 00:06:43,880
+monitor what's going out. So that architecture would look something like this and this is the
+
+57
+00:06:43,880 --> 00:06:50,440
+architecture that gives companies the ability to start creating what are called subnetworks like
+
+58
+00:06:50,440 --> 00:06:57,480
+your DMZ where you would put services in there that are required from the outside. And the bottom
+
+59
+00:06:57,480 --> 00:07:04,200
+line here is that if you're allowing people out on the internet to interface with us to order
+
+60
+00:07:04,200 --> 00:07:11,320
+our products and services and pay us for example you need applications to be able to do that.
+
+61
+00:07:11,320 --> 00:07:16,520
+And it would not make sense to have those applications running on the inside of the network
+
+62
+00:07:16,520 --> 00:07:22,600
+because then you'd be allowing people to get right into the internal network that are not trusted.
+
+63
+00:07:22,600 --> 00:07:29,640
+And so what we do is we place those services, those web applications and servers that are required
+
+64
+00:07:29,640 --> 00:07:35,960
+from the outside in your DMZ here so that we can ultimately protect our internal network and
+
+65
+00:07:35,960 --> 00:07:44,360
+channel all of that traffic up into this subnetwork here where we can protect what's in there as well
+
+66
+00:07:44,360 --> 00:07:51,880
+but we can monitor what's going on but ultimately we're not putting our internal network at risk.
+
+67
+00:07:51,880 --> 00:08:00,120
+And so anything in here can be accessed from the outside and so this is what we call a screened
+
+68
+00:08:00,200 --> 00:08:07,000
+subnet firewall architecture where everything is channeled into here but we can protect and monitor
+
+69
+00:08:07,000 --> 00:08:13,560
+what's going in here so that ultimately no untrusted entities are actually allowed to come into
+
+70
+00:08:13,560 --> 00:08:19,960
+our internal network and we can also monitor anything that is going out to the internet for data
+
+71
+00:08:19,960 --> 00:08:27,080
+loss prevention and to prevent outgoing denial of service attacks. This is what we call the screen
+
+72
+00:08:27,080 --> 00:08:38,040
+subnet firewall architecture. Now some people also refer to a number of legs that a firewall
+
+73
+00:08:38,040 --> 00:08:44,760
+might have and in this case this would be referred to as a three-legged firewall because if you
+
+74
+00:08:44,760 --> 00:08:50,600
+look at this firewall that's in the middle it's got three legs doesn't it one leg is connected to
+
+75
+00:08:50,680 --> 00:08:57,640
+the internal network one leg is connected to the DMZ and the other leg is connected to the outside
+
+76
+00:08:57,640 --> 00:09:05,640
+internet but there's nothing stopping companies from having four legs or five legs or a hundred
+
+77
+00:09:05,640 --> 00:09:12,600
+legs or legs within other legs so the bottom line is companies can get pretty creative in how they
+
+78
+00:09:12,600 --> 00:09:19,320
+structure how they they first of all put their firewalls in here and how they offer functionality
+
+79
+00:09:19,320 --> 00:09:25,160
+related to services that may be required so you can get pretty creative not only in the functionality
+
+80
+00:09:25,160 --> 00:09:34,200
+in how you set this up but also in the security so you could have n-legged firewalls depending on how
+
+81
+00:09:34,200 --> 00:09:40,040
+your network has been set up and the services that you want to be able to offer to the outside
+
+82
+00:09:40,040 --> 00:09:42,040
+internet ultimately
+

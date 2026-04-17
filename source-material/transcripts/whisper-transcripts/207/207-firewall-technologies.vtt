@@ -1,0 +1,314 @@
+WEBVTT
+
+00:00.000 --> 00:06.880
+is a firewall. And obviously the word firewall is coming from something that can stop fires
+
+00:06.880 --> 00:24.440
+from spreading into different areas. And so that's how it works.
+
+00:24.440 --> 00:29.400
+In this section we're going to discuss firewalls and what's important to understand from your
+
+00:29.400 --> 00:44.520
+perspective.
+
+00:44.520 --> 00:49.480
+In this section we're going to discuss firewalls and what's important to understand from your
+
+00:49.480 --> 00:55.640
+perspective is the difference between firewall technologies and firewall architectures. In
+
+00:55.640 --> 01:00.560
+this section we're going to talk firewall technologies. If you look at the word technologies
+
+01:00.560 --> 01:08.240
+it really means how a firewall can make decisions. But before we get into that let's define the
+
+01:08.240 --> 01:15.000
+word firewall itself. What is a firewall? And obviously the word firewall is coming from
+
+01:15.000 --> 01:20.360
+something that can stop fires from spreading into different areas. And so that's how the
+
+01:20.360 --> 01:28.840
+term got to be. But in network security a firewall either allows or blocks traffic based
+
+01:28.840 --> 01:34.560
+on predefined rules. And so that's what a firewall is. You want a place of firewall in between
+
+01:34.560 --> 01:41.600
+two networks so that you protect them from each other. And the concept of a firewall
+
+01:41.600 --> 01:47.440
+is something that is very important in network security. And not only do we want to place
+
+01:47.440 --> 01:53.160
+firewalls to protect our network from the outside. But in some cases you also want firewalls
+
+01:53.160 --> 02:00.000
+on the inside of the network to protect different network segments from each other. So a firewall
+
+02:00.000 --> 02:07.840
+is not a device, it's not a appliance. It's simply a concept. It can be as simple as a router
+
+02:07.840 --> 02:14.560
+for example that simply makes decisions. Or it can be as sophisticated as a large set
+
+02:14.560 --> 02:21.960
+of applications that are doing things like deep packet inspection and web content filtering
+
+02:21.960 --> 02:27.800
+and intrusion detection and anti-malware. So the word firewall itself simply means any
+
+02:27.800 --> 02:35.640
+technology, any ability to be able to either allow or what we deny into certain segments
+
+02:35.640 --> 02:41.360
+or networks for example. And so if you look at the different technologies that are available
+
+02:41.360 --> 02:47.480
+for us to be able to make those types of decisions, there are really only three firewall technologies
+
+02:47.480 --> 02:53.520
+that exist. And they are represented here on this slide. So the three technologies and that's
+
+02:53.520 --> 02:59.040
+the key word that you want to look for is the word technology itself. We have simple packet
+
+02:59.040 --> 03:05.400
+filtering. We have stateful packet filtering technologies. And we also have what are called
+
+03:05.400 --> 03:11.040
+proxy firewalls. So let's look at each of these in a little bit of detail. Packet filtering
+
+03:11.120 --> 03:18.040
+simply means a router for example that operates at layer three. And the only decision that
+
+03:18.040 --> 03:24.040
+this type of firewall technology can make is based on what layer three can only understand.
+
+03:24.040 --> 03:30.720
+And so if you remember to what we discussed, as you go up in the OSI model, you gain more
+
+03:30.720 --> 03:38.000
+intelligence. You have more functionality for example, but you lose efficiency and speed.
+
+03:38.000 --> 03:42.680
+So packet filtering firewalls operate at layer three, which means they are still pretty
+
+03:42.680 --> 03:49.360
+efficient, but they are limited in the decisions that they can make. And so this can be represented
+
+03:49.360 --> 03:56.880
+by a simple router that makes decisions based on what it can understand in the header portion
+
+03:56.880 --> 04:04.360
+of the datagram for example. So simple decisions like based on source IP address and destination
+
+04:04.400 --> 04:10.520
+IP address, the type of packet that it is, the service that's being requested for example,
+
+04:10.520 --> 04:16.000
+are the very simple decisions that a packet filtering type of firewall can make at layer
+
+04:16.000 --> 04:21.720
+three. Now we also have what are called stateful packet filtering firewalls. They only
+
+04:21.720 --> 04:27.400
+still operate at layer three, but the advantage that they have is that they have the ability
+
+04:27.400 --> 04:34.720
+to keep historical information about outgoing requests that can be stored for example in
+
+04:34.720 --> 04:42.440
+what we call dynamic state tables. So we store state and context information in these dynamic
+
+04:42.440 --> 04:47.840
+state tables so that when the request comes back, let's say a second later, we can use
+
+04:47.840 --> 04:54.080
+what we've kept in those tables to make a more informed decision. The idea is, let's
+
+04:54.080 --> 05:01.520
+say you originate a outgoing request out to the web or to the internet. The stateful packet
+
+05:01.520 --> 05:07.040
+filtering firewall would keep information about that outgoing request, such as it came
+
+05:07.040 --> 05:14.040
+from your machine or your IP address. It's a UDP request and it went out at nine o'clock
+
+05:14.040 --> 05:20.320
+in the morning, let's say. So that information is kept in that dynamic state table so that
+
+05:20.320 --> 05:25.520
+when the request comes back a second later, the firewall can say, okay, the disrequest
+
+05:25.520 --> 05:31.400
+just go out previous to it. Is it destined for the same machine that originated it? And
+
+05:31.400 --> 05:37.520
+is it a UDP request? And if the answer to all of those questions are yes, then the firewall
+
+05:37.520 --> 05:42.280
+would allow that traffic back into the internal network. But if the answer to any of those
+
+05:42.280 --> 05:47.000
+questions or no, then the firewall can say, I'm not going to let this in and just drop
+
+05:47.000 --> 05:53.760
+that traffic basically. So the idea of stateful inspection firewalls is we can keep state
+
+05:53.760 --> 06:00.520
+and context information, historical information in these tables that can allow us to make
+
+06:00.520 --> 06:07.120
+a more informed decision as that request comes back. The third type of firewall technology
+
+06:07.120 --> 06:13.440
+is what we call proxy firewalls. And these operate at the higher layers of the OSI model
+
+06:13.440 --> 06:19.200
+and as such, they are able to make more informed decisions, right? So the key word here is
+
+06:19.200 --> 06:23.600
+proxy. And if you look up the word proxy in a dictionary, it's going to say acting on
+
+06:23.600 --> 06:30.040
+behalf of someone else. So the idea is as a request comes in from the outside internet,
+
+06:30.040 --> 06:37.000
+we redirect that decision to a specific application that has been built to make a more informed
+
+06:37.000 --> 06:43.960
+decision. And the difference between circuit level proxy firewalls and application level proxy
+
+06:43.960 --> 06:50.400
+firewalls is that the layer that they operate at. So for example, circuit level proxy firewalls
+
+06:50.400 --> 06:56.560
+operate at layer five, the session layer. And the way that they work is they simply establish
+
+06:56.560 --> 07:01.800
+a connection if you've provided the right level of information. For example, you've put
+
+07:01.800 --> 07:07.680
+in the right credential information such as your user ID, your password, and possibly
+
+07:07.680 --> 07:13.960
+a two factor authentication number, for example. And if the answers to those are yes, then
+
+07:13.960 --> 07:20.640
+the session layer circuit level proxy firewall would allow a session to be established through
+
+07:20.640 --> 07:29.840
+your VPN connection, for example. The other type of proxy firewall is application proxy firewalls.
+
+07:29.840 --> 07:34.560
+They operate at layer seven. And because they operate at layer seven, they are the most
+
+07:34.560 --> 07:40.320
+functional, the most intelligent. We can create applications that operate at this layer that
+
+07:40.320 --> 07:45.800
+can make any sort of decision that you want. So these ones can be programmed to make decisions
+
+07:45.800 --> 07:52.160
+based on things like web content filtering. We can do anti malware. We can do intrusion
+
+07:52.160 --> 07:57.340
+detection. We can make all kinds of decisions because we can add that functionality at
+
+07:57.340 --> 08:04.660
+layer seven through any sort of firewall, for example, or application that is built specifically
+
+08:04.660 --> 08:11.260
+to do that. So these are firewall technologies. In other words, they allow us to make decisions.
+
+08:11.260 --> 08:16.300
+And the difference between all of them is the layer that they operate at according to
+
+08:16.300 --> 08:22.380
+the OSI model. So anything that you do a layer three, for example, which means simple packet
+
+08:22.380 --> 08:29.260
+filtering and stateful can only involve decisions that are understood at that layer.
+
+08:29.260 --> 08:34.780
+Proxy firewalls, because they operate at higher layers, are able to make better decisions.
+
+08:34.780 --> 08:40.980
+And so companies need to formulate these and obviously put them together so that we make
+
+08:40.980 --> 08:47.540
+the decisions that we need to as far as what traffic is coming into the organization itself.
+
+08:47.620 --> 08:52.780
+So here on this slide, we've got some examples. And basically what we're talking about here
+
+08:52.780 --> 08:59.060
+is the difference between simple packet filtering and stateful packet filtering. And like
+
+08:59.060 --> 09:04.660
+we explained before, the simple difference is that simple packet filtering firewalls
+
+09:04.660 --> 09:09.980
+that can be like a simple router that makes decisions based on the header portion of the
+
+09:09.980 --> 09:17.260
+datagram is not able to keep historical information to be able to make better decisions.
+
+09:17.260 --> 09:22.820
+So the only decisions that can be made here are the ones that exist in that specific header
+
+09:22.820 --> 09:30.380
+portion of the datagram itself. Again, decisions related to source IP address, destination IP
+
+09:30.380 --> 09:38.020
+address, and so on. Now obviously, the stateful inspection firewalls are able to make better
+
+09:38.060 --> 09:44.020
+decisions because they are able to keep that state and context information about outgoing
+
+09:44.020 --> 09:50.260
+request that can be kept so that when the request comes back, we can make a more informed
+
+09:50.260 --> 09:57.100
+decision. And so this is a summary slide of the different technologies that we can use
+
+09:57.100 --> 10:02.980
+in order to be able to make decisions as a firewall. Again, we call these firewall technologies.
+
+10:02.980 --> 10:09.100
+So simple packet filtering operates at layer three. They are the simplest type of firewall,
+
+10:09.100 --> 10:14.420
+but they are also the fastest and the most efficient because they operate natively at
+
+10:14.420 --> 10:21.020
+layer three. Then we have what are called stateful packet filtering. They also operate at
+
+10:21.020 --> 10:28.060
+layer three, but because they are able to keep historical information about outgoing requests,
+
+10:28.060 --> 10:32.340
+they are a little more intelligent, but they still are efficient and only able to make
+
+10:32.340 --> 10:39.580
+decisions at layer three. Now, our proxy firewalls are the ones that provide the most intelligence.
+
+10:39.580 --> 10:45.780
+And again, the difference between level five and level seven or circuit level and application
+
+10:45.780 --> 10:52.460
+level is that circuit level simply establish a session if the right information is provided,
+
+10:52.460 --> 10:58.860
+whereas application proxy firewalls are able to do a whole bunch of intelligent decisions
+
+10:58.860 --> 11:04.460
+because they are able to interpret the data portion of the data gram and keep historical
+
+11:04.460 --> 11:08.580
+information and make any decision that we really need to do at that point.
+

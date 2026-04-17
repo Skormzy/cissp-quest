@@ -1,0 +1,296 @@
+1
+00:00:00,000 --> 00:00:06,680
+or even another country, for example, there are technologies that allow this.
+
+2
+00:00:06,680 --> 00:00:13,840
+That's what we call wide-area network technologies.
+
+3
+00:00:13,840 --> 00:00:28,120
+In this module, we're going to discuss what a lot of organizations have as a need, and
+
+4
+00:00:28,120 --> 00:00:43,160
+that is to connect devices across.
+
+5
+00:00:43,160 --> 00:00:48,200
+In this module, we're going to discuss what a lot of organizations have as a need, and
+
+6
+00:00:48,200 --> 00:00:51,680
+that is to connect devices across wide areas.
+
+7
+00:00:51,680 --> 00:00:56,040
+We've been talking about what a network is, and that is a bunch of devices that are connected
+
+8
+00:00:56,040 --> 00:00:59,120
+to each other for the purpose of communications.
+
+9
+00:00:59,120 --> 00:01:04,120
+But companies today have a need to connect devices across wide areas.
+
+10
+00:01:04,120 --> 00:01:10,640
+So if there's a need to connect devices in one city to devices across another city,
+
+11
+00:01:10,640 --> 00:01:17,120
+or even another country, for example, there are technologies that allow this.
+
+12
+00:01:17,120 --> 00:01:20,720
+That's what we call wide-area network technologies.
+
+13
+00:01:20,720 --> 00:01:24,880
+So there's different options that companies can use, and these are some of them.
+
+14
+00:01:24,880 --> 00:01:29,600
+We can use modems, although that wouldn't be very good anymore.
+
+15
+00:01:29,600 --> 00:01:31,640
+But there are other options.
+
+16
+00:01:31,640 --> 00:01:38,240
+Typically, these are some of the options that you can lease from the service providers that
+
+17
+00:01:38,240 --> 00:01:43,600
+have built capabilities to allow companies to connect across wide areas.
+
+18
+00:01:43,600 --> 00:01:46,520
+So we have dedicated lease lines as an option.
+
+19
+00:01:46,520 --> 00:01:54,160
+Those are lines like T1s, T2s, T3s that allow connections across wide areas.
+
+20
+00:01:54,160 --> 00:02:00,240
+We can also use satellite and other wireless links, like microwave capabilities.
+
+21
+00:02:00,240 --> 00:02:06,280
+But the problem with those is, typically, you'll have large footprints, but also a lot
+
+22
+00:02:06,280 --> 00:02:12,200
+of interference from nature and some other things that may impact the quality and the integrity
+
+23
+00:02:12,200 --> 00:02:16,400
+of the communications that are going across those wide areas.
+
+24
+00:02:16,400 --> 00:02:21,960
+What most companies use today is what we call data packet carrier services.
+
+25
+00:02:21,960 --> 00:02:27,520
+And so these are networks that have been created by the service providers themselves,
+
+26
+00:02:27,520 --> 00:02:30,040
+like AT&T and so on.
+
+27
+00:02:30,040 --> 00:02:36,720
+And what they do is they will lease connections to you across these data networks that have
+
+28
+00:02:36,720 --> 00:02:42,120
+been built specifically to allow connections across wide areas.
+
+29
+00:02:42,120 --> 00:02:46,080
+And just like anything else, these technologies have evolved.
+
+30
+00:02:46,080 --> 00:02:53,320
+The original data packet carrier services that were offered to us by these providers was
+
+31
+00:02:53,320 --> 00:02:55,080
+X25.
+
+32
+00:02:55,080 --> 00:03:04,320
+X25 is a data packet carrier service that sends information across the network by using
+
+33
+00:03:04,320 --> 00:03:05,320
+packets.
+
+34
+00:03:05,320 --> 00:03:10,680
+In fact, all of these are their packet switch networks, but they're meant to allow companies
+
+35
+00:03:10,680 --> 00:03:13,400
+to allow to connect across wide areas.
+
+36
+00:03:13,400 --> 00:03:18,600
+Now because X25 was the original one, it's really an older technology, but it's still
+
+37
+00:03:18,600 --> 00:03:25,560
+considered by many to be the best one to handle error correction and problems that you
+
+38
+00:03:25,560 --> 00:03:30,640
+may have in transmitting information across those networks.
+
+39
+00:03:30,640 --> 00:03:35,960
+But it requires a high overhead in order to achieve that really good error correction
+
+40
+00:03:35,960 --> 00:03:37,200
+that it offers us.
+
+41
+00:03:37,200 --> 00:03:39,440
+And so the speeds are very limited.
+
+42
+00:03:39,440 --> 00:03:44,480
+There's a lot of overhead, but it's still the best network for error correction.
+
+43
+00:03:44,480 --> 00:03:50,360
+In fact, what happened, if you look at this historically, is the industry created frame
+
+44
+00:03:50,360 --> 00:03:54,640
+relay to really replace X25.
+
+45
+00:03:54,640 --> 00:04:00,440
+And so that was a better technology that didn't do as well for error correction, but certainly
+
+46
+00:04:00,440 --> 00:04:02,120
+gave us faster speeds.
+
+47
+00:04:02,120 --> 00:04:07,120
+And in fact, that was replaced by what we call ATM.
+
+48
+00:04:07,120 --> 00:04:11,800
+How was one of the latest technologies that we've already had for a large number of
+
+49
+00:04:11,800 --> 00:04:12,800
+years?
+
+50
+00:04:12,800 --> 00:04:17,480
+Today, we have a better technology for this, and it's called MPLS.
+
+51
+00:04:17,480 --> 00:04:22,960
+And one of the improvements that they've made with MPLS is not only speed and quality
+
+52
+00:04:22,960 --> 00:04:28,640
+of service, but they can also offer us some built-in security, and this is what you want
+
+53
+00:04:28,640 --> 00:04:36,520
+to remember, MPLS networks will use what are called forwarding tables and labeling schemes
+
+54
+00:04:36,520 --> 00:04:43,240
+to ensure that, for example, our connection that we're using across the MPLS network that
+
+55
+00:04:43,240 --> 00:04:45,960
+belongs to a provider.
+
+56
+00:04:45,960 --> 00:04:53,480
+Our path that our information is using across their network cannot be touched by anyone
+
+57
+00:04:53,480 --> 00:04:54,480
+else.
+
+58
+00:04:54,480 --> 00:05:00,140
+And so the providers will guarantee that our path and the devices that are using our
+
+59
+00:05:00,140 --> 00:05:07,300
+path cannot be touched or used by anyone else while they're being used for our transmission.
+
+60
+00:05:07,300 --> 00:05:12,380
+So they can guarantee that the path that our information is taking is ours.
+
+61
+00:05:12,380 --> 00:05:16,420
+And so they'll say things like, you don't need to encrypt because nobody can get to your
+
+62
+00:05:16,420 --> 00:05:17,820
+information.
+
+63
+00:05:17,820 --> 00:05:23,140
+But I know companies that are using MPLS and still encrypt the information because even
+
+64
+00:05:23,140 --> 00:05:28,180
+though the providers will tell us that nobody can get to those paths, there is one entity
+
+65
+00:05:28,180 --> 00:05:31,340
+that can, and that is the provider themselves.
+
+66
+00:05:31,340 --> 00:05:35,620
+And just because we're paying them for a service doesn't mean that we should trust them to
+
+67
+00:05:35,620 --> 00:05:38,340
+be able to see our information.
+
+68
+00:05:38,340 --> 00:05:45,420
+And so it may be required that even though MPLS has built-in security that we would still
+
+69
+00:05:45,420 --> 00:05:50,700
+use authentication and encryption to protect that traffic based on its value.
+
+70
+00:05:50,700 --> 00:05:56,780
+Now what you want to remember about MPLS is that it uses technology that is forwarding
+
+71
+00:05:56,780 --> 00:06:03,500
+tables and labeling schemes to ensure that those paths are our paths and nobody can
+
+72
+00:06:03,500 --> 00:06:04,700
+get to them.
+
+73
+00:06:04,700 --> 00:06:11,260
+And that's the built-in security that is part of what we call MPLS networks for wide-area
+
+74
+00:06:11,260 --> 00:06:12,820
+network capabilities.
+

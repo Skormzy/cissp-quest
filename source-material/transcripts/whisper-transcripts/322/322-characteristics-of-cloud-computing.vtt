@@ -1,0 +1,650 @@
+WEBVTT
+
+00:00.000 --> 00:17.000
+Everyone in their dog is moving to the cloud.
+
+00:17.000 --> 00:20.000
+So you'd expect there to be a lot of questions on the exam.
+
+00:20.000 --> 00:37.000
+Everyone in their dog is moving to the cloud.
+
+00:37.000 --> 00:41.000
+So you'd expect there to be a lot of questions on the exam related to cloud computing.
+
+00:41.000 --> 00:45.000
+Because there's one or two security issues involved with moving to the cloud.
+
+00:45.000 --> 00:50.000
+And while there will be some questions on the exam related to cloud, there's not a huge amount of them.
+
+00:50.000 --> 00:56.000
+And in fact, there's only this one small section in this entire giant course that we're going to talk about cloud computing.
+
+00:56.000 --> 00:58.000
+And the reason for that is this.
+
+00:58.000 --> 01:04.000
+ISC squared, the organization behind this CISSP exam, made a decision a few years ago.
+
+01:04.000 --> 01:06.000
+They were seeing where the industry was going.
+
+01:06.000 --> 01:09.000
+They were seeing that everyone was starting to move to the cloud.
+
+01:09.000 --> 01:11.000
+And so they had a decision to make.
+
+01:11.000 --> 01:17.000
+When they were updating the CISSP exam material, they could start to build in more and more and more cloud material.
+
+01:17.000 --> 01:21.000
+Or they could break it out as an entirely different certification.
+
+01:21.000 --> 01:23.000
+And that's exactly what they did.
+
+01:23.000 --> 01:29.000
+They broke it out into a separate certification, which is the CCSP Certified Cloud Security Professional.
+
+01:29.000 --> 01:32.000
+Another one of those courses that we teach.
+
+01:32.000 --> 01:35.000
+Another course that we teach.
+
+01:35.000 --> 01:37.000
+And the reason that they chose to do this.
+
+01:37.000 --> 01:42.000
+And I think it was a good decision, not just that they were trying to make more money on certifications.
+
+01:42.000 --> 01:45.000
+There's a lot of intricacies in cloud.
+
+01:45.000 --> 01:47.000
+There's a lot of fundamental concepts that you need to understand.
+
+01:47.000 --> 01:53.000
+And there's a lot in the governance, the processes, the technicalities of how to properly move to the cloud.
+
+01:53.000 --> 01:59.000
+Secure the cloud, know how to have interoperability, portability, be able to remember, have a reversibility, get out of the cloud.
+
+01:59.000 --> 02:01.000
+There's a lot of complication here.
+
+02:01.000 --> 02:04.000
+And it's more than would reasonably fit in this course.
+
+02:04.000 --> 02:08.000
+And so I think it made a lot of sense for them to move that into a separate certification.
+
+02:08.000 --> 02:14.000
+And so in this course, the CISSP, I'm going to cover cloud at like the 10,000 or 30,000 foot level.
+
+02:14.000 --> 02:16.000
+Very high level, just some of the very basics.
+
+02:16.000 --> 02:19.000
+Because you will get a few questions, but not a huge amount of them.
+
+02:19.000 --> 02:24.000
+And if you really want to get deep into the cloud computing, go and take something like the CCSP.
+
+02:24.000 --> 02:26.000
+So let's get into some of the basics of the cloud.
+
+02:26.000 --> 02:29.000
+And let me start by asking you this simple question.
+
+02:29.000 --> 02:31.000
+What is the cloud?
+
+02:31.000 --> 02:32.000
+Think about this from above.
+
+02:32.000 --> 02:36.000
+Trying to find it in very simple, easy to understand terms.
+
+02:36.000 --> 02:41.000
+How would you explain it to someone who has never understood the cloud or never thought of it before?
+
+02:41.000 --> 02:43.000
+It's actually a bit of a trick question.
+
+02:43.000 --> 02:49.000
+It's very difficult to describe what is cloud in very simple terms.
+
+02:49.000 --> 02:53.000
+And the reason is this, cloud is many, many different things to many different people.
+
+02:53.000 --> 02:56.000
+It can be systems running in your own data center.
+
+02:56.000 --> 02:59.000
+It can be systems running in another service provider's data center.
+
+03:00.000 --> 03:03.000
+It can be everything from, you know, creating an entire virtual data center
+
+03:03.000 --> 03:08.000
+to just doing identity access management or security as a service or database as a service.
+
+03:08.000 --> 03:12.000
+There is so many things that fall under the umbrella of cloud.
+
+03:12.000 --> 03:19.000
+What the industry has settled on is rather than trying to come up with a nice, simple, concise definition of cloud, which is impossible.
+
+03:19.000 --> 03:23.000
+Instead, what we use is a set of defining characteristics.
+
+03:23.000 --> 03:27.000
+There's five primary and a sixth kind of characteristic.
+
+03:27.000 --> 03:32.000
+That if a service complies with these characteristics, then you can call it cloud.
+
+03:32.000 --> 03:35.000
+So let's spend a few minutes going through those characteristics.
+
+03:35.000 --> 03:39.000
+And it starts to help explain a little bit of what cloud actually is.
+
+03:39.000 --> 03:43.000
+The first characteristic is on-demand self-service.
+
+03:43.000 --> 03:49.000
+And this is the idea that if you are using cloud, you can request cloud services by yourself.
+
+03:49.000 --> 03:51.000
+And you can do it whenever you want.
+
+03:51.000 --> 03:54.000
+Nowadays, what does it actually take to request cloud services?
+
+03:54.000 --> 03:57.000
+Well, for free stuff, you can just sign up for free.
+
+03:57.000 --> 04:00.000
+Things like Gmail and box and all these sorts of things.
+
+04:00.000 --> 04:04.000
+These are big cloud services that you need nothing more than maybe an email address to sign up for.
+
+04:04.000 --> 04:08.000
+And even the paid services, all you really need is a credit card number.
+
+04:08.000 --> 04:11.000
+And this is a really important defining characteristic of cloud.
+
+04:11.000 --> 04:14.000
+Because a lot of organizations nowadays, they want to fail fast.
+
+04:14.000 --> 04:17.000
+They want to innovate. They want to rapidly try things out.
+
+04:17.000 --> 04:21.000
+And that's very difficult to do in a traditional environment where,
+
+04:21.000 --> 04:27.000
+if a lot of my clients, I ask them, how long does it take you to get a new server provision in your environment?
+
+04:27.000 --> 04:33.000
+And it's not uncommon for someone to say weeks, maybe even months, two, three months, to get a new server provisioned.
+
+04:33.000 --> 04:36.000
+If you're trying to rapidly innovate, fail fast.
+
+04:36.000 --> 04:41.000
+It's pretty hard to do that if you're waiting two or three months just for a server to be set up.
+
+04:41.000 --> 04:45.000
+And so one of the really, really valuable things of cloud on-demand self-service,
+
+04:45.000 --> 04:49.000
+you can sign up for an unbelievable amount of services, terabytes of storage,
+
+04:49.000 --> 04:54.000
+machine learning algorithms, vision APIs, all sorts of crazy stuff.
+
+04:54.000 --> 04:57.000
+And all you need is clicking a couple of those buttons.
+
+04:57.000 --> 05:01.000
+And it all happens instantaneously or nearly so.
+
+05:01.000 --> 05:03.000
+Lost my pointer. There we go.
+
+05:03.000 --> 05:05.000
+So that's the first characteristic of cloud.
+
+05:05.000 --> 05:08.000
+The next one is what is known as broad network access.
+
+05:08.000 --> 05:15.000
+And what this characteristic is about is from where and what type of devices can you access the cloud.
+
+05:15.000 --> 05:18.000
+Most cloud services are web-based applications.
+
+05:18.000 --> 05:23.000
+And most cloud is public cloud or software as a service in the public cloud.
+
+05:23.000 --> 05:29.000
+Which means that the vast majority of the way that we access the cloud is through a web browser across the internet.
+
+05:29.000 --> 05:33.000
+And everything has a web browser installed in it nowadays.
+
+05:33.000 --> 05:37.000
+I was at Home Depot recently and I was browsing the internet on a fridge.
+
+05:37.000 --> 05:42.000
+So on-demand self-service means you can essentially access most of these cloud services from anywhere in the world.
+
+05:42.000 --> 05:46.000
+Because most cloud services are accessed through a web browser.
+
+05:47.000 --> 05:50.000
+Now the next characteristic resource pooling.
+
+05:50.000 --> 05:52.000
+This is where we need to spend a few minutes on this one.
+
+05:52.000 --> 05:54.000
+This one is really critical.
+
+05:54.000 --> 05:58.000
+There are three primary resources that we pool share in the cloud.
+
+05:58.000 --> 06:02.000
+Compute network and storage.
+
+06:02.000 --> 06:08.000
+And when we say we pool or we share these resources, what we're saying is that as a customer in the cloud,
+
+06:08.000 --> 06:11.000
+you can get access to compute computers, you know, like a CPU essentially.
+
+06:11.000 --> 06:13.000
+It allows you to do problem solving.
+
+06:13.000 --> 06:14.000
+You can get access to network.
+
+06:14.000 --> 06:18.000
+The ability to move bits around between your different systems, databases, and so forth.
+
+06:18.000 --> 06:21.000
+And storage, which allows you to store the bits.
+
+06:21.000 --> 06:24.000
+In the cloud, you can get access to all three of these resources.
+
+06:24.000 --> 06:29.000
+But very importantly, your access to all of these resources is virtualized.
+
+06:29.000 --> 06:36.000
+You do not have direct physical access to a hard drive to a CPU to the network.
+
+06:36.000 --> 06:39.000
+Your access to all of these services is virtualized.
+
+06:39.000 --> 06:41.000
+There's a layer of abstraction.
+
+06:41.000 --> 06:46.000
+Which allows all of these resources to be shared across cloud customers.
+
+06:46.000 --> 06:48.000
+What's the advantage of this?
+
+06:48.000 --> 06:50.000
+Because there's a big one.
+
+06:50.000 --> 06:52.000
+Let me ask you this.
+
+06:52.000 --> 06:57.000
+In a traditional data center, if you were to look at an average server, like the payroll server,
+
+06:57.000 --> 07:02.000
+what would the average utilization be of an average server in a well-run data center?
+
+07:02.000 --> 07:06.000
+The answer is usually somewhere in the range to 10 to 20%.
+
+07:06.000 --> 07:09.000
+So you take this very expensive piece of hardware, a server,
+
+07:09.000 --> 07:15.000
+and you're only utilizing 10 to 20% of the resources on that server, on average.
+
+07:15.000 --> 07:19.000
+It's a very inefficient use of that and very expensive hardware.
+
+07:19.000 --> 07:22.000
+And any well-run data center is like this traditional data center.
+
+07:22.000 --> 07:24.000
+Why?
+
+07:24.000 --> 07:28.000
+Well, it's because you don't size a server based on average utilization.
+
+07:28.000 --> 07:32.000
+You size a server based on peak utilization.
+
+07:32.000 --> 07:34.000
+And so take the payroll server as an example.
+
+07:34.000 --> 07:37.000
+The vast majority of this time, what's the payroll server doing?
+
+07:37.000 --> 07:38.000
+Not much.
+
+07:38.000 --> 07:42.000
+Once in a while someone might log in to like pay you less or something, but that's it.
+
+07:42.000 --> 07:46.000
+But then once every two weeks or once a month, what's the payroll server do?
+
+07:46.000 --> 07:48.000
+It runs the payroll batch job.
+
+07:48.000 --> 07:51.000
+And then for that period of time, you know, your CPU usage, your RAM usage,
+
+07:51.000 --> 07:53.000
+it's spiked, max utilization.
+
+07:53.000 --> 07:56.000
+And then you go back to doing almost nothing.
+
+07:56.000 --> 07:59.000
+So in a traditional data center, we're only getting, you know,
+
+07:59.000 --> 08:02.000
+we're only using 10 to 20% of the capacity of our systems.
+
+08:02.000 --> 08:04.000
+Very inefficient.
+
+08:04.000 --> 08:08.000
+Now in the public and the cloud, especially the public cloud,
+
+08:08.000 --> 08:14.000
+because access to resources virtualized, it allows us to share those resources.
+
+08:14.000 --> 08:17.000
+So in the cloud, we don't have what's typically what's called a server.
+
+08:17.000 --> 08:18.000
+You have a compute node.
+
+08:18.000 --> 08:20.000
+A compute node is essentially a server.
+
+08:20.000 --> 08:25.000
+It's a CPU and a SRAM on top of which you can run virtual machines.
+
+08:25.000 --> 08:30.000
+And these virtual machines are accessing the compute resources of this compute node.
+
+08:30.000 --> 08:35.000
+Now in the cloud, because you can share this compute node across multiple clients,
+
+08:35.000 --> 08:40.000
+you can run multiple virtual machines simultaneously on top of a hypervisor,
+
+08:40.000 --> 08:42.000
+which is on top of the compute node.
+
+08:42.000 --> 08:47.000
+And so these multiple virtual machines can share the underlying hardware,
+
+08:47.000 --> 08:51.000
+which allows you to put a whole bunch of different virtual machines,
+
+08:51.000 --> 08:56.000
+virtual servers on top of one compute node, and get much better resource utilization
+
+08:56.000 --> 08:58.000
+of that underlying hardware.
+
+08:58.000 --> 09:03.000
+Because each of those virtual servers might only be running along at 10 to 20% capacity,
+
+09:03.000 --> 09:04.000
+something like that.
+
+09:04.000 --> 09:06.000
+But if you put enough of them onto a compute node,
+
+09:06.000 --> 09:09.000
+the overall resource usage of the compute node,
+
+09:09.000 --> 09:12.000
+the underlying physical hardware, what's that?
+
+09:12.000 --> 09:16.000
+Well, in the cloud, it's not uncommon to achieve resource utilization of 70, 80,
+
+09:16.000 --> 09:19.000
+maybe even 90% of the underlying hardware.
+
+09:19.000 --> 09:22.000
+So traditional data sender, you're getting like 10 to 20% utilization of the hardware.
+
+09:22.000 --> 09:27.000
+In the cloud, you might be achieving 70, 80% utilization of the underlying hardware.
+
+09:27.000 --> 09:30.000
+So much more effective use of the underlying hardware,
+
+09:30.000 --> 09:35.000
+because you can virtualize, share the access amongst customers.
+
+09:35.000 --> 09:38.000
+And I'll add one other piece to this that really helps drive down the costs.
+
+09:38.000 --> 09:43.000
+When you look at what the big cloud providers and how much hardware they buy,
+
+09:43.000 --> 09:45.000
+it is astronomical.
+
+09:45.000 --> 09:49.000
+They buy a huge number of hard drives of CPUs, of network devices.
+
+09:49.000 --> 09:52.000
+And so as a result, the prices that they're paying for that hardware
+
+09:52.000 --> 09:56.000
+is, you know, economies of scale much lower than a traditional company
+
+09:56.000 --> 09:58.000
+could typically buy stuff for.
+
+09:58.000 --> 10:01.000
+Like when you look at the Amazon, the Google's, the Facebook's,
+
+10:01.000 --> 10:05.000
+the Azure Microsoft of the world, they buy hardware at staggering levels.
+
+10:05.000 --> 10:09.000
+They're spending billions of dollars every year building out their data centers,
+
+10:09.000 --> 10:12.000
+which means they get economies of scale that no one else can achieve.
+
+10:12.000 --> 10:17.000
+And that makes the underlying costs of the compute network and storage
+
+10:17.000 --> 10:21.000
+and the cloud much cheaper than what you can traditionally achieve
+
+10:21.000 --> 10:24.000
+in a traditional data center.
+
+10:24.000 --> 10:27.000
+But I'll caveat that with one very important thing.
+
+10:27.000 --> 10:30.000
+And my experience working with a lot of companies that move to the cloud,
+
+10:30.000 --> 10:33.000
+they're overall costs moving to the cloud have not actually been cheaper.
+
+10:33.000 --> 10:37.000
+The underlying resources and compute network and storage are cheaper.
+
+10:37.000 --> 10:40.000
+But when you layer on top of all the additional services that you need,
+
+10:40.000 --> 10:42.000
+it can often end up being a lot more expensive.
+
+10:42.000 --> 10:44.000
+That's a discussion for another course.
+
+10:44.000 --> 10:46.000
+But that's resource pooling.
+
+10:46.000 --> 10:50.000
+You share compute network and storage across multiple customers.
+
+10:51.000 --> 10:55.000
+Now, next one, rapid elasticity and scalability.
+
+10:55.000 --> 10:59.000
+What this means is that in the cloud, you can rapidly, quickly increase
+
+10:59.000 --> 11:02.000
+your, your use of compute network and storage.
+
+11:02.000 --> 11:06.000
+If you suddenly want hundreds of new virtual CPUs to run something on top of,
+
+11:06.000 --> 11:10.000
+done. If you want a petabyte of storage, done.
+
+11:10.000 --> 11:13.000
+If you want tons and more network bandwidth, done.
+
+11:13.000 --> 11:16.000
+And this again is very different than traditional data center.
+
+11:16.000 --> 11:18.000
+Let's say in a traditional data center, you're like,
+
+11:18.000 --> 11:20.000
+you know what, I want a petabyte of storage.
+
+11:20.000 --> 11:23.000
+So you call up EMC, takes them a month or two,
+
+11:23.000 --> 11:26.000
+but they ship out a few trucks worth of hard drives and storage race servers.
+
+11:26.000 --> 11:28.000
+And you spend another month setting all this stuff up.
+
+11:28.000 --> 11:30.000
+And now you've got your petabyte of storage.
+
+11:30.000 --> 11:33.000
+And then you're like, nah, you know what, I don't need any more.
+
+11:33.000 --> 11:36.000
+Too bad, you bought it. It's yours now, right?
+
+11:36.000 --> 11:40.000
+Whereas in the cloud, rapid elasticity means you can quickly increase
+
+11:40.000 --> 11:43.000
+your utilization of any of the compute network and storage.
+
+11:43.000 --> 11:46.000
+And just as rapidly decrease your utilization.
+
+11:46.000 --> 11:48.000
+So rapid elasticity.
+
+11:48.000 --> 11:52.000
+And care closely tied to this is what's known as measured service,
+
+11:52.000 --> 11:56.000
+which is the cloud service provider carefully measures your usage of the cloud,
+
+11:56.000 --> 11:59.000
+how much compute you're using, how much network, how much storage,
+
+11:59.000 --> 12:01.000
+and you only pay for what you use.
+
+12:01.000 --> 12:05.000
+And so if you're only using that petabyte of storage for 10 minutes,
+
+12:05.000 --> 12:09.000
+you're only paying for that petabyte of storage for 10 minutes.
+
+12:09.000 --> 12:13.000
+So those are the five defining characteristics of cloud.
+
+12:13.000 --> 12:16.000
+And if you get any questions asking you what are the five defining characteristics,
+
+12:16.000 --> 12:18.000
+that's them.
+
+12:18.000 --> 12:22.000
+But there's sometimes a sixth characteristic that's put in there.
+
+12:22.000 --> 12:25.000
+And it's known as multi-tenancy.
+
+12:25.000 --> 12:30.000
+And the reason that's not always in the list is because it's not always true.
+
+12:30.000 --> 12:33.000
+There's one major difference between public cloud and private cloud.
+
+12:33.000 --> 12:36.000
+Public cloud is accessible usable by anyone.
+
+12:36.000 --> 12:38.000
+So therefore it is multi-tenancy.
+
+12:38.000 --> 12:44.000
+But private cloud is reserved only accessible by one consumer.
+
+12:44.000 --> 12:47.000
+Therefore, not multi-tenancy.
+
+12:47.000 --> 12:49.000
+The majority of cloud is public cloud.
+
+12:49.000 --> 12:51.000
+So the majority of cloud is multi-tenancy.
+
+12:51.000 --> 12:52.000
+But not all of it.
+
+12:52.000 --> 12:55.000
+We'll talk about the different deployment models in the next video.
+
+12:55.000 --> 12:59.000
+We'll talk about public, private, community, and hybrid cloud.
+
+12:59.000 --> 13:02.000
+But that's why multi-tenancy doesn't apply everywhere.
+
+13:08.000 --> 13:10.000
+Thank you very much.
+

@@ -1,0 +1,83 @@
+start	end	text
+0	18360	All right, we've just talked about firewall technologies and just to refocus here, firewall
+18360	37600	technologies are, all right, we've just talked about firewall technologies and just to refocus
+37600	43720	here, firewall technologies are what allows us to be able to make decisions. So we talked
+43720	49720	about simple packet filtering, we talked about state full firewalls, we talked about proxy
+49720	55480	firewalls. In this module, we're going to discuss what are called firewall architectures.
+55480	61480	Now, what's the difference? Well, firewall architectures are how we can architect those
+61480	67240	technologies that we just discussed in the best way possible. And so we're going to show
+67240	72520	you from a diagram perspective what these architectures actually look like. And you're
+72520	77240	going to see that we're going to progress from the simplest architecture to some of the ones
+77240	82760	that companies obviously use today to provide the best level of security. So these are called
+82760	88680	firewall architectures. And it's important for you on the exam to focus on those keywords
+88680	95000	and decide whether and look at whether the question is talking about firewall technologies
+95000	101640	or firewall architectures. These are architectures. Let's start with the simplest one. In fact,
+101640	108440	this is a summary of what we're going to look at. These are standard names that the industry
+108440	115480	uses for firewall architectures. Starting with simple packet filtering and then improving to what
+115480	122920	we call dual home host firewall architecture, a screened host firewall architecture and screen
+122920	131000	subnet firewall architectures. And they're listed by increasing security if you want to look at it
+131000	137800	that way. So let's start with the simplest one, which is a packet filtering firewall. And basically
+137800	144440	looks exactly like this. We've got our internal network here. We're connected to the internet or
+144440	152120	some other network that we don't trust. And so what we place in between is a simple router. And
+152120	159720	because a router operates at layer three, the only decisions that it can make is what's available
+159720	166200	at layer three. In other words, the header portion of the datagram is what the router can make
+166200	174520	decisions on. So very simple decisions like source port or source IP address, destination IP
+174520	180760	address, the type of packet that it is, the service that's being requested. Those are the simple
+180760	187320	type of decisions that a router can make based on the intelligence that it has. What would be good
+187320	194120	about this is that it would be very efficient but very limited in the type of decisions that it
+194120	201560	can make. Now let's get better. And if you look at this diagram, what would be better is if we
+201560	210200	replace the router with something else that understands the entire OSI model layers. In fact, we would
+210280	218360	call that a host or a computer. So instead of a router in between our internal network and the
+218360	225480	internet, we place a computer or a host. And because it's a computer, it can understand all seven
+225480	232040	layers of the OSI model. And so if you remember back to those firewall technologies that we just
+232040	239320	looked at in the previous module, this would be able to run them all or a combination of them all.
+239320	245320	It could do simple packet filtering at the network layer. It could do stateful inspection
+245320	251480	also at the network layer. But this because it's a computer could also be running proxy firewalls
+251480	258600	like circuit level or application level. So it's a better architecture simply because it's able to
+258600	264520	run any of those firewall technologies that we talked about before because it really is a
+264520	271400	computer that understands all seven layers. Now let's get even better than this. If you were to
+271400	277720	suggest what something might be even better than this, why don't we combine the two that we just
+277720	285880	saw. So let's put a router on the outside here facing the internet and let's keep the host
+285880	293000	in the middle. And this would look like right here. The idea of this and it's called a screened
+293000	300920	host firewall architecture is the router can handle the first level of decision making that it
+300920	307880	is subjected to. And then anything that gets through the router can be handled by the host now
+307880	314760	that can be running proxy firewalls and anything else. Now this serves a second purpose as well
+314760	322280	because the router that's facing the outside can act as a screen or a protection mechanism for the
+322280	328440	host that's on the inside. Any attacker that wants to get to the host first of all has to be able to
+328440	334600	compromise and get through the router itself. So this can act as a screen and that's why it's actually
+334600	343080	called a screened host firewall architecture. Now we can even get better than this because what we
+343080	349640	can do is and we've talked many times in this course how good network security requires us to
+349640	356760	monitor incoming traffic into the internal network because we want to protect the value of what's
+356760	363880	in here. But companies today need to also monitor what's going out of the network. And in many cases
+363880	370360	that might be even more important. And the reason for that is for data loss prevention. But there
+370360	376440	could also be some machines on the inside of the network here that are being used as a channel to
+376440	383240	attack others for distributed denial service for example. So if we monitored outgoing traffic
+383240	390120	as well as incoming that's a better way to approach network security. So the next architecture
+390120	397560	really means let's put a router on the inside as well so that we can protect from the inside and
+397560	403880	monitor what's going out. So that architecture would look something like this and this is the
+403880	410440	architecture that gives companies the ability to start creating what are called subnetworks like
+410440	417480	your DMZ where you would put services in there that are required from the outside. And the bottom
+417480	424200	line here is that if you're allowing people out on the internet to interface with us to order
+424200	431320	our products and services and pay us for example you need applications to be able to do that.
+431320	436520	And it would not make sense to have those applications running on the inside of the network
+436520	442600	because then you'd be allowing people to get right into the internal network that are not trusted.
+442600	449640	And so what we do is we place those services, those web applications and servers that are required
+449640	455960	from the outside in your DMZ here so that we can ultimately protect our internal network and
+455960	464360	channel all of that traffic up into this subnetwork here where we can protect what's in there as well
+464360	471880	but we can monitor what's going on but ultimately we're not putting our internal network at risk.
+471880	480120	And so anything in here can be accessed from the outside and so this is what we call a screened
+480200	487000	subnet firewall architecture where everything is channeled into here but we can protect and monitor
+487000	493560	what's going in here so that ultimately no untrusted entities are actually allowed to come into
+493560	499960	our internal network and we can also monitor anything that is going out to the internet for data
+499960	507080	loss prevention and to prevent outgoing denial of service attacks. This is what we call the screen
+507080	518040	subnet firewall architecture. Now some people also refer to a number of legs that a firewall
+518040	524760	might have and in this case this would be referred to as a three-legged firewall because if you
+524760	530600	look at this firewall that's in the middle it's got three legs doesn't it one leg is connected to
+530680	537640	the internal network one leg is connected to the DMZ and the other leg is connected to the outside
+537640	545640	internet but there's nothing stopping companies from having four legs or five legs or a hundred
+545640	552600	legs or legs within other legs so the bottom line is companies can get pretty creative in how they
+552600	559320	structure how they they first of all put their firewalls in here and how they offer functionality
+559320	565160	related to services that may be required so you can get pretty creative not only in the functionality
+565160	574200	in how you set this up but also in the security so you could have n-legged firewalls depending on how
+574200	580040	your network has been set up and the services that you want to be able to offer to the outside
+580040	582040	internet ultimately

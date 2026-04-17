@@ -1,0 +1,290 @@
+WEBVTT
+
+00:00.000 --> 00:17.780
+All right, we've been talking about all different types of components within a system.
+
+00:17.780 --> 00:34.020
+And now we're going to teach my my daughter here.
+
+00:34.020 --> 00:37.860
+All right, we've been talking about all different types of components within a system.
+
+00:37.860 --> 00:42.180
+And now we're going to teach my my daughter here about storage within a system.
+
+00:42.180 --> 00:46.380
+We're going to talk about the two primary types of storage within a system, primary storage
+
+00:46.380 --> 00:48.300
+and secondary storage.
+
+00:48.300 --> 00:51.620
+So this is where we keep the bits in our computer system.
+
+00:51.620 --> 00:55.100
+Later in life, this is where you'll keep your like Instagram photos or whatever the
+
+00:55.100 --> 00:57.620
+kids are doing that when you're growing up, okay?
+
+00:57.620 --> 01:00.140
+So what does primary storage mean?
+
+01:00.140 --> 01:05.060
+Primary storage means it's volatile memory, whereas secondary storage is often referred
+
+01:05.060 --> 01:06.980
+to as non-volatile memory.
+
+01:06.980 --> 01:08.980
+So what's that word volatile mean?
+
+01:08.980 --> 01:13.420
+Well, soon you'll learn that volatile means it's something that can sort of disappear
+
+01:13.420 --> 01:14.420
+at regular temperatures.
+
+01:14.860 --> 01:18.380
+And that's a really good way of thinking about primary storage or volatile memory.
+
+01:18.380 --> 01:23.340
+If the power gets pulled, any of that data in volatile memory disappears.
+
+01:23.340 --> 01:24.540
+It's gone.
+
+01:24.540 --> 01:30.620
+Whereas in non-volatile memory, the data remains even when the system is powered down.
+
+01:30.620 --> 01:36.580
+So let's look at some examples of both primary and secondary storage and we'll start with
+
+01:36.580 --> 01:37.860
+primary storage.
+
+01:37.860 --> 01:42.580
+So some really good examples of primary storage are things like my daughter's trying to
+
+01:43.380 --> 01:44.940
+eat my finger here, she's teething.
+
+01:44.940 --> 01:50.020
+So examples of primary storage are cash, registers, RAM.
+
+01:50.020 --> 01:54.140
+And all of these are very, very high speed forms of storage.
+
+01:54.140 --> 01:57.180
+So what do we primarily use volatile memory for?
+
+01:57.180 --> 02:02.620
+We use primary or volatile memory for data that's actively being used by the system,
+
+02:02.620 --> 02:08.620
+for programs that have been loaded that are in memory, that the CPU is currently processing.
+
+02:08.620 --> 02:13.620
+And what we want this primary storage for is for the data that needs to be accessed very,
+
+02:13.620 --> 02:14.860
+very quickly.
+
+02:14.860 --> 02:19.980
+And so cash, registers, this is actually data or this is actually storage built into
+
+02:19.980 --> 02:21.700
+the processor itself.
+
+02:21.700 --> 02:26.580
+Whereas RAM, RAM, access memory is actually memory modules built into the system.
+
+02:26.580 --> 02:28.340
+But it's quite fast.
+
+02:28.340 --> 02:31.220
+So what are the pros and cons of primary storage?
+
+02:31.220 --> 02:37.660
+Well, as we talked about, primary storage, very, very fast, but it is volatile.
+
+02:37.740 --> 02:39.060
+Like you're getting here.
+
+02:39.060 --> 02:41.420
+So what about secondary storage?
+
+02:41.420 --> 02:43.100
+It's kind of the inverse.
+
+02:43.100 --> 02:49.300
+Examples of secondary storage are things like magnetic hard drives, optical media drives,
+
+02:49.300 --> 02:51.660
+tapes, solid state drives.
+
+02:51.660 --> 02:54.380
+These are all examples of secondary storage.
+
+02:54.380 --> 02:58.460
+They're not nearly as fast, but they can store a lot more data.
+
+02:58.460 --> 03:01.580
+A lot more pictures of you, cutie.
+
+03:01.580 --> 03:05.380
+So what do we primarily use secondary storage for?
+
+03:05.380 --> 03:10.220
+We use secondary storage for storing the data and the program code when it's not being
+
+03:10.220 --> 03:11.220
+used.
+
+03:11.220 --> 03:16.180
+So pictures, things like that, data from programs, movies, they're stored in our secondary
+
+03:16.180 --> 03:17.460
+storage.
+
+03:17.460 --> 03:22.540
+Now, let's talk about one other concept and it's known as virtual memory.
+
+03:22.540 --> 03:26.820
+And to explain virtual memory, we have to understand a little bit how a computer system
+
+03:26.820 --> 03:27.820
+actually works.
+
+03:27.820 --> 03:33.140
+So you've probably noticed when you double click on an icon like Word, it actually takes
+
+03:33.140 --> 03:35.860
+a little bit of time for that program to load.
+
+03:35.860 --> 03:39.940
+And in fact, there's often what we call a load screen.
+
+03:39.940 --> 03:41.860
+So what is a load screen?
+
+03:41.860 --> 03:46.780
+A load screen is where the program is telling you it's actually taking data from secondary
+
+03:46.780 --> 03:52.340
+storage, from slower hard drives, and it's moving it into RAM, into memory, much higher
+
+03:52.340 --> 03:53.860
+speed storage.
+
+03:53.860 --> 03:58.140
+And the reason you want this to occur is that the processor works so incredibly quickly.
+
+03:58.140 --> 04:01.060
+It's always going through calculations.
+
+04:01.060 --> 04:05.140
+We've had to wait for a very long time for some data that's requested to come back from
+
+04:05.140 --> 04:06.820
+say secondary storage.
+
+04:06.820 --> 04:10.660
+It would really significantly slow the computer system down.
+
+04:10.660 --> 04:14.580
+So when we load a program, what we're actually doing is transferring data from secondary
+
+04:14.580 --> 04:19.860
+storage, the hard drive, into primary storage, RAM, random access memory.
+
+04:19.860 --> 04:21.100
+Can you say that out loud?
+
+04:21.100 --> 04:22.540
+Probably not yet.
+
+04:22.540 --> 04:25.660
+So there's a problem though with this.
+
+04:25.660 --> 04:29.660
+If you've got too many programs running, if you've loaded too many programs, you're
+
+04:29.660 --> 04:33.620
+going to run out of this primary storage known as RAM.
+
+04:33.620 --> 04:36.100
+And you've probably heard numbers relate to your computer systems.
+
+04:36.100 --> 04:41.300
+It's not uncommon that a computer will have, say, four or eight gigabytes of RAM, and
+
+04:41.300 --> 04:43.380
+you'll have like, terabytes of storage.
+
+04:43.380 --> 04:47.780
+So RAM is really, really small, relatively, to the secondary storage.
+
+04:47.780 --> 04:52.220
+And so the problem we had is if we've loaded too many programs into RAM, we start to run
+
+04:52.220 --> 04:53.780
+out of RAM.
+
+04:53.780 --> 04:57.980
+And a computer system, if it were to run out of memory entirely, the system would crash.
+
+04:57.980 --> 05:00.220
+And in fact, we used to see this a lot.
+
+05:00.220 --> 05:02.740
+So there used to be something called the blue screen of death.
+
+05:02.740 --> 05:05.020
+Hopefully, you'll never have to see that in your life.
+
+05:05.020 --> 05:09.700
+But in Windows, if you had too many things loaded and the system ran out of RAM, ran out
+
+05:09.700 --> 05:21.420
+of this primary storage, you'd actually get a blue screen, the system would crash.
+
+05:21.420 --> 05:26.180
+So a way that we found, the industry is found to actually deal with this problem is to use
+
+05:26.180 --> 05:28.020
+what is known as virtual memory.
+
+05:28.020 --> 05:34.420
+And this is the concept, drooly face, where we move some data out of RAM back to the hard
+
+05:34.420 --> 05:35.420
+drive.
+
+05:35.420 --> 05:37.860
+And we temporarily store it on the hard drive until it's neat again.
+
+05:37.860 --> 05:42.420
+And then we can move it again back from the hard drive, woo, we were falling, back into
+
+05:42.420 --> 05:43.420
+primary storage.
+
+05:43.420 --> 05:45.500
+And that's the concept of virtual memory.
+
+05:45.500 --> 05:49.380
+It's simply this idea that some data that's not being used very often is moved out of
+
+05:49.380 --> 05:51.420
+RAM onto the hard drive.
+
+05:51.420 --> 05:54.340
+And then when it's needed again, back into memory.
+
+05:54.340 --> 05:57.620
+With the overall effect, it definitely slows down the system.
+
+05:57.620 --> 06:01.340
+But the system keeps running, so that's virtual memory.
+

@@ -1,0 +1,39 @@
+start	end	text
+0	20000	All right, continuing our discussion on intrusion detection systems and intrusion prevention systems.
+30000	40000	All right, continuing our discussion on intrusion detection systems and intrusion prevention systems.
+40000	48000	We've already talked about how they typically work and so on, but we need to talk about the two types that actually exist.
+48000	54000	So as we said earlier, there really is no difference between IDSs and IPSs.
+54000	62000	IPSs really have the ability to not only detect but also prevent, detect and correct all in line.
+62000	71000	But when you look at, for example, the two types, and that's the keyword that we need to focus on here is types of IDSs and IPSs.
+71000	77000	It is, or they are what you see up on your slide here, network-based and host-based.
+77000	81000	And of course, those words tell you exactly the difference or how they work.
+81000	90000	Network-based IDSs slash IPSs will monitor network traffic to make sure that it's okay and not breaking any rules, for example.
+90000	99000	Whereas host-based, what that requires is typically agents that are running on your important hosts like your servers.
+99000	105000	And they can watch for activity at those hosts to make sure that nothing breaks the rules.
+105000	114000	So here, network-based usually requires sensors that are strategically placed across the network to make sure that network traffic is okay.
+114000	122000	Host-based requires agents that can monitor the activity at specific hosts like who is changing system files,
+122000	125000	who is accessing databases and so on.
+125000	136000	And obviously, an organization would want to implement a combination of both to really provide really good detective capabilities from an IDS and IPS perspective.
+136000	142000	The slide that you see here is really giving us a view of how they differ from each other.
+142000	149000	The IDS setup that you see at the top of the slide really is only able to detect, for example.
+149000	158000	But again, it wouldn't make sense for an organization to have a standalone IDS system whose sole purpose is to detect.
+158000	164000	It needs to be able to trigger the corrective capability that needs to happen after that.
+164000	172000	As we've said many times and you should always remember, a complete control is one that can prevent, detect, and correct.
+172000	179000	So if you're using an IDS system, it really needs to be coupled with the preventive control, which is the firewall.
+179000	184000	But then when the IDS detects, it needs to trigger the corrective capability.
+184000	193000	And that's what you see in the bottom representation here, where we've got an IPS system that really has the ability to prevent, detect, and correct
+193000	206000	all in line. And so think of IPS systems as the next evolution of how we implement, for example, IDS capabilities so that ultimately we have prevent, detect, and correct capability.
+206000	212000	Now typical architectures that exist out there for organizations, you know, vary.
+212000	221000	But of course, if you've got different environments like a DMZ, for example, where you have services that are available from the outside internet,
+221000	225000	you need to be able to detect activity that is happening there as well.
+225000	232000	So that's one architecture where you need to have preventive, detective, and corrective capabilities.
+232000	250000	But then if you look at how typical organizations structure their architectures, there may be other points of your network where you obviously need to be able to not only prevent, but also detect, and correct, which is what these capabilities give you here.
+250000	260000	And if you look at, you know, possibly some other legs that your network may have, then obviously we need those capabilities at those connections as well.
+260000	264000	Again, prevent, detect, correct, is what we need.
+264000	272000	Now some of the things that make IDS as an IPS is capable is obviously the ability to, for example, monitor the traffic.
+272000	282000	And that requires you to put, for example, certain devices and technologies in what you see here mirror mode or span mode or promiscuous mode.
+282000	285000	A lot of people will refer to these as promiscuous mode.
+285000	301000	But for example, a network administrator may want to put their network card into promiscuous mode so that it allows broadcasts from everyone and anyone across the network so that they can ultimately do their job, which is monitor the network.
+301000	312000	To properly administer and monitor the network, they would have to accept broadcasts and look at broadcasts, for example, from across the entire network.
+312000	328000	So these are really important concepts to allow, for example, your IDS and IPS systems to be able to monitor all traffic by obviously utilizing mirror mode, span mode, and promiscuous mode as well.
+328000	340000	Music

@@ -1,0 +1,14 @@
+{
+  "id": 225,
+  "title": "Single & Multi-Factor Authentication",
+  "url": "https://my.destcert.com/videolesson/225",
+  "videoLink": "s3://dc-video-prod-private/hls-transcoded/CISSP/CISSP_MasterClass/Re-export-2019/Video 38 - D05S02_no music",
+  "domain": "5. Identity and Access Management (IAM)",
+  "subdomain": "5.2 â€” Authentication, Authorization and Accounting (AAA)",
+  "duration": "02:20",
+  "transcript": "We've talked about the three factors of authentication, authentication by knowledge, ownership,\r\nand\r\nWe've talked about the three factors of authentication, authentication by knowledge, ownership, and characteristic.\r\nWe can use these different factors, alone or in combination, to achieve what is often\r\nreferred to as single or multifactor authentication.\r\nLet's start with single factor authentication.\r\nWhat does that mean?\r\nWell, at the most basic level,\r\nsingle factor authentication simply means\r\nthat we use one of those three factors of authentication.\r\nSo it's simply authentication by knowledge\r\nor authentication by ownership\r\nor authentication by characteristic by themselves.\r\nSo if I were to ask you this question,\r\na user logs into a system using an RSA ID token.\r\nWhat is that?\r\nIs that multifactor or is that single factor?\r\nAnd the answer of course is that it's\r\nsingle factor authentication\r\nbecause the only factor of authentication\r\nthey used by just using an RSA ID key\r\nis authentication by ownership.\r\nNow, what about multifactor authentication?\r\nYou've undoubtedly heard this term.\r\nIt gets thrown around all of the place.\r\nWhat is the true and perfect definition\r\nof multifactor authentication?\r\nThe perfect definition is that multifactor authentication\r\nis two or more different factors of authentication.\r\nAnd so a key to my bank is a perfect example of this.\r\nJust recently, they rolled out\r\nthis whole multifactor authentication initiative\r\nand they were very proud of themselves\r\nthat they now had MFA multifactor authentication.\r\nAnd what you had to do, what you have to do now,\r\nto log in with MFA is you have to provide first your password\r\nand then answer a security question.\r\nAnd is that multifactor authentication?\r\nWell, it's authentication by knowledge\r\nand then authentication by knowledge.\r\nTwo factors, but they're the same factors.\r\nSo that is not truly multifactor authentication.\r\nSo that's the difference between single factor\r\nand multifactor authentication.\r\nSo that means that you're not 100% integrated.\r\nThat's what you needed.",
+  "transcriptSource": "whisper-base",
+  "transcriptLength": 2083,
+  "whisperModel": "base",
+  "processedAt": "2026-04-13T19:27:19.440Z"
+}

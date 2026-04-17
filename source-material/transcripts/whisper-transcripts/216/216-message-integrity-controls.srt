@@ -1,0 +1,800 @@
+1
+00:00:00,000 --> 00:00:03,640
+And to some degree, we've also talked about access control.
+
+2
+00:00:03,640 --> 00:00:09,520
+What's left to discuss now are integrity controls and also digital signatures.
+
+3
+00:00:09,520 --> 00:00:12,360
+And you'll see that the two are really related to each other.
+
+4
+00:00:12,360 --> 00:00:19,280
+In fact, addressing digital signatures which address non-repudiation requires us to take
+
+5
+00:00:19,280 --> 00:00:21,120
+care of integrity first.
+
+6
+00:00:21,120 --> 00:00:25,200
+So what we're going to talk about in this section are what are called message integrity
+
+7
+00:00:25,200 --> 00:00:28,840
+controls that cryptography can help for us.
+
+8
+00:00:28,840 --> 00:00:35,000
+Now if you'll remember, what integrity means from a cryptography perspective is if I send
+
+9
+00:00:35,000 --> 00:00:41,080
+you a message, what I need to do is I need to do something with that message first from
+
+10
+00:00:41,080 --> 00:00:47,560
+an integrity perspective or from a cryptography perspective to come up with the representation
+
+11
+00:00:47,560 --> 00:00:50,000
+of the message that I'm sending you.
+
+12
+00:00:50,000 --> 00:00:54,920
+And then what I do is I send you the message, but I also send you that representation along
+
+13
+00:00:54,920 --> 00:00:56,000
+with it.
+
+14
+00:00:56,000 --> 00:01:01,520
+So that when you receive the message and the representation, you will take just the
+
+15
+00:01:01,520 --> 00:01:09,360
+message, put it through the same integrity algorithm that I did to come up with a representation
+
+16
+00:01:09,360 --> 00:01:11,160
+of what you've received.
+
+17
+00:01:11,160 --> 00:01:14,440
+And then you will compare that with the one that I sent you.
+
+18
+00:01:14,440 --> 00:01:18,920
+And if the two values match, it means that nothing happened along the way.
+
+19
+00:01:18,920 --> 00:01:24,640
+The whole purpose of message integrity controls is to identify when something happens along
+
+20
+00:01:24,640 --> 00:01:25,640
+the way.
+
+21
+00:01:25,640 --> 00:01:31,360
+And what could happen along the way could be due to someone intentionally changing it
+
+22
+00:01:31,360 --> 00:01:33,920
+or maybe errors happened along the way.
+
+23
+00:01:33,920 --> 00:01:39,480
+But regardless of what causes the change, we want to be able to identify when it gets
+
+24
+00:01:39,480 --> 00:01:40,480
+to you.
+
+25
+00:01:40,480 --> 00:01:43,960
+So that's what all message integrity controls do.
+
+26
+00:01:43,960 --> 00:01:49,120
+And what they rely on are integrity controls that focus on cryptography.
+
+27
+00:01:49,120 --> 00:01:51,600
+It's called one way encryption.
+
+28
+00:01:51,600 --> 00:01:57,240
+One way encryption takes a message or a data of any length, for example.
+
+29
+00:01:57,240 --> 00:02:04,760
+And we'll always produce a small representation of the entire thing, which can be useful in
+
+30
+00:02:04,760 --> 00:02:09,640
+identifying, for example, changes when we send or we store something.
+
+31
+00:02:09,640 --> 00:02:13,160
+So the idea of integrity controls is pretty simple.
+
+32
+00:02:13,160 --> 00:02:17,360
+And I'm going to illustrate that by using this example here.
+
+33
+00:02:17,360 --> 00:02:22,520
+Let's say this is the data that I want to send you.
+
+34
+00:02:22,520 --> 00:02:28,400
+The whole purpose of integrity controls is to take the entire thing, do something to it
+
+35
+00:02:28,400 --> 00:02:33,400
+mathematically to come up with the representation of the entire thing.
+
+36
+00:02:33,400 --> 00:02:37,680
+But by using a small value, something that is really small.
+
+37
+00:02:37,680 --> 00:02:42,480
+And I think if you look at this, you can probably come up with a way that we can, for example,
+
+38
+00:02:42,480 --> 00:02:47,520
+look at this entire data to come up with the one digit number that really represents
+
+39
+00:02:47,520 --> 00:02:48,520
+the entire thing.
+
+40
+00:02:48,520 --> 00:02:56,320
+In fact, if we look at this, if we add all of the digits and use that as the representation,
+
+41
+00:02:56,320 --> 00:02:58,080
+we come up with a number nine.
+
+42
+00:02:58,080 --> 00:03:03,760
+But the number nine is a one digit number that really represents the entire message.
+
+43
+00:03:03,760 --> 00:03:10,760
+And so what I do now is I send you this, the message, but I also send you this representation.
+
+44
+00:03:10,760 --> 00:03:17,960
+And by the way, this representation is usually referred to as a digest or a message digest.
+
+45
+00:03:17,960 --> 00:03:21,040
+Both I think is what you might see on the exam.
+
+46
+00:03:21,040 --> 00:03:26,520
+But it is that representation, that small representation of the entire message.
+
+47
+00:03:26,520 --> 00:03:30,280
+So I send you the message and the digest along with it.
+
+48
+00:03:30,280 --> 00:03:35,800
+So let's say that it gets to you and nothing happened along the way.
+
+49
+00:03:35,800 --> 00:03:42,400
+So I sent you this and the nine, you ended up getting the exact same thing and the nine.
+
+50
+00:03:42,400 --> 00:03:47,000
+So what you do now is you're going to take what you've received and put it through the
+
+51
+00:03:47,000 --> 00:03:50,080
+same mathematical process that I did.
+
+52
+00:03:50,080 --> 00:03:52,280
+So you're going to add up the digits.
+
+53
+00:03:52,280 --> 00:03:56,000
+You're going to get the number nine and then you're going to compare it to the one that
+
+54
+00:03:56,000 --> 00:03:57,000
+I sent you.
+
+55
+00:03:57,000 --> 00:04:01,560
+And if the two values match, it means that nothing happened along the way.
+
+56
+00:04:01,560 --> 00:04:06,040
+Because if something had happened along the way, let's say the first digit changed.
+
+57
+00:04:06,040 --> 00:04:10,760
+For example, let's say that I sent you this and the nine, but the first digit changed
+
+58
+00:04:10,760 --> 00:04:12,400
+to a two, let's say.
+
+59
+00:04:12,400 --> 00:04:17,080
+So I sent you this, you end up getting this.
+
+60
+00:04:17,080 --> 00:04:21,800
+When you add up the digits here, you're going to get a different value than the one that
+
+61
+00:04:21,800 --> 00:04:23,040
+I sent you.
+
+62
+00:04:23,040 --> 00:04:27,860
+And so when you compare those two values, you're going to say, oh, the two values do not
+
+63
+00:04:27,860 --> 00:04:28,860
+match.
+
+64
+00:04:28,860 --> 00:04:31,060
+Digests do not match.
+
+65
+00:04:31,060 --> 00:04:34,820
+You're going to call me back and say, John, please re-send the information something
+
+66
+00:04:34,820 --> 00:04:36,620
+happened along the way.
+
+67
+00:04:36,620 --> 00:04:41,660
+We've been able to identify integrity problems in transmission.
+
+68
+00:04:41,660 --> 00:04:46,420
+That's what the whole point of integrity controls really are to identify when something
+
+69
+00:04:46,420 --> 00:04:50,380
+changes, either purposely or unintentionally.
+
+70
+00:04:50,380 --> 00:04:54,500
+But regardless of what caused the change, we've been able to identify it.
+
+71
+00:04:54,500 --> 00:04:59,060
+Now one more thing to illustrate this, and that is to illustrate here.
+
+72
+00:04:59,060 --> 00:05:03,940
+And that is that our method of doing this is not good enough, right?
+
+73
+00:05:03,940 --> 00:05:10,420
+We need to use better math, for example, that is more sensitive to very small bit changes.
+
+74
+00:05:10,420 --> 00:05:14,660
+You obviously want these mathematical processes to be very sensitive.
+
+75
+00:05:14,660 --> 00:05:19,220
+Because in our case, let's say the first two digits changed.
+
+76
+00:05:19,220 --> 00:05:27,780
+Let's say I sent you this and the nine, but you end up getting this and the nine.
+
+77
+00:05:27,780 --> 00:05:33,180
+When you add up the digits here, you're going to get the same number, the same digest that
+
+78
+00:05:33,180 --> 00:05:34,180
+I sent.
+
+79
+00:05:34,180 --> 00:05:37,740
+But the two messages are actually different, aren't they?
+
+80
+00:05:37,740 --> 00:05:44,060
+And so because our mathematical process here is not good enough, then it's not able
+
+81
+00:05:44,060 --> 00:05:47,500
+to identify everything that could happen to your data.
+
+82
+00:05:47,500 --> 00:05:51,100
+So you want these methods to be much better than what we're using here.
+
+83
+00:05:51,100 --> 00:05:57,820
+In fact, what we have illustrated here, when you have two different messages that produce
+
+84
+00:05:57,820 --> 00:06:05,540
+the same digest, that is what is referred to as a collision in cryptography.
+
+85
+00:06:05,540 --> 00:06:11,060
+And the word collision actually can only be in reference to hashing algorithms or integrity
+
+86
+00:06:11,060 --> 00:06:12,060
+controls.
+
+87
+00:06:12,060 --> 00:06:16,180
+We cannot use that word anywhere else in cryptography.
+
+88
+00:06:16,180 --> 00:06:23,260
+So this is basically the function that all message integrity controls provide for us.
+
+89
+00:06:23,260 --> 00:06:27,620
+And if we turn to the next slide here, you're going to see that there are a whole bunch
+
+90
+00:06:27,620 --> 00:06:31,260
+of different integrity controls that exist out there.
+
+91
+00:06:31,260 --> 00:06:33,180
+And it's represented on your slide here.
+
+92
+00:06:33,180 --> 00:06:35,820
+So for example, we have parity protection.
+
+93
+00:06:35,820 --> 00:06:37,740
+We have hashing functions.
+
+94
+00:06:37,740 --> 00:06:39,500
+We have check sums.
+
+95
+00:06:39,500 --> 00:06:41,500
+We have CRC checks.
+
+96
+00:06:41,500 --> 00:06:44,060
+We have message authentication codes.
+
+97
+00:06:44,060 --> 00:06:46,340
+What's the difference between all of them?
+
+98
+00:06:46,340 --> 00:06:53,220
+Well, the difference is in the math that they use to come up with the number or that small
+
+99
+00:06:53,220 --> 00:06:58,140
+representation that really represents the data itself.
+
+100
+00:06:58,140 --> 00:07:01,540
+Some use better math than others, all right?
+
+101
+00:07:01,540 --> 00:07:02,540
+Some are very simple.
+
+102
+00:07:02,540 --> 00:07:05,860
+Like for example, CRC checks use very simple math.
+
+103
+00:07:05,860 --> 00:07:09,780
+So do check sums and message authentication codes.
+
+104
+00:07:09,780 --> 00:07:15,860
+The ones that use the best math are the ones that we're going to focus on from this point
+
+105
+00:07:15,860 --> 00:07:16,860
+on.
+
+106
+00:07:16,860 --> 00:07:20,020
+And they are called hashing algorithms.
+
+107
+00:07:20,020 --> 00:07:26,380
+And hashing algorithms are things like, and I'm sure you've heard of these, MD5 and
+
+108
+00:07:26,380 --> 00:07:29,020
+Shaw for example.
+
+109
+00:07:29,020 --> 00:07:33,940
+So the hashing algorithms are the ones that use the best math because we want them to be
+
+110
+00:07:34,020 --> 00:07:42,540
+very sensitive to small bit changes because these will take any size or arbitrary length input
+
+111
+00:07:42,540 --> 00:07:48,300
+and always produce a digest that is very small, but you want them to be able to identify
+
+112
+00:07:48,300 --> 00:07:50,500
+very small bit changes.
+
+113
+00:07:50,500 --> 00:07:56,100
+And those are what we call hashing algorithms like MD5 and Shaw 1.
+
+114
+00:07:56,100 --> 00:08:00,820
+So hashing functions is sometimes what they're also called, but hashing algorithms I think
+
+115
+00:08:00,820 --> 00:08:05,580
+is pretty standard as far as the industry is concerned.
+
+116
+00:08:05,580 --> 00:08:10,020
+And what they do and here's what you need to remember about hashing algorithms is that
+
+117
+00:08:10,020 --> 00:08:13,380
+they will always take a message of any length.
+
+118
+00:08:13,380 --> 00:08:19,500
+It doesn't matter if it's one word, one email for example, or your entire hard drive.
+
+119
+00:08:19,500 --> 00:08:26,180
+They take arbitrary length input and always produce a fixed length digest.
+
+120
+00:08:26,180 --> 00:08:30,780
+And so if we focus on the two that are very important here, you'll know that MD5
+
+121
+00:08:30,780 --> 00:08:36,540
+will always produce a 128 bit digest for example.
+
+122
+00:08:36,540 --> 00:08:41,260
+Shaw will always produce a 160 bit digest.
+
+123
+00:08:41,260 --> 00:08:45,340
+So at least Shaw 1, you'll see that there's different versions of Shaw that we're going
+
+124
+00:08:45,340 --> 00:08:47,340
+to talk about coming up here.
+
+125
+00:08:47,340 --> 00:08:54,100
+And so again, if the message is very large, it will always also produce a fixed sized
+
+126
+00:08:54,100 --> 00:08:55,500
+result.
+
+127
+00:08:55,500 --> 00:09:00,420
+And in fact, it doesn't matter what you put into it, it will always produce that fixed
+
+128
+00:09:00,420 --> 00:09:05,020
+size result, which is referred to as the digest itself.
+
+129
+00:09:05,020 --> 00:09:10,060
+Now for these, to be really good, and that's why they are really good, we've already said
+
+130
+00:09:10,060 --> 00:09:12,700
+that they do use the best math.
+
+131
+00:09:12,700 --> 00:09:17,380
+But that also means that the way that these hashing algorithms have been developed is that
+
+132
+00:09:17,380 --> 00:09:22,220
+they address some really important characteristics and elements that make them really good.
+
+133
+00:09:22,220 --> 00:09:24,980
+For example, they have to be one way.
+
+134
+00:09:24,980 --> 00:09:29,700
+And what they mean by one way is that we can take a message of any length and produce
+
+135
+00:09:29,780 --> 00:09:35,300
+that digest, but nobody can take that digest and work backwards to be able to disclose,
+
+136
+00:09:35,300 --> 00:09:39,540
+for example, what the message look like, they can only go one way.
+
+137
+00:09:39,540 --> 00:09:46,220
+Deterministic means that if you take the same message twice and you hash it using the
+
+138
+00:09:46,220 --> 00:09:51,780
+exact same hashing algorithm, it will always produce the same digest, no matter how many
+
+139
+00:09:51,780 --> 00:09:53,140
+times you do it.
+
+140
+00:09:53,140 --> 00:09:58,020
+It will always produce the same digest, and that's obviously very important.
+
+141
+00:09:58,020 --> 00:10:03,060
+These hashing algorithms also need to look at the entire message in order to come up
+
+142
+00:10:03,060 --> 00:10:08,260
+with that digest, because if they don't, the part that they don't look at can change
+
+143
+00:10:08,260 --> 00:10:13,380
+and you'd never be able to identify messages that have changed, for example.
+
+144
+00:10:13,380 --> 00:10:16,540
+Uniformly distributed simply means that they're available everywhere.
+
+145
+00:10:16,540 --> 00:10:21,740
+There's a lot of crypto systems that have these hashing algorithms built in that will
+
+146
+00:10:21,740 --> 00:10:26,220
+allow any two parties, for example, to address integrity very easily.
+
+147
+00:10:26,220 --> 00:10:32,300
+They are widely accessible and available for all kinds of different applications.
+
+148
+00:10:32,300 --> 00:10:38,860
+As we illustrated before, collisions are not good in integrity controls.
+
+149
+00:10:38,860 --> 00:10:44,580
+These hashing algorithms do resist collisions really well, although the opportunity for
+
+150
+00:10:44,580 --> 00:10:48,420
+collisions will never totally go away.
+
+151
+00:10:48,420 --> 00:10:52,620
+The experts in this industry tell us that because you're always taking a message of any
+
+152
+00:10:52,700 --> 00:10:58,180
+length and always producing something that is very small, the opportunity for collisions
+
+153
+00:10:58,180 --> 00:11:04,220
+will always be possible, but you want these to resist that as much as possible.
+
+154
+00:11:04,220 --> 00:11:09,220
+The ones that are the use the most often and are the most popular is what you see on
+
+155
+00:11:09,220 --> 00:11:10,740
+this slide.
+
+156
+00:11:10,740 --> 00:11:17,740
+By far, MD5 is the most commonly used hashing algorithm out there.
+
+157
+00:11:17,740 --> 00:11:26,300
+There's other versions of it, for example, MD2, MD4, MD5 came along, it's like the historical
+
+158
+00:11:26,300 --> 00:11:27,580
+evolution of these.
+
+159
+00:11:27,580 --> 00:11:33,820
+We also have MD6 today, although MD5 is still the standard for a lot of applications.
+
+160
+00:11:33,820 --> 00:11:41,100
+Shaw1, as we said before, is also very popular, produces a digest of 160 bits and you may
+
+161
+00:11:41,100 --> 00:11:47,900
+have to remember the size of the digest that is produced by each of these hashing algorithms.
+
+162
+00:11:47,900 --> 00:11:54,100
+There is what we call Shaw3, which has become the standard for many applications that require
+
+163
+00:11:54,100 --> 00:12:00,780
+a lot more security and that includes a number of versions of the Shaw algorithm and some
+
+164
+00:12:00,780 --> 00:12:08,340
+of them are Shaw256, Shaw384, Shaw512, for example, that number indicates the size
+
+165
+00:12:08,420 --> 00:12:13,620
+of the digest that is being produced by that particular version of Shaw.
+
+166
+00:12:13,620 --> 00:12:18,940
+One of the questions that you might see somewhere is what's the advantage of using a longer
+
+167
+00:12:18,940 --> 00:12:24,620
+digest and the obvious answer to that is that you will have less collisions.
+
+168
+00:12:24,620 --> 00:12:29,580
+The longer the digest, the less opportunity for collisions and that's why some of these
+
+169
+00:12:29,580 --> 00:12:31,060
+are very popular.
+
+170
+00:12:31,060 --> 00:12:36,020
+In fact, a collision is what we're trying to show you here on this slide where you have
+
+171
+00:12:36,020 --> 00:12:42,260
+two different messages that produce the exact same digest and that's what we'd refer
+
+172
+00:12:42,260 --> 00:12:50,540
+to as collision and good hashing algorithms will and should resist that as much as possible,
+
+173
+00:12:50,540 --> 00:12:57,460
+especially these ones and the better versions of Shaw that are collected within that Shaw3
+
+174
+00:12:57,460 --> 00:13:00,180
+algorithm that we talk about there.
+
+175
+00:13:00,180 --> 00:13:04,700
+Now, one of the things that you may see on the exam that we're going to talk about in
+
+176
+00:13:04,700 --> 00:13:09,780
+more detail later is something called the birthday paradox that relates to something
+
+177
+00:13:09,780 --> 00:13:12,460
+called the birthday attack.
+
+178
+00:13:12,460 --> 00:13:18,660
+You need to remember that the birthday attack is a attack that people have come up with
+
+179
+00:13:18,660 --> 00:13:24,580
+against hashing algorithms like MD5 and Shaw1, for example.
+
+180
+00:13:24,580 --> 00:13:30,700
+What they try and do is they try and use the math that the birthday paradox uses and
+
+181
+00:13:30,700 --> 00:13:34,660
+if you know anything about this, it goes something like this.
+
+182
+00:13:35,660 --> 00:13:40,380
+If you have a room of 23 people, that's the magic number.
+
+183
+00:13:40,380 --> 00:13:45,660
+The chance that two of those people, any two of those people share the same birthday is
+
+184
+00:13:45,660 --> 00:13:52,300
+actually greater than 50% at that point and as you start adding more people in the room,
+
+185
+00:13:52,300 --> 00:13:57,860
+the opportunity or the probability that two people share the same birthday in that room
+
+186
+00:13:57,860 --> 00:14:04,620
+will actually grow exponentially to the point where you only need 60 people in a room
+
+187
+00:14:05,180 --> 00:14:11,740
+to have the probability be 99% that any two of those people in that room share the same
+
+188
+00:14:11,740 --> 00:14:12,740
+birthday.
+
+189
+00:14:12,740 --> 00:14:16,540
+By birthday, we mean month and day, not year.
+
+190
+00:14:16,540 --> 00:14:18,860
+This is referred to as the birthday paradox.
+
+191
+00:14:18,860 --> 00:14:22,860
+You can Google it and there's all kinds of videos that have been made about this pretty
+
+192
+00:14:22,860 --> 00:14:24,540
+cool math.
+
+193
+00:14:24,540 --> 00:14:30,860
+The bottom line here is that there is a specific attack against hashing algorithms that people
+
+194
+00:14:30,860 --> 00:14:38,100
+have devised that basically uses the same math to find, guess what, different messages
+
+195
+00:14:38,100 --> 00:14:42,100
+that produce the same digest, which is a collision.
+
+196
+00:14:42,100 --> 00:14:48,500
+So what you need to remember as far as this is concerned, just remember birthday attack,
+
+197
+00:14:48,500 --> 00:14:54,180
+hashing algorithms, collisions, if you see any one of those, think of the others and it
+
+198
+00:14:54,180 --> 00:14:56,980
+should give you the answer to the exam question.
+
+199
+00:14:56,980 --> 00:15:02,140
+But the math called the birthday attack is something that uses the birthday paradox math
+
+200
+00:15:02,140 --> 00:15:05,700
+to be able to try and find collisions with different messages.
+

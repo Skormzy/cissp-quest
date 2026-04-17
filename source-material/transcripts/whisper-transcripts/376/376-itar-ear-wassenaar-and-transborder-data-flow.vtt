@@ -1,0 +1,479 @@
+WEBVTT
+
+00:00.000 --> 00:24.000
+We're now going to talk about some interesting laws and regulations that you may have to
+
+00:24.000 --> 00:27.320
+think about as a security professional from around the world.
+
+00:27.320 --> 00:32.320
+We're going to start with some interesting, kind of more historical laws related to cryptography.
+
+00:32.320 --> 00:37.480
+Then we're going to talk about something known as the Wasson Arrangements and then some
+
+00:37.480 --> 00:39.840
+trans-border data flow laws or data residency laws.
+
+00:39.840 --> 00:42.480
+But let's start here with this kind of historical footnote.
+
+00:42.480 --> 00:45.600
+So here's a really interesting bit of historical trivia.
+
+00:45.600 --> 00:51.240
+I'm going to take us back to sort of the late 70s, early 80s.
+
+00:51.240 --> 00:57.000
+Back then, some amazing new cryptographic techniques and algorithms we're being developed.
+
+00:57.000 --> 01:00.320
+It's like des the data encryption standard that we'll talk about.
+
+01:00.320 --> 01:05.000
+And things like asymmetric cryptography, which would solve the symmetric key distribution
+
+01:05.000 --> 01:06.000
+problem.
+
+01:06.000 --> 01:07.000
+We'll get into all that later.
+
+01:07.000 --> 01:11.400
+But these new cryptographic techniques were amazing.
+
+01:11.400 --> 01:13.320
+And you could do some really incredible things with them.
+
+01:13.320 --> 01:19.760
+You could encrypt information in such a way that no one, no one, could decrypt it.
+
+01:19.760 --> 01:26.480
+And this was rather troubling to certain organizations, agencies, like the NSA.
+
+01:26.480 --> 01:28.800
+The national security agency in the US.
+
+01:28.800 --> 01:30.920
+And so certain laws were put in place.
+
+01:30.920 --> 01:32.920
+So here is the fear, right?
+
+01:32.920 --> 01:36.640
+Certain governments around the world were concerned that, hey, if someone were to encrypt
+
+01:36.640 --> 01:42.960
+information with these new cryptographic techniques, we say the NSA would not be able to decrypt
+
+01:42.960 --> 01:43.960
+it.
+
+01:43.960 --> 01:46.520
+We don't have, they didn't have the technology to decrypt it.
+
+01:46.520 --> 01:48.280
+And that was obviously very troubling to them, right?
+
+01:48.280 --> 01:49.280
+Because they're job.
+
+01:49.280 --> 01:51.840
+Well, for, you know, there's a lot of agencies around the world, not just the NSA.
+
+01:51.840 --> 01:54.800
+And I should probably stop saying NSA because they're probably going to be able to find
+
+01:54.800 --> 01:55.800
+me.
+
+01:56.080 --> 02:01.240
+So the point is there are certain agencies, governments around the world that wanted
+
+02:01.240 --> 02:07.000
+to restrict these cryptographic algorithms and make sure that they didn't get into sketchy
+
+02:07.000 --> 02:11.440
+hands, like, I don't know, sketchy Canadians like me.
+
+02:11.440 --> 02:15.920
+So certain laws were put in place to restrict the export of cryptographic algorithms.
+
+02:15.920 --> 02:19.640
+And there's two of these laws that you need to know about, ITAR and EAR.
+
+02:19.640 --> 02:23.040
+Here's the sort of simple thing you have to remember about them.
+
+02:23.040 --> 02:26.760
+So ITAR stands for the International Traffic and Arms Regulations.
+
+02:26.760 --> 02:30.960
+By the way, these are both US-centric regulations.
+
+02:30.960 --> 02:36.520
+ITAR, here's the key thing I remember, focuses on defense-related items.
+
+02:36.520 --> 02:41.720
+In other words, technology systems that are specifically meant for defense.
+
+02:41.720 --> 02:43.840
+That's what ITAR focuses on.
+
+02:43.840 --> 02:48.360
+And so certain cryptographic algorithms might fall under that category of only being used
+
+02:48.360 --> 02:51.200
+by defense, and therefore they'd be covered by ITAR.
+
+02:51.680 --> 02:58.120
+EAR, the export administration regulations, they cover what are called dual use items.
+
+02:58.120 --> 03:02.240
+Dual use items are things, technologies, systems, night vision goggles.
+
+03:02.240 --> 03:04.960
+Night vision goggles can be used by the military.
+
+03:04.960 --> 03:08.600
+They can also be used by people in regular day lives, although I don't know why you're
+
+03:08.600 --> 03:10.520
+wondering on night vision goggles.
+
+03:10.520 --> 03:14.520
+But there are certain technologies that are used systems, technologies that are used
+
+03:14.520 --> 03:17.440
+both by the military and by civilians.
+
+03:17.440 --> 03:19.720
+And that's what are considered to be dual use items.
+
+03:19.720 --> 03:22.320
+And EAR covers dual use items.
+
+03:22.320 --> 03:26.880
+Simple way to remember this, ITAR covers defense stuff, EAR covers defense and everything
+
+03:26.880 --> 03:27.880
+else.
+
+03:27.880 --> 03:29.560
+It's kind of the way to think about it.
+
+03:29.560 --> 03:30.880
+So these were really serious laws.
+
+03:30.880 --> 03:35.440
+If you were found to be in violation of these laws, then you could be thrown in federal
+
+03:35.440 --> 03:36.440
+prison.
+
+03:36.440 --> 03:37.760
+It was pretty significant.
+
+03:37.760 --> 03:40.920
+And these laws were expanded to cover cryptographic systems.
+
+03:40.920 --> 03:46.560
+And so back in the kind of 80s, there was certain famous cryptographers that were actually
+
+03:46.800 --> 03:47.560
+worried.
+
+03:47.560 --> 03:50.400
+It was looking concerningly like they were going to end up in federal prison because they
+
+03:50.400 --> 03:55.440
+were creating these algorithms and wanting to put them out in the world.
+
+03:55.440 --> 03:59.680
+Now the reason these laws are still in place, but the reason they're not really applicable
+
+03:59.680 --> 04:04.200
+anymore is that nowadays the absolute best algorithms that we use, like say the advanced
+
+04:04.200 --> 04:07.320
+encryption standard, which we'll talk about later.
+
+04:07.320 --> 04:09.200
+It's an open source algorithm.
+
+04:09.200 --> 04:11.160
+Everyone has access to it around the world.
+
+04:11.160 --> 04:14.920
+And in fact, that's why we trust it so much because it's an open source algorithm.
+
+04:14.920 --> 04:18.720
+Most of the thousands of cryptographers around the world have all looked at AES, studied
+
+04:18.720 --> 04:21.800
+it, and no one's found a significant vulnerability in it.
+
+04:21.800 --> 04:23.800
+And that's why we trust it so much.
+
+04:23.800 --> 04:28.040
+And so the best algorithms and encryption algorithms that we use nowadays are open source,
+
+04:28.040 --> 04:30.840
+which is why these laws are not really applicable anymore.
+
+04:30.840 --> 04:31.840
+They're not really enforced.
+
+04:31.840 --> 04:34.440
+So it's a bit of a historical relic, but there you go.
+
+04:34.440 --> 04:37.080
+You might come across ITAR or EAR on the exam.
+
+04:37.080 --> 04:39.040
+Not super important topic.
+
+04:39.040 --> 04:43.880
+One more not super important topic is something known as the wassinar arrangement.
+
+04:43.880 --> 04:48.200
+This is a keyword here, voluntary regime.
+
+04:48.200 --> 04:55.200
+So there's 42 signing members, 42 countries that got together, and they signed this arrangement.
+
+04:55.200 --> 05:00.040
+And the whole point of this is that they are meant to exchange information, primarily related
+
+05:00.040 --> 05:02.520
+to arms, weapons, things like that.
+
+05:02.520 --> 05:06.640
+And the whole purpose is, as you can see here, wassinar aims to promote greater responsibility
+
+05:06.640 --> 05:11.480
+among its members to, in exports of weapons and dole use goods, than to prevent destabilizing
+
+05:11.480 --> 05:12.480
+communications.
+
+05:12.480 --> 05:17.560
+So basically, these 42 signing members, these 42 countries, are exchanging information
+
+05:17.560 --> 05:21.000
+about what sort of weapons and systems they're developing.
+
+05:21.000 --> 05:22.880
+And they're trying to be open and transparent about this.
+
+05:22.880 --> 05:26.400
+So there isn't concerns that, oh, this country might be building up a big stockpile over
+
+05:26.400 --> 05:30.560
+here, but maybe they aren't, they're meant to share information.
+
+05:30.560 --> 05:34.520
+Not super important, but it does sometimes the wassinar arrangement sometimes is mentioned
+
+05:34.520 --> 05:35.520
+on the exam.
+
+05:35.520 --> 05:39.960
+So now you know what it is, voluntary regime between 42 signing members.
+
+05:39.960 --> 05:45.320
+Wassinar is a little town in the Netherlands, and it was in this little town in the Netherlands
+
+05:45.320 --> 05:50.840
+that all of these 40, where the summit was, where these 42 delegations of these 42 countries
+
+05:50.840 --> 05:52.480
+got together and signed this arrangement.
+
+05:52.480 --> 05:56.800
+So that's why it's called the wassinar arrangement, not super important.
+
+05:56.800 --> 06:02.000
+What we are going to talk about now is very important, and very pertinent to today's
+
+06:02.000 --> 06:03.000
+world.
+
+06:03.000 --> 06:07.200
+And these are what we're now going to talk about are trans-border, data flow, or data residency,
+
+06:07.200 --> 06:09.120
+or data localization laws.
+
+06:09.120 --> 06:10.120
+They have these different names.
+
+06:10.120 --> 06:18.120
+They're all the same exact concept, which is these laws are designed to prevent the flow
+
+06:18.120 --> 06:22.400
+of data across physical borders.
+
+06:22.400 --> 06:26.000
+So for instance, I'm from the province of British Columbia.
+
+06:26.000 --> 06:31.400
+There's a trans-border data flow law here in BC related to ensuring that BC residents
+
+06:31.400 --> 06:36.560
+data, any resident on the government stores on BC residents remain on systems that are
+
+06:36.560 --> 06:43.480
+in BC and not, say, transferred down and stored on servers south of us in the US.
+
+06:43.480 --> 06:44.480
+Why?
+
+06:44.480 --> 06:49.160
+Well, because the government here believes that they have a responsibility to protect
+
+06:49.160 --> 06:50.480
+the citizens data.
+
+06:50.480 --> 06:55.080
+And if that data was to be stored in systems and say the US, there may not be the same privacy
+
+06:55.080 --> 06:58.240
+laws and regulations in place to protect that data.
+
+06:58.240 --> 07:02.040
+And so, and this is one of the major reasons that all sorts of different countries around
+
+07:02.040 --> 07:03.400
+the world are doing this.
+
+07:03.400 --> 07:06.080
+The poster child of this is the European Union.
+
+07:06.080 --> 07:11.440
+The European Union's overarching privacy directive, which is known as GDPR.
+
+07:11.440 --> 07:20.120
+It has a very stringent data residency requirement in it, which basically states, if
+
+07:20.120 --> 07:25.720
+anyone, any organization of any type collects data on European Union citizens, that data needs
+
+07:25.720 --> 07:30.240
+to be stored on servers in a European Union member state.
+
+07:30.240 --> 07:34.200
+And it's for the exact reason I just mentioned earlier, which is the European Union wants
+
+07:34.200 --> 07:38.240
+to make sure that they are properly protecting their citizens data, making sure that the
+
+07:38.240 --> 07:41.360
+right privacy controls are applied to that data.
+
+07:41.360 --> 07:44.760
+And they can only do that if that data is stored on systems in the EU.
+
+07:44.760 --> 07:49.960
+If that data was stored on systems and say the US, then I keep picking on the US here,
+
+07:49.960 --> 07:54.480
+because the US is fairly well known to have not having the greatest privacy laws.
+
+07:54.480 --> 07:57.960
+They also have this lovely thing called the Patriot Act, which I'm oversimplifying here,
+
+07:57.960 --> 08:04.180
+but basically says, if any data trends at the US, even just passes through the US,
+
+08:04.180 --> 08:08.220
+which a ton of internet traffic does, then that data is now the property of the US government.
+
+08:08.220 --> 08:09.540
+They can do whatever they want with it.
+
+08:09.540 --> 08:13.700
+It's not quite that severe, but it's that kind of idea.
+
+08:13.700 --> 08:16.740
+So certain countries around the world have said, you know what?
+
+08:16.740 --> 08:20.220
+We want to control where this data can be stored.
+
+08:20.220 --> 08:24.020
+And we want that data to remain within our country's boundaries.
+
+08:24.020 --> 08:27.020
+And that way we can make sure we have proper control of the data.
+
+08:27.020 --> 08:32.860
+And so these trans-border data flow laws are often related to personal data, PII personally
+
+08:32.860 --> 08:35.260
+identifiable information, but not always.
+
+08:35.260 --> 08:38.980
+Certain countries, you know, like Russia, China, for instance, they have these trans-border
+
+08:38.980 --> 08:43.300
+data flow laws, and they're trying to make sure that certain state information is not
+
+08:43.300 --> 08:45.540
+leaving their physical borders.
+
+08:45.540 --> 08:50.180
+So just remember this, trans-border data flow laws, and here's the other names, data residency,
+
+08:50.180 --> 08:51.740
+data localization laws.
+
+08:51.740 --> 08:57.660
+These are laws that require that data remain within certain physical boundaries.
+
+08:57.660 --> 09:01.220
+And of course, the reason this is so pertinent nowadays is that everyone's moving their
+
+09:01.220 --> 09:02.580
+data to the cloud.
+
+09:02.580 --> 09:04.580
+And when you're storing your data in the cloud, where's the data?
+
+09:04.580 --> 09:06.980
+I don't know, somewhere in the cloud.
+
+09:06.980 --> 09:13.220
+It's very, very easy to fall a foul of these data residency laws if you're storing data
+
+09:13.220 --> 09:16.460
+in the cloud, and you're not careful about exactly where you store it.
+
+09:16.460 --> 09:22.780
+Now to be clear, the big cloud service providers, this is why they have data centers spread
+
+09:22.780 --> 09:23.780
+around the planet.
+
+09:23.780 --> 09:27.900
+They have data centers within the UEU, for instance.
+
+09:27.900 --> 09:31.500
+So if you're collecting European citizens data, and you're storing it in the Amazon
+
+09:31.500 --> 09:36.980
+cloud, you better make sure that you've configured your data storage location to be in data centers
+
+09:36.980 --> 09:41.460
+that are in the EU, so that you can remain in compliance with these laws.
+
+09:41.460 --> 09:46.660
+So that's trans-border data flow, data residency, data localization laws, ensuring that data
+
+09:46.660 --> 09:49.140
+remains within certain physical boundaries.
+
+09:49.140 --> 09:52.820
+It doesn't pass out outside of those boundaries to ensure the protection of the data.
+

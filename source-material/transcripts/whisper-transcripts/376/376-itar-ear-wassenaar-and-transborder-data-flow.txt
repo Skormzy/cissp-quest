@@ -1,0 +1,159 @@
+We're now going to talk about some interesting laws and regulations that you may have to
+think about as a security professional from around the world.
+We're going to start with some interesting, kind of more historical laws related to cryptography.
+Then we're going to talk about something known as the Wasson Arrangements and then some
+trans-border data flow laws or data residency laws.
+But let's start here with this kind of historical footnote.
+So here's a really interesting bit of historical trivia.
+I'm going to take us back to sort of the late 70s, early 80s.
+Back then, some amazing new cryptographic techniques and algorithms we're being developed.
+It's like des the data encryption standard that we'll talk about.
+And things like asymmetric cryptography, which would solve the symmetric key distribution
+problem.
+We'll get into all that later.
+But these new cryptographic techniques were amazing.
+And you could do some really incredible things with them.
+You could encrypt information in such a way that no one, no one, could decrypt it.
+And this was rather troubling to certain organizations, agencies, like the NSA.
+The national security agency in the US.
+And so certain laws were put in place.
+So here is the fear, right?
+Certain governments around the world were concerned that, hey, if someone were to encrypt
+information with these new cryptographic techniques, we say the NSA would not be able to decrypt
+it.
+We don't have, they didn't have the technology to decrypt it.
+And that was obviously very troubling to them, right?
+Because they're job.
+Well, for, you know, there's a lot of agencies around the world, not just the NSA.
+And I should probably stop saying NSA because they're probably going to be able to find
+me.
+So the point is there are certain agencies, governments around the world that wanted
+to restrict these cryptographic algorithms and make sure that they didn't get into sketchy
+hands, like, I don't know, sketchy Canadians like me.
+So certain laws were put in place to restrict the export of cryptographic algorithms.
+And there's two of these laws that you need to know about, ITAR and EAR.
+Here's the sort of simple thing you have to remember about them.
+So ITAR stands for the International Traffic and Arms Regulations.
+By the way, these are both US-centric regulations.
+ITAR, here's the key thing I remember, focuses on defense-related items.
+In other words, technology systems that are specifically meant for defense.
+That's what ITAR focuses on.
+And so certain cryptographic algorithms might fall under that category of only being used
+by defense, and therefore they'd be covered by ITAR.
+EAR, the export administration regulations, they cover what are called dual use items.
+Dual use items are things, technologies, systems, night vision goggles.
+Night vision goggles can be used by the military.
+They can also be used by people in regular day lives, although I don't know why you're
+wondering on night vision goggles.
+But there are certain technologies that are used systems, technologies that are used
+both by the military and by civilians.
+And that's what are considered to be dual use items.
+And EAR covers dual use items.
+Simple way to remember this, ITAR covers defense stuff, EAR covers defense and everything
+else.
+It's kind of the way to think about it.
+So these were really serious laws.
+If you were found to be in violation of these laws, then you could be thrown in federal
+prison.
+It was pretty significant.
+And these laws were expanded to cover cryptographic systems.
+And so back in the kind of 80s, there was certain famous cryptographers that were actually
+worried.
+It was looking concerningly like they were going to end up in federal prison because they
+were creating these algorithms and wanting to put them out in the world.
+Now the reason these laws are still in place, but the reason they're not really applicable
+anymore is that nowadays the absolute best algorithms that we use, like say the advanced
+encryption standard, which we'll talk about later.
+It's an open source algorithm.
+Everyone has access to it around the world.
+And in fact, that's why we trust it so much because it's an open source algorithm.
+Most of the thousands of cryptographers around the world have all looked at AES, studied
+it, and no one's found a significant vulnerability in it.
+And that's why we trust it so much.
+And so the best algorithms and encryption algorithms that we use nowadays are open source,
+which is why these laws are not really applicable anymore.
+They're not really enforced.
+So it's a bit of a historical relic, but there you go.
+You might come across ITAR or EAR on the exam.
+Not super important topic.
+One more not super important topic is something known as the wassinar arrangement.
+This is a keyword here, voluntary regime.
+So there's 42 signing members, 42 countries that got together, and they signed this arrangement.
+And the whole point of this is that they are meant to exchange information, primarily related
+to arms, weapons, things like that.
+And the whole purpose is, as you can see here, wassinar aims to promote greater responsibility
+among its members to, in exports of weapons and dole use goods, than to prevent destabilizing
+communications.
+So basically, these 42 signing members, these 42 countries, are exchanging information
+about what sort of weapons and systems they're developing.
+And they're trying to be open and transparent about this.
+So there isn't concerns that, oh, this country might be building up a big stockpile over
+here, but maybe they aren't, they're meant to share information.
+Not super important, but it does sometimes the wassinar arrangement sometimes is mentioned
+on the exam.
+So now you know what it is, voluntary regime between 42 signing members.
+Wassinar is a little town in the Netherlands, and it was in this little town in the Netherlands
+that all of these 40, where the summit was, where these 42 delegations of these 42 countries
+got together and signed this arrangement.
+So that's why it's called the wassinar arrangement, not super important.
+What we are going to talk about now is very important, and very pertinent to today's
+world.
+And these are what we're now going to talk about are trans-border, data flow, or data residency,
+or data localization laws.
+They have these different names.
+They're all the same exact concept, which is these laws are designed to prevent the flow
+of data across physical borders.
+So for instance, I'm from the province of British Columbia.
+There's a trans-border data flow law here in BC related to ensuring that BC residents
+data, any resident on the government stores on BC residents remain on systems that are
+in BC and not, say, transferred down and stored on servers south of us in the US.
+Why?
+Well, because the government here believes that they have a responsibility to protect
+the citizens data.
+And if that data was to be stored in systems and say the US, there may not be the same privacy
+laws and regulations in place to protect that data.
+And so, and this is one of the major reasons that all sorts of different countries around
+the world are doing this.
+The poster child of this is the European Union.
+The European Union's overarching privacy directive, which is known as GDPR.
+It has a very stringent data residency requirement in it, which basically states, if
+anyone, any organization of any type collects data on European Union citizens, that data needs
+to be stored on servers in a European Union member state.
+And it's for the exact reason I just mentioned earlier, which is the European Union wants
+to make sure that they are properly protecting their citizens data, making sure that the
+right privacy controls are applied to that data.
+And they can only do that if that data is stored on systems in the EU.
+If that data was stored on systems and say the US, then I keep picking on the US here,
+because the US is fairly well known to have not having the greatest privacy laws.
+They also have this lovely thing called the Patriot Act, which I'm oversimplifying here,
+but basically says, if any data trends at the US, even just passes through the US,
+which a ton of internet traffic does, then that data is now the property of the US government.
+They can do whatever they want with it.
+It's not quite that severe, but it's that kind of idea.
+So certain countries around the world have said, you know what?
+We want to control where this data can be stored.
+And we want that data to remain within our country's boundaries.
+And that way we can make sure we have proper control of the data.
+And so these trans-border data flow laws are often related to personal data, PII personally
+identifiable information, but not always.
+Certain countries, you know, like Russia, China, for instance, they have these trans-border
+data flow laws, and they're trying to make sure that certain state information is not
+leaving their physical borders.
+So just remember this, trans-border data flow laws, and here's the other names, data residency,
+data localization laws.
+These are laws that require that data remain within certain physical boundaries.
+And of course, the reason this is so pertinent nowadays is that everyone's moving their
+data to the cloud.
+And when you're storing your data in the cloud, where's the data?
+I don't know, somewhere in the cloud.
+It's very, very easy to fall a foul of these data residency laws if you're storing data
+in the cloud, and you're not careful about exactly where you store it.
+Now to be clear, the big cloud service providers, this is why they have data centers spread
+around the planet.
+They have data centers within the UEU, for instance.
+So if you're collecting European citizens data, and you're storing it in the Amazon
+cloud, you better make sure that you've configured your data storage location to be in data centers
+that are in the EU, so that you can remain in compliance with these laws.
+So that's trans-border data flow, data residency, data localization laws, ensuring that data
+remains within certain physical boundaries.
+It doesn't pass out outside of those boundaries to ensure the protection of the data.

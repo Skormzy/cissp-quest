@@ -1,0 +1,112 @@
+start	end	text
+0	14560	Change management.
+14560	19120	This is the process that organizations use to make sure that changes are cost effective
+19120	48080	that all changes are made in a controlled manner they go through a proper process.
+48080	51840	So let's talk through that process, the change management process and the components
+51840	53360	of that process.
+53360	58200	But before we do, I want to briefly cover what happens if an organization doesn't
+58200	61180	have a very good change management process or the other end of the spectrum if their
+61180	64440	change management process is too rigorous, too arduous.
+64440	66280	So let's think for a moment.
+66280	70840	If an organization doesn't have a change management process, what happens?
+70840	74240	Well changes are being made and they're not being documented.
+74240	79360	No one's looking at what the impact of that change might be, what stakeholders might
+79360	80360	be affected.
+80360	82040	They're not seeking approval.
+82040	86560	So what happens when an organization has a non-existent or inefficient change management
+86560	87560	process?
+87560	90280	Well the organization tends to be very reactive.
+90280	92240	They're constantly fighting fires.
+92240	96320	Stuff is breaking all the time and no one understands why.
+96320	100440	Someone might have come in at midnight and made a change to the firewall, not told anyone.
+100440	104400	Now the next morning, a large swath of the network is offline and no one can figure
+104400	105840	out why.
+105840	111480	So a lack of change management can very definitely lead to a very reactive environment where you
+111480	115000	can't, you're just constantly trying to figure out why the stuff's breaking and you're
+115000	119720	not able to get proactive, start to improve or make things better.
+119720	123680	The other end of the spectrum is what happens if an organization's process is change management
+123680	125840	process is too rigorous.
+125840	131160	For even a super minor change, you have to go through 17 levels of approval in triplicate.
+131160	132480	What happens then?
+132480	138520	Well inevitably, if a change is too hard to make, if it's way too much paperwork to go through,
+138520	143320	people will find ways of avoiding the process and it'll also slow the organization down,
+143320	147600	make it so that it's too bureaucratic, too slow to get things done.
+147600	148920	So that's kind of the challenges.
+148920	153160	We want to find the happy middle in between them with our change management process.
+153160	156640	It needs to be flexible and it needs to be efficient.
+156640	161600	So now let's start to walk through the components of the change management process.
+161600	166040	And the very first step is a change request comes in.
+166040	167480	Where can a change request come from?
+167480	171800	Well, all sorts of different places, I might be to say, hey, we have to install a patch
+171800	175160	on a system, make a configuration change to a system.
+175160	180000	We want to create a new system, we want to add some additional functionality, we want
+180000	182720	to do any of these sorts of things.
+182720	186960	So change requests can come from all over the organization.
+186960	189640	The next step is to do an impact analysis.
+189640	192800	To figure out how big of a deal is this change?
+192800	197080	Is it a very minor change to a very low value system that can be done in just a few minutes
+197080	198680	and not affect anyone?
+198680	203280	Or is this like a multi-million dollar project that's going to take months and it's going
+203280	207400	to cost millions of dollars and it can infect all sorts of different people?
+207400	211640	Or is this like an emergency patch that we need to do because there's a zero day out
+211640	215640	there and we have to patch these systems yesterday?
+215640	220040	The impact analysis will identify what type of change it is, which will then drive the
+220040	221640	rest of the process.
+221640	225760	For very expensive, very big changes that affect a lot of people, you probably need to go
+225760	228160	through a lot of levels of approval.
+228160	232520	For emergency changes, you might skip a lot of those approvals to very quickly implement
+232520	234920	the change.
+234920	238840	So the next step of the change management process is the approval step.
+238840	242040	This is where someone actually needs to approve the change.
+242040	245480	And this is probably where you've heard of terms like cabs or e-cabs.
+245480	250560	A cab is a change advisory board made up of stakeholders from all across the organization
+250560	255560	that can provide input on whether or not this change makes sense, if it's cost effective,
+255560	260800	how to do it in an efficient way, how to minimize impact, all these sorts of things.
+260800	266920	And if it's a really big change, you might even escalate up to e-cap, executive change
+266960	269640	advisory boards.
+269640	271560	The next step is build and test.
+271560	275960	So actually start to create whatever the change is, test to make sure the change is going
+275960	279000	to work properly, start to create back-out plans.
+279000	284240	So if the change doesn't go well, you can get back to it in our previous state.
+284240	286200	Next is notification.
+286200	291080	Notification is where you notify all the relevant stakeholders that the change is about
+291080	292080	to occur.
+292080	295560	That might be consumers, it might be business owners, management.
+296120	300880	Whoever needs to know, whoever is a relevant stakeholder, you need to notify them because
+300880	305720	you're about to actually implement the change.
+305720	309080	The next step after implementation is validation.
+309080	312640	And this is where you check to make sure that, okay, this change was supposed to provide
+312640	315800	this new functionality or patch this system.
+315800	319560	So the validation step is where you make sure that whatever the change was has actually
+319560	321360	occurred correctly.
+321360	325360	And this is also where you include that testing that we've talked about, regression
+325360	328840	testing, progression testing, of course, is where you go back and make sure you haven't
+328840	331560	broken any existing functionality.
+331560	334640	So all this falls under validation.
+334640	338640	And then the final step is updating your versioning, your baselines.
+338640	343560	So we've talked about baselines, a baseline is the standard configuration for a system
+343560	347480	of all the controls or all the configuration that should be in place.
+347480	352120	If you've made a change to a system, you need to update that system's baseline.
+352120	356400	You might also, this may also trigger you to go and update for certain plans like say
+356400	361440	the DRP plan because your DRP plan is meant to recover a system.
+361440	365840	And it obviously needs to recover the system to wherever it was right before it failed,
+365840	371440	which means any changes you've made to the system might require an update to the DRP plan.
+371440	375920	So there's a bunch of updating of documents that might need to occur at the end of change
+375920	377600	management.
+378560	383040	And there's one final piece that's not mentioned here, but it's included throughout all of these steps.
+383040	385120	And that is documentation.
+385120	388880	All of these steps should be documented where the change request come from.
+388880	391280	What was the impact and results of the impact analysis?
+391280	392720	Who approved the change?
+392720	394800	What was actually built and tested?
+394800	396120	Who was notified?
+396120	397280	How was it actually implemented?
+397280	398520	And when?
+398520	400440	What sort of testing validation occurred?
+400440	401480	Did it work properly?
+401480	406120	And what updates are made to all the various documents that's necessary?
+406120	407640	There should always be documentation.
+407640	410680	It doesn't have to be overly, it doesn't have to be hundreds of pages.
+410680	413800	It's going to depend on the type of change, but there should be clear documentation so
+413800	417440	you know what has changed and when and why.
+417440	419440	So that's the change management process.

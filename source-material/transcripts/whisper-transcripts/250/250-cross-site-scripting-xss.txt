@@ -1,0 +1,97 @@
+Let me start with a little story, because I think it'll help explain the technicalities
+of what's actually happening behind the scenes.
+So imagine a website where you can post images and comments underneath.
+So think of, say, Facebook.
+But I'm not suggesting Facebook is vulnerable to this, okay?
+You need to find a vulnerable website.
+But let's just all think about Facebook, because there's probably a website we're all
+familiar with.
+So I log into Facebook one day, and I noticed that my buddy has posted a picture of him
+and his daughter.
+And being the very good friend that I am, I decide to post a comment underneath.
+And so I write something like, oh, what a lovely picture.
+It's too bad she looks just like you do.
+So that's the crappy comment I leave.
+Now what happens when I hit submit?
+That comment gets sent to Facebook servers.
+The comment is stored in a database somewhere.
+And now every subsequent user that goes and views that picture is going to see my crappy
+comment underneath.
+And so what's happening is my comment data is actually being stored on the server.
+And then every subsequent user that visits the website, that HTML code contains the
+comment.
+And the user's browser is downloading that comment, and it's displaying it, like it's
+supposed to.
+So that's the scenario, okay?
+Now, here's what's going to happen.
+Our baddie here, you can tell they're baddie, right, the fedora.
+Our baddie here is going to discover a vulnerable website, and it has to be a vulnerable website,
+which I'll explain why in a few minutes.
+So our baddie discovers a vulnerable website.
+And here's what our baddie does.
+Our baddie injects some malicious code into the web page.
+And that sounds very technical, doesn't it?
+But it could literally be as simple as typing some code in a comment field and hitting submit.
+And what's the code that you're going to type into the comment field of the website?
+JavaScript.
+Now why does it have to be a vulnerable website?
+Well, because no website should ever just accept JavaScript code as a comment and store
+that code in the database, and especially then redisplay all that code to every user.
+But that's why our baddie discovers a vulnerable website.
+So our baddie injects the code into the web page into the website, they submit their comment,
+the comment gets stored on the server.
+Now what happens?
+Every subsequent user that visits that website, their browser is going to download the web
+page, and embedded in that web page is going to be the JavaScript code.
+And their browser is going to do exactly what it's designed to do.
+Their browser is going to parse the HTML page, it's going to come across the JavaScript,
+and it's going to execute the JavaScript, it's what it's designed to do.
+And now when our victim's browser executes that JavaScript code, what typically happens?
+Well, some data is sent back to our baddie here.
+So this is an example of stored cross-site scripting.
+Why do we call it stored?
+Well, it's because the JavaScript code is stored on the server.
+We also call it persistent, and the reason we call it persistent is because every subsequent
+user that goes to this particular page and views, you know, and downloads this malicious
+code, it's going to execute on their browser.
+So stored, persistent, cross-site scripting.
+Now let's talk about another type of cross-site scripting.
+This is known as reflected cross-site scripting.
+So I'm going to set up another little scenario to help you imagine how this works.
+Imagine going to a website like Google.com.
+When you go to Google, when you go to Google.com, and you type in a search query in the search
+bar and hit search, what happens?
+Well, the search results page says, here are your search results for cat or dog or whatever
+you've searched for.
+So imagine that scenario, OK?
+So here's what's going to happen.
+Our baddie is going to do, again, discover a vulnerable website.
+And our baddie is going to first create a URL.
+A URL stands for a universal resource locator.
+This is what you type up in your browser bar to go to a particular site or page on a
+website.
+And what our baddie is going to do here is think of Google.com again.
+When you type in Google.com and you search for something, the search results URL page will
+say Google.com, question mark, search equals, whatever you searched for.
+Our baddie is going to create a URL for like that, except in the search field, instead of
+putting in some word or some sentence, what's our baddie going to put in the URL?
+JavaScript code.
+So our baddie creates this URL containing the JavaScript code.
+Sends it to our victim here.
+And through some sort of social engineering technique, maybe phishing or something like
+that, our baddie here somehow convinces the user to click on the URL.
+When the user clicks on the URL, that sends the request to the web server.
+The web server is going to then reflect that code back to the user.
+It's like the search.
+It's like the page is saying, here are your search results for JavaScript code.
+So the website is going to reflect the malicious code back to the user.
+The malicious code is going to be contained in the page that comes back to the user.
+And once our users browse are going to do, exactly what it's designed to do.
+It's going to parse through the page, hit the malicious JavaScript code and execute it.
+And once the final step here, well, this malicious code is going to run and it's going to send
+some data back to the baddie once again.
+So overall, it's the same effect, which is the target of attack here is the user.
+And in both stored and reflected and, sorry, in both stored and persistent and reflected
+cross-site scripting, it's all about sending data back to the baddie.
+But in reflected cross-site scripting, there's a few important things to understand here.
+Number one, why do we call it reflected cross-site scripting?

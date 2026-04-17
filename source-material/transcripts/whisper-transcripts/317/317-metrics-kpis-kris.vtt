@@ -1,0 +1,176 @@
+WEBVTT
+
+00:00.000 --> 00:20.000
+Okay, we're still in the domain number 6, which is testing and assessment.
+
+00:20.000 --> 00:40.000
+We're still in the domain number 6, which is testing and assessment.
+
+00:40.000 --> 00:46.000
+This section here talks about how security will be collecting certain types of information
+
+00:46.000 --> 00:50.000
+that we need to provide assurance to stakeholders.
+
+00:50.000 --> 00:59.000
+And the theme of this is that we may be collecting very technical information related to certain things that security does.
+
+00:59.000 --> 01:09.000
+But the bottom line is that we're going to need to translate that into language that the stakeholders and our audience wants to hear it in.
+
+01:09.000 --> 01:13.000
+Always based on goals and objectives of the organization itself.
+
+01:13.000 --> 01:17.000
+And Rob's going to tell us what smart metrics are.
+
+01:17.000 --> 01:22.000
+Yeah, I'm sure if you've ever had to do an employee performance review, you've come across this horrible acronym.
+
+01:22.000 --> 01:26.000
+And you don't have to memorize smart metrics for the exam, but it highlights what we're talking about here,
+
+01:26.000 --> 01:30.000
+which is when you want to be able to tell someone is the testing we're doing going well,
+
+01:30.000 --> 01:32.000
+is the system operating effectively.
+
+01:32.000 --> 01:35.000
+You've got to think very carefully about what metric data do you collect.
+
+01:35.000 --> 01:37.000
+And this is where you have this idea of smart.
+
+01:37.000 --> 01:39.000
+Is the metric data very specific?
+
+01:39.000 --> 01:42.000
+Is it measurable? Is it actionable? Is it relevant? Is it timely?
+
+01:42.000 --> 01:47.000
+You've got to think very carefully about what metrics you're collecting and what they'll tell people.
+
+01:47.000 --> 01:52.000
+Because I'm sure you've seen this. There's plenty of examples where you can collect useless metrics.
+
+01:52.000 --> 01:56.000
+Would it be useful if the CEO asked, how secure is our environment?
+
+01:56.000 --> 02:00.000
+And you said, oh well, we've had 7 billion hits against our firewall.
+
+02:00.000 --> 02:02.000
+Would that tell the CEO anything?
+
+02:02.000 --> 02:09.000
+No, you have to translate into terms that relate to risk and exposure to the organization, for example.
+
+02:09.000 --> 02:10.000
+Exactly.
+
+02:10.000 --> 02:14.000
+Now, one bit of terminology that you need to know about are these different key indicators.
+
+02:14.000 --> 02:17.000
+And there's two. There is key performance indicators.
+
+02:17.000 --> 02:21.000
+And there's key risk indicators, KPIs and KRIs.
+
+02:21.000 --> 02:24.000
+And here's a really simple way that I found to think about these, okay?
+
+02:24.000 --> 02:26.000
+Because it sounds kind of confusing.
+
+02:26.000 --> 02:29.000
+Key performance indicators are backward looking.
+
+02:29.000 --> 02:35.000
+And by that, I mean, by looking backwards, you can say, did we actually achieve the performance goals that we were looking to meet?
+
+02:35.000 --> 02:39.000
+Like if we said, we're going to go and do this thing, we're going to spend this money on this, we're going to do this that and the other thing.
+
+02:39.000 --> 02:43.000
+KPIs look backwards and say, did we actually achieve that?
+
+02:43.000 --> 02:47.000
+And then KRIs, key risk indicators, are forward looking.
+
+02:47.000 --> 02:50.000
+This is where you say things like, you know, these are the risks that we're worried about occurring.
+
+02:50.000 --> 02:54.000
+That might happen. These are the things that could potentially happen.
+
+02:54.000 --> 02:58.000
+And KRIs are how you measure to see, look forward and say, are these things actually occurring?
+
+02:58.000 --> 03:00.000
+And that's the key difference between those two.
+
+03:00.000 --> 03:05.000
+Yeah. And again, important to relate these to goals and objectives of the organization.
+
+03:05.000 --> 03:19.000
+In fact, sometimes, you know, even though we're talking KPIs and KRIs, we need to relate these to KGIs, which are key goal indicators that upper management to CEO, the Board of Directors, would be really interested in.
+
+03:19.000 --> 03:21.000
+Exactly.
+
+03:21.000 --> 03:24.000
+Now, can we ever measure everything?
+
+03:24.000 --> 03:31.000
+Can we know, yeah, I mean, can we ever measure anything? And the answer, of course, is no.
+
+03:31.000 --> 03:34.000
+So how do we decide to what to focus our metrics on?
+
+03:34.000 --> 03:47.000
+Well, good answer would always be value, but if we understand the goals and objectives of the organization, then, you know, and if we involve those people at that level, they're going to tell us what they're interested in measuring.
+
+03:48.000 --> 03:53.000
+And that's what we, security professionals and what security does, should put priority on.
+
+03:53.000 --> 04:01.000
+Always measuring things in terms of goals and objectives of the organization and what's meaningful to those people at that level.
+
+04:01.000 --> 04:07.000
+Yeah, I mean, whatever the organization is trying to achieve, we should be figuring out how we can show, develop metrics that we're going to show.
+
+04:07.000 --> 04:12.000
+Are we actually getting there? That's a perfect example of how we align security with overall business goals and objectives.
+
+04:13.000 --> 04:16.000
+Yeah, we've got some examples here on the next slide.
+
+04:16.000 --> 04:28.000
+But, you know, the point that we're trying to make here is when you look at some of these, they may be at the technical level that may need others to be able to translate into goals and objectives of the organization.
+
+04:28.000 --> 04:40.000
+So this is an area that I think security has struggled with in the past, but that's because we've always had that bottom-up approach to security, and that makes it difficult to try and relate to goals and objectives.
+
+04:40.000 --> 04:49.000
+The answer to this is top-down, and if those people are involved in what security does, it becomes easy in measuring what they're interested in.
+
+04:49.000 --> 04:51.000
+Yeah, and different stakeholders are going to want to know different things.
+
+04:51.000 --> 04:57.000
+So backup verification is an example. You would never tell the CEO how many of the backups have been verified correctly.
+
+04:57.000 --> 05:00.000
+But the person that's in charge of backups, they'd want to know that.
+
+05:00.000 --> 05:04.000
+So the metrics are going to vary depending on who you're reporting them to, and that's just all we want to show with this slide.
+
+05:04.000 --> 05:12.000
+Speak the audience's language, which means based on what they want to hear, based on what they are accountable for, goals and objectives.
+
+05:12.000 --> 05:14.000
+Metrics, it doesn't matter.
+

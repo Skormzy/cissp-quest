@@ -1,0 +1,149 @@
+start	end	text
+0	16440	In the last few modules, we've talked about all the different components that we have within
+16440	17440	a system.
+17440	33040	Now let's talk about some of the significant vulnerabilities.
+33040	36280	In the last few modules, we've talked about all the different components that we have
+36280	37600	within a system.
+37600	47360	Now let's talk about some of the significant vulnerabilities that we have in systems.
+47360	52240	So here's a list of some of the major architectural risks that exist in systems, things like single
+52240	55200	points of failures and bypass controls and race conditions.
+55200	58880	We'll go through each of these and we'll talk about what the risk is or what the vulnerability
+58880	64200	is and in most cases how you would go about mitigating that vulnerability.
+64200	67760	Let's start with this concept of a single point of failure.
+67760	70320	So what is a single point of failure?
+70320	74560	Well a single point of failure is where you've got a single system or process that if it
+74560	77160	goes down, everything goes down.
+77160	80920	So in this little diagram that we have here, we've got the sketchy internet at the very
+80920	82120	top there.
+82120	86160	We've got the traffic coming in from the internet going through a firewall and then through
+86160	91120	a router down to our little happy systems in our trusted internal network.
+91120	92120	You don't have a trusted network.
+92120	93920	We'll talk with that later.
+93920	97520	So what are the single points of failure in this diagram here?
+97520	99280	Well there's two.
+99280	103800	Our firewall and our router are both single points of failure.
+103800	107760	So how do we address the risks of single points of failure?
+107760	113800	Well, it's through redundancy or having multiple systems and in this diagram here you can
+113800	116640	see we don't just have one firewall and one router.
+116640	121840	We have two firewalls and two routers and we have them interconnected.
+121840	127080	So if one router goes down or one firewall goes down, the traffic is just routed around.
+127080	130600	So that's how we reduce the risk of single points of failure.
+131080	134560	Next, let's talk about bypass controls.
+134560	138480	Now before I explain exactly what a bypass control is, let me tell you a story and I think
+138480	140200	this will all make sense, okay?
+140200	144760	So let's say I'm a network administrator and I've just bought some wicked new firewall.
+144760	149520	It's like a million dollar firewall and being the very security conscious network administrator
+149520	150520	that I am.
+150520	154920	When this firewall gets delivered in the morning, I type in as my first task, I type in
+154920	159840	some super strong 50 character password for the root account so that it's a very secure
+159840	162560	firewall and you know, that was a big job.
+162560	167320	So I go off and have lunch and then I come back from lunch and I type in the super secure
+167320	171360	50 character password and correct password, crap.
+171360	178200	I type it in again, I type it in another time, oh, I've just forgotten the password to
+178200	180360	the million dollar firewall.
+180360	181360	What do I do now?
+181360	184480	Do I take the million dollar firewall and just throw it in the garbage because I mean,
+184480	187560	this is the root account without access to this account.
+187560	189800	You can't configure this firewall.
+189800	190800	So what do you do?
+190800	195960	Well, you get out a paperclip, you bend it open and walk up to the back of the firewall,
+195960	200240	find a little pinhole in the back, hold the paperclip in there for about 10 seconds and
+200240	201640	what happens?
+201640	204240	The firewall configuration resets.
+204240	207440	This is a perfect example of a bypass control.
+207440	211600	So in the diagram that I'm showing you here, our regular control is that a user would
+211600	215000	log into a system with a password.
+215000	217880	But let's say the user has forgotten their password.
+217880	221600	We want to implement a bypass control.
+221600	227880	So bypass controls are controls that we intentionally build into a system to allow us to bypass some
+227880	231000	primary mechanism, like say the authentication mechanism.
+231000	234840	So we very clear on this wording, bypass controls are intentional.
+234840	237800	They're intentionally built into a system.
+237800	239800	Do they introduce additional risks?
+239800	240800	Of course they do.
+240800	244080	And this example that I just gave you with the million dollar firewall, if someone was
+244080	248800	able to get physical access to that firewall, they could reset the firewall.
+248800	252440	And there are lots and lots of examples of bypass controls out there.
+252440	257760	And all of them, whenever you implement a bypass control, it introduces additional risk.
+257760	261120	So how do we reduce the risk of bypass controls?
+261120	265160	Well, you've got to implement the appropriate mitigating controls, whatever those happen
+265160	266160	to be.
+266160	269680	In the example of a firewall, it would be physical security.
+269680	273880	As long as you prevent someone an unauthorized person from getting physical access to the
+273880	276920	firewall, they can't reset the firewall.
+276920	280680	So whatever is the appropriate mitigating control, you put that in place to reduce the
+280680	285320	risk of any new risk you've implemented with a bypass control.
+285320	291200	And now let's talk about these six letters here, TOC, TOU, TalkTow.
+291200	292200	What do they stand for?
+292200	298400	Well, TOC, time of check and TOU, time of use.
+298400	301600	What this refers to is often also referred to as a race condition.
+301600	304200	And let me tell you another story to explain this one.
+304200	309840	So let's say I walk into work in the morning, I get my laptop out, plug it in, and type
+309840	312480	in my username and password and log into the system.
+312480	316800	And just as I log in, someone from HR comes and says, Rob, kind of please see you in my
+316800	317800	office.
+317800	319000	And I say, yeah, sure, no problem.
+319000	323720	We walk right over to their office, and they sit me down and say, and they say, Rob,
+323720	326480	you're a terrible employee, we're firing you.
+326480	331040	And I think my response would probably be like, yeah, I get it, I'm a pretty horrible
+331040	332040	person.
+332040	333040	I'm on the same page.
+333040	334040	I get it.
+334040	335040	No worries.
+335040	336320	So it's a very quick discussion.
+336320	341480	And I leave to the HR person's office, and I'm back at my desk in like three minutes.
+341480	343720	What do I find when I'm back at my desk?
+343720	348600	Well, I may well find that my laptop is still logged in.
+348600	353040	My screensaver might not be set to time out for, say, five minutes.
+353040	357800	So if I'm back at my laptop, and I'm able to access that laptop, should I be able to?
+357800	358800	And of course not.
+358800	360200	I've just been fired.
+360200	364560	This is a perfect example of time of check, time of use, or a race condition.
+364560	370120	The idea is if an attacker can race in and get access to and use a system before there's
+370120	374400	the next check, they might be able to do something that they're not supposed to.
+374400	377320	They might be able to hijack the session as an example.
+377320	383000	So how do we reduce the risk of time of check, time of use, or race conditions?
+383000	386120	Well, you have to increase the frequency of reauthentication.
+386120	389880	So in the example I gave of coming back to my laptop, if the screensaver password had
+389880	394320	come up after even just one minute, then I wouldn't have had unauthorized access to
+394320	395320	that system.
+395320	400520	So the way we do deal with the risk of time of check, time of use is increase the frequency
+400520	404240	of reauthentication.
+404240	407000	The next vulnerability we're going to talk about is emanations.
+407000	408880	Now let's start with an definition.
+408880	410600	What does emanations mean?
+410600	414280	Well, computer systems emanate all sorts of different stuff.
+414280	416480	They emanate light from the screen.
+416480	418200	They emanate sounds.
+418200	422360	They emanate radio waves and some of them are intentional, things like our Wi-Fi.
+422360	425880	Our magnetic hard drives when they're being used emanate magnetic waves.
+425880	430120	There's all sorts of stuff that our systems emanate.
+430120	436000	And the risk with emanations is that someone may be able to detect those emanations and
+436000	441200	gather information that they're not supposed to from those emanations.
+441200	446040	Now there's three major ways that we can deal with the risk of emanations.
+446040	448400	The first is shielding.
+448400	455160	So what this means is you put some sort of shield around the device that blocks electromagnetic
+455160	456480	waves.
+456480	459480	An example of shielding is something known as tempest.
+459480	460640	And you should remember this.
+460640	467000	So tempest is a tech suite of technologies developed by the Royal Military to protect their
+467000	472440	planes and tanks and things like that from the rescues or whomever, from the bad guys
+472440	474320	whoever those happen to be.
+474320	480320	So one of the ways that we prevent reduce the risk of emanations is shielding.
+480320	483000	The next is white noise.
+483000	484800	What is white noise?
+484800	486840	Static random noise.
+486840	490920	And the idea behind white noise is that if you blast a really strong signal of random
+490920	496520	noise, whatever small weak emanations might be coming out of your system will be overwhelmed
+496520	501000	by the random noise, preventing the attacker from listening in and gathering data from
+501000	503240	your system.
+503240	507720	The final major way that we can deal with the risk of emanations is what are known as control
+507720	508720	zones.
+508720	510720	Think of this as physical security.
+510720	515080	Control zones simply means that if someone isn't able to get close enough to your system
+515080	519840	that's emanating these weak signals, then they're not going to be able to pick them up.
+519840	524640	And so this is why in the movies, the super security government system is always buried
+524640	527640	in some bunker underground inside of a mountain.
+527640	531520	And the only way to get through getting near it is to hire Tom Cruise to repel out of
+531520	533600	the vents in the ceiling or something like that.
+533600	538400	So control zones, control physical access to the device to reduce the risk of emanations.

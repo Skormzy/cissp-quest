@@ -1,0 +1,15 @@
+So we've defined what the word model actually means. A model is simply a representation.
+So we've defined what the word model actually means. A model is simply a representation of something.
+And from a security perspective, what we have are security models that represent what security needs to look like in architectures.
+In other words, they present the rules by which we can implement to achieve either confidentiality, integrity, and possibly some other requirements from a security perspective.
+That's what security models provide for us. A representation of what something needs to look like. The rules that need to be implemented in order to achieve security.
+But basically, a model is a representation of something. And because it is a conceptual representation of something, we need to implement that model to actually make it work.
+But basically, what we do to protect any architecture, and you know this, we take the entire architecture, which is made up of different components, and we break it down into the individual components that represent that entire architecture, and we protect each one.
+And the way that we decide how to protect each of those components is always going to be based on value. So the diagram that you see here obviously represents a digital camera.
+But if you want to protect that entire architecture, you're going to have to break it down into components, protect each one.
+Now, here's something that you need to remember, however, would it be easier to take something that already exists, and then break it down into components and protect each one, or would it be easier to design the security and build the security into each of the components as you're building it from scratch by going through the engineering process.
+And the obvious answer to that is it's always easier to design and build security as you're building the entire architecture, rather than to add it later.
+Always bake security into whatever architecture you need to protect by building the right level of security into each of the components that make up the entire architecture itself. That's the most efficient cost effective.
+Now, here's the problem that we need to remember. Each of the components may be made up of sub-components. And then those sub-components may be made up of sub-sub-components. To what level do you go to? And here's an example, the hardware component may be made up of firmware and a processor and a hard drive.
+And to what level do you go to will always be dictated by the value that you're trying to protect. That's nothing new for you, but that's what dictates how we protect architectures and how security models will guide us into what that representation looks like and how security is added into each of the components to ultimately protect the entire architecture itself.
+And to what level do you go to will always be dictated by the value that you're trying to protect.

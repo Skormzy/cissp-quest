@@ -1,0 +1,134 @@
+WEBVTT
+
+00:00.000 --> 00:20.000
+Let's refocus here for a moment we are still in domain number 7 which is all about
+
+00:20.000 --> 00:48.560
+all of those day-to-day activities that the security function gets into and supports and activates
+
+00:48.560 --> 00:55.520
+and does for example and in this section we're going to talk about how companies buy all kinds of things
+
+00:55.520 --> 01:02.240
+like hardware and software and security needs to be involved in that process right from the start
+
+01:02.240 --> 01:07.520
+and throughout because obviously hardware and software represents value to the organization
+
+01:07.520 --> 01:13.200
+and just like any other valuable asset needs to be protected based on that value.
+
+01:13.200 --> 01:16.640
+Yeah and one of the really important things that organizations need to do is maintain
+
+01:16.640 --> 01:22.240
+asset inventories this is an inventory of everything they have and having been involved in quite a
+
+01:22.240 --> 01:28.000
+number of breach responses it's very very common that the way that attackers find a way into an
+
+01:28.000 --> 01:32.640
+organization is they find a system that no one's remembered is there anymore no one's thinking
+
+01:32.640 --> 01:38.560
+about it and importantly does not have an owner because for every single asset we need to have
+
+01:38.560 --> 01:43.360
+an owner who's accountable for the protection of that asset and when you don't have that when no
+
+01:43.360 --> 01:47.760
+one knows it's there we know when cares is any security be controls being put in places and when
+
+01:47.760 --> 01:52.640
+protecting it patching it configuring it and the answer of course is you know and you know we
+
+01:52.640 --> 01:59.040
+learned all about this in domain number 2 that protecting any asset including hardware and software
+
+01:59.040 --> 02:06.320
+starts with knowing what you have and capturing that into your inventory and then the next step is
+
+02:06.320 --> 02:12.720
+as Rob just mentioned identifying ownership because it's the owners that will start the process
+
+02:12.720 --> 02:18.560
+of protecting those assets because they're in the best position to understand value yeah and so
+
+02:18.560 --> 02:22.640
+asset inventories you got to create add something as soon as you have it and then evergreen these
+
+02:22.640 --> 02:28.400
+things constantly heat them up to date not an easy thing to do no and so that's where we kind of
+
+02:28.400 --> 02:32.720
+talk about the asset management life cycle so walk us through this John what are we what are we doing
+
+02:32.720 --> 02:38.880
+here yeah and I think we've seen this before I mean when you look at the life cycle of any asset
+
+02:38.880 --> 02:45.280
+it you know may start for example at the planning phase you understand that you need something
+
+02:45.280 --> 02:50.960
+to address goals and objectives of the organization and you're going to go out there and buy it for
+
+02:50.960 --> 02:57.520
+example and so the bottom line here is you don't have to memorize these phases the bottom line is
+
+02:57.520 --> 03:02.320
+what we've learned many times and that is security needs to be involved right at the start in the
+
+03:02.320 --> 03:07.840
+planning phase in this case so that we can understand the requirements of security and then build
+
+03:07.840 --> 03:14.400
+that into as we go through the entire life cycle of in this case any asset we call it asset
+
+03:14.400 --> 03:21.520
+management but asset security management needs to be part of that right at the start throughout each
+
+03:21.520 --> 03:28.000
+of the phases as we've said and what ties in with this is this concept of configuration management
+
+03:28.000 --> 03:32.080
+the idea being the behind configuration management is that when you've bought some new piece of
+
+03:32.080 --> 03:36.320
+software new piece of hardware you should never just put it out on the network on the environment
+
+03:36.400 --> 03:43.680
+in the default configuration why not not secure oh I mean if the password is root root or you know
+
+03:43.680 --> 03:49.040
+what of the default is that's well known by attackers so a huge part of deploying new assets in
+
+03:49.040 --> 03:52.640
+the environment is going through configuration management and this is where we've talked about
+
+03:52.640 --> 03:57.280
+that concept of hardening a number of times and where you go through when you configure a device
+
+03:57.280 --> 04:01.840
+according to a baseline that you've established for that device all the sort of configuration that
+
+04:01.840 --> 04:06.880
+needs to be done to make sure that that device is securely configured for your environment
+
+04:06.880 --> 04:10.720
+and then you can deploy it into production but you're not done with configuration management yet
+
+04:10.720 --> 04:15.280
+there's still the all ongoing I mean when a device is out there if you let's say a 50 web
+
+04:15.280 --> 04:20.320
+web servers if you decide to update the configuration of those web servers patch them or something
+
+04:20.320 --> 04:25.520
+what you need to make sure you do with all 50 of them make sure they remain in compliance with
+
+04:25.520 --> 04:29.600
+that baseline so configuration management covers both the deployment and then ongoing
+
+04:29.600 --> 04:37.440
+operations of the system and even the retire the commission phase that is the end
+

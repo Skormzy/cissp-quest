@@ -1,0 +1,69 @@
+We're going to talk about some topics you may have heard about if you've ever been studying
+for the CISV. We're going to talk about the reference monitor concept.
+We're going to talk about some topics you may have heard about if you've ever been studying
+for the CISV. We're going to talk about the reference monitor concept, the security
+kernel, and the TCB. If you've ever read about these, you're probably confused. Let me
+try and make this as simple as possible for you. It's actually a very easy to understand
+concept. Let's start with some definitions. Let's start with a subject. What is a subject?
+Well we usually refer to a subject as being active. It's a person or a process that's actively
+trying to access an object. What's an object? Well an object is whatever is being passively
+accessed. It could be another process. It could be storage. It could be SharePoint site.
+It could be a hard drive. It could be a database. The point is an object is passive. It's
+being accessed. So subjects want access to objects. If we want to have security, we can
+never just let any subject access, any object, and do whatever they want with it because
+we never have security. We have to put something in between the subjects and the objects that
+will mediate, control the subjects access to an object. Let's just refer to this essentially
+as a black box or purple box in this case. It can be all sorts of different things as we'll
+understand in a few minutes here. But the important part is we're putting something in between
+here that can mediate the access. Now how does mediation decide what subjects are allowed
+to access what objects? Well we have to tell this mediation what to do. We have to program
+some rules into it. Now as we've talked about with controls, controls should always have
+two aspects, a functional aspect and an assurance aspect. So far we have the functional aspect.
+We're controlling a subject's access to an object. But we also want to have assurance
+that this mechanism is working correctly, that the mediation is working correctly. How
+do we get that assurance? Well we could log and monitor what's happening here. So this
+concept of a subject accessing an object through some mediation that is based on a set of
+rules and all this is logged and monitored is simply the reference monitor concept, the
+RMC. So if you've ever heard of the RMC, it's as simple as that, a subject accessing object
+through a set of rules that are logged and monitored. Now in security, a concept is great,
+but if we want to actually have a control that's going to do something, we can't just have
+a concept, we need to implement that concept. Whenever you implement the RMC, it's known
+as a security kernel. So the implementation of the RMC is a security kernel. And where
+do we have security kernels? Everywhere in security. When you access a building through
+a lock or a keypad, that's a security kernel. When you type in a password, user name and
+password, that's a security kernel. When an operating system is controlling what applications
+can access their data in RAM or access the network card, those are security kernels.
+So we use security kernels everywhere in security. Now there's three properties that a good
+security kernel needs to demonstrate. The first one is known as completeness. And what
+completeness refers to is that it's impossible to bypass the mediation. So if a subject was
+somehow able to bypass the mediation, it would completely negate the whole purpose of
+this. So completeness, a good security kernel should demonstrate completeness. It should
+be impossible to bypass the mediation. Every subject should have to go through the mediation
+to access the object. The next property is what's known as isolation. And it relates to
+the rules. The rules need to be tamperproof. In other words, only an authorized individual
+should be allowed to modify these rules. If any subject was just allowed to modify the
+rules to their hearts content, there'd be no point in having all this because you'd be
+like, ah, I can't access the file. And I'll just change the rules. So isolation means
+the rules are tamperproof. They can only be modified by an authorized individual. The
+final property is what's known as verifiability. And verifiability is simply, how do we make
+sure that this whole process is working properly? Well, we achieve it by logging and monitoring
+what's going on here. And so verifiability, how do we verify our security kernel is working
+correctly? It's the logging and monitoring. So that's the RMC and the security kernel. Let's
+talk about one other concept, the TCB. What is the TCB, the trusted computing base? The TCB
+is the totality of security mechanisms within an architecture. What does that mean? Well, what's
+an architecture? John has talked about that an architecture is all of the components
+that make up a system. So if you take any architecture, any system, like, let's say, a laptop,
+if you were to look at the architecture of a laptop, there's going to be all sorts of
+different components in there. There's going to be your hard drive, your CPU, your RAM,
+your operating system, your applications, your TPM modules, all of these are components
+within the architecture. A subset of those components are responsible for security. So
+some of the components are going to be security kernels. Some of them will be anti-malware systems,
+based firewalls. Any of these security controls, any of the components within the architecture
+that are responsible for security are components within the TCB. So the TCB is the subset of
+components within an entire architecture that are responsible for security. And so we can
+draw a line around our reference monitor concept here in our security kernel and say that
+these are part of our TCB. They're part of our trusted computing base. But are there
+other components within the TCB? Absolutely. The TCB is made up of much more than just security
+kernels. It's all of the components within our architecture that are responsible for security.
+So there you go. That's your quick overview of the RMC security kernel and TCB. And its
+subsequent modules will get into each of these components in a little more detail.

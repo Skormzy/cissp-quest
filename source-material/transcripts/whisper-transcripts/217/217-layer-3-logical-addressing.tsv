@@ -1,0 +1,96 @@
+start	end	text
+0	18640	Alright, here we are at Layer 3 in the OSI model.
+18640	35640	We've been slowly moving up.
+35640	38720	Alright, here we are at Layer 3 in the OSI model.
+38720	40800	We've been slowly moving up.
+40800	48040	Now if you remember how we equated the OSI model to a team, like a sports team for example,
+48040	53280	usually you pick a captain of the team and that person is usually the one that has the
+53280	59680	most leadership qualities, can inspire the others, can coordinate so that the team more
+59680	61880	effectively achieves its goal.
+61880	67240	Well, if you were to pick a captain of the OSI team, it would have to be the network
+67240	68240	layer.
+68240	73120	The network layer has some protocols within it that are really fundamental to what
+73120	78400	networking is and how we allow communications across network itself.
+78400	83680	And so the network layer and protocols that operate here that are part of TCPIP.
+83680	91160	Remember how we implement the OSI model is through TCPIP and its family of protocols.
+91160	95960	So there are protocols that operate at the network layer here that really drive everything
+95960	99120	that happens and are the captain of the team.
+99120	102080	That protocol has to be IP.
+102080	107800	In fact, if you remember what we talked about earlier as far as the network layer is concerned,
+107800	115920	it's really responsible for two really important capabilities and responsibilities that need
+115920	118160	to happen across network.
+118160	120400	And it's what you see here on your slide.
+120400	126960	The first is what we call fragmentation, which means, for example, taking the email that
+126960	134480	I'm sending you and breaking it down or fragmenting it into manageable chunks that are typically
+134480	137240	called packets or data grams.
+137240	142960	But then it's also the network layer through IP here that needs to deliver each of those
+142960	149160	data grams to the destination using some sort of addressing scheme, which you know is
+149160	152400	referred to as IP addressing.
+152400	158760	So remember that the network layer includes the IP protocol, which is really responsible
+158760	165520	for two very important things, fragmentation and addressing of those fragments so that
+165520	167600	they can get to their destination.
+167600	175960	Now, if we draw this, the unit of information that the network layer or IP uses at the network
+176040	179400	layer is usually referred to as a packet.
+179400	183720	But more appropriately, it should be called a data gram.
+183720	191120	So if you look at what a data gram looks like, it really has two important components
+191120	197640	to allow the network layer here and IP to not only deliver that information to you, but
+197640	199800	as effectively as possible.
+199800	204520	So if you look at the two components that make up a data gram or a packet, you're going
+204520	213720	to have the data portion, which is also referred to as the payload by some people, most network
+213720	215720	people will call it the payload.
+215720	221120	But in order to get this data gram to its destination, we need addressing information
+221120	228080	that is usually included in what we call the header portion of the data gram.
+228080	234640	So this is the unit that IP, for example, uses at the network layer to do fragmentation,
+234640	240400	which means breaking that email into data grams, but then allowing each of these data grams
+240400	242800	to be delivered to its destination.
+242800	247920	So those are the two important functions that the network layer through IP takes care
+247920	248920	of.
+248920	255680	Now, obviously what's important here is there needs to be fields in the header portion
+255680	261000	of the data gram that allows this entire data gram to be delivered to its destination.
+261000	268040	So there are fields in here called source IP address, destination IP address, and some
+268040	275280	other fields that allow fragmentation and delivery through addressing, for example, at the network
+275280	276280	layer.
+276280	284960	Now that field called source IP address and destination IP address are 32 bits of information.
+284960	287080	32 bits.
+287080	293720	And what they've done is they've taken those 32 bits and divided it into four groups
+293720	295320	of eight bits.
+295320	300320	That's why you end up seeing IP addresses like the one you see on your slide here, right?
+300320	308360	So you've got IP addresses that might look like something like this.
+308360	313840	But really this represents the 32 bits that are in the header portion of the data gram.
+313840	319280	You've just taken those 32 bits and divided it into four groups of eight bits.
+319280	326120	Now if you do the math because this is bits, if you've got something that's 32 bits, there
+326120	332680	are only so many finite, unique IP addresses that that can represent.
+332680	342520	So if you do two to the 32 and work that out, it's going to equal just under 4.3 billion
+342520	348800	unique IP addresses that can be referenced across any network like the internet.
+348800	352360	And so that's a limitation that we have known about.
+352360	359200	And something that has saved us in allowing us to have many more things connected to the
+359200	364280	internet rather than this limitation is something called NAT that we're going to talk about
+364280	365560	later on.
+365560	371960	But this limitation that the industry has known for a number of years has led to the development
+371960	376200	of something called IP version 6, which we're going to talk about later on.
+376200	382440	But one of the things that they've done in IP version 6 is they've expanded the addressing
+382440	389480	to actually 128 bits for both the source IP address and the destination IP address.
+389480	394880	And something else that's relevant from a security perspective in IP version 6 is the
+394880	404400	inclusion of security called IPSec, which will add authentication and encryption natively
+404400	410160	into the IP version 6 protocol when everybody's using it.
+410160	415760	And so the next thing that you see up here on your slide is not anything that's relevant
+415760	422600	from the perspective of you having to understand each of these different IEEE document numbers
+422600	424040	that you see here.
+424040	429280	The important thing to remember at this point is the importance of that organization called
+429280	430840	the IEEE.
+430840	436080	The IEEE is the Institute of Electric and Electronic Engineers.
+436080	441520	And they are a bunch of bright people that get together when a technology first appears
+441520	443760	or improves, for example.
+443760	449760	And what they do is they sit down and ratify, which means they agree on what a technology
+449760	455680	needs to look like so that vendors and anyone else that wants to offer products related
+455680	462160	to that technology will have to conform to the standards and not go off in their own direction.
+462160	467840	And so when they ratify some of these technologies and what they need to look like, they issue
+467840	471000	what are called IEEE document numbers.
+471000	479720	And you're probably familiar with the family of 802.11 IEEE specifications for wireless
+479720	480720	lands.
+480720	487760	And as we've evolved, for example, what we used to have was 802.11A and then B came
+487760	493560	along and then G came along and then N came along and AC came along, they've ratified
+493560	498040	each of those standards so that everybody conforms to those standards.
+498040	500760	That's the importance of the IEEE.
+500760	505040	So there's different specifications for different technologies that exist out there.
+505040	508800	You don't need to memorize them all, obviously, for purposes of the exam.

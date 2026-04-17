@@ -1,0 +1,37 @@
+start	end	text
+0	19000	Let's talk about a concept that we use everywhere in computing and security, and that is the concept of abstraction.
+19000	39000	Let's talk about a concept that we use everywhere in computing and security, and that is the concept of abstraction.
+39000	44000	Abstraction is this idea that you hide the underlying complexity or detail of a system.
+44000	49000	Let's look at an example first of this before we get into the details of where we use abstraction.
+49000	57000	Think about driving a car. When you get into a car, you just turn the key, hit the go pedal, and off you go.
+57000	60000	Maybe you steer a little bit, don't bother with the brake pedal.
+61000	69000	But there's a ton of abstraction that's going on underneath that. If you think about it, you don't have to understand the vast majority of what makes a car actually go.
+69000	75000	You don't have to think about valve timing, you don't have to think about fuel pressures, you don't have to think about any of these sorts of things.
+75000	82000	You're just steering and driving. All the underlying complexity that makes that vehicle actually run is abstracted away.
+82000	89000	We just have this simplified interface of two pedals and a steering wheel to control all of these massive underlying complexity.
+90000	95000	This is a concept we use everywhere in computing. It's really helpful.
+95000	106000	Think about it. If you're driving, if you had to be constantly worrying about what's the exact valve timing I should use for going up a hill versus around a corner and exactly what should the fuel pressure be and rate and so forth,
+106000	114000	it would distract you from the higher level task you want to be performing, which is actually driving the car, making you go in the right direction, obeying traffic lights and so forth.
+114000	125000	We use this concept in computing all the time. We abstract away the complexity of underlying systems, which allows us to then focus on higher level things.
+125000	133000	Another great example of this is programming languages. If you think about what does a CPU actually understand from a programming language perspective?
+133000	146000	CPUs understand machine code, which is simply ones and zeros. If someone were to hand you a program that was a million ones and zeros, as a human you would have no idea how that actually worked and what it did.
+146000	158000	Humans do not program in machine language. The first example of abstraction that we used within programming language was moved up to say assembly and we've had multiple layers of abstraction since then.
+159000	169000	So let's look at an example of where we use abstraction all the time in computing and it's something you'll likely come across on the exam and that is the concept of a hypervisor.
+169000	174000	So what is a hypervisor? Let's spend a moment on this. It's an important concept to understand.
+174000	183000	So you have an underlying computer system hardware. You've got a CPU, you've got RAM, you've got a hard drive. This is the components of the server.
+183000	190000	And you can install an operating system that is then meant to control all the underlying hardware like Windows or Unix or Linux.
+190000	200000	Now operating systems are inherently selfish. They expect to have complete and total control of all of the underlying hardware because that's their job.
+200000	207000	So what would happen if you were to try and run two operating systems simultaneously on the same piece of hardware?
+207000	213000	If you were to try and install, say Windows and Unix and get them to run at the same time on the same hardware.
+213000	222000	Well, what would happen is they would absolutely conflict with each other. They would both be expecting to have complete control of the hardware and so it would never work. The system would never boot.
+222000	233000	So it is impossible to run two operating systems simultaneously on the same piece of hardware and yet that's what we do all the time.
+233000	245000	We call this, for instance, a virtual machine. A virtual machine is an operating system that then runs on top of a piece of hardware and you can run multiple virtual machines simultaneously on the same piece of underlying hardware.
+245000	257000	How do we achieve this? Well, we implement a layer of abstraction between the operating system and the underlying hardware. And that layer of abstraction, that software that's in between, we call it the hypervisor.
+257000	266000	What the hypervisors do is they are giant liars. What they essentially do is to each and every operating system, every virtual machine that's running on top of the hypervisor.
+266000	273000	The hypervisor lies to the operating system and says, oh yeah, operating system one, you're number one, you're the best, you're in total and complete control.
+273000	280000	And then what's it say to operating system number two? The M number two, it says, you're number one, you're total and complete control.
+280000	292000	It's lying to each of these operating systems. It's virtualizing, creating virtual components, virtual CPU, virtual RAM, virtual hard drives, and the operating system is just controlling these virtual components.
+292000	299000	And the hypervisor is then translating any requests down to the actual hardware. So it's creating a layer of abstraction.
+300000	310000	And we use these hypervisors all the time in computing nowadays and not only do they allow us to run multiple virtual machines, but that hypervisor can see exactly what those virtual machines are doing.
+310000	317000	And so that allows us to have some control and to be able to monitor what those VMs are doing. So watch out for some wording on the exam around this.
+317000	327000	A hypervisor is also sometimes referred to as a virtual monitor. So watch out for wording like that and you'll likely see questions on hypervisors. And hopefully now you understand the concept.

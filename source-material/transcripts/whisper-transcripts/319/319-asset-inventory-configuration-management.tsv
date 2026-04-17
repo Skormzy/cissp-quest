@@ -1,0 +1,45 @@
+start	end	text
+0	20000	Let's refocus here for a moment we are still in domain number 7 which is all about
+20000	48560	all of those day-to-day activities that the security function gets into and supports and activates
+48560	55520	and does for example and in this section we're going to talk about how companies buy all kinds of things
+55520	62240	like hardware and software and security needs to be involved in that process right from the start
+62240	67520	and throughout because obviously hardware and software represents value to the organization
+67520	73200	and just like any other valuable asset needs to be protected based on that value.
+73200	76640	Yeah and one of the really important things that organizations need to do is maintain
+76640	82240	asset inventories this is an inventory of everything they have and having been involved in quite a
+82240	88000	number of breach responses it's very very common that the way that attackers find a way into an
+88000	92640	organization is they find a system that no one's remembered is there anymore no one's thinking
+92640	98560	about it and importantly does not have an owner because for every single asset we need to have
+98560	103360	an owner who's accountable for the protection of that asset and when you don't have that when no
+103360	107760	one knows it's there we know when cares is any security be controls being put in places and when
+107760	112640	protecting it patching it configuring it and the answer of course is you know and you know we
+112640	119040	learned all about this in domain number 2 that protecting any asset including hardware and software
+119040	126320	starts with knowing what you have and capturing that into your inventory and then the next step is
+126320	132720	as Rob just mentioned identifying ownership because it's the owners that will start the process
+132720	138560	of protecting those assets because they're in the best position to understand value yeah and so
+138560	142640	asset inventories you got to create add something as soon as you have it and then evergreen these
+142640	148400	things constantly heat them up to date not an easy thing to do no and so that's where we kind of
+148400	152720	talk about the asset management life cycle so walk us through this John what are we what are we doing
+152720	158880	here yeah and I think we've seen this before I mean when you look at the life cycle of any asset
+158880	165280	it you know may start for example at the planning phase you understand that you need something
+165280	170960	to address goals and objectives of the organization and you're going to go out there and buy it for
+170960	177520	example and so the bottom line here is you don't have to memorize these phases the bottom line is
+177520	182320	what we've learned many times and that is security needs to be involved right at the start in the
+182320	187840	planning phase in this case so that we can understand the requirements of security and then build
+187840	194400	that into as we go through the entire life cycle of in this case any asset we call it asset
+194400	201520	management but asset security management needs to be part of that right at the start throughout each
+201520	208000	of the phases as we've said and what ties in with this is this concept of configuration management
+208000	212080	the idea being the behind configuration management is that when you've bought some new piece of
+212080	216320	software new piece of hardware you should never just put it out on the network on the environment
+216400	223680	in the default configuration why not not secure oh I mean if the password is root root or you know
+223680	229040	what of the default is that's well known by attackers so a huge part of deploying new assets in
+229040	232640	the environment is going through configuration management and this is where we've talked about
+232640	237280	that concept of hardening a number of times and where you go through when you configure a device
+237280	241840	according to a baseline that you've established for that device all the sort of configuration that
+241840	246880	needs to be done to make sure that that device is securely configured for your environment
+246880	250720	and then you can deploy it into production but you're not done with configuration management yet
+250720	255280	there's still the all ongoing I mean when a device is out there if you let's say a 50 web
+255280	260320	web servers if you decide to update the configuration of those web servers patch them or something
+260320	265520	what you need to make sure you do with all 50 of them make sure they remain in compliance with
+265520	269600	that baseline so configuration management covers both the deployment and then ongoing
+269600	277440	operations of the system and even the retire the commission phase that is the end

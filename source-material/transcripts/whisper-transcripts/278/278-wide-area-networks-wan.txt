@@ -1,0 +1,74 @@
+or even another country, for example, there are technologies that allow this.
+That's what we call wide-area network technologies.
+In this module, we're going to discuss what a lot of organizations have as a need, and
+that is to connect devices across.
+In this module, we're going to discuss what a lot of organizations have as a need, and
+that is to connect devices across wide areas.
+We've been talking about what a network is, and that is a bunch of devices that are connected
+to each other for the purpose of communications.
+But companies today have a need to connect devices across wide areas.
+So if there's a need to connect devices in one city to devices across another city,
+or even another country, for example, there are technologies that allow this.
+That's what we call wide-area network technologies.
+So there's different options that companies can use, and these are some of them.
+We can use modems, although that wouldn't be very good anymore.
+But there are other options.
+Typically, these are some of the options that you can lease from the service providers that
+have built capabilities to allow companies to connect across wide areas.
+So we have dedicated lease lines as an option.
+Those are lines like T1s, T2s, T3s that allow connections across wide areas.
+We can also use satellite and other wireless links, like microwave capabilities.
+But the problem with those is, typically, you'll have large footprints, but also a lot
+of interference from nature and some other things that may impact the quality and the integrity
+of the communications that are going across those wide areas.
+What most companies use today is what we call data packet carrier services.
+And so these are networks that have been created by the service providers themselves,
+like AT&T and so on.
+And what they do is they will lease connections to you across these data networks that have
+been built specifically to allow connections across wide areas.
+And just like anything else, these technologies have evolved.
+The original data packet carrier services that were offered to us by these providers was
+X25.
+X25 is a data packet carrier service that sends information across the network by using
+packets.
+In fact, all of these are their packet switch networks, but they're meant to allow companies
+to allow to connect across wide areas.
+Now because X25 was the original one, it's really an older technology, but it's still
+considered by many to be the best one to handle error correction and problems that you
+may have in transmitting information across those networks.
+But it requires a high overhead in order to achieve that really good error correction
+that it offers us.
+And so the speeds are very limited.
+There's a lot of overhead, but it's still the best network for error correction.
+In fact, what happened, if you look at this historically, is the industry created frame
+relay to really replace X25.
+And so that was a better technology that didn't do as well for error correction, but certainly
+gave us faster speeds.
+And in fact, that was replaced by what we call ATM.
+How was one of the latest technologies that we've already had for a large number of
+years?
+Today, we have a better technology for this, and it's called MPLS.
+And one of the improvements that they've made with MPLS is not only speed and quality
+of service, but they can also offer us some built-in security, and this is what you want
+to remember, MPLS networks will use what are called forwarding tables and labeling schemes
+to ensure that, for example, our connection that we're using across the MPLS network that
+belongs to a provider.
+Our path that our information is using across their network cannot be touched by anyone
+else.
+And so the providers will guarantee that our path and the devices that are using our
+path cannot be touched or used by anyone else while they're being used for our transmission.
+So they can guarantee that the path that our information is taking is ours.
+And so they'll say things like, you don't need to encrypt because nobody can get to your
+information.
+But I know companies that are using MPLS and still encrypt the information because even
+though the providers will tell us that nobody can get to those paths, there is one entity
+that can, and that is the provider themselves.
+And just because we're paying them for a service doesn't mean that we should trust them to
+be able to see our information.
+And so it may be required that even though MPLS has built-in security that we would still
+use authentication and encryption to protect that traffic based on its value.
+Now what you want to remember about MPLS is that it uses technology that is forwarding
+tables and labeling schemes to ensure that those paths are our paths and nobody can
+get to them.
+And that's the built-in security that is part of what we call MPLS networks for wide-area
+network capabilities.

@@ -1,0 +1,105 @@
+All right, here we are at layer number two, which is the data link layer, appropriate
+name. All right, here we are at layer number two, which is the data link layer, appropriate
+name for this layer, data link really means that it links the data between the two adjacent
+layers that are next to it. So if you know what the layer below the data link layer is,
+that's the physical layer. And then above the data link layer we have the network layer.
+The data link layer allows those two adjacent layers to actually talk to each other. Because
+when you look at what the network layer works with, it works with data grams and packets,
+that's not what the physical layer works with. The physical layer as we've already learned can
+only work with bits, zeros and ones. So the layer in between, which is this layer, guess what it
+does? It takes information from the network layer as data grams and formats those as bits so that
+the physical layer can work with them as bits. At the other end, guess what the data link layer
+does? It takes the bits of information from the physical layer and formats them in such a way so
+that the network layer can work with them as packets and data grams. So it really allows the two
+adjacent layers to it to be able to talk to each other. Think of it as the translator or the
+go between that allows the two adjacent layers to talk to each other. Now at this, at this layer is
+also where we reference what are called your physical unique address across a network. In other
+words, a network is made up of different devices that are connected to each other, but the network
+needs to understand each of those devices uniquely. So there needs to be some sort of unique physical
+address that the network can reference for each of the devices that are connected to each other.
+This is called the MAC address. The MAC address is really a function of your network card that
+allows you to connect to the network and every device connected to a network has to have a unique
+physical MAC address that is referenced here at layer two. And it looks something like you see
+there on your screen, but what the industry needs to make sure is that each of these MAC addresses
+are unique as they come from the manufacturers. So there is a system by which this is insured.
+For example, the first number of bits for your MAC address relates to the vendor.
+And so that would be unique to a vendor. And then the next set of bits is something else that
+ensures uniqueness and so on so that we can have network cards and devices that come from different
+manufacturers. They all need to have unique physical addresses because if you didn't,
+that would confuse the network every device or node connected to a network has to have a unique
+physical address that is referenced here as a MAC address. Although when we get to the network
+layer, you'll see that the logical addressing in networking is actually done at the network layer,
+not at the data link layer, which was what we're talking about here. The data link layer simply
+provides the physical unique address through the MAC address itself. Now here's where we also talk
+about the two types of networks that exist because if you remember what a network is, it's a bunch
+of devices that are connected to each other. Now how we communicate with other devices is the
+difference between circuit switch networks and packet switch networks. Those are the two types
+of networks that can exist. Now the easiest way to think of circuit switch networks is the
+phone network itself, the PSTN, the public switch telephone network or what some telephone people
+call the POTS, the plain old telephone system. That network has been around for over 100 years in
+some cases. But what they figured out back in those days was that the best way to carry the
+human voice, which is what this network has been built to do, are actually analog frequencies,
+I think, between 4,000 hertz and 6,000 hertz. But this network has been built to handle analog
+frequencies because that's the best way to represent your voice. But in order to be able to
+communicate across this network and here's why it's called a circuit switch network, two devices
+that need to communicate with each other have to actually establish a circuit or a connection between
+them. Now that connection can be either physical or logical, but we need to establish a full duplex
+type of connection, which means we can talk in both directions at the same time. Our animation
+here I think does a pretty good job of showing what this looks like. There is a series of devices
+along the way called switches across the telephone network that will ultimately establish a connection
+between you and that other person that you want to talk to. And of course what you do is you dial
+their number, but that activates those switches across the way that will ultimately establish
+a logical or physical connection so that now we can talk back and forth in both directions.
+That's what we call a full duplex type of connection. We can both talk to each other at the same
+time, even though if we did that, we wouldn't understand each other, but that is possible. That's
+what we call full duplex type of connection. This is what the telephone network is and in fact,
+if you think of the telephone network, it is a perfect example of a circuit switch network.
+The telephone network. Now, if you remember back in the old days, when data started to become
+something that was really important to organizations, the only way that you could connect remotely
+to your internal network was to actually use the only network that was available for us to do that.
+And that was the telephone network, but the problem with the telephone network is that it has
+a limitation because it is a analog technology. It was built to carry the human voice and the
+best way to do that is to use analog technologies. So the only way that you could carry data across
+it was to take your digital signals that computers use and turn them into analog so that they could
+be carried across the analog telephone network. And then at the other end, you would have a similar
+device that would take that analog signal and turn it back into digital. And of course, those devices
+are called modems, aren't they? In fact, the word modem comes from modulation, demodulation,
+which does exactly what we just described. It takes your digital signals, turns them into analog
+so that they can be carried across the analog telephone network. And then, of course, at the other
+end, we turn it back into digital. Now, there's always been a problem with this. And that is,
+there's a limitation in the speeds and the bandwidth, for example, that we can host. And that is
+because the analog telephone network is analog. It's backbone is analog. And so we've always had
+that limitation, which I think is 56,000 bits per second. And a lot of people ask a question,
+why haven't we improved modem technology to give us faster speeds? Well, we have, in fact,
+in fact, all of you probably use DSL modems and cable modems that handle much faster speeds.
+But the problem with the telephone network is not in the modem. It's in the network itself.
+That's why we still have that limitation with modems. So obviously, when data started to
+become a requirement, we couldn't use modems anymore because of that limitation. So that forced
+companies to build separate and specific data networks to handle the quantity of data, the speeds
+that we required today. And those are called packet switched networks. So the easiest way to think
+of this is that all data networks are packet switched. The way this works is if we need to send
+information between devices, we're not going to establish a circuit or connection first.
+What I do if I need to send you information as I take that information and I break it up into
+manageable chunks. And then I individually address each of those chunks. And then I send them along
+the way. Now those chunks, called packets or datagrams typically, will travel in different directions.
+You know, they may arrive in a different order than they were sent. Some of them may not even arrive.
+But you know, basically we have the technology to be able to do that, receive those datagrams and packets
+and reconstruct them into what the original data look like. That's what all data networks do.
+And because we break things up into manageable chunks that can be each individually addressed
+and sent along the way, these are called packet switch networks. All data networks work this way.
+All data networks are packet switch networks because they can handle the high volumes and bandwidths
+and speeds that we need today for the applications that really data networks are built for today.
+Here's just a basic summary of the two types of networks that can exist. And pretty
+intuitively you can see the difference here and what they're typically used for. Just remember
+that circuit switched is the voice network. All data networks are packet switch because they
+can give us the speeds and the bandwidth and what we need today for our applications.
+Now across data networks though, sometimes you may want connections that are established on demand
+or for example, maybe companies need to link, you know, a data network in one location to a data
+network in another location permanently. Let's say we are a company that has offices in two
+different cities. And so we may want to link those two offices or data networks together permanently.
+That's what we call permanent virtual circuits. Those are data network connections that are
+established typically across what we call wide area network technologies that are offered to us
+by our providers. We'll talk more about that later on. Whereas a switched virtual circuit is one
+that we establish on demand. And then once we're finished, we tear it down. Perfect example of that
+would be a VPN connection. So that's the difference between the two types of connections that we can
+establish across data networks or packet switch networks.

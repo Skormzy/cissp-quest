@@ -1,0 +1,240 @@
+1
+00:00:00,000 --> 00:00:20,080
+We love them as people, they bring in all sorts of
+
+2
+00:00:20,080 --> 00:00:47,080
+natural light, they're wonderful to have around, but from a physical security perspective they have some important implications.
+
+3
+00:00:47,080 --> 00:00:55,080
+What we particularly need to focus on is what is the material that the window is made from, and there's a number of different things that windows can be made from.
+
+4
+00:00:55,080 --> 00:00:58,080
+Let's start with the cheapest option, plate glass.
+
+5
+00:00:58,080 --> 00:01:02,080
+Plate glass windows are simple plate glass windows, they're cheap glass.
+
+6
+00:01:02,080 --> 00:01:10,080
+The defining characteristic of plate glass is that when it breaks, it breaks into big scary shards, not very safe for people, you can get impaled.
+
+7
+00:01:10,080 --> 00:01:14,080
+So plate glass is the cheapest option, but definitely not the safest.
+
+8
+00:01:14,080 --> 00:01:18,080
+If you want a safer type of window material, that is tempered glass.
+
+9
+00:01:18,080 --> 00:01:26,080
+What happens when tempered glass breaks, it breaks into nice little small pebbles, and so you might get little nicks or cuts, but you're not going to get impaled.
+
+10
+00:01:26,080 --> 00:01:29,080
+So tempered glass, much safer for people.
+
+11
+00:01:29,080 --> 00:01:31,080
+Wired glass.
+
+12
+00:01:31,080 --> 00:01:42,080
+Wired glass is glass that has metal wires embedded in it, and I don't know if I just went to like a super sketchy elementary school, but all the windows in the doors in my elementary school had wired glass in them.
+
+13
+00:01:42,080 --> 00:01:54,080
+The advantage of wired glass is that if the glass breaks, it gets held together by the metal wires, and you still have a barrier there from someone reaching in and undoing the door and on, for instance, because they're still the metal wires that are there.
+
+14
+00:01:55,080 --> 00:02:03,080
+Laminated glass, as the name implies, the laminated glass is a lamination layers of different materials said which together.
+
+15
+00:02:03,080 --> 00:02:08,080
+Most commonly you'll have a layer of glass, a layer of plastic, and then another layer of glass.
+
+16
+00:02:08,080 --> 00:02:12,080
+A really good example of this is windshields and cars.
+
+17
+00:02:12,080 --> 00:02:20,080
+Oftentimes when you get a rock chip on a car, and if it's in a nicer car, if you go to the outside of the windshield, you'll feel this big rock chip on the window.
+
+18
+00:02:20,080 --> 00:02:25,080
+But if you go inside the vehicle and you feel in that same spot, there's nothing there.
+
+19
+00:02:25,080 --> 00:02:28,080
+And that's because a lot of car windshields are actually laminated glass.
+
+20
+00:02:28,080 --> 00:02:33,080
+There's a layer of glass, a layer of plastic, and then another layer of glass on the inside.
+
+21
+00:02:33,080 --> 00:02:36,080
+It makes for a much stronger window.
+
+22
+00:02:36,080 --> 00:02:39,080
+The next type of material is polycarbonate.
+
+23
+00:02:39,080 --> 00:02:44,080
+And as the name implies, polycarbons, it's actually made out of plastics.
+
+24
+00:02:44,080 --> 00:02:47,080
+Now you may have heard of this concept of bullet proof glass.
+
+25
+00:02:47,080 --> 00:02:49,080
+There is actually no such thing as bullet proof glass.
+
+26
+00:02:49,080 --> 00:02:51,080
+There is bullet resistant glass.
+
+27
+00:02:51,080 --> 00:02:56,080
+And typically most bullet resistant glass is made out of polycarbons.
+
+28
+00:02:56,080 --> 00:03:03,080
+And so if you ever get a question asking what's the strongest type of glass, the answer is most definitely polycarbonate.
+
+29
+00:03:03,080 --> 00:03:10,080
+Now the final thing we should talk about here of the different types of glass is actually not a type of glass but a coating that we can put on the glass.
+
+30
+00:03:10,080 --> 00:03:12,080
+And they're called solar films.
+
+31
+00:03:12,080 --> 00:03:15,080
+And solar films, you'll notice this in downtown buildings all the time.
+
+32
+00:03:15,080 --> 00:03:18,080
+All the buildings that are covered in glass, they're different colors.
+
+33
+00:03:18,080 --> 00:03:20,080
+Gold, silver, greens.
+
+34
+00:03:20,080 --> 00:03:23,080
+That's actually different types of solar films that have been applied to the windows.
+
+35
+00:03:23,080 --> 00:03:29,080
+And the primary reason that we do that is that heat from the sun is a major heating factor in buildings.
+
+36
+00:03:29,080 --> 00:03:33,080
+And it causes, it would drive up the prices considerably of cooling the building.
+
+37
+00:03:33,080 --> 00:03:38,080
+And so these solar films actually block UV light, the light that brings in a lot of the heat.
+
+38
+00:03:39,080 --> 00:03:46,080
+And so from a physical security perspective, we really like solar films because they help reduce the heating load on the building.
+
+39
+00:03:46,080 --> 00:03:50,080
+And the other thing you can use solar films for is to make what are known as one-way mirrors.
+
+40
+00:03:50,080 --> 00:03:56,080
+Having spent a lot of time on the wrong side of these, if you've been in an interrogation room, it'll look like a piece of glass from one side.
+
+41
+00:03:56,080 --> 00:03:59,080
+But on the other side, there's a bunch of police looking at you.
+
+42
+00:03:59,080 --> 00:04:01,080
+So those are solar films.
+
+43
+00:04:01,080 --> 00:04:07,080
+The final piece that we'll talk about related to windows is, how do you detect if a window has been broken?
+
+44
+00:04:07,080 --> 00:04:10,080
+And there's two major types of sensors that you can use to do this.
+
+45
+00:04:10,080 --> 00:04:16,080
+There's what are known as shock sensors and glass brake sensors.
+
+46
+00:04:16,080 --> 00:04:18,080
+Glass brake sensors actually listen.
+
+47
+00:04:18,080 --> 00:04:20,080
+They're essentially a microphone.
+
+48
+00:04:20,080 --> 00:04:23,080
+And they listen for the specific sound that braking glass makes.
+
+49
+00:04:23,080 --> 00:04:27,080
+So with a glass brake sensor, you can put like one sensor in a room.
+
+50
+00:04:27,080 --> 00:04:30,080
+And it'll monitor all the windows in a room.
+
+51
+00:04:30,080 --> 00:04:35,080
+Shock sensors, on the other hand, are a little sensor that attaches to each individual window.
+
+52
+00:04:35,080 --> 00:04:41,080
+And a shock sensor actually detects the shock, the vibration of a window being broken.
+
+53
+00:04:41,080 --> 00:04:44,080
+So here's one final really good question to think about.
+
+54
+00:04:44,080 --> 00:04:51,080
+Which of these sensors, shock sensors, or glass brake sensors, would be better in a noisy occupied room?
+
+55
+00:04:51,080 --> 00:04:54,080
+And the answer is shock sensors.
+
+56
+00:04:54,080 --> 00:04:55,080
+Why?
+
+57
+00:04:55,080 --> 00:04:59,080
+Well, because shock sensors pick up the vibration of the actual individual window being broken.
+
+58
+00:04:59,080 --> 00:05:03,080
+Versus glass brake sensors listen for the sound of a window braking.
+
+59
+00:05:03,080 --> 00:05:07,080
+And in a noisy occupied room, they probably wouldn't be able to detect that sound.
+
+60
+00:05:07,080 --> 00:05:10,080
+So that's what you need to know about windows.
+

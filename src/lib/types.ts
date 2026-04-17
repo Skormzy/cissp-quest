@@ -8,6 +8,7 @@ export interface User {
   character_skin: number;
   character_hair: number;
   character_hair_color: string;
+  character_eye_shape: number;
   character_outfit: number;
   xp: number;
   level: number;

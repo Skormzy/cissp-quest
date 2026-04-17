@@ -1,0 +1,384 @@
+1
+00:00:00,000 --> 00:00:06,000
+So let's kind of dig into it here, and you'll learn about why we talk about something known as the root of trust or the trust anchor.
+
+2
+00:00:06,000 --> 00:00:10,000
+So, well, it's true that ultimately the key that...
+
+3
+00:00:30,000 --> 00:00:57,000
+We've talked about digital certificates, which we use to verify the owner of a public key, and we've talked about the entity that you go to to get a digital certificate is the certificate authority.
+
+4
+00:00:57,000 --> 00:01:07,000
+And the certificate authority will encrypt and create your digital certificate by encrypting some of your information with the root CA's private key.
+
+5
+00:01:07,000 --> 00:01:10,000
+And all that's true, but there's actually a little more detail to do with than that.
+
+6
+00:01:10,000 --> 00:01:16,000
+So let's kind of dig into it here, and you'll learn about why we talk about something known as the root of trust or the trust anchor.
+
+7
+00:01:16,000 --> 00:01:29,000
+So while it's true that ultimately the key that signs that encrypts your digital certificate is ultimately the root CA's key, there's a few more entities involved beneath that.
+
+8
+00:01:29,000 --> 00:01:40,000
+And this is actually why we call it the root of trust, because there's actually a tree with the root certificate at the top of that tree, and then subordinate CA's beneath that.
+
+9
+00:01:40,000 --> 00:01:47,000
+So first of all, let's start with this concept of why do we have a root CA and subordinate CA's?
+
+10
+00:01:47,000 --> 00:01:50,000
+Well, first of all, let's think about it from a security perspective.
+
+11
+00:01:50,000 --> 00:01:56,000
+This entire system relies upon the security of the private key of the root CA.
+
+12
+00:01:56,000 --> 00:02:01,000
+If their private key was compromised, this entire system would fall apart.
+
+13
+00:02:01,000 --> 00:02:08,000
+And this would be a big deal. I mean, some of the big root CA's in the world, Komodo GoDaddy, they signed millions of certificates.
+
+14
+00:02:08,000 --> 00:02:12,000
+If their private key was compromised, it would be a huge, huge problem.
+
+15
+00:02:12,000 --> 00:02:16,000
+And you wouldn't be able to trust a vast swath of the internet.
+
+16
+00:02:16,000 --> 00:02:24,000
+And so if you think about it, how important is it for the CA to protect that private key? It is paramount.
+
+17
+00:02:24,000 --> 00:02:34,000
+So how do you think they best protect that private key? Well, by not having it online, by airgapping it, by putting out a system that is completely disconnected from the internet.
+
+18
+00:02:34,000 --> 00:02:42,000
+But if that private key is on a system that's disconnected from the internet, how can they possibly sign new digital certificates?
+
+19
+00:02:42,000 --> 00:02:45,000
+Well, the way this works, and like I said, there's a tree here.
+
+20
+00:02:45,000 --> 00:02:54,000
+So the root CA will self-sign their own certificates. So the root CA uses the root CA's private key to sign their own certificate.
+
+21
+00:02:54,000 --> 00:02:59,000
+And then that root certificate is used to sign subordinate certificates.
+
+22
+00:02:59,000 --> 00:03:08,000
+And these are usually known as intermediate CAs. And then those intermediate CAs can even sign subordinate CAs below them.
+
+23
+00:03:08,000 --> 00:03:11,000
+Those are usually then known at the bottom known as issuing CAs.
+
+24
+00:03:11,000 --> 00:03:21,000
+And then it would finally be those issuing CAs that would actually encrypt or sign an entity level CA, so the CA that a company would use.
+
+25
+00:03:21,000 --> 00:03:24,000
+So this is why we refer to it as a root of trust.
+
+26
+00:03:24,000 --> 00:03:31,000
+And so here's a good question. If you've ever asked, who actually issues digital certificates?
+
+27
+00:03:31,000 --> 00:03:36,000
+The perfect answer would be the bottom of that chain, chain issuing CAs.
+
+28
+00:03:36,000 --> 00:03:42,000
+If that's not an answer, then intermediate. And if that's not an answer, then root would be the perfect answer.
+
+29
+00:03:42,000 --> 00:03:49,000
+But the perfect answer to the question of who issues a digital certificate is an issuing CA.
+
+30
+00:03:49,000 --> 00:03:52,000
+And you can actually see this. You can see this chain of trust.
+
+31
+00:03:52,000 --> 00:04:02,000
+So if you go into your web browser and you right click on the little lock icon in the browser bar and hit properties, you'll be able to see that there's a chain of trust.
+
+32
+00:04:02,000 --> 00:04:07,000
+The entity level CA is the lowest of that level and the very top is the root.
+
+33
+00:04:07,000 --> 00:04:13,000
+So the root CA signs a subordinate CA which signs the entity level certificate.
+
+34
+00:04:13,000 --> 00:04:16,000
+And so in this example, I'm showing you here from Amazon.com.
+
+35
+00:04:16,000 --> 00:04:23,000
+You can see that it's actually a couple of, there's an intermediate and a root level CA from global.
+
+36
+00:04:23,000 --> 00:04:28,000
+Now let's talk about another issue that we have to deal with with digital certificates.
+
+37
+00:04:28,000 --> 00:04:33,000
+And that is what happens when we want to replace or revoke certificates.
+
+38
+00:04:33,000 --> 00:04:35,000
+Now let's start with replacement.
+
+39
+00:04:35,000 --> 00:04:43,000
+So we're going to talk about a key management, how it's a very good idea to rotate or change your encryption keys on a periodic basis.
+
+40
+00:04:43,000 --> 00:04:48,000
+And the same is true of course for your digital certificate because what does your digital certificate contain?
+
+41
+00:04:48,000 --> 00:04:51,000
+It contains your public key.
+
+42
+00:04:51,000 --> 00:04:57,000
+So if you're changing your public and private key pair, that means that you have to change your or get a new digital certificate.
+
+43
+00:04:57,000 --> 00:05:00,000
+And that's what the replacement process is.
+
+44
+00:05:00,000 --> 00:05:05,000
+And the way this typically works is that a digital certificate when it's issued will have an expiry date attached to it.
+
+45
+00:05:05,000 --> 00:05:12,000
+And so whenever you get a certificate from someone, you're going to know when their certificate is meant to expire because you'll have the expiry date on there.
+
+46
+00:05:12,000 --> 00:05:21,000
+And if you ever go to a website where it says, you know, this website certificate has expired, what that means is that the certificate for that site is past its expiry date.
+
+47
+00:05:21,000 --> 00:05:27,000
+And it's a good indication that you should go and get a new certificate from that organization.
+
+48
+00:05:27,000 --> 00:05:32,000
+Now there's another situation that we have to deal with which is a far, far greater concern from a security perspective.
+
+49
+00:05:32,000 --> 00:05:37,000
+And that is, what happens if your private key has been compromised?
+
+50
+00:05:37,000 --> 00:05:41,000
+If your private key has been compromised, should anyone trust your public key?
+
+51
+00:05:41,000 --> 00:05:43,000
+Absolutely not.
+
+52
+00:05:43,000 --> 00:05:45,000
+So what do we do in situations like this?
+
+53
+00:05:45,000 --> 00:05:49,000
+Well, this is the whole purpose of this certificate revocation process.
+
+54
+00:05:49,000 --> 00:05:58,000
+So the way this works is that if you know that your private key has been compromised, you can go to a certificate authority and say, my private key has been compromised.
+
+55
+00:05:58,000 --> 00:06:01,000
+Therefore, no one should trust my public key.
+
+56
+00:06:01,000 --> 00:06:03,000
+Therefore, no one should trust my certificate.
+
+57
+00:06:03,000 --> 00:06:06,000
+And therefore, I'd like you to revoke my certificate.
+
+58
+00:06:06,000 --> 00:06:11,000
+And the certificate authority maintains a list of all the revoked certificates.
+
+59
+00:06:11,000 --> 00:06:25,000
+And so your crypto system should, for instance, when it's first getting a, or it's using a digital certificate, it should check with the certificate authority to see if that certificate is still valid or if it's being revoked.
+
+60
+00:06:25,000 --> 00:06:33,000
+Now there's two major ways that a crypto system can check with the certificate authority and ask, has the certificate be revoked or not?
+
+61
+00:06:33,000 --> 00:06:38,000
+The older method is known as CRL certificate revocation list.
+
+62
+00:06:38,000 --> 00:06:45,000
+And the way this works is you query the CA and you say, hey, now I'd like to know if the certificate is being revoked.
+
+63
+00:06:45,000 --> 00:06:52,000
+And what the certificate will, in CRL, what the certificate authority will send you is the entire list of all the revoked certificates.
+
+64
+00:06:52,000 --> 00:06:55,000
+And so this can often be a pretty big file.
+
+65
+00:06:55,000 --> 00:07:06,000
+And then it's your crypto systems job, your local systems job, to then search through that entire list of revoked certificates to see if the one that you're interested in has, in fact, be revoked, be revoked.
+
+66
+00:07:06,000 --> 00:07:10,000
+So this is not a very efficient process. This is kind of the older way of doing it.
+
+67
+00:07:10,000 --> 00:07:16,000
+The other method is OCSP online certificate status protocol. And this is the newer way of doing this.
+
+68
+00:07:16,000 --> 00:07:24,000
+And the way it works is your system will query the certificate authority and say, for this particular certificate that I have, has it being revoked.
+
+69
+00:07:24,000 --> 00:07:31,000
+And the CA will reply with a simple yes or no. It has been revoked or not. So OCSP is the newer, far more efficient method.
+
+70
+00:07:31,000 --> 00:07:38,000
+But the reason that we still talk about CRL is that there's a lot of older systems that don't support this new OCSP protocol that only supports CRL.
+
+71
+00:07:38,000 --> 00:07:42,000
+So it's still commonly used to this day.
+
+72
+00:07:42,000 --> 00:07:50,000
+Now, one major problem with this whole process is that it's still to an extent relies on user's awareness and knowledge.
+
+73
+00:07:50,000 --> 00:07:55,000
+Because you may have had this happen. You'll go to some website. Maybe it's a slightly sketchy website. Not going to ask why you're there.
+
+74
+00:07:55,000 --> 00:08:02,000
+You'll go to a website and you'll see a really scary pop up like this on like a red background. It'll say this certificate has been revoked.
+
+75
+00:08:02,000 --> 00:08:10,000
+It looks super scary. And unfortunately, what our users can still sometimes do is still click on a button that says, yeah, yeah, I proceed.
+
+76
+00:08:10,000 --> 00:08:16,000
+Should they be clipping on this button? Should you ever go to a website whose certificate has been revoked? Absolutely not.
+
+77
+00:08:16,000 --> 00:08:21,000
+And thankfully browsers in the last couple of years have started to address this problem.
+
+78
+00:08:21,000 --> 00:08:27,000
+Most modern browsers now Chrome as an example. They don't even give you the button to proceed anymore.
+
+79
+00:08:27,000 --> 00:08:36,000
+But that is still a failing in the system where it's still relies on the users to an extent understanding what a revoked certificate actually means and why that's a problem.
+
+80
+00:08:36,000 --> 00:08:42,000
+Now, there's one final concept that we're going to talk about here. And that is certificate pinning.
+
+81
+00:08:42,000 --> 00:08:50,000
+So what is certificate pinning? Well, to explain this, let's think about if you're going to a website like, say, Amazon.com, how do you get their certificate?
+
+82
+00:08:50,000 --> 00:08:55,000
+We're going to talk about this in a lot more detail in the networking section when we talk about the SSL protocol.
+
+83
+00:08:55,000 --> 00:09:04,000
+But for now, if you go to a website like say, Amazon.com, the web server will send you the certificates, the server's certificate.
+
+84
+00:09:04,000 --> 00:09:10,000
+And so your browser will get a copy of the server's certificate by requesting it. But there's a problem here.
+
+85
+00:09:10,000 --> 00:09:18,000
+What happens if we have a malicious person in the middle, a baddie here? When we first request a certificate from the server,
+
+86
+00:09:18,000 --> 00:09:26,000
+if there happens to be a baddie performing a man in the middle attack, a problem that might happen here is that the baddie might not send a server's true certificate.
+
+87
+00:09:26,000 --> 00:09:31,000
+The baddie here might send a spoofed certificate. And that's a real problem here.
+
+88
+00:09:31,000 --> 00:09:36,000
+So the way a possible way of dealing with this is what's known as certificate pinning.
+
+89
+00:09:36,000 --> 00:09:45,000
+And the idea behind certificate pinning is that when you know you have a certificate that you trust, you never go out and actually ask for a new certificate from say Amazon.com.
+
+90
+00:09:46,000 --> 00:09:54,000
+And there's two major ways that your system might pin or say there's a certificate I trust. Therefore, I'm not going to ask for a new one.
+
+91
+00:09:54,000 --> 00:10:07,000
+One, the best way of doing certificate pinning is that when an application is first created that needs to go in request a certificate, you actually code that you actually add the certificate into the application when it's created.
+
+92
+00:10:08,000 --> 00:10:16,000
+And so if the application already has the certificate pinned to the application, there's absolutely no need to go and ask the server for the certificate.
+
+93
+00:10:16,000 --> 00:10:24,000
+So that's the most secure way of doing certificate pinning. The other option is the very first time that you ask for a certificate from say Amazon.com.
+
+94
+00:10:24,000 --> 00:10:30,000
+You pin that certificate and then every subsequent time that you go to the server, you don't ask for a new certificate.
+
+95
+00:10:30,000 --> 00:10:39,000
+Either way, fundamentally, what is certificate pinning about? Well, it's this idea that if there's no key distribution through digital certificates, then there's no distribution problems.
+
+96
+00:10:39,000 --> 00:10:43,000
+There's no security risk of having a man in the middle attack. So that's certificate pinning.
+

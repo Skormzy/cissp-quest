@@ -1,0 +1,89 @@
+start	end	text
+0	18040	We've just gone through how we protect specific vulnerabilities in systems and so forth,
+18040	34040	where you know, how do you protect against emanation?
+34040	38040	We've just gone through how we protect specific vulnerabilities in systems and so forth,
+38040	41600	where you know, how do you protect against emanations and how do you protect against
+41600	43640	single points of failure and so forth.
+43640	47040	Now let's talk more overall, how do you protect systems?
+47040	51040	How do you protect overall systems like an entire mobile device, an entire desktop,
+51040	54040	a laptop, or even an entire server?
+54040	58040	And the simple way to think about this is that these are wildly complex systems.
+58040	61040	Like, even take an example, like my phone.
+61040	64040	What hardware and software is in a device like this?
+64040	67040	They are remarkably complex devices.
+67040	72040	From a hardware perspective, we've got a CPU, we've got RAM, we've got tons of storage.
+72040	75040	How about even just from a radio as perspective, how many radios are in this?
+75040	77040	Well, is your Wi-Fi?
+77040	78040	There's your cellular?
+78040	79040	There's your Bluetooth?
+79040	80040	There's your RFID?
+80040	82040	I mean, that's just four radios right there.
+82040	83040	There could be more.
+83040	87040	And then from a software perspective, we have a very complicated operating system.
+87040	89040	We have multiple apps running on top of that.
+89040	93040	What I'm trying to get at is that any of these types of devices, even mobile devices,
+93040	98040	and especially after something like a server, they are extremely complex devices.
+98040	102040	So how do we go about securing such a complex device?
+102040	104040	Well, it's a concept John has already talked about.
+104040	108040	To protect anything, you break it down into its components.
+108040	110040	And then you protect each of those components.
+110040	114040	The more valuable the system, the more time you're going to spend subdividing it
+114040	116040	into more and more smaller components.
+116040	119040	Rather than just looking at the CPU, you could look at parts of the CPU.
+119040	123040	Rather than just looking at the operating system as a whole, you could look at the libraries,
+123040	125040	the kernel, the drivers.
+125040	130040	You break it down into its components and you secure each of those components.
+130040	131040	Here's a good question for you.
+131040	134040	You know any devices made up of hardware, software, and so forth?
+134040	137040	Where is it hardest to detect vulnerabilities?
+137040	140040	This is an exam question that's come up recently.
+140040	142040	Where is it hardest?
+142040	143040	Hardware.
+143040	147040	And the reason being is that we have very well established practices and expertise
+147040	150040	in how to detect software malware on our systems as an example.
+150040	154040	But there's very few organizations that I've ever come across that will, for instance,
+154040	158040	look at a new server that's arrived, just look at every chip on that motherboard
+158040	164040	to make sure that someone hasn't installed something in the hardware or some routines in the firmware.
+164040	170040	So hardware is, if you've got a question on that, hardware is where it's most difficult to detect vulnerabilities.
+170040	175040	Now when we think about when I say to you, you know, you should secure components,
+175040	177040	what do I actually mean by that?
+177040	181040	And how do you decide what controls to put in place and to what, you know, to what,
+181040	184040	how much effort to put into place for controls?
+184040	187040	Ultimately what it comes down to is based on organizational relevance.
+187040	190040	So security controls need to be based on how valuable.
+190040	194040	By the way, that term organizational relevance, what does that really mean?
+194040	199040	Well, it means what does this system, this process do with an organization?
+199040	203040	What's its organizational relevance, which implies value?
+203040	204040	Watch out for that in the exam.
+204040	209040	If you see something that says like organizational relevance, it's implying how valuable the system is.
+209040	213040	And so we implement controls based on the value of the system, the process.
+214040	220040	Specific to mobile systems, things like cell phones, there's one particular technology that I want to talk about.
+220040	224040	And that is MDM mobile device management software.
+224040	226040	It's essentially like installing big brother on your phone.
+226040	230040	It allows a corporation to install a little agent on a device.
+230040	234040	The MDM software is an agent that gets installed on an endpoint, like a phone.
+234040	239040	And then that software agent allows the corporation to monitor the device,
+239040	242040	to implement, to require certain controls.
+242040	245040	The MDM software, for instance, will enforce whole drive encryption,
+245040	248040	will enforce strong passwords, things like that.
+248040	250040	And even things like remote white.
+250040	252040	So that's MDM software.
+252040	257040	And it can even go to the point of if a device isn't in compliance.
+257040	260040	And this is used a lot where organizations allow BYOD or CYOD
+260040	262040	bring your own device, carry your own device.
+262040	266040	If an organization is allowing people to bring in their personal phones,
+266040	269040	it's a very good idea to install this MDM software on those devices,
+269040	273040	to make sure that those devices are secure before they're allowed to connect to
+273040	277040	and obtain information from the corporate network.
+277040	279040	Now, a final piece I want to talk about here.
+279040	283040	And this is applied to whenever you want to protect any sort of system.
+283040	285040	You go through this process of hardening.
+285040	287040	And we've talked about this a couple times now, right?
+287040	291040	It's this concept of going through a device, looking very carefully at the configuration,
+291040	293040	making sure all the patches are in place,
+293040	298040	disabling unnecessary services, installing the appropriate security controls
+298040	301040	like anti-mower, host-based firewall, host-based IDS IPS.
+301040	307040	It's going through a checklist and locking down any type of device.
+307040	311040	And this concept of hardening absolutely applies to how you secure a mobile device,
+311040	314040	a laptop, a server.
+314040	319040	So there you go. That's how you do a better job of addressing vulnerabilities and systems.

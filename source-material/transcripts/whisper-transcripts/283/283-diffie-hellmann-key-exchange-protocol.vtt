@@ -1,0 +1,170 @@
+WEBVTT
+
+00:00.000 --> 00:06.340
+You think how much data and how fast it needs to be transmitted across those VPN solutions
+
+00:06.340 --> 00:23.920
+that all of us use to use remote access to connect.
+
+00:23.920 --> 00:44.000
+We've talked about the advantages and disadvantages of symmetric and asymmetric key cryptography.
+
+00:44.000 --> 00:50.240
+We've talked about the advantages and disadvantages of symmetric and asymmetric key cryptography.
+
+00:50.240 --> 01:02.240
+One of the things that we've learned and we know is that symmetric key cryptography is the only thing that we can use for anything that requires speed and bulk.
+
+01:02.240 --> 01:10.240
+If we use an example such as VPNs, VPNs can only use symmetric key cryptography.
+
+01:10.240 --> 01:18.240
+When you think how much data and how fast it needs to be transmitted across those VPN solutions that all of us use
+
+01:18.240 --> 01:31.240
+to use remote access to connect back into our internal networks, your VPN client, which is on your laptop and the VPN server that exists at the other end in your company's network,
+
+01:31.240 --> 01:34.240
+really can only use symmetric key cryptography.
+
+01:34.240 --> 01:41.240
+That means you have to have the same key at both ends for that particular session.
+
+01:41.240 --> 01:49.240
+If you disconnect that VPN session for whatever reason and reconnect again two minutes later, let's say,
+
+01:49.240 --> 01:57.240
+guess what? The same key has to be at both ends, but it has to be different than the keys that were used in the previous session.
+
+01:57.240 --> 02:05.240
+If there are other people traveling around that work for the same company and are connected back into the same VPN server at the company,
+
+02:05.240 --> 02:12.240
+guess what? Their key needs to be the same at both ends, but it needs to be different than the one that you use.
+
+02:12.240 --> 02:18.240
+So this is a really fundamental problem that all VPN solutions have to solve.
+
+02:18.240 --> 02:27.240
+And so how do we solve this? How do we get that same key at both ends without having anybody else know in between what that key is?
+
+02:27.240 --> 02:30.240
+That's a really hard problem to solve.
+
+02:30.240 --> 02:37.240
+And the answer to this is really mathematical magic, but when you think about all VPN solutions out there,
+
+02:37.240 --> 02:50.240
+they use this method to generate the same secret at both ends that can be used as the same symmetric key that can encrypt and decrypt information for that session.
+
+02:50.240 --> 03:02.240
+And in fact, this is why we call it session keys. A session key is symmetric keys that are used at both ends, but they're only used for that particular session.
+
+03:02.240 --> 03:10.240
+So let's say you're traveling around and you get to Bora Bora and you need to get back into your company's network.
+
+03:10.240 --> 03:20.240
+You activate your VPN client on your machine and somehow the same key has to be at your end and at the VPN server.
+
+03:20.240 --> 03:29.240
+Now obviously we can't send that key across the network because anybody sitting in between may be able to see what that key is.
+
+03:29.240 --> 03:37.240
+So the only way that we can make this work is to use mathematical magic and I'm going to show you what this looks like on the screen here.
+
+03:37.240 --> 03:51.240
+So let's say that we'll use Alice and Bob as examples, but the process by which this is actually done, this mathematical magic is really known as the Diffie Helmand Key Exchange Protocol,
+
+03:51.240 --> 04:06.240
+because Diffie Helmand Key Exchange Protocol was basically the first ones to come up with this type of activity that allows us to create and come up with the same secret at both ends that can be used at both ends.
+
+04:06.240 --> 04:22.240
+So let's look at the example here. Let's say Alice is in Bora Bora wants to connect back in with Bob who's sitting at the VPN server at the other end.
+
+04:22.240 --> 04:30.240
+The first step in this mathematical magic is that they both come up with a totally random number.
+
+04:30.240 --> 04:39.240
+So let's say Alice comes up with a totally random number. In this case it's the number seven. Bob needs to do the same thing at his hand.
+
+04:39.240 --> 04:49.240
+He comes up with a totally random number. Let's say it's the number three. Now at this point they've each come up with a secret number.
+
+04:49.240 --> 04:59.240
+Alice doesn't know what Bob's number is and Bob doesn't know what Alice's number is, but it doesn't matter at this point because the next step is very important.
+
+04:59.240 --> 05:10.240
+But what they each do is they take those secret numbers that they've each come up with and they put them through a mathematical function and algorithm to come up with the result.
+
+05:10.240 --> 05:22.240
+Now let's use something really simple here just to show the concept. But in real VPN solutions and in real key management protocols, this math would be much more complex.
+
+05:22.240 --> 05:36.240
+But to show you the concept will use something very simple like times two. So what Alice does is she takes the random number that she came up with and multiplies it by two to come up with 14.
+
+05:36.240 --> 05:47.240
+Now Bob does the same thing at his end. He takes his random number that he came up with which was three multiplies it by two. The result is six.
+
+05:47.240 --> 05:55.240
+Now they each have two numbers that are related to each other mathematically. Now what happens here is very important.
+
+05:55.240 --> 06:08.240
+What they each do is they exchange the second numbers that they've just come up with. So Bob is going to send the six to Alice and Alice is going to send the 14 to Bob.
+
+06:08.240 --> 06:22.240
+And that's what we're going to show here. And then what happens is when they each receive those numbers that they just got from each other, they relate them back to the original random numbers that they each came up with.
+
+06:22.240 --> 06:37.240
+So in this case, Alice is going to take the six that she's just received from Bob and multiply it with her original number. And so if you multiply six times seven, she's going to get 42.
+
+06:37.240 --> 06:50.240
+And Bob is going to do the same thing at his hand. He's going to take the number that he just received from Alice which was the 14 and multiply it with his random number that he originally came up with.
+
+06:50.240 --> 07:15.240
+So 14 times three is going to equal 42 at both ends through this mathematical, magical process here. They've been able to generate the same secret at both ends that really represents the symmetric session key that's going to be used by both of them to encrypt and decrypt information in both directions.
+
+07:15.240 --> 07:33.240
+And that represents the symmetric key that will be used for that session. Now if they disconnect for whatever reason and reconnect again, guess what's going to happen? They're going to go through this process again, but they're going to come up with totally different random numbers to start this process.
+
+07:33.240 --> 07:50.240
+But once they go through this entire process again, it will always generate the same secret at both ends, which will represent that symmetric session key. Now this process here is in fact the Diffy Helm and Key Exchange Protocol.
+
+07:50.240 --> 08:03.240
+They were the first ones to come up with this mathematical process that really generates the same symmetric key at both ends and that is referred to as a key management protocol.
+
+08:03.240 --> 08:11.240
+Now these days there are a whole bunch of these that exist out there. They basically go through the same concept to come up with the same secret.
+
+08:11.240 --> 08:22.240
+The only difference typically is the math that is used here. Now we used times two as the math. The math needs to be the same at both ends.
+
+08:22.240 --> 08:32.240
+But that's why for example when you're traveling around, your VPN client is the specific solution that your company has put on your laptop.
+
+08:32.240 --> 08:40.240
+The math obviously has to be the same at both ends, which matches up with the math that is at the VPN server.
+
+08:40.240 --> 08:49.240
+Now there's all kinds of versions of these. Diffy Helm and was the first one, but there exists a whole bunch of other ones out there.
+
+08:49.240 --> 09:00.240
+Now the only other thing that we need to think about here is that if the math is very simple like times two, this would not be secured because once you exchange these numbers,
+
+09:00.240 --> 09:18.240
+if there's a man in the middle that intercepts the numbers, because times two is not a one-way math function, the man in the middle would be able to figure out what the original number is and therefore be able to figure out what the ultimate session key is.
+
+09:18.240 --> 09:31.240
+So to make this very secure, what we need to do is change the math here, have it be the same at both ends, but it needs to be a one-way mathematical process.
+
+09:31.240 --> 09:39.240
+In other words, you can only go this way, not the other way. So if there's a man in the middle that intercepts the second numbers that they exchanged,
+
+09:39.240 --> 09:51.240
+it will matter because they won't be able to go backwards to figure out the original number and therefore they won't be able to figure out the ultimate number that represents the session key.
+
+09:51.240 --> 10:08.240
+So if we make this math, a one-way mathematical function, this becomes a secure process and that's what all key management protocols out there really use in order to generate the same secret session key at both ends such as.
+
+10:08.240 --> 10:11.240
+Such as VPN solutions.
+

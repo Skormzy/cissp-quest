@@ -1,0 +1,82 @@
+All right, we've just talked about firewall technologies and just to refocus here, firewall
+technologies are, all right, we've just talked about firewall technologies and just to refocus
+here, firewall technologies are what allows us to be able to make decisions. So we talked
+about simple packet filtering, we talked about state full firewalls, we talked about proxy
+firewalls. In this module, we're going to discuss what are called firewall architectures.
+Now, what's the difference? Well, firewall architectures are how we can architect those
+technologies that we just discussed in the best way possible. And so we're going to show
+you from a diagram perspective what these architectures actually look like. And you're
+going to see that we're going to progress from the simplest architecture to some of the ones
+that companies obviously use today to provide the best level of security. So these are called
+firewall architectures. And it's important for you on the exam to focus on those keywords
+and decide whether and look at whether the question is talking about firewall technologies
+or firewall architectures. These are architectures. Let's start with the simplest one. In fact,
+this is a summary of what we're going to look at. These are standard names that the industry
+uses for firewall architectures. Starting with simple packet filtering and then improving to what
+we call dual home host firewall architecture, a screened host firewall architecture and screen
+subnet firewall architectures. And they're listed by increasing security if you want to look at it
+that way. So let's start with the simplest one, which is a packet filtering firewall. And basically
+looks exactly like this. We've got our internal network here. We're connected to the internet or
+some other network that we don't trust. And so what we place in between is a simple router. And
+because a router operates at layer three, the only decisions that it can make is what's available
+at layer three. In other words, the header portion of the datagram is what the router can make
+decisions on. So very simple decisions like source port or source IP address, destination IP
+address, the type of packet that it is, the service that's being requested. Those are the simple
+type of decisions that a router can make based on the intelligence that it has. What would be good
+about this is that it would be very efficient but very limited in the type of decisions that it
+can make. Now let's get better. And if you look at this diagram, what would be better is if we
+replace the router with something else that understands the entire OSI model layers. In fact, we would
+call that a host or a computer. So instead of a router in between our internal network and the
+internet, we place a computer or a host. And because it's a computer, it can understand all seven
+layers of the OSI model. And so if you remember back to those firewall technologies that we just
+looked at in the previous module, this would be able to run them all or a combination of them all.
+It could do simple packet filtering at the network layer. It could do stateful inspection
+also at the network layer. But this because it's a computer could also be running proxy firewalls
+like circuit level or application level. So it's a better architecture simply because it's able to
+run any of those firewall technologies that we talked about before because it really is a
+computer that understands all seven layers. Now let's get even better than this. If you were to
+suggest what something might be even better than this, why don't we combine the two that we just
+saw. So let's put a router on the outside here facing the internet and let's keep the host
+in the middle. And this would look like right here. The idea of this and it's called a screened
+host firewall architecture is the router can handle the first level of decision making that it
+is subjected to. And then anything that gets through the router can be handled by the host now
+that can be running proxy firewalls and anything else. Now this serves a second purpose as well
+because the router that's facing the outside can act as a screen or a protection mechanism for the
+host that's on the inside. Any attacker that wants to get to the host first of all has to be able to
+compromise and get through the router itself. So this can act as a screen and that's why it's actually
+called a screened host firewall architecture. Now we can even get better than this because what we
+can do is and we've talked many times in this course how good network security requires us to
+monitor incoming traffic into the internal network because we want to protect the value of what's
+in here. But companies today need to also monitor what's going out of the network. And in many cases
+that might be even more important. And the reason for that is for data loss prevention. But there
+could also be some machines on the inside of the network here that are being used as a channel to
+attack others for distributed denial service for example. So if we monitored outgoing traffic
+as well as incoming that's a better way to approach network security. So the next architecture
+really means let's put a router on the inside as well so that we can protect from the inside and
+monitor what's going out. So that architecture would look something like this and this is the
+architecture that gives companies the ability to start creating what are called subnetworks like
+your DMZ where you would put services in there that are required from the outside. And the bottom
+line here is that if you're allowing people out on the internet to interface with us to order
+our products and services and pay us for example you need applications to be able to do that.
+And it would not make sense to have those applications running on the inside of the network
+because then you'd be allowing people to get right into the internal network that are not trusted.
+And so what we do is we place those services, those web applications and servers that are required
+from the outside in your DMZ here so that we can ultimately protect our internal network and
+channel all of that traffic up into this subnetwork here where we can protect what's in there as well
+but we can monitor what's going on but ultimately we're not putting our internal network at risk.
+And so anything in here can be accessed from the outside and so this is what we call a screened
+subnet firewall architecture where everything is channeled into here but we can protect and monitor
+what's going in here so that ultimately no untrusted entities are actually allowed to come into
+our internal network and we can also monitor anything that is going out to the internet for data
+loss prevention and to prevent outgoing denial of service attacks. This is what we call the screen
+subnet firewall architecture. Now some people also refer to a number of legs that a firewall
+might have and in this case this would be referred to as a three-legged firewall because if you
+look at this firewall that's in the middle it's got three legs doesn't it one leg is connected to
+the internal network one leg is connected to the DMZ and the other leg is connected to the outside
+internet but there's nothing stopping companies from having four legs or five legs or a hundred
+legs or legs within other legs so the bottom line is companies can get pretty creative in how they
+structure how they they first of all put their firewalls in here and how they offer functionality
+related to services that may be required so you can get pretty creative not only in the functionality
+in how you set this up but also in the security so you could have n-legged firewalls depending on how
+your network has been set up and the services that you want to be able to offer to the outside
+internet ultimately

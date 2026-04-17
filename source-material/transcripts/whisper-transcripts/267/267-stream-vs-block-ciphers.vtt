@@ -1,0 +1,260 @@
+WEBVTT
+
+00:00.000 --> 00:20.000
+All right, we've talked about how all symmetric and asymmetric algorithms in cryptography work with bits.
+
+00:30.000 --> 00:40.000
+All right, we've talked about how all symmetric and asymmetric algorithms in cryptography work with bits.
+
+00:40.000 --> 00:43.000
+Not letters like we were showing before.
+
+00:43.000 --> 00:51.000
+So how they do substitution and transposition and ultimately turn things into cypher text is by using bits.
+
+00:51.000 --> 00:58.000
+Now if you think about that, once we turn something into bits and it needs to be encrypted,
+
+00:58.000 --> 01:01.000
+we have two options on how we can work with those bits.
+
+01:01.000 --> 01:11.000
+We can work with each bit one at a time as a stream or we can work with chunks of bits at the same time.
+
+01:11.000 --> 01:13.000
+And that's what we call block ciphers.
+
+01:13.000 --> 01:25.000
+So the two types of ciphers that exist out there that can take any data and turn it into cypher text are either stream ciphers or block ciphers.
+
+01:25.000 --> 01:28.000
+And that's what we're going to talk about in this section.
+
+01:28.000 --> 01:39.000
+And what's important for you to remember are things like which ones would be fastest, where would it make sense to use block as opposed to stream and so on.
+
+01:39.000 --> 01:44.000
+So let's look at these different types of ciphers that exist out there.
+
+01:44.000 --> 01:51.000
+So first of all, stream ciphers work with one bit at a time as a stream,
+
+01:51.000 --> 02:01.000
+whereas block will take chunks of bits and then do certain creative things with each of those chunks that are called blocks.
+
+02:01.000 --> 02:09.000
+So it would make sense that we would use stream ciphers where we process one bit at a time anyway.
+
+02:09.000 --> 02:19.000
+So technologies like ultimately across a network, what travels across the wires that connect devices together is one bit at a time.
+
+02:19.000 --> 02:25.000
+If we need to encrypt that bit, then it would make sense that we would use stream ciphers.
+
+02:25.000 --> 02:30.000
+Block ciphers are typically software based encryption algorithms.
+
+02:30.000 --> 02:36.000
+The ones that you've heard of like des and triple des and the AES and so on.
+
+02:36.000 --> 02:42.000
+Those are considered to be block ciphers because they drive encryption through software.
+
+02:42.000 --> 02:45.000
+They are software based applications.
+
+02:45.000 --> 02:55.000
+And so the advantages and disadvantages of each would be that stream would be faster because we can process and encrypt one bit at a time.
+
+02:55.000 --> 03:10.000
+Whereas block ciphers need to have the logic to be able to fill a block and then do something with it and then fill the next block and do something with it and keep going until we encrypt all of the information.
+
+03:10.000 --> 03:15.000
+So that's the idea behind stream ciphers and block ciphers.
+
+03:15.000 --> 03:26.000
+Now there are stream cipher algorithms that exist out there and basically the only one that is significant that exists out there is called RC4.
+
+03:26.000 --> 03:32.000
+RC4 is by far the most commonly used stream cipher algorithm.
+
+03:32.000 --> 03:39.000
+And when you think about what stream ciphers need to do, we've already said that they work with one bit at a time.
+
+03:39.000 --> 03:48.000
+Well, fundamentally that is something that we need to think about because, look, bits can only be 0 and 1.
+
+03:48.000 --> 03:53.000
+So let's say we have a 1 to encrypt. What does that actually mean?
+
+03:53.000 --> 03:56.000
+I mean, what can you do with a bit that is a 1?
+
+03:56.000 --> 04:00.000
+We can leave it as a 1 or we can turn it into a 0.
+
+04:00.000 --> 04:08.000
+Those are the only options that you can fundamentally do with any bit that you need to encrypt.
+
+04:08.000 --> 04:11.000
+That doesn't sound very secure and in fact it isn't.
+
+04:11.000 --> 04:17.000
+And that's why stream ciphers like RC4 need to be more creative.
+
+04:17.000 --> 04:34.000
+In fact, if you look at the animation that we've got here, what typically happens with stream ciphers is that they'll take the plain text bits and they will combine them with something that is created by what we call a key stream generator.
+
+04:34.000 --> 04:48.000
+So a key stream generator part of the stream cipher will generate random bits that will be combined with the bits of the plain text using something called the exclusive or operation.
+
+04:48.000 --> 05:02.000
+That's what these will use. They will combine bits from the plain text with bits from the key stream and then use the exclusive or operation to come up with the result, which is going to be your cipher text.
+
+05:02.000 --> 05:07.000
+So we've got some animation here that basically shows how this works.
+
+05:07.000 --> 05:18.000
+And so you've got the plain text bits that are going to be combined using the exclusive or operation from the key stream to be able to come up with the cipher text.
+
+05:18.000 --> 05:25.000
+And the exclusive or operation is probably something that you remember from elementary school math. I'm not sure.
+
+05:25.000 --> 05:36.000
+But whenever you add, for example, 0 plus 0, it equals 0, 1 plus 0 equals 1, 0 plus 1 equals 1.
+
+05:36.000 --> 05:46.000
+And here's the tough one. 1 plus 1 is actually 0 in the exclusive or operation. Whenever you add bits that are different, it always equals a 1.
+
+05:46.000 --> 05:58.000
+Whenever you add bits that are the same, it always equals a 0. And that's essentially what stream ciphers do to create that confusion and diffusion that really makes this secure.
+
+05:58.000 --> 06:15.000
+And again, the only significant stream cipher algorithm that exists out there is called RC4. It is embedded into all kinds of applications that require really the encryption of one bit at a time, which is what stream ciphers actually do.
+
+06:15.000 --> 06:32.000
+Really useful for hardware based encryption like network encryption and so on. Now block ciphers work differently because what they do is they'll take chunks or blocks of bits and then do certain things with it.
+
+06:32.000 --> 06:50.000
+And we've got some animation here that show what block ciphers really look like. So if we take our word gobbins and we want to be able to encrypt it by using a block cipher algorithm, what would happen here is we take certain chunks and then encrypt it.
+
+06:50.000 --> 07:08.000
+And then we take the next chunk and encrypt it and then we take the next chunk and encrypt it. These are called blocks. Typical blocks for block cipher algorithms tend to be 64 bits or multiples of 64 bits.
+
+07:08.000 --> 07:31.000
+For example, DES uses 64 bit blocks. But so do for example other algorithms like the AES algorithm itself. We will take chunks of bits that typically are 64 bits or multiples of 64 bits to create. Guess what? 64 bit cipher text blocks as well.
+
+07:31.000 --> 07:54.000
+Now what we're going to look at over the next five slides are the five modes that all block cipher algorithms out there support. So algorithms like DES or triple DES or AES, they all support these five modes of symmetric block ciphers.
+
+07:54.000 --> 08:22.000
+In other words, once you break your data up into those 64 bit blocks, what you can do with those blocks is the difference between these block modes that you're going to see here. So all symmetric blocks ciphers out there will support these. Now as we go through these pay attention because I'm going to tell you exactly what you need to remember because there are advantages and disadvantages to each of these that we need to remember.
+
+08:22.000 --> 08:41.000
+Certainly from a perspective of what these may be used for and what the exam questions may ask you. Let's start with the very first mode, which is called ECB mode. And what you want to remember about this mode is that it's the simplest and it's the fastest.
+
+08:41.000 --> 09:05.000
+But it's also the least secure and here's why because the way that it looks is like this. We take our plain text, let's say our email that needs to be encrypted and we break it into 64 bit plain text blocks. And then each of those blocks, once we have all of the blocks, can be put through the encryption algorithm.
+
+09:05.000 --> 09:34.000
+For example, in desi would be the 16 steps that the des algorithm does in order to encrypt something to produce 64 bit cipher text blocks. But here's the advantage of this one. Once we have all of our plain text blocks, we can do them all at once. This is what's called parallel operations. That's why this is the fastest mode out of the five because we can do what's called parallel operations, which means
+
+09:34.000 --> 09:47.000
+which means we can do all of the blocks at the same time. This is very fast. But here's the problem. This is a mode that does not use something called a initialization vector.
+
+09:47.000 --> 10:00.000
+And so the problem with any mode that does not use a initialization vector is that repeated text will always produce the same cipher text. And that provides patterns.
+
+10:00.000 --> 10:20.000
+For example, if you have plain text block one and plain text block two, look exactly the same. Guess what's going to be produced cipher text blocks one and two are going to be the exact same as well. That provides patterns for attackers to eventually try and figure out what the key is.
+
+10:20.000 --> 10:32.000
+So this does not hide patterns well. This is why you would not use this mode pay attention here for things like email encryption that we do on a regular basis.
+
+10:32.000 --> 10:44.000
+Because when you look at your emails, there are certain things that repeat in every single email that you send, your header information, your name appears everywhere in that email.
+
+10:44.000 --> 10:59.000
+Your signature block appears in every single email. So if a attacker is able to get two of your emails that you've encrypted using this mode, there are going to be patterns that are provided that are going to make this less than secure.
+
+10:59.000 --> 11:12.000
+And so you would not use this for anything that repeats because again repeated text will always produce the same cipher text because it does not use a initialization vector.
+
+11:12.000 --> 11:22.000
+An initialization vector is simply a random starting point that changes every time which provides a way for us to get rid of patterns.
+
+11:22.000 --> 11:49.000
+And so the only time that you would use this pay attention here is when you can guarantee that what you're encrypting using ECB mode is very small and there's nothing in it that repeats such as a really good example would be small executable files would be something good to encrypt using this because they're small and there's nothing in them typically that will repeat.
+
+11:49.000 --> 12:05.000
+So that's ECB mode never used for email encryption used only when you can guarantee that what you're encrypting is very small and there's nothing in it that repeats the problem here is it does not use a initialization vector.
+
+12:05.000 --> 12:34.000
+Let's look at the next mode and it's called cbc mode cipher block chaining and if you look at what it looks like it may look a little bit daunting and you know a little bit it's hard to explain what it does but basically it's called cipher block chaining because each operation each block is chained into the next one.
+
+12:34.000 --> 13:02.000
+Now we don't have to know too much about this one for purposes of the exam except for this pay attention here it uses something called a IV initialization vector and again that is something that is just a random number a random starting point that will ensure for example that if we encrypt the same email twice it would not produce the same cipher text because what would change would be that initialization vector.
+
+13:02.000 --> 13:31.000
+Now one of the questions that we've seen been asked on the exam is does the initialization vector need to be known by the sender and receiver the answer to that is yes even though it does not need to be passed the initialization vector needs to be known at both ends but because we are using compatible products at both ends they will each know how the key that is passed between sender and receiver
+
+13:31.000 --> 14:00.000
+was used in order to generate that initialization vector in the first place so the IV needs to be known but it does not have to be passed because the compatible crypto systems will know how it was generated but would this be a good mode to use for email encryption the answer is yes you can encrypt the very same email twice it would not produce the same cipher text because what would change is the initialization vector.
+
+14:00.000 --> 14:19.000
+That is all you need to know about cbc mode. The next mode is actually called cipher feedback chaining as well cfb mode and all you need to know about this one is that look it uses a initialization vector just like the previous one.
+
+14:19.000 --> 14:35.000
+So with this be good for email encryption yes absolutely in fact it would be good for anything that repeats because again what would change in each encryption would be that initialization vector so this is a good mode for email encryption.
+
+14:35.000 --> 14:48.000
+Let's look at the next one which is called output feedback or OFB mode and look what it uses it also uses a initialization vector so with this be good for email encryption
+
+14:48.000 --> 14:59.000
+and the answer to that is yes absolutely because again what would change is that initialization vector in each encryption really good for email encryption.
+
+14:59.000 --> 15:14.000
+And let's look at the last one the last mode which a lot of experts in the industry would consider to be the most secure because it's almost as fast as the very first mode that we looked at ECB mode
+
+15:14.000 --> 15:31.000
+but it does not have any of the problems that ECB mode has because it also uses something called a counter even though it's called a counter it is a random starting point in fact you can think of this as being a initialization vector.
+
+15:31.000 --> 15:43.000
+It's a random starting point that starts the process. The reason it's called counter is that we're going to increment one to that value for each of the subsequent blocks that we're going to encrypt.
+
+15:43.000 --> 15:56.000
+We simply add the value one for each of the blocks we are incrementing by one we are counting the blocks basically and then put these through the encryption process.
+
+15:56.000 --> 16:10.000
+And so because we know what this value is at the beginning and we are incrementing the number one to each of the blocks this gains back what we had in the very first mode which was what we called parallel operations.
+
+16:10.000 --> 16:18.000
+That's why this one is almost as fast as ECB mode but has none of the problems that ECB mode has.
+
+16:18.000 --> 16:28.000
+So would this be good for email encryption yes absolutely in fact this is a really good choice for most applications of block ciphering.
+
+16:28.000 --> 16:36.000
+If it's in the list you probably want to pick it because it is the most secure and it's almost as fast as ECB mode.
+
+16:36.000 --> 16:45.000
+It really has no issues it is the one that is built into a lot of products technologies protocols out there that need to do block ciphering.
+
+16:45.000 --> 16:51.000
+So this one counter mode or CTR mode is going to be a really good choice for us.
+
+16:51.000 --> 17:01.000
+So how do you answer this question which you might see somewhere which are faster stream ciphers or block ciphers and I think we addressed that earlier.
+
+17:01.000 --> 17:08.000
+Stream ciphers are going to be faster because we can simply encrypt each bit as we are processing them.
+
+17:08.000 --> 17:13.000
+We don't need logic to fill a block and then do certain things with that block.
+
+17:13.000 --> 17:17.000
+So stream ciphers are much faster than block ciphers.
+
+17:21.000 --> 17:27.000
+Thank you very much.
+

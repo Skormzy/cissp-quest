@@ -108,11 +108,15 @@ export default function ProfilePage() {
       {/* Character Card */}
       <div className="rounded-xl p-8 text-center" style={{ background: 'linear-gradient(135deg, #111a2e, #1a2540)', border: '1px solid #1e2d4a' }}>
         <CharacterAvatar
-          skin={user.character_skin}
-          hair={user.character_hair}
-          hairColor={user.character_hair_color}
-          gender={user.character_gender || 'Male'}
-          outfit={user.character_outfit}
+          config={{
+            gender: user.character_gender === 'Woman' || user.character_gender === 'Female' ? 'Woman'
+              : user.character_gender === 'Non-binary' ? 'Non-binary' : 'Man',
+            skinTone:  user.character_skin      || 4,
+            eyeShape:  user.character_eye_shape || 1,
+            hairStyle: user.character_hair      || 1,
+            hairColor: user.character_hair_color || '#2d1b00',
+            outfit:    user.character_outfit    || 5,
+          }}
           size={150}
           className="mx-auto"
         />
@@ -233,11 +237,15 @@ export default function ProfilePage() {
           <>
             <div className="inline-block">
               <CharacterAvatar
-                skin={user.character_skin}
-                hair={user.character_hair}
-                hairColor={user.character_hair_color}
-                gender={user.character_gender || 'Male'}
-                outfit={user.character_outfit + 1}
+                config={{
+                  gender: user.character_gender === 'Woman' || user.character_gender === 'Female' ? 'Woman'
+                    : user.character_gender === 'Non-binary' ? 'Non-binary' : 'Man',
+                  skinTone:  user.character_skin      || 4,
+                  eyeShape:  user.character_eye_shape || 1,
+                  hairStyle: user.character_hair      || 1,
+                  hairColor: user.character_hair_color || '#2d1b00',
+                  outfit: Math.min((user.character_outfit || 5) + 1, 6),
+                }}
                 size={80}
                 className="opacity-50"
               />

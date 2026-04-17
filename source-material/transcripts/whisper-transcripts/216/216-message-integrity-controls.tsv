@@ -1,0 +1,201 @@
+start	end	text
+0	3640	And to some degree, we've also talked about access control.
+3640	9520	What's left to discuss now are integrity controls and also digital signatures.
+9520	12360	And you'll see that the two are really related to each other.
+12360	19280	In fact, addressing digital signatures which address non-repudiation requires us to take
+19280	21120	care of integrity first.
+21120	25200	So what we're going to talk about in this section are what are called message integrity
+25200	28840	controls that cryptography can help for us.
+28840	35000	Now if you'll remember, what integrity means from a cryptography perspective is if I send
+35000	41080	you a message, what I need to do is I need to do something with that message first from
+41080	47560	an integrity perspective or from a cryptography perspective to come up with the representation
+47560	50000	of the message that I'm sending you.
+50000	54920	And then what I do is I send you the message, but I also send you that representation along
+54920	56000	with it.
+56000	61520	So that when you receive the message and the representation, you will take just the
+61520	69360	message, put it through the same integrity algorithm that I did to come up with a representation
+69360	71160	of what you've received.
+71160	74440	And then you will compare that with the one that I sent you.
+74440	78920	And if the two values match, it means that nothing happened along the way.
+78920	84640	The whole purpose of message integrity controls is to identify when something happens along
+84640	85640	the way.
+85640	91360	And what could happen along the way could be due to someone intentionally changing it
+91360	93920	or maybe errors happened along the way.
+93920	99480	But regardless of what causes the change, we want to be able to identify when it gets
+99480	100480	to you.
+100480	103960	So that's what all message integrity controls do.
+103960	109120	And what they rely on are integrity controls that focus on cryptography.
+109120	111600	It's called one way encryption.
+111600	117240	One way encryption takes a message or a data of any length, for example.
+117240	124760	And we'll always produce a small representation of the entire thing, which can be useful in
+124760	129640	identifying, for example, changes when we send or we store something.
+129640	133160	So the idea of integrity controls is pretty simple.
+133160	137360	And I'm going to illustrate that by using this example here.
+137360	142520	Let's say this is the data that I want to send you.
+142520	148400	The whole purpose of integrity controls is to take the entire thing, do something to it
+148400	153400	mathematically to come up with the representation of the entire thing.
+153400	157680	But by using a small value, something that is really small.
+157680	162480	And I think if you look at this, you can probably come up with a way that we can, for example,
+162480	167520	look at this entire data to come up with the one digit number that really represents
+167520	168520	the entire thing.
+168520	176320	In fact, if we look at this, if we add all of the digits and use that as the representation,
+176320	178080	we come up with a number nine.
+178080	183760	But the number nine is a one digit number that really represents the entire message.
+183760	190760	And so what I do now is I send you this, the message, but I also send you this representation.
+190760	197960	And by the way, this representation is usually referred to as a digest or a message digest.
+197960	201040	Both I think is what you might see on the exam.
+201040	206520	But it is that representation, that small representation of the entire message.
+206520	210280	So I send you the message and the digest along with it.
+210280	215800	So let's say that it gets to you and nothing happened along the way.
+215800	222400	So I sent you this and the nine, you ended up getting the exact same thing and the nine.
+222400	227000	So what you do now is you're going to take what you've received and put it through the
+227000	230080	same mathematical process that I did.
+230080	232280	So you're going to add up the digits.
+232280	236000	You're going to get the number nine and then you're going to compare it to the one that
+236000	237000	I sent you.
+237000	241560	And if the two values match, it means that nothing happened along the way.
+241560	246040	Because if something had happened along the way, let's say the first digit changed.
+246040	250760	For example, let's say that I sent you this and the nine, but the first digit changed
+250760	252400	to a two, let's say.
+252400	257080	So I sent you this, you end up getting this.
+257080	261800	When you add up the digits here, you're going to get a different value than the one that
+261800	263040	I sent you.
+263040	267860	And so when you compare those two values, you're going to say, oh, the two values do not
+267860	268860	match.
+268860	271060	Digests do not match.
+271060	274820	You're going to call me back and say, John, please re-send the information something
+274820	276620	happened along the way.
+276620	281660	We've been able to identify integrity problems in transmission.
+281660	286420	That's what the whole point of integrity controls really are to identify when something
+286420	290380	changes, either purposely or unintentionally.
+290380	294500	But regardless of what caused the change, we've been able to identify it.
+294500	299060	Now one more thing to illustrate this, and that is to illustrate here.
+299060	303940	And that is that our method of doing this is not good enough, right?
+303940	310420	We need to use better math, for example, that is more sensitive to very small bit changes.
+310420	314660	You obviously want these mathematical processes to be very sensitive.
+314660	319220	Because in our case, let's say the first two digits changed.
+319220	327780	Let's say I sent you this and the nine, but you end up getting this and the nine.
+327780	333180	When you add up the digits here, you're going to get the same number, the same digest that
+333180	334180	I sent.
+334180	337740	But the two messages are actually different, aren't they?
+337740	344060	And so because our mathematical process here is not good enough, then it's not able
+344060	347500	to identify everything that could happen to your data.
+347500	351100	So you want these methods to be much better than what we're using here.
+351100	357820	In fact, what we have illustrated here, when you have two different messages that produce
+357820	365540	the same digest, that is what is referred to as a collision in cryptography.
+365540	371060	And the word collision actually can only be in reference to hashing algorithms or integrity
+371060	372060	controls.
+372060	376180	We cannot use that word anywhere else in cryptography.
+376180	383260	So this is basically the function that all message integrity controls provide for us.
+383260	387620	And if we turn to the next slide here, you're going to see that there are a whole bunch
+387620	391260	of different integrity controls that exist out there.
+391260	393180	And it's represented on your slide here.
+393180	395820	So for example, we have parity protection.
+395820	397740	We have hashing functions.
+397740	399500	We have check sums.
+399500	401500	We have CRC checks.
+401500	404060	We have message authentication codes.
+404060	406340	What's the difference between all of them?
+406340	413220	Well, the difference is in the math that they use to come up with the number or that small
+413220	418140	representation that really represents the data itself.
+418140	421540	Some use better math than others, all right?
+421540	422540	Some are very simple.
+422540	425860	Like for example, CRC checks use very simple math.
+425860	429780	So do check sums and message authentication codes.
+429780	435860	The ones that use the best math are the ones that we're going to focus on from this point
+435860	436860	on.
+436860	440020	And they are called hashing algorithms.
+440020	446380	And hashing algorithms are things like, and I'm sure you've heard of these, MD5 and
+446380	449020	Shaw for example.
+449020	453940	So the hashing algorithms are the ones that use the best math because we want them to be
+454020	462540	very sensitive to small bit changes because these will take any size or arbitrary length input
+462540	468300	and always produce a digest that is very small, but you want them to be able to identify
+468300	470500	very small bit changes.
+470500	476100	And those are what we call hashing algorithms like MD5 and Shaw 1.
+476100	480820	So hashing functions is sometimes what they're also called, but hashing algorithms I think
+480820	485580	is pretty standard as far as the industry is concerned.
+485580	490020	And what they do and here's what you need to remember about hashing algorithms is that
+490020	493380	they will always take a message of any length.
+493380	499500	It doesn't matter if it's one word, one email for example, or your entire hard drive.
+499500	506180	They take arbitrary length input and always produce a fixed length digest.
+506180	510780	And so if we focus on the two that are very important here, you'll know that MD5
+510780	516540	will always produce a 128 bit digest for example.
+516540	521260	Shaw will always produce a 160 bit digest.
+521260	525340	So at least Shaw 1, you'll see that there's different versions of Shaw that we're going
+525340	527340	to talk about coming up here.
+527340	534100	And so again, if the message is very large, it will always also produce a fixed sized
+534100	535500	result.
+535500	540420	And in fact, it doesn't matter what you put into it, it will always produce that fixed
+540420	545020	size result, which is referred to as the digest itself.
+545020	550060	Now for these, to be really good, and that's why they are really good, we've already said
+550060	552700	that they do use the best math.
+552700	557380	But that also means that the way that these hashing algorithms have been developed is that
+557380	562220	they address some really important characteristics and elements that make them really good.
+562220	564980	For example, they have to be one way.
+564980	569700	And what they mean by one way is that we can take a message of any length and produce
+569780	575300	that digest, but nobody can take that digest and work backwards to be able to disclose,
+575300	579540	for example, what the message look like, they can only go one way.
+579540	586220	Deterministic means that if you take the same message twice and you hash it using the
+586220	591780	exact same hashing algorithm, it will always produce the same digest, no matter how many
+591780	593140	times you do it.
+593140	598020	It will always produce the same digest, and that's obviously very important.
+598020	603060	These hashing algorithms also need to look at the entire message in order to come up
+603060	608260	with that digest, because if they don't, the part that they don't look at can change
+608260	613380	and you'd never be able to identify messages that have changed, for example.
+613380	616540	Uniformly distributed simply means that they're available everywhere.
+616540	621740	There's a lot of crypto systems that have these hashing algorithms built in that will
+621740	626220	allow any two parties, for example, to address integrity very easily.
+626220	632300	They are widely accessible and available for all kinds of different applications.
+632300	638860	As we illustrated before, collisions are not good in integrity controls.
+638860	644580	These hashing algorithms do resist collisions really well, although the opportunity for
+644580	648420	collisions will never totally go away.
+648420	652620	The experts in this industry tell us that because you're always taking a message of any
+652700	658180	length and always producing something that is very small, the opportunity for collisions
+658180	664220	will always be possible, but you want these to resist that as much as possible.
+664220	669220	The ones that are the use the most often and are the most popular is what you see on
+669220	670740	this slide.
+670740	677740	By far, MD5 is the most commonly used hashing algorithm out there.
+677740	686300	There's other versions of it, for example, MD2, MD4, MD5 came along, it's like the historical
+686300	687580	evolution of these.
+687580	693820	We also have MD6 today, although MD5 is still the standard for a lot of applications.
+693820	701100	Shaw1, as we said before, is also very popular, produces a digest of 160 bits and you may
+701100	707900	have to remember the size of the digest that is produced by each of these hashing algorithms.
+707900	714100	There is what we call Shaw3, which has become the standard for many applications that require
+714100	720780	a lot more security and that includes a number of versions of the Shaw algorithm and some
+720780	728340	of them are Shaw256, Shaw384, Shaw512, for example, that number indicates the size
+728420	733620	of the digest that is being produced by that particular version of Shaw.
+733620	738940	One of the questions that you might see somewhere is what's the advantage of using a longer
+738940	744620	digest and the obvious answer to that is that you will have less collisions.
+744620	749580	The longer the digest, the less opportunity for collisions and that's why some of these
+749580	751060	are very popular.
+751060	756020	In fact, a collision is what we're trying to show you here on this slide where you have
+756020	762260	two different messages that produce the exact same digest and that's what we'd refer
+762260	770540	to as collision and good hashing algorithms will and should resist that as much as possible,
+770540	777460	especially these ones and the better versions of Shaw that are collected within that Shaw3
+777460	780180	algorithm that we talk about there.
+780180	784700	Now, one of the things that you may see on the exam that we're going to talk about in
+784700	789780	more detail later is something called the birthday paradox that relates to something
+789780	792460	called the birthday attack.
+792460	798660	You need to remember that the birthday attack is a attack that people have come up with
+798660	804580	against hashing algorithms like MD5 and Shaw1, for example.
+804580	810700	What they try and do is they try and use the math that the birthday paradox uses and
+810700	814660	if you know anything about this, it goes something like this.
+815660	820380	If you have a room of 23 people, that's the magic number.
+820380	825660	The chance that two of those people, any two of those people share the same birthday is
+825660	832300	actually greater than 50% at that point and as you start adding more people in the room,
+832300	837860	the opportunity or the probability that two people share the same birthday in that room
+837860	844620	will actually grow exponentially to the point where you only need 60 people in a room
+845180	851740	to have the probability be 99% that any two of those people in that room share the same
+851740	852740	birthday.
+852740	856540	By birthday, we mean month and day, not year.
+856540	858860	This is referred to as the birthday paradox.
+858860	862860	You can Google it and there's all kinds of videos that have been made about this pretty
+862860	864540	cool math.
+864540	870860	The bottom line here is that there is a specific attack against hashing algorithms that people
+870860	878100	have devised that basically uses the same math to find, guess what, different messages
+878100	882100	that produce the same digest, which is a collision.
+882100	888500	So what you need to remember as far as this is concerned, just remember birthday attack,
+888500	894180	hashing algorithms, collisions, if you see any one of those, think of the others and it
+894180	896980	should give you the answer to the exam question.
+896980	902140	But the math called the birthday attack is something that uses the birthday paradox math
+902140	905700	to be able to try and find collisions with different messages.

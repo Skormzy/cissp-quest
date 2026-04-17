@@ -1,0 +1,56 @@
+start	end	text
+0	19440	Alright, so let's get into the OSI model and what we're going to do at this point is we're
+19440	38640	going to start. Alright, so let's get into the OSI model and what we're going to do at this
+38640	44320	point is we're going to start with layer number one which is the physical layer as you know and we're
+44320	50400	going to talk about some important things about each of the layers as we start going up. For example,
+50400	58400	we're going to talk about what the layer actually does, some of the significant risks and security
+58400	64480	that needs to be applied at each of these layers but also significant devices and protocols that
+64480	69360	operate at each of the layers. So we're going to do this for physical layer, layer number one and
+69360	75120	then we'll do the same for layer number two, the data link layer and then we'll do the same for
+75120	80880	layer number three, the network layer and go all the way up to layer number seven, the application
+80880	85520	layer. But let's start with layer number one and we've already talked about what this does but
+85520	93440	the physical layer is what connects devices together. Obviously a network has to be a whole bunch of
+93440	99920	devices that are connected to each other. How we connect those devices together is what's happening
+99920	106960	at the physical layer. So the physical layer uses really two ways to connect devices together. If
+106960	113840	you think about this makes logical sense we can connect devices together using wired technologies
+113840	119760	or wireless technologies and we're going to talk about wireless later on in this course but for now
+119760	127680	let's focus on the three different types of media that we can use to connect the physical
+127680	134400	layer or devices together using the physical layer and that is of course twisted pair coaxial
+134400	142480	and fiber optic technologies. Now one of the questions that they may ask you in regards to this
+143360	148640	on the exam is which of these would you choose but what's important for us to understand
+149280	157520	is the advantages and disadvantages that each of these provide but from a security perspective.
+157520	164560	So if you look at the three types of wired technologies that we can use you know a lot of people
+164560	171440	would say well let's use fiber optic but you would not say it's fiber optic because of speed. In fact
+171440	177920	there is no limitation in how we can send voltage across twisted pair and coaxial
+178960	184480	as well like we could probably the limitation would be speed of light as well as light that
+184480	191440	fiber optic uses. So on the exam questions you really need to focus on what it's asking you
+191440	197680	and that is the security advantage and some of these have better advantages than others. Now
+197680	203120	if you remember to what the physical layer actually does the only thing it can do because that's
+203120	210800	where we are the least intelligent layer one is the least intelligent but it's the most efficient
+210800	217760	it's the fastest. All it knows how to do is represent the zeros and the ones using the technology
+217760	225120	that it understands. So for using twisted pair we're sending voltage across the line in order to
+225120	233120	represent the zeros and the ones and in fact a one is plus five volts a zero is minus five volts
+233120	239680	that's what we send across the line to represent the bits the zeros and the ones. Now they might
+239680	246800	ask you why we twist I mean twisted pair means exactly that. We've got two wires that are actually
+246800	252800	twisted a certain way and the reason we do that is if you twist a certain way creates a magnetic
+252800	259760	field that keeps the signal within that magnetic field. So it gives us some added protection against
+259760	266400	crosstalk noise interference and then you'll probably know this you know there's different types
+266400	274160	of twisted pair shielded and unshielded. What would be better obviously shielded because it gives
+274160	280800	us protection as well. Now the next media that you see there is coaxial and I think you can picture
+280800	286720	what this looks like because it's typically used by your cable companies to deliver television
+286720	293120	signals into your house but really what's delivering those signals and that information is that little
+293120	299600	copper wire that's in the middle of that coaxial cable and if you look at that coaxial cable it
+299600	306320	actually has shielding and some other things built in to try and protect the quality and the
+306320	312560	integrity of that signal that's going across that little copper wire and the only disadvantage
+312560	320960	of using coaxial is what they say it's expensive and it may be stiffer to use for certain types
+320960	330320	of applications. The preferred media to use today is fiber optic not only does it give us enhancements
+330320	337040	in integrity but there are some added capabilities from a security perspective because it's harder
+337040	344480	to tap into and it gives us more protection against noise and interference and crosstalk so those
+344480	349760	are the types of questions that they may ask you which of these would be best to use from a
+349760	357200	security perspective and your choice would be fiber optic and here's a definition of what crosstalk
+357520	364160	is which could be one of those issues that you need to address always in whatever wire media we
+364160	370800	are using to connect devices together. So it's a signal that bleeds into another basically so that's
+370800	375760	why shielding and some of those protection mechanisms are required so we want to limit
+376640	382800	what crosstalk impacts the quality of that transmission. So if you see a question like this one
+382800	389360	crosstalk is least of an issue with which media the obvious answer to this would be fiber optic
+389360	399920	cabling and that's why we would choose that from a security perspective.

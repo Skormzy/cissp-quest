@@ -1,0 +1,88 @@
+We've just gone through how we protect specific vulnerabilities in systems and so forth,
+where you know, how do you protect against emanation?
+We've just gone through how we protect specific vulnerabilities in systems and so forth,
+where you know, how do you protect against emanations and how do you protect against
+single points of failure and so forth.
+Now let's talk more overall, how do you protect systems?
+How do you protect overall systems like an entire mobile device, an entire desktop,
+a laptop, or even an entire server?
+And the simple way to think about this is that these are wildly complex systems.
+Like, even take an example, like my phone.
+What hardware and software is in a device like this?
+They are remarkably complex devices.
+From a hardware perspective, we've got a CPU, we've got RAM, we've got tons of storage.
+How about even just from a radio as perspective, how many radios are in this?
+Well, is your Wi-Fi?
+There's your cellular?
+There's your Bluetooth?
+There's your RFID?
+I mean, that's just four radios right there.
+There could be more.
+And then from a software perspective, we have a very complicated operating system.
+We have multiple apps running on top of that.
+What I'm trying to get at is that any of these types of devices, even mobile devices,
+and especially after something like a server, they are extremely complex devices.
+So how do we go about securing such a complex device?
+Well, it's a concept John has already talked about.
+To protect anything, you break it down into its components.
+And then you protect each of those components.
+The more valuable the system, the more time you're going to spend subdividing it
+into more and more smaller components.
+Rather than just looking at the CPU, you could look at parts of the CPU.
+Rather than just looking at the operating system as a whole, you could look at the libraries,
+the kernel, the drivers.
+You break it down into its components and you secure each of those components.
+Here's a good question for you.
+You know any devices made up of hardware, software, and so forth?
+Where is it hardest to detect vulnerabilities?
+This is an exam question that's come up recently.
+Where is it hardest?
+Hardware.
+And the reason being is that we have very well established practices and expertise
+in how to detect software malware on our systems as an example.
+But there's very few organizations that I've ever come across that will, for instance,
+look at a new server that's arrived, just look at every chip on that motherboard
+to make sure that someone hasn't installed something in the hardware or some routines in the firmware.
+So hardware is, if you've got a question on that, hardware is where it's most difficult to detect vulnerabilities.
+Now when we think about when I say to you, you know, you should secure components,
+what do I actually mean by that?
+And how do you decide what controls to put in place and to what, you know, to what,
+how much effort to put into place for controls?
+Ultimately what it comes down to is based on organizational relevance.
+So security controls need to be based on how valuable.
+By the way, that term organizational relevance, what does that really mean?
+Well, it means what does this system, this process do with an organization?
+What's its organizational relevance, which implies value?
+Watch out for that in the exam.
+If you see something that says like organizational relevance, it's implying how valuable the system is.
+And so we implement controls based on the value of the system, the process.
+Specific to mobile systems, things like cell phones, there's one particular technology that I want to talk about.
+And that is MDM mobile device management software.
+It's essentially like installing big brother on your phone.
+It allows a corporation to install a little agent on a device.
+The MDM software is an agent that gets installed on an endpoint, like a phone.
+And then that software agent allows the corporation to monitor the device,
+to implement, to require certain controls.
+The MDM software, for instance, will enforce whole drive encryption,
+will enforce strong passwords, things like that.
+And even things like remote white.
+So that's MDM software.
+And it can even go to the point of if a device isn't in compliance.
+And this is used a lot where organizations allow BYOD or CYOD
+bring your own device, carry your own device.
+If an organization is allowing people to bring in their personal phones,
+it's a very good idea to install this MDM software on those devices,
+to make sure that those devices are secure before they're allowed to connect to
+and obtain information from the corporate network.
+Now, a final piece I want to talk about here.
+And this is applied to whenever you want to protect any sort of system.
+You go through this process of hardening.
+And we've talked about this a couple times now, right?
+It's this concept of going through a device, looking very carefully at the configuration,
+making sure all the patches are in place,
+disabling unnecessary services, installing the appropriate security controls
+like anti-mower, host-based firewall, host-based IDS IPS.
+It's going through a checklist and locking down any type of device.
+And this concept of hardening absolutely applies to how you secure a mobile device,
+a laptop, a server.
+So there you go. That's how you do a better job of addressing vulnerabilities and systems.

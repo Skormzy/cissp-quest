@@ -1,0 +1,560 @@
+{
+  "completed": [
+    {
+      "id": 250,
+      "title": "Cross Site Scripting (XSS)",
+      "chars": 5954,
+      "timestamp": "2026-04-06T11:37:02.774Z"
+    },
+    {
+      "id": 268,
+      "title": "Asymmetric Cryptography",
+      "chars": 9231,
+      "timestamp": "2026-04-06T12:57:28.589Z"
+    },
+    {
+      "id": 216,
+      "title": "Message Integrity Controls",
+      "chars": 13311,
+      "timestamp": "2026-04-06T13:57:31.129Z"
+    },
+    {
+      "id": 446,
+      "title": "Root of Trust",
+      "chars": 10727,
+      "timestamp": "2026-04-06T15:05:58.089Z"
+    },
+    {
+      "id": 252,
+      "title": "Single Sign-on, Kerberos & SESAME",
+      "chars": 8126,
+      "timestamp": "2026-04-06T19:10:06.515Z"
+    },
+    {
+      "id": 314,
+      "title": "Principle of Access Control",
+      "chars": 1280,
+      "timestamp": "2026-04-06T20:01:16.592Z"
+    },
+    {
+      "id": 263,
+      "title": "Software Testing Techniques",
+      "chars": 9785,
+      "timestamp": "2026-04-06T21:56:26.547Z"
+    },
+    {
+      "id": 327,
+      "title": "Log Review & Analysis",
+      "chars": 7067,
+      "timestamp": "2026-04-07T00:19:28.660Z"
+    },
+    {
+      "id": 291,
+      "title": "Authentication Protocols and Layer 2 Devices & Protocols",
+      "chars": 9649,
+      "timestamp": "2026-04-07T00:47:20.693Z"
+    },
+    {
+      "id": 284,
+      "title": "TCP 3-Way Handshake, Ports, and Layer 4 Protocols",
+      "chars": 9694,
+      "timestamp": "2026-04-07T01:01:13.709Z"
+    },
+    {
+      "id": 292,
+      "title": "Convergence & VoIP",
+      "chars": 6418,
+      "timestamp": "2026-04-07T01:10:23.340Z"
+    },
+    {
+      "id": 251,
+      "title": "Network Virtualization Technologies: VLAN & SDN",
+      "chars": 10106,
+      "timestamp": "2026-04-07T01:27:03.015Z"
+    },
+    {
+      "id": 197,
+      "title": "IDS & IPS",
+      "chars": 3868,
+      "timestamp": "2026-04-07T01:45:55.691Z"
+    },
+    {
+      "id": 219,
+      "title": "IDS & IPS: Host & Network Based",
+      "chars": 4450,
+      "timestamp": "2026-04-07T01:49:36.322Z"
+    },
+    {
+      "id": 293,
+      "title": "IDS & IPS: Analysis Engines",
+      "chars": 6171,
+      "timestamp": "2026-04-07T01:54:04.005Z"
+    },
+    {
+      "id": 233,
+      "title": "IDS & IPS: Detection Methods",
+      "chars": 5011,
+      "timestamp": "2026-04-07T01:57:55.652Z"
+    },
+    {
+      "id": 220,
+      "title": "Tunnelling & VPN",
+      "chars": 6993,
+      "timestamp": "2026-04-07T02:03:11.292Z"
+    },
+    {
+      "id": 286,
+      "title": "IPSec",
+      "chars": 6700,
+      "timestamp": "2026-04-07T02:07:36.307Z"
+    },
+    {
+      "id": 319,
+      "title": "Asset Inventory & Configuration Management",
+      "chars": 4248,
+      "timestamp": "2026-04-07T02:14:32.482Z"
+    },
+    {
+      "id": 242,
+      "title": "Change Management",
+      "chars": 6822,
+      "timestamp": "2026-04-07T02:18:57.682Z"
+    },
+    {
+      "id": 221,
+      "title": "Acquiring Software",
+      "chars": 3208,
+      "timestamp": "2026-04-07T02:22:13.629Z"
+    },
+    {
+      "id": 376,
+      "title": "ITAR & EAR, Wassenaar and transborder Data Flow",
+      "chars": 10281,
+      "timestamp": "2026-04-13T13:06:40.176Z"
+    },
+    {
+      "id": 309,
+      "title": "Risk management Supply Chain & Risk Frameworks",
+      "chars": 4063,
+      "timestamp": "2026-04-13T13:37:08.555Z"
+    },
+    {
+      "id": 442,
+      "title": "Models & the Concept of Security",
+      "chars": 2932,
+      "timestamp": "2026-04-13T13:40:54.466Z"
+    },
+    {
+      "id": 253,
+      "title": "Lattice Based Security Models: Bell-LaPadula & Biba",
+      "chars": 13941,
+      "timestamp": "2026-04-13T13:50:32.885Z"
+    },
+    {
+      "id": 215,
+      "title": "Information Flow Models & Covert Channels",
+      "chars": 12014,
+      "timestamp": "2026-04-13T13:58:51.160Z"
+    },
+    {
+      "id": 287,
+      "title": "Overview of RMC, Security Kernel, & TCB",
+      "chars": 6273,
+      "timestamp": "2026-04-13T14:04:09.173Z"
+    },
+    {
+      "id": 295,
+      "title": "Details on RMC, Security Kernel, & TCB",
+      "chars": 4529,
+      "timestamp": "2026-04-13T14:08:39.903Z"
+    },
+    {
+      "id": 202,
+      "title": "Types of Storage",
+      "chars": 5644,
+      "timestamp": "2026-04-13T14:13:40.461Z"
+    },
+    {
+      "id": 330,
+      "title": "Firmware, System Kernel & Middleware",
+      "chars": 4412,
+      "timestamp": "2026-04-13T14:18:03.949Z"
+    },
+    {
+      "id": 310,
+      "title": "Ring Protection Model, Secure Memory Management, Data Hiding & Code Signing",
+      "chars": 7211,
+      "timestamp": "2026-04-13T14:23:52.295Z"
+    },
+    {
+      "id": 237,
+      "title": "Abstraction, Virtualization & Hypervisors",
+      "chars": 5482,
+      "timestamp": "2026-04-13T14:28:39.676Z"
+    },
+    {
+      "id": 260,
+      "title": "Vulnerabilities in Architectures & Designs",
+      "chars": 8779,
+      "timestamp": "2026-04-13T14:35:10.398Z"
+    },
+    {
+      "id": 331,
+      "title": "Vulnerabilities in Systems",
+      "chars": 5466,
+      "timestamp": "2026-04-13T14:40:02.142Z"
+    },
+    {
+      "id": 280,
+      "title": "Reduce the Risk of Mobile Devices",
+      "chars": 10961,
+      "timestamp": "2026-04-13T14:47:20.864Z"
+    },
+    {
+      "id": 311,
+      "title": "Distributed & Grid Computing and Data Warehouses & Big Data",
+      "chars": 13642,
+      "timestamp": "2026-04-13T14:55:55.035Z"
+    },
+    {
+      "id": 296,
+      "title": "Industrial Control Systems & Internet of Things (IoT)",
+      "chars": 7383,
+      "timestamp": "2026-04-13T15:01:36.357Z"
+    },
+    {
+      "id": 322,
+      "title": "Characteristics of Cloud Computing",
+      "chars": 13616,
+      "timestamp": "2026-04-13T15:10:08.079Z"
+    },
+    {
+      "id": 271,
+      "title": "Cross Site Request Forgery (CSRF) & XSS vs. CSRF",
+      "chars": 5197,
+      "timestamp": "2026-04-13T15:15:54.931Z"
+    },
+    {
+      "id": 288,
+      "title": "SQL Injection",
+      "chars": 8118,
+      "timestamp": "2026-04-13T15:22:18.058Z"
+    },
+    {
+      "id": 312,
+      "title": "Input Validation ",
+      "chars": 2814,
+      "timestamp": "2026-04-13T15:25:53.180Z"
+    },
+    {
+      "id": 205,
+      "title": "History of Cryptography",
+      "chars": 9843,
+      "timestamp": "2026-04-13T15:33:02.300Z"
+    },
+    {
+      "id": 282,
+      "title": "5 Services of Cryptography",
+      "chars": 8629,
+      "timestamp": "2026-04-13T15:39:42.626Z"
+    },
+    {
+      "id": 300,
+      "title": "Cryptographic Definitions",
+      "chars": 17140,
+      "timestamp": "2026-04-13T15:51:17.123Z"
+    },
+    {
+      "id": 254,
+      "title": "Avoiding Patterns",
+      "chars": 8965,
+      "timestamp": "2026-04-13T15:58:14.761Z"
+    },
+    {
+      "id": 267,
+      "title": "Stream vs. Block Ciphers",
+      "chars": 13866,
+      "timestamp": "2026-04-13T16:07:57.267Z"
+    },
+    {
+      "id": 195,
+      "title": "Symmetric Cryptography",
+      "chars": 16017,
+      "timestamp": "2026-04-13T16:19:08.323Z"
+    },
+    {
+      "id": 283,
+      "title": "Diffie-Hellmann Key Exchange Protocol",
+      "chars": 8275,
+      "timestamp": "2026-04-13T16:25:38.696Z"
+    },
+    {
+      "id": 261,
+      "title": "Hybrid Cryptography",
+      "chars": 3440,
+      "timestamp": "2026-04-13T16:29:48.587Z"
+    },
+    {
+      "id": 206,
+      "title": "Steganography & Null Ciphers",
+      "chars": 2629,
+      "timestamp": "2026-04-13T18:06:27.172Z"
+    },
+    {
+      "id": 305,
+      "title": "Digital Signatures",
+      "chars": 12171,
+      "timestamp": "2026-04-13T18:14:41.840Z"
+    },
+    {
+      "id": 306,
+      "title": "Digital Certificates",
+      "chars": 8974,
+      "timestamp": "2026-04-13T18:21:30.755Z"
+    },
+    {
+      "id": 238,
+      "title": "Key Management",
+      "chars": 9929,
+      "timestamp": "2026-04-13T18:28:44.838Z"
+    },
+    {
+      "id": 208,
+      "title": "Cryptanalysis: Cryptanalytic Attacks",
+      "chars": 7193,
+      "timestamp": "2026-04-13T18:34:51.684Z"
+    },
+    {
+      "id": 224,
+      "title": "Windows",
+      "chars": 5043,
+      "timestamp": "2026-04-13T18:39:34.974Z"
+    },
+    {
+      "id": 313,
+      "title": "Walls",
+      "chars": 2552,
+      "timestamp": "2026-04-13T18:43:05.418Z"
+    },
+    {
+      "id": 323,
+      "title": "Power: UPS & Generators and HVAC",
+      "chars": 8470,
+      "timestamp": "2026-04-13T18:49:37.191Z"
+    },
+    {
+      "id": 209,
+      "title": "Fire Detection",
+      "chars": 4743,
+      "timestamp": "2026-04-13T18:54:18.436Z"
+    },
+    {
+      "id": 239,
+      "title": "Fire Suppression",
+      "chars": 8938,
+      "timestamp": "2026-04-13T19:00:54.320Z"
+    },
+    {
+      "id": 210,
+      "title": "Introduction to Access Control ",
+      "chars": 8172,
+      "timestamp": "2026-04-13T19:06:53.360Z"
+    },
+    {
+      "id": 281,
+      "title": "Access Control Services Overview",
+      "chars": 4989,
+      "timestamp": "2026-04-13T19:11:31.804Z"
+    },
+    {
+      "id": 262,
+      "title": "Authentication Types (Factors): Knowledge & Ownership",
+      "chars": 7832,
+      "timestamp": "2026-04-13T19:17:24.105Z"
+    },
+    {
+      "id": 203,
+      "title": "Authentication Types (Factors): Characteristics",
+      "chars": 8330,
+      "timestamp": "2026-04-13T19:23:45.880Z"
+    },
+    {
+      "id": 225,
+      "title": "Single & Multi-Factor Authentication",
+      "chars": 2083,
+      "timestamp": "2026-04-13T19:27:19.442Z"
+    },
+    {
+      "id": 240,
+      "title": "Session Management & Identity Proofing",
+      "chars": 5033,
+      "timestamp": "2026-04-13T19:32:02.770Z"
+    },
+    {
+      "id": 272,
+      "title": "Federated Identity Management (FIM) & SAML",
+      "chars": 8753,
+      "timestamp": "2026-04-13T19:38:41.605Z"
+    },
+    {
+      "id": 324,
+      "title": "IDaaS ",
+      "chars": 2686,
+      "timestamp": "2026-04-13T19:42:19.944Z"
+    },
+    {
+      "id": 289,
+      "title": "Access Control Philosophies",
+      "chars": 12769,
+      "timestamp": "2026-04-13T19:50:44.934Z"
+    },
+    {
+      "id": 211,
+      "title": "Provisioning Lifecycle",
+      "chars": 3979,
+      "timestamp": "2026-04-13T19:54:45.976Z"
+    },
+    {
+      "id": 315,
+      "title": "Introduction to Security Assessment and Testing",
+      "chars": 11271,
+      "timestamp": "2026-04-13T20:01:57.594Z"
+    },
+    {
+      "id": 325,
+      "title": "Software Testing Stages",
+      "chars": 5557,
+      "timestamp": "2026-04-13T20:06:38.917Z"
+    },
+    {
+      "id": 326,
+      "title": "Vulnerability Assessment & Penetration Testing",
+      "chars": 9796,
+      "timestamp": "2026-04-13T20:13:25.811Z"
+    },
+    {
+      "id": 316,
+      "title": "Vulnerability Testing Techniques, Banner Grabbing, Fingerprinting, & Interpreting Results",
+      "chars": 12828,
+      "timestamp": "2026-04-13T20:21:28.390Z"
+    },
+    {
+      "id": 241,
+      "title": "Operational & Regression Testing",
+      "chars": 3760,
+      "timestamp": "2026-04-13T20:25:37.866Z"
+    },
+    {
+      "id": 317,
+      "title": "Metrics: KPIs & KRIs",
+      "chars": 5262,
+      "timestamp": "2026-04-13T20:30:19.868Z"
+    },
+    {
+      "id": 196,
+      "title": "Introduction to Networks & Protocols",
+      "chars": 3147,
+      "timestamp": "2026-04-13T20:34:04.717Z"
+    },
+    {
+      "id": 247,
+      "title": "The OSI Model",
+      "chars": 14716,
+      "timestamp": "2026-04-13T20:43:56.164Z"
+    },
+    {
+      "id": 269,
+      "title": "Layer 1, Transmission Media & Crosstalk",
+      "chars": 5341,
+      "timestamp": "2026-04-13T20:48:57.134Z"
+    },
+    {
+      "id": 276,
+      "title": "Layer 2, Physical Addressing, and Circuit vs. Packet Switching",
+      "chars": 10121,
+      "timestamp": "2026-04-13T20:56:16.396Z"
+    },
+    {
+      "id": 217,
+      "title": "Layer 3 & Logical Addressing",
+      "chars": 6575,
+      "timestamp": "2026-04-13T21:01:58.999Z"
+    },
+    {
+      "id": 255,
+      "title": "Layer 4, TCP & UDP",
+      "chars": 3760,
+      "timestamp": "2026-04-13T21:06:17.422Z"
+    },
+    {
+      "id": 218,
+      "title": "Layers 5, 6 & 7",
+      "chars": 8721,
+      "timestamp": "2026-04-13T21:13:02.018Z"
+    },
+    {
+      "id": 256,
+      "title": "Network Attacks: DoS & DDoS, Spoofing & ARP Poisoning",
+      "chars": 14685,
+      "timestamp": "2026-04-13T21:22:52.972Z"
+    },
+    {
+      "id": 277,
+      "title": "Wireless Architecture, Technologies, Authentication, Encryption & TKIP",
+      "chars": 12088,
+      "timestamp": "2026-04-13T21:31:13.289Z"
+    },
+    {
+      "id": 278,
+      "title": "Wide Area Networks (WAN)",
+      "chars": 4940,
+      "timestamp": "2026-04-13T21:36:01.364Z"
+    },
+    {
+      "id": 257,
+      "title": "Proxy, NAT & PAT, and Private Addresses",
+      "chars": 6611,
+      "timestamp": "2026-04-13T21:41:42.946Z"
+    },
+    {
+      "id": 207,
+      "title": "Firewall Technologies",
+      "chars": 9470,
+      "timestamp": "2026-04-13T21:48:40.760Z"
+    },
+    {
+      "id": 285,
+      "title": "Firewall Architectures",
+      "chars": 7877,
+      "timestamp": "2026-04-13T21:55:04.536Z"
+    },
+    {
+      "id": 248,
+      "title": "SSL / TLS & Remote Authentication",
+      "chars": 8441,
+      "timestamp": "2026-04-13T22:01:45.249Z"
+    }
+  ],
+  "failed": [
+    {
+      "id": 376,
+      "title": "ITAR & EAR, Wassenaar and transborder Data Flow",
+      "reason": "Whisper failed to start: spawn whisper ENOENT",
+      "timestamp": "2026-04-09T00:45:29.153Z"
+    },
+    {
+      "id": 376,
+      "title": "ITAR & EAR, Wassenaar and transborder Data Flow",
+      "reason": "Whisper failed to start: spawn whisper ENOENT",
+      "timestamp": "2026-04-09T04:08:21.247Z"
+    },
+    {
+      "id": 206,
+      "title": "Steganography & Null Ciphers",
+      "reason": "page.route: Target page, context or browser has been closed",
+      "timestamp": "2026-04-13T16:30:54.490Z"
+    }
+  ],
+  "startedAt": "2026-04-06T10:54:22.292Z",
+  "updatedAt": "2026-04-13T22:01:45.249Z"
+}

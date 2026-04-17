@@ -1,0 +1,47 @@
+start	end	text
+0	19480	We've talked about the three factors of authentication, authentication by knowledge, ownership,
+19480	34560	and
+34560	41600	We've talked about the three factors of authentication, authentication by knowledge, ownership, and characteristic.
+41600	46360	We can use these different factors, alone or in combination, to achieve what is often
+46360	50640	referred to as single or multifactor authentication.
+50640	53320	Let's start with single factor authentication.
+53320	54560	What does that mean?
+54560	56640	Well, at the most basic level,
+56640	58880	single factor authentication simply means
+58880	62640	that we use one of those three factors of authentication.
+62640	65240	So it's simply authentication by knowledge
+65240	67320	or authentication by ownership
+67320	72120	or authentication by characteristic by themselves.
+72120	73920	So if I were to ask you this question,
+73920	78360	a user logs into a system using an RSA ID token.
+78360	79280	What is that?
+79280	82160	Is that multifactor or is that single factor?
+82160	83720	And the answer of course is that it's
+83720	85800	single factor authentication
+85800	87320	because the only factor of authentication
+87320	89560	they used by just using an RSA ID key
+89560	93880	is authentication by ownership.
+93880	96640	Now, what about multifactor authentication?
+96640	98320	You've undoubtedly heard this term.
+98320	100320	It gets thrown around all of the place.
+100320	102680	What is the true and perfect definition
+102680	105320	of multifactor authentication?
+105320	108080	The perfect definition is that multifactor authentication
+108080	112520	is two or more different factors of authentication.
+112520	115400	And so a key to my bank is a perfect example of this.
+115400	116640	Just recently, they rolled out
+116640	118720	this whole multifactor authentication initiative
+118720	119960	and they were very proud of themselves
+119960	123440	that they now had MFA multifactor authentication.
+123440	125200	And what you had to do, what you have to do now,
+125200	128680	to log in with MFA is you have to provide first your password
+128680	131240	and then answer a security question.
+131240	133720	And is that multifactor authentication?
+133720	136000	Well, it's authentication by knowledge
+136000	138600	and then authentication by knowledge.
+138600	141280	Two factors, but they're the same factors.
+141280	144040	So that is not truly multifactor authentication.
+144920	146440	So that's the difference between single factor
+146440	148760	and multifactor authentication.
+149080	154560	So that means that you're not 100% integrated.
+154720	158080	That's what you needed.

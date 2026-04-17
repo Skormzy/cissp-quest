@@ -1,0 +1,14 @@
+{
+  "id": 314,
+  "title": "Principle of Access Control",
+  "url": "https://my.destcert.com/videolesson/314",
+  "videoLink": "s3://dc-video-prod-private/hls-transcoded/CISSP/CISSP_MasterClass/Re-export-2019/Video 156 - D05S02_no music",
+  "domain": "5. Identity and Access Management (IAM)",
+  "subdomain": "5.2 â€” Authentication, Authorization and Accounting (AAA)",
+  "duration": "01:32",
+  "transcript": "How do we actually achieve the principal of access control?\r\nHow do we achieve accountability?\r\nWell, we have to first uniquely identify someone.\r\nIf you haven't uniquely identified.\r\nThe principal of access control.\r\nYou may recall when we talked about the access control services, identification, authentication,\r\nauthorization, and accountability, the other name that we gave for accountability.\r\nThis most important thing that we do in access control is the principal of access control.\r\nAccountability is the principal of access control.\r\nThe principal of access control is accountability.\r\nHow do we actually achieve the principal of access control?\r\nHow do we achieve accountability?\r\nWell, we have to first uniquely identify someone.\r\nIf you haven't uniquely identified something, can you make them accountable for their actions on a system?\r\nNext step is we have to properly authenticate someone, verify their identity.\r\nMake sure they are who we think they are.\r\nWe then have to properly authorize them.\r\nUsing concepts at least privilege and need to know separation of duties,\r\nwe need to give them appropriate access on the system.\r\nAnd then we need to log and monitor what they're doing.\r\nAnd only then can we achieve the principal of access control accountability.",
+  "transcriptSource": "whisper-base",
+  "transcriptLength": 1280,
+  "whisperModel": "base",
+  "processedAt": "2026-04-06T20:01:16.591Z"
+}

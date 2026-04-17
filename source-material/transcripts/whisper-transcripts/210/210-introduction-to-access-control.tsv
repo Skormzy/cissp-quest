@@ -1,0 +1,51 @@
+start	end	text
+0	20000	Domain 5. Identity and Access Management. In this domain, we're going to talk about the fundamental concept.
+30000	44000	Domain 5. Identity and Access Management. In this domain, we're going to talk about the fundamental concepts of how do we control access to different assets within the organization
+44000	56000	and make sure that only authorized subjects have access to those assets. We're going to talk about these concepts of identification, authentication, authorization, and the most important one, the principle of access control.
+56000	66000	We're going to talk about different types of single sign-on and federated access systems. We're going to talk about the different factors of authentication like authentication by knowledge, ownership, and characteristics.
+66000	71000	So all of these sort of topics are what we're going to cover in Domain 5. So let's jump into it.
+71000	77000	And we're going to start with the very basics of what access control is all about. So here's a definition. What is access control?
+77000	93000	Well, it's the collection of mechanisms that work together to protect access to assets. And as we've talked about already what's an asset, it's anything of value to the organization, which implies that access control is a lot more than just access to information systems.
+93000	101000	Access control is also about access to physical assets, to parts of a building, to different types, all sorts of different types of systems.
+101000	110000	And when we're applying these access controls, it's all about making sure that we're only allowing access to authorized individuals.
+110000	127000	Now, here's another way of thinking about access control that I quite like. Access control is all about specifying which users can access, which resources, what operations they can perform, and make sure that we have accountability. We know who is doing what.
+127000	138000	Within access control, we apply some fundamental philosophies that we use everywhere within access control. And you've probably heard of these before. It's the concept of need to know and lease privilege.
+138000	150000	And these essentially achieve the same outcome, which is need to know lease privilege. We want to make sure that individuals only have access to what they need to know to do their job and nothing more.
+151000	168000	And another one that we want to apply wherever it's cost effective is this concept of separation of duties, making sure that for certain very important processes that we separate out and have multiple people involved in those processes to make sure that we try and prevent fraud.
+168000	177000	So we're going to talk about how we apply these different access control philosophies, primarily where we talk about in, where we talk about the authorization section later on.
+178000	192000	Now, as I mentioned, when we talk about access control in general, it's a lot more than just access to information systems. It can be access to things like facilities to different types of systems or devices to information and even to different personnel, for instance.
+192000	199000	So this concept of access control is quite universal. It applies to all sorts of different situations.
+199000	212000	Now, as you may recall, accessing trolls all about this concept of allowing of controlling a subject's access to an object through some form of mediation and that mediation is based on a set of rules.
+212000	217000	And all of this is logged in monitor to get assurance that is working properly.
+217000	227000	So fundamentally, any access control system is a using the reference monitor concept and the implementation, of course, of the reference monitor concept is a security kernel.
+227000	233000	So fundamentally, any access control system is a security kernel.
+233000	238000	Now, when we talked about the reference monitor concept and security kernels, we talked about it at a fairly high level.
+238000	244000	We were just talking about subjects, access to an object. It was just kind of the fundamental concept.
+244000	251000	But when we actually get into access control and we start applying this and writing the rules of exactly what subjects can access, what objects.
+251000	261000	We can be a lot more fine-grained. We can be a lot more precise about exactly what objects can access, what objects, and what precisely they're allowed to do with that object.
+261000	273000	And this will vary greatly by system, but for instance, from an operating system perspective, you could control whether a subject could create, update, modify, access, delete a file.
+273000	280000	And different applications can have very fine-grained control over exactly what a subject can do with an object.
+280000	294000	Perfect example, SAP. Anyone that's spent any time with SAP knows there's an unbelievable multitude of different things that you can do to control access, a subject's access to an object.
+294000	301000	Now, when it comes to administering access to systems, there's kind of two fundamental approaches that we can take.
+301000	310000	We can take a centralized approach or a decentralized approach. Let's start with decentralized. What does decentralized mean?
+310000	317000	Well, it means that if we have a whole bunch of systems within an organization, say we have 10 different applications.
+317000	324000	A decentralized approach would mean that there are separate usernames and passwords on each of the individual 10 systems.
+324000	336000	And if you wanted to add someone to say all 10 systems, you would have to go to each of those individual 10 systems, creating a new username, a new password, do all the setup on all those 10 individual systems.
+336000	344000	And if you wanted to ever change someone's access, you'd have to go to all 10 systems. And if you wanted to remove their access, you'd have to go to all 10 systems.
+344000	349000	So it's decentralized. The access control is in each individual system.
+350000	357000	The other fundamental approach is centralized. And the idea of centralized is you have one central system.
+357000	362000	And through that central system, you can control access to a bunch of other systems.
+362000	372000	And so if you wanted to create a user in all those 10 different systems that were connected to one centralized system, you'd only have to create that account into one central system.
+372000	377000	And then that would give them access to the different systems. And if you want to update their access, you'd only have to do it in the central system.
+377000	382000	So that's the idea behind centralized. All the access control is centralized.
+382000	395000	So what are the pros and cons of these two different things? Well, with decentralized, because the access is to each individual system controlled by each individual system, you can be a lot more fine-grained about exactly what someone gets access to.
+396000	409000	And they're not a single point of failure. So when a decentralized system is set up, if one of the systems goes down, or if one of the systems is compromised, only one system is down, or the attacker only has access to one system.
+409000	416000	So that's kind of the advantages of decentralized. What's the disadvantage? Well, it's very difficult to administer.
+416000	429000	So what are the pros and cons of centralized? Well, the pro is much easier to administer. If you want to change, add someone's access, change someone's access, remove someone's access, you just have to do it in one central system.
+429000	436000	But because it's just one central system, it's very much a single point of failure from both an availability and an attack perspective.
+436000	445000	So that's kind of the major pros and cons. What most organizations have is a hybrid approach, which obviously implies it's a combination of the two.
+445000	456000	And most organizations, even if they want to go fully centralized, they typically can't. Because of one word, legacy systems. I guess that's two words. Legacy. There you go, that's one. Because of legacy systems.
+456000	465000	There's a lot of older systems out there that will not work in a centralized approach. And so most organizations, unless they're a very small company or a startup, tend to have a hybrid approach.
+465000	471000	For some of their newer, more modern systems, they're centralized, and some of their old legacy systems are decentralized.
+471000	480000	And here's a couple of quick sides that kind of depict what this would look like. So in a centralized approach, we've got a bunch of systems, and there is one central system that controls access.
+480000	490000	And in decentralized, of course, we have a whole bunch of different systems out in the environment and access control to each of those different systems is done individually by system.

@@ -1,0 +1,227 @@
+WEBVTT
+
+00:00.000 --> 00:18.000
+What are the steps we go through when we want to get access to a computer system?
+
+00:18.000 --> 00:33.000
+We often refer to these as the access system.
+
+00:33.000 --> 00:38.000
+What are the steps we go through when we want to get access to a computer system?
+
+00:38.000 --> 00:41.000
+We often refer to these as the access control services.
+
+00:41.000 --> 00:44.000
+There's four major access control services.
+
+00:44.000 --> 00:50.000
+Essentially the steps that we have to go through to get access to a system and use that system.
+
+00:50.000 --> 00:58.000
+Think about this. When you walk up to a computer system and you jiggle a mouse, what's the first thing that you need to do to get access to that system?
+
+00:58.000 --> 01:03.000
+Hopefully, jiggling the mouse did just entirely unlock the system and give you full access.
+
+01:03.000 --> 01:07.000
+Hopefully, there's some sort of access control services in place.
+
+01:07.000 --> 01:10.000
+What's the first thing that you need to do to get access to a system?
+
+01:10.000 --> 01:18.000
+The first thing you need to do is identification. Identification is where you assert your identity to the system.
+
+01:18.000 --> 01:24.000
+You somehow uniquely identify yourself with a username or maybe biometric data.
+
+01:24.000 --> 01:29.000
+So that is identification. It's where I identify myself to a system.
+
+01:29.000 --> 01:36.000
+And hopefully, just typing in my username or which doesn't give me full access to the system.
+
+01:36.000 --> 01:40.000
+Because the next step is authentication.
+
+01:40.000 --> 01:44.000
+This is where the system needs to verify my identity.
+
+01:44.000 --> 01:48.000
+It has to somehow figure out am I actually who I say am.
+
+01:48.000 --> 01:52.000
+So how can the system authenticate me? Verify my identity.
+
+01:52.000 --> 01:55.000
+Well, there are three factors of authentication.
+
+01:55.000 --> 01:58.000
+There's authentication by knowledge, something you know.
+
+01:58.000 --> 02:02.000
+There's authentication by ownership, something you have.
+
+02:02.000 --> 02:07.000
+And there's authentication by characteristic, how you behave or your physiology.
+
+02:07.000 --> 02:10.000
+So those are the three factors of authentication.
+
+02:10.000 --> 02:13.000
+And we'll get into those in a lot more detail later on.
+
+02:13.000 --> 02:17.000
+Okay, so step one, I assert my identity, identified myself.
+
+02:17.000 --> 02:20.000
+Step two, I authenticated myself somehow.
+
+02:20.000 --> 02:24.000
+What's the next step? It's authorization.
+
+02:24.000 --> 02:29.000
+This is where the system determines exactly what my access is going to be.
+
+02:29.000 --> 02:33.000
+This is where we apply those principles we've already talked about, like least privilege.
+
+02:33.000 --> 02:35.000
+Need to know separation of duties.
+
+02:35.000 --> 02:40.000
+You don't want to authorize someone to have access beyond anything that they need to do their job.
+
+02:40.000 --> 02:43.000
+So that is the authorization step.
+
+02:43.000 --> 02:47.000
+There's one final and in fact, most important step.
+
+02:47.000 --> 02:49.000
+And that is accountability.
+
+02:49.000 --> 02:55.000
+The whole reason that we do access control is to make users accountable for their actions on a system.
+
+02:55.000 --> 02:58.000
+Because this is so incredibly important, we in fact give this a special name.
+
+02:58.000 --> 03:01.000
+We call it the principle of access control.
+
+03:01.000 --> 03:05.000
+So the whole reason and listen very carefully here because there's often questions on this.
+
+03:05.000 --> 03:10.000
+The whole principle of access control is accountability.
+
+03:10.000 --> 03:12.000
+How do you achieve accountability?
+
+03:12.000 --> 03:17.000
+Well, you have to have uniquely identified someone properly authenticated them, properly authorize them,
+
+03:17.000 --> 03:25.000
+and then log in monitor what they're doing on the system to then and only then make them accountable for their actions on the system.
+
+03:25.000 --> 03:28.000
+That is the principle of access control.
+
+03:28.000 --> 03:31.000
+Let's talk about how we identify ourselves.
+
+03:31.000 --> 03:34.000
+Identification ideally needs to be unique.
+
+03:34.000 --> 03:37.000
+You do not want to have shared user accounts.
+
+03:37.000 --> 03:42.000
+It's a very bad idea for 50 people in the organization to have all share one admin account.
+
+03:42.000 --> 03:46.000
+So ideally identification needs to be unique.
+
+03:46.000 --> 03:48.000
+Tied to a particular individual.
+
+03:48.000 --> 03:52.000
+And the way that we identify ourselves are examples like I've already given.
+
+03:52.000 --> 03:56.000
+User ID, account number, badges, which is a name and a picture.
+
+03:56.000 --> 03:59.000
+We can even use biometrics for identification.
+
+03:59.000 --> 04:03.000
+Some good practices around identification, like I said, unique,
+
+04:03.000 --> 04:06.000
+should also not be descriptive of your job.
+
+04:06.000 --> 04:11.000
+So for instance, if I was the network administrator, I'd probably call myself network administrator god.
+
+04:11.000 --> 04:16.000
+And the problem with that is that if there's any attackers on our environment,
+
+04:16.000 --> 04:19.000
+what account are they going to try and break and do first, do you think?
+
+04:19.000 --> 04:22.000
+Probably the network administrator god account.
+
+04:22.000 --> 04:24.000
+The other problem is that people change roles.
+
+04:24.000 --> 04:28.000
+And what would inevitably probably happen to me is I would get demoted.
+
+04:28.000 --> 04:30.000
+And I would no longer be network administrator god.
+
+04:30.000 --> 04:33.000
+Now it would be network administrator lackey.
+
+04:33.000 --> 04:37.000
+And my username would no longer apply to the role that I was in.
+
+04:37.000 --> 04:42.000
+So it's not good for the roles to be tied to a particular description of what they someone does.
+
+04:42.000 --> 04:45.000
+And then the final piece is secure issuance.
+
+04:45.000 --> 04:49.000
+You need some way of getting someone their credentials securely.
+
+04:49.000 --> 04:55.000
+So you don't ever just want to write out someone's username and password on a sticky note and leave it on their monitor.
+
+04:55.000 --> 04:57.000
+I mean, we're security people.
+
+04:57.000 --> 04:58.000
+We know better than that.
+
+04:58.000 --> 05:00.000
+You got to stick it on a sticky note on the bottom of their keyboard.
+
+05:00.000 --> 05:02.000
+That's how we do secure issuance, right?
+
+05:02.000 --> 05:03.000
+Of course not, right?
+
+05:03.000 --> 05:08.000
+But you need a secure issuance process, some way of getting these credentials to someone securely.
+
+05:08.000 --> 05:12.000
+And the next few videos we'll talk about how we do these factors of authentication in more detail,
+
+05:12.000 --> 05:16.000
+authentication by knowledge, ownership and characteristic.
+

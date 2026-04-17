@@ -1,0 +1,496 @@
+1
+00:00:00,000 --> 00:00:29,560
+Okay, so as you know we are going up the OSI model layers and we are at Layer 2, the
+
+2
+00:00:29,560 --> 00:00:37,880
+data link. Okay, so as you know we are going up the OSI model layers and we
+
+3
+00:00:37,880 --> 00:00:43,600
+are at Layer 2, the data link layer, and there are some significant protocols that
+
+4
+00:00:43,600 --> 00:00:48,680
+operate at Layer 2 that we can think of from a security perspective. Now if you
+
+5
+00:00:48,680 --> 00:00:54,000
+remember back in the old days when the only way to get into a network
+
+6
+00:00:54,000 --> 00:01:00,240
+remotely was to use dial up lines and modems, the industry had a problem. The
+
+7
+00:01:00,240 --> 00:01:06,200
+problem was how do we allow TCP IP to run across dial up lines? So the industry
+
+8
+00:01:06,200 --> 00:01:12,600
+had to come up with a protocol that would allow TCP IP and its protocols to
+
+9
+00:01:12,600 --> 00:01:18,560
+run across dial up line. As you know dial up lines are analog connections and
+
+10
+00:01:18,560 --> 00:01:23,040
+so they had to create a protocol that would allow that and what they came up
+
+11
+00:01:23,040 --> 00:01:28,720
+with is something called slip. Serial line interface protocol is what that
+
+12
+00:01:28,720 --> 00:01:34,920
+stands for. Now eventually when remote access became really popular they
+
+13
+00:01:34,920 --> 00:01:40,480
+decided to replace this protocol with something better because as companies
+
+14
+00:01:40,480 --> 00:01:46,080
+started to offer remote access to everyone and it became a necessity for all
+
+15
+00:01:46,080 --> 00:01:53,040
+organizations. They decided to replace that older slip protocol with something
+
+16
+00:01:53,040 --> 00:01:58,280
+that is much better and what they called it is what you see here PPP point to
+
+17
+00:01:58,280 --> 00:02:04,240
+point protocol. Now by the time they did this they realized that a lot of companies
+
+18
+00:02:04,240 --> 00:02:10,080
+were offering remote access and what they should do with this protocol because it
+
+19
+00:02:10,080 --> 00:02:15,680
+was going to be used for remote access is build some authentication protocols
+
+20
+00:02:15,680 --> 00:02:21,360
+right into this PPP protocol because they realized that this would be used by
+
+21
+00:02:21,360 --> 00:02:28,760
+people that would be connecting in remotely by using for example VPNs and so they
+
+22
+00:02:28,760 --> 00:02:35,080
+decided to build three authentication protocols as part of the PPP
+
+23
+00:02:35,080 --> 00:02:40,520
+authentication protocol itself or remote access protocol itself and they gave
+
+24
+00:02:40,520 --> 00:02:45,640
+us three instead of one and the reason that there are three is because they all
+
+25
+00:02:45,640 --> 00:02:50,480
+provide different levels of security as you'll see and this is something that's
+
+26
+00:02:50,480 --> 00:02:55,760
+important for you to focus on. The first one the first authentication protocol
+
+27
+00:02:55,760 --> 00:03:02,920
+that they built natively into PPP is called PAP password authentication protocol.
+
+28
+00:03:02,920 --> 00:03:09,280
+This one is the simplest but it's also the least secure. In fact what this
+
+29
+00:03:09,280 --> 00:03:16,920
+uses is a plain text reusable static password in order to authenticate the
+
+30
+00:03:16,920 --> 00:03:21,520
+individual at the other end that's trying to connect remotely. Now if you think
+
+31
+00:03:21,520 --> 00:03:27,560
+about those three words that I just use plain text reusable static those are not
+
+32
+00:03:27,560 --> 00:03:33,600
+good security words but that's all that PAP supports and so what it does is it
+
+33
+00:03:33,600 --> 00:03:39,040
+sends your password across the line in plain text so if there's anybody in
+
+34
+00:03:39,040 --> 00:03:44,120
+between like there is likely to be they can see your password and here's the
+
+35
+00:03:44,120 --> 00:03:48,920
+real problem we can never change that password you cannot force a password
+
+36
+00:03:48,920 --> 00:03:54,560
+change so PAP is not very good and you wonder why did we even have it but it is
+
+37
+00:03:54,560 --> 00:04:00,400
+supported by a lot of simple network devices and in fact in the early days of
+
+38
+00:04:00,400 --> 00:04:04,800
+remote access this was really the only option for people and companies to
+
+39
+00:04:04,800 --> 00:04:11,000
+offer remote access and it's still widely used by many applications. What's better
+
+40
+00:04:11,000 --> 00:04:17,040
+is the second one it's called CHAP challenge handshake authentication protocol.
+
+41
+00:04:17,040 --> 00:04:23,080
+What this one does is it addresses some of the problems that EAP does or has and
+
+42
+00:04:23,080 --> 00:04:28,840
+so when we send the password across the line using CHAP it is encrypted and
+
+43
+00:04:28,840 --> 00:04:35,880
+you can force people to change passwords every 30 days or every 60 days or
+
+44
+00:04:35,880 --> 00:04:40,680
+whatever it is that the company decides on and so it's a much more secure
+
+45
+00:04:40,680 --> 00:04:46,080
+protocol in fact it is very popular out there even today for organizations that
+
+46
+00:04:46,080 --> 00:04:51,760
+offer remote access through VPNs because ultimately this person sitting
+
+47
+00:04:51,760 --> 00:04:56,880
+behind that VPN needs to be authenticated and a lot of companies have
+
+48
+00:04:56,880 --> 00:05:02,360
+standardized on the CHAP protocol as part of for example their radius and
+
+49
+00:05:02,360 --> 00:05:08,040
+tax and diameter administration systems that companies will implement in
+
+50
+00:05:08,040 --> 00:05:13,080
+order to host remote access but CHAP much better and in fact it also supports
+
+51
+00:05:13,080 --> 00:05:18,760
+two factor authentication which has become pre-standard for organizations to
+
+52
+00:05:18,760 --> 00:05:24,520
+use in order to allow remote access. The best one is actually the third one and
+
+53
+00:05:24,520 --> 00:05:31,600
+it's called EAP and the reason it's the best is because of the E the E stands for
+
+54
+00:05:31,600 --> 00:05:39,760
+extensible and so it can be adaptable it can be changed so almost address
+
+55
+00:05:39,760 --> 00:05:44,880
+anything that an organization might want from a remote access perspective so
+
+56
+00:05:44,880 --> 00:05:50,040
+that the way that they built EAP is that it's very flexible you can use it in
+
+57
+00:05:50,040 --> 00:05:56,160
+conjunction with almost anything else and so you see it a lot today in any
+
+58
+00:05:56,160 --> 00:06:02,280
+service that requires remote access in fact the next slide here gives us an
+
+59
+00:06:02,280 --> 00:06:09,480
+idea of EAP and how good it is there is one version of it that you would be wise
+
+60
+00:06:09,480 --> 00:06:17,680
+to understand as we have seen it appear on the exam and that is P EAP and the
+
+61
+00:06:17,680 --> 00:06:24,600
+P is actually for protected EAP and so what they do with this one is they
+
+62
+00:06:24,600 --> 00:06:32,480
+protect the EAP traffic across a SSL and TLS tunnel in other words the EAP
+
+63
+00:06:32,480 --> 00:06:37,240
+traffic that contains your authentication information is actually protected by
+
+64
+00:06:37,240 --> 00:06:42,720
+using the SSL slash TLS protocol which provides authentication and
+
+65
+00:06:42,720 --> 00:06:47,800
+encryption and possibly some other things so remember P EAP which stands for
+
+66
+00:06:47,800 --> 00:06:55,920
+protected EAP simply tunnels the EAP traffic across a SSL slash TLS tunnel but
+
+67
+00:06:55,920 --> 00:07:03,200
+here's why EAP is so extensible there are many versions of it that the
+
+68
+00:07:03,200 --> 00:07:07,960
+industry has come up with to really suit any remote access capability that any
+
+69
+00:07:07,960 --> 00:07:16,640
+organization or service might require so we've got EAP TLS we've got EAP T TLS
+
+70
+00:07:16,640 --> 00:07:23,240
+and we've got EAP P EAP which we just talked about we've got lightweight EAP as
+
+71
+00:07:23,240 --> 00:07:29,680
+well and they all provide as you can see here different levels of allowing
+
+72
+00:07:29,680 --> 00:07:35,840
+remote entities to authenticate through the EAP protocol but do it in such a
+
+73
+00:07:35,840 --> 00:07:41,640
+way so that it becomes very efficient for the organization that's hosting the
+
+74
+00:07:41,640 --> 00:07:47,380
+remote access requirements there's even a EAP MD5 which really addresses the
+
+75
+00:07:47,380 --> 00:07:53,320
+integrity of that traffic as it goes through for example the EAP authentication
+
+76
+00:07:53,320 --> 00:07:59,080
+information even though we've provided a really good slide here probably the
+
+77
+00:07:59,080 --> 00:08:04,640
+one that is the most important for you to remember is P EAP that we've talked
+
+78
+00:08:04,640 --> 00:08:11,080
+about just before now we're still at layer 2 and what we need to understand at
+
+79
+00:08:11,080 --> 00:08:17,440
+layer 2 are some of the significant devices and protocols that operate at
+
+80
+00:08:17,440 --> 00:08:22,800
+layer 2 of the OSI model and as far as devices are concerned really two of
+
+81
+00:08:22,920 --> 00:08:28,840
+them that are significant bridges and switches both operate at layer 2 and
+
+82
+00:08:28,840 --> 00:08:34,440
+therefore because they operate at layer 2 they are still very efficient but
+
+83
+00:08:34,440 --> 00:08:39,160
+they are really dumb devices in other words we can't really ask any of these
+
+84
+00:08:39,160 --> 00:08:43,880
+devices to make any security decisions they just don't have the intelligence to
+
+85
+00:08:43,880 --> 00:08:49,040
+be able to do that but both bridges and switches are layer 2 devices now don't
+
+86
+00:08:49,040 --> 00:08:54,360
+overthink these questions because as you know today companies can buy layer
+
+87
+00:08:54,360 --> 00:08:59,880
+3 switches they can buy layer 4 switches you can even buy layer 7 switches but
+
+88
+00:08:59,880 --> 00:09:05,800
+unless the exam specifically mentions those words you need to remember that a
+
+89
+00:09:05,800 --> 00:09:11,920
+switch natively operates at layer 2 and they are both bridges and switches
+
+90
+00:09:11,920 --> 00:09:17,160
+dumb devices in fact that's why we call them bridges they simply bridge two
+
+91
+00:09:17,160 --> 00:09:22,280
+things together and that bridge does not care what's going across it it has
+
+92
+00:09:22,280 --> 00:09:27,960
+no ability to interpret it so these are very fast devices but we cannot use
+
+93
+00:09:27,960 --> 00:09:32,800
+them to make any sort of security decisions switches have a little more
+
+94
+00:09:32,800 --> 00:09:37,440
+functionality than bridges do because of the ports that are available at the
+
+95
+00:09:37,440 --> 00:09:42,560
+back of a switch and so if you connect devices to the ports that are at the
+
+96
+00:09:42,560 --> 00:09:46,880
+back of the switch it starts giving us the ability to start creating what
+
+97
+00:09:46,880 --> 00:09:52,160
+are called segments or virtual lands as we will discuss later when we get into
+
+98
+00:09:52,160 --> 00:09:59,800
+the partitioning and segmentation aspect of network security now these are
+
+99
+00:09:59,800 --> 00:10:06,640
+some of the other layer 2 protocols that are noteworthy at layer 2 and you'll
+
+100
+00:10:06,640 --> 00:10:12,320
+know that some of these are layer 2 for sure because they are called L2 L2
+
+101
+00:10:12,320 --> 00:10:19,800
+TP obviously the L2 stands for layer 2 but PPTP also a layer 2 tunneling
+
+102
+00:10:19,800 --> 00:10:26,280
+protocol we just described what slip was that older protocol that was used for
+
+103
+00:10:26,280 --> 00:10:31,640
+remote access that was eventually replaced by the PPP protocol that contains
+
+104
+00:10:31,640 --> 00:10:38,440
+those authentication protocols that we just talked about PAP, CHAP and EAP also
+
+105
+00:10:38,440 --> 00:10:45,080
+at this layer is what we call ARP and reverse ARP and those are some significant
+
+106
+00:10:45,080 --> 00:10:52,040
+protocols that operate at layer 2 what ARP does is it maps IP addresses which
+
+107
+00:10:52,040 --> 00:10:58,240
+is the logical addressing that's used across networking to specific MAC
+
+108
+00:10:58,240 --> 00:11:04,360
+addresses which is what makes you unique on any network and so as something
+
+109
+00:11:04,360 --> 00:11:09,960
+comes in as an IP address the network has to take that and map it to the
+
+110
+00:11:09,960 --> 00:11:15,880
+correct MAC address and that's what ARP does now when we originate a outgoing
+
+111
+00:11:15,880 --> 00:11:20,680
+request from the internal network it obviously originates from your MAC
+
+112
+00:11:20,680 --> 00:11:25,760
+address but that has to be converted to the correct IP address which is what
+
+113
+00:11:25,760 --> 00:11:31,720
+reverse ARP does but both ARP and reverse ARP are layer 2 protocols that work
+
+114
+00:11:31,720 --> 00:11:41,920
+basically together now L2F PPTP L2TP or what we call tunneling protocols tunneling
+
+115
+00:11:41,920 --> 00:11:47,440
+protocols simply take something and encapsulate them within something else and
+
+116
+00:11:47,440 --> 00:11:53,640
+we'll learn later that this is the precursor for how we create and use VPNs
+
+117
+00:11:53,640 --> 00:11:59,400
+because VPNs require tunneling first and then encryption so these protocols
+
+118
+00:11:59,400 --> 00:12:06,320
+that you see here L2F PPTP L2TP are layer 2 tunneling protocols and
+
+119
+00:12:06,320 --> 00:12:11,520
+because they operate at layer 2 they are still very efficient but they may
+
+120
+00:12:11,520 --> 00:12:17,160
+lack in functionality as you know the lower down the layers we go the less we
+
+121
+00:12:17,160 --> 00:12:22,280
+can do but the more efficient we become the higher up you go the more we can
+
+122
+00:12:22,280 --> 00:12:27,160
+do the more functional we become but the less efficient we become so these are
+
+123
+00:12:27,160 --> 00:12:32,120
+very efficient tunneling protocols that operate at layer 2 but may be limited
+
+124
+00:12:32,120 --> 00:12:36,360
+in some of the functionality that they can offer
+

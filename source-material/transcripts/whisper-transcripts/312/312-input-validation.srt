@@ -1,0 +1,120 @@
+1
+00:00:00,000 --> 00:00:17,000
+In the last few videos, we've talked through some very technical types of attacks.
+
+2
+00:00:17,000 --> 00:00:20,000
+We've talked about cross-site scripting, we've talked about sequel injection,
+
+3
+00:00:20,000 --> 00:00:30,000
+and later on, we'll even talk about buffer overflows. I want to talk about a very simple way to prevent these types of attacks,
+
+4
+00:00:30,000 --> 00:00:36,000
+because what all of these attacks have to do with these attacks?
+
+5
+00:00:36,000 --> 00:00:40,000
+In the last few videos, we've talked through some very technical types of attacks.
+
+6
+00:00:40,000 --> 00:00:44,000
+We've talked about cross-site scripting, we've talked about sequel injection.
+
+7
+00:00:44,000 --> 00:00:48,000
+Later on, we'll even talk about buffer overflows.
+
+8
+00:00:48,000 --> 00:00:55,000
+What all of these attacks fundamentally rely on is a system that is vulnerable, and what do I mean by that?
+
+9
+00:00:55,000 --> 00:01:02,000
+It's a system that is accepting input from a user and storing that input that it should never be accepting and storing.
+
+10
+00:01:02,000 --> 00:01:07,000
+This is why, and remember this, drill this into your head, the root of all evil for these types of attacks,
+
+11
+00:01:07,000 --> 00:01:13,000
+like cross-site scripting, sequel injection, buffer overflows, is that it's inadequate data validation.
+
+12
+00:01:13,000 --> 00:01:20,000
+We're not properly validating what users input. We're not sanitizing their input, and we're not cleaning up their input.
+
+13
+00:01:20,000 --> 00:01:24,000
+The root of all evil is inadequate data validation.
+
+14
+00:01:24,000 --> 00:01:32,000
+So how do we fundamentally fix problems like cross-site scripting and sequel injection and buffer overflows input validation?
+
+15
+00:01:32,000 --> 00:01:38,000
+So here's a big hint for the exam. You will very likely see very technical questions on things like cross-site scripting.
+
+16
+00:01:38,000 --> 00:01:43,000
+The solution to how you fix these very technical types of attacks is typically very simple.
+
+17
+00:01:43,000 --> 00:01:50,000
+Validate the user's input. If you do not allow JavaScript code to be sent, stored on the server,
+
+18
+00:01:50,000 --> 00:01:54,000
+and then re-display to users, you prevent all of these problems from occurring.
+
+19
+00:01:54,000 --> 00:02:01,000
+If you don't take sequel code and then send it directly to the database, you prevent sequel injection.
+
+20
+00:02:01,000 --> 00:02:07,000
+If you don't allow input that's too large for the buffer, you don't allow buffer overflows to occur.
+
+21
+00:02:07,000 --> 00:02:15,000
+So the simple answer you're going to look for on the exam to how you solve these very technical types of attacks is input validation.
+
+22
+00:02:15,000 --> 00:02:20,000
+Now it might be phrased in different ways and often in more technical ways.
+
+23
+00:02:20,000 --> 00:02:25,000
+But fundamentally, any answer that says you're sanitizing the input, you're cleaning up the input.
+
+24
+00:02:25,000 --> 00:02:32,000
+You're somehow validating what the user provides, that's input validation, and that's the answer you should look for.
+
+25
+00:02:32,000 --> 00:02:37,000
+And one final piece I'll talk about here. This whole section is about how do we secure web-based applications.
+
+26
+00:02:37,000 --> 00:02:41,000
+And I'll show this diagram. I've shown a number of times now.
+
+27
+00:02:41,000 --> 00:02:46,000
+And that is the one of the best ways of securing a system is to harden the system.
+
+28
+00:02:46,000 --> 00:02:51,000
+Go through a well-defined set of steps, a baseline, to lock that system down.
+
+29
+00:02:51,000 --> 00:02:55,000
+Disable unnecessary services, closed unused ports, all that sort of stuff.
+
+30
+00:02:55,000 --> 00:02:58,000
+That's how we secure our web-based applications.
+

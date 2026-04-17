@@ -1,0 +1,157 @@
+start	end	text
+0	17240	Key Management As we've talked about in the cryptography sections,
+17240	33240	Key Management is incredibly important.
+33240	37240	Key Management As we've talked about in the cryptography sections,
+37240	40240	Key Management is incredibly important.
+40240	45240	There's one very good reason for that, and it's actually known as Kirchhoff's principle.
+45240	50240	Kirchhoff's principle states that a crypto system should be secure,
+50240	54240	even if everything about the system is known except the key.
+54240	57240	So an attacker can know the ciphertext.
+57240	59240	They can know the algorithm that's being used.
+59240	61240	They can know the initialization vector.
+61240	65240	They can know all of this, but as long as the key is kept secret,
+65240	68240	then you'll have a secure system.
+68240	72240	And so key management, how we generate, how we distribute,
+72240	76240	how we change or rotate keys, how we distribute those keys,
+76240	80240	how we destroy those keys, and then finally, if we need to recover those keys,
+80240	83240	it's incredibly important that we do all this very well.
+83240	85240	So let's walk through each of these steps.
+85240	90240	And let's start with key generation, or creation of keys.
+90240	95240	Now when we talk about creating a key, what we're actually doing is we have the key space
+95240	99240	that we've talked about, all the possible combinations of a key.
+99240	106240	And key generation is about randomly selecting one key out of that entire key space.
+106240	109240	And we want to randomly select a key.
+109240	113240	It would be a very bad idea if our key generation process simply picked keys one after another
+113240	114240	in a linear fashion.
+114240	117240	Because what do we always want to avoid in cryptography?
+117240	118240	Patterns.
+118240	125240	And so we need to be able to, as randomly as possible, select a key from the entire key space.
+125240	127240	So that's really what key generation is about.
+128240	134240	And this has to be an automated process because human beings we are terrible at true randomness.
+134240	138240	And so we need to get our computer systems to try and randomly select a key,
+138240	140240	except there's one slight wrinkle there.
+140240	148240	And that is our computer systems that we used today are also not capable of actually generating truly random numbers.
+148240	152240	But what we can use are what are known as pseudo random number generators.
+152240	156240	These are generators that, while not truly random,
+156240	158240	they're pretty much close enough.
+158240	162240	You know, they won't start to reproduce patterns until maybe billions of years down the road.
+162240	166240	So good enough to sort of randomly select a key from the entire space, key space.
+166240	168240	So that's key generation.
+168240	171240	Next is key distribution.
+171240	173240	Especially with symmetric keys.
+173240	177240	Once a symmetric key has been generated, you've now got the very big problem of how do you get that key
+177240	180240	to the other part of that you're communicating with.
+180240	183240	We've already talked about one method out of band.
+183240	187240	But that's not very efficient. It's often very difficult to do that.
+187240	190240	Another method that you could use is key wrapping.
+190240	194240	Key wrapping sounds confusing, but let me explain it in a very simple way.
+194240	197240	Let's say that you're planning on communicating with someone all week long
+197240	199240	and every hour you want to change keys.
+199240	204240	So you're going to need a whole bunch of keys, symmetric keys, to communicate with this person all week long.
+204240	210240	So to make this process more efficient, what you decide to do is generate a whole bunch of symmetric keys.
+210240	212240	Maybe you generate a hundred of them.
+212240	216240	And then what you do is you take those hundred symmetric keys, you put them in a bundle,
+216240	220240	and you encrypt all of them with one symmetric key.
+220240	224240	So you take a whole bunch of symmetric keys, encrypt them with one symmetric key.
+224240	227240	And now you only have to do one key distribution.
+227240	234240	You only have to communicate that securely, that one key so that you can then securely send the ciphertext of all the other keys.
+234240	239240	That's key wrapping, encrypting a bunch of keys with another symmetric key.
+239240	244240	And of course the other major method that you can use that we've talked about is hybrid key distribution,
+244240	247240	where you use a combination of asymmetric and symmetric.
+247240	252240	You use the asymmetric cryptography to send the symmetric key.
+252240	256240	Now let's talk about where you actually store the encryption keys.
+256240	259240	There's two major physical devices that we're going to talk about here.
+259240	263240	First, TPMs, trusted platform modules.
+263240	268240	A TPM is actually a little microchip that is built into the motherboard of a system,
+268240	273240	to the hardware of a computer system, like a laptop, a server, a cell phone.
+273240	281240	A TPM module is actually a tiny little crypto processor that's used to generate and more importantly, store encryption keys.
+281240	285240	And a great way to think about this is you've probably heard of this concept of whole drive encryption,
+285240	289240	where you encrypt an entire hard drive, so that if a laptop is stolen for instance,
+289240	293240	the attacker won't be able to decrypt the data.
+293240	297240	But if you're using whole drive encryption, where are the encryption keys stored?
+297240	302240	They obviously can't be on the hard drive because if the attacker had the hard drive with the keys on it,
+302240	304240	they'd just be able to unlock it.
+304240	306240	And this is where TPM modules come in.
+306240	309240	If you ever use a device that supports whole drive encryption,
+309240	314240	it has to have one of these TPM modules in it because it's on the TPM trusted platform module
+314240	317240	that the encryption keys are actually stored.
+317240	321240	And these modules are specifically built to be very difficult to break into,
+321240	324240	so that even if someone does steal your laptop,
+324240	329240	it's very difficult for them to actually extract the keys from a TPM module.
+329240	335240	The next type of device we'll talk about is what's known as an HSM, a hardware security module.
+335240	338240	And HSM is also designed to securely store keys,
+338240	341240	but not just for an endpoint, like a TPM.
+341240	346240	Instead, an HSM module stores the encryption keys for the entire organization.
+346240	351240	So an HSM module basically just looks like a server, a very hardened server.
+351240	359240	It's plugged to the network and you can communicate with an HSM over the network to request the certain keys or to store certain keys.
+359240	363240	So just remember, TPM for storing the key keys on an endpoint,
+363240	367240	HSM for storing keys for the entire organization.
+367240	370240	Next, let's talk about key rotation.
+370240	375240	So key rotation is the concept that's a good idea to change your encryption keys on a periodic basis.
+375240	380240	The idea here is that if someone were to compromise or figure out your keys,
+380240	383240	if you're changing the keys on a periodic basis,
+383240	387240	then they'll only get a small amount of your data and not all of it.
+387240	389240	So that's the idea of key rotation.
+389240	393240	If you ever get a question asking you how often you should rotate your keys,
+393240	396240	what do you think the answer would be?
+396240	399240	The perfect answer is as often as necessary,
+399240	402240	because it's going to entirely depend on the value of the system,
+402240	406240	how critical, how valuable the data is that's being encrypted.
+406240	410240	And so for very valuable systems, I'll give you an example.
+410240	415240	Some VPN solutions that are passing very important data back and forth across the VPN,
+415240	418240	they can be rotating encryption keys every few seconds.
+418240	420240	Other keys you might rotate only every year.
+420240	423240	So it all depends on the value of the system.
+423240	426240	Next, let's talk about key recovery.
+426240	430240	So if you've accidentally lost or destroyed your keys, how do you get them back?
+430240	433240	There's three major methods that you need to know about.
+433240	435240	The first is split knowledge.
+435240	439240	And the idea behind split knowledge could be as simple as write the key on a piece of paper,
+439240	443240	cut the piece of paper in half, give the two pieces of paper to two different people,
+443240	446240	and you've split the knowledge of the key.
+446240	449240	There's much more advanced ways of doing this so that if part of the paper is lost,
+449240	454240	you can recover it and stuff, but split knowledge is simply the idea that you split the knowledge of the key
+454240	458240	up amongst two or more different people.
+458240	461240	Next is what's known as dual control.
+461240	466240	When I think of dual control, I always think about how do they launch the nuclear missiles out of a submarine.
+466240	468240	You always have to have the captain in the first mate.
+468240	472240	They each put their keys in some sort of console, turn them both at the same time,
+472240	474240	and then whew, the missiles launch.
+474240	476240	That's the idea behind dual control.
+476240	480240	Two or more people have to work together to recover the keys.
+480240	482240	Perfect example of this would be a safe.
+482240	485240	Where the safe has both the key and a pinpad.
+485240	489240	One person would have the key, the other person would have the pinpad,
+489240	493240	code, they'd have to work together, dual control too, unlock the safe.
+493240	496240	The final method is key escrow.
+496240	500240	This is the idea that you store your encryption keys with a trusted third party,
+500240	506240	an organization that's specifically in the business of securely storing encryption keys.
+506240	512240	Now one final piece, and that is key destruction or key disposition.
+512240	515240	How do you go about destroying your encryption keys?
+515240	520240	There are instances where you absolutely have to have destroyed every single copy of the key,
+520240	524240	and an example of that is what's known as crypto shredding.
+524240	528240	So crypto shredding is the idea that you want to be able to securely destroy your data,
+528240	534240	but you're not able to use the best destruction method, which is physical destruction of the media.
+534240	536240	So think of storing data in the cloud.
+536240	539240	If you have data stored in the cloud, and you say to your cloud provider,
+539240	542240	hey, I want you to destroy all of my data.
+542240	546240	Are they going to destroy the media, the hard drives the data is stored on?
+546240	552240	Of course not, because lots of other customers' data is on those same hard drives.
+552240	555240	So this is where you could potentially use crypto shredding.
+555240	560240	What you would do is you would make sure that your data was all encrypted in the cloud,
+560240	567240	and then you would destroy, and listen carefully here, you would destroy every single copy of the key.
+567240	573240	And if you've destroyed every single copy of the key, then the data has been crypto shredding.
+573240	575240	Crypto shredding.
+575240	578240	No one can recover the data because the keys are gone.
+578240	581240	And then you could say to your cloud provider, okay, I've crypto shredding my data,
+581240	583240	go ahead and delete the data.
+583240	586240	The important part here is you're actually crypto shredding the data.
+586240	590240	It's a defensible destruction method that you could potentially use in the cloud.
+598240	600240	You
+600240	603240	You
+603240	606240	You
+606240	609240	You
+609240	613240	You
+613240	617240	You
+617240	621240	You
+621240	625240	You

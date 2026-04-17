@@ -1,0 +1,87 @@
+The most commonly used security protocol across the web is by far SSL.
+The most commonly used security protocol across the web is by far SSL slash TLS. I mean any time you
+connect to a secure server to buy things across Amazon for example or you're doing your web banking
+or you're connecting to any website where any level of security is required. Chances are you're
+going to use SSL slash TLS to do this with and as you'll see this is how we create a very secure
+connection between any browser and it doesn't matter where that browser is you could be at home
+you could be at work you could be at Starbucks you could be in Bora Bora somewhere at a hotel
+and if you want to create a very secure connection between that browser wherever you are
+and a secure server at the other end it's SSL and TLS that will do it for you so what we're going to do
+here is we're going to go through the actual steps of how SSL creates that secure connection
+and we're going to summarize it in four easy steps what's important for you is not to memorize
+the four steps but to have a complete understanding of how those steps actually work together to
+ultimately create that secure connection that is established using SSL and TLS now the first
+thing that we have to understand is what's the difference between SSL and TLS because there's a
+lot of confusion that exists in the industry related to this well just think of it this way TLS
+is the latest version of SSL in fact when they took SSL version three and decided to make some
+really minor improvements to it they decided to rename it altogether to something called TLS
+and the reason they did that is to remove confusion that existed as to where SSL runs according to
+the OSI model layers a lot of people wrongly thought that SSL stood for secure session layer it does
+not in fact the second S is for socket SSL stands for secure socket layer but a lot of people
+mistakenly thought that it ran at the session layer it does not it is a transport layer security
+protocol and so to remove that confusion the industry decided to rename it altogether so instead
+of calling it SSL version four they decided to rename it to something that would eliminate that
+confusion altogether TLS transport layer security and I think you know just think of it as the
+latest version of SSL but the protocol itself is still called SSL by many people because it still
+is the SSL protocols just the latest versions of it is called TLS now let's say you wanted to buy
+something at Amazon dot com so we'll use that as an example so you type in into your favorite
+browser www.amazon dot com now as soon as you make a connection to the Amazon servers both the
+server and your browser which is referred to as the client will recognize that a secure connection
+is required and that will activate the capabilities of SSL slash TLS now the first thing that happens
+here in step number one is that the client you are referred to as the client that's the browser
+the browser the client will send what's called a client hello message to the server all that's
+meant to do is allow the server to understand that it can talk to you in other words you're using a
+version of a browser that it understands you're using a version of SSL that it understands so
+that step number one called the client hello message is simply allowing the server to say okay
+I can understand you we can talk now in step two the same thing has to happen the other way
+and so what happens in this step is the server will send you the client a server hello message to
+allow you to say okay I can understand you as well we can talk in both directions but very
+importantly what happens in this step as well when you're receiving that server hello message the
+server will also send you its certificate and you'll remember from previous modules that a
+certificate will contain the public key of in this case amazon dot com so when you receive that
+certificate that certificate will contain amazon's public key but that entire certificate will
+have been signed or encrypted in the certificate authorities private key so what you're receiving
+is a certificate that contains amazon's public key but that certificate has been issued by a
+certificate authority let's use vericine as an example now as soon as you receive that certificate
+along with the server hello message your browser has the ability to look at that certificate and
+say oh this is a vericine certificate because one of the fields on that certificate is issuer ID
+which identifies the certificate authority that created that certificate in the first place
+so now in step number three your browser understands that it's a vericine certificate goes into
+its functionality and grabs guess what vericine's public key that's built into your browser functionality
+and decrypts that certificate using vericine's public key and if it decrypts properly you are not
+going to see a pop-up that says something is wrong with the certificate if you don't see a pop-up
+that certificate was decrypted properly but now what you can do as a result of that two things have
+actually happened first of all you've authenticated that you have connected to amazon.com and not some
+other sketchy website pretending to be amazon.com because if it was right they would have had to spoof
+a vericine certificate and in order to do that they would have required vericine's private key
+and that's typically not possible so you've authenticated the server as actually being amazon.com
+and at this point you can also trust the contents of that certificate including the most important
+information which is that public key belonging to actually amazon.com now the next step is pretty
+important and you need to remember this it is you the client you the browser that will create
+symmetric session keys with the functionality that's built into your browser and ssl you are going
+to create symmetric session keys that you will encrypt now with what you can trust which is amazon's
+public key so you will encrypt those keys that you created and send them back to amazon encrypted
+in amazon's public key which now requires amazon to use their private key which no one else has
+at which point they will have the same symmetric keys that you created so now any further
+communications between you and amazon back and forth in both directions will be protected using
+those symmetric keys that you created and that amazon was able to decrypt with their private key
+that no one else has so now you can be pretty comfortable in sending your credit card numbers
+any personal information anything else that requires security is going to be protected ultimately
+using symmetric key cryptography but we used a a symmetric process to exchange those keys and that's
+basically what ssl slash tls is it's a hybrid product that uses both symmetric and asymmetric key
+cryptography to ultimately establish a very secure connection between you and again it doesn't
+matter where you are and that secure server at the other end now one of the other things that
+you need to remember here is that in our case we authenticated the server because you obviously
+want to know that you've connected to amazon.com so there's always a need to authenticate the server
+now you may see questions that ask does ssl slash tls support mutual authentication and the answer
+to that is yes it is built in to ssl and tls that if there was a need you can also authenticate
+the client what it would require is a client to have a certificate that would be sent to the server
+in step number one when you send that client hello message you would also send your certificate
+that the server in this case would be able to decrypt and trust and authenticate the client
+so the answer to whether ssl supports mutual authentication is yes it's not normally required
+because for what mostly happens across the web there's always a need to authenticate the server
+but there may not be a need to authenticate the client as an example in this case amazon doesn't
+care where you are whether you're at home or at the office or at Starbucks or in Bora Bora doesn't
+matter right the amazon servers in this case don't care where you are so there's no need to authenticate
+the client but if there was ssl has it built in that we can actually do that it requires
+certificates at the client level that are sent to the server

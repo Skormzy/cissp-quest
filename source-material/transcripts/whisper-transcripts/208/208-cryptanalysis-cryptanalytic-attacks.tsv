@@ -1,0 +1,138 @@
+start	end	text
+0	20000	Cryptanalysis, the art and science of breaking cryptosystems
+30000	40000	Cryptanalysis, the art and science of breaking cryptosystems
+40000	46000	of cracking codes, of trying to figure out how to break these very cool cryptographic algorithms
+46000	50000	that we spent all this time talking about. And when I say the art and the science,
+50000	54000	that's quite true. It takes a very clever, very devious mind to try and figure out
+54000	58000	how to break cryptographic systems. There are two categories of cryptanalysis
+58000	62000	that we're going to look at. Cryptanalytical attacks and cryptographic attacks.
+62000	66000	In this module, we're going to focus on cryptanalytical attacks.
+66000	70000	So when we say cryptanalytical attacks, what do we mean?
+70000	74000	What is the primary goal of all cryptanalytical attacks?
+74000	78000	And this is actually really important to understand.
+78000	80000	Because when you're thinking about these different types of attacks,
+80000	84000	if you understand what you're always after, what the primary goal is,
+84000	86000	it makes a lot of you understand how you're going about it.
+86000	92000	The primary goal of all cryptanalytical attacks is to deduce the key.
+92000	96000	Figure out what the key is that's being used in the cryptosystem.
+96000	98000	Let's talk about brute force attacks.
+98000	100000	Brute force attacks are very simple.
+100000	104000	You try every single possible key until you find the right key.
+104000	108000	But while they're simple, they're not very effective in modern day cryptography.
+108000	112000	Because as soon as you get a key length of a reasonable size,
+112000	116000	trying to find the one specific key that you're looking for to brute force a key
+116000	118000	is not a realistic type of attack.
+118000	122000	So here's an interesting table that we're showing you here.
+122000	124000	This shows you a few pieces of information.
+124000	128000	The proper name for this first column would be the key length.
+128000	132000	It's the number. It's the number of bits and the key.
+132000	134000	The second column is showing you the number of keys.
+134000	136000	Better name for that would be the key space.
+136000	140000	And the third column is telling you the attack time.
+140000	142000	Now here's the interesting thing behind this.
+142000	146000	This attack time is based on a system that was built in 1999,
+146000	150000	specifically to brute force des.
+150000	156000	So in 1999, the EFF spent $250,000 to build a system.
+156000	158000	Best name system ever, Deepcrack.
+158000	162000	So they built a system in 1999 called Deepcrack,
+162000	166000	specifically designed to break des and to brute force a des key.
+166000	170000	In 1999, it took 20 hours to brute force a des key.
+170000	174000	Now, our modern day systems have gotten significantly faster
+174000	176000	than what we had in 1999,
+176000	178000	orders of magnitude faster.
+178000	182000	But even so, it doesn't matter.
+182000	186000	So a modern day system could brute force a des key in minutes, maybe hours.
+186000	190000	But once you start to increase the key length,
+190000	192000	if you increase the key length by even one bit,
+192000	194000	what happens to the key space?
+194000	196000	It doubles.
+196000	198000	And so it grows exponentially.
+198000	200000	And by the time we get up to 128-bit,
+200000	202000	even especially 256-bit keys,
+202000	204000	the concept that you could possibly brute force that key is
+204000	206000	completely absurd.
+206000	208000	And here's a way to think of that,
+208000	212000	to understand how insanely impossible it is to try and brute force
+212000	214000	a 256-bit key.
+214000	216000	We need to think of some sort of way of wrapping our head around,
+216000	220000	just how big is the key space for a 256-bit key?
+220000	222000	So here's a way to think about it, okay?
+222000	224000	Think about the number of atoms.
+224000	228000	So there's a lot of atoms in, say, a person.
+228000	230000	Now, when we talk about a 256-bit key,
+230000	236000	the key space is 1.15, 1.15 times 10 to the 77th.
+236000	238000	That's the key space.
+238000	240000	That's a huge number.
+240000	242000	How big is that?
+242000	244000	Well, if we compare it to the number of atoms,
+244000	248000	the number of atoms in the human body is only 10 to the 27th.
+248000	250000	Again, we're looking for 10 to the 77th.
+250000	252000	No, we're near close.
+252000	254000	Okay, well, what about the number of atoms in the earth?
+254000	258000	Well, that's only 10 to the 50th.
+258000	260000	Again, no, we're near close.
+260000	262000	Okay, so what about the number of atoms in the
+262000	266000	our solar system, the Sun, Earth, Neptune, Mars,
+266000	270000	all the matter in our little solar system?
+270000	272000	That's only 10 to the 52nd.
+272000	274000	Again, no, we're near close.
+274000	278000	You have to actually get up to the entire observable universe.
+278000	282000	That's about 10 to the 79th atoms in the entire observable universe.
+282000	286000	That's an insanely large number.
+286000	290000	When someone says to you, oh, we're going to brute force a 256-bit key,
+290000	294000	what they're essentially saying is that they're trying to find one
+294000	298000	and only one unique atom in the entire observable universe.
+298000	300000	It's insane.
+300000	304000	It is totally impossible with modern-day technology to possibly
+304000	308000	brute force a 50 to 256-bit key, and it's going to be impossible for quite a ways to go.
+308000	310000	So what are reasonable techniques that we could use?
+310000	314000	Well, let's go through a few other crypto-analytical attacks.
+314000	316000	And again, I'm going to remind you,
+316000	320000	the whole point of all these attacks is to deduce the key,
+320000	322000	figure out the key.
+322000	326000	Now, the first attack we're going to look at is what's known as a
+326000	328000	cypher-text-only attack.
+328000	332000	And as the name implies, all that the crypto-analysis has access to here,
+332000	336000	the only attack is just the cypher-text.
+336000	338000	So this is a very difficult type of an attack.
+338000	342000	The next is what's known as a plain-text attack.
+342000	348000	In a plain-text attack, the crypto-analysis actually has access to the cypher-text
+348000	350000	and the plain-text.
+350000	353000	So maybe a spy or someone like that smuggled out the plain-text.
+353000	356000	They pulled the cypher-text off the wire, so they have access to both.
+356000	360000	If the crypto-analysis already has the plain-text and the cypher-text,
+360000	363000	why are they doing anything to find the key?
+363000	366000	Because with the key, you can decode all the other messages
+366000	369000	and perhaps even forge your own messages.
+369000	371000	So that's a plain-text attack.
+371000	376000	Now, the next two attacks have the word chosen in them.
+376000	378000	Here's what chosen means.
+378000	382000	Chosen means the crypto-analysis has access to the machine or the algorithm
+382000	385000	that's performing the encryption.
+385000	388000	And so, in a chosen plain-text attack,
+388000	393000	what that means is that the crypto-analysis is able to choose the plain-text
+393000	395000	that they feed into the machine or the algorithm,
+395000	400000	look at the result in cypher-text to determine, to deduce the key.
+400000	405000	Now, with modern algorithms that we use, des AES, so forth,
+405000	408000	do we know, do we have access to the algorithms?
+408000	410000	And the answer is absolutely yes.
+410000	412000	These modern-day algorithms, they're open source.
+412000	416000	So think of a chosen plain-text attack as you have access to the AES,
+416000	417000	AES algorithm.
+417000	419000	You choose what plain-text to feed into it.
+419000	424000	You look at the result in cypher-text to try and deduce the key.
+424000	427000	The next one is known as a chosen cypher-text.
+427000	430000	And as you're probably guessing, a chosen cypher-text attack
+430000	435000	is where the crypto-analysis feeds in some cypher-text, some chosen cypher-text.
+435000	440000	Looks at the result in plain-text to try and deduce the key.
+440000	445000	Now, the next two types of attacks known as linear and differential.
+446000	451000	All you should really know about these is they are using complicated math to try and deduce the key.
+451000	455000	So you see linear, you see differential, just think, complicated math,
+455000	458000	complicated math to try and deduce the key.
+458000	462000	And the final one we'll talk about is what's known as a factoring attack.
+462000	466000	Now, what is the only algorithm that we talked about that used factoring
+466000	468000	as the hard math problem behind it?
+468000	469000	RSA.
+469000	473000	So if you see factoring as the hard, as a type of an crypto-analytical attack,
+473000	476000	the only algorithm that you need to think about is RSA.
+476000	478000	So associate those in your mind.

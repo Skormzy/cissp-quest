@@ -1,0 +1,60 @@
+We love them as people, they bring in all sorts of
+natural light, they're wonderful to have around, but from a physical security perspective they have some important implications.
+What we particularly need to focus on is what is the material that the window is made from, and there's a number of different things that windows can be made from.
+Let's start with the cheapest option, plate glass.
+Plate glass windows are simple plate glass windows, they're cheap glass.
+The defining characteristic of plate glass is that when it breaks, it breaks into big scary shards, not very safe for people, you can get impaled.
+So plate glass is the cheapest option, but definitely not the safest.
+If you want a safer type of window material, that is tempered glass.
+What happens when tempered glass breaks, it breaks into nice little small pebbles, and so you might get little nicks or cuts, but you're not going to get impaled.
+So tempered glass, much safer for people.
+Wired glass.
+Wired glass is glass that has metal wires embedded in it, and I don't know if I just went to like a super sketchy elementary school, but all the windows in the doors in my elementary school had wired glass in them.
+The advantage of wired glass is that if the glass breaks, it gets held together by the metal wires, and you still have a barrier there from someone reaching in and undoing the door and on, for instance, because they're still the metal wires that are there.
+Laminated glass, as the name implies, the laminated glass is a lamination layers of different materials said which together.
+Most commonly you'll have a layer of glass, a layer of plastic, and then another layer of glass.
+A really good example of this is windshields and cars.
+Oftentimes when you get a rock chip on a car, and if it's in a nicer car, if you go to the outside of the windshield, you'll feel this big rock chip on the window.
+But if you go inside the vehicle and you feel in that same spot, there's nothing there.
+And that's because a lot of car windshields are actually laminated glass.
+There's a layer of glass, a layer of plastic, and then another layer of glass on the inside.
+It makes for a much stronger window.
+The next type of material is polycarbonate.
+And as the name implies, polycarbons, it's actually made out of plastics.
+Now you may have heard of this concept of bullet proof glass.
+There is actually no such thing as bullet proof glass.
+There is bullet resistant glass.
+And typically most bullet resistant glass is made out of polycarbons.
+And so if you ever get a question asking what's the strongest type of glass, the answer is most definitely polycarbonate.
+Now the final thing we should talk about here of the different types of glass is actually not a type of glass but a coating that we can put on the glass.
+And they're called solar films.
+And solar films, you'll notice this in downtown buildings all the time.
+All the buildings that are covered in glass, they're different colors.
+Gold, silver, greens.
+That's actually different types of solar films that have been applied to the windows.
+And the primary reason that we do that is that heat from the sun is a major heating factor in buildings.
+And it causes, it would drive up the prices considerably of cooling the building.
+And so these solar films actually block UV light, the light that brings in a lot of the heat.
+And so from a physical security perspective, we really like solar films because they help reduce the heating load on the building.
+And the other thing you can use solar films for is to make what are known as one-way mirrors.
+Having spent a lot of time on the wrong side of these, if you've been in an interrogation room, it'll look like a piece of glass from one side.
+But on the other side, there's a bunch of police looking at you.
+So those are solar films.
+The final piece that we'll talk about related to windows is, how do you detect if a window has been broken?
+And there's two major types of sensors that you can use to do this.
+There's what are known as shock sensors and glass brake sensors.
+Glass brake sensors actually listen.
+They're essentially a microphone.
+And they listen for the specific sound that braking glass makes.
+So with a glass brake sensor, you can put like one sensor in a room.
+And it'll monitor all the windows in a room.
+Shock sensors, on the other hand, are a little sensor that attaches to each individual window.
+And a shock sensor actually detects the shock, the vibration of a window being broken.
+So here's one final really good question to think about.
+Which of these sensors, shock sensors, or glass brake sensors, would be better in a noisy occupied room?
+And the answer is shock sensors.
+Why?
+Well, because shock sensors pick up the vibration of the actual individual window being broken.
+Versus glass brake sensors listen for the sound of a window braking.
+And in a noisy occupied room, they probably wouldn't be able to detect that sound.
+So that's what you need to know about windows.

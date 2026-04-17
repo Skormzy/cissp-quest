@@ -1,0 +1,97 @@
+start	end	text
+0	17780	All right, we've been talking about all different types of components within a system.
+17780	34020	And now we're going to teach my my daughter here.
+34020	37860	All right, we've been talking about all different types of components within a system.
+37860	42180	And now we're going to teach my my daughter here about storage within a system.
+42180	46380	We're going to talk about the two primary types of storage within a system, primary storage
+46380	48300	and secondary storage.
+48300	51620	So this is where we keep the bits in our computer system.
+51620	55100	Later in life, this is where you'll keep your like Instagram photos or whatever the
+55100	57620	kids are doing that when you're growing up, okay?
+57620	60140	So what does primary storage mean?
+60140	65060	Primary storage means it's volatile memory, whereas secondary storage is often referred
+65060	66980	to as non-volatile memory.
+66980	68980	So what's that word volatile mean?
+68980	73420	Well, soon you'll learn that volatile means it's something that can sort of disappear
+73420	74420	at regular temperatures.
+74860	78380	And that's a really good way of thinking about primary storage or volatile memory.
+78380	83340	If the power gets pulled, any of that data in volatile memory disappears.
+83340	84540	It's gone.
+84540	90620	Whereas in non-volatile memory, the data remains even when the system is powered down.
+90620	96580	So let's look at some examples of both primary and secondary storage and we'll start with
+96580	97860	primary storage.
+97860	102580	So some really good examples of primary storage are things like my daughter's trying to
+103380	104940	eat my finger here, she's teething.
+104940	110020	So examples of primary storage are cash, registers, RAM.
+110020	114140	And all of these are very, very high speed forms of storage.
+114140	117180	So what do we primarily use volatile memory for?
+117180	122620	We use primary or volatile memory for data that's actively being used by the system,
+122620	128620	for programs that have been loaded that are in memory, that the CPU is currently processing.
+128620	133620	And what we want this primary storage for is for the data that needs to be accessed very,
+133620	134860	very quickly.
+134860	139980	And so cash, registers, this is actually data or this is actually storage built into
+139980	141700	the processor itself.
+141700	146580	Whereas RAM, RAM, access memory is actually memory modules built into the system.
+146580	148340	But it's quite fast.
+148340	151220	So what are the pros and cons of primary storage?
+151220	157660	Well, as we talked about, primary storage, very, very fast, but it is volatile.
+157740	159060	Like you're getting here.
+159060	161420	So what about secondary storage?
+161420	163100	It's kind of the inverse.
+163100	169300	Examples of secondary storage are things like magnetic hard drives, optical media drives,
+169300	171660	tapes, solid state drives.
+171660	174380	These are all examples of secondary storage.
+174380	178460	They're not nearly as fast, but they can store a lot more data.
+178460	181580	A lot more pictures of you, cutie.
+181580	185380	So what do we primarily use secondary storage for?
+185380	190220	We use secondary storage for storing the data and the program code when it's not being
+190220	191220	used.
+191220	196180	So pictures, things like that, data from programs, movies, they're stored in our secondary
+196180	197460	storage.
+197460	202540	Now, let's talk about one other concept and it's known as virtual memory.
+202540	206820	And to explain virtual memory, we have to understand a little bit how a computer system
+206820	207820	actually works.
+207820	213140	So you've probably noticed when you double click on an icon like Word, it actually takes
+213140	215860	a little bit of time for that program to load.
+215860	219940	And in fact, there's often what we call a load screen.
+219940	221860	So what is a load screen?
+221860	226780	A load screen is where the program is telling you it's actually taking data from secondary
+226780	232340	storage, from slower hard drives, and it's moving it into RAM, into memory, much higher
+232340	233860	speed storage.
+233860	238140	And the reason you want this to occur is that the processor works so incredibly quickly.
+238140	241060	It's always going through calculations.
+241060	245140	We've had to wait for a very long time for some data that's requested to come back from
+245140	246820	say secondary storage.
+246820	250660	It would really significantly slow the computer system down.
+250660	254580	So when we load a program, what we're actually doing is transferring data from secondary
+254580	259860	storage, the hard drive, into primary storage, RAM, random access memory.
+259860	261100	Can you say that out loud?
+261100	262540	Probably not yet.
+262540	265660	So there's a problem though with this.
+265660	269660	If you've got too many programs running, if you've loaded too many programs, you're
+269660	273620	going to run out of this primary storage known as RAM.
+273620	276100	And you've probably heard numbers relate to your computer systems.
+276100	281300	It's not uncommon that a computer will have, say, four or eight gigabytes of RAM, and
+281300	283380	you'll have like, terabytes of storage.
+283380	287780	So RAM is really, really small, relatively, to the secondary storage.
+287780	292220	And so the problem we had is if we've loaded too many programs into RAM, we start to run
+292220	293780	out of RAM.
+293780	297980	And a computer system, if it were to run out of memory entirely, the system would crash.
+297980	300220	And in fact, we used to see this a lot.
+300220	302740	So there used to be something called the blue screen of death.
+302740	305020	Hopefully, you'll never have to see that in your life.
+305020	309700	But in Windows, if you had too many things loaded and the system ran out of RAM, ran out
+309700	321420	of this primary storage, you'd actually get a blue screen, the system would crash.
+321420	326180	So a way that we found, the industry is found to actually deal with this problem is to use
+326180	328020	what is known as virtual memory.
+328020	334420	And this is the concept, drooly face, where we move some data out of RAM back to the hard
+334420	335420	drive.
+335420	337860	And we temporarily store it on the hard drive until it's neat again.
+337860	342420	And then we can move it again back from the hard drive, woo, we were falling, back into
+342420	343420	primary storage.
+343420	345500	And that's the concept of virtual memory.
+345500	349380	It's simply this idea that some data that's not being used very often is moved out of
+349380	351420	RAM onto the hard drive.
+351420	354340	And then when it's needed again, back into memory.
+354340	357620	With the overall effect, it definitely slows down the system.
+357620	361340	But the system keeps running, so that's virtual memory.

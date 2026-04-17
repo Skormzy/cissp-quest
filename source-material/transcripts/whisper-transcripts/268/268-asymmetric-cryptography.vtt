@@ -1,0 +1,407 @@
+WEBVTT
+
+00:00.000 --> 00:05.800
+These two gentlemen, Diffie and Helmann, actually came up with an idea, and they published
+
+00:05.800 --> 00:10.040
+a paper called New Directions in Cryptography.
+
+00:30.000 --> 00:51.480
+In this module, we're going to describe asymmetric key cryptography and how it works, so if you
+
+00:51.480 --> 00:59.520
+remember to what the advantages and disadvantages of symmetric cryptography are, it's very fast,
+
+00:59.520 --> 01:02.680
+but it has this problem of key distribution.
+
+01:02.680 --> 01:08.720
+People have been thinking about this problem of key distribution for thousands of years.
+
+01:08.720 --> 01:15.360
+And in 1976, these two gentlemen, Diffie and Helmann, actually came up with an idea,
+
+01:15.360 --> 01:21.200
+and they published a paper called New Directions in Cryptography, because they talked about
+
+01:21.200 --> 01:28.720
+how there might be a different way to do cryptography that gets rid of the problem of key distribution.
+
+01:28.720 --> 01:34.040
+And so they published a paper called New Directions in Cryptography, and within it, they actually
+
+01:34.040 --> 01:38.440
+described this process, and they actually called it public key cryptography, and that's
+
+01:38.440 --> 01:41.040
+why a lot of people still call it that today.
+
+01:41.040 --> 01:46.280
+But it should really be called asymmetric key cryptography, and what they went on to describe
+
+01:46.280 --> 01:53.320
+basically is that they said, okay, if you think about symmetric, you know, we need the
+
+01:53.320 --> 02:00.520
+same key at both ends, and that requires key distribution, which in many cases is a very
+
+02:00.520 --> 02:02.040
+big problem.
+
+02:02.040 --> 02:08.040
+So they went on to describe how, what if everybody has two keys instead of one?
+
+02:08.040 --> 02:10.360
+So I would have my own two keys.
+
+02:10.360 --> 02:12.080
+You would have your own two keys.
+
+02:12.080 --> 02:15.200
+This person over here has their own two keys.
+
+02:15.200 --> 02:17.120
+Everybody has a key pair.
+
+02:17.120 --> 02:22.680
+But most importantly, the two keys, for example that I have, are related to each other
+
+02:22.680 --> 02:23.680
+mathematically.
+
+02:23.680 --> 02:29.280
+There's a mathematical relationship that links my two keys together.
+
+02:29.280 --> 02:35.960
+The idea is, if I use one to encrypt, you can never use the same one to decrypt.
+
+02:35.960 --> 02:36.960
+It's not possible.
+
+02:36.960 --> 02:39.080
+You have to use the other one.
+
+02:39.080 --> 02:43.120
+And the reason this works is because the two are linked mathematically.
+
+02:43.120 --> 02:47.240
+So if I use this one to encrypt, it's this one that decrypts.
+
+02:47.240 --> 02:50.840
+If I use this one to encrypt, it's this other one that decrypts.
+
+02:50.840 --> 02:53.920
+You can never encrypt and decrypt with the same key.
+
+02:53.920 --> 03:00.840
+So the idea is, I'm going to take one of my keys and I'm going to give it to anyone, the
+
+03:00.840 --> 03:05.480
+whole world possibly, that may want to communicate with me securely.
+
+03:05.480 --> 03:10.760
+And because I'm going to give that key to anyone who may want to communicate with me securely,
+
+03:10.760 --> 03:13.240
+I'm going to call that one my public key.
+
+03:13.240 --> 03:16.440
+So the entire world may have my public key.
+
+03:16.440 --> 03:22.400
+But if anyone wants to communicate with me securely, a secret message, let's say, they
+
+03:22.400 --> 03:26.480
+will encrypt that message with my public key.
+
+03:26.480 --> 03:33.040
+And even though everyone else has my public key, nobody can read that message because you
+
+03:33.040 --> 03:37.400
+can never encrypt and decrypt with the same key, it has to be the other one.
+
+03:37.400 --> 03:44.280
+So if anyone out there encrypts a message with my public key, the only key that can decrypt
+
+03:44.280 --> 03:47.800
+is the other key that I keep private to myself.
+
+03:47.800 --> 03:54.720
+This key, I will never disclose, communicate, divulge or send to anyone else.
+
+03:54.720 --> 03:57.600
+I will always keep it private to myself.
+
+03:57.600 --> 04:00.640
+That's why I'm going to call that my private key.
+
+04:00.640 --> 04:05.160
+So this solves the problem of key distribution, doesn't it?
+
+04:05.160 --> 04:10.520
+Because the only key that I ever have to distribute is my public key and I don't care how many
+
+04:10.520 --> 04:11.520
+people have it.
+
+04:11.520 --> 04:16.000
+In fact, I can assume that the entire world has my public key.
+
+04:16.000 --> 04:23.000
+As long as I keep my other private key that is associated with it, private to myself,
+
+04:23.000 --> 04:28.200
+it's very important to keep the private key private to myself, never disclose it, communicate
+
+04:28.200 --> 04:29.520
+it, and so on.
+
+04:29.520 --> 04:36.520
+This solves the problem of key distribution, but it actually introduces another problem
+
+04:36.520 --> 04:38.840
+that is pretty substantial.
+
+04:38.840 --> 04:44.360
+And that is the only way that this works is because the two keys are related to each
+
+04:44.360 --> 04:46.200
+other mathematically.
+
+04:46.200 --> 04:51.640
+So if I give my public key out to the entire world, I've got to make sure that nobody
+
+04:51.640 --> 04:59.080
+out there can use my public key and compute the mathematical relationship that links my
+
+04:59.080 --> 05:00.880
+two keys together.
+
+05:00.880 --> 05:05.480
+Because if that was possible, anybody out there that has my public key will be able to
+
+05:05.480 --> 05:11.720
+compute the relationship and therefore derive knowledge of my private key by having access
+
+05:11.720 --> 05:13.720
+to my public key.
+
+05:13.720 --> 05:16.280
+And so we have to be able to prevent that.
+
+05:16.280 --> 05:22.240
+And the only way that we can prevent this is to use or to link the two keys together
+
+05:22.240 --> 05:30.240
+using really hard math and use really large numbers in that hard math.
+
+05:30.240 --> 05:36.760
+The idea is whoever has my public key may be able to compute what the relationship is.
+
+05:36.760 --> 05:42.800
+But because we are using hard math and very large numbers, given today's technology in
+
+05:42.800 --> 05:48.040
+our speed of processors, it would take that person hundreds of years in order to be able
+
+05:48.040 --> 05:55.240
+to compute as long as we're using really large numbers to link the two keys together.
+
+05:55.240 --> 05:56.880
+And so it's possible.
+
+05:56.880 --> 06:02.120
+But because we're using really large numbers, it's not feasible and no one's even going
+
+06:02.120 --> 06:07.080
+to try because it's going to take too much computational power to derive knowledge.
+
+06:07.080 --> 06:14.080
+And one of the issues that we have with asymmetric key cryptography is as processors become faster
+
+06:14.080 --> 06:17.360
+and technology improves, guess what we have to do?
+
+06:17.360 --> 06:23.760
+We have to keep increasing the size of those numbers that link the two keys together.
+
+06:23.760 --> 06:29.240
+The problem is this because we have to use hard math and really large numbers.
+
+06:29.240 --> 06:35.800
+This becomes computationally intensive and therefore there's a price to pay.
+
+06:35.800 --> 06:42.320
+The price to pay is that this type of cryptography becomes really slow as a result because of
+
+06:42.320 --> 06:47.960
+that mathematical intensity that links the two keys together.
+
+06:47.960 --> 06:53.400
+So because we're using really large numbers, it's going to take a really long time to encrypt
+
+06:53.400 --> 06:55.000
+and decrypt with the two.
+
+06:55.000 --> 06:56.520
+That's what the price is.
+
+06:56.520 --> 07:02.440
+But if you look at this, it does solve the problem of key distribution, but it makes this
+
+07:02.440 --> 07:05.360
+type of cryptography really slow.
+
+07:05.360 --> 07:12.800
+So if you remember the advantages of symmetric, very fast, but it has the problem of key distribution.
+
+07:12.800 --> 07:15.560
+This is the actual opposite, isn't it?
+
+07:15.560 --> 07:20.160
+Solves the problem of key distribution, but becomes very slow.
+
+07:20.160 --> 07:23.640
+And that's why the two are really complementary to each other.
+
+07:23.640 --> 07:28.760
+And we'll talk about that later on, but most cryptography solutions today end up being
+
+07:28.760 --> 07:35.800
+a combination of symmetric and asymmetric for what they're each good at.
+
+07:35.800 --> 07:43.360
+Symmetric is typically used for bulk and speed and asymmetric is used to exchange the symmetric
+
+07:43.360 --> 07:48.600
+keys that are required in both ends in order to be able to do things quickly.
+
+07:48.600 --> 07:55.880
+So today we have hybrid products, crypto systems that really combine symmetric algorithms
+
+07:55.880 --> 08:01.720
+and asymmetric together to be able to use them both for what they're really good at.
+
+08:01.720 --> 08:07.600
+So in summary, when you look at the advantages and disadvantages of asymmetric, it's going
+
+08:07.600 --> 08:11.160
+to be the opposite of what we had for symmetric.
+
+08:11.160 --> 08:18.360
+The advantage is that it solves the problem of key distribution, but it becomes really
+
+08:18.360 --> 08:19.360
+slow.
+
+08:19.360 --> 08:24.560
+Now one of the other problems that we had with symmetric was the scalability problem.
+
+08:24.560 --> 08:30.080
+If you add a whole bunch of people that need it to communicate securely with each other
+
+08:30.080 --> 08:36.520
+using symmetric key cryptography, the number of keys required was going to grow exponentially.
+
+08:36.520 --> 08:43.680
+In fact, I think we used an example of 1,000 people needing to communicate securely with
+
+08:43.680 --> 08:47.600
+each other, would require almost half a million keys.
+
+08:47.600 --> 08:54.440
+Well, this type of cryptography also solves the problem of scalability, because if we have
+
+08:54.440 --> 09:00.520
+1,000 people that need to communicate securely with each other, all that's required is a total
+
+09:00.520 --> 09:07.240
+of 2,000 keys, because every person has their key pair, private and public key.
+
+09:07.240 --> 09:14.200
+So 1,000 people total of 2,000 keys, that's a whole lot easier to manage than obviously
+
+09:14.200 --> 09:16.960
+almost half a million keys.
+
+09:16.960 --> 09:22.200
+So there are advantages and disadvantages to this, but that's why it makes sense to use
+
+09:22.200 --> 09:25.440
+them together, symmetric and asymmetric.
+
+09:25.440 --> 09:28.680
+So here's a slide that talks about how this works.
+
+09:28.680 --> 09:34.000
+And what you need to focus on here is that you start seeing how this type of cryptography
+
+09:34.000 --> 09:40.320
+actually provides some added advantages that we didn't have before with symmetric.
+
+09:40.320 --> 09:47.200
+But if you want to address confidentiality, what needs to happen here is the person sending
+
+09:47.200 --> 09:53.320
+me, for example, a secret message, will have to encrypt that message with my public key.
+
+09:53.320 --> 09:58.680
+To address confidentiality, you will always encrypt with the receiver's public key.
+
+09:58.680 --> 10:04.720
+All right, so it's the public key of the receiver that allows us to achieve confidentiality,
+
+10:04.720 --> 10:10.880
+because then the receiver will have to use their private key, which nobody else has.
+
+10:10.880 --> 10:15.200
+And so that ensures confidentiality of the message.
+
+10:15.200 --> 10:18.840
+You will always encrypt with the receiver's public key.
+
+10:18.840 --> 10:22.400
+Now here's something else though that we can achieve.
+
+10:22.400 --> 10:29.880
+So if you remember, let's say that I am going to encrypt a message with my private key,
+
+10:29.880 --> 10:32.080
+my private key.
+
+10:32.080 --> 10:33.480
+Who can read that message?
+
+10:33.480 --> 10:38.620
+Well, it's going to be anybody that has my public key, which I have to assume is the
+
+10:38.620 --> 10:40.080
+entire world.
+
+10:40.080 --> 10:41.640
+So why would I ever do that?
+
+10:41.640 --> 10:46.880
+Why would I ever encrypt a message with my private key, knowing that anyone out there
+
+10:46.880 --> 10:51.000
+that has my public key will be able to read that message?
+
+10:51.000 --> 10:54.600
+Because that obviously does not address confidentiality.
+
+10:54.600 --> 10:56.400
+Well here's the answer to that.
+
+10:56.400 --> 11:01.160
+If I encrypt a message with my private key and all of you can decrypt it with what you
+
+11:01.160 --> 11:05.600
+know is my public key, that proves to you where it came from.
+
+11:05.600 --> 11:09.680
+And so we're starting to address possibly something that's very important to address
+
+11:09.680 --> 11:10.760
+in today's environment.
+

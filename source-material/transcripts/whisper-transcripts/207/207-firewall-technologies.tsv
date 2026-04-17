@@ -1,0 +1,105 @@
+start	end	text
+0	6880	is a firewall. And obviously the word firewall is coming from something that can stop fires
+6880	24440	from spreading into different areas. And so that's how it works.
+24440	29400	In this section we're going to discuss firewalls and what's important to understand from your
+29400	44520	perspective.
+44520	49480	In this section we're going to discuss firewalls and what's important to understand from your
+49480	55640	perspective is the difference between firewall technologies and firewall architectures. In
+55640	60560	this section we're going to talk firewall technologies. If you look at the word technologies
+60560	68240	it really means how a firewall can make decisions. But before we get into that let's define the
+68240	75000	word firewall itself. What is a firewall? And obviously the word firewall is coming from
+75000	80360	something that can stop fires from spreading into different areas. And so that's how the
+80360	88840	term got to be. But in network security a firewall either allows or blocks traffic based
+88840	94560	on predefined rules. And so that's what a firewall is. You want a place of firewall in between
+94560	101600	two networks so that you protect them from each other. And the concept of a firewall
+101600	107440	is something that is very important in network security. And not only do we want to place
+107440	113160	firewalls to protect our network from the outside. But in some cases you also want firewalls
+113160	120000	on the inside of the network to protect different network segments from each other. So a firewall
+120000	127840	is not a device, it's not a appliance. It's simply a concept. It can be as simple as a router
+127840	134560	for example that simply makes decisions. Or it can be as sophisticated as a large set
+134560	141960	of applications that are doing things like deep packet inspection and web content filtering
+141960	147800	and intrusion detection and anti-malware. So the word firewall itself simply means any
+147800	155640	technology, any ability to be able to either allow or what we deny into certain segments
+155640	161360	or networks for example. And so if you look at the different technologies that are available
+161360	167480	for us to be able to make those types of decisions, there are really only three firewall technologies
+167480	173520	that exist. And they are represented here on this slide. So the three technologies and that's
+173520	179040	the key word that you want to look for is the word technology itself. We have simple packet
+179040	185400	filtering. We have stateful packet filtering technologies. And we also have what are called
+185400	191040	proxy firewalls. So let's look at each of these in a little bit of detail. Packet filtering
+191120	198040	simply means a router for example that operates at layer three. And the only decision that
+198040	204040	this type of firewall technology can make is based on what layer three can only understand.
+204040	210720	And so if you remember to what we discussed, as you go up in the OSI model, you gain more
+210720	218000	intelligence. You have more functionality for example, but you lose efficiency and speed.
+218000	222680	So packet filtering firewalls operate at layer three, which means they are still pretty
+222680	229360	efficient, but they are limited in the decisions that they can make. And so this can be represented
+229360	236880	by a simple router that makes decisions based on what it can understand in the header portion
+236880	244360	of the datagram for example. So simple decisions like based on source IP address and destination
+244400	250520	IP address, the type of packet that it is, the service that's being requested for example,
+250520	256000	are the very simple decisions that a packet filtering type of firewall can make at layer
+256000	261720	three. Now we also have what are called stateful packet filtering firewalls. They only
+261720	267400	still operate at layer three, but the advantage that they have is that they have the ability
+267400	274720	to keep historical information about outgoing requests that can be stored for example in
+274720	282440	what we call dynamic state tables. So we store state and context information in these dynamic
+282440	287840	state tables so that when the request comes back, let's say a second later, we can use
+287840	294080	what we've kept in those tables to make a more informed decision. The idea is, let's
+294080	301520	say you originate a outgoing request out to the web or to the internet. The stateful packet
+301520	307040	filtering firewall would keep information about that outgoing request, such as it came
+307040	314040	from your machine or your IP address. It's a UDP request and it went out at nine o'clock
+314040	320320	in the morning, let's say. So that information is kept in that dynamic state table so that
+320320	325520	when the request comes back a second later, the firewall can say, okay, the disrequest
+325520	331400	just go out previous to it. Is it destined for the same machine that originated it? And
+331400	337520	is it a UDP request? And if the answer to all of those questions are yes, then the firewall
+337520	342280	would allow that traffic back into the internal network. But if the answer to any of those
+342280	347000	questions or no, then the firewall can say, I'm not going to let this in and just drop
+347000	353760	that traffic basically. So the idea of stateful inspection firewalls is we can keep state
+353760	360520	and context information, historical information in these tables that can allow us to make
+360520	367120	a more informed decision as that request comes back. The third type of firewall technology
+367120	373440	is what we call proxy firewalls. And these operate at the higher layers of the OSI model
+373440	379200	and as such, they are able to make more informed decisions, right? So the key word here is
+379200	383600	proxy. And if you look up the word proxy in a dictionary, it's going to say acting on
+383600	390040	behalf of someone else. So the idea is as a request comes in from the outside internet,
+390040	397000	we redirect that decision to a specific application that has been built to make a more informed
+397000	403960	decision. And the difference between circuit level proxy firewalls and application level proxy
+403960	410400	firewalls is that the layer that they operate at. So for example, circuit level proxy firewalls
+410400	416560	operate at layer five, the session layer. And the way that they work is they simply establish
+416560	421800	a connection if you've provided the right level of information. For example, you've put
+421800	427680	in the right credential information such as your user ID, your password, and possibly
+427680	433960	a two factor authentication number, for example. And if the answers to those are yes, then
+433960	440640	the session layer circuit level proxy firewall would allow a session to be established through
+440640	449840	your VPN connection, for example. The other type of proxy firewall is application proxy firewalls.
+449840	454560	They operate at layer seven. And because they operate at layer seven, they are the most
+454560	460320	functional, the most intelligent. We can create applications that operate at this layer that
+460320	465800	can make any sort of decision that you want. So these ones can be programmed to make decisions
+465800	472160	based on things like web content filtering. We can do anti malware. We can do intrusion
+472160	477340	detection. We can make all kinds of decisions because we can add that functionality at
+477340	484660	layer seven through any sort of firewall, for example, or application that is built specifically
+484660	491260	to do that. So these are firewall technologies. In other words, they allow us to make decisions.
+491260	496300	And the difference between all of them is the layer that they operate at according to
+496300	502380	the OSI model. So anything that you do a layer three, for example, which means simple packet
+502380	509260	filtering and stateful can only involve decisions that are understood at that layer.
+509260	514780	Proxy firewalls, because they operate at higher layers, are able to make better decisions.
+514780	520980	And so companies need to formulate these and obviously put them together so that we make
+520980	527540	the decisions that we need to as far as what traffic is coming into the organization itself.
+527620	532780	So here on this slide, we've got some examples. And basically what we're talking about here
+532780	539060	is the difference between simple packet filtering and stateful packet filtering. And like
+539060	544660	we explained before, the simple difference is that simple packet filtering firewalls
+544660	549980	that can be like a simple router that makes decisions based on the header portion of the
+549980	557260	datagram is not able to keep historical information to be able to make better decisions.
+557260	562820	So the only decisions that can be made here are the ones that exist in that specific header
+562820	570380	portion of the datagram itself. Again, decisions related to source IP address, destination IP
+570380	578020	address, and so on. Now obviously, the stateful inspection firewalls are able to make better
+578060	584020	decisions because they are able to keep that state and context information about outgoing
+584020	590260	request that can be kept so that when the request comes back, we can make a more informed
+590260	597100	decision. And so this is a summary slide of the different technologies that we can use
+597100	602980	in order to be able to make decisions as a firewall. Again, we call these firewall technologies.
+602980	609100	So simple packet filtering operates at layer three. They are the simplest type of firewall,
+609100	614420	but they are also the fastest and the most efficient because they operate natively at
+614420	621020	layer three. Then we have what are called stateful packet filtering. They also operate at
+621020	628060	layer three, but because they are able to keep historical information about outgoing requests,
+628060	632340	they are a little more intelligent, but they still are efficient and only able to make
+632340	639580	decisions at layer three. Now, our proxy firewalls are the ones that provide the most intelligence.
+639580	645780	And again, the difference between level five and level seven or circuit level and application
+645780	652460	level is that circuit level simply establish a session if the right information is provided,
+652460	658860	whereas application proxy firewalls are able to do a whole bunch of intelligent decisions
+658860	664460	because they are able to interpret the data portion of the data gram and keep historical
+664460	668580	information and make any decision that we really need to do at that point.

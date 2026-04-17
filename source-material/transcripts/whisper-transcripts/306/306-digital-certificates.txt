@@ -1,0 +1,93 @@
+We've talked about how if you want to send a message and you want that message to have
+integrity authenticity. We've talked about how if you want to send a message and you want that
+message to have integrity authenticity and underpidiation that you should attach a digital signature
+to the message and then you can send that message on to the receiver Nigel here and Nigel will if
+you recall that digital signature is encrypted with my private key so Nigel needs to decrypt the
+message with my public key but there's something we glossed over there and that is how does Nigel
+have a copy of my public key and how do I have a copy of his public key so we need to talk about
+a step that precedes sending our first message back and forth and that is that we need to exchange
+our public keys so here's my public key Nigel needs to have a copy of my public key so I send him
+a copy and he does the same he stores it and he does the same thing in reverse he sends me a copy
+of his public key good okay excellent we now have a copy of each other's public keys and now I
+create my message hash my message encrypt the hash value with my private key creating a
+digital signature and I send that message over to Nigel and everything looks perfect here because
+he decrypts my digital signature using the public key that he got for me and it proves authenticity
+integrity and underpidiation everything looks perfect here right but there's a big flaw here
+and the flaw is in the exchange of our public keys so let's replay the scenario again okay so here's
+the fundamental problem when I send my public key to Nigel here my my main list just a little
+munchkin is going to intercept that public key and instead of forwarding my public key onto Nigel
+she's going to forward on her public key and so what Nigel in fact ends up with is not a copy of my
+public key but our attackers our malicious munchkins public key so I roll my I send my key over to
+Nigel what he receives is a copy of our malicious munchkins our attackers public key and the same
+thing in reverse Nigel was sending me a copy of his public key but instead of sending receiving his
+public key I get a copy of the malicious munchkins public key and so now both of us have our malicious
+munchkins public key and we think I think I have Nigel's public key he thinks he has my public key
+but what do we in fact have the malicious munchkins public key and here's the really good question
+and I want you to think carefully about this do we know it is there any way that I can tell that
+this is the malicious munchkins public key and not Nigel's public key and is there any way that he
+can tell that he has the malicious munchkins public key and not my public key and the answer is there's
+no way to tell and the reason being is that fundamentally what is a public key it's a number it's
+a string of ones and zeros that's it that's all that a public key is and so if I have a string of
+numbers I have no idea if that string of numbers belongs to the malicious munchkin or if it belongs
+to Nigel and same thing for him and this is the really big problem that we have and that is how do
+we verify the owner of a public key how do we know who a public key actually belongs to and the
+solution to this problem is digital certificates so how do we go about getting a digital certificate
+let's go back to Alice here let's say it's Alice that wants to create her own digital certificate
+here's what Alice will do Alice will provide a little bit of information on herself
+and a pot a copy of her public key and she will send this information to a certificate authority
+you've probably heard of C.A.'s before what are some of the big well-known C.A.'s things like
+Commodo, GoDaddy and Trust that's the best one in the world they're Canadian there's all these
+different public C.A.'s and so what Alice is going to do is she's going to go to one of these big
+public C.A.'s and she's going to provide that C.A. with a copy of her public key and a little bit
+of information on herself including her name now the first thing that's going to happen is when
+she sends this information to the certificate authority the C.A. is first going to identity
+proofer his C.A.'s going to make sure if she says her name is Alice that she is in fact actually
+Alice and not say our malicious munchkin so the first step our C.A. does is identity proofing
+and then assuming that it's actually Alice that's providing her public key the certificate
+authority will encrypt the information that Alice provided and that was a little bit of information
+on herself and a copy of her public key and the certificate authority will encrypt this information
+with the C.A.'s private key and that's it that's all that's required to create a digital certificate
+it's simply the name of the owner and a little bit of information about them and a copy of the
+owners public key all of that encrypted with the C.A.'s private key and that creates a digital
+certificate and so a digital certificate is just a bit of a cipher text encrypted with the C.A.'s
+private key so who can decrypt a digital certificate anyone that has the C.A.'s
+public key and who has the big C.A.'s public key like who has come out or go daddy or
+and trusts public key the answer is everyone has them how does everyone have them well these
+big C.A.'s public keys their digital certificates come pre-installed in things like our browsers
+and our operating systems and so you can assume that everyone has the big C.A.'s public keys
+and therefore anyone can decrypt a digital certificate that comes from one of the big C.A.'s
+so let's replay the scenario one final time
+we start the scenario with sending each other our public keys but you never listen very carefully
+here you never ever send someone a copy of your public key because anyone could intercept and
+replace that public key and transit instead what you send someone is a copy of your digital certificate
+so here's my digital certificate I am going to send my digital certificate over to Nigel
+now our malicious munchkin is going to continue to be the malicious little munchkin that she is
+she is going to intercept that digital certificate in transit can she decrypt the digital certificate
+yes anyone can decrypt it so she can decrypt my digital certificate but can she replace my
+public key inside the digital certificate with her own public key and the answer is most definitely
+no there is no way that she can modify my digital certificate there's no way that she can remove
+my public key and replace it with her public key because in order to modify or create a new digital
+certificate she would need a copy of the C.A.'s private key and you can bet the C.A. does a very very
+good job of protecting their private key and the same thing when Nigel sends his digital certificate
+over to me our malicious munchkin here is going to intercept his digital certificate but she can't
+modify it what if she were to send because what she did in the last scenario is she forwarded us
+not our own public keys but her own and so instead of forwarding on my digital certificate to
+Nigel what if she forwarded on her digital certificate and the same thing in the other direction
+what if she forwarded on instead of Nigel's digital certificate to me she forwards on her own
+digital certificate would Nigel and I know because when we just exchanged public keys
+there was no way for us to know this but remember what does the digital certificate contain
+it contains the owner it contains the public key and the name of the owner of the public key
+and so the first thing that's going to happen is that when Nigel and I decrypt the digital
+certificates that came from our malicious munchkin here what we're going to find is that instead of
+saying you know instead of Nigel's digital certificate saying this belongs to Nigel it's going to
+say it belongs to the malicious munchkin and when Nigel there decrypts my digital certificate he's
+going to find that instead of it's saying it belongs to Robert belongs to the malicious munchkin
+so digital certificates are the way that we solve this problem of mad in the middle attacks and
+forging or replacing public keys digital certificates are how we bind an owner to their
+public key so you know who a public key actually belongs to now one final piece that we need to cover
+here and that is that there are lots of different certificate authorities around the world
+and we want this whole system to be interoperable so that all of our different browsers all of our
+different systems we can all use digital certificates from different sources and the way that we make
+this whole system interoperable is we use standards and the standard by which we create digital
+certificates is x 509 so just remember that the standard that we use to create digital certificates
+so they're all created they all fall the same format is x 509

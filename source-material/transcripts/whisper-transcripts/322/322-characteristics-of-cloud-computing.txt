@@ -1,0 +1,216 @@
+Everyone in their dog is moving to the cloud.
+So you'd expect there to be a lot of questions on the exam.
+Everyone in their dog is moving to the cloud.
+So you'd expect there to be a lot of questions on the exam related to cloud computing.
+Because there's one or two security issues involved with moving to the cloud.
+And while there will be some questions on the exam related to cloud, there's not a huge amount of them.
+And in fact, there's only this one small section in this entire giant course that we're going to talk about cloud computing.
+And the reason for that is this.
+ISC squared, the organization behind this CISSP exam, made a decision a few years ago.
+They were seeing where the industry was going.
+They were seeing that everyone was starting to move to the cloud.
+And so they had a decision to make.
+When they were updating the CISSP exam material, they could start to build in more and more and more cloud material.
+Or they could break it out as an entirely different certification.
+And that's exactly what they did.
+They broke it out into a separate certification, which is the CCSP Certified Cloud Security Professional.
+Another one of those courses that we teach.
+Another course that we teach.
+And the reason that they chose to do this.
+And I think it was a good decision, not just that they were trying to make more money on certifications.
+There's a lot of intricacies in cloud.
+There's a lot of fundamental concepts that you need to understand.
+And there's a lot in the governance, the processes, the technicalities of how to properly move to the cloud.
+Secure the cloud, know how to have interoperability, portability, be able to remember, have a reversibility, get out of the cloud.
+There's a lot of complication here.
+And it's more than would reasonably fit in this course.
+And so I think it made a lot of sense for them to move that into a separate certification.
+And so in this course, the CISSP, I'm going to cover cloud at like the 10,000 or 30,000 foot level.
+Very high level, just some of the very basics.
+Because you will get a few questions, but not a huge amount of them.
+And if you really want to get deep into the cloud computing, go and take something like the CCSP.
+So let's get into some of the basics of the cloud.
+And let me start by asking you this simple question.
+What is the cloud?
+Think about this from above.
+Trying to find it in very simple, easy to understand terms.
+How would you explain it to someone who has never understood the cloud or never thought of it before?
+It's actually a bit of a trick question.
+It's very difficult to describe what is cloud in very simple terms.
+And the reason is this, cloud is many, many different things to many different people.
+It can be systems running in your own data center.
+It can be systems running in another service provider's data center.
+It can be everything from, you know, creating an entire virtual data center
+to just doing identity access management or security as a service or database as a service.
+There is so many things that fall under the umbrella of cloud.
+What the industry has settled on is rather than trying to come up with a nice, simple, concise definition of cloud, which is impossible.
+Instead, what we use is a set of defining characteristics.
+There's five primary and a sixth kind of characteristic.
+That if a service complies with these characteristics, then you can call it cloud.
+So let's spend a few minutes going through those characteristics.
+And it starts to help explain a little bit of what cloud actually is.
+The first characteristic is on-demand self-service.
+And this is the idea that if you are using cloud, you can request cloud services by yourself.
+And you can do it whenever you want.
+Nowadays, what does it actually take to request cloud services?
+Well, for free stuff, you can just sign up for free.
+Things like Gmail and box and all these sorts of things.
+These are big cloud services that you need nothing more than maybe an email address to sign up for.
+And even the paid services, all you really need is a credit card number.
+And this is a really important defining characteristic of cloud.
+Because a lot of organizations nowadays, they want to fail fast.
+They want to innovate. They want to rapidly try things out.
+And that's very difficult to do in a traditional environment where,
+if a lot of my clients, I ask them, how long does it take you to get a new server provision in your environment?
+And it's not uncommon for someone to say weeks, maybe even months, two, three months, to get a new server provisioned.
+If you're trying to rapidly innovate, fail fast.
+It's pretty hard to do that if you're waiting two or three months just for a server to be set up.
+And so one of the really, really valuable things of cloud on-demand self-service,
+you can sign up for an unbelievable amount of services, terabytes of storage,
+machine learning algorithms, vision APIs, all sorts of crazy stuff.
+And all you need is clicking a couple of those buttons.
+And it all happens instantaneously or nearly so.
+Lost my pointer. There we go.
+So that's the first characteristic of cloud.
+The next one is what is known as broad network access.
+And what this characteristic is about is from where and what type of devices can you access the cloud.
+Most cloud services are web-based applications.
+And most cloud is public cloud or software as a service in the public cloud.
+Which means that the vast majority of the way that we access the cloud is through a web browser across the internet.
+And everything has a web browser installed in it nowadays.
+I was at Home Depot recently and I was browsing the internet on a fridge.
+So on-demand self-service means you can essentially access most of these cloud services from anywhere in the world.
+Because most cloud services are accessed through a web browser.
+Now the next characteristic resource pooling.
+This is where we need to spend a few minutes on this one.
+This one is really critical.
+There are three primary resources that we pool share in the cloud.
+Compute network and storage.
+And when we say we pool or we share these resources, what we're saying is that as a customer in the cloud,
+you can get access to compute computers, you know, like a CPU essentially.
+It allows you to do problem solving.
+You can get access to network.
+The ability to move bits around between your different systems, databases, and so forth.
+And storage, which allows you to store the bits.
+In the cloud, you can get access to all three of these resources.
+But very importantly, your access to all of these resources is virtualized.
+You do not have direct physical access to a hard drive to a CPU to the network.
+Your access to all of these services is virtualized.
+There's a layer of abstraction.
+Which allows all of these resources to be shared across cloud customers.
+What's the advantage of this?
+Because there's a big one.
+Let me ask you this.
+In a traditional data center, if you were to look at an average server, like the payroll server,
+what would the average utilization be of an average server in a well-run data center?
+The answer is usually somewhere in the range to 10 to 20%.
+So you take this very expensive piece of hardware, a server,
+and you're only utilizing 10 to 20% of the resources on that server, on average.
+It's a very inefficient use of that and very expensive hardware.
+And any well-run data center is like this traditional data center.
+Why?
+Well, it's because you don't size a server based on average utilization.
+You size a server based on peak utilization.
+And so take the payroll server as an example.
+The vast majority of this time, what's the payroll server doing?
+Not much.
+Once in a while someone might log in to like pay you less or something, but that's it.
+But then once every two weeks or once a month, what's the payroll server do?
+It runs the payroll batch job.
+And then for that period of time, you know, your CPU usage, your RAM usage,
+it's spiked, max utilization.
+And then you go back to doing almost nothing.
+So in a traditional data center, we're only getting, you know,
+we're only using 10 to 20% of the capacity of our systems.
+Very inefficient.
+Now in the public and the cloud, especially the public cloud,
+because access to resources virtualized, it allows us to share those resources.
+So in the cloud, we don't have what's typically what's called a server.
+You have a compute node.
+A compute node is essentially a server.
+It's a CPU and a SRAM on top of which you can run virtual machines.
+And these virtual machines are accessing the compute resources of this compute node.
+Now in the cloud, because you can share this compute node across multiple clients,
+you can run multiple virtual machines simultaneously on top of a hypervisor,
+which is on top of the compute node.
+And so these multiple virtual machines can share the underlying hardware,
+which allows you to put a whole bunch of different virtual machines,
+virtual servers on top of one compute node, and get much better resource utilization
+of that underlying hardware.
+Because each of those virtual servers might only be running along at 10 to 20% capacity,
+something like that.
+But if you put enough of them onto a compute node,
+the overall resource usage of the compute node,
+the underlying physical hardware, what's that?
+Well, in the cloud, it's not uncommon to achieve resource utilization of 70, 80,
+maybe even 90% of the underlying hardware.
+So traditional data sender, you're getting like 10 to 20% utilization of the hardware.
+In the cloud, you might be achieving 70, 80% utilization of the underlying hardware.
+So much more effective use of the underlying hardware,
+because you can virtualize, share the access amongst customers.
+And I'll add one other piece to this that really helps drive down the costs.
+When you look at what the big cloud providers and how much hardware they buy,
+it is astronomical.
+They buy a huge number of hard drives of CPUs, of network devices.
+And so as a result, the prices that they're paying for that hardware
+is, you know, economies of scale much lower than a traditional company
+could typically buy stuff for.
+Like when you look at the Amazon, the Google's, the Facebook's,
+the Azure Microsoft of the world, they buy hardware at staggering levels.
+They're spending billions of dollars every year building out their data centers,
+which means they get economies of scale that no one else can achieve.
+And that makes the underlying costs of the compute network and storage
+and the cloud much cheaper than what you can traditionally achieve
+in a traditional data center.
+But I'll caveat that with one very important thing.
+And my experience working with a lot of companies that move to the cloud,
+they're overall costs moving to the cloud have not actually been cheaper.
+The underlying resources and compute network and storage are cheaper.
+But when you layer on top of all the additional services that you need,
+it can often end up being a lot more expensive.
+That's a discussion for another course.
+But that's resource pooling.
+You share compute network and storage across multiple customers.
+Now, next one, rapid elasticity and scalability.
+What this means is that in the cloud, you can rapidly, quickly increase
+your, your use of compute network and storage.
+If you suddenly want hundreds of new virtual CPUs to run something on top of,
+done. If you want a petabyte of storage, done.
+If you want tons and more network bandwidth, done.
+And this again is very different than traditional data center.
+Let's say in a traditional data center, you're like,
+you know what, I want a petabyte of storage.
+So you call up EMC, takes them a month or two,
+but they ship out a few trucks worth of hard drives and storage race servers.
+And you spend another month setting all this stuff up.
+And now you've got your petabyte of storage.
+And then you're like, nah, you know what, I don't need any more.
+Too bad, you bought it. It's yours now, right?
+Whereas in the cloud, rapid elasticity means you can quickly increase
+your utilization of any of the compute network and storage.
+And just as rapidly decrease your utilization.
+So rapid elasticity.
+And care closely tied to this is what's known as measured service,
+which is the cloud service provider carefully measures your usage of the cloud,
+how much compute you're using, how much network, how much storage,
+and you only pay for what you use.
+And so if you're only using that petabyte of storage for 10 minutes,
+you're only paying for that petabyte of storage for 10 minutes.
+So those are the five defining characteristics of cloud.
+And if you get any questions asking you what are the five defining characteristics,
+that's them.
+But there's sometimes a sixth characteristic that's put in there.
+And it's known as multi-tenancy.
+And the reason that's not always in the list is because it's not always true.
+There's one major difference between public cloud and private cloud.
+Public cloud is accessible usable by anyone.
+So therefore it is multi-tenancy.
+But private cloud is reserved only accessible by one consumer.
+Therefore, not multi-tenancy.
+The majority of cloud is public cloud.
+So the majority of cloud is multi-tenancy.
+But not all of it.
+We'll talk about the different deployment models in the next video.
+We'll talk about public, private, community, and hybrid cloud.
+But that's why multi-tenancy doesn't apply everywhere.
+Thank you very much.

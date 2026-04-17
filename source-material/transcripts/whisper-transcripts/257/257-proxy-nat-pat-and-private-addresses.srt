@@ -1,0 +1,592 @@
+1
+00:00:00,000 --> 00:00:02,900
+specific requests from a security perspective,
+
+2
+00:00:02,900 --> 00:00:04,420
+because it's better equipped,
+
+3
+00:00:04,420 --> 00:00:08,140
+it's more intelligence to be able to handle that.
+
+4
+00:00:08,140 --> 00:00:10,140
+And that's what we call a proxy.
+
+5
+00:00:23,140 --> 00:00:26,140
+One of the ways that we can provide really good security
+
+6
+00:00:26,140 --> 00:00:28,620
+across a network is to use the concept
+
+7
+00:00:28,620 --> 00:00:30,320
+of what we call a proxy.
+
+8
+00:00:43,200 --> 00:00:46,200
+One of the ways that we can provide really good security
+
+9
+00:00:46,200 --> 00:00:48,680
+across a network is to use the concept
+
+10
+00:00:48,680 --> 00:00:50,440
+of what we call a proxy.
+
+11
+00:00:50,440 --> 00:00:51,720
+Now, if you look at that word,
+
+12
+00:00:51,720 --> 00:00:53,960
+if you look it up in a dictionary, for example,
+
+13
+00:00:53,960 --> 00:00:57,760
+it'll say acting on behalf of something else.
+
+14
+00:00:57,760 --> 00:01:00,720
+The idea is, as a request comes in,
+
+15
+00:01:00,720 --> 00:01:03,400
+we redirect it to something else
+
+16
+00:01:03,400 --> 00:01:05,720
+that is better equipped to make that decision.
+
+17
+00:01:05,720 --> 00:01:09,040
+In other words, we build something specifically
+
+18
+00:01:09,040 --> 00:01:13,040
+to handle specific requests from a security perspective
+
+19
+00:01:13,040 --> 00:01:14,560
+because it's better equipped,
+
+20
+00:01:14,560 --> 00:01:18,280
+it's more intelligence to be able to handle that.
+
+21
+00:01:18,280 --> 00:01:20,320
+And that's what we call a proxy.
+
+22
+00:01:20,320 --> 00:01:23,360
+A proxy typically is an application,
+
+23
+00:01:23,360 --> 00:01:25,400
+and because it is an application,
+
+24
+00:01:25,400 --> 00:01:27,120
+it's running at layer seven,
+
+25
+00:01:27,240 --> 00:01:30,080
+and therefore has a lot of intelligence
+
+26
+00:01:30,080 --> 00:01:32,840
+to be able to make decisions that we need
+
+27
+00:01:32,840 --> 00:01:36,720
+in order to either allow or deny certain things.
+
+28
+00:01:36,720 --> 00:01:40,720
+So the concept of a proxy server is exactly what you see here.
+
+29
+00:01:40,720 --> 00:01:44,200
+It can typically be a server that's running applications
+
+30
+00:01:44,200 --> 00:01:48,600
+that has intelligence to be able to make very informed
+
+31
+00:01:48,600 --> 00:01:51,640
+decisions about almost anything.
+
+32
+00:01:51,640 --> 00:01:53,520
+Perfect example of this would be
+
+33
+00:01:53,720 --> 00:01:56,680
+an application proxy firewall,
+
+34
+00:01:56,680 --> 00:02:00,920
+which is really an application that we've built
+
+35
+00:02:00,920 --> 00:02:03,320
+to make very informed decisions,
+
+36
+00:02:03,320 --> 00:02:07,200
+such as deep packet inspection, web content filtering,
+
+37
+00:02:07,200 --> 00:02:11,160
+or anything else that you wanna be able to do at layer seven.
+
+38
+00:02:11,160 --> 00:02:14,040
+And because we're doing it at layer seven,
+
+39
+00:02:14,040 --> 00:02:16,800
+that's where we have the most intelligence
+
+40
+00:02:16,800 --> 00:02:20,040
+to be able to make the best security decision.
+
+41
+00:02:20,040 --> 00:02:23,760
+And here is what it looks like from a diagram perspective.
+
+42
+00:02:23,760 --> 00:02:27,040
+You've got a client that's trying to make a connection
+
+43
+00:02:27,040 --> 00:02:30,920
+to a server, but that is gonna be done through something
+
+44
+00:02:30,920 --> 00:02:33,520
+in the middle called the proxy server,
+
+45
+00:02:33,520 --> 00:02:36,480
+which is really an application that's better equipped
+
+46
+00:02:36,480 --> 00:02:41,480
+to make that decision on behalf of all of the security rules
+
+47
+00:02:41,800 --> 00:02:44,240
+that we need to be able to enforce.
+
+48
+00:02:44,240 --> 00:02:47,680
+A different way to look at this is what you see here.
+
+49
+00:02:47,760 --> 00:02:52,120
+So while the perceived connection is really from client
+
+50
+00:02:52,120 --> 00:02:56,160
+to server, the connection is either allowed to happen
+
+51
+00:02:56,160 --> 00:02:58,200
+or not through the proxy.
+
+52
+00:02:58,200 --> 00:03:01,880
+So what we do is we redirect that decision
+
+53
+00:03:01,880 --> 00:03:04,320
+or that request to the proxy.
+
+54
+00:03:04,320 --> 00:03:07,520
+And because the proxy has been built specifically
+
+55
+00:03:07,520 --> 00:03:11,280
+to make that decision, it will enforce certain rules
+
+56
+00:03:11,280 --> 00:03:16,080
+and either allow or deny that connection to be established.
+
+57
+00:03:16,080 --> 00:03:19,480
+So from a user's perspective at the client,
+
+58
+00:03:19,480 --> 00:03:22,840
+that connection is happening from client to server,
+
+59
+00:03:22,840 --> 00:03:26,840
+but it's really happening through the proxy server itself,
+
+60
+00:03:26,840 --> 00:03:29,040
+which is again built specifically
+
+61
+00:03:29,040 --> 00:03:31,560
+to handle those security decisions.
+
+62
+00:03:31,560 --> 00:03:33,520
+And because it's an application,
+
+63
+00:03:33,520 --> 00:03:38,680
+it can make some really informed decisions at that level.
+
+64
+00:03:38,680 --> 00:03:42,160
+And so some of the things that we can do at layer seven
+
+65
+00:03:42,160 --> 00:03:44,080
+are things like that.
+
+66
+00:03:44,080 --> 00:03:47,320
+And that ends up being an application
+
+67
+00:03:47,320 --> 00:03:52,320
+that actually changes IP addresses to other IP addresses.
+
+68
+00:03:53,840 --> 00:03:56,520
+And if you think about how a company
+
+69
+00:03:56,520 --> 00:04:00,120
+has an internal network that you might be part of,
+
+70
+00:04:00,120 --> 00:04:02,320
+as you go out to the internet,
+
+71
+00:04:03,320 --> 00:04:06,360
+we might want to change your IP address
+
+72
+00:04:06,360 --> 00:04:09,240
+so that you can go out to the internet
+
+73
+00:04:09,240 --> 00:04:12,680
+and be routable and be able to access things.
+
+74
+00:04:12,680 --> 00:04:16,120
+But from a security perspective, what Nat can do
+
+75
+00:04:16,120 --> 00:04:18,880
+is it can change the IP address
+
+76
+00:04:18,880 --> 00:04:22,720
+and all of those things that look internal to the organization
+
+77
+00:04:22,720 --> 00:04:25,080
+so that when you go out to the internet,
+
+78
+00:04:25,080 --> 00:04:28,560
+anything that relates to the internal network
+
+79
+00:04:28,560 --> 00:04:32,640
+and its IP addressing schemes can be hidden
+
+80
+00:04:32,640 --> 00:04:35,240
+from anybody out there out on the internet.
+
+81
+00:04:35,240 --> 00:04:40,240
+So Nat can be useful in hiding our real addressing schemes
+
+82
+00:04:40,280 --> 00:04:44,120
+and if you remember to what all attacks require
+
+83
+00:04:44,120 --> 00:04:46,440
+and that is the reconnaissance phase,
+
+84
+00:04:46,440 --> 00:04:49,600
+you want to be able to hide a lot of what we have internally
+
+85
+00:04:49,600 --> 00:04:52,800
+so that they're not visible to anyone out on the internet.
+
+86
+00:04:52,800 --> 00:04:57,080
+So Nat can be really useful from a security perspective
+
+87
+00:04:57,080 --> 00:05:02,080
+because it can be used to hide your real addressing schemes
+
+88
+00:05:02,080 --> 00:05:07,080
+as you allow people to go out to the internet.
+
+89
+00:05:07,160 --> 00:05:11,120
+Now something that's part of Nat is what we call Pat.
+
+90
+00:05:11,120 --> 00:05:13,760
+So Nat is network address translation
+
+91
+00:05:13,760 --> 00:05:16,760
+which translates internal IP addresses
+
+92
+00:05:16,760 --> 00:05:20,080
+to routable IP addresses out on the internet
+
+93
+00:05:20,080 --> 00:05:22,880
+but what might be needed as part of that
+
+94
+00:05:22,880 --> 00:05:26,080
+is what we call Pat, port address translation
+
+95
+00:05:26,080 --> 00:05:28,120
+and here's how this works.
+
+96
+00:05:28,120 --> 00:05:30,080
+You might have a whole bunch of machines
+
+97
+00:05:30,080 --> 00:05:33,520
+on the internal network that are going out to the internet.
+
+98
+00:05:33,520 --> 00:05:37,160
+They could all use the same IP address
+
+99
+00:05:37,160 --> 00:05:39,960
+that they've been changed to so that they can be routable
+
+100
+00:05:39,960 --> 00:05:41,800
+across the outside internet.
+
+101
+00:05:41,800 --> 00:05:45,360
+So a whole bunch of machines can go out with the same IP address
+
+102
+00:05:45,360 --> 00:05:47,880
+but what would distinguish each one of them
+
+103
+00:05:47,880 --> 00:05:50,200
+is the port numbers that are gonna be different
+
+104
+00:05:50,200 --> 00:05:52,440
+for each one of those machines.
+
+105
+00:05:52,440 --> 00:05:55,480
+And obviously what we have to do is we have to keep track
+
+106
+00:05:55,480 --> 00:05:58,600
+of that so that when the request comes back
+
+107
+00:05:58,600 --> 00:06:00,720
+we can route it back to the machine
+
+108
+00:06:00,720 --> 00:06:02,720
+that originated this.
+
+109
+00:06:02,720 --> 00:06:06,480
+That's what Nat provides and it is part of TCP IP.
+
+110
+00:06:06,480 --> 00:06:08,480
+So here's a perfect example.
+
+111
+00:06:08,480 --> 00:06:11,960
+Let's say that you are the machine
+
+112
+00:06:11,960 --> 00:06:15,680
+that is making a request out to the internet.
+
+113
+00:06:15,680 --> 00:06:20,760
+The Nat capable device or proxy that sits at your parameters
+
+114
+00:06:20,800 --> 00:06:25,440
+would understand your source IP address, destination IP address,
+
+115
+00:06:25,440 --> 00:06:29,280
+source port and destination port and change that
+
+116
+00:06:29,280 --> 00:06:31,640
+to something that is routable.
+
+117
+00:06:31,640 --> 00:06:33,920
+But it would have to keep track of that
+
+118
+00:06:33,920 --> 00:06:36,120
+so that when the request comes back
+
+119
+00:06:36,120 --> 00:06:38,440
+we can change it back and route it back
+
+120
+00:06:38,440 --> 00:06:40,480
+to your specific machine.
+
+121
+00:06:40,480 --> 00:06:43,600
+This is what Nat and Pat can do.
+
+122
+00:06:43,600 --> 00:06:45,560
+And of course from a security perspective
+
+123
+00:06:45,560 --> 00:06:48,640
+what you need to remember is that it can be useful
+
+124
+00:06:48,640 --> 00:06:51,720
+in hiding our real addressing schemes
+
+125
+00:06:51,720 --> 00:06:54,920
+as we allow machines from the inside of the network
+
+126
+00:06:54,920 --> 00:06:58,880
+to actually go out to the internet and web.
+
+127
+00:06:58,880 --> 00:07:03,200
+Now one of the other reasons why we need Nat and Pat
+
+128
+00:07:03,200 --> 00:07:07,800
+is that we have what are called private address ranges
+
+129
+00:07:07,800 --> 00:07:11,400
+that are used by organizations internally.
+
+130
+00:07:11,400 --> 00:07:13,800
+And so if you're a large organization
+
+131
+00:07:13,800 --> 00:07:16,320
+you might be in the range of the 10 dot
+
+132
+00:07:16,320 --> 00:07:18,200
+that is outlined here.
+
+133
+00:07:18,200 --> 00:07:19,880
+As you go out to the internet
+
+134
+00:07:19,880 --> 00:07:22,920
+those IP addresses are not routable.
+
+135
+00:07:22,920 --> 00:07:25,600
+So it is Nat that needs to change it
+
+136
+00:07:25,600 --> 00:07:27,800
+to something that is routable.
+
+137
+00:07:27,800 --> 00:07:31,680
+And then when it comes back we routed back to your machine.
+
+138
+00:07:31,680 --> 00:07:35,040
+It's Nat and Pat that does that.
+
+139
+00:07:35,040 --> 00:07:37,320
+Now as far as the exam is concerned
+
+140
+00:07:37,320 --> 00:07:42,320
+you don't need to memorize the private IP address ranges
+
+141
+00:07:42,320 --> 00:07:46,920
+that are specified for example in RFC 1918
+
+142
+00:07:46,920 --> 00:07:49,240
+which talks about private addresses
+
+143
+00:07:49,240 --> 00:07:52,040
+that can be used by companies.
+
+144
+00:07:52,120 --> 00:07:55,480
+But these are the ones that are allocated
+
+145
+00:07:55,480 --> 00:07:58,360
+as being private and of course not routable
+
+146
+00:07:58,360 --> 00:07:59,640
+across the internet.
+
+147
+00:07:59,640 --> 00:08:02,560
+And that's why we need Nat and Pat
+
+148
+00:08:02,560 --> 00:08:06,000
+to be able to handle this nicely for us.
+

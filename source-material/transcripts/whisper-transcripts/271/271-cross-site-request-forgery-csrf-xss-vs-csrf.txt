@@ -1,0 +1,93 @@
+To explain cross-site request forgeries, I want to first go through a little example.
+And for this example, to explain cross-site request forgeries, I want to first go through
+a little example.
+And for this example, we need someone who makes too much money.
+John?
+Hey, those Canadian pesos?
+All right.
+So let's imagine John here, who obviously makes too much money.
+He just stands around counting it.
+So I'd like you to imagine a scenario, okay?
+So John is, you know, we're going to imagine in the morning, okay?
+So he's sitting there in the morning, sipping his over-priced latte because he makes too much money, right?
+And he's reading his newspaper that's been ironed for him because, you know, he's got people to do that.
+So when John is going through his morning ritual, he also likes to log into his online banking system.
+Hey, John, who do you bank with?
+That's okay.
+Never mind.
+Don't need to know.
+I know who it is.
+So John likes to log into his online bank and check how much money he has there to sort of roll around virtually,
+like Scrooge McDuck in hell with his money.
+And I'm going to be the baddie here.
+And I'm going to know that John is doing that.
+Okay, so that's the scenario I want you to imagine, okay?
+So here's what's going to happen.
+I'm going to send a request to John.
+I'm going to send to the URL.
+And that URL, and I'm going to somehow trick him into clicking on that URL.
+When he clicks on that URL, it's going to send a request to his online bank,
+requesting fund transfers from his account to my account.
+Now, when John clicks on that link, what's going to happen?
+So if he clicks on that link to transfer funds from his account to my account,
+what's his bank going to do when it receives that request?
+Well, in setting up this scenario, I said very clearly that John was logged in.
+And so when he clicks on that URL, what's his online bank going to do?
+Well, it's going to see a valid request coming from a valid user, John,
+to transfer funds from his account to my account.
+So the server is going to execute that request.
+And all $13 that John has in his account is going to get transferred into my account.
+This is essentially what cross-state request forageories look like.
+So let's walk through the technicalities of here.
+So we have our baddie here.
+Our baddie forages a request for fund transfers.
+So he'd obviously, he or she would obviously have to do a little bit of research here
+to figure out exactly what URL would need to look like to transfer the funds.
+But let's assume our baddie has figured that out.
+They forage this request. They create this URL.
+And then our baddie here sends that URL that hyperlink to our victim here.
+And through social engineering, something like that,
+somehow tricks our victim into clicking on that link.
+And when that user clicks on the link and sends that request to the web server,
+what's the web server do?
+Well, it does exactly what it's designed to do.
+It's receiving a valid request from a valid user, so it executes the requests.
+And some funds are transferred to, say, the baddie's bank account.
+So this is the heart of cross-state request forageory.
+It's that it's a valid request coming from a valid user.
+And this is not actually as hard as you think it is.
+Because of one very interesting little technique that we have
+that we use all the time on the web nowadays.
+You've probably noticed when you log into a lot of websites,
+you'll see that little button that tick-pock that says,
+keep me logged in for two weeks.
+When you do that, what's being stored on your computer system is a cookie.
+So your system, every time you go to that website,
+your system will send that cookie to the web server.
+And the web server will, that cookie contains a unique identifier.
+And so the server knows, aha, that's you.
+And so you don't actually necessarily have to have the user logged in
+right at that exact moment when the baddie here sends this request.
+It can often be hours, days later, after someone has logged in.
+But because of these persistent connections,
+these keep me logged in for two weeks.
+These types of attacks can often be performed much, much later.
+Or the baddie here could first do a cross-site scripting attack
+to obtain the user's cookie.
+Lots of different ways of doing this.
+But here's the key thing that you need to know about cross-site request forgeries.
+Who's the target of attack?
+Ultimately, who is the baddie going after here?
+Is it our user here or is it the web server?
+And ultimately, in cross-site request forgeries,
+the target of attack is the server.
+So here's a quick summary.
+In a module before we talked about cross-site scripting,
+here's a quick summary of the diff key differences between cross-site scripting
+and cross-site request forgeries.
+So cross-site scripting, the major thing you need to remember here,
+the target of attack in cross-site scripting is the user's browser, the client's browser.
+And in cross-site request forgeries,
+the target of attack is not the user, but the server.
+That's a very important difference to remember
+between these two very common types of attacks.

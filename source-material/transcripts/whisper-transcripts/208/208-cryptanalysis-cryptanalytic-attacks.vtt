@@ -1,0 +1,413 @@
+WEBVTT
+
+00:00.000 --> 00:20.000
+Cryptanalysis, the art and science of breaking cryptosystems
+
+00:30.000 --> 00:40.000
+Cryptanalysis, the art and science of breaking cryptosystems
+
+00:40.000 --> 00:46.000
+of cracking codes, of trying to figure out how to break these very cool cryptographic algorithms
+
+00:46.000 --> 00:50.000
+that we spent all this time talking about. And when I say the art and the science,
+
+00:50.000 --> 00:54.000
+that's quite true. It takes a very clever, very devious mind to try and figure out
+
+00:54.000 --> 00:58.000
+how to break cryptographic systems. There are two categories of cryptanalysis
+
+00:58.000 --> 01:02.000
+that we're going to look at. Cryptanalytical attacks and cryptographic attacks.
+
+01:02.000 --> 01:06.000
+In this module, we're going to focus on cryptanalytical attacks.
+
+01:06.000 --> 01:10.000
+So when we say cryptanalytical attacks, what do we mean?
+
+01:10.000 --> 01:14.000
+What is the primary goal of all cryptanalytical attacks?
+
+01:14.000 --> 01:18.000
+And this is actually really important to understand.
+
+01:18.000 --> 01:20.000
+Because when you're thinking about these different types of attacks,
+
+01:20.000 --> 01:24.000
+if you understand what you're always after, what the primary goal is,
+
+01:24.000 --> 01:26.000
+it makes a lot of you understand how you're going about it.
+
+01:26.000 --> 01:32.000
+The primary goal of all cryptanalytical attacks is to deduce the key.
+
+01:32.000 --> 01:36.000
+Figure out what the key is that's being used in the cryptosystem.
+
+01:36.000 --> 01:38.000
+Let's talk about brute force attacks.
+
+01:38.000 --> 01:40.000
+Brute force attacks are very simple.
+
+01:40.000 --> 01:44.000
+You try every single possible key until you find the right key.
+
+01:44.000 --> 01:48.000
+But while they're simple, they're not very effective in modern day cryptography.
+
+01:48.000 --> 01:52.000
+Because as soon as you get a key length of a reasonable size,
+
+01:52.000 --> 01:56.000
+trying to find the one specific key that you're looking for to brute force a key
+
+01:56.000 --> 01:58.000
+is not a realistic type of attack.
+
+01:58.000 --> 02:02.000
+So here's an interesting table that we're showing you here.
+
+02:02.000 --> 02:04.000
+This shows you a few pieces of information.
+
+02:04.000 --> 02:08.000
+The proper name for this first column would be the key length.
+
+02:08.000 --> 02:12.000
+It's the number. It's the number of bits and the key.
+
+02:12.000 --> 02:14.000
+The second column is showing you the number of keys.
+
+02:14.000 --> 02:16.000
+Better name for that would be the key space.
+
+02:16.000 --> 02:20.000
+And the third column is telling you the attack time.
+
+02:20.000 --> 02:22.000
+Now here's the interesting thing behind this.
+
+02:22.000 --> 02:26.000
+This attack time is based on a system that was built in 1999,
+
+02:26.000 --> 02:30.000
+specifically to brute force des.
+
+02:30.000 --> 02:36.000
+So in 1999, the EFF spent $250,000 to build a system.
+
+02:36.000 --> 02:38.000
+Best name system ever, Deepcrack.
+
+02:38.000 --> 02:42.000
+So they built a system in 1999 called Deepcrack,
+
+02:42.000 --> 02:46.000
+specifically designed to break des and to brute force a des key.
+
+02:46.000 --> 02:50.000
+In 1999, it took 20 hours to brute force a des key.
+
+02:50.000 --> 02:54.000
+Now, our modern day systems have gotten significantly faster
+
+02:54.000 --> 02:56.000
+than what we had in 1999,
+
+02:56.000 --> 02:58.000
+orders of magnitude faster.
+
+02:58.000 --> 03:02.000
+But even so, it doesn't matter.
+
+03:02.000 --> 03:06.000
+So a modern day system could brute force a des key in minutes, maybe hours.
+
+03:06.000 --> 03:10.000
+But once you start to increase the key length,
+
+03:10.000 --> 03:12.000
+if you increase the key length by even one bit,
+
+03:12.000 --> 03:14.000
+what happens to the key space?
+
+03:14.000 --> 03:16.000
+It doubles.
+
+03:16.000 --> 03:18.000
+And so it grows exponentially.
+
+03:18.000 --> 03:20.000
+And by the time we get up to 128-bit,
+
+03:20.000 --> 03:22.000
+even especially 256-bit keys,
+
+03:22.000 --> 03:24.000
+the concept that you could possibly brute force that key is
+
+03:24.000 --> 03:26.000
+completely absurd.
+
+03:26.000 --> 03:28.000
+And here's a way to think of that,
+
+03:28.000 --> 03:32.000
+to understand how insanely impossible it is to try and brute force
+
+03:32.000 --> 03:34.000
+a 256-bit key.
+
+03:34.000 --> 03:36.000
+We need to think of some sort of way of wrapping our head around,
+
+03:36.000 --> 03:40.000
+just how big is the key space for a 256-bit key?
+
+03:40.000 --> 03:42.000
+So here's a way to think about it, okay?
+
+03:42.000 --> 03:44.000
+Think about the number of atoms.
+
+03:44.000 --> 03:48.000
+So there's a lot of atoms in, say, a person.
+
+03:48.000 --> 03:50.000
+Now, when we talk about a 256-bit key,
+
+03:50.000 --> 03:56.000
+the key space is 1.15, 1.15 times 10 to the 77th.
+
+03:56.000 --> 03:58.000
+That's the key space.
+
+03:58.000 --> 04:00.000
+That's a huge number.
+
+04:00.000 --> 04:02.000
+How big is that?
+
+04:02.000 --> 04:04.000
+Well, if we compare it to the number of atoms,
+
+04:04.000 --> 04:08.000
+the number of atoms in the human body is only 10 to the 27th.
+
+04:08.000 --> 04:10.000
+Again, we're looking for 10 to the 77th.
+
+04:10.000 --> 04:12.000
+No, we're near close.
+
+04:12.000 --> 04:14.000
+Okay, well, what about the number of atoms in the earth?
+
+04:14.000 --> 04:18.000
+Well, that's only 10 to the 50th.
+
+04:18.000 --> 04:20.000
+Again, no, we're near close.
+
+04:20.000 --> 04:22.000
+Okay, so what about the number of atoms in the
+
+04:22.000 --> 04:26.000
+our solar system, the Sun, Earth, Neptune, Mars,
+
+04:26.000 --> 04:30.000
+all the matter in our little solar system?
+
+04:30.000 --> 04:32.000
+That's only 10 to the 52nd.
+
+04:32.000 --> 04:34.000
+Again, no, we're near close.
+
+04:34.000 --> 04:38.000
+You have to actually get up to the entire observable universe.
+
+04:38.000 --> 04:42.000
+That's about 10 to the 79th atoms in the entire observable universe.
+
+04:42.000 --> 04:46.000
+That's an insanely large number.
+
+04:46.000 --> 04:50.000
+When someone says to you, oh, we're going to brute force a 256-bit key,
+
+04:50.000 --> 04:54.000
+what they're essentially saying is that they're trying to find one
+
+04:54.000 --> 04:58.000
+and only one unique atom in the entire observable universe.
+
+04:58.000 --> 05:00.000
+It's insane.
+
+05:00.000 --> 05:04.000
+It is totally impossible with modern-day technology to possibly
+
+05:04.000 --> 05:08.000
+brute force a 50 to 256-bit key, and it's going to be impossible for quite a ways to go.
+
+05:08.000 --> 05:10.000
+So what are reasonable techniques that we could use?
+
+05:10.000 --> 05:14.000
+Well, let's go through a few other crypto-analytical attacks.
+
+05:14.000 --> 05:16.000
+And again, I'm going to remind you,
+
+05:16.000 --> 05:20.000
+the whole point of all these attacks is to deduce the key,
+
+05:20.000 --> 05:22.000
+figure out the key.
+
+05:22.000 --> 05:26.000
+Now, the first attack we're going to look at is what's known as a
+
+05:26.000 --> 05:28.000
+cypher-text-only attack.
+
+05:28.000 --> 05:32.000
+And as the name implies, all that the crypto-analysis has access to here,
+
+05:32.000 --> 05:36.000
+the only attack is just the cypher-text.
+
+05:36.000 --> 05:38.000
+So this is a very difficult type of an attack.
+
+05:38.000 --> 05:42.000
+The next is what's known as a plain-text attack.
+
+05:42.000 --> 05:48.000
+In a plain-text attack, the crypto-analysis actually has access to the cypher-text
+
+05:48.000 --> 05:50.000
+and the plain-text.
+
+05:50.000 --> 05:53.000
+So maybe a spy or someone like that smuggled out the plain-text.
+
+05:53.000 --> 05:56.000
+They pulled the cypher-text off the wire, so they have access to both.
+
+05:56.000 --> 06:00.000
+If the crypto-analysis already has the plain-text and the cypher-text,
+
+06:00.000 --> 06:03.000
+why are they doing anything to find the key?
+
+06:03.000 --> 06:06.000
+Because with the key, you can decode all the other messages
+
+06:06.000 --> 06:09.000
+and perhaps even forge your own messages.
+
+06:09.000 --> 06:11.000
+So that's a plain-text attack.
+
+06:11.000 --> 06:16.000
+Now, the next two attacks have the word chosen in them.
+
+06:16.000 --> 06:18.000
+Here's what chosen means.
+
+06:18.000 --> 06:22.000
+Chosen means the crypto-analysis has access to the machine or the algorithm
+
+06:22.000 --> 06:25.000
+that's performing the encryption.
+
+06:25.000 --> 06:28.000
+And so, in a chosen plain-text attack,
+
+06:28.000 --> 06:33.000
+what that means is that the crypto-analysis is able to choose the plain-text
+
+06:33.000 --> 06:35.000
+that they feed into the machine or the algorithm,
+
+06:35.000 --> 06:40.000
+look at the result in cypher-text to determine, to deduce the key.
+
+06:40.000 --> 06:45.000
+Now, with modern algorithms that we use, des AES, so forth,
+
+06:45.000 --> 06:48.000
+do we know, do we have access to the algorithms?
+
+06:48.000 --> 06:50.000
+And the answer is absolutely yes.
+
+06:50.000 --> 06:52.000
+These modern-day algorithms, they're open source.
+
+06:52.000 --> 06:56.000
+So think of a chosen plain-text attack as you have access to the AES,
+
+06:56.000 --> 06:57.000
+AES algorithm.
+
+06:57.000 --> 06:59.000
+You choose what plain-text to feed into it.
+
+06:59.000 --> 07:04.000
+You look at the result in cypher-text to try and deduce the key.
+
+07:04.000 --> 07:07.000
+The next one is known as a chosen cypher-text.
+
+07:07.000 --> 07:10.000
+And as you're probably guessing, a chosen cypher-text attack
+
+07:10.000 --> 07:15.000
+is where the crypto-analysis feeds in some cypher-text, some chosen cypher-text.
+
+07:15.000 --> 07:20.000
+Looks at the result in plain-text to try and deduce the key.
+
+07:20.000 --> 07:25.000
+Now, the next two types of attacks known as linear and differential.
+
+07:26.000 --> 07:31.000
+All you should really know about these is they are using complicated math to try and deduce the key.
+
+07:31.000 --> 07:35.000
+So you see linear, you see differential, just think, complicated math,
+
+07:35.000 --> 07:38.000
+complicated math to try and deduce the key.
+
+07:38.000 --> 07:42.000
+And the final one we'll talk about is what's known as a factoring attack.
+
+07:42.000 --> 07:46.000
+Now, what is the only algorithm that we talked about that used factoring
+
+07:46.000 --> 07:48.000
+as the hard math problem behind it?
+
+07:48.000 --> 07:49.000
+RSA.
+
+07:49.000 --> 07:53.000
+So if you see factoring as the hard, as a type of an crypto-analytical attack,
+
+07:53.000 --> 07:56.000
+the only algorithm that you need to think about is RSA.
+
+07:56.000 --> 07:58.000
+So associate those in your mind.
+

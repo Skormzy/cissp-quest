@@ -1,0 +1,156 @@
+Key Management As we've talked about in the cryptography sections,
+Key Management is incredibly important.
+Key Management As we've talked about in the cryptography sections,
+Key Management is incredibly important.
+There's one very good reason for that, and it's actually known as Kirchhoff's principle.
+Kirchhoff's principle states that a crypto system should be secure,
+even if everything about the system is known except the key.
+So an attacker can know the ciphertext.
+They can know the algorithm that's being used.
+They can know the initialization vector.
+They can know all of this, but as long as the key is kept secret,
+then you'll have a secure system.
+And so key management, how we generate, how we distribute,
+how we change or rotate keys, how we distribute those keys,
+how we destroy those keys, and then finally, if we need to recover those keys,
+it's incredibly important that we do all this very well.
+So let's walk through each of these steps.
+And let's start with key generation, or creation of keys.
+Now when we talk about creating a key, what we're actually doing is we have the key space
+that we've talked about, all the possible combinations of a key.
+And key generation is about randomly selecting one key out of that entire key space.
+And we want to randomly select a key.
+It would be a very bad idea if our key generation process simply picked keys one after another
+in a linear fashion.
+Because what do we always want to avoid in cryptography?
+Patterns.
+And so we need to be able to, as randomly as possible, select a key from the entire key space.
+So that's really what key generation is about.
+And this has to be an automated process because human beings we are terrible at true randomness.
+And so we need to get our computer systems to try and randomly select a key,
+except there's one slight wrinkle there.
+And that is our computer systems that we used today are also not capable of actually generating truly random numbers.
+But what we can use are what are known as pseudo random number generators.
+These are generators that, while not truly random,
+they're pretty much close enough.
+You know, they won't start to reproduce patterns until maybe billions of years down the road.
+So good enough to sort of randomly select a key from the entire space, key space.
+So that's key generation.
+Next is key distribution.
+Especially with symmetric keys.
+Once a symmetric key has been generated, you've now got the very big problem of how do you get that key
+to the other part of that you're communicating with.
+We've already talked about one method out of band.
+But that's not very efficient. It's often very difficult to do that.
+Another method that you could use is key wrapping.
+Key wrapping sounds confusing, but let me explain it in a very simple way.
+Let's say that you're planning on communicating with someone all week long
+and every hour you want to change keys.
+So you're going to need a whole bunch of keys, symmetric keys, to communicate with this person all week long.
+So to make this process more efficient, what you decide to do is generate a whole bunch of symmetric keys.
+Maybe you generate a hundred of them.
+And then what you do is you take those hundred symmetric keys, you put them in a bundle,
+and you encrypt all of them with one symmetric key.
+So you take a whole bunch of symmetric keys, encrypt them with one symmetric key.
+And now you only have to do one key distribution.
+You only have to communicate that securely, that one key so that you can then securely send the ciphertext of all the other keys.
+That's key wrapping, encrypting a bunch of keys with another symmetric key.
+And of course the other major method that you can use that we've talked about is hybrid key distribution,
+where you use a combination of asymmetric and symmetric.
+You use the asymmetric cryptography to send the symmetric key.
+Now let's talk about where you actually store the encryption keys.
+There's two major physical devices that we're going to talk about here.
+First, TPMs, trusted platform modules.
+A TPM is actually a little microchip that is built into the motherboard of a system,
+to the hardware of a computer system, like a laptop, a server, a cell phone.
+A TPM module is actually a tiny little crypto processor that's used to generate and more importantly, store encryption keys.
+And a great way to think about this is you've probably heard of this concept of whole drive encryption,
+where you encrypt an entire hard drive, so that if a laptop is stolen for instance,
+the attacker won't be able to decrypt the data.
+But if you're using whole drive encryption, where are the encryption keys stored?
+They obviously can't be on the hard drive because if the attacker had the hard drive with the keys on it,
+they'd just be able to unlock it.
+And this is where TPM modules come in.
+If you ever use a device that supports whole drive encryption,
+it has to have one of these TPM modules in it because it's on the TPM trusted platform module
+that the encryption keys are actually stored.
+And these modules are specifically built to be very difficult to break into,
+so that even if someone does steal your laptop,
+it's very difficult for them to actually extract the keys from a TPM module.
+The next type of device we'll talk about is what's known as an HSM, a hardware security module.
+And HSM is also designed to securely store keys,
+but not just for an endpoint, like a TPM.
+Instead, an HSM module stores the encryption keys for the entire organization.
+So an HSM module basically just looks like a server, a very hardened server.
+It's plugged to the network and you can communicate with an HSM over the network to request the certain keys or to store certain keys.
+So just remember, TPM for storing the key keys on an endpoint,
+HSM for storing keys for the entire organization.
+Next, let's talk about key rotation.
+So key rotation is the concept that's a good idea to change your encryption keys on a periodic basis.
+The idea here is that if someone were to compromise or figure out your keys,
+if you're changing the keys on a periodic basis,
+then they'll only get a small amount of your data and not all of it.
+So that's the idea of key rotation.
+If you ever get a question asking you how often you should rotate your keys,
+what do you think the answer would be?
+The perfect answer is as often as necessary,
+because it's going to entirely depend on the value of the system,
+how critical, how valuable the data is that's being encrypted.
+And so for very valuable systems, I'll give you an example.
+Some VPN solutions that are passing very important data back and forth across the VPN,
+they can be rotating encryption keys every few seconds.
+Other keys you might rotate only every year.
+So it all depends on the value of the system.
+Next, let's talk about key recovery.
+So if you've accidentally lost or destroyed your keys, how do you get them back?
+There's three major methods that you need to know about.
+The first is split knowledge.
+And the idea behind split knowledge could be as simple as write the key on a piece of paper,
+cut the piece of paper in half, give the two pieces of paper to two different people,
+and you've split the knowledge of the key.
+There's much more advanced ways of doing this so that if part of the paper is lost,
+you can recover it and stuff, but split knowledge is simply the idea that you split the knowledge of the key
+up amongst two or more different people.
+Next is what's known as dual control.
+When I think of dual control, I always think about how do they launch the nuclear missiles out of a submarine.
+You always have to have the captain in the first mate.
+They each put their keys in some sort of console, turn them both at the same time,
+and then whew, the missiles launch.
+That's the idea behind dual control.
+Two or more people have to work together to recover the keys.
+Perfect example of this would be a safe.
+Where the safe has both the key and a pinpad.
+One person would have the key, the other person would have the pinpad,
+code, they'd have to work together, dual control too, unlock the safe.
+The final method is key escrow.
+This is the idea that you store your encryption keys with a trusted third party,
+an organization that's specifically in the business of securely storing encryption keys.
+Now one final piece, and that is key destruction or key disposition.
+How do you go about destroying your encryption keys?
+There are instances where you absolutely have to have destroyed every single copy of the key,
+and an example of that is what's known as crypto shredding.
+So crypto shredding is the idea that you want to be able to securely destroy your data,
+but you're not able to use the best destruction method, which is physical destruction of the media.
+So think of storing data in the cloud.
+If you have data stored in the cloud, and you say to your cloud provider,
+hey, I want you to destroy all of my data.
+Are they going to destroy the media, the hard drives the data is stored on?
+Of course not, because lots of other customers' data is on those same hard drives.
+So this is where you could potentially use crypto shredding.
+What you would do is you would make sure that your data was all encrypted in the cloud,
+and then you would destroy, and listen carefully here, you would destroy every single copy of the key.
+And if you've destroyed every single copy of the key, then the data has been crypto shredding.
+Crypto shredding.
+No one can recover the data because the keys are gone.
+And then you could say to your cloud provider, okay, I've crypto shredding my data,
+go ahead and delete the data.
+The important part here is you're actually crypto shredding the data.
+It's a defensible destruction method that you could potentially use in the cloud.
+You
+You
+You
+You
+You
+You
+You
+You

@@ -1,0 +1,63 @@
+start	end	text
+0	16720	Let's talk about the provisioning life cycle.
+16720	34760	The provisioning life cycle is all about how an organization, provisions, or...
+34760	36800	Let's talk about the provisioning life cycle.
+36800	41080	The provisioning life cycle is all about how an organization, provisions, or creates
+41080	42480	new user accounts.
+42480	47280	How those accounts, those users, are managed throughout their entire life cycle, their
+47280	51800	entire time at the company, and then how finally those accounts are removed.
+51800	55080	So when you hear about the provisioning life cycle, a three major pieces are typically
+55080	59520	your provisioning, your review, and your revocation.
+59520	62000	Let's talk about the first step of the provisioning life cycle.
+62000	65160	This is where the organization will create a new account.
+65160	69440	And that includes things like doing backgrounds checks and making sure that the employee has
+69440	75880	the right skills for the job, and it also includes actually creating the account.
+75880	78760	And as part of that, you should do something known as identity proofing, which means
+78760	82600	that you're making sure the employee is who they say they are by checking passports
+82600	84680	or driver's license or something like that.
+84680	87640	And then finally, creating the actual account.
+87640	91560	But the account should be created only with the principles of least privilege you need
+91560	92560	to know.
+92560	94680	In other words, their access has to be approved.
+94680	96600	And who should be approving that access?
+96600	97600	The owner.
+97840	102840	Now, once a user has accounts or a number of accounts within the organization, the next
+102840	107560	step of the provisioning life cycle is reviewing those accounts.
+107560	112240	And review means that the owner or the system owner of the account should be reviewing that
+112240	115000	account to make sure the access remains appropriate.
+115000	118760	The final step of the provisioning life cycle is revocation.
+118760	121760	And revocation actually includes two important parts.
+121760	125560	Part of it might be if someone changes roles within the organization, you actually have
+125560	131320	to not only grant them new access, but remove any existing access that they no longer need.
+131320	136920	And revocation also includes when you finally get to leave the company, when you're dead
+136920	140640	and you can't help anymore or you can't do any more good work, no, I mean revocation
+140640	145080	is when you leave the company and your access needs to be removed.
+145080	146920	And so that's the entire provisioning life cycle.
+146920	149600	And let's just dig into a couple little pieces.
+149600	155240	So when it comes to user access reviews, how often should they be conducted?
+155240	156880	Who should be conducting the review?
+156880	158800	Which accounts should be reviewed most often?
+158800	161440	All of this falls under the review process.
+161440	165680	And the perfect answer for who should be reviewing access to make sure that that access
+165680	172000	is appropriate, the owners, owners of systems, of applications are the ones that should be
+172000	176080	reviewing to make sure the access is appropriate.
+176080	179840	And if you got a question asking you how often should access be reviewed or if you're
+179840	184600	thinking about something like this, the incorrect answer is any specific time like once
+184600	187760	a year or once a month or once every week.
+187760	192600	The perfect answer is in fact actually as often as necessary based on the value of the
+192600	193600	system.
+193600	194880	Why is that the perfect answer?
+194880	199960	Well, because different systems have different value to the organization, different risk profiles.
+199960	204880	And so their users need to be reviewed at different frequencies, different cycles, different
+204880	206200	cadences.
+206200	210480	And so for a very high value system where there might be a lot of turnover in users, maybe
+210480	212360	weekly reviews are appropriate.
+212360	216480	For lower battery systems with less turnover, maybe once a month, maybe even once a year
+216480	217480	is appropriate.
+217480	222040	So the perfect answer is as often as necessary.
+222040	225520	And which type of accounts should be reviewed most often?
+225520	227720	I'll let you know the answer to this one.
+227720	232080	High value accounts, system accounts, root accounts, those are the accounts that we want
+232080	233440	to review most often.
+240480	247480	And so for a very high value system with less turnover, maybe even once a year or once a year
+247480	250480	or once a year or once a year or once a year or once a year or once a year or once a year.

@@ -1,0 +1,25 @@
+We've talked about the advantages of symmetric key cryptography, and just to remind you, they are that...
+that symmetric algorithms are really fast, in fact, they can encrypt to the tune of hundreds of millions of bits per second.
+But the problem that symmetric has is key distribution. Now, asymmetric is the opposite, isn't it?
+The advantage of asymmetric is that it gets rid of the problem of key distribution.
+Now, asymmetric is the opposite, isn't it? The advantage of asymmetric is that it gets rid of the problem of key distribution,
+but introduces that slowness problem. And so that's why today all crypto systems and solutions that exist out there are actually what we call hybrid.
+And hybrid simply means that they use both symmetric and asymmetric key cryptography algorithms for what they're both good at.
+And so what you need to remember here is that symmetric is usually used for bulk and speed.
+Anything that requires a lot of encryption, a lot of decryption, and wherever we need to do it really quickly.
+Asymmetric algorithms are used to exchange these symmetric keys that are required at both ends in order to be able to do that.
+So today, off cryptography solutions, implementations are what we call hybrid. And then what they'll do is they'll also add functionality to address
+hashing algorithms for integrity, digital signature algorithms to address non-repediation. And that's what we call crypto system.
+Really hybrid products that support all kinds of different algorithms to achieve really the five services that cryptography can for us.
+But let's look at an example here of hybrid cryptography by using again Alice and Bob.
+So let's say Alice wants to send a very large message to Bob because it's a very large message.
+The only option that they can use is symmetric cryptography. And so let's say they've decided to use dads for this.
+So what Alice does is she's going to encrypt that very large message with dads which requires her to choose one of the possible keys, symmetric keys,
+that Dez uses. Now she knows that the only way that Bob will be able to decrypt that message is to have the exact same symmetric key.
+So that's the problem of key distribution that we've talked about. But Alice knows a good way to do this and send it to Bob securely because what she can do is she can take that 56-bit symmetric key that Bob requires.
+And encrypt it with Bob's public key. All right, because if Alice encrypts that symmetric key with Bob's public key that ensures that the only person out there that can decrypt that is Bob with his private key that he keeps private to himself.
+And so now when he receives that he will be able to decrypt it with what no one else has which is his private key at which point he will have the same symmetric key that Alice used in order to encrypt that very large message.
+And Bob now will be able to decrypt very quickly as well because ultimately they both used symmetric key cryptography to be able to encrypt and decrypt that message quickly.
+But they've used asymmetric key cryptography to be able to exchange the symmetric key that is required at both ends.
+So this is a perfect example of what hybrid cryptography looks like today. Simply means we use a combination of symmetric and asymmetric for what they're each good at.
+Symmetric always use for bulk and speed, asymmetric always use to exchange symmetric keys that are required at both ends.

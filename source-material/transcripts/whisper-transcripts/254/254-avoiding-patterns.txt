@@ -1,0 +1,135 @@
+One of the most important things that we need to address in any cryptography implementation
+is one of the most important things that we need to address in any cryptography implementation
+is avoiding patterns.
+I think we've mentioned a few times how patterns is what kills cryptography and every single
+example of where cryptography has failed has usually been because of some key management
+implementation issue of where patterns are evident and certainly throughout history
+we've seen that many times.
+So it's important for organizations in how they implement cryptography solutions to avoid
+patterns and patterns are really bad and that's what we're going to try and show here
+in this section and we'll talk about certain ways to avoid patterns.
+Now here's an example.
+You probably know the answer to this.
+If we're using English as an example, there are certain language statistics that people
+know of the English language.
+For example, what's the most commonly used letter in the English alphabet and the answer
+to that is the letter E. Well, how could that help some crypt analyst figure it out?
+For example, what a key is in a cryptography implementation.
+Well, if they've got some cypher text in front of them, they could count all of the letters
+and the one that appears the most often might be the letter E because that's the most commonly
+used letter in the English alphabet.
+Let's keep going here.
+The most commonly used three letter word in the English alphabet is the word the.
+So if you see some cypher text in front of you, for example, and you see a three letter
+word that has been encrypted, you might assume is the letter the and you would approach decrypting
+that message in that fashion.
+What's the most commonly used four letter word in the English alphabet, the word that?
+And this is a really important one because the word that always starts and ends with the
+same letter.
+So if you see some cypher text where it's a four letter word that has been encrypted,
+that starts and ends with the same letter, you can assume and be pretty sure that it
+is the word that.
+So that provides patterns.
+This type of activity in trying to find what certain keys are is called frequency analysis.
+And that simply means that people know language statistics about the language that, for example,
+something has been encrypted in.
+And just to reiterate this problem that we have in how patterns should always be avoided
+in anything related to cryptography, simple substitution and transposition ciphers do not
+hide patterns.
+And you'll remember we showed you this example before.
+For example, when we encrypt the word gobbins, the word gobbins has two b's in it.
+That provides patterns that may be useful to attackers.
+And if you use simple substitution and transposition ciphers, the resulting cypher text also provides
+patterns that may provide opportunities for attackers to eventually figure out what
+the key is.
+So in order to defeat frequency analysis, which is all about understanding what certain
+statistics and patterns that exist in certain languages are, we have to create our own languages
+and alphabets that nobody knows any language statistics about.
+Here's a perfect example.
+In this case, we are creating four different alphabets that each start with a different letter.
+And the idea is if we want to encrypt the word gobbins, when we do it using this with
+a key that is down at the bottom, four, three, one, two.
+The idea is the first letter we're going to encrypt is the letter G, but because the first
+key value is the number four, we use the fourth alphabet.
+So if we intersect the G with the fourth alphabet, we come up with the cypher text letter
+C.
+Now if we do the next one, the next key value is the number three.
+That means we use the third alphabet.
+The letter we need to encrypt is the letter U. So if we intersect the letter U with the
+third alphabet, it comes up with the cypher text letter R.
+Now here's where patterns that appeared in the plaintext actually disappear because
+we've created alphabets that nobody knows any language statistics about.
+So the first B in the plaintext becomes the letter A as cypher text.
+Now the next B will not produce the same A, for example.
+So we hide the patterns that existed in the plaintext by creating what are called polyalphabetic
+cypheres.
+In this case, the second B creates a Z as the cypher text letter.
+So patterns are actually hidden.
+So what you want to remember about polyalphabetic cypheres, the word poly means many.
+So you're creating many alphabets that overall are going to defeat any sort of frequency
+analysis capabilities that monoalphabetic cypheres do not.
+And a perfect example of this, if we keep going here, you're going to see that we're
+going to create some very good cypher text that ultimately hides any patterns that may
+have existed in the plaintext itself.
+Now, a really good example of something that's been used throughout history to be able to
+hide patterns is something called the running key cypher.
+And we have examples of this being used during that period after the Second World War when
+a lot of the countries didn't trust each other because of what happened at the end of
+the Second World War.
+So what happened in these cases, a lot of countries placed spies in other countries.
+But the way that these spies would communicate back with their home country would have been
+using what's called the running key cypher.
+And the reason it's called running key cypher is because it requires the same book to
+exist at both ends.
+So let's say I'm the spy that's been placed in the Soviet Union.
+And I'm trying to communicate back with the country here in the US, for example.
+And so what I do is I take the message that I want to encrypt and I combine it with text
+that appears in a specific part of a book.
+So you and I would know that we are starting at page number 32, paragraph one, sentence
+number one.
+Whatever text that is becomes the key that I combine the secret message that I want
+to communicate with you.
+And so the way that we combine is using the numeric equivalents of each of the letters
+using what you see up on your screen there.
+So if we are encrypting the word gobbins as well and that text that appears on that page
+starts with the quick brown fox and so on.
+What I do is I take the first letter of the secret message and I combine it with the first
+letter of the text that appears on that page, which in this case is the T. And if you combine
+the two, it comes up with that, right?
+Obviously the number G is the seventh letter in the alphabet.
+The T is the 20th letter in the alphabet.
+So if we add the two, 20 plus seven is 27, that's more letters than we have in the English
+alphabet.
+So we have to subtract 26, which equals one.
+So your first cipher text letter is the first letter in the alphabet, which is the A.
+And so if you keep going, the idea is you're going to come up with text.
+When you receive that secret message at your end, you're going to have to know where
+we started in the book.
+You're going to take the encrypted message and you're going to subtract the letters that
+appear on page 32, paragraph one, seconds number one.
+And that'll allow you to retrieve the encrypted message and be able to read it.
+The idea is the next time you and I communicate, we use the same book, but we use a different
+portion of the book.
+The idea is we've got endless possibilities of keys that we can use in order to encrypt
+messages.
+There's the really important point and that is we never reuse the same key.
+And so every single message will have a different key associated with it.
+And that's why these sometimes were referred to as code books.
+The idea is before I get to the Soviet Union, I would have a code book just like the one
+you see on the screen here.
+And we would use a specific page and then once one page was used, it would be destroyed.
+And then the next time you and I communicated, we would use a different part of that code
+book, which ensures security of each message.
+Now the problem with using a different key for every single message is what we call key
+distribution.
+But this, the running key cipher that we just described where we use the same book at
+both ends, but a different part of the book for every single message is ensuring that
+we have a different key for every single message.
+And this in cryptography actually has a specific term associated with it.
+It is known as a one time pad.
+So a one time pad means that for every single message that you encrypt, the key is changed
+and it's never reused.
+And in fact, the key is always the exact same length as the message that you're encrypting.
+Because of that, the key is never reused and it's always the same length.
+It becomes the only unbreakable algorithm that exists where the key is only used one
+and never reused.

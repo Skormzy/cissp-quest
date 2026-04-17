@@ -1,0 +1,464 @@
+1
+00:00:00,000 --> 00:00:05,160
+So we're going to talk very briefly about logging and analysis right now, and then we'll
+
+2
+00:00:05,160 --> 00:00:08,480
+get into a little more deeply when we talk about security information and event management
+
+3
+00:00:08,480 --> 00:00:10,400
+systems in domain 7.
+
+4
+00:00:10,400 --> 00:00:13,600
+But let's start with the basics.
+
+5
+00:00:13,600 --> 00:00:15,480
+Why do we logging and monitoring?
+
+6
+00:00:15,480 --> 00:00:16,480
+I like this slide.
+
+7
+00:00:16,480 --> 00:00:18,760
+It does a good job of summarizing why we do this.
+
+8
+00:00:18,760 --> 00:00:22,600
+First of all, we only want to log what is relevant.
+
+9
+00:00:22,600 --> 00:00:26,840
+It is absolutely possible with our systems to produce, especially modern systems, to produce
+
+10
+00:00:26,840 --> 00:00:29,960
+an unbelievable amount of logging data.
+
+11
+00:00:29,960 --> 00:00:31,440
+But we don't care about all of that.
+
+12
+00:00:31,440 --> 00:00:34,400
+You only want to log what is relevant.
+
+13
+00:00:34,400 --> 00:00:36,400
+How do you determine how to log what is relevant?
+
+14
+00:00:36,400 --> 00:00:40,280
+A really good way of doing this is to go back to risk management.
+
+15
+00:00:40,280 --> 00:00:44,160
+If you think about what are the key risks for an asset, that's a pretty good way of thinking
+
+16
+00:00:44,160 --> 00:00:47,760
+about how would we detect if one of those risks had occurred?
+
+17
+00:00:47,760 --> 00:00:49,440
+Maybe that's what we should turn logging on for.
+
+18
+00:00:49,440 --> 00:00:51,720
+So only log what is relevant.
+
+19
+00:00:51,720 --> 00:00:54,520
+And then review those logs.
+
+20
+00:00:54,520 --> 00:00:58,760
+Someone has to be proactively or some system has to be proactively looking at those logs.
+
+21
+00:00:58,760 --> 00:01:00,800
+And this is where you truly do new system.
+
+22
+00:01:00,800 --> 00:01:03,520
+Modern day systems can produce just, especially in a big environment.
+
+23
+00:01:03,520 --> 00:01:05,760
+You can have millions of events happening per second.
+
+24
+00:01:05,760 --> 00:01:08,480
+And there's no way that a person could actually look through that.
+
+25
+00:01:08,480 --> 00:01:14,240
+You need a system involved that's able to look at all this event data and be able to identify
+
+26
+00:01:14,240 --> 00:01:15,680
+useful information.
+
+27
+00:01:15,680 --> 00:01:18,920
+And you really do want to be reviewing the logs proactively.
+
+28
+00:01:18,920 --> 00:01:22,440
+You can just go back and look at the logs after you've had a breach, but it's better to
+
+29
+00:01:22,440 --> 00:01:23,920
+do it proactively.
+
+30
+00:01:23,920 --> 00:01:25,760
+And then the final thing, what are you actually looking for?
+
+31
+00:01:25,760 --> 00:01:28,840
+Well, you're looking for things like errors and anomalies.
+
+32
+00:01:28,840 --> 00:01:30,480
+And here's a good summary, right?
+
+33
+00:01:30,480 --> 00:01:35,040
+Errors, unexpected errors, are a good indication that a system might not be working properly.
+
+34
+00:01:35,040 --> 00:01:37,800
+Modification to a system, especially if it's unauthorized modification.
+
+35
+00:01:37,800 --> 00:01:41,880
+That's probably something you want to look at and breaches.
+
+36
+00:01:41,880 --> 00:01:46,080
+Now as I mentioned in domain seven, we'll go into seam, sim systems, and much more detail.
+
+37
+00:01:46,080 --> 00:01:51,800
+And we'll talk through all the steps that they go through for the aggregation generation,
+
+38
+00:01:51,800 --> 00:01:52,800
+correlation of logs.
+
+39
+00:01:52,800 --> 00:01:55,640
+We'll talk about that later on.
+
+40
+00:01:55,640 --> 00:02:00,720
+For now, let's just say that when it comes to where can we collect a log event data from
+
+41
+00:02:00,720 --> 00:02:01,720
+everywhere?
+
+42
+00:02:01,720 --> 00:02:02,720
+And what do we want to do?
+
+43
+00:02:02,720 --> 00:02:07,040
+We want to pull all that data into our log correlation system into one central system so
+
+44
+00:02:07,040 --> 00:02:14,560
+that we can then analyze that data, look for the proverbial needle and a stack of needles.
+
+45
+00:02:14,560 --> 00:02:20,360
+One of the problems we face when logging is our endpoint devices, things like our firewalls,
+
+46
+00:02:20,360 --> 00:02:23,000
+can produce an enormous amount of logging data.
+
+47
+00:02:23,000 --> 00:02:26,040
+But they typically have very limited storage on board.
+
+48
+00:02:26,040 --> 00:02:31,120
+And so if we have a requirement to keep a huge amount of logging data, it's often difficult
+
+49
+00:02:31,120 --> 00:02:33,480
+or impossible to do that on the endpoint.
+
+50
+00:02:33,480 --> 00:02:37,720
+So let's talk about a couple of methods of how we can limit log file sizes.
+
+51
+00:02:37,720 --> 00:02:42,080
+Two major methods that you need to know about, circular overwrite and clipping levels.
+
+52
+00:02:42,080 --> 00:02:44,800
+Now let's start with circular overwrite.
+
+53
+00:02:44,800 --> 00:02:50,160
+The way circular overwrite works is you set a maximum log file size or length.
+
+54
+00:02:50,160 --> 00:02:56,200
+And then you start writing log event data until you reach the maximum file size or the
+
+55
+00:02:56,200 --> 00:03:01,120
+maximum number of lines and then you circle back to the top and start overwriting.
+
+56
+00:03:01,120 --> 00:03:03,520
+That's circular overwrite.
+
+57
+00:03:03,520 --> 00:03:07,160
+And what it means is that your log file size is never ending at larger than the maximum
+
+58
+00:03:07,160 --> 00:03:11,880
+number of entries or the file size that you set because as soon as you reach that maximum,
+
+59
+00:03:11,880 --> 00:03:15,200
+you circle back to the top and start overwriting.
+
+60
+00:03:15,200 --> 00:03:19,080
+The other method you can use is what's known as clipping levels.
+
+61
+00:03:19,080 --> 00:03:23,200
+When clipping levels is this idea that we set a threshold below that threshold, don't
+
+62
+00:03:23,200 --> 00:03:24,720
+bother logging anything.
+
+63
+00:03:24,720 --> 00:03:27,120
+Above that threshold, start logging.
+
+64
+00:03:27,120 --> 00:03:29,880
+Here's an example.
+
+65
+00:03:29,880 --> 00:03:32,560
+Failed or incorrect passwords.
+
+66
+00:03:32,560 --> 00:03:37,200
+So when I change my password for the first month or first week anyways, I type in the
+
+67
+00:03:37,200 --> 00:03:40,240
+wrong password and it's a failed log event.
+
+68
+00:03:40,240 --> 00:03:42,480
+This happens all the time for people.
+
+69
+00:03:42,480 --> 00:03:47,440
+And so the vast majority of the time, if you see one failed log in attempt, it's not concerning.
+
+70
+00:03:47,440 --> 00:03:50,960
+So you might set a threshold and you would say, you know what, below say three failed log
+
+71
+00:03:50,960 --> 00:03:54,320
+in attempts in 30 seconds or not going to log anything.
+
+72
+00:03:54,320 --> 00:03:58,440
+So all those times that people are just fat fingering their password or forgetting their
+
+73
+00:03:58,440 --> 00:04:00,960
+password, you're not logging any of that.
+
+74
+00:04:00,960 --> 00:04:05,320
+But if you suddenly see like 50 failed log in attempts within 30 seconds, should you be
+
+75
+00:04:05,320 --> 00:04:06,320
+logging that?
+
+76
+00:04:06,320 --> 00:04:07,320
+Absolutely.
+
+77
+00:04:07,320 --> 00:04:10,200
+That's probably someone trying to brute force your system.
+
+78
+00:04:10,200 --> 00:04:11,760
+And so that's the idea of clipping levels.
+
+79
+00:04:11,760 --> 00:04:15,240
+You set a threshold below that threshold, don't log anything.
+
+80
+00:04:15,240 --> 00:04:18,360
+Love that threshold, start logging.
+
+81
+00:04:18,360 --> 00:04:20,320
+Here's a good question.
+
+82
+00:04:20,320 --> 00:04:25,480
+Which of these methods, circular overwrite or clipping levels, would be better if you
+
+83
+00:04:25,480 --> 00:04:29,480
+wanted to detect a breach?
+
+84
+00:04:29,480 --> 00:04:31,320
+And the answer is clipping levels.
+
+85
+00:04:31,320 --> 00:04:34,880
+And the reason is that with circular overwrite, if you want to investigate a breach, you need
+
+86
+00:04:34,880 --> 00:04:35,880
+the log data.
+
+87
+00:04:35,880 --> 00:04:40,400
+And in circular overwrite, you're erasing your log data, data, you're overwriting your
+
+88
+00:04:40,400 --> 00:04:42,280
+data once you get to a certain point.
+
+89
+00:04:42,280 --> 00:04:45,840
+Whereas with clipping levels, you're limiting the amount of data, but you're not ever
+
+90
+00:04:45,840 --> 00:04:46,840
+overwriting it.
+
+91
+00:04:46,840 --> 00:04:50,640
+So if you get a question like that, the better type of logging, of a better method of
+
+92
+00:04:50,640 --> 00:04:56,280
+limiting log file sizes, if you're looking for a breach, is clipping levels.
+
+93
+00:04:56,280 --> 00:04:59,320
+Final part about logging here that I want to mention.
+
+94
+00:04:59,320 --> 00:05:03,520
+And this relates to the time that we attach to a log file.
+
+95
+00:05:03,520 --> 00:05:05,320
+You want to have consistent timestamps.
+
+96
+00:05:05,320 --> 00:05:09,960
+I'm going to talk later on in the SIM system about how if you want to correlate events,
+
+97
+00:05:09,960 --> 00:05:11,200
+line them up with each other.
+
+98
+00:05:11,200 --> 00:05:13,400
+You need to have consistent timestamps.
+
+99
+00:05:13,400 --> 00:05:18,140
+Has to be the same date, you know, same year, month, day, format, same, 12 or 25 hour
+
+100
+00:05:18,140 --> 00:05:21,440
+clock format, whatever it is, make it consistent.
+
+101
+00:05:21,440 --> 00:05:26,240
+The final piece is all of the systems in your environment need to have the same system
+
+102
+00:05:26,240 --> 00:05:27,240
+time.
+
+103
+00:05:27,240 --> 00:05:31,200
+If you want to be able to trace, track, how in a tracker, how an attacker traversed your
+
+104
+00:05:31,200 --> 00:05:35,320
+network, got into different systems, got a foothold here and then moved there, it is
+
+105
+00:05:35,320 --> 00:05:41,440
+very difficult to trace and figure out exactly what someone did, an attacker did, if your
+
+106
+00:05:41,440 --> 00:05:45,720
+systems have different clock times, if this one's five seconds faster, that one's three
+
+107
+00:05:45,720 --> 00:05:49,400
+seconds slower, it becomes very difficult to trace events.
+
+108
+00:05:49,400 --> 00:05:54,240
+And so the way that we can make sure that all of our systems, clocks are aligned is through
+
+109
+00:05:54,240 --> 00:05:58,640
+the MNTP protocol, network time protocol.
+
+110
+00:05:58,640 --> 00:06:04,240
+And as the name implies, this protocol allows a server to synchronize its system clock.
+
+111
+00:06:04,240 --> 00:06:08,520
+And there are basically what you can connect with this is an atomic clock.
+
+112
+00:06:08,520 --> 00:06:12,080
+And through the MNTP protocol, you can synchronize your system clock with one of these world
+
+113
+00:06:12,080 --> 00:06:16,400
+atomic clocks through NASA or other US agencies and other agencies around the world.
+
+114
+00:06:16,400 --> 00:06:20,300
+And if every system in your environment is using the MNTP to synchronize the system
+
+115
+00:06:20,300 --> 00:06:24,440
+clock, all the servers in the environment, all the systems in the environment will have
+
+116
+00:06:24,440 --> 00:06:25,440
+the exact same time.
+

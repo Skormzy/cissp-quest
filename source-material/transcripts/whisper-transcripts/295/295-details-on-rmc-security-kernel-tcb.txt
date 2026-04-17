@@ -1,0 +1,53 @@
+something trying to actively access an
+object. An object is the passive entity. It's
+whatever is being accessed. It can be another problem.
+We've gone through a brief overview of the reference monitor concept,
+the implementation of which is the security kernel.
+We've gone through a brief overview of the reference monitor concept,
+the implementation of which is the security kernel, and this is one of the
+components within the TCB, the trusted computing base.
+These next few slides are where we delve into each of these pieces in a little more detail.
+Now, we have to start with, of course, what's the subject versus what's an object?
+And the subject is the active entity. It's a person or it's a process. It's something
+trying to actively access an object. And an object is the passive entity. It's
+whatever is being accessed. It can be another process. It could be a database,
+a sharepoint site, a hard drive, could even be a building or a system.
+This is the object. And the reference monitor concept is this whole idea that we want to be
+able to mediate or control a subject's access to an object, control and mediate that access
+based on a set of rules. And all this is logged and monitored. This is the reference monitor
+concept. And of course, for this concept to be effective, we have to implement it.
+And so a security kernel is the implementation of the reference monitor concept.
+And a security kernel can be anything. It can be hardware, firmware, software,
+anything that's actually controlling a subject's access to an object is fundamentally a security
+kernel. So a padlock, a door badge system, a login mechanism on a computer system,
+a operating system controlling access to components with the operating system,
+a hypervisor controlling which virtual machines can connect to which of the underlying
+physical hardware. All of these are fundamentally security kernels.
+And the RMZ and the implementation of which the security kernel has to demonstrate
+three properties to be a good security kernel. First, completeness. And this is about not being
+able to bypass the rules. The subject should not be able to bypass and directly access an object
+and bypass the mediation. So completeness impossible to bypass. Isolation, the rules are
+tamper proof that can only be changed modified by an authorized individual. And verifiability.
+How do you verify that this security kernel is actually working correctly, typically by logging
+and monitoring the activity that's occurring, which subjects are getting to access to which
+objects and which circumstances. And the final piece that we'll talk about here is the tcb.
+And this is where we'll spend a minute here because there's often questions on the tcb and it
+often confuses people a little bit. So here's the perfect definition of the tcb. It's the
+totality of protection mechanisms within an architecture. So what does that actually mean?
+Let's start with the word totality. What does totality mean? It means all everything, the assembly,
+the collection, all of the components. So here's a really big hint for the exam. If you see anything
+that says any word that means all the collection, the assembly, the everything related to the
+protection mechanisms, that is the tcb. So it's all of the mechanisms that are responsible for
+protecting a system. Think of it this way. Picture any type of architecture. Let's take a laptop
+as an example. You might be sitting in front of one right now. Your laptop is going to have all
+starts of components in it. You're going to have a CPU ram. You're going to have a hard drive.
+You're going to have USB ports. You're going to have an operating system and all sorts of
+applications and firmware. These are all the components within the architecture.
+Some of those components are responsible for the security of a system. Things like your anti-malware
+software, your security kernels, your host-based firewall. So the tcb is that subset of if you take
+all of the components, it's the subset that are responsible for security. That is the tcb.
+And so when we say you know what can make up the tcb, it's anything that is responsible for
+security. Could be hardware, could be firmware, could be software, could be processes.
+So that's the tcb. And the next few modules will start to talk through a bunch of different
+components that we have within modern computing systems. And some of these components are in fact
+security kernels and some of them are components within the tcb.

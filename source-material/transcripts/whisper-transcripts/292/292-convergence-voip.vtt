@@ -1,0 +1,173 @@
+WEBVTT
+
+00:00.000 --> 00:18.040
+In this module we're going to talk about something called convergence and a lot of people
+
+00:18.040 --> 00:37.840
+refer to this as IP. In this module we're going to talk about something called convergence and a lot of
+
+00:37.840 --> 00:45.280
+people refer to this as IP convergence and some people get confused as to what it means but
+
+00:45.280 --> 00:53.280
+basically IP convergence is the ability of our data networks that we've had for a very long time to
+
+00:53.280 --> 00:59.120
+carry not only data but a whole bunch of other things that have become really important for companies to
+
+00:59.120 --> 01:06.920
+address across their networks today. So for example IP telephony or voice over IP the ability of the
+
+01:06.920 --> 01:14.560
+network to not only carry data but also multimedia audio video and possibly some other things as well
+
+01:14.560 --> 01:21.680
+is what we call convergence. When you think about what networks were built to do was only carry data but
+
+01:21.680 --> 01:27.720
+today they've got to do much more and that's what we call convergence. Convergence is simply the
+
+01:27.720 --> 01:36.360
+ability of your standard TCP IP network to carry data and a whole bunch more and these are some
+
+01:36.360 --> 01:45.000
+examples. We've got fiber channel over ethernet we've got ice-cazy capabilities for doing things related to
+
+01:45.000 --> 01:56.160
+storage and backing up and restoring and probably the most obvious example of converged protocols which
+
+01:56.160 --> 02:04.040
+means the ability of the data network to carry also voice which a lot of people refer to as voice over
+
+02:04.040 --> 02:11.640
+IP but more appropriately should be called IP telephony. And so when you look at the traditional way that
+
+02:11.640 --> 02:20.840
+companies had to connect themselves to the voice network in the past for voice capabilities we had to
+
+02:20.840 --> 02:26.600
+basically connect ourselves to two distinct networks companies would have had to connect themselves to the
+
+02:26.600 --> 02:33.040
+voice network for voice requirements and then we built data networks to handle our data requirements.
+
+02:33.040 --> 02:41.560
+What we can do today is we can actually carry voice over our data network and that's one example of
+
+02:41.560 --> 02:49.280
+IP convergence because now we have technologies that can allow us to take your voice, digitize it,
+
+02:49.280 --> 02:56.080
+packetize it and then carry it across the data network so that you and I can carry on a
+
+02:56.080 --> 03:05.200
+conversation really across a data data network and that's what we call IP telephony or some people call
+
+03:05.200 --> 03:13.960
+voice over IP but when you look at the way that fundamentally our data networks are done and built the way
+
+03:13.960 --> 03:21.800
+that we carry information across networks is by taking your information breaking it up into packets and
+
+03:21.920 --> 03:29.560
+then sending those packets across a network those packets may travel in different directions they may arrive in a
+
+03:29.560 --> 03:37.480
+different order than they were sent so fundamentally it wouldn't be easy to allow you and I to be able to carry on a
+
+03:37.480 --> 03:46.120
+conversation if that's the way that our voice communications was sent across a data network so that's what voice over
+
+03:46.120 --> 03:57.880
+IP or IP telephony protocols have given us the ability to do. We can take our voice, digitize it, packetize it and send it across the
+
+03:57.880 --> 04:06.200
+network as packets but address some of the issues that would result if those packets for example traveled in different
+
+04:06.200 --> 04:13.840
+directions so these are some of the most popular protocols that the industry has developed to allow us to
+
+04:13.840 --> 04:22.880
+carry voice across data networks and not have some of the problems that would be associated with that so SRTP is one that
+
+04:22.880 --> 04:32.200
+actually adds some security into voice communications because if you think about how we can carry voice over data that would
+
+04:32.200 --> 04:40.480
+mean that we inherit the insecurities that typically data networks have I mean if you look at a data network
+
+04:40.480 --> 04:49.600
+fundamentally it does not address confidentiality or integrity or availability and so if you want security of your voice
+
+04:49.600 --> 04:58.880
+transmissions natively it's not there if you're just doing IP telephony or voice over IP without using specific
+
+04:58.880 --> 05:07.440
+protocols like this one SRTP does add the ability to have secure transmission of voice
+
+05:07.440 --> 05:18.880
+communications by using things like authentication and encryption as part of how you and I ultimately communicate across that IP telephony network another
+
+05:18.880 --> 05:29.200
+popular one is SIP the unfortunate part about IP telephony protocols is that there really isn't many standards in the industry
+
+05:29.200 --> 05:40.000
+usually the vendors will standardize on their own protocols and then if you go with the specific vendor you're typically limited to the security
+
+05:40.000 --> 05:47.680
+capabilities that that vendor will give you which might not be enough to address your requirements for authentication
+
+05:47.680 --> 05:55.200
+encryption and some other things that might be very important in your voice communications across your entire data
+
+05:55.200 --> 06:07.200
+network especially if you're going across different countries or around the globe and using voice over IP or IP telephony but now if you're using IP telephony
+
+06:07.200 --> 06:16.000
+protocols which means you can carry voice over data it's very important to address some of the security concerns that that really
+
+06:16.000 --> 06:28.560
+allows for example if you want confidentiality of those voice transmissions natively it's not there and so if you want to achieve confidentiality we need to encrypt
+
+06:28.560 --> 06:38.000
+but the problem with cryptography and encryption is that it adds what we call latency latency means it takes time to encrypt
+
+06:38.000 --> 06:46.960
+and it takes time to decrypt at both ends so if you want confidentiality and you encrypt the transmissions it may result
+
+06:46.960 --> 06:55.600
+in a little bit of a delay in how you and I are communicating by using voice communications which might make it very frustrating
+
+06:55.600 --> 07:03.360
+you've all experienced this where if you call someone up with your mobile phone and there's a bit of a delay in that transmission
+
+07:03.360 --> 07:10.560
+it's very difficult to communicate and that would be the case every single time that we would use encryption
+
+07:10.560 --> 07:18.320
+in voice over IP transmissions integrity is hard to achieve as well one of the easiest things that you can do
+
+07:18.320 --> 07:26.160
+across a IP telephony environment is to pretend to be someone else or pretend to be from a number that someone else
+
+07:26.160 --> 07:35.120
+represents and so these are easy things you just need software to be able to achieve some exploits and vulnerabilities
+
+07:35.120 --> 07:43.120
+across your IP telephony environments and it's a reason why we see a lot of wishing type of attacks today
+
+07:43.120 --> 07:50.720
+and you may know what this is but it's a form of fishing that specifically happens across your voice over IP
+
+07:50.720 --> 07:59.280
+environments because it's very easy for the attackers to spoof no numbers or numbers that may look familiar to you
+
+07:59.280 --> 08:05.200
+and that's how they get you to provide information that you shouldn't that's what we call wishing attacks
+
+08:05.200 --> 08:14.560
+just a other flavor of fishing that uses voice over IP capabilities that every company has because they've
+
+08:14.560 --> 08:19.520
+implemented IP telephony solutions
+

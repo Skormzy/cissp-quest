@@ -1,0 +1,88 @@
+start	end	text
+0	20160	The most commonly used security protocol across the web is by far SSL.
+30000	43840	The most commonly used security protocol across the web is by far SSL slash TLS. I mean any time you
+43840	52240	connect to a secure server to buy things across Amazon for example or you're doing your web banking
+52240	58720	or you're connecting to any website where any level of security is required. Chances are you're
+58720	67600	going to use SSL slash TLS to do this with and as you'll see this is how we create a very secure
+67600	73200	connection between any browser and it doesn't matter where that browser is you could be at home
+73200	78560	you could be at work you could be at Starbucks you could be in Bora Bora somewhere at a hotel
+79200	84640	and if you want to create a very secure connection between that browser wherever you are
+84640	90400	and a secure server at the other end it's SSL and TLS that will do it for you so what we're going to do
+90400	102080	here is we're going to go through the actual steps of how SSL creates that secure connection
+102080	108240	and we're going to summarize it in four easy steps what's important for you is not to memorize
+108240	113840	the four steps but to have a complete understanding of how those steps actually work together to
+113840	120480	ultimately create that secure connection that is established using SSL and TLS now the first
+120480	127040	thing that we have to understand is what's the difference between SSL and TLS because there's a
+127040	133840	lot of confusion that exists in the industry related to this well just think of it this way TLS
+133840	141760	is the latest version of SSL in fact when they took SSL version three and decided to make some
+141760	148080	really minor improvements to it they decided to rename it altogether to something called TLS
+148080	155280	and the reason they did that is to remove confusion that existed as to where SSL runs according to
+155280	163440	the OSI model layers a lot of people wrongly thought that SSL stood for secure session layer it does
+163440	172400	not in fact the second S is for socket SSL stands for secure socket layer but a lot of people
+172400	179280	mistakenly thought that it ran at the session layer it does not it is a transport layer security
+179280	185120	protocol and so to remove that confusion the industry decided to rename it altogether so instead
+185120	191120	of calling it SSL version four they decided to rename it to something that would eliminate that
+191120	199760	confusion altogether TLS transport layer security and I think you know just think of it as the
+199760	207040	latest version of SSL but the protocol itself is still called SSL by many people because it still
+207040	213760	is the SSL protocols just the latest versions of it is called TLS now let's say you wanted to buy
+213760	222640	something at Amazon dot com so we'll use that as an example so you type in into your favorite
+222640	231680	browser www.amazon dot com now as soon as you make a connection to the Amazon servers both the
+231680	239200	server and your browser which is referred to as the client will recognize that a secure connection
+239200	247600	is required and that will activate the capabilities of SSL slash TLS now the first thing that happens
+247600	254560	here in step number one is that the client you are referred to as the client that's the browser
+254560	261360	the browser the client will send what's called a client hello message to the server all that's
+261360	268160	meant to do is allow the server to understand that it can talk to you in other words you're using a
+268160	274800	version of a browser that it understands you're using a version of SSL that it understands so
+274800	281280	that step number one called the client hello message is simply allowing the server to say okay
+281280	288800	I can understand you we can talk now in step two the same thing has to happen the other way
+288800	296560	and so what happens in this step is the server will send you the client a server hello message to
+296560	302080	allow you to say okay I can understand you as well we can talk in both directions but very
+302080	308320	importantly what happens in this step as well when you're receiving that server hello message the
+308320	316800	server will also send you its certificate and you'll remember from previous modules that a
+316800	324560	certificate will contain the public key of in this case amazon dot com so when you receive that
+324560	332240	certificate that certificate will contain amazon's public key but that entire certificate will
+332240	339440	have been signed or encrypted in the certificate authorities private key so what you're receiving
+339440	345920	is a certificate that contains amazon's public key but that certificate has been issued by a
+345920	352480	certificate authority let's use vericine as an example now as soon as you receive that certificate
+352480	358400	along with the server hello message your browser has the ability to look at that certificate and
+358400	366800	say oh this is a vericine certificate because one of the fields on that certificate is issuer ID
+366800	372160	which identifies the certificate authority that created that certificate in the first place
+372160	380400	so now in step number three your browser understands that it's a vericine certificate goes into
+380400	388240	its functionality and grabs guess what vericine's public key that's built into your browser functionality
+388240	395440	and decrypts that certificate using vericine's public key and if it decrypts properly you are not
+395440	401360	going to see a pop-up that says something is wrong with the certificate if you don't see a pop-up
+401360	407840	that certificate was decrypted properly but now what you can do as a result of that two things have
+407840	414080	actually happened first of all you've authenticated that you have connected to amazon.com and not some
+414080	421200	other sketchy website pretending to be amazon.com because if it was right they would have had to spoof
+421200	427200	a vericine certificate and in order to do that they would have required vericine's private key
+427200	434960	and that's typically not possible so you've authenticated the server as actually being amazon.com
+435040	441440	and at this point you can also trust the contents of that certificate including the most important
+441440	450400	information which is that public key belonging to actually amazon.com now the next step is pretty
+450400	457360	important and you need to remember this it is you the client you the browser that will create
+457360	464960	symmetric session keys with the functionality that's built into your browser and ssl you are going
+464960	472960	to create symmetric session keys that you will encrypt now with what you can trust which is amazon's
+472960	480320	public key so you will encrypt those keys that you created and send them back to amazon encrypted
+480320	489760	in amazon's public key which now requires amazon to use their private key which no one else has
+489760	496320	at which point they will have the same symmetric keys that you created so now any further
+496320	505120	communications between you and amazon back and forth in both directions will be protected using
+505200	511360	those symmetric keys that you created and that amazon was able to decrypt with their private key
+511360	517200	that no one else has so now you can be pretty comfortable in sending your credit card numbers
+517200	523440	any personal information anything else that requires security is going to be protected ultimately
+523440	533520	using symmetric key cryptography but we used a a symmetric process to exchange those keys and that's
+533520	542080	basically what ssl slash tls is it's a hybrid product that uses both symmetric and asymmetric key
+542080	547920	cryptography to ultimately establish a very secure connection between you and again it doesn't
+547920	553040	matter where you are and that secure server at the other end now one of the other things that
+553040	559600	you need to remember here is that in our case we authenticated the server because you obviously
+559600	566960	want to know that you've connected to amazon.com so there's always a need to authenticate the server
+566960	575600	now you may see questions that ask does ssl slash tls support mutual authentication and the answer
+575600	582960	to that is yes it is built in to ssl and tls that if there was a need you can also authenticate
+582960	590240	the client what it would require is a client to have a certificate that would be sent to the server
+590240	596320	in step number one when you send that client hello message you would also send your certificate
+596320	601520	that the server in this case would be able to decrypt and trust and authenticate the client
+601520	608560	so the answer to whether ssl supports mutual authentication is yes it's not normally required
+608560	614880	because for what mostly happens across the web there's always a need to authenticate the server
+614880	621520	but there may not be a need to authenticate the client as an example in this case amazon doesn't
+621520	628000	care where you are whether you're at home or at the office or at Starbucks or in Bora Bora doesn't
+628000	634480	matter right the amazon servers in this case don't care where you are so there's no need to authenticate
+634480	640000	the client but if there was ssl has it built in that we can actually do that it requires
+640000	645760	certificates at the client level that are sent to the server

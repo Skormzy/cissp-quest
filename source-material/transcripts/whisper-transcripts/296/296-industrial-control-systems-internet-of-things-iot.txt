@@ -1,0 +1,156 @@
+or sewage treatment plants, or nuclear reactors.
+All of these major pieces of expensive hardware
+are run by what are called industrial control systems.
+And this module, we're going to talk about industrial control systems
+and internet of things.
+Let's start with industrial control systems.
+In this module, we're going to talk about industrial control systems
+and internet of things.
+Let's start with industrial control systems.
+And a definition, what are industrial control systems?
+Well, industrial control systems are the hardware and the software
+that control big expensive hardware.
+So think manufacturing facilities with all those raw watts
+that are building cars or iPhones.
+Or think of water treatment plants, or sewage treatment plants,
+or nuclear reactors.
+All of these major pieces of expensive hardware
+are run by what are called industrial control systems.
+So given that these industrial control systems control very expensive
+and often very delicate and potentially catastrophic systems
+if they were to fail, like nuclear power plants or water treatment plants,
+these systems have to be very secure and very reliable.
+There's three major types of industrial control systems
+that you need to know both for the examine.
+You do not have to be an expert on these,
+but you should recognize that these systems,
+you're the names of these systems,
+are examples of industrial control systems.
+The most common are SCADA systems.
+You've also got DCS and PLC systems.
+And actually remember for the exam,
+you do not have to memorize all these acronyms.
+There'll be a little window that you can button that you can click
+that will show you a pop-up window that contains all sorts of acronyms
+and what they actually stand for.
+So you don't have to memorize the exact wording of these things
+and you won't get definitional type questions on that.
+So be aware SCADA, DCS and PLC.
+These are very common types of industrial control systems.
+Now, the big risk that we have with industrial control systems
+is that these are very expensive,
+very important systems that are controlling,
+often extremely expensive, very delicate systems.
+And the big security risk is that the hardware,
+the software that these SCADA systems are running around
+or these industrial control systems are running on
+is often very outdated.
+It's not uncommon to come across industrial control systems
+that are still running on like Windows NT.
+It's crazy sometimes.
+So let's start with a question.
+Why are some of these such critical systems running
+on such old antiquated hardware and software?
+And the answer is these are very, very critical systems
+that are often highly customized.
+So it's often very difficult to upgrade
+the underlying operating system and hardware.
+And a lot of these big facilities very much run by the philosophy
+of if it ain't broken, don't fix it.
+Because you do not want to cause an outage
+or cause these systems to malfunction.
+So in many cases, we have very outdated,
+very insecure hardware and underlying operating systems
+that these industrial control systems are running on top of.
+And yet these are extremely critical systems.
+So how do we protect them?
+How do we reduce the risk related to these systems?
+The number one best way, and this is what you should remember
+is the exam, air gap.
+So air gaping is the concept that the industrial control system,
+the network that it's on,
+should absolutely not be connected to the rest
+of the corporate network and especially the internet.
+There should be a physical air gap,
+literally no connection between the industrial control system
+network and the rest of the corporate network
+and especially the internet.
+So remember air gaping is one of the best ways
+of reducing the risk of industrial control systems.
+Now, let's talk about the internet of things.
+What is the internet of things?
+Well, it's all sorts of devices
+that have been given the ability to connect to the internet
+that probably shouldn't be connected to the internet,
+like your fridge and your stove and your dishwasher
+and your light bulb.
+So here's what's really led to this.
+The ability to make a little computer chip,
+basically a little mini computer
+that has Wi-Fi capabilities and can connect to the internet
+has become unbelievably cheap.
+We can make these things for a couple of bucks.
+And as a result, it's become extraordinarily cheap
+to put these capabilities into all sorts of devices.
+And that's exactly what's happening.
+And there's a few big risks here.
+One, most of these internet of things chips
+are made by big OEM, original equipment manufacturers.
+They were, there's just a few manufacturers
+that make the vast majority of these
+internet of things little computers
+that enable this capability.
+And security is not typically their top priority.
+It's to make these things to the lowest possible dollar.
+And so a lot of the internet of things devices out there
+are wildly insecure.
+They have big vulnerabilities in them.
+And a lot of them are actually very difficult to patch.
+And you combine that with the fact that
+when you install these capabilities
+in a lot of devices like a fridge or a stove,
+I mean, who thinks to patch their fridge?
+It's just, it's not something that people think about.
+You plug this device in, you connect it to the internet,
+and then you forget that it's there.
+You forget it's connected to the internet.
+And that leads to the next big risk.
+And that is that these internet of things devices
+can provide a really easy attack platform for a hacker.
+So I'll give you an example of this.
+The largest ever denial of service attack,
+the largest ever denial of service attack in history,
+originated from security cameras.
+So someone discovered a vulnerability in security cameras,
+installed some malware that allowed them
+to remotely control these security cameras,
+created a giant botnet essentially of these security cameras,
+and then perpetrated the largest denial of service attack
+in history from security cameras.
+That's pretty ironic.
+And that highlights the risk with these systems.
+We don't realize they're connected to the internet,
+and we don't think to patch them.
+And because we've put them often deep inside of our corporate
+networks or inside of our personal networks,
+we don't think of the fact that someone
+may be able to remotely connect to this device,
+compromise the device, and now they're inside of our environment.
+So how do we reduce the risk of internet of things devices?
+How do we deal with this problem?
+Well, it's best to think of internet of things devices
+as a computer system, because that's literally what they are.
+So all the same principles that you'd apply to protecting
+any computer system apply to internet of things devices.
+You need to make sure they're patched.
+You need to make sure they're configured properly
+that they have proper authentication in place.
+And because it's often difficult to do all of that
+with a lot of these devices,
+network segmentation is really important.
+Put these things on their own network segment.
+If they truly do need to connect to the internet,
+put them off in some network where that's
+all that they can connect to, or even better yet,
+don't connect them to any internet.
+So that's internet of things.

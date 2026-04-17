@@ -1,0 +1,540 @@
+1
+00:00:00,000 --> 00:00:19,720
+One of the most important things that we need to address in any cryptography implementation
+
+2
+00:00:19,720 --> 00:00:39,800
+is one of the most important things that we need to address in any cryptography implementation
+
+3
+00:00:39,800 --> 00:00:41,560
+is avoiding patterns.
+
+4
+00:00:41,560 --> 00:00:47,480
+I think we've mentioned a few times how patterns is what kills cryptography and every single
+
+5
+00:00:47,480 --> 00:00:54,040
+example of where cryptography has failed has usually been because of some key management
+
+6
+00:00:54,040 --> 00:00:59,480
+implementation issue of where patterns are evident and certainly throughout history
+
+7
+00:00:59,480 --> 00:01:01,520
+we've seen that many times.
+
+8
+00:01:01,520 --> 00:01:07,360
+So it's important for organizations in how they implement cryptography solutions to avoid
+
+9
+00:01:07,360 --> 00:01:13,040
+patterns and patterns are really bad and that's what we're going to try and show here
+
+10
+00:01:13,040 --> 00:01:17,800
+in this section and we'll talk about certain ways to avoid patterns.
+
+11
+00:01:17,800 --> 00:01:19,520
+Now here's an example.
+
+12
+00:01:19,520 --> 00:01:21,880
+You probably know the answer to this.
+
+13
+00:01:21,880 --> 00:01:27,720
+If we're using English as an example, there are certain language statistics that people
+
+14
+00:01:27,720 --> 00:01:30,080
+know of the English language.
+
+15
+00:01:30,080 --> 00:01:35,040
+For example, what's the most commonly used letter in the English alphabet and the answer
+
+16
+00:01:35,040 --> 00:01:40,640
+to that is the letter E. Well, how could that help some crypt analyst figure it out?
+
+17
+00:01:40,640 --> 00:01:44,720
+For example, what a key is in a cryptography implementation.
+
+18
+00:01:44,720 --> 00:01:51,000
+Well, if they've got some cypher text in front of them, they could count all of the letters
+
+19
+00:01:51,000 --> 00:01:57,120
+and the one that appears the most often might be the letter E because that's the most commonly
+
+20
+00:01:57,120 --> 00:02:00,160
+used letter in the English alphabet.
+
+21
+00:02:00,160 --> 00:02:01,440
+Let's keep going here.
+
+22
+00:02:01,440 --> 00:02:07,680
+The most commonly used three letter word in the English alphabet is the word the.
+
+23
+00:02:07,680 --> 00:02:13,800
+So if you see some cypher text in front of you, for example, and you see a three letter
+
+24
+00:02:13,800 --> 00:02:19,640
+word that has been encrypted, you might assume is the letter the and you would approach decrypting
+
+25
+00:02:19,640 --> 00:02:22,600
+that message in that fashion.
+
+26
+00:02:22,600 --> 00:02:28,840
+What's the most commonly used four letter word in the English alphabet, the word that?
+
+27
+00:02:28,840 --> 00:02:35,720
+And this is a really important one because the word that always starts and ends with the
+
+28
+00:02:35,720 --> 00:02:36,720
+same letter.
+
+29
+00:02:36,720 --> 00:02:43,040
+So if you see some cypher text where it's a four letter word that has been encrypted,
+
+30
+00:02:43,040 --> 00:02:48,280
+that starts and ends with the same letter, you can assume and be pretty sure that it
+
+31
+00:02:48,280 --> 00:02:49,920
+is the word that.
+
+32
+00:02:49,920 --> 00:02:52,480
+So that provides patterns.
+
+33
+00:02:52,480 --> 00:02:59,920
+This type of activity in trying to find what certain keys are is called frequency analysis.
+
+34
+00:02:59,920 --> 00:03:05,960
+And that simply means that people know language statistics about the language that, for example,
+
+35
+00:03:05,960 --> 00:03:09,120
+something has been encrypted in.
+
+36
+00:03:09,120 --> 00:03:15,200
+And just to reiterate this problem that we have in how patterns should always be avoided
+
+37
+00:03:15,200 --> 00:03:22,320
+in anything related to cryptography, simple substitution and transposition ciphers do not
+
+38
+00:03:22,320 --> 00:03:23,840
+hide patterns.
+
+39
+00:03:23,840 --> 00:03:27,400
+And you'll remember we showed you this example before.
+
+40
+00:03:27,400 --> 00:03:33,280
+For example, when we encrypt the word gobbins, the word gobbins has two b's in it.
+
+41
+00:03:33,280 --> 00:03:37,240
+That provides patterns that may be useful to attackers.
+
+42
+00:03:37,240 --> 00:03:44,400
+And if you use simple substitution and transposition ciphers, the resulting cypher text also provides
+
+43
+00:03:44,400 --> 00:03:50,000
+patterns that may provide opportunities for attackers to eventually figure out what
+
+44
+00:03:50,000 --> 00:03:51,520
+the key is.
+
+45
+00:03:51,520 --> 00:03:58,360
+So in order to defeat frequency analysis, which is all about understanding what certain
+
+46
+00:03:58,360 --> 00:04:06,280
+statistics and patterns that exist in certain languages are, we have to create our own languages
+
+47
+00:04:06,280 --> 00:04:12,280
+and alphabets that nobody knows any language statistics about.
+
+48
+00:04:12,280 --> 00:04:14,800
+Here's a perfect example.
+
+49
+00:04:14,800 --> 00:04:22,000
+In this case, we are creating four different alphabets that each start with a different letter.
+
+50
+00:04:22,000 --> 00:04:28,200
+And the idea is if we want to encrypt the word gobbins, when we do it using this with
+
+51
+00:04:28,200 --> 00:04:33,040
+a key that is down at the bottom, four, three, one, two.
+
+52
+00:04:33,040 --> 00:04:38,560
+The idea is the first letter we're going to encrypt is the letter G, but because the first
+
+53
+00:04:38,560 --> 00:04:43,480
+key value is the number four, we use the fourth alphabet.
+
+54
+00:04:43,480 --> 00:04:50,160
+So if we intersect the G with the fourth alphabet, we come up with the cypher text letter
+
+55
+00:04:50,160 --> 00:04:51,160
+C.
+
+56
+00:04:51,160 --> 00:04:56,640
+Now if we do the next one, the next key value is the number three.
+
+57
+00:04:56,680 --> 00:04:59,160
+That means we use the third alphabet.
+
+58
+00:04:59,160 --> 00:05:04,680
+The letter we need to encrypt is the letter U. So if we intersect the letter U with the
+
+59
+00:05:04,680 --> 00:05:10,440
+third alphabet, it comes up with the cypher text letter R.
+
+60
+00:05:10,440 --> 00:05:17,480
+Now here's where patterns that appeared in the plaintext actually disappear because
+
+61
+00:05:17,480 --> 00:05:22,400
+we've created alphabets that nobody knows any language statistics about.
+
+62
+00:05:22,440 --> 00:05:30,760
+So the first B in the plaintext becomes the letter A as cypher text.
+
+63
+00:05:30,760 --> 00:05:35,400
+Now the next B will not produce the same A, for example.
+
+64
+00:05:35,400 --> 00:05:43,720
+So we hide the patterns that existed in the plaintext by creating what are called polyalphabetic
+
+65
+00:05:43,720 --> 00:05:44,800
+cypheres.
+
+66
+00:05:44,800 --> 00:05:50,600
+In this case, the second B creates a Z as the cypher text letter.
+
+67
+00:05:50,600 --> 00:05:53,440
+So patterns are actually hidden.
+
+68
+00:05:53,440 --> 00:05:59,400
+So what you want to remember about polyalphabetic cypheres, the word poly means many.
+
+69
+00:05:59,400 --> 00:06:05,480
+So you're creating many alphabets that overall are going to defeat any sort of frequency
+
+70
+00:06:05,480 --> 00:06:10,440
+analysis capabilities that monoalphabetic cypheres do not.
+
+71
+00:06:10,440 --> 00:06:16,000
+And a perfect example of this, if we keep going here, you're going to see that we're
+
+72
+00:06:16,000 --> 00:06:22,720
+going to create some very good cypher text that ultimately hides any patterns that may
+
+73
+00:06:22,720 --> 00:06:25,280
+have existed in the plaintext itself.
+
+74
+00:06:25,280 --> 00:06:30,640
+Now, a really good example of something that's been used throughout history to be able to
+
+75
+00:06:30,640 --> 00:06:35,240
+hide patterns is something called the running key cypher.
+
+76
+00:06:35,240 --> 00:06:42,240
+And we have examples of this being used during that period after the Second World War when
+
+77
+00:06:42,240 --> 00:06:46,440
+a lot of the countries didn't trust each other because of what happened at the end of
+
+78
+00:06:46,440 --> 00:06:48,040
+the Second World War.
+
+79
+00:06:48,040 --> 00:06:53,520
+So what happened in these cases, a lot of countries placed spies in other countries.
+
+80
+00:06:53,520 --> 00:06:58,200
+But the way that these spies would communicate back with their home country would have been
+
+81
+00:06:58,200 --> 00:07:01,040
+using what's called the running key cypher.
+
+82
+00:07:01,040 --> 00:07:05,840
+And the reason it's called running key cypher is because it requires the same book to
+
+83
+00:07:05,840 --> 00:07:08,040
+exist at both ends.
+
+84
+00:07:08,040 --> 00:07:13,080
+So let's say I'm the spy that's been placed in the Soviet Union.
+
+85
+00:07:13,080 --> 00:07:18,240
+And I'm trying to communicate back with the country here in the US, for example.
+
+86
+00:07:18,240 --> 00:07:24,800
+And so what I do is I take the message that I want to encrypt and I combine it with text
+
+87
+00:07:24,800 --> 00:07:28,600
+that appears in a specific part of a book.
+
+88
+00:07:28,600 --> 00:07:35,280
+So you and I would know that we are starting at page number 32, paragraph one, sentence
+
+89
+00:07:35,280 --> 00:07:36,280
+number one.
+
+90
+00:07:36,280 --> 00:07:42,480
+Whatever text that is becomes the key that I combine the secret message that I want
+
+91
+00:07:42,480 --> 00:07:44,440
+to communicate with you.
+
+92
+00:07:44,440 --> 00:07:51,120
+And so the way that we combine is using the numeric equivalents of each of the letters
+
+93
+00:07:51,120 --> 00:07:54,080
+using what you see up on your screen there.
+
+94
+00:07:54,080 --> 00:08:00,840
+So if we are encrypting the word gobbins as well and that text that appears on that page
+
+95
+00:08:00,840 --> 00:08:05,160
+starts with the quick brown fox and so on.
+
+96
+00:08:05,160 --> 00:08:10,120
+What I do is I take the first letter of the secret message and I combine it with the first
+
+97
+00:08:10,120 --> 00:08:15,840
+letter of the text that appears on that page, which in this case is the T. And if you combine
+
+98
+00:08:15,840 --> 00:08:19,280
+the two, it comes up with that, right?
+
+99
+00:08:19,280 --> 00:08:24,320
+Obviously the number G is the seventh letter in the alphabet.
+
+100
+00:08:24,320 --> 00:08:28,000
+The T is the 20th letter in the alphabet.
+
+101
+00:08:28,000 --> 00:08:33,920
+So if we add the two, 20 plus seven is 27, that's more letters than we have in the English
+
+102
+00:08:33,920 --> 00:08:34,920
+alphabet.
+
+103
+00:08:34,920 --> 00:08:38,520
+So we have to subtract 26, which equals one.
+
+104
+00:08:38,520 --> 00:08:44,720
+So your first cipher text letter is the first letter in the alphabet, which is the A.
+
+105
+00:08:44,720 --> 00:08:49,680
+And so if you keep going, the idea is you're going to come up with text.
+
+106
+00:08:49,680 --> 00:08:54,120
+When you receive that secret message at your end, you're going to have to know where
+
+107
+00:08:54,120 --> 00:08:56,000
+we started in the book.
+
+108
+00:08:56,000 --> 00:09:00,800
+You're going to take the encrypted message and you're going to subtract the letters that
+
+109
+00:09:00,800 --> 00:09:05,160
+appear on page 32, paragraph one, seconds number one.
+
+110
+00:09:05,160 --> 00:09:10,560
+And that'll allow you to retrieve the encrypted message and be able to read it.
+
+111
+00:09:10,560 --> 00:09:17,040
+The idea is the next time you and I communicate, we use the same book, but we use a different
+
+112
+00:09:17,040 --> 00:09:18,600
+portion of the book.
+
+113
+00:09:18,600 --> 00:09:24,880
+The idea is we've got endless possibilities of keys that we can use in order to encrypt
+
+114
+00:09:24,880 --> 00:09:25,880
+messages.
+
+115
+00:09:25,880 --> 00:09:32,160
+There's the really important point and that is we never reuse the same key.
+
+116
+00:09:32,160 --> 00:09:36,920
+And so every single message will have a different key associated with it.
+
+117
+00:09:36,920 --> 00:09:40,840
+And that's why these sometimes were referred to as code books.
+
+118
+00:09:40,840 --> 00:09:46,560
+The idea is before I get to the Soviet Union, I would have a code book just like the one
+
+119
+00:09:46,560 --> 00:09:48,560
+you see on the screen here.
+
+120
+00:09:48,560 --> 00:09:55,200
+And we would use a specific page and then once one page was used, it would be destroyed.
+
+121
+00:09:55,200 --> 00:09:59,720
+And then the next time you and I communicated, we would use a different part of that code
+
+122
+00:09:59,720 --> 00:10:04,320
+book, which ensures security of each message.
+
+123
+00:10:04,320 --> 00:10:11,600
+Now the problem with using a different key for every single message is what we call key
+
+124
+00:10:11,600 --> 00:10:13,000
+distribution.
+
+125
+00:10:13,000 --> 00:10:17,440
+But this, the running key cipher that we just described where we use the same book at
+
+126
+00:10:17,440 --> 00:10:23,000
+both ends, but a different part of the book for every single message is ensuring that
+
+127
+00:10:23,000 --> 00:10:26,400
+we have a different key for every single message.
+
+128
+00:10:26,400 --> 00:10:32,600
+And this in cryptography actually has a specific term associated with it.
+
+129
+00:10:32,600 --> 00:10:35,920
+It is known as a one time pad.
+
+130
+00:10:35,920 --> 00:10:42,640
+So a one time pad means that for every single message that you encrypt, the key is changed
+
+131
+00:10:42,640 --> 00:10:44,600
+and it's never reused.
+
+132
+00:10:44,600 --> 00:10:52,000
+And in fact, the key is always the exact same length as the message that you're encrypting.
+
+133
+00:10:52,000 --> 00:10:56,320
+Because of that, the key is never reused and it's always the same length.
+
+134
+00:10:56,320 --> 00:11:03,240
+It becomes the only unbreakable algorithm that exists where the key is only used one
+
+135
+00:11:03,240 --> 00:11:04,560
+and never reused.
+

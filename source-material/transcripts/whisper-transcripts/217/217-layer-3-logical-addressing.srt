@@ -1,0 +1,380 @@
+1
+00:00:00,000 --> 00:00:18,640
+Alright, here we are at Layer 3 in the OSI model.
+
+2
+00:00:18,640 --> 00:00:35,640
+We've been slowly moving up.
+
+3
+00:00:35,640 --> 00:00:38,720
+Alright, here we are at Layer 3 in the OSI model.
+
+4
+00:00:38,720 --> 00:00:40,800
+We've been slowly moving up.
+
+5
+00:00:40,800 --> 00:00:48,040
+Now if you remember how we equated the OSI model to a team, like a sports team for example,
+
+6
+00:00:48,040 --> 00:00:53,280
+usually you pick a captain of the team and that person is usually the one that has the
+
+7
+00:00:53,280 --> 00:00:59,680
+most leadership qualities, can inspire the others, can coordinate so that the team more
+
+8
+00:00:59,680 --> 00:01:01,880
+effectively achieves its goal.
+
+9
+00:01:01,880 --> 00:01:07,240
+Well, if you were to pick a captain of the OSI team, it would have to be the network
+
+10
+00:01:07,240 --> 00:01:08,240
+layer.
+
+11
+00:01:08,240 --> 00:01:13,120
+The network layer has some protocols within it that are really fundamental to what
+
+12
+00:01:13,120 --> 00:01:18,400
+networking is and how we allow communications across network itself.
+
+13
+00:01:18,400 --> 00:01:23,680
+And so the network layer and protocols that operate here that are part of TCPIP.
+
+14
+00:01:23,680 --> 00:01:31,160
+Remember how we implement the OSI model is through TCPIP and its family of protocols.
+
+15
+00:01:31,160 --> 00:01:35,960
+So there are protocols that operate at the network layer here that really drive everything
+
+16
+00:01:35,960 --> 00:01:39,120
+that happens and are the captain of the team.
+
+17
+00:01:39,120 --> 00:01:42,080
+That protocol has to be IP.
+
+18
+00:01:42,080 --> 00:01:47,800
+In fact, if you remember what we talked about earlier as far as the network layer is concerned,
+
+19
+00:01:47,800 --> 00:01:55,920
+it's really responsible for two really important capabilities and responsibilities that need
+
+20
+00:01:55,920 --> 00:01:58,160
+to happen across network.
+
+21
+00:01:58,160 --> 00:02:00,400
+And it's what you see here on your slide.
+
+22
+00:02:00,400 --> 00:02:06,960
+The first is what we call fragmentation, which means, for example, taking the email that
+
+23
+00:02:06,960 --> 00:02:14,480
+I'm sending you and breaking it down or fragmenting it into manageable chunks that are typically
+
+24
+00:02:14,480 --> 00:02:17,240
+called packets or data grams.
+
+25
+00:02:17,240 --> 00:02:22,960
+But then it's also the network layer through IP here that needs to deliver each of those
+
+26
+00:02:22,960 --> 00:02:29,160
+data grams to the destination using some sort of addressing scheme, which you know is
+
+27
+00:02:29,160 --> 00:02:32,400
+referred to as IP addressing.
+
+28
+00:02:32,400 --> 00:02:38,760
+So remember that the network layer includes the IP protocol, which is really responsible
+
+29
+00:02:38,760 --> 00:02:45,520
+for two very important things, fragmentation and addressing of those fragments so that
+
+30
+00:02:45,520 --> 00:02:47,600
+they can get to their destination.
+
+31
+00:02:47,600 --> 00:02:55,960
+Now, if we draw this, the unit of information that the network layer or IP uses at the network
+
+32
+00:02:56,040 --> 00:02:59,400
+layer is usually referred to as a packet.
+
+33
+00:02:59,400 --> 00:03:03,720
+But more appropriately, it should be called a data gram.
+
+34
+00:03:03,720 --> 00:03:11,120
+So if you look at what a data gram looks like, it really has two important components
+
+35
+00:03:11,120 --> 00:03:17,640
+to allow the network layer here and IP to not only deliver that information to you, but
+
+36
+00:03:17,640 --> 00:03:19,800
+as effectively as possible.
+
+37
+00:03:19,800 --> 00:03:24,520
+So if you look at the two components that make up a data gram or a packet, you're going
+
+38
+00:03:24,520 --> 00:03:33,720
+to have the data portion, which is also referred to as the payload by some people, most network
+
+39
+00:03:33,720 --> 00:03:35,720
+people will call it the payload.
+
+40
+00:03:35,720 --> 00:03:41,120
+But in order to get this data gram to its destination, we need addressing information
+
+41
+00:03:41,120 --> 00:03:48,080
+that is usually included in what we call the header portion of the data gram.
+
+42
+00:03:48,080 --> 00:03:54,640
+So this is the unit that IP, for example, uses at the network layer to do fragmentation,
+
+43
+00:03:54,640 --> 00:04:00,400
+which means breaking that email into data grams, but then allowing each of these data grams
+
+44
+00:04:00,400 --> 00:04:02,800
+to be delivered to its destination.
+
+45
+00:04:02,800 --> 00:04:07,920
+So those are the two important functions that the network layer through IP takes care
+
+46
+00:04:07,920 --> 00:04:08,920
+of.
+
+47
+00:04:08,920 --> 00:04:15,680
+Now, obviously what's important here is there needs to be fields in the header portion
+
+48
+00:04:15,680 --> 00:04:21,000
+of the data gram that allows this entire data gram to be delivered to its destination.
+
+49
+00:04:21,000 --> 00:04:28,040
+So there are fields in here called source IP address, destination IP address, and some
+
+50
+00:04:28,040 --> 00:04:35,280
+other fields that allow fragmentation and delivery through addressing, for example, at the network
+
+51
+00:04:35,280 --> 00:04:36,280
+layer.
+
+52
+00:04:36,280 --> 00:04:44,960
+Now that field called source IP address and destination IP address are 32 bits of information.
+
+53
+00:04:44,960 --> 00:04:47,080
+32 bits.
+
+54
+00:04:47,080 --> 00:04:53,720
+And what they've done is they've taken those 32 bits and divided it into four groups
+
+55
+00:04:53,720 --> 00:04:55,320
+of eight bits.
+
+56
+00:04:55,320 --> 00:05:00,320
+That's why you end up seeing IP addresses like the one you see on your slide here, right?
+
+57
+00:05:00,320 --> 00:05:08,360
+So you've got IP addresses that might look like something like this.
+
+58
+00:05:08,360 --> 00:05:13,840
+But really this represents the 32 bits that are in the header portion of the data gram.
+
+59
+00:05:13,840 --> 00:05:19,280
+You've just taken those 32 bits and divided it into four groups of eight bits.
+
+60
+00:05:19,280 --> 00:05:26,120
+Now if you do the math because this is bits, if you've got something that's 32 bits, there
+
+61
+00:05:26,120 --> 00:05:32,680
+are only so many finite, unique IP addresses that that can represent.
+
+62
+00:05:32,680 --> 00:05:42,520
+So if you do two to the 32 and work that out, it's going to equal just under 4.3 billion
+
+63
+00:05:42,520 --> 00:05:48,800
+unique IP addresses that can be referenced across any network like the internet.
+
+64
+00:05:48,800 --> 00:05:52,360
+And so that's a limitation that we have known about.
+
+65
+00:05:52,360 --> 00:05:59,200
+And something that has saved us in allowing us to have many more things connected to the
+
+66
+00:05:59,200 --> 00:06:04,280
+internet rather than this limitation is something called NAT that we're going to talk about
+
+67
+00:06:04,280 --> 00:06:05,560
+later on.
+
+68
+00:06:05,560 --> 00:06:11,960
+But this limitation that the industry has known for a number of years has led to the development
+
+69
+00:06:11,960 --> 00:06:16,200
+of something called IP version 6, which we're going to talk about later on.
+
+70
+00:06:16,200 --> 00:06:22,440
+But one of the things that they've done in IP version 6 is they've expanded the addressing
+
+71
+00:06:22,440 --> 00:06:29,480
+to actually 128 bits for both the source IP address and the destination IP address.
+
+72
+00:06:29,480 --> 00:06:34,880
+And something else that's relevant from a security perspective in IP version 6 is the
+
+73
+00:06:34,880 --> 00:06:44,400
+inclusion of security called IPSec, which will add authentication and encryption natively
+
+74
+00:06:44,400 --> 00:06:50,160
+into the IP version 6 protocol when everybody's using it.
+
+75
+00:06:50,160 --> 00:06:55,760
+And so the next thing that you see up here on your slide is not anything that's relevant
+
+76
+00:06:55,760 --> 00:07:02,600
+from the perspective of you having to understand each of these different IEEE document numbers
+
+77
+00:07:02,600 --> 00:07:04,040
+that you see here.
+
+78
+00:07:04,040 --> 00:07:09,280
+The important thing to remember at this point is the importance of that organization called
+
+79
+00:07:09,280 --> 00:07:10,840
+the IEEE.
+
+80
+00:07:10,840 --> 00:07:16,080
+The IEEE is the Institute of Electric and Electronic Engineers.
+
+81
+00:07:16,080 --> 00:07:21,520
+And they are a bunch of bright people that get together when a technology first appears
+
+82
+00:07:21,520 --> 00:07:23,760
+or improves, for example.
+
+83
+00:07:23,760 --> 00:07:29,760
+And what they do is they sit down and ratify, which means they agree on what a technology
+
+84
+00:07:29,760 --> 00:07:35,680
+needs to look like so that vendors and anyone else that wants to offer products related
+
+85
+00:07:35,680 --> 00:07:42,160
+to that technology will have to conform to the standards and not go off in their own direction.
+
+86
+00:07:42,160 --> 00:07:47,840
+And so when they ratify some of these technologies and what they need to look like, they issue
+
+87
+00:07:47,840 --> 00:07:51,000
+what are called IEEE document numbers.
+
+88
+00:07:51,000 --> 00:07:59,720
+And you're probably familiar with the family of 802.11 IEEE specifications for wireless
+
+89
+00:07:59,720 --> 00:08:00,720
+lands.
+
+90
+00:08:00,720 --> 00:08:07,760
+And as we've evolved, for example, what we used to have was 802.11A and then B came
+
+91
+00:08:07,760 --> 00:08:13,560
+along and then G came along and then N came along and AC came along, they've ratified
+
+92
+00:08:13,560 --> 00:08:18,040
+each of those standards so that everybody conforms to those standards.
+
+93
+00:08:18,040 --> 00:08:20,760
+That's the importance of the IEEE.
+
+94
+00:08:20,760 --> 00:08:25,040
+So there's different specifications for different technologies that exist out there.
+
+95
+00:08:25,040 --> 00:08:28,800
+You don't need to memorize them all, obviously, for purposes of the exam.
+

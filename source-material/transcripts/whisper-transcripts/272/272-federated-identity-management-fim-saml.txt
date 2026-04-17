@@ -1,0 +1,124 @@
+FEDERATED IDENTITY MANAGEMENT
+FEDERATED IDENTITY MANAGEMENT
+Let's talk about what this looks like from user's perspective.
+FEDERATED IDENTITY MANAGEMENT
+FEDERATED IDENTITY MANAGEMENT
+Let's talk about what this looks like from user's perspective.
+From user's perspective, they can log in once, usually with their corporate credentials,
+and then magically get access to a bunch of different systems.
+Sounds just like single sign on, doesn't it?
+But there's a really important difference between FEDERATED IDENTITY MANAGEMENT and single sign on.
+And the key difference is that single sign on is typically only within one organization,
+and it only enables access to one organization's systems,
+whereas FEDERATED IDENTITY MANAGEMENT is allowing users to access multiple different entities systems.
+So let's start with an example to kind of put this into the real world.
+So let's think of how when you're browsing the web nowadays,
+there's lots of websites that you can go to where instead of having a unique username and password on that website,
+instead what you have is it gives you the website, will give you the ability to log in with Google or Facebook,
+or your Amazon ID, or something like that.
+So let's pick Facebook as an example.
+And let's try and think of a company that Facebook doesn't yet own.
+It's genuinely difficult to think of a company that they don't own yet.
+Spotify. I don't think they own Spotify yet.
+So let's go with them, for example, okay?
+So here's how this would work.
+If I go to Spotify.com, and I go to Login,
+instead of providing a unique username and password for Spotify.com,
+instead I click the button that says Login with Facebook.
+And then what will happen is a window will come up.
+And what do I type in there? I type in my Facebook credentials.
+And I essentially log in and I'm identified and authenticated by Facebook.
+And then when that Facebook has authenticated me,
+I'm then able to log in to Spotify.
+This is exactly what Federated Access Management is.
+It's a trust relationship between three entities.
+You've got your user or your principal.
+That's the person who's actually logging in.
+You've got your identity provider.
+This is the entity that stores the user's identity,
+their account, and knows the user's username and password,
+or whatever they authenticate with knowledge, ownership, or characteristic.
+And then the third entity in the trust relationship
+is the relying party or the service provider
+that the user actually wants to access.
+So in the example that we just talked about,
+let's relate who each of the entities are.
+So the user principal, that's obviously the person that's logging in.
+The website that the person ultimately wanted to access was Spotify.
+So Spotify would be the relying party or another term for this is service provider.
+So relying party service provider means the same thing.
+That's the entity the user actually wants to access.
+But the user didn't authenticate with the relying party.
+Instead the user authenticated with Facebook.
+So in the example here that I've just given you,
+Facebook would be the identity provider.
+The way this works in most corporations is that the user will authenticate
+with the corporate credentials, usually through Active Directory.
+And then, because most organizations nowadays have all sorts of cloud services,
+what the user is able to magically access through their corporate credentials
+is things like service now and concur and all these online software
+is a service application.
+So that's the idea behind federated access.
+It's a trust relationship between at least three entities.
+The user, the identity provider, and one or more relying parties or service providers.
+Now there's a number of different protocols or standards that will enable federated access.
+The major one that you need to know about is SAML,
+the security assertion markup language.
+And SAML actually has two capabilities.
+It does both authentication and authorization.
+And we'll talk about SAML in a bit more detail in a moment.
+And it's very commonly on the exam.
+So it's one of the protocols you need to know a bit about.
+Three other protocols that enable federated access that I would suggest you just know at a high level.
+You don't need to know any great detail on them.
+RWS Federation, which does both authentication and authorization.
+And two more open ID and OAuth.
+Open ID by itself only does the identification and the authentication.
+OAuth on the other hand does the authorization.
+And so these two protocols are typically work together to achieve both the authentication and the authorization.
+Now let's dig into SAML in a little more detail.
+And just like we talked about with Kerberos, SAML uses this idea of having tickets or tokens that are passed back and forth.
+So let's say the user wants to log into the, here we've called it the service provider.
+Otherwise known as the relying party.
+Let's say the user wants to log into the service provider.
+The first thing the user will do is send a request saying, I'd like to log in.
+Now if the user does not currently have a valid ticket or token, what's going to happen is the user is going to be redirected back to the identity provider.
+So that the user can authenticate themselves.
+So the user will be redirected back to the identity provider, maybe something like Active Directory.
+The user will then authenticate themselves through knowledge, ownership, or characteristic, or some combination thereof.
+And once the user is authenticated, the user will be given a SAML assertion, ticket, or token.
+And it's really important to understand what this contains, what this ticket or token contains.
+It contains some assertion statements, some information on the user.
+Maybe what their username is, what their role is, what sort of access they should have.
+But very importantly, and listen carefully here, it does not contain their authentication information.
+And by that I mean it would not contain their password or their biometric data or anything like that.
+That data is not contained in the ticket or token because the relying party has no idea what the user's password is.
+And you don't want them to because the whole point of federated access is that we're letting our users log into different service providers.
+And you would not want those service providers to know your users corporate credentials.
+So once the user authenticates, gets their ticket or token, they can then take that ticket or token and pass it back to the relying party or the service provider.
+So we'll then read through the assertion statements inside that ticket or token and make an authorization decision.
+What is the user going to be authorized to access in this particular service provider?
+And then if the user is allowed in, they'll get access.
+So that's the basic steps that SAML goes through.
+And there's a couple major things that you should know about SAML.
+As I mentioned, it uses this concept of tickets or tokens and these tickets or tokens contain assertion statements.
+And those assertion statements are written in a particular language or protocol.
+It's known as XML, the extensible markup language.
+This is simply a language that is both human and machine readable and it's what those assertion statements are written in within the SAML ticket or token.
+The final piece that you should know about SAML is some of the major components that are always required to actually send SAML authentication and authorization information between these different entities.
+And the four major components of SAML are first the assertion.
+And the assertion is what we just talked about.
+That's those assertion statements contained within the ticket or token, containing the authentication and authorization information and some other attributes.
+The next component is what we call the protocol.
+And this is simply defines how the different entities in that trust relationship actually communicate with each other, defines how they talk to each other.
+The next piece is what is known as the bindings.
+The bindings define how the SAML assertion information is actually sent across the network.
+So for instance, you can bind it to HTTP.
+So the SAML assertion information is sent over the HTTP protocol.
+And the final piece is what are known as profiles.
+You can set up SAML to have different profiles.
+In other words, to serve different business purposes.
+So one usage of SAML might be for web application authentication.
+Another use might be for connecting to say the LDAP system.
+So you can set up different profiles to allow for different business uses of SAML.
+So there you go. That's federated access.

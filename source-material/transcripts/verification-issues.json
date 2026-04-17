@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-04-16T02:10:00.000Z",
+  "orphaned_questions": [],
+  "orphaned_glossary_terms": [],
+  "orphaned_library_topics": [],
+  "story_concept_mismatches": [],
+  "thin_coverage_topics": [
+    {
+      "concept": "Types of Storage",
+      "domain": 3,
+      "coverage_type_count": 1,
+      "recommendation": "Add library topic in future sprint. Low exam frequency — acceptable at 1 content type."
+    },
+    {
+      "concept": "History of Cryptography",
+      "domain": 3,
+      "coverage_type_count": 1,
+      "recommendation": "Low exam frequency. Questions sufficient. No action required."
+    },
+    {
+      "concept": "Physical Security: Perimeter and Facility Design",
+      "domain": 3,
+      "coverage_type_count": 1,
+      "recommendation": "Add CPTED library topic in future sprint. Medium exam frequency."
+    },
+    {
+      "concept": "Wide Area Networks (WAN)",
+      "domain": 4,
+      "coverage_type_count": 1,
+      "recommendation": "Low exam frequency. MPLS/SD-WAN covered in D4 questions. Acceptable."
+    },
+    {
+      "concept": "Third-Party Service Provider Governance",
+      "domain": 1,
+      "coverage_type_count": 2,
+      "recommendation": "SLA governance library topic would strengthen coverage. Medium exam frequency."
+    }
+  ],
+  "total_issues": 0,
+  "total_warnings": 5,
+  "notes": "All 72 inventoried concepts are covered by at least one content type. 5 thin-coverage warnings exist for low-to-medium priority topics. No hard gaps remain."
+}

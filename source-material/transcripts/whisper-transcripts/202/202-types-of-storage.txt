@@ -1,0 +1,96 @@
+All right, we've been talking about all different types of components within a system.
+And now we're going to teach my my daughter here.
+All right, we've been talking about all different types of components within a system.
+And now we're going to teach my my daughter here about storage within a system.
+We're going to talk about the two primary types of storage within a system, primary storage
+and secondary storage.
+So this is where we keep the bits in our computer system.
+Later in life, this is where you'll keep your like Instagram photos or whatever the
+kids are doing that when you're growing up, okay?
+So what does primary storage mean?
+Primary storage means it's volatile memory, whereas secondary storage is often referred
+to as non-volatile memory.
+So what's that word volatile mean?
+Well, soon you'll learn that volatile means it's something that can sort of disappear
+at regular temperatures.
+And that's a really good way of thinking about primary storage or volatile memory.
+If the power gets pulled, any of that data in volatile memory disappears.
+It's gone.
+Whereas in non-volatile memory, the data remains even when the system is powered down.
+So let's look at some examples of both primary and secondary storage and we'll start with
+primary storage.
+So some really good examples of primary storage are things like my daughter's trying to
+eat my finger here, she's teething.
+So examples of primary storage are cash, registers, RAM.
+And all of these are very, very high speed forms of storage.
+So what do we primarily use volatile memory for?
+We use primary or volatile memory for data that's actively being used by the system,
+for programs that have been loaded that are in memory, that the CPU is currently processing.
+And what we want this primary storage for is for the data that needs to be accessed very,
+very quickly.
+And so cash, registers, this is actually data or this is actually storage built into
+the processor itself.
+Whereas RAM, RAM, access memory is actually memory modules built into the system.
+But it's quite fast.
+So what are the pros and cons of primary storage?
+Well, as we talked about, primary storage, very, very fast, but it is volatile.
+Like you're getting here.
+So what about secondary storage?
+It's kind of the inverse.
+Examples of secondary storage are things like magnetic hard drives, optical media drives,
+tapes, solid state drives.
+These are all examples of secondary storage.
+They're not nearly as fast, but they can store a lot more data.
+A lot more pictures of you, cutie.
+So what do we primarily use secondary storage for?
+We use secondary storage for storing the data and the program code when it's not being
+used.
+So pictures, things like that, data from programs, movies, they're stored in our secondary
+storage.
+Now, let's talk about one other concept and it's known as virtual memory.
+And to explain virtual memory, we have to understand a little bit how a computer system
+actually works.
+So you've probably noticed when you double click on an icon like Word, it actually takes
+a little bit of time for that program to load.
+And in fact, there's often what we call a load screen.
+So what is a load screen?
+A load screen is where the program is telling you it's actually taking data from secondary
+storage, from slower hard drives, and it's moving it into RAM, into memory, much higher
+speed storage.
+And the reason you want this to occur is that the processor works so incredibly quickly.
+It's always going through calculations.
+We've had to wait for a very long time for some data that's requested to come back from
+say secondary storage.
+It would really significantly slow the computer system down.
+So when we load a program, what we're actually doing is transferring data from secondary
+storage, the hard drive, into primary storage, RAM, random access memory.
+Can you say that out loud?
+Probably not yet.
+So there's a problem though with this.
+If you've got too many programs running, if you've loaded too many programs, you're
+going to run out of this primary storage known as RAM.
+And you've probably heard numbers relate to your computer systems.
+It's not uncommon that a computer will have, say, four or eight gigabytes of RAM, and
+you'll have like, terabytes of storage.
+So RAM is really, really small, relatively, to the secondary storage.
+And so the problem we had is if we've loaded too many programs into RAM, we start to run
+out of RAM.
+And a computer system, if it were to run out of memory entirely, the system would crash.
+And in fact, we used to see this a lot.
+So there used to be something called the blue screen of death.
+Hopefully, you'll never have to see that in your life.
+But in Windows, if you had too many things loaded and the system ran out of RAM, ran out
+of this primary storage, you'd actually get a blue screen, the system would crash.
+So a way that we found, the industry is found to actually deal with this problem is to use
+what is known as virtual memory.
+And this is the concept, drooly face, where we move some data out of RAM back to the hard
+drive.
+And we temporarily store it on the hard drive until it's neat again.
+And then we can move it again back from the hard drive, woo, we were falling, back into
+primary storage.
+And that's the concept of virtual memory.
+It's simply this idea that some data that's not being used very often is moved out of
+RAM onto the hard drive.
+And then when it's needed again, back into memory.
+With the overall effect, it definitely slows down the system.
+But the system keeps running, so that's virtual memory.

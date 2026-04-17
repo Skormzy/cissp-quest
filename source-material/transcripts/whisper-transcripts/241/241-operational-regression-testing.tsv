@@ -1,0 +1,34 @@
+start	end	text
+0	19000	Continue in our discussion of testing. Let's now talk about operational testing.
+19000	39000	Continue in our discussion of testing. Let's now talk about operational testing.
+39000	43000	There's three major types of operational testing that we're going to talk about.
+43000	47000	Rum, synthetic transactions and progression testing. Let's start with rum.
+47000	57000	Rum stands for real user monitoring. Real user monitoring is simply the concept that you watch your log files to see what real users are doing with your system.
+57000	64000	Are they when they're accessing your website? Are there certain error messages popping up like 404 or a file mod found or something like that?
+64000	71000	So, watching your log files to see how real users are watching your system is known as real user monitoring.
+71000	80000	Now, what about synthetic transactions? Synthetic transactions is this idea that we synthesize or we create transactions on a system.
+80000	85000	How do we do that? Well, think of it as creating little software scripts or bots.
+85000	89000	And these little software scripts or bots will perform certain functions.
+89000	92000	So, maybe a good way to think about this is an online banking system.
+92000	99000	An online banking system has all sorts of functionality. You can log in. You can check your account balance. You can transfer funds.
+99000	106000	You could write synthetic transactions that would test or would perform each of these operations. One of them would log in.
+106000	110000	Another would transfer funds. Another would check an account balance.
+110000	116000	And if you write a synthetic transaction or a little bot that tests each of these pieces of functionality,
+116000	125000	then you can run all those transactions, those synthetic transactions, and see all the functions, for instance, on your website working correctly.
+125000	132000	And there's another really cool usage for synthetic transactions. And that is, what if instead of running these one at a time?
+132000	141000	What if you were to run 10,000 of them simultaneously? What would that test? Well, that would test load or performance of your application.
+141000	146000	See how your application performs if it's getting hit by a whole lack of users like on Black Friday.
+146000	151000	So, you can use synthetic transactions to test the performance of your application.
+151000	159000	Here's a really good test question that sometimes comes up. What would be the most accurate environment in which you perform synthetic transactions?
+159000	167000	And the answer is production. If you truly want to know how your system is going to react to a huge load,
+167000	173000	the best environment to test in is production. Are you going to be extremely careful about doing that? Of course.
+173000	181000	You're all sorts of testing and dev and so forth, so forth first. But if you truly want to know how your application is going to react, test and production.
+182000	186000	The next type of testing we're going to talk about is regression testing.
+186000	195000	And regression testing is simply the idea that if you make a change to a system, not only do you want to check to make sure all the new functionalities working correctly,
+195000	200000	but also make sure that all the existing functionality keeps working properly.
+200000	209000	That is regression testing. It's this concept of testing code or testing systems to make sure you didn't break anything when you implement a change.
+209000	215000	With any of the testing that we've talked about in the last few modules, it's important to have very clear test results.
+215000	221000	To know, for instance, did your test actually pass or did it fail? You don't want the result of the test to be, eh, maybe.
+221000	229000	You wanted to be, yes, it passed or no, it didn't pass. And you want to be able to have the right level of detail in the test results,
+229000	238000	the right metrics reported to the right people. The way that you report the results of a test is going to vary depending on who the audience of that test result is and what it is they're looking to see.
+238000	240000	We're looking to see.

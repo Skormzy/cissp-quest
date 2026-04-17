@@ -1,0 +1,374 @@
+WEBVTT
+
+00:00.000 --> 00:14.000
+FEDERATED IDENTITY MANAGEMENT
+
+00:14.000 --> 00:16.000
+FEDERATED IDENTITY MANAGEMENT
+
+00:16.000 --> 00:20.000
+Let's talk about what this looks like from user's perspective.
+
+00:20.000 --> 00:34.000
+FEDERATED IDENTITY MANAGEMENT
+
+00:34.000 --> 00:36.000
+FEDERATED IDENTITY MANAGEMENT
+
+00:36.000 --> 00:40.000
+Let's talk about what this looks like from user's perspective.
+
+00:40.000 --> 00:44.000
+From user's perspective, they can log in once, usually with their corporate credentials,
+
+00:44.000 --> 00:48.000
+and then magically get access to a bunch of different systems.
+
+00:48.000 --> 00:51.000
+Sounds just like single sign on, doesn't it?
+
+00:51.000 --> 00:57.000
+But there's a really important difference between FEDERATED IDENTITY MANAGEMENT and single sign on.
+
+00:57.000 --> 01:02.000
+And the key difference is that single sign on is typically only within one organization,
+
+01:02.000 --> 01:06.000
+and it only enables access to one organization's systems,
+
+01:06.000 --> 01:14.000
+whereas FEDERATED IDENTITY MANAGEMENT is allowing users to access multiple different entities systems.
+
+01:14.000 --> 01:18.000
+So let's start with an example to kind of put this into the real world.
+
+01:18.000 --> 01:22.000
+So let's think of how when you're browsing the web nowadays,
+
+01:22.000 --> 01:28.000
+there's lots of websites that you can go to where instead of having a unique username and password on that website,
+
+01:28.000 --> 01:34.000
+instead what you have is it gives you the website, will give you the ability to log in with Google or Facebook,
+
+01:34.000 --> 01:37.000
+or your Amazon ID, or something like that.
+
+01:37.000 --> 01:40.000
+So let's pick Facebook as an example.
+
+01:40.000 --> 01:45.000
+And let's try and think of a company that Facebook doesn't yet own.
+
+01:45.000 --> 01:48.000
+It's genuinely difficult to think of a company that they don't own yet.
+
+01:48.000 --> 01:50.000
+Spotify. I don't think they own Spotify yet.
+
+01:50.000 --> 01:52.000
+So let's go with them, for example, okay?
+
+01:52.000 --> 01:55.000
+So here's how this would work.
+
+01:55.000 --> 01:58.000
+If I go to Spotify.com, and I go to Login,
+
+01:58.000 --> 02:02.000
+instead of providing a unique username and password for Spotify.com,
+
+02:02.000 --> 02:06.000
+instead I click the button that says Login with Facebook.
+
+02:06.000 --> 02:08.000
+And then what will happen is a window will come up.
+
+02:08.000 --> 02:12.000
+And what do I type in there? I type in my Facebook credentials.
+
+02:12.000 --> 02:18.000
+And I essentially log in and I'm identified and authenticated by Facebook.
+
+02:18.000 --> 02:21.000
+And then when that Facebook has authenticated me,
+
+02:21.000 --> 02:24.000
+I'm then able to log in to Spotify.
+
+02:24.000 --> 02:27.000
+This is exactly what Federated Access Management is.
+
+02:27.000 --> 02:32.000
+It's a trust relationship between three entities.
+
+02:32.000 --> 02:34.000
+You've got your user or your principal.
+
+02:34.000 --> 02:37.000
+That's the person who's actually logging in.
+
+02:37.000 --> 02:40.000
+You've got your identity provider.
+
+02:40.000 --> 02:43.000
+This is the entity that stores the user's identity,
+
+02:43.000 --> 02:47.000
+their account, and knows the user's username and password,
+
+02:47.000 --> 02:51.000
+or whatever they authenticate with knowledge, ownership, or characteristic.
+
+02:51.000 --> 02:54.000
+And then the third entity in the trust relationship
+
+02:54.000 --> 02:58.000
+is the relying party or the service provider
+
+02:58.000 --> 03:00.000
+that the user actually wants to access.
+
+03:00.000 --> 03:02.000
+So in the example that we just talked about,
+
+03:02.000 --> 03:04.000
+let's relate who each of the entities are.
+
+03:04.000 --> 03:08.000
+So the user principal, that's obviously the person that's logging in.
+
+03:08.000 --> 03:14.000
+The website that the person ultimately wanted to access was Spotify.
+
+03:14.000 --> 03:19.000
+So Spotify would be the relying party or another term for this is service provider.
+
+03:19.000 --> 03:22.000
+So relying party service provider means the same thing.
+
+03:22.000 --> 03:25.000
+That's the entity the user actually wants to access.
+
+03:25.000 --> 03:28.000
+But the user didn't authenticate with the relying party.
+
+03:28.000 --> 03:31.000
+Instead the user authenticated with Facebook.
+
+03:31.000 --> 03:33.000
+So in the example here that I've just given you,
+
+03:33.000 --> 03:35.000
+Facebook would be the identity provider.
+
+03:35.000 --> 03:39.000
+The way this works in most corporations is that the user will authenticate
+
+03:39.000 --> 03:42.000
+with the corporate credentials, usually through Active Directory.
+
+03:42.000 --> 03:46.000
+And then, because most organizations nowadays have all sorts of cloud services,
+
+03:46.000 --> 03:51.000
+what the user is able to magically access through their corporate credentials
+
+03:51.000 --> 03:55.000
+is things like service now and concur and all these online software
+
+03:55.000 --> 03:56.000
+is a service application.
+
+03:56.000 --> 03:59.000
+So that's the idea behind federated access.
+
+03:59.000 --> 04:03.000
+It's a trust relationship between at least three entities.
+
+04:03.000 --> 04:11.000
+The user, the identity provider, and one or more relying parties or service providers.
+
+04:11.000 --> 04:17.000
+Now there's a number of different protocols or standards that will enable federated access.
+
+04:17.000 --> 04:20.000
+The major one that you need to know about is SAML,
+
+04:20.000 --> 04:23.000
+the security assertion markup language.
+
+04:23.000 --> 04:26.000
+And SAML actually has two capabilities.
+
+04:26.000 --> 04:30.000
+It does both authentication and authorization.
+
+04:30.000 --> 04:33.000
+And we'll talk about SAML in a bit more detail in a moment.
+
+04:33.000 --> 04:35.000
+And it's very commonly on the exam.
+
+04:35.000 --> 04:38.000
+So it's one of the protocols you need to know a bit about.
+
+04:38.000 --> 04:43.000
+Three other protocols that enable federated access that I would suggest you just know at a high level.
+
+04:43.000 --> 04:45.000
+You don't need to know any great detail on them.
+
+04:45.000 --> 04:50.000
+RWS Federation, which does both authentication and authorization.
+
+04:50.000 --> 04:54.000
+And two more open ID and OAuth.
+
+04:54.000 --> 05:00.000
+Open ID by itself only does the identification and the authentication.
+
+05:00.000 --> 05:03.000
+OAuth on the other hand does the authorization.
+
+05:03.000 --> 05:10.000
+And so these two protocols are typically work together to achieve both the authentication and the authorization.
+
+05:10.000 --> 05:13.000
+Now let's dig into SAML in a little more detail.
+
+05:13.000 --> 05:21.000
+And just like we talked about with Kerberos, SAML uses this idea of having tickets or tokens that are passed back and forth.
+
+05:21.000 --> 05:26.000
+So let's say the user wants to log into the, here we've called it the service provider.
+
+05:26.000 --> 05:28.000
+Otherwise known as the relying party.
+
+05:28.000 --> 05:31.000
+Let's say the user wants to log into the service provider.
+
+05:31.000 --> 05:35.000
+The first thing the user will do is send a request saying, I'd like to log in.
+
+05:35.000 --> 05:45.000
+Now if the user does not currently have a valid ticket or token, what's going to happen is the user is going to be redirected back to the identity provider.
+
+05:45.000 --> 05:48.000
+So that the user can authenticate themselves.
+
+05:48.000 --> 05:53.000
+So the user will be redirected back to the identity provider, maybe something like Active Directory.
+
+05:53.000 --> 06:00.000
+The user will then authenticate themselves through knowledge, ownership, or characteristic, or some combination thereof.
+
+06:00.000 --> 06:08.000
+And once the user is authenticated, the user will be given a SAML assertion, ticket, or token.
+
+06:08.000 --> 06:12.000
+And it's really important to understand what this contains, what this ticket or token contains.
+
+06:12.000 --> 06:17.000
+It contains some assertion statements, some information on the user.
+
+06:17.000 --> 06:21.000
+Maybe what their username is, what their role is, what sort of access they should have.
+
+06:21.000 --> 06:27.000
+But very importantly, and listen carefully here, it does not contain their authentication information.
+
+06:27.000 --> 06:32.000
+And by that I mean it would not contain their password or their biometric data or anything like that.
+
+06:32.000 --> 06:39.000
+That data is not contained in the ticket or token because the relying party has no idea what the user's password is.
+
+06:39.000 --> 06:46.000
+And you don't want them to because the whole point of federated access is that we're letting our users log into different service providers.
+
+06:46.000 --> 06:51.000
+And you would not want those service providers to know your users corporate credentials.
+
+06:51.000 --> 07:00.000
+So once the user authenticates, gets their ticket or token, they can then take that ticket or token and pass it back to the relying party or the service provider.
+
+07:00.000 --> 07:06.000
+So we'll then read through the assertion statements inside that ticket or token and make an authorization decision.
+
+07:06.000 --> 07:11.000
+What is the user going to be authorized to access in this particular service provider?
+
+07:11.000 --> 07:15.000
+And then if the user is allowed in, they'll get access.
+
+07:15.000 --> 07:18.000
+So that's the basic steps that SAML goes through.
+
+07:18.000 --> 07:21.000
+And there's a couple major things that you should know about SAML.
+
+07:21.000 --> 07:29.000
+As I mentioned, it uses this concept of tickets or tokens and these tickets or tokens contain assertion statements.
+
+07:29.000 --> 07:33.000
+And those assertion statements are written in a particular language or protocol.
+
+07:33.000 --> 07:37.000
+It's known as XML, the extensible markup language.
+
+07:37.000 --> 07:45.000
+This is simply a language that is both human and machine readable and it's what those assertion statements are written in within the SAML ticket or token.
+
+07:45.000 --> 07:56.000
+The final piece that you should know about SAML is some of the major components that are always required to actually send SAML authentication and authorization information between these different entities.
+
+07:57.000 --> 08:01.000
+And the four major components of SAML are first the assertion.
+
+08:01.000 --> 08:04.000
+And the assertion is what we just talked about.
+
+08:04.000 --> 08:12.000
+That's those assertion statements contained within the ticket or token, containing the authentication and authorization information and some other attributes.
+
+08:12.000 --> 08:16.000
+The next component is what we call the protocol.
+
+08:16.000 --> 08:25.000
+And this is simply defines how the different entities in that trust relationship actually communicate with each other, defines how they talk to each other.
+
+08:26.000 --> 08:29.000
+The next piece is what is known as the bindings.
+
+08:29.000 --> 08:34.000
+The bindings define how the SAML assertion information is actually sent across the network.
+
+08:34.000 --> 08:37.000
+So for instance, you can bind it to HTTP.
+
+08:37.000 --> 08:41.000
+So the SAML assertion information is sent over the HTTP protocol.
+
+08:41.000 --> 08:44.000
+And the final piece is what are known as profiles.
+
+08:44.000 --> 08:47.000
+You can set up SAML to have different profiles.
+
+08:47.000 --> 08:50.000
+In other words, to serve different business purposes.
+
+08:50.000 --> 08:54.000
+So one usage of SAML might be for web application authentication.
+
+08:54.000 --> 08:57.000
+Another use might be for connecting to say the LDAP system.
+
+08:57.000 --> 09:03.000
+So you can set up different profiles to allow for different business uses of SAML.
+
+09:03.000 --> 09:05.000
+So there you go. That's federated access.
+

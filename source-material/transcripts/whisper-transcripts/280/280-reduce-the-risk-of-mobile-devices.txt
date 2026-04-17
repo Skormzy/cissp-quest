@@ -1,0 +1,154 @@
+The mobile systems are mobile devices.
+What are mobile devices?
+Well, it's all of our devices.
+Mobile systems are mobile devices.
+What are mobile devices?
+Well, it's all of our devices that are mobile.
+Things like our iPhones, our iPads, our little mini-super computers
+that we keep in our pockets that store gigabytes, maybe even terabytes of data
+and are unbelievably powerful little computers.
+So what's the risk with these mobile devices?
+Well, it's the fact that they can store so much data nowadays
+and the fact that they're mobile.
+Because what inevitably happens is someone puts a bunch of data on this device
+that probably shouldn't be on there.
+And then they forget their device somewhere inevitably in the cab,
+in the airport, on the train.
+Let's talk about an example of this actually occurring.
+And it highlights just what the risks are with mobile devices.
+So there was a healthcare provider in the US, I think it was in Minnesota, in 2011.
+A employee of that company left their laptop in their car.
+The laptop had about 20 million records on it, on about 23,000 patients.
+And they left this laptop in their car when they wanted to do a Starbucks or something like that.
+And what inevitably happens, the laptop was stolen.
+There was a whole series of extremely unfortunate events that all occurred
+because of that lost one lost laptop.
+So what happened?
+Well, there was a lawsuit by the Auditor General.
+There was a giant settlement, millions of dollars with the Auditor General.
+Their CEO, COO, CFO were all fired and replaced.
+There was two class action lawsuits from patients whose data was potentially exposed.
+There was a settlement with the FTC.
+Over 170 jobs were cut.
+And as a final kick in the pants, they were delisted from the New York Stock Exchange.
+They were publicly traded company.
+All of this, all of these tragic events occurred because of one lost laptop.
+And then companies never recovered.
+I've checked on their stock price a couple times since then.
+And they've never recovered.
+They've never gotten back to the highs they were once at.
+And they don't actually exist anymore.
+They were bought out.
+So this whole tale of woe was because of one lost or stolen laptop.
+So let's spend a minute thinking about this.
+What would be the best way to have prevented this event from occurring?
+This lost or stolen laptop?
+And all the horrible things that happened afterwards?
+About a lot of you were thinking, hold drive encryption.
+They should have encrypted the entire contents of the hard drive.
+Because the whole idea behind hold drive encryption is, even if someone steals your laptop,
+they'll find that all the data is being encrypted.
+And don't get me wrong, hold drive encryption, excellent idea, defense and depth,
+have multiple layers of controls, all good.
+But there's actually more of a flaw in hold drive encryption than most people realize.
+And that is, while the hold drive encryption is amazing, it'll use, you know, like AES,
+256-based encryption, it's unbelievably difficult to break the encryption.
+But the problem is, if someone has stolen your laptop,
+how long do they have to figure out how to break that encryption?
+And do they, in fact, need that extremely difficult to find 256-bit key?
+No.
+What they, in fact, need to unlock that excellent encryption is the user's password.
+And how good are our user's passwords?
+Horrible.
+The most common password in the world is password.
+So an attacker that steals a laptop that has hold drive encryption
+has an unlimited amount of time to try and discover probably a very bad password.
+And you might be saying, oh, but lots of laptops have protection mechanisms that only allow you
+to try a password so many times.
+Well, those mechanisms are pretty easy to defeat if you have physical control of a laptop
+of its in your possession.
+So hold drive encryption, not a bad control, but not the best way for preventing this.
+Okay.
+What about remote white capabilities?
+Lots of cell phones and even some laptops have the ability to remotely wipe the device.
+Again, not a bad control, but not as good as most people think.
+Because what's required for that remote white capability to be activated?
+The device has to be sent a signal and the device has to receive that signal.
+And he's skilled attacker.
+Soon as they steal a laptop, what are they going to do?
+Well, they're going to put that laptop in a fair day cage,
+in an envelope in something that's going to block that signal from being received.
+And then when they get it back to their criminal layer and their parents' basement,
+they're going to put themselves in this fair day cage.
+And so that laptop, is it ever going to receive that kill switch that signal to wipe the drive?
+Of course not.
+Now, for reasons, I decided to look into this a little bit.
+I thought, you know, let's find out how expensive it is to get one of these sleeves
+that you can put a laptop in a fair day cage, essentially.
+So I went on Amazon and on Amazon.com, like 2030 bucks, you can get a nice haul quality one.
+I was like, that's pretty good, not too bad.
+Then I was like, I bet you can do better.
+So I went to Alibaba, straight from China, right?
+On Alibaba, as long as you're willing to buy like 500 of them,
+you get them for like three bucks a piece.
+Pretty darn good.
+But then I thought, you know what? I can do even better.
+So it turns out, bag of chips.
+If you open up a bag of chips, you see that silver lining inside, it's mylar.
+It's a pretty good blocker of radio waves.
+So you go to Costco, buy yourselves a jumbo bag of chips, you got snacks,
+you got the fair day cage you need, there you go.
+You can defeat the remote wipe capability.
+So what's the best answer for how we prevent this type of mobile data breach?
+The best answer in fact is to not have the data on the laptop.
+If there isn't sensitive data on the laptop, then there's no worries about that laptop being lost or stolen,
+which is inevitably going to happen.
+So it turns out, one of the best ways of preventing these types of breaches is policies,
+procedures, user awareness training, and education,
+so that users know not to store highly sensitive data on their mobile devices.
+So when we think about how do we reduce the risk of mobile devices,
+one of the best ways is through policy, education, awareness.
+And then of course, do have the other physically and the other controls in place,
+still a very good idea, defense and depth to have things like whole drive encryption,
+to have remote wipe capabilities, to have good anti-malware capabilities, whatever.
+You know, still use all those controls, but the best one, training and awareness.
+Now let's talk about a couple of other controls that are really important to have with mobile devices.
+And we'll get into how you secure the connection between mobile device and the device itself at a moment.
+But one other thing we should spend a moment on here is if you're writing an application
+that's going to be used on a mobile device, which is very common nowadays,
+writing apps and web apps for phones and laptops and things like that.
+There's a really good set of guidance out there.
+A top 10 list of the top 10 things you should probably avoid when you're creating your mobile application.
+So there's an organization out there that probably many of you have heard of,
+a WASP. They do a really great job of investigating mobile devices,
+web applications, things like that, and figuring out what are the top 10 security risks
+that cause the vast majority of the breaches. And they've created a mobile device top 10,
+and it's listed here on the screen. Don't need to memorize it, but do know what you could use something like this for.
+And the use of something like this is if you're developing an application or a group within your organization
+is developing an application, they should be very aware of things like the OOS mobile top 10.
+And they should be making sure that the application they're creating is not vulnerable to any of these top 10 things.
+Continuing on the concept of policies related to mobile devices.
+A couple of major policies you should have related to mobile devices are things like an acceptable use policy.
+What mobile devices can and can't be used for? For organizations that allow employees to bring in their own devices,
+their own phones, you should have things like BYOD or CYOD policies.
+Bring your own device. I always think it's BYOD, bring your own booths, but that's totally different thing.
+So BYOD is bring your own device, CYOD carry your own device. These are policies that define if someone's bringing in their own personal device,
+requiring, for instance, certain security controls be there from a corporate perspective,
+making sure the phones aren't jail-broken, that they have a whole drive encryption, that sort of thing.
+And it's also a good idea to have a policy around personal computers.
+And in my opinion that policy should be, no personal computers allowed, it's very, very difficult for an organization to know that a personal computer is secure.
+There's so many ways to install, backdoor is an unintended, you know, things on a laptop that a corporation does not want to bring into their environment.
+Now when we think about mobile devices, the whole point of having a mobile device is you can use it wherever you are anywhere in the world.
+And often we are connecting that mobile device back to our corporate network.
+And we're transferring data back and forth between wherever we are in the world and the corporate network.
+And where is that data transiting? The internet. The biggest hive of vile scum in the world, right?
+I mean, it's the internet. No traffic going around across the internet should be secure traffic, unless that traffic is encrypted.
+So an important security control to have with mobile devices is to encrypt the traffic between the mobile device and the corporate network.
+And while we often use for this, our solutions like VPNs, virtual private networks.
+And we'll talk about VPNs in a lot more detail in the networking domain.
+The final consideration is the security of the endpoint itself, even if you have the most secure connection in the world.
+An attacker is still going to know all the sensitive data if they have control of the endpoint if they've somehow installed a backdoor or malware on the phone or the laptop.
+So the final major piece of mobile security is how do you actually make sure that the endpoint that the laptop, iPad, phone is actually secure.
+And that's that we use that concept of hardening, right, where you go through whatever the appropriate security controls are to disable on an unnecessary services,
+close unneeded ports, install anti malware, all those sorts of things.
+And you should do that for any of your mobile devices that you're using out there.

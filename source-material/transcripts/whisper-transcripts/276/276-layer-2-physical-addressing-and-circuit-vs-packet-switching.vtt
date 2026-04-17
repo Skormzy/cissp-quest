@@ -1,0 +1,317 @@
+WEBVTT
+
+00:00.000 --> 00:19.800
+All right, here we are at layer number two, which is the data link layer, appropriate
+
+00:19.800 --> 00:39.880
+name. All right, here we are at layer number two, which is the data link layer, appropriate
+
+00:39.880 --> 00:47.040
+name for this layer, data link really means that it links the data between the two adjacent
+
+00:47.040 --> 00:54.320
+layers that are next to it. So if you know what the layer below the data link layer is,
+
+00:54.320 --> 00:59.880
+that's the physical layer. And then above the data link layer we have the network layer.
+
+00:59.880 --> 01:06.160
+The data link layer allows those two adjacent layers to actually talk to each other. Because
+
+01:06.160 --> 01:11.880
+when you look at what the network layer works with, it works with data grams and packets,
+
+01:11.880 --> 01:17.800
+that's not what the physical layer works with. The physical layer as we've already learned can
+
+01:17.800 --> 01:24.000
+only work with bits, zeros and ones. So the layer in between, which is this layer, guess what it
+
+01:24.000 --> 01:32.960
+does? It takes information from the network layer as data grams and formats those as bits so that
+
+01:32.960 --> 01:38.480
+the physical layer can work with them as bits. At the other end, guess what the data link layer
+
+01:38.480 --> 01:45.280
+does? It takes the bits of information from the physical layer and formats them in such a way so
+
+01:45.280 --> 01:51.920
+that the network layer can work with them as packets and data grams. So it really allows the two
+
+01:51.920 --> 01:58.720
+adjacent layers to it to be able to talk to each other. Think of it as the translator or the
+
+01:58.720 --> 02:05.840
+go between that allows the two adjacent layers to talk to each other. Now at this, at this layer is
+
+02:05.840 --> 02:14.080
+also where we reference what are called your physical unique address across a network. In other
+
+02:14.080 --> 02:20.720
+words, a network is made up of different devices that are connected to each other, but the network
+
+02:20.720 --> 02:29.280
+needs to understand each of those devices uniquely. So there needs to be some sort of unique physical
+
+02:29.280 --> 02:35.280
+address that the network can reference for each of the devices that are connected to each other.
+
+02:35.600 --> 02:41.920
+This is called the MAC address. The MAC address is really a function of your network card that
+
+02:41.920 --> 02:48.720
+allows you to connect to the network and every device connected to a network has to have a unique
+
+02:48.720 --> 02:56.080
+physical MAC address that is referenced here at layer two. And it looks something like you see
+
+02:56.080 --> 03:03.520
+there on your screen, but what the industry needs to make sure is that each of these MAC addresses
+
+03:03.520 --> 03:10.320
+are unique as they come from the manufacturers. So there is a system by which this is insured.
+
+03:10.320 --> 03:16.080
+For example, the first number of bits for your MAC address relates to the vendor.
+
+03:17.280 --> 03:22.480
+And so that would be unique to a vendor. And then the next set of bits is something else that
+
+03:22.480 --> 03:28.560
+ensures uniqueness and so on so that we can have network cards and devices that come from different
+
+03:28.560 --> 03:35.040
+manufacturers. They all need to have unique physical addresses because if you didn't,
+
+03:35.040 --> 03:42.000
+that would confuse the network every device or node connected to a network has to have a unique
+
+03:42.000 --> 03:48.960
+physical address that is referenced here as a MAC address. Although when we get to the network
+
+03:48.960 --> 03:56.240
+layer, you'll see that the logical addressing in networking is actually done at the network layer,
+
+03:56.240 --> 04:02.480
+not at the data link layer, which was what we're talking about here. The data link layer simply
+
+04:02.480 --> 04:09.440
+provides the physical unique address through the MAC address itself. Now here's where we also talk
+
+04:09.440 --> 04:15.600
+about the two types of networks that exist because if you remember what a network is, it's a bunch
+
+04:15.600 --> 04:22.960
+of devices that are connected to each other. Now how we communicate with other devices is the
+
+04:22.960 --> 04:28.960
+difference between circuit switch networks and packet switch networks. Those are the two types
+
+04:28.960 --> 04:35.760
+of networks that can exist. Now the easiest way to think of circuit switch networks is the
+
+04:35.760 --> 04:42.560
+phone network itself, the PSTN, the public switch telephone network or what some telephone people
+
+04:42.560 --> 04:50.800
+call the POTS, the plain old telephone system. That network has been around for over 100 years in
+
+04:50.800 --> 04:56.960
+some cases. But what they figured out back in those days was that the best way to carry the
+
+04:56.960 --> 05:04.000
+human voice, which is what this network has been built to do, are actually analog frequencies,
+
+05:04.000 --> 05:11.680
+I think, between 4,000 hertz and 6,000 hertz. But this network has been built to handle analog
+
+05:11.680 --> 05:17.520
+frequencies because that's the best way to represent your voice. But in order to be able to
+
+05:17.520 --> 05:24.160
+communicate across this network and here's why it's called a circuit switch network, two devices
+
+05:24.160 --> 05:30.800
+that need to communicate with each other have to actually establish a circuit or a connection between
+
+05:30.800 --> 05:38.000
+them. Now that connection can be either physical or logical, but we need to establish a full duplex
+
+05:38.000 --> 05:43.600
+type of connection, which means we can talk in both directions at the same time. Our animation
+
+05:43.760 --> 05:48.880
+here I think does a pretty good job of showing what this looks like. There is a series of devices
+
+05:48.880 --> 05:56.240
+along the way called switches across the telephone network that will ultimately establish a connection
+
+05:56.240 --> 06:02.320
+between you and that other person that you want to talk to. And of course what you do is you dial
+
+06:02.320 --> 06:09.200
+their number, but that activates those switches across the way that will ultimately establish
+
+06:09.200 --> 06:15.120
+a logical or physical connection so that now we can talk back and forth in both directions.
+
+06:15.120 --> 06:20.720
+That's what we call a full duplex type of connection. We can both talk to each other at the same
+
+06:20.720 --> 06:25.920
+time, even though if we did that, we wouldn't understand each other, but that is possible. That's
+
+06:25.920 --> 06:32.800
+what we call full duplex type of connection. This is what the telephone network is and in fact,
+
+06:32.800 --> 06:38.800
+if you think of the telephone network, it is a perfect example of a circuit switch network.
+
+06:38.800 --> 06:45.920
+The telephone network. Now, if you remember back in the old days, when data started to become
+
+06:45.920 --> 06:52.960
+something that was really important to organizations, the only way that you could connect remotely
+
+06:52.960 --> 06:59.360
+to your internal network was to actually use the only network that was available for us to do that.
+
+06:59.360 --> 07:05.600
+And that was the telephone network, but the problem with the telephone network is that it has
+
+07:05.600 --> 07:13.200
+a limitation because it is a analog technology. It was built to carry the human voice and the
+
+07:13.200 --> 07:20.080
+best way to do that is to use analog technologies. So the only way that you could carry data across
+
+07:20.080 --> 07:28.480
+it was to take your digital signals that computers use and turn them into analog so that they could
+
+07:28.480 --> 07:34.960
+be carried across the analog telephone network. And then at the other end, you would have a similar
+
+07:35.040 --> 07:42.320
+device that would take that analog signal and turn it back into digital. And of course, those devices
+
+07:42.320 --> 07:49.600
+are called modems, aren't they? In fact, the word modem comes from modulation, demodulation,
+
+07:49.600 --> 07:55.760
+which does exactly what we just described. It takes your digital signals, turns them into analog
+
+07:55.760 --> 08:01.520
+so that they can be carried across the analog telephone network. And then, of course, at the other
+
+08:01.520 --> 08:06.240
+end, we turn it back into digital. Now, there's always been a problem with this. And that is,
+
+08:06.240 --> 08:12.720
+there's a limitation in the speeds and the bandwidth, for example, that we can host. And that is
+
+08:12.720 --> 08:20.400
+because the analog telephone network is analog. It's backbone is analog. And so we've always had
+
+08:20.400 --> 08:27.440
+that limitation, which I think is 56,000 bits per second. And a lot of people ask a question,
+
+08:27.440 --> 08:34.640
+why haven't we improved modem technology to give us faster speeds? Well, we have, in fact,
+
+08:34.640 --> 08:41.840
+in fact, all of you probably use DSL modems and cable modems that handle much faster speeds.
+
+08:42.320 --> 08:49.280
+But the problem with the telephone network is not in the modem. It's in the network itself.
+
+08:49.280 --> 08:55.760
+That's why we still have that limitation with modems. So obviously, when data started to
+
+08:55.760 --> 09:02.640
+become a requirement, we couldn't use modems anymore because of that limitation. So that forced
+
+09:02.640 --> 09:10.560
+companies to build separate and specific data networks to handle the quantity of data, the speeds
+
+09:10.560 --> 09:17.120
+that we required today. And those are called packet switched networks. So the easiest way to think
+
+09:17.120 --> 09:23.280
+of this is that all data networks are packet switched. The way this works is if we need to send
+
+09:23.280 --> 09:29.680
+information between devices, we're not going to establish a circuit or connection first.
+
+09:29.680 --> 09:36.160
+What I do if I need to send you information as I take that information and I break it up into
+
+09:36.160 --> 09:43.440
+manageable chunks. And then I individually address each of those chunks. And then I send them along
+
+09:43.440 --> 09:51.040
+the way. Now those chunks, called packets or datagrams typically, will travel in different directions.
+
+09:51.520 --> 09:57.280
+You know, they may arrive in a different order than they were sent. Some of them may not even arrive.
+
+09:57.280 --> 10:03.920
+But you know, basically we have the technology to be able to do that, receive those datagrams and packets
+
+10:03.920 --> 10:10.000
+and reconstruct them into what the original data look like. That's what all data networks do.
+
+10:10.000 --> 10:16.800
+And because we break things up into manageable chunks that can be each individually addressed
+
+10:16.880 --> 10:24.800
+and sent along the way, these are called packet switch networks. All data networks work this way.
+
+10:24.800 --> 10:33.040
+All data networks are packet switch networks because they can handle the high volumes and bandwidths
+
+10:33.040 --> 10:39.040
+and speeds that we need today for the applications that really data networks are built for today.
+
+10:39.040 --> 10:46.400
+Here's just a basic summary of the two types of networks that can exist. And pretty
+
+10:46.400 --> 10:51.760
+intuitively you can see the difference here and what they're typically used for. Just remember
+
+10:51.760 --> 10:57.360
+that circuit switched is the voice network. All data networks are packet switch because they
+
+10:57.360 --> 11:03.760
+can give us the speeds and the bandwidth and what we need today for our applications.
+
+11:03.760 --> 11:10.320
+Now across data networks though, sometimes you may want connections that are established on demand
+
+11:11.040 --> 11:18.560
+or for example, maybe companies need to link, you know, a data network in one location to a data
+
+11:18.560 --> 11:24.960
+network in another location permanently. Let's say we are a company that has offices in two
+
+11:24.960 --> 11:32.080
+different cities. And so we may want to link those two offices or data networks together permanently.
+
+11:32.080 --> 11:38.320
+That's what we call permanent virtual circuits. Those are data network connections that are
+
+11:38.320 --> 11:45.040
+established typically across what we call wide area network technologies that are offered to us
+
+11:45.040 --> 11:52.320
+by our providers. We'll talk more about that later on. Whereas a switched virtual circuit is one
+
+11:52.320 --> 11:58.080
+that we establish on demand. And then once we're finished, we tear it down. Perfect example of that
+
+11:58.080 --> 12:04.000
+would be a VPN connection. So that's the difference between the two types of connections that we can
+
+12:04.000 --> 12:14.960
+establish across data networks or packet switch networks.
+

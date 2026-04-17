@@ -1,0 +1,413 @@
+WEBVTT
+
+00:00.000 --> 00:16.240
+You've all heard of something called the OSI model.
+
+00:16.240 --> 00:20.000
+We've been talking about how a network is just a bunch of devices that are
+
+00:20.000 --> 00:44.000
+connected to each other for the purpose of communicating.
+
+00:44.000 --> 00:49.000
+Now, communications is required in such a way so that
+
+00:49.000 --> 00:54.000
+devices that are connected to each other can send and receive messages,
+
+00:54.000 --> 01:00.000
+but be able to interpret what those messages actually mean and then act on them.
+
+01:00.000 --> 01:04.000
+And so we need, those are called protocols as we said before,
+
+01:04.000 --> 01:09.000
+but we need the rules by which devices that are connected to each other,
+
+01:09.000 --> 01:15.000
+how they're able to send and receive messages, interpret those and act on them.
+
+01:15.000 --> 01:22.000
+And what provides this ability across networks is something called the OSI model.
+
+01:22.000 --> 01:27.000
+Now, the first thing that we need to focus on here is that it's actually a model.
+
+01:27.000 --> 01:30.000
+And just like any other model, it needs to be implemented.
+
+01:30.000 --> 01:36.000
+And later we're going to talk about how the implementation of this OSI model is
+
+01:36.000 --> 01:41.000
+actually called TCPIP and its family of protocols.
+
+01:41.000 --> 01:46.000
+But for now, let's focus on the model itself and how it provides a way for devices
+
+01:46.000 --> 01:50.000
+that are connected to each other to actually be able to communicate.
+
+01:50.000 --> 01:54.000
+Think of these as the rules by which communications can happen.
+
+01:54.000 --> 02:00.000
+And of course, the OSI model is just a model, as we just said.
+
+02:00.000 --> 02:04.000
+But if you look at the words itself, open systems interconnect.
+
+02:04.000 --> 02:07.000
+It tells you what this model actually does.
+
+02:07.000 --> 02:13.000
+It allows systems that connect to each other to be able to communicate with each other
+
+02:13.000 --> 02:20.000
+because they are open systems that understand and abide by the rules of the OSI model itself.
+
+02:20.000 --> 02:24.000
+So this is a pretty good definition of what the OSI model is.
+
+02:24.000 --> 02:28.000
+But keep in mind that it is a model that needs to be implemented.
+
+02:28.000 --> 02:31.000
+It's just the rules that need to be implemented.
+
+02:31.000 --> 02:34.000
+Now, if you look at the OSI model itself,
+
+02:34.000 --> 02:37.000
+it is a layered architecture.
+
+02:37.000 --> 02:44.000
+In other words, it's made up of seven layers and think of the seven layers as a team.
+
+02:44.000 --> 02:48.000
+A team that's made up of team players.
+
+02:48.000 --> 02:52.000
+They all have to work together. They all have to contribute.
+
+02:52.000 --> 02:58.000
+They all have responsibilities to take care of that overall allows communications to happen.
+
+02:58.000 --> 03:01.000
+So let's equate it to a sports team.
+
+03:01.000 --> 03:07.000
+The role of a sports team or the goal of a sports team is to win the game, win the championship.
+
+03:07.000 --> 03:12.000
+But when you look at the players that make up that team, they all have to contribute.
+
+03:12.000 --> 03:19.000
+They all have to take care of their responsibilities or else the goal is not going to be achieved.
+
+03:19.000 --> 03:22.000
+It's the same thing here with the OSI model.
+
+03:22.000 --> 03:28.000
+I think of the seven layers as team members that need to contribute and take care of the responsibilities.
+
+03:28.000 --> 03:35.000
+So that ultimately we can achieve the goal, which in this case is for communications to happen.
+
+03:35.000 --> 03:38.000
+So none of the layers can work on their own.
+
+03:38.000 --> 03:45.000
+They all have to work together to really achieve that very important goal of communications to actually happen.
+
+03:45.000 --> 03:53.000
+Now, what's important for you to remember is not only the layer names, but also the numbers that they correspond to.
+
+03:54.000 --> 04:00.000
+And I'm sure you've heard of different ways that people have come up to remember the OSI model layers.
+
+04:00.000 --> 04:02.000
+And you've probably heard this one.
+
+04:02.000 --> 04:06.000
+All people seem to need data processing.
+
+04:06.000 --> 04:18.000
+But remember if you're using that one, you're starting at layer number seven because the exam may require you to understand things like layer three is responsible for.
+
+04:18.000 --> 04:21.000
+And you need to remember that layer three is a network layer.
+
+04:21.000 --> 04:28.000
+If you want to remember it the other way starting at the bottom because the first layer really is the physical layer.
+
+04:28.000 --> 04:31.000
+Layer seven is the application layer.
+
+04:31.000 --> 04:33.000
+You can remember this one or remember it this way.
+
+04:33.000 --> 04:37.000
+Please do not throw sausage pizza away.
+
+04:37.000 --> 04:45.000
+And that gives you possibly a better way to remember the layer names and numbers that they correspond to.
+
+04:45.000 --> 04:50.000
+But just like anything else in this course, we have to relate everything to security.
+
+04:50.000 --> 04:55.000
+And it's pretty important to relate security to the OSI model.
+
+04:55.000 --> 05:02.000
+And what you need to remember is that security can be applied at each of the layers of the OSI model.
+
+05:02.000 --> 05:08.000
+But whether that is feasible or even possible is a different story.
+
+05:08.000 --> 05:16.000
+And so if the exam asks you a question like in what layers of the OSI model should security be applied at,
+
+05:16.000 --> 05:19.000
+you know, the obvious answer to that would be all the layers.
+
+05:19.000 --> 05:22.000
+But again, whether that's feasible or possible is a different story.
+
+05:22.000 --> 05:29.000
+So let's say the exam asks you this question, given your choice of one layer where you would have really good security,
+
+05:29.000 --> 05:32.000
+which layer would it be and why?
+
+05:32.000 --> 05:41.000
+Now to be able to answer that question requires us to understand something and how security really applies to the OSI model.
+
+05:41.000 --> 05:51.000
+And once you understand this, you'll know why there are security specific protocols that have been built to operate at certain layers of the OSI model.
+
+05:51.000 --> 05:59.000
+Perfect example is SSL and TLS, which is a layer four or transport layer security protocol.
+
+05:59.000 --> 06:06.000
+We have firewalls that operate at three of the seven layers of the OSI model.
+
+06:06.000 --> 06:10.000
+You can have firewalls at layer three, the network layer.
+
+06:10.000 --> 06:14.000
+You can do firewalls at layer five, the session layer.
+
+06:14.000 --> 06:18.000
+You can also do firewalls at layer seven, the application layer.
+
+06:18.000 --> 06:21.000
+Why? Well, here's why.
+
+06:21.000 --> 06:28.000
+And this is pretty important for us to focus on as we go through the rest of this network security domain.
+
+06:28.000 --> 06:33.000
+Here's what happens when you relate the OSI model to security.
+
+06:33.000 --> 06:45.000
+Higher up the layers you go, the more intelligent you become, the more functional you become, the more you can do, but the less efficient you also become.
+
+06:45.000 --> 06:55.000
+The lower down the layers you go, the more efficient and fast you become, but the less you can do because you have less intelligence.
+
+06:55.000 --> 06:59.000
+The physical layer is the dumbest layer.
+
+06:59.000 --> 07:07.000
+You cannot ask it to make any security decisions at all, but it's the most efficient and the fastest.
+
+07:07.000 --> 07:13.000
+The higher up you go, the application layer, let's say, is the most functional, the most intelligent.
+
+07:13.000 --> 07:23.000
+That's where you can do the most security decisions, the most intelligent security decisions like web content filtering, deep packet inspection.
+
+07:23.000 --> 07:32.000
+We can do antivirus, we can do all kinds of things at that layer, but you're going to pay for it because you're going to lose a lot of efficiency.
+
+07:32.000 --> 07:42.000
+So to summarize, the higher up you go, the more you can do, the more intelligent you become, but you're going to have to pay for it in efficiency.
+
+07:42.000 --> 07:47.000
+That's also where you lose efficiency and speed. There's more overhead.
+
+07:47.000 --> 07:54.000
+The lower down you go, the less you can do, but the more efficient and fast you become.
+
+07:54.000 --> 08:02.000
+So that's why we have certain security specific protocols that operate at certain layers of the OSI model.
+
+08:02.000 --> 08:11.000
+As an example, the transport layer has something called SSL and TLS in it.
+
+08:11.000 --> 08:26.000
+Why? Because for what that security specific protocol needs to do, that's the layer where it provides the needed functionality and efficiency to be able to do the things that SSL and TLS needs to do.
+
+08:26.000 --> 08:32.000
+We've already said that firewalls can exist at three of the seven layers.
+
+08:32.000 --> 08:42.000
+Why? Well, companies need to understand the type of decision making that they need to do and do it at the most efficient layer possible.
+
+08:42.000 --> 08:55.000
+So if we need to make very simple decisions, but very fast decisions, best layer might be the network layer through packet filtering firewalls, but the decisions that we're going to make at that layer are going to be limited.
+
+08:55.000 --> 09:03.000
+If you want to make really informed and intelligent decisions, you might have to do that at the application layer, but guess what?
+
+09:03.000 --> 09:06.000
+You're going to pay for it in efficiency.
+
+09:06.000 --> 09:19.000
+And so that's why we've got all kinds of security specific protocols that run at different layers of the OSI model, because that's where the functionality and the efficiency is best done at.
+
+09:19.000 --> 09:24.000
+So we'll talk about that more as we go through this entire domain.
+
+09:24.000 --> 09:35.000
+Now, what you see here are some of the specific protocols and where they run according to those OSI layers that we've just described.
+
+09:35.000 --> 09:50.000
+And there's no need for you to memorize these because as we keep going through this entire network security domain, we are obviously going to focus on some different protocols, technologies, devices even that operate at the different layers.
+
+09:50.000 --> 10:08.000
+What's important at this point is for you to remember why some of these run at these layers, because that's where they provide the needed functionality and efficiency that is required for that protocol or device or whatever it is to do what it's supposed to, but do it in the best way possible.
+
+10:08.000 --> 10:16.000
+Now, I did say, and it's important for us to remember this as well, that the OSI model is simply a model.
+
+10:16.000 --> 10:21.000
+It's just the rules that ultimately allows communications to happen.
+
+10:21.000 --> 10:29.000
+The implementation of the OSI model is actually achieved through what we call TCPIP.
+
+10:29.000 --> 10:38.000
+And I know what you've heard of and you know TCPIP, but TCPIP is not just one protocol. It's a family of protocols.
+
+10:38.000 --> 10:50.000
+It's a suite of protocols. In fact, the name itself TCPIP comes from the two major protocols that make up that family, but it includes a whole bunch more.
+
+10:50.000 --> 11:01.000
+And the way that it implements the OSI model layers is by having protocols that are part of its family that do what each of the layers are supposed to do.
+
+11:01.000 --> 11:13.000
+An example is IP is a network layer TCPIP protocol that does obviously what the network layer is supposed to do according to the OSI model.
+
+11:14.000 --> 11:22.000
+We have two major protocols that operate at the transport layer within TCPIP. You may know them.
+
+11:22.000 --> 11:31.000
+TCP and UDP that do what the transport layer is supposed to do within the model, the OSI model itself.
+
+11:31.000 --> 11:42.000
+So TCPIP implements the OSI model by having a whole bunch of protocols that run at those layers and take care of the responsibilities according to the model itself
+
+11:42.000 --> 11:56.000
+because the model is what provides the rules. TCPIP is how we implement those rules so that ultimately we can have communications possible between devices that are connected to each other across a network.
+
+11:56.000 --> 12:06.000
+Now let's illustrate that very quickly here. Let's say you've got one device that obviously understands and abides by the rules of OSI.
+
+12:06.000 --> 12:21.000
+And you've got another device at the other end that also does the same thing. Communications is possible simply because each of those devices understand and abide by the rules of OSI.
+
+12:21.000 --> 12:30.000
+So let's say that in this case device A on the left hand side of your screen is trying to send an email to the other device.
+
+12:31.000 --> 12:39.000
+The person that's sitting behind that device would be composing that email at the application layer according to the OSI model.
+
+12:39.000 --> 12:48.000
+That's where the interface to the users provided. So let's say that's me. I'm composing an email when I'm ready to send that email I press send.
+
+12:48.000 --> 12:58.000
+What happens on my machine is that my application layer will take that information, do certain things with it and pass it down to my presentation layer.
+
+12:58.000 --> 13:06.000
+My presentation layer will do certain things, do those things, pass the information down to the next layer which is the session layer.
+
+13:06.000 --> 13:15.000
+All the way on down to the physical layer. The physical layer is how devices are physically and logically connected to each other.
+
+13:15.000 --> 13:20.000
+That's the media for example. Let's say twisted pair that connects devices together.
+
+13:20.000 --> 13:37.000
+My physical layer would take the bits of information that it has just received from the data link layer above it and use the technology that it understands to be able to represent and send those bits across the physical layer.
+
+13:37.000 --> 13:50.000
+So if you and I are connected using twisted pair, my physical layer would only use the technology that it understands to be able to represent those bits zeros and ones which would be voltage.
+
+13:50.000 --> 14:05.000
+The physical layer is very dumb, but it's very efficient. All it needs to know and understand is how to represent zeros and the ones using voltage that is ultimately sent across the wires that connects you and I together.
+
+14:05.000 --> 14:19.000
+Now magically those bits through voltage will make their way over to your machine, or guess what? Your physical layer will receive those bits as voltage, do certain things with it, pass it up to your data link layer.
+
+14:19.000 --> 14:26.000
+Now your data link layer has to do certain things, it'll do those things, pass that information up to your network layer.
+
+14:26.000 --> 14:43.000
+Your network layer will do certain things and then pass the information all the way back up to your application layer where hopefully you've got some suitable application running on your machine that allows that email to be displayed in the same way that it was sent.
+
+14:43.000 --> 15:02.000
+And so communications is possible between those two devices, simply because we both abide by and understand the rules according to OSI, but basically each of the layers have responsibilities to take care of that ultimately allows communications to happen.
+
+15:02.000 --> 15:14.000
+And what's happening on my end is as the information is going down the layers, we have what's called encapsulation and that's what your slide here shows in the middle.
+
+15:14.000 --> 15:28.000
+In encapsulation simply means that each of the layers will receive the information from the layer above it and then add its own header and trailer information to the existing information and then pass it down.
+
+15:28.000 --> 15:33.000
+Now that layer will add its own header and trailer information, pass it down.
+
+15:33.000 --> 15:38.000
+The next layer will add its own header and trailer information, pass it down.
+
+15:38.000 --> 15:55.000
+So as the information is going down my OSI layers, it's getting larger and larger because each of the layers are adding their own header and trailer information, which by the way can be read and acted upon by the same layer at your end.
+
+15:55.000 --> 16:04.000
+So for example, my data link layer added its own header and trailer information, which becomes available to your data link layer.
+
+16:04.000 --> 16:12.000
+It will act, read that information first, act on it, remove that header and trailer information, pass it up.
+
+16:12.000 --> 16:18.000
+Now the header information that was added by my network layer becomes available to your network layer.
+
+16:18.000 --> 16:23.000
+It will read the information, act on it, remove it, pass it up.
+
+16:23.000 --> 16:32.000
+So while we've got what's called encapsulation of my end, while the information is going up at your end, we've got what's called decapsulation.
+
+16:32.000 --> 16:39.000
+But that's what allows each layer to really interface, to ultimately allow communications to happen.
+
+16:39.000 --> 16:50.000
+This is how the OSI model layers work. And remember, it's TCPIP that actually implements the rules according to OSI.
+
+16:50.000 --> 17:02.000
+Now one final slide to look at here, and it's really an attempt to clear up the confusion that exists in all networking because a lot of people call everything packets, for example.
+
+17:02.000 --> 17:13.000
+And so this is an attempt to clear up the words that we should be using with the units of information that are being handled at each of the layers of the OSI model.
+
+17:13.000 --> 17:19.000
+So at the physical layer, they're called bits, at layer two, they're called frames.
+
+17:19.000 --> 17:24.000
+At layer three, they should be called either packets or more appropriately, data grams.
+
+17:24.000 --> 17:34.000
+And then above that, we call them segments at the transport layer. And of course, at the top three layers, it's usually referred to as data or information.
+

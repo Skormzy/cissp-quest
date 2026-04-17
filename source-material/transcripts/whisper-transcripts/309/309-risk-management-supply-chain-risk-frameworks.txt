@@ -1,0 +1,44 @@
+backing up sensitive data, processing certain sensitive data, all sorts of things like this.
+And so let's briefly talk about this concept of having a risk management.
+We've talked through a ton of concepts now related to risk management.
+How organizations have to identify their most valuable assets, identify all the risks associated with them.
+We've talked through a ton of concepts now related to risk management.
+How organizations have to identify their most valuable assets, identify all the risks associated with those assets, treat all those risks.
+We've talked about all of this from the perspective of companies looking at their own systems and assets.
+But what's incredibly common nowadays is that organizations outsource a ton of stuff.
+They have a ton of different service providers that provide all sorts of often very sensitive and confidential services for an organization,
+backing up sensitive data, processing certain sensitive data, all sorts of things like this.
+And so let's briefly talk about this concept of having a risk management supply chain.
+And what that simply means is that an organization needs to understand all the services that they have from different service providers,
+and then conduct all of this risk management process that we've just talked about on their service providers.
+So understanding what data is being outsourced, what processes are being outsourced, and what are the risks associated with that.
+Now it's very common for instance that data is outsourced, and data is an extremely valuable asset to an organization.
+So an organization needs to understand what assets being outsourced, what are the risks associated with that service provider,
+and then how are they going to treat those risks.
+And this is one of the big challenges with outsourcing is that when an organization outsources something to a service provider,
+they now have far less direct control over the protection mechanisms that they can put in place,
+they can put in place to protect that valuable asset, the data.
+And really what organizations can typically rely on is not putting in place their own controls,
+but rather requesting that the service provider put in place certain controls.
+And so a big part of risk management supply chain is identifying the risks,
+and then making sure that the contracts, the SLAs, the PLAs, whatever contracting vehicle the organization is using.
+Make sure that it's explicitly stated in that contract, what controls the service provider needs to put in place to mitigate the risks that the organization is concerned with.
+So that's the concept of a risk management supply chain.
+One final piece we'll talk about in this risk management domain, and that is risk frameworks.
+We'll talk about frameworks in more detail in domain 3, but for now frameworks are something that provide comprehensive guidance.
+They allow organizations to have a roadmap, have a set of guidance that says, you know, for instance,
+this director relates to risk management, if you want to put in place a risk management function,
+are you just going to start with a blank piece of paper and try and make it up and hope it works well?
+Well, you're going to go to a well established framework that says,
+here's exactly how you put in place a risk management process.
+Here's the different controls that should be in place.
+Here's who should be accountable, responsible for what?
+Here's how it should work.
+So there is guidance out there that can help us figure all this out to not only build a new process,
+but also to look at our existing process and say, how well does this align to industry best practices?
+And you don't have to be an expert on any of the four frameworks we have listed here,
+but just be aware that these frameworks exist and be aware of what you can use them for,
+which is to help you build a new process or to evaluate an existing process.
+And so NIST 800-37, ISO 31,000, COSO, COVID Risk IT,
+these are just examples of risk frameworks.
+And now you know we can use them for.

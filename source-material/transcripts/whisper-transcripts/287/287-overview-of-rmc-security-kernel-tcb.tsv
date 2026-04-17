@@ -1,0 +1,70 @@
+start	end	text
+0	16680	We're going to talk about some topics you may have heard about if you've ever been studying
+16680	33880	for the CISV. We're going to talk about the reference monitor concept.
+33880	36760	We're going to talk about some topics you may have heard about if you've ever been studying
+36760	41520	for the CISV. We're going to talk about the reference monitor concept, the security
+41520	47840	kernel, and the TCB. If you've ever read about these, you're probably confused. Let me
+47840	51400	try and make this as simple as possible for you. It's actually a very easy to understand
+51400	59080	concept. Let's start with some definitions. Let's start with a subject. What is a subject?
+59080	65320	Well we usually refer to a subject as being active. It's a person or a process that's actively
+65320	73320	trying to access an object. What's an object? Well an object is whatever is being passively
+73320	78920	accessed. It could be another process. It could be storage. It could be SharePoint site.
+78920	84240	It could be a hard drive. It could be a database. The point is an object is passive. It's
+84240	91720	being accessed. So subjects want access to objects. If we want to have security, we can
+91800	97000	never just let any subject access, any object, and do whatever they want with it because
+97000	102560	we never have security. We have to put something in between the subjects and the objects that
+102560	109400	will mediate, control the subjects access to an object. Let's just refer to this essentially
+109400	114520	as a black box or purple box in this case. It can be all sorts of different things as we'll
+114520	118960	understand in a few minutes here. But the important part is we're putting something in between
+119040	125120	here that can mediate the access. Now how does mediation decide what subjects are allowed
+125120	131880	to access what objects? Well we have to tell this mediation what to do. We have to program
+131880	138120	some rules into it. Now as we've talked about with controls, controls should always have
+138120	144800	two aspects, a functional aspect and an assurance aspect. So far we have the functional aspect.
+144800	149340	We're controlling a subject's access to an object. But we also want to have assurance
+149340	154240	that this mechanism is working correctly, that the mediation is working correctly. How
+154240	160240	do we get that assurance? Well we could log and monitor what's happening here. So this
+160240	166200	concept of a subject accessing an object through some mediation that is based on a set of
+166200	171840	rules and all this is logged and monitored is simply the reference monitor concept, the
+171840	178520	RMC. So if you've ever heard of the RMC, it's as simple as that, a subject accessing object
+178520	185520	through a set of rules that are logged and monitored. Now in security, a concept is great,
+185520	189240	but if we want to actually have a control that's going to do something, we can't just have
+189240	196520	a concept, we need to implement that concept. Whenever you implement the RMC, it's known
+196520	204480	as a security kernel. So the implementation of the RMC is a security kernel. And where
+204480	209560	do we have security kernels? Everywhere in security. When you access a building through
+209560	214680	a lock or a keypad, that's a security kernel. When you type in a password, user name and
+214680	221320	password, that's a security kernel. When an operating system is controlling what applications
+221320	226320	can access their data in RAM or access the network card, those are security kernels.
+226320	233120	So we use security kernels everywhere in security. Now there's three properties that a good
+233120	238240	security kernel needs to demonstrate. The first one is known as completeness. And what
+238240	243480	completeness refers to is that it's impossible to bypass the mediation. So if a subject was
+243480	247840	somehow able to bypass the mediation, it would completely negate the whole purpose of
+247840	253200	this. So completeness, a good security kernel should demonstrate completeness. It should
+253200	258560	be impossible to bypass the mediation. Every subject should have to go through the mediation
+258560	265000	to access the object. The next property is what's known as isolation. And it relates to
+265000	271280	the rules. The rules need to be tamperproof. In other words, only an authorized individual
+271280	276000	should be allowed to modify these rules. If any subject was just allowed to modify the
+276000	279600	rules to their hearts content, there'd be no point in having all this because you'd be
+279600	285360	like, ah, I can't access the file. And I'll just change the rules. So isolation means
+285360	290560	the rules are tamperproof. They can only be modified by an authorized individual. The
+290560	296240	final property is what's known as verifiability. And verifiability is simply, how do we make
+296240	302360	sure that this whole process is working properly? Well, we achieve it by logging and monitoring
+302360	308280	what's going on here. And so verifiability, how do we verify our security kernel is working
+308360	315040	correctly? It's the logging and monitoring. So that's the RMC and the security kernel. Let's
+315040	322520	talk about one other concept, the TCB. What is the TCB, the trusted computing base? The TCB
+322520	329840	is the totality of security mechanisms within an architecture. What does that mean? Well, what's
+329840	333360	an architecture? John has talked about that an architecture is all of the components
+333360	339320	that make up a system. So if you take any architecture, any system, like, let's say, a laptop,
+339320	342840	if you were to look at the architecture of a laptop, there's going to be all sorts of
+342840	346400	different components in there. There's going to be your hard drive, your CPU, your RAM,
+346400	351400	your operating system, your applications, your TPM modules, all of these are components
+351400	357520	within the architecture. A subset of those components are responsible for security. So
+357520	362720	some of the components are going to be security kernels. Some of them will be anti-malware systems,
+362720	368360	based firewalls. Any of these security controls, any of the components within the architecture
+368360	375960	that are responsible for security are components within the TCB. So the TCB is the subset of
+375960	380360	components within an entire architecture that are responsible for security. And so we can
+380360	384720	draw a line around our reference monitor concept here in our security kernel and say that
+384720	388760	these are part of our TCB. They're part of our trusted computing base. But are there
+388760	394120	other components within the TCB? Absolutely. The TCB is made up of much more than just security
+394120	399840	kernels. It's all of the components within our architecture that are responsible for security.
+399840	406320	So there you go. That's your quick overview of the RMC security kernel and TCB. And its
+406320	409520	subsequent modules will get into each of these components in a little more detail.

@@ -1,0 +1,209 @@
+WEBVTT
+
+00:00.000 --> 00:16.680
+We're going to talk about some topics you may have heard about if you've ever been studying
+
+00:16.680 --> 00:33.880
+for the CISV. We're going to talk about the reference monitor concept.
+
+00:33.880 --> 00:36.760
+We're going to talk about some topics you may have heard about if you've ever been studying
+
+00:36.760 --> 00:41.520
+for the CISV. We're going to talk about the reference monitor concept, the security
+
+00:41.520 --> 00:47.840
+kernel, and the TCB. If you've ever read about these, you're probably confused. Let me
+
+00:47.840 --> 00:51.400
+try and make this as simple as possible for you. It's actually a very easy to understand
+
+00:51.400 --> 00:59.080
+concept. Let's start with some definitions. Let's start with a subject. What is a subject?
+
+00:59.080 --> 01:05.320
+Well we usually refer to a subject as being active. It's a person or a process that's actively
+
+01:05.320 --> 01:13.320
+trying to access an object. What's an object? Well an object is whatever is being passively
+
+01:13.320 --> 01:18.920
+accessed. It could be another process. It could be storage. It could be SharePoint site.
+
+01:18.920 --> 01:24.240
+It could be a hard drive. It could be a database. The point is an object is passive. It's
+
+01:24.240 --> 01:31.720
+being accessed. So subjects want access to objects. If we want to have security, we can
+
+01:31.800 --> 01:37.000
+never just let any subject access, any object, and do whatever they want with it because
+
+01:37.000 --> 01:42.560
+we never have security. We have to put something in between the subjects and the objects that
+
+01:42.560 --> 01:49.400
+will mediate, control the subjects access to an object. Let's just refer to this essentially
+
+01:49.400 --> 01:54.520
+as a black box or purple box in this case. It can be all sorts of different things as we'll
+
+01:54.520 --> 01:58.960
+understand in a few minutes here. But the important part is we're putting something in between
+
+01:59.040 --> 02:05.120
+here that can mediate the access. Now how does mediation decide what subjects are allowed
+
+02:05.120 --> 02:11.880
+to access what objects? Well we have to tell this mediation what to do. We have to program
+
+02:11.880 --> 02:18.120
+some rules into it. Now as we've talked about with controls, controls should always have
+
+02:18.120 --> 02:24.800
+two aspects, a functional aspect and an assurance aspect. So far we have the functional aspect.
+
+02:24.800 --> 02:29.340
+We're controlling a subject's access to an object. But we also want to have assurance
+
+02:29.340 --> 02:34.240
+that this mechanism is working correctly, that the mediation is working correctly. How
+
+02:34.240 --> 02:40.240
+do we get that assurance? Well we could log and monitor what's happening here. So this
+
+02:40.240 --> 02:46.200
+concept of a subject accessing an object through some mediation that is based on a set of
+
+02:46.200 --> 02:51.840
+rules and all this is logged and monitored is simply the reference monitor concept, the
+
+02:51.840 --> 02:58.520
+RMC. So if you've ever heard of the RMC, it's as simple as that, a subject accessing object
+
+02:58.520 --> 03:05.520
+through a set of rules that are logged and monitored. Now in security, a concept is great,
+
+03:05.520 --> 03:09.240
+but if we want to actually have a control that's going to do something, we can't just have
+
+03:09.240 --> 03:16.520
+a concept, we need to implement that concept. Whenever you implement the RMC, it's known
+
+03:16.520 --> 03:24.480
+as a security kernel. So the implementation of the RMC is a security kernel. And where
+
+03:24.480 --> 03:29.560
+do we have security kernels? Everywhere in security. When you access a building through
+
+03:29.560 --> 03:34.680
+a lock or a keypad, that's a security kernel. When you type in a password, user name and
+
+03:34.680 --> 03:41.320
+password, that's a security kernel. When an operating system is controlling what applications
+
+03:41.320 --> 03:46.320
+can access their data in RAM or access the network card, those are security kernels.
+
+03:46.320 --> 03:53.120
+So we use security kernels everywhere in security. Now there's three properties that a good
+
+03:53.120 --> 03:58.240
+security kernel needs to demonstrate. The first one is known as completeness. And what
+
+03:58.240 --> 04:03.480
+completeness refers to is that it's impossible to bypass the mediation. So if a subject was
+
+04:03.480 --> 04:07.840
+somehow able to bypass the mediation, it would completely negate the whole purpose of
+
+04:07.840 --> 04:13.200
+this. So completeness, a good security kernel should demonstrate completeness. It should
+
+04:13.200 --> 04:18.560
+be impossible to bypass the mediation. Every subject should have to go through the mediation
+
+04:18.560 --> 04:25.000
+to access the object. The next property is what's known as isolation. And it relates to
+
+04:25.000 --> 04:31.280
+the rules. The rules need to be tamperproof. In other words, only an authorized individual
+
+04:31.280 --> 04:36.000
+should be allowed to modify these rules. If any subject was just allowed to modify the
+
+04:36.000 --> 04:39.600
+rules to their hearts content, there'd be no point in having all this because you'd be
+
+04:39.600 --> 04:45.360
+like, ah, I can't access the file. And I'll just change the rules. So isolation means
+
+04:45.360 --> 04:50.560
+the rules are tamperproof. They can only be modified by an authorized individual. The
+
+04:50.560 --> 04:56.240
+final property is what's known as verifiability. And verifiability is simply, how do we make
+
+04:56.240 --> 05:02.360
+sure that this whole process is working properly? Well, we achieve it by logging and monitoring
+
+05:02.360 --> 05:08.280
+what's going on here. And so verifiability, how do we verify our security kernel is working
+
+05:08.360 --> 05:15.040
+correctly? It's the logging and monitoring. So that's the RMC and the security kernel. Let's
+
+05:15.040 --> 05:22.520
+talk about one other concept, the TCB. What is the TCB, the trusted computing base? The TCB
+
+05:22.520 --> 05:29.840
+is the totality of security mechanisms within an architecture. What does that mean? Well, what's
+
+05:29.840 --> 05:33.360
+an architecture? John has talked about that an architecture is all of the components
+
+05:33.360 --> 05:39.320
+that make up a system. So if you take any architecture, any system, like, let's say, a laptop,
+
+05:39.320 --> 05:42.840
+if you were to look at the architecture of a laptop, there's going to be all sorts of
+
+05:42.840 --> 05:46.400
+different components in there. There's going to be your hard drive, your CPU, your RAM,
+
+05:46.400 --> 05:51.400
+your operating system, your applications, your TPM modules, all of these are components
+
+05:51.400 --> 05:57.520
+within the architecture. A subset of those components are responsible for security. So
+
+05:57.520 --> 06:02.720
+some of the components are going to be security kernels. Some of them will be anti-malware systems,
+
+06:02.720 --> 06:08.360
+based firewalls. Any of these security controls, any of the components within the architecture
+
+06:08.360 --> 06:15.960
+that are responsible for security are components within the TCB. So the TCB is the subset of
+
+06:15.960 --> 06:20.360
+components within an entire architecture that are responsible for security. And so we can
+
+06:20.360 --> 06:24.720
+draw a line around our reference monitor concept here in our security kernel and say that
+
+06:24.720 --> 06:28.760
+these are part of our TCB. They're part of our trusted computing base. But are there
+
+06:28.760 --> 06:34.120
+other components within the TCB? Absolutely. The TCB is made up of much more than just security
+
+06:34.120 --> 06:39.840
+kernels. It's all of the components within our architecture that are responsible for security.
+
+06:39.840 --> 06:46.320
+So there you go. That's your quick overview of the RMC security kernel and TCB. And its
+
+06:46.320 --> 06:49.520
+subsequent modules will get into each of these components in a little more detail.
+

@@ -1,0 +1,26 @@
+start	end	text
+0	20120	All right, so we've been talking about how firewalls provide obviously security.
+30000	45000	All right, so we've been talking about how firewalls provide obviously security from the perspective of either allowing or denying certain traffic.
+45000	57000	Now, it's important for us to remember something that we've talked about several times, and that is how a complete control needs to be preventive, detective, and corrective.
+57000	66000	And that applies to how we implement firewalls as well. So if you think about what a firewall is, it's a preventive type of a control.
+66000	75000	And so we also need to have detective and corrective capabilities put in at those locations where our firewalls are going to be.
+75000	86000	And so when it comes to detection and correction capabilities, we obviously have technologies available today to be able to do what's called data inspection.
+86000	97000	Now, if you think about how the unit of information that goes across a network is called a packet or a data graph, that data graph is really made up of two components.
+97000	101000	You've got the header portion and the data portion.
+101000	113000	Being able to interpret and look at the data portion, which is also referred to as the payload, gives us the ability to do some really enhanced things from a detection perspective.
+113000	127000	Really, what this is called is data inspection. We can inspect the data part of the data graph to be able to recognize, for example, malicious intent or malware or attacks, for example,
+127000	135000	so that we can provide the detection and correction capabilities that we need to have together with those firewalls.
+135000	148000	And so if you look at some of the decisions that we can typically make by being able to look at the data portion of the data graph, we can certainly do things like not just virus scanning, but obviously anti malware protection as well.
+148000	167000	We can do stateful inspection, which means really make decisions based on historical information that we have kept, for example, state and context information related to some of the traffic that's going back and forth between our network and other networks.
+167000	177000	And we can also inspect the actual content of that data to be able to recognize and do things like web content filtering, for example.
+177000	186000	Now, the way that intrusion detection has evolved, we really have two technologies, you know, IDSs and IPSs.
+186000	190000	And it's important for us to understand the difference between the two.
+190000	203000	And if you base it just on the words, an intrusion detection system can only detect, but again, it would not make sense for a company to implement a intrusion detection system,
+203000	211000	whose sole purpose is to detect, because as we've said, you need to have preventive, detective and corrective capabilities.
+211000	225000	So if you have an IDS by definition, it can only detect, but the way that you would set it up in an environment is that it would be able to detect things, but then also trigger the corrective capability that needs to happen.
+225000	234000	In other words, the IDS system could be connected back to the firewall that does, for example, you know, draw packets or closes connections, for example.
+234000	241000	And now we have a control that is preventive, detective and corrective as well.
+241000	254000	Now, obviously, the industry has evolved to the point where we have some newer technologies for intrusion detection that actually are able to provide those three things all in line, all in one technology.
+254000	267000	And that's really what IPS systems are. Intrusion prevention systems are really technologies that provide prevent, detect and correct capabilities all in line in the same technology itself.
+267000	282000	Think of them as the next evolution of intrusion detection systems that the industry has come up with, because obviously the technology has evolved to the point where it's almost like an intrusion detection system that has some capabilities to prevent,
+282000	291000	but also correct all in line. The next generation of IDS systems are really called IPS systems.

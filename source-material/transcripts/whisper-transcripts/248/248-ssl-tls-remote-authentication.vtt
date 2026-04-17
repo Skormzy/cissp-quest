@@ -1,0 +1,263 @@
+WEBVTT
+
+00:00.000 --> 00:20.160
+The most commonly used security protocol across the web is by far SSL.
+
+00:30.000 --> 00:43.840
+The most commonly used security protocol across the web is by far SSL slash TLS. I mean any time you
+
+00:43.840 --> 00:52.240
+connect to a secure server to buy things across Amazon for example or you're doing your web banking
+
+00:52.240 --> 00:58.720
+or you're connecting to any website where any level of security is required. Chances are you're
+
+00:58.720 --> 01:07.600
+going to use SSL slash TLS to do this with and as you'll see this is how we create a very secure
+
+01:07.600 --> 01:13.200
+connection between any browser and it doesn't matter where that browser is you could be at home
+
+01:13.200 --> 01:18.560
+you could be at work you could be at Starbucks you could be in Bora Bora somewhere at a hotel
+
+01:19.200 --> 01:24.640
+and if you want to create a very secure connection between that browser wherever you are
+
+01:24.640 --> 01:30.400
+and a secure server at the other end it's SSL and TLS that will do it for you so what we're going to do
+
+01:30.400 --> 01:42.080
+here is we're going to go through the actual steps of how SSL creates that secure connection
+
+01:42.080 --> 01:48.240
+and we're going to summarize it in four easy steps what's important for you is not to memorize
+
+01:48.240 --> 01:53.840
+the four steps but to have a complete understanding of how those steps actually work together to
+
+01:53.840 --> 02:00.480
+ultimately create that secure connection that is established using SSL and TLS now the first
+
+02:00.480 --> 02:07.040
+thing that we have to understand is what's the difference between SSL and TLS because there's a
+
+02:07.040 --> 02:13.840
+lot of confusion that exists in the industry related to this well just think of it this way TLS
+
+02:13.840 --> 02:21.760
+is the latest version of SSL in fact when they took SSL version three and decided to make some
+
+02:21.760 --> 02:28.080
+really minor improvements to it they decided to rename it altogether to something called TLS
+
+02:28.080 --> 02:35.280
+and the reason they did that is to remove confusion that existed as to where SSL runs according to
+
+02:35.280 --> 02:43.440
+the OSI model layers a lot of people wrongly thought that SSL stood for secure session layer it does
+
+02:43.440 --> 02:52.400
+not in fact the second S is for socket SSL stands for secure socket layer but a lot of people
+
+02:52.400 --> 02:59.280
+mistakenly thought that it ran at the session layer it does not it is a transport layer security
+
+02:59.280 --> 03:05.120
+protocol and so to remove that confusion the industry decided to rename it altogether so instead
+
+03:05.120 --> 03:11.120
+of calling it SSL version four they decided to rename it to something that would eliminate that
+
+03:11.120 --> 03:19.760
+confusion altogether TLS transport layer security and I think you know just think of it as the
+
+03:19.760 --> 03:27.040
+latest version of SSL but the protocol itself is still called SSL by many people because it still
+
+03:27.040 --> 03:33.760
+is the SSL protocols just the latest versions of it is called TLS now let's say you wanted to buy
+
+03:33.760 --> 03:42.640
+something at Amazon dot com so we'll use that as an example so you type in into your favorite
+
+03:42.640 --> 03:51.680
+browser www.amazon dot com now as soon as you make a connection to the Amazon servers both the
+
+03:51.680 --> 03:59.200
+server and your browser which is referred to as the client will recognize that a secure connection
+
+03:59.200 --> 04:07.600
+is required and that will activate the capabilities of SSL slash TLS now the first thing that happens
+
+04:07.600 --> 04:14.560
+here in step number one is that the client you are referred to as the client that's the browser
+
+04:14.560 --> 04:21.360
+the browser the client will send what's called a client hello message to the server all that's
+
+04:21.360 --> 04:28.160
+meant to do is allow the server to understand that it can talk to you in other words you're using a
+
+04:28.160 --> 04:34.800
+version of a browser that it understands you're using a version of SSL that it understands so
+
+04:34.800 --> 04:41.280
+that step number one called the client hello message is simply allowing the server to say okay
+
+04:41.280 --> 04:48.800
+I can understand you we can talk now in step two the same thing has to happen the other way
+
+04:48.800 --> 04:56.560
+and so what happens in this step is the server will send you the client a server hello message to
+
+04:56.560 --> 05:02.080
+allow you to say okay I can understand you as well we can talk in both directions but very
+
+05:02.080 --> 05:08.320
+importantly what happens in this step as well when you're receiving that server hello message the
+
+05:08.320 --> 05:16.800
+server will also send you its certificate and you'll remember from previous modules that a
+
+05:16.800 --> 05:24.560
+certificate will contain the public key of in this case amazon dot com so when you receive that
+
+05:24.560 --> 05:32.240
+certificate that certificate will contain amazon's public key but that entire certificate will
+
+05:32.240 --> 05:39.440
+have been signed or encrypted in the certificate authorities private key so what you're receiving
+
+05:39.440 --> 05:45.920
+is a certificate that contains amazon's public key but that certificate has been issued by a
+
+05:45.920 --> 05:52.480
+certificate authority let's use vericine as an example now as soon as you receive that certificate
+
+05:52.480 --> 05:58.400
+along with the server hello message your browser has the ability to look at that certificate and
+
+05:58.400 --> 06:06.800
+say oh this is a vericine certificate because one of the fields on that certificate is issuer ID
+
+06:06.800 --> 06:12.160
+which identifies the certificate authority that created that certificate in the first place
+
+06:12.160 --> 06:20.400
+so now in step number three your browser understands that it's a vericine certificate goes into
+
+06:20.400 --> 06:28.240
+its functionality and grabs guess what vericine's public key that's built into your browser functionality
+
+06:28.240 --> 06:35.440
+and decrypts that certificate using vericine's public key and if it decrypts properly you are not
+
+06:35.440 --> 06:41.360
+going to see a pop-up that says something is wrong with the certificate if you don't see a pop-up
+
+06:41.360 --> 06:47.840
+that certificate was decrypted properly but now what you can do as a result of that two things have
+
+06:47.840 --> 06:54.080
+actually happened first of all you've authenticated that you have connected to amazon.com and not some
+
+06:54.080 --> 07:01.200
+other sketchy website pretending to be amazon.com because if it was right they would have had to spoof
+
+07:01.200 --> 07:07.200
+a vericine certificate and in order to do that they would have required vericine's private key
+
+07:07.200 --> 07:14.960
+and that's typically not possible so you've authenticated the server as actually being amazon.com
+
+07:15.040 --> 07:21.440
+and at this point you can also trust the contents of that certificate including the most important
+
+07:21.440 --> 07:30.400
+information which is that public key belonging to actually amazon.com now the next step is pretty
+
+07:30.400 --> 07:37.360
+important and you need to remember this it is you the client you the browser that will create
+
+07:37.360 --> 07:44.960
+symmetric session keys with the functionality that's built into your browser and ssl you are going
+
+07:44.960 --> 07:52.960
+to create symmetric session keys that you will encrypt now with what you can trust which is amazon's
+
+07:52.960 --> 08:00.320
+public key so you will encrypt those keys that you created and send them back to amazon encrypted
+
+08:00.320 --> 08:09.760
+in amazon's public key which now requires amazon to use their private key which no one else has
+
+08:09.760 --> 08:16.320
+at which point they will have the same symmetric keys that you created so now any further
+
+08:16.320 --> 08:25.120
+communications between you and amazon back and forth in both directions will be protected using
+
+08:25.200 --> 08:31.360
+those symmetric keys that you created and that amazon was able to decrypt with their private key
+
+08:31.360 --> 08:37.200
+that no one else has so now you can be pretty comfortable in sending your credit card numbers
+
+08:37.200 --> 08:43.440
+any personal information anything else that requires security is going to be protected ultimately
+
+08:43.440 --> 08:53.520
+using symmetric key cryptography but we used a a symmetric process to exchange those keys and that's
+
+08:53.520 --> 09:02.080
+basically what ssl slash tls is it's a hybrid product that uses both symmetric and asymmetric key
+
+09:02.080 --> 09:07.920
+cryptography to ultimately establish a very secure connection between you and again it doesn't
+
+09:07.920 --> 09:13.040
+matter where you are and that secure server at the other end now one of the other things that
+
+09:13.040 --> 09:19.600
+you need to remember here is that in our case we authenticated the server because you obviously
+
+09:19.600 --> 09:26.960
+want to know that you've connected to amazon.com so there's always a need to authenticate the server
+
+09:26.960 --> 09:35.600
+now you may see questions that ask does ssl slash tls support mutual authentication and the answer
+
+09:35.600 --> 09:42.960
+to that is yes it is built in to ssl and tls that if there was a need you can also authenticate
+
+09:42.960 --> 09:50.240
+the client what it would require is a client to have a certificate that would be sent to the server
+
+09:50.240 --> 09:56.320
+in step number one when you send that client hello message you would also send your certificate
+
+09:56.320 --> 10:01.520
+that the server in this case would be able to decrypt and trust and authenticate the client
+
+10:01.520 --> 10:08.560
+so the answer to whether ssl supports mutual authentication is yes it's not normally required
+
+10:08.560 --> 10:14.880
+because for what mostly happens across the web there's always a need to authenticate the server
+
+10:14.880 --> 10:21.520
+but there may not be a need to authenticate the client as an example in this case amazon doesn't
+
+10:21.520 --> 10:28.000
+care where you are whether you're at home or at the office or at Starbucks or in Bora Bora doesn't
+
+10:28.000 --> 10:34.480
+matter right the amazon servers in this case don't care where you are so there's no need to authenticate
+
+10:34.480 --> 10:40.000
+the client but if there was ssl has it built in that we can actually do that it requires
+
+10:40.000 --> 10:45.760
+certificates at the client level that are sent to the server
+

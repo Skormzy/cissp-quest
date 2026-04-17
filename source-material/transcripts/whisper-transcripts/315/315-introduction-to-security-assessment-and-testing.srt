@@ -1,0 +1,464 @@
+1
+00:00:00,000 --> 00:00:19,680
+Okay, don't be number six, all about testing and assessment.
+
+2
+00:00:19,680 --> 00:00:40,680
+Okay, don't be number six, all about testing and assessment. And we've learned how
+
+3
+00:00:40,680 --> 00:00:46,240
+it's important to really have every control address two things, right? Functional
+
+4
+00:00:46,240 --> 00:00:53,240
+and assurance, those are the two very important pillars that every control needs to be supported
+
+5
+00:00:53,240 --> 00:01:00,480
+by. And so this domain obviously is focused on the assurance part. How do we provide assurance
+
+6
+00:01:00,480 --> 00:01:07,560
+to our stakeholders that first of all security is contributing towards goals and objectives,
+
+7
+00:01:07,560 --> 00:01:12,680
+but also that we have the right level of security built into certain architectures like applications
+
+8
+00:01:12,680 --> 00:01:18,760
+and the network and really anything that provides value to the organization. That's what we're
+
+9
+00:01:18,760 --> 00:01:26,160
+focusing on in this domain. And obviously the best way to address that assurance is through testing
+
+10
+00:01:26,160 --> 00:01:33,920
+and assessment that the security function has to be focused on and involved in. Yeah, we've got
+
+11
+00:01:33,920 --> 00:01:37,400
+a little slide here, not some you need to know for the exam, but I think it highlights an important
+
+12
+00:01:37,400 --> 00:01:43,920
+point, which is our systems are getting unbelievably complex and we are, you know, businesses are incredibly
+
+13
+00:01:43,920 --> 00:01:49,880
+reliant on these systems to perform business functions. And so we've got a little slide here that
+
+14
+00:01:49,880 --> 00:01:54,520
+talks about this, the numbers down the side here are the number of lines of code. It's not a great
+
+15
+00:01:54,520 --> 00:01:58,040
+measure, but it's a way of thinking about just how complex of a system, obviously the more
+
+16
+00:01:58,040 --> 00:02:03,200
+lines of code, the more complex the system. And then we've got what they line up to here. So what do
+
+17
+00:02:03,200 --> 00:02:08,760
+you think 50,000 lines of code? What's what does that line up to? Yeah, I would say an average
+
+18
+00:02:08,760 --> 00:02:15,000
+iPhone app. Yeah, that's your average iPhone app. Now what about 6.5 million lines of code? Yeah,
+
+19
+00:02:15,000 --> 00:02:21,400
+I don't like that number, but probably Boeing avionics. Yeah, they're excellent systems that have
+
+20
+00:02:21,400 --> 00:02:30,520
+been working perfectly. 50 million lines of code. Yeah, that'd be Microsoft Windows. Yeah, which
+
+21
+00:02:30,520 --> 00:02:35,120
+highlights something important. I mean, all of us are our applications run on top of operating
+
+22
+00:02:35,120 --> 00:02:39,080
+systems. And Windows is not unique in being around 50 million lines of code, but that highlights
+
+23
+00:02:39,080 --> 00:02:44,320
+just how insanely large and complex these systems are. And if you want a secure system that's going
+
+24
+00:02:44,320 --> 00:02:49,240
+to be reliable, have integrity, et cetera, it needs to be working properly. And when you have 50
+
+25
+00:02:49,240 --> 00:02:53,880
+million lines of code, is there is there possibly going to be one or two bugs? I don't know, John,
+
+26
+00:02:53,880 --> 00:02:58,960
+has there ever been a bug found in Microsoft's code? None of them I can think of. And then so
+
+27
+00:02:58,960 --> 00:03:03,600
+then what's two billion lines of code? That's Google services. So I mean, this is just a way of showing
+
+28
+00:03:03,600 --> 00:03:09,000
+you in high level terms, just how complex our systems are. And we need these systems to be working
+
+29
+00:03:09,000 --> 00:03:16,000
+properly, which is why we need to test them. And so here's a question right that people have
+
+30
+00:03:16,000 --> 00:03:23,000
+seen. What's the purpose of testing and assessing these architectures, applications, and so on. And
+
+31
+00:03:23,000 --> 00:03:28,840
+obviously it is to provide assurance to our stakeholders that the right level of security is in those
+
+32
+00:03:29,560 --> 00:03:35,160
+valuable assets of the organization, right? But testing needs to involve security. We're not just
+
+33
+00:03:35,160 --> 00:03:40,360
+testing for functionality, we're testing for security functionality as well. As you love to call it
+
+34
+00:03:40,360 --> 00:03:47,480
+non-functional testing. Yeah, drives as crazy as security professionals. Security often gets called
+
+35
+00:03:47,480 --> 00:03:52,600
+non-functional testing. It's getting lumped in with that, which whenever projects, you know,
+
+36
+00:03:52,600 --> 00:03:56,760
+behind schedule over budget, what testing are you not going to do? Oh, don't bother doing the
+
+37
+00:03:56,760 --> 00:04:02,360
+non-functional stuff. Well, to me, non-functional are not two words that you can put together. I mean,
+
+38
+00:04:02,360 --> 00:04:08,040
+non-functional, what does that mean? It means it's not functioning. And definitely security is
+
+39
+00:04:08,040 --> 00:04:14,520
+something that has to function. And so we should never relate to security as anything other than
+
+40
+00:04:14,520 --> 00:04:20,360
+functionality that is very valuable and important, exactly. And so when we talk about security assessment
+
+41
+00:04:20,360 --> 00:04:24,120
+and testing, you know, what are we talking about? Where are we doing it? Are we just doing it when
+
+42
+00:04:24,120 --> 00:04:28,760
+we're developing a system? And the answer is no. I mean, testing is throughout the entire lifecycle
+
+43
+00:04:28,760 --> 00:04:32,360
+the system. It starts right from the very earliest of the conception of what you might be building
+
+44
+00:04:32,360 --> 00:04:37,640
+through the entire lifecycle, even, you know, through obviously build and then operation. And even
+
+45
+00:04:37,640 --> 00:04:42,440
+at the end of the lifecycle, when an application is no longer needed, you've got to test to make sure
+
+46
+00:04:42,440 --> 00:04:46,840
+you just securely destroy the data. Or have you moved it on to the next system properly? So security
+
+47
+00:04:46,840 --> 00:04:51,320
+assessment and assessing is involved throughout the entire process. Yeah, not just development,
+
+48
+00:04:51,320 --> 00:04:57,560
+but the entire lifecycle. So next slide talks about validation and verification. What's the difference?
+
+49
+00:04:57,560 --> 00:05:01,480
+Yeah. So these are some words you might see. So validation is at the very start.
+
+50
+00:05:01,480 --> 00:05:06,040
+Validation is this concept that when someone first says, let's build an application or a system,
+
+51
+00:05:06,040 --> 00:05:10,040
+the first thing you have to understand is what does someone actually want to build? What are the
+
+52
+00:05:10,040 --> 00:05:16,200
+business requirements? Because if you don't understand what the product is, you can never possibly
+
+53
+00:05:16,200 --> 00:05:20,200
+build it properly and especially include the right security controls. If you only find out once it's
+
+54
+00:05:20,200 --> 00:05:25,320
+in production that, oh, hey, by the way, there's some credit card data in there. Oh, okay. Now we've
+
+55
+00:05:25,320 --> 00:05:29,640
+got to include all the PCI controls. Don't worry, there's only a thousand of those. So validation is
+
+56
+00:05:29,640 --> 00:05:34,600
+about how do you validate that you've truly understood the business requirements? That you gathered
+
+57
+00:05:34,600 --> 00:05:39,000
+them all, captured them correctly, and they cover all the requirements. So that's why I like to
+
+58
+00:05:39,000 --> 00:05:43,400
+refer to as are you building the right product? Have you truly understood what it is that you're supposed
+
+59
+00:05:43,400 --> 00:05:48,600
+to be building? And then verification is everything that follows that. Once you start actually building
+
+60
+00:05:48,600 --> 00:05:52,920
+the system and building the security controls into it, you want to make sure you're the product,
+
+61
+00:05:52,920 --> 00:05:58,280
+you're building the product right. Doesn't actually work correctly as it was designed. Do all the
+
+62
+00:05:58,280 --> 00:06:01,960
+security controls that you're implementing, you're verifying that those security controls are actually
+
+63
+00:06:01,960 --> 00:06:06,920
+working correctly. Yeah. And I think we have to relate this to security, right? Validation and
+
+64
+00:06:06,920 --> 00:06:13,400
+verification needs to be applied to what security does in the overall architecture or system that we're
+
+65
+00:06:13,400 --> 00:06:20,600
+building. So next up, an important part of validation and just testing in general is that can we ever
+
+66
+00:06:20,600 --> 00:06:27,160
+be 100% certain that a piece of software is working correctly? The answer is no. Yeah.
+
+67
+00:06:28,360 --> 00:06:33,000
+It's impossible. I used to do a lot of programming. There was some lines of code where I couldn't even
+
+68
+00:06:33,000 --> 00:06:37,960
+tell you if a single line of code was working correctly. So we can never be 100% certain. Instead,
+
+69
+00:06:37,960 --> 00:06:42,040
+this is where we have this concept of you want to develop a level of confidence. You want to be,
+
+70
+00:06:42,040 --> 00:06:45,240
+you know, do you want to be just like, yeah, sure, good enough or do you want to be like really
+
+71
+00:06:45,240 --> 00:06:49,000
+certain it's working correctly? So what would drive that, John? What would make you decide? I want to
+
+72
+00:06:49,000 --> 00:06:53,240
+be really, really confident this is working correctly. Well, you have to understand the requirements
+
+73
+00:06:53,240 --> 00:06:59,560
+from a stakeholder perspective. So the owner's management, whoever it is that your stakeholder is,
+
+74
+00:06:59,560 --> 00:07:04,600
+that you're building this for, you need to understand the requirements, but also how security fits in.
+
+75
+00:07:04,600 --> 00:07:08,680
+And how valuable the system is, the organization, right? The more valuable the system, the more sure
+
+76
+00:07:08,680 --> 00:07:12,760
+you want to be that it's working correctly. So then as part of verification, are we building the
+
+77
+00:07:12,760 --> 00:07:16,760
+product right? This is where we talk about the three C's. What are these all about? Yeah, you see
+
+78
+00:07:16,760 --> 00:07:22,600
+that here, completeness, right? Means exactly that. Let's make sure that we cover everything.
+
+79
+00:07:22,600 --> 00:07:29,480
+Correctness is accuracy, integrity, and so on. And consistency means that the system works
+
+80
+00:07:29,480 --> 00:07:34,600
+properly from a security perspective, from start to finish. It's consistently addressing the
+
+81
+00:07:34,600 --> 00:07:41,160
+security requirements. These are things that you want to verify are not only built in as far as
+
+82
+00:07:41,160 --> 00:07:45,880
+the product itself, but also operating that way once we're using it. And we can use these when
+
+83
+00:07:45,880 --> 00:07:49,880
+we're developing test cases, right? completeness, how do we have test cases that cover everything,
+
+84
+00:07:49,880 --> 00:07:53,560
+correctness to each test case? Look at the right stuff and consistency or all the test cases
+
+85
+00:07:53,560 --> 00:07:57,160
+consistent from one to the next. Is that kind of the idea? Yes, absolutely. Perfect.
+
+86
+00:07:57,880 --> 00:08:01,720
+And then next question, how do we decide how much effort do we invest in testing?
+
+87
+00:08:02,280 --> 00:08:07,080
+Well, this is an answer that everybody should know by now. It's always based on the value that
+
+88
+00:08:07,080 --> 00:08:13,880
+it represents to the organization. Value is what drives security, including the testing that we do
+
+89
+00:08:13,880 --> 00:08:20,840
+to prove to stakeholders that security is contributing value. When we look at testing strategies at
+
+90
+00:08:20,840 --> 00:08:24,680
+at a really high level, how do we go about testing things? There's kind of three major ways
+
+91
+00:08:24,680 --> 00:08:29,160
+we can go about this. We can do internal testing, which means if it's, let's say we're talking about
+
+92
+00:08:29,160 --> 00:08:34,600
+Acme Corporation, internal testing would be Acme's own auditors looking at Acme's own systems.
+
+93
+00:08:34,600 --> 00:08:40,120
+It's all internal. External would be Acme, for instance, looking at one of their service providers.
+
+94
+00:08:40,120 --> 00:08:43,720
+And actually, I'll spend one second on external here because there's sometimes questions on the test
+
+95
+00:08:43,720 --> 00:08:47,000
+that kind of befubble people. External can actually mean two different things.
+
+96
+00:08:47,640 --> 00:08:52,600
+External could be where Acme's own internal auditors are looking at a service provider. That's
+
+97
+00:08:52,600 --> 00:08:57,000
+external to them. Or it could be that way around. Let's say that Acme is developing a system,
+
+98
+00:08:57,000 --> 00:09:02,040
+and the upper management doesn't quite have the confidence that their internal people know
+
+99
+00:09:02,040 --> 00:09:06,040
+quite what they're doing. And they want an outsider's opinion, someone external to the organization
+
+100
+00:09:06,040 --> 00:09:09,880
+to take a look at things. And so that can be the other definition of external, where someone
+
+101
+00:09:09,880 --> 00:09:15,880
+like an external auditor is looking in. And then third party obviously implies there are three
+
+102
+00:09:15,880 --> 00:09:19,800
+parties involved. So this is usually where you have a service provider, like a big cloud provider,
+
+103
+00:09:19,800 --> 00:09:24,920
+like say, as you are, they will have millions of customers, hundreds of thousands of customers.
+
+104
+00:09:24,920 --> 00:09:28,760
+And they don't want to have to have every single one of those customers audit them individually.
+
+105
+00:09:28,760 --> 00:09:33,400
+So they'll hire a trusted third party audit firm to conduct an audit, produce a report,
+
+106
+00:09:33,400 --> 00:09:37,000
+which then gets handed out to all of their customers. We'll talk about that in a lot more detail
+
+107
+00:09:37,000 --> 00:09:42,920
+later on, but those are the three parties consumer service provider and the external auditor.
+
+108
+00:09:44,760 --> 00:09:50,680
+Next slide talks about the role of security in testing. And one of the things that we have to
+
+109
+00:09:50,680 --> 00:09:57,160
+remember is that, you know, testing should be done by the stakeholders that are involved in
+
+110
+00:09:57,160 --> 00:10:03,320
+providing assurance towards. And so security really needs to be part of the entire teams.
+
+111
+00:10:03,320 --> 00:10:10,600
+But the teams also need to include the owners and management and possibly some others
+
+112
+00:10:10,600 --> 00:10:17,000
+that have a stake in understanding that security is contributing towards value and working
+
+113
+00:10:17,000 --> 00:10:21,480
+properly as far as the testing that we do. And the key part here is it's not security is not
+
+114
+00:10:21,480 --> 00:10:25,800
+actually conducting the testing. What's what's security doing? Well, we're monitoring,
+
+115
+00:10:25,800 --> 00:10:29,560
+but we're also providing assurance from a security perspective. Yeah, we're advising,
+
+116
+00:10:29,560 --> 00:10:33,560
+we're looking at the results and that's sort of the role of the security professional.
+

@@ -1,0 +1,96 @@
+So let's kind of dig into it here, and you'll learn about why we talk about something known as the root of trust or the trust anchor.
+So, well, it's true that ultimately the key that...
+We've talked about digital certificates, which we use to verify the owner of a public key, and we've talked about the entity that you go to to get a digital certificate is the certificate authority.
+And the certificate authority will encrypt and create your digital certificate by encrypting some of your information with the root CA's private key.
+And all that's true, but there's actually a little more detail to do with than that.
+So let's kind of dig into it here, and you'll learn about why we talk about something known as the root of trust or the trust anchor.
+So while it's true that ultimately the key that signs that encrypts your digital certificate is ultimately the root CA's key, there's a few more entities involved beneath that.
+And this is actually why we call it the root of trust, because there's actually a tree with the root certificate at the top of that tree, and then subordinate CA's beneath that.
+So first of all, let's start with this concept of why do we have a root CA and subordinate CA's?
+Well, first of all, let's think about it from a security perspective.
+This entire system relies upon the security of the private key of the root CA.
+If their private key was compromised, this entire system would fall apart.
+And this would be a big deal. I mean, some of the big root CA's in the world, Komodo GoDaddy, they signed millions of certificates.
+If their private key was compromised, it would be a huge, huge problem.
+And you wouldn't be able to trust a vast swath of the internet.
+And so if you think about it, how important is it for the CA to protect that private key? It is paramount.
+So how do you think they best protect that private key? Well, by not having it online, by airgapping it, by putting out a system that is completely disconnected from the internet.
+But if that private key is on a system that's disconnected from the internet, how can they possibly sign new digital certificates?
+Well, the way this works, and like I said, there's a tree here.
+So the root CA will self-sign their own certificates. So the root CA uses the root CA's private key to sign their own certificate.
+And then that root certificate is used to sign subordinate certificates.
+And these are usually known as intermediate CAs. And then those intermediate CAs can even sign subordinate CAs below them.
+Those are usually then known at the bottom known as issuing CAs.
+And then it would finally be those issuing CAs that would actually encrypt or sign an entity level CA, so the CA that a company would use.
+So this is why we refer to it as a root of trust.
+And so here's a good question. If you've ever asked, who actually issues digital certificates?
+The perfect answer would be the bottom of that chain, chain issuing CAs.
+If that's not an answer, then intermediate. And if that's not an answer, then root would be the perfect answer.
+But the perfect answer to the question of who issues a digital certificate is an issuing CA.
+And you can actually see this. You can see this chain of trust.
+So if you go into your web browser and you right click on the little lock icon in the browser bar and hit properties, you'll be able to see that there's a chain of trust.
+The entity level CA is the lowest of that level and the very top is the root.
+So the root CA signs a subordinate CA which signs the entity level certificate.
+And so in this example, I'm showing you here from Amazon.com.
+You can see that it's actually a couple of, there's an intermediate and a root level CA from global.
+Now let's talk about another issue that we have to deal with with digital certificates.
+And that is what happens when we want to replace or revoke certificates.
+Now let's start with replacement.
+So we're going to talk about a key management, how it's a very good idea to rotate or change your encryption keys on a periodic basis.
+And the same is true of course for your digital certificate because what does your digital certificate contain?
+It contains your public key.
+So if you're changing your public and private key pair, that means that you have to change your or get a new digital certificate.
+And that's what the replacement process is.
+And the way this typically works is that a digital certificate when it's issued will have an expiry date attached to it.
+And so whenever you get a certificate from someone, you're going to know when their certificate is meant to expire because you'll have the expiry date on there.
+And if you ever go to a website where it says, you know, this website certificate has expired, what that means is that the certificate for that site is past its expiry date.
+And it's a good indication that you should go and get a new certificate from that organization.
+Now there's another situation that we have to deal with which is a far, far greater concern from a security perspective.
+And that is, what happens if your private key has been compromised?
+If your private key has been compromised, should anyone trust your public key?
+Absolutely not.
+So what do we do in situations like this?
+Well, this is the whole purpose of this certificate revocation process.
+So the way this works is that if you know that your private key has been compromised, you can go to a certificate authority and say, my private key has been compromised.
+Therefore, no one should trust my public key.
+Therefore, no one should trust my certificate.
+And therefore, I'd like you to revoke my certificate.
+And the certificate authority maintains a list of all the revoked certificates.
+And so your crypto system should, for instance, when it's first getting a, or it's using a digital certificate, it should check with the certificate authority to see if that certificate is still valid or if it's being revoked.
+Now there's two major ways that a crypto system can check with the certificate authority and ask, has the certificate be revoked or not?
+The older method is known as CRL certificate revocation list.
+And the way this works is you query the CA and you say, hey, now I'd like to know if the certificate is being revoked.
+And what the certificate will, in CRL, what the certificate authority will send you is the entire list of all the revoked certificates.
+And so this can often be a pretty big file.
+And then it's your crypto systems job, your local systems job, to then search through that entire list of revoked certificates to see if the one that you're interested in has, in fact, be revoked, be revoked.
+So this is not a very efficient process. This is kind of the older way of doing it.
+The other method is OCSP online certificate status protocol. And this is the newer way of doing this.
+And the way it works is your system will query the certificate authority and say, for this particular certificate that I have, has it being revoked.
+And the CA will reply with a simple yes or no. It has been revoked or not. So OCSP is the newer, far more efficient method.
+But the reason that we still talk about CRL is that there's a lot of older systems that don't support this new OCSP protocol that only supports CRL.
+So it's still commonly used to this day.
+Now, one major problem with this whole process is that it's still to an extent relies on user's awareness and knowledge.
+Because you may have had this happen. You'll go to some website. Maybe it's a slightly sketchy website. Not going to ask why you're there.
+You'll go to a website and you'll see a really scary pop up like this on like a red background. It'll say this certificate has been revoked.
+It looks super scary. And unfortunately, what our users can still sometimes do is still click on a button that says, yeah, yeah, I proceed.
+Should they be clipping on this button? Should you ever go to a website whose certificate has been revoked? Absolutely not.
+And thankfully browsers in the last couple of years have started to address this problem.
+Most modern browsers now Chrome as an example. They don't even give you the button to proceed anymore.
+But that is still a failing in the system where it's still relies on the users to an extent understanding what a revoked certificate actually means and why that's a problem.
+Now, there's one final concept that we're going to talk about here. And that is certificate pinning.
+So what is certificate pinning? Well, to explain this, let's think about if you're going to a website like, say, Amazon.com, how do you get their certificate?
+We're going to talk about this in a lot more detail in the networking section when we talk about the SSL protocol.
+But for now, if you go to a website like say, Amazon.com, the web server will send you the certificates, the server's certificate.
+And so your browser will get a copy of the server's certificate by requesting it. But there's a problem here.
+What happens if we have a malicious person in the middle, a baddie here? When we first request a certificate from the server,
+if there happens to be a baddie performing a man in the middle attack, a problem that might happen here is that the baddie might not send a server's true certificate.
+The baddie here might send a spoofed certificate. And that's a real problem here.
+So the way a possible way of dealing with this is what's known as certificate pinning.
+And the idea behind certificate pinning is that when you know you have a certificate that you trust, you never go out and actually ask for a new certificate from say Amazon.com.
+And there's two major ways that your system might pin or say there's a certificate I trust. Therefore, I'm not going to ask for a new one.
+One, the best way of doing certificate pinning is that when an application is first created that needs to go in request a certificate, you actually code that you actually add the certificate into the application when it's created.
+And so if the application already has the certificate pinned to the application, there's absolutely no need to go and ask the server for the certificate.
+So that's the most secure way of doing certificate pinning. The other option is the very first time that you ask for a certificate from say Amazon.com.
+You pin that certificate and then every subsequent time that you go to the server, you don't ask for a new certificate.
+Either way, fundamentally, what is certificate pinning about? Well, it's this idea that if there's no key distribution through digital certificates, then there's no distribution problems.
+There's no security risk of having a man in the middle attack. So that's certificate pinning.

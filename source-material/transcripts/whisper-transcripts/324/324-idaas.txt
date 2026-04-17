@@ -1,0 +1,45 @@
+Wow, you're still here.
+That is some perseverance.
+I'm proud of you.
+Let's keep going.
+I'm happy to report this is an easy one.
+Identity as a service.
+What does that mean?
+It means we can do any of the stuff that we have already talked about around identity
+and access management, except that we can do it in the cloud.
+That's identity as a service.
+There's a little more to it than they need to know.
+Here's the table.
+There are a number of different identities that we can use in identity as a service.
+So let's go through each of these and I'll provide you a nice simple definition of each
+one.
+Let's start with cloud identity.
+The idea of a cloud identity is that the identity, your information, your credential
+information is entirely stored in the cloud and you authenticate in the cloud because
+everything is stored in the cloud.
+That's cloud identity.
+Sync identity is where you have an identity in your local corporate store on premise and
+you have an identity in the cloud and sync means that they are connected and a change to
+one is synchronized to the other, a change to this one is synchronized to the other one.
+So sync identities, they're synchronized.
+And the authentication can occur either on premise or in the cloud.
+Federated identity is where you use federated access.
+This whole process that we've already talked through about having three entities, the identity
+provider, the relying party, the service provider, and the user or the principal.
+And where the actual identity provider is located whether it's on premise or in the cloud
+doesn't matter.
+Federated identity is just this concept of using federated access.
+And the last one is known as a linked identity.
+This is where you still have two separate identities, one on premise and one in the cloud.
+But the key difference between linked identity and synced identity, in sync, there was if
+a change was made to one, it was synchronized to the other.
+In linked, there's a connection to say that these are both accounts that belong to the
+same user, but an update to one does not synchronize automatically, update the other.
+And so in linked identity, if you change this account in the cloud, it doesn't automatically
+update this local account and vice versa.
+So those are the major types of accounts that we can use in the cloud.
+And the final piece slide here is just related to what are all the services that we can have
+in identity as a service.
+And like I said, it's anything that you can do on premise, you can do provisioning,
+you can do access management, you can do single sign-on, you can do multi-factor, all
+of this stuff, you can do it in the cloud.

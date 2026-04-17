@@ -1,0 +1,504 @@
+1
+00:00:00,000 --> 00:00:17,340
+Alright, in this module we're going to talk about how we can also connect devices together
+
+2
+00:00:17,340 --> 00:00:35,320
+by using wireless technologies, but alright, in this module we're going to talk about how
+
+3
+00:00:35,320 --> 00:00:40,720
+we can also connect devices together by using wireless technologies, but one of the things
+
+4
+00:00:40,720 --> 00:00:46,480
+that we have to think about in anything wireless is that we can't really control how we
+
+5
+00:00:46,480 --> 00:00:52,960
+connect devices together because by definition wireless signals will span outwards in all directions
+
+6
+00:00:52,960 --> 00:00:59,840
+and so that makes it particularly challenging to protect anything that is wireless and
+
+7
+00:00:59,840 --> 00:01:05,240
+you know up until a number of years ago this was something that companies resisted simply
+
+8
+00:01:05,240 --> 00:01:11,600
+because it was so hard to protect wireless communications, but nowadays we can protect
+
+9
+00:01:11,600 --> 00:01:16,640
+wireless really well by using some of the technologies and protocols that are available
+
+10
+00:01:16,640 --> 00:01:22,040
+that we're going to talk about here, but first of all you know the fundamental problem
+
+11
+00:01:22,040 --> 00:01:28,440
+of wireless and how it reaches out in all directions is something that companies need to think
+
+12
+00:01:28,440 --> 00:01:33,960
+about certainly from a architecture perspective, so if you look at the slide that's in front
+
+13
+00:01:33,960 --> 00:01:39,640
+of you right here, it really depicts what a typical architecture may look like, very
+
+14
+00:01:39,640 --> 00:01:45,360
+simplified of course, but what a typical architecture may look like in any organization
+
+15
+00:01:45,360 --> 00:01:50,840
+where you know organizations have their own internal network that is connected to the
+
+16
+00:01:50,840 --> 00:01:55,680
+internet so that we can take advantage of the opportunities that the web and the internet
+
+17
+00:01:55,680 --> 00:02:01,880
+offers us to be able to keep our clients and customers happy, but we may also have what
+
+18
+00:02:01,960 --> 00:02:10,480
+are called a DMZ which is a sub network where we're going to put services that may be required
+
+19
+00:02:10,480 --> 00:02:16,720
+from the outside internet, that means people that are trying to order our products and
+
+20
+00:02:16,720 --> 00:02:22,360
+interface with us in a nice easy way requires us to have applications that we're going to
+
+21
+00:02:22,360 --> 00:02:29,000
+put in the DMZ as opposed to letting them come in to the internal network and so that's
+
+22
+00:02:29,000 --> 00:02:34,800
+where we're going to put things related to any service that is required from the outside
+
+23
+00:02:34,800 --> 00:02:40,920
+internet, but if you think about wireless this is also where we want to put our Wi-Fi capabilities
+
+24
+00:02:40,920 --> 00:02:47,080
+because then anybody connecting to those Wi-Fi access points, if they want to be able
+
+25
+00:02:47,080 --> 00:02:52,920
+to get into the internal network we'll still have to go through the firewall which is there
+
+26
+00:02:53,000 --> 00:02:59,880
+to provide security so that we only allow what should be allowed in the internal network so
+
+27
+00:02:59,880 --> 00:03:06,600
+that ultimately we are protecting the value of those assets and services that are ultimately
+
+28
+00:03:06,600 --> 00:03:13,160
+inside of our network, so if you look at the architecture that is depicted here that is a
+
+29
+00:03:13,160 --> 00:03:18,440
+good one from a security perspective because anybody connecting to that would have to go through
+
+30
+00:03:18,440 --> 00:03:23,560
+the firewall to be able to access anything of value in the internal network, now you could
+
+31
+00:03:23,560 --> 00:03:30,520
+have a guest Wi-Fi so this is a typical architecture that a lot of organizations have, this is where
+
+32
+00:03:30,520 --> 00:03:37,080
+you would place your Wi-Fi capabilities that you offer guests which could be on the outside
+
+33
+00:03:37,080 --> 00:03:43,640
+and not in any way connected to the internal network which again is the most important thing
+
+34
+00:03:43,640 --> 00:03:50,040
+to protect, the value of the internal network and its services is what we want to ultimately protect,
+
+35
+00:03:50,040 --> 00:03:56,280
+so your guest Wi-Fi capabilities are going to be outside of the firewall, now you could also have
+
+36
+00:03:56,280 --> 00:04:03,800
+what most companies do and that is a corporate Wi-Fi that only authorized individuals are allowed
+
+37
+00:04:03,800 --> 00:04:09,960
+to connect to, and this is where you would have really good security to force, not only authentication
+
+38
+00:04:09,960 --> 00:04:16,600
+but probably two factor authentication for anyone that may be a employee of the organization
+
+39
+00:04:16,600 --> 00:04:23,560
+to connect to that type of network, now one of the other things that we have to think about
+
+40
+00:04:24,520 --> 00:04:31,000
+from a wireless perspective is what we call radio frequency management and what this means is that
+
+41
+00:04:31,000 --> 00:04:39,000
+the placement of certain wireless access points need to be done securely and what you depict here,
+
+42
+00:04:39,000 --> 00:04:45,640
+what you see here is not very secure because we've placed a wireless access point in the corner
+
+43
+00:04:45,640 --> 00:04:54,520
+of a building where the signals will span outwards towards locations and areas that you cannot control,
+
+44
+00:04:54,520 --> 00:05:00,200
+for example your parking lot or other buildings that may be next to you, so a better architecture
+
+45
+00:05:00,200 --> 00:05:06,200
+would be the place that wireless access point in the middle of the building so that you can limit
+
+46
+00:05:06,200 --> 00:05:14,280
+the signals and what they can reach to areas that you don't trust, now understanding something called
+
+47
+00:05:14,280 --> 00:05:21,640
+the radio frequency spectrum allows us to understand why it's important for us to protect certain
+
+48
+00:05:21,640 --> 00:05:28,520
+types of traffic that operate at frequencies within this wireless radio spectrum, so the ones that
+
+49
+00:05:28,520 --> 00:05:38,920
+you see in yellow there, 802.11, B and G, Bluetooth and some wireless phones, but also the 802.11,
+
+50
+00:05:38,920 --> 00:05:47,640
+AN and AC represent what are called the frequencies that are established as being unlicensed,
+
+51
+00:05:47,640 --> 00:05:54,520
+so the yellow frequencies that you see there, 2.4 gigahertz and 5 gigahertz and I think there's
+
+52
+00:05:54,520 --> 00:06:02,040
+actually another one that we don't see there that has been recently established as being also
+
+53
+00:06:02,040 --> 00:06:10,760
+unlicensed in the 60 range are what we call unlicensed radio frequencies and what that means
+
+54
+00:06:10,760 --> 00:06:17,640
+is that anyone because it's unlicensed that means any vendor for example can create a technology
+
+55
+00:06:17,640 --> 00:06:23,160
+that operates within those frequencies, but from a security perspective that's a problem isn't it
+
+56
+00:06:23,160 --> 00:06:28,360
+because if you have a whole bunch of things that people can create technologies that can operate
+
+57
+00:06:28,360 --> 00:06:35,240
+within those radio frequencies that may contend with what we're trying to do as an organization
+
+58
+00:06:35,240 --> 00:06:40,760
+or they those devices that others create that operate within those radio frequencies
+
+59
+00:06:41,560 --> 00:06:47,480
+may also be able to pick up the signals that are operating within those frequencies and so the
+
+60
+00:06:47,480 --> 00:06:54,280
+problem is when you look at this entire radio frequency band there is really no security built in
+
+61
+00:06:54,280 --> 00:07:02,360
+I mean the radio frequency band does not have any security built in therefore we need to add security
+
+62
+00:07:02,360 --> 00:07:11,560
+if we want security of wireless and here are examples I mean Wi-Fi is the most obvious example
+
+63
+00:07:11,560 --> 00:07:17,240
+of where we use radio frequencies that are wireless that do not have any security built in
+
+64
+00:07:17,640 --> 00:07:24,440
+but it also includes other technologies like Bluetooth and cellular and RFID but the
+
+65
+00:07:24,440 --> 00:07:30,280
+bottom line is that each of these technologies all have the same problems and that is there is
+
+66
+00:07:30,280 --> 00:07:37,640
+no security built in to anything that you're using to connect wirelessly or to communicate wirelessly
+
+67
+00:07:37,640 --> 00:07:44,760
+so what you want to remember from this slide especially specifically is that if you want security
+
+68
+00:07:44,760 --> 00:07:51,720
+to exist of anything that is wireless there are really four things that you need to address
+
+69
+00:07:51,720 --> 00:07:57,880
+there are four security services that need to be addressed in anything that is wireless
+
+70
+00:07:57,880 --> 00:08:04,520
+and it is what you see on the left hand side of this table right if you want security of wireless
+
+71
+00:08:04,520 --> 00:08:10,520
+you need to address access control you need to address authentication you need to address encryption
+
+72
+00:08:10,520 --> 00:08:17,160
+and you need to address integrity protection and what you see here is what the industry has come
+
+73
+00:08:17,160 --> 00:08:24,840
+up with in order to address those things for anything that's wireless and so if you look at 802.1x
+
+74
+00:08:26,280 --> 00:08:32,440
+the four methods that are used for addressing access control authentication encryption
+
+75
+00:08:32,440 --> 00:08:40,280
+and integrity is what we've provided in that table so 802.1x for example uses 802.1x for
+
+76
+00:08:40,280 --> 00:08:49,000
+access control it uses EAP methods to authenticate individuals it uses web for encryption which you
+
+77
+00:08:49,000 --> 00:08:56,520
+know is not something that is very secure any longer and it uses nothing for integrity protection
+
+78
+00:08:56,520 --> 00:09:04,520
+and that's why what you see in this table is more relevant and that is what's better to protect
+
+79
+00:09:04,520 --> 00:09:15,320
+anything wireless is WPA and WPA2 and most organizations today have standardized on WPA2
+
+80
+00:09:15,320 --> 00:09:20,920
+capabilities to protect anything that's wireless and when you look at the specific methods that
+
+81
+00:09:20,920 --> 00:09:27,800
+this chart provides for each of the requirements being access control authentication encryption
+
+82
+00:09:27,800 --> 00:09:36,360
+and integrity protection WPA2 uses a pre-shared key for both access control and authentication
+
+83
+00:09:36,360 --> 00:09:44,360
+it uses something called CCMP which is really the AES algorithm which you know of used in counter
+
+84
+00:09:44,360 --> 00:09:51,560
+mode for encryption and for integrity protection it also uses something called CCMP which is really
+
+85
+00:09:51,560 --> 00:10:00,920
+a message authentication code that is encrypted in CBC mode of the AES algorithm and you'll
+
+86
+00:10:00,920 --> 00:10:08,600
+know probably that you know companies there are two different ways to use WPA2 personal mode
+
+87
+00:10:09,400 --> 00:10:15,560
+and enterprise mode and most companies will standardize on enterprise mode which may require
+
+88
+00:10:15,560 --> 00:10:21,800
+people to two factor authenticate and possibly provide some other information before you can
+
+89
+00:10:21,800 --> 00:10:28,760
+actually connect to that corporate Wi-Fi that is using WPA2 so that's definitely the best method
+
+90
+00:10:28,760 --> 00:10:35,560
+to protect anything wireless and we're achieving the four requirements of protecting anything wireless
+
+91
+00:10:35,560 --> 00:10:42,040
+which as you can see here is access control authentication encryption and integrity protection
+
+92
+00:10:42,600 --> 00:10:49,640
+now this is a summary of what we've just talked about because the exam may ask you to understand
+
+93
+00:10:49,640 --> 00:10:56,440
+what are the four security services that must always be addressed if you want to protect
+
+94
+00:10:56,440 --> 00:11:03,000
+anything wireless and so you'll know that it is access control authentication encryption
+
+95
+00:11:03,000 --> 00:11:07,800
+and integrity protection you may have to memorize those although I think it's pretty intuitive
+
+96
+00:11:08,680 --> 00:11:16,840
+now in anything that relates to authentication these are some of the methods that are typically
+
+97
+00:11:16,840 --> 00:11:24,600
+used for that that's why WPA2 is the best method to achieve authentication because it can force
+
+98
+00:11:24,600 --> 00:11:32,920
+two factor authentication that may use as we just saw EAP methods for that and one of the important
+
+99
+00:11:32,920 --> 00:11:39,160
+things that you see at the bottom of this slide is that in typical connections related to wireless
+
+100
+00:11:39,160 --> 00:11:46,680
+you want to achieve what's called mutual authentication that means that both parties connecting to
+
+101
+00:11:46,680 --> 00:11:52,360
+each other wirelessly need to authenticate to each other so authentication has to happen both
+
+102
+00:11:52,360 --> 00:11:58,760
+ways in order for us to trust and then of course anything that we send back and forth would require
+
+103
+00:11:58,760 --> 00:12:04,360
+encryption integrity protection and the other services that we just saw as part of that slide
+
+104
+00:12:04,360 --> 00:12:12,520
+and for wireless encryption most of the methods will use AES which is by far the best algorithm
+
+105
+00:12:12,520 --> 00:12:20,520
+that we've seen in the cryptography domain as part of this presentation but WPA2 uses as you can
+
+106
+00:12:20,520 --> 00:12:31,000
+see here CCMP which is the AES used in counter mode which is the best mode to encrypt and at least
+
+107
+00:12:31,000 --> 00:12:39,000
+with 128 bit keys is pretty standard now for integrity protection TKIP we're going to talk about
+
+108
+00:12:39,000 --> 00:12:50,440
+coming up because TKIP was actually developed to replace WEP which we know is flawed and vulnerable
+
+109
+00:12:50,920 --> 00:12:57,240
+so TKIP was really the first attempt to come up with something that could replace WEP because by
+
+110
+00:12:57,240 --> 00:13:03,640
+that point every organization out there that was offering wireless was using WEP and as soon as
+
+111
+00:13:03,640 --> 00:13:10,520
+we found that WEP was flawed and vulnerable the industry had to move very quickly to come up with
+
+112
+00:13:10,520 --> 00:13:16,120
+something like a band-aid solution to really address the vulnerabilities that WEP had what they
+
+113
+00:13:16,120 --> 00:13:22,680
+came up with very quickly is something called TKIP and so TKIP was an attempt to try and fix
+
+114
+00:13:22,680 --> 00:13:30,760
+the vulnerabilities that WEP had and by today's standards it's no longer good to use TKIP methods
+
+115
+00:13:30,760 --> 00:13:38,200
+for integrity protection and encryption and in fact WPA2 uses something called CCMP as well that
+
+116
+00:13:38,200 --> 00:13:44,680
+we outlined earlier before which is really a message authentication code that is protected by using
+
+117
+00:13:44,760 --> 00:13:55,080
+the AES algorithm used in CBC mode and in fact here is 802.1X which is really one of the earliest
+
+118
+00:13:55,080 --> 00:14:02,280
+ways to achieve security for wireless and it did use something called TKIP. Here's some information
+
+119
+00:14:02,280 --> 00:14:09,320
+on TKIP because we have heard from some people that there may be still some questions on the exam
+
+120
+00:14:09,400 --> 00:14:17,320
+that relate to TKIP so this provides a summary of TKIP actually was in order to address the problems
+
+121
+00:14:17,320 --> 00:14:23,800
+that we had identified in the industry related to WEP. WEP is flawed and vulnerable one of the best
+
+122
+00:14:23,800 --> 00:14:30,120
+ways or one of the quickest ways that the industry came up to address the problems related with WEP
+
+123
+00:14:30,120 --> 00:14:37,000
+was to implement TKIP which was developed to replace WEP and address the vulnerabilities of it
+
+124
+00:14:37,000 --> 00:14:43,320
+but as you can see with the bottom statement that we have there TKIP is no longer considered to be
+
+125
+00:14:43,320 --> 00:14:52,520
+secure and is superseded by using AES methods that are really included within WPA2. The best method to
+
+126
+00:14:52,520 --> 00:15:08,440
+protect wireless today is definitely WPA2 used in wireless or in enterprise mode.
+

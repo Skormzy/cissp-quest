@@ -1,0 +1,650 @@
+{
+  "stylePrefix": "anime-inspired cyberpunk visual novel illustration, high detail, dramatic studio lighting, professional digital art, rich dark tones, clean linework, subtle glow effects, no watermarks, no text",
+  "negativePrompt": "blurry, low quality, distorted, watermark, text, signature, anime chibi, cartoonish, nsfw, western comic style, realistic photography",
+  "characters": {
+    "tanaka": {
+      "cardPrompt": "Japanese woman early 50s, silver-streaked black hair in a precise architectural updo with zero loose strands, thin rectangular silver-framed glasses, sharp observant dark eyes behind the glasses, charcoal gray blazer over crisp white button-down shirt, small holographic badge on lapel, composed authoritative posture suggesting decades of experience, cyberpunk-subtle aesthetic"
+    },
+    "webb": {
+      "cardPrompt": "Black man late 30s, close-cropped hair with a neat short beard, broad-shouldered build suggesting former military intelligence background, dark tactical hoodie with subtle tech-company branding, warm direct intelligent eyes, genuine confidence without arrogance"
+    },
+    "sharma": {
+      "cardPrompt": "Indian woman mid 40s, shoulder-length dark hair with deep auburn highlights, sharp dark eyes carrying crisis weight behind executive composure, navy blue power suit with subtle corporate lapel pin, precise professional bearing, tension visible in jaw despite controlled expression"
+    },
+    "ghost": {
+      "cardPrompt": "Mixed-race man early 30s, medium build deliberately unremarkable physique, light brown hair cut short without distinguishing style, neutral forgettable features, simple dark gray clothing with no logos or identifying marks, slightly hollow eyes with intelligence underneath, the specific look of someone who has practiced not being noticed"
+    },
+    "vasquez": {
+      "cardPrompt": "Latina woman late 30s, natural dark curly shoulder-length hair, reading glasses pushed up on her forehead, burgundy tailored pantsuit, always with a stack of legal files or a legal pad, methodical precise bearing, slight forward lean suggesting constant analysis"
+    },
+    "alex": {
+      "cardPrompt": "Young cybersecurity professional, seen from behind or side silhouette only, smart business casual dark clothing, uncertainty and determination in equal measure, not fully visible — the player projects themselves"
+    }
+  },
+  "images": [
+    {
+      "key": "npc_tanaka_neutral",
+      "type": "character",
+      "character": "tanaka",
+      "expression": "neutral",
+      "aspectRatio": "2:3",
+      "promptSuffix": "neutral expression, steady confident gaze, looking slightly off-camera, portrait composition with dark background, dark navy gradient behind, subtle cyan ambient light",
+      "notes": "Primary neutral portrait — used as style reference for all Tanaka images"
+    },
+    {
+      "key": "npc_tanaka_serious",
+      "type": "character",
+      "character": "tanaka",
+      "expression": "serious",
+      "aspectRatio": "2:3",
+      "promptSuffix": "serious focused expression, slight frown of concentration, direct eye contact with viewer, high-stakes situation implied",
+      "notes": "Used during crisis moments, lecture scenes"
+    },
+    {
+      "key": "npc_tanaka_concerned",
+      "type": "character",
+      "character": "tanaka",
+      "expression": "concerned",
+      "aspectRatio": "2:3",
+      "promptSuffix": "expression of professional concern, slight tightening around eyes, raised eyebrow, empathetic but controlled",
+      "notes": "Used when Alex makes wrong decisions"
+    },
+    {
+      "key": "npc_tanaka_approving",
+      "type": "character",
+      "character": "tanaka",
+      "expression": "approving",
+      "aspectRatio": "2:3",
+      "promptSuffix": "subtle approving smile, corners of mouth slightly raised, warm but controlled expression, pride visible behind professional restraint",
+      "notes": "Used for correct answers and progress moments"
+    },
+    {
+      "key": "npc_tanaka_teaching",
+      "type": "character",
+      "character": "tanaka",
+      "expression": "teaching",
+      "aspectRatio": "2:3",
+      "promptSuffix": "gesturing while explaining, one hand raised making a point, engaged animated expression, illuminated by screen light, in full lecture mode",
+      "notes": "Used for knowledge delivery scenes"
+    },
+    {
+      "key": "npc_webb_neutral",
+      "type": "character",
+      "character": "webb",
+      "expression": "neutral",
+      "aspectRatio": "2:3",
+      "promptSuffix": "neutral confident expression, holding a tablet, casual professional stance, dark background with subtle blue server-rack ambient light",
+      "notes": "Primary Webb portrait"
+    },
+    {
+      "key": "npc_webb_excited",
+      "type": "character",
+      "character": "webb",
+      "expression": "excited",
+      "aspectRatio": "2:3",
+      "promptSuffix": "excited by a technical discovery, slight forward lean, eyes wide with genuine enthusiasm, coffee mug in hand",
+      "notes": "Used during technical discoveries in Acts 3-4"
+    },
+    {
+      "key": "npc_webb_focused",
+      "type": "character",
+      "character": "webb",
+      "expression": "focused",
+      "aspectRatio": "2:3",
+      "promptSuffix": "intensely focused on something off-camera, serious concentration, face partially lit by screen glow, tactical mode",
+      "notes": "Used during active investigation scenes"
+    },
+    {
+      "key": "npc_webb_explaining",
+      "type": "character",
+      "character": "webb",
+      "expression": "explaining",
+      "aspectRatio": "2:3",
+      "promptSuffix": "explaining something enthusiastically, both hands gesturing, big warm smile, making technical concepts feel accessible",
+      "notes": "Used for technical explanation scenes"
+    },
+    {
+      "key": "npc_webb_concerned",
+      "type": "character",
+      "character": "webb",
+      "expression": "concerned",
+      "aspectRatio": "2:3",
+      "promptSuffix": "concern on face, rubbing back of neck, looking at something alarming off-screen, tension in posture",
+      "notes": "Used during crisis revelations"
+    },
+    {
+      "key": "npc_sharma_neutral",
+      "type": "character",
+      "character": "sharma",
+      "expression": "neutral",
+      "aspectRatio": "2:3",
+      "promptSuffix": "composed executive expression, perfectly controlled, looking directly at camera, power behind the stillness, dark London office background",
+      "notes": "Primary Sharma portrait"
+    },
+    {
+      "key": "npc_sharma_defensive",
+      "type": "character",
+      "character": "sharma",
+      "expression": "defensive",
+      "aspectRatio": "2:3",
+      "promptSuffix": "arms subtly crossed, controlled but defensive expression, slight jaw tension, executive composure barely masking stress",
+      "notes": "Used when her governance failures are exposed"
+    },
+    {
+      "key": "npc_sharma_ashamed",
+      "type": "character",
+      "character": "sharma",
+      "expression": "ashamed",
+      "aspectRatio": "2:3",
+      "promptSuffix": "subtle shame in expression, eyes cast slightly down then meeting camera, vulnerability visible despite executive bearing, the weight of having failed",
+      "notes": "Act 2 revelation scenes"
+    },
+    {
+      "key": "npc_sharma_determined",
+      "type": "character",
+      "character": "sharma",
+      "expression": "determined",
+      "aspectRatio": "2:3",
+      "promptSuffix": "newfound determination, chin raised slightly, direct eye contact, the expression of someone who has processed failure and chosen to fix it",
+      "notes": "Late-story growth arc"
+    },
+    {
+      "key": "npc_sharma_professional",
+      "type": "character",
+      "character": "sharma",
+      "expression": "professional",
+      "aspectRatio": "2:3",
+      "promptSuffix": "fully composed professional mode, addressing someone with authority, executive communication stance",
+      "notes": "Used in formal meetings and regulatory scenes"
+    },
+    {
+      "key": "npc_ghost_neutral",
+      "type": "character",
+      "character": "ghost",
+      "expression": "neutral",
+      "aspectRatio": "2:3",
+      "promptSuffix": "deliberately neutral expression, carefully unremarkable, dark corridor background or plain wall, the face you'd forget in a crowd, slight shadow obscuring part of face",
+      "notes": "Primary Ghost portrait — deliberately forgettable"
+    },
+    {
+      "key": "npc_ghost_evasive",
+      "type": "character",
+      "character": "ghost",
+      "expression": "evasive",
+      "aspectRatio": "2:3",
+      "promptSuffix": "slightly evasive gaze, eyes not quite meeting camera, controlled expression that gives nothing away, slight tension in jaw",
+      "notes": "During interrogation scenes"
+    },
+    {
+      "key": "npc_ghost_calculating",
+      "type": "character",
+      "character": "ghost",
+      "expression": "calculating",
+      "aspectRatio": "2:3",
+      "promptSuffix": "a flash of intelligence and calculation visible behind the forgettable exterior, the mask slips slightly, eyes sharp despite blank expression",
+      "notes": "Ghost's POV scenes (premium)"
+    },
+    {
+      "key": "npc_ghost_vulnerable",
+      "type": "character",
+      "character": "ghost",
+      "expression": "vulnerable",
+      "aspectRatio": "2:3",
+      "promptSuffix": "unexpected vulnerability, the careful control slipping, genuine emotion breaking through the constructed ordinariness",
+      "notes": "Ghost's moral revelation scene"
+    },
+    {
+      "key": "npc_ghost_resigned",
+      "type": "character",
+      "character": "ghost",
+      "expression": "resigned",
+      "aspectRatio": "2:3",
+      "promptSuffix": "resigned expression, the fight has gone out, still composed but acceptance visible, almost peaceful",
+      "notes": "Act 5 finale"
+    },
+    {
+      "key": "npc_vasquez_neutral",
+      "type": "character",
+      "character": "vasquez",
+      "expression": "neutral",
+      "aspectRatio": "2:3",
+      "promptSuffix": "professional legal bearing, files in hand, reading glasses on forehead, looking directly at camera with analytical expression, warm office background",
+      "notes": "Primary Vasquez portrait"
+    },
+    {
+      "key": "npc_vasquez_authoritative",
+      "type": "character",
+      "character": "vasquez",
+      "expression": "authoritative",
+      "aspectRatio": "2:3",
+      "promptSuffix": "commanding presence, one hand pointing to make a legal point, serious but fair expression, clearly in charge of the legal dimension",
+      "notes": "Used when explaining compliance/legal requirements"
+    },
+    {
+      "key": "npc_vasquez_concerned",
+      "type": "character",
+      "character": "vasquez",
+      "expression": "concerned",
+      "aspectRatio": "2:3",
+      "promptSuffix": "legal concern expression, the look of someone who has just realized the compliance implications, eyebrows slightly raised, file open in hands",
+      "notes": "GDPR/legal complication scenes"
+    },
+    {
+      "key": "npc_vasquez_firm",
+      "type": "character",
+      "character": "vasquez",
+      "expression": "firm",
+      "aspectRatio": "2:3",
+      "promptSuffix": "absolutely firm expression, jaw set, zero ambiguity in posture — this is the line we will not cross",
+      "notes": "Ethics and evidence chain of custody scenes"
+    },
+    {
+      "key": "npc_vasquez_explaining",
+      "type": "character",
+      "character": "vasquez",
+      "expression": "explaining",
+      "aspectRatio": "2:3",
+      "promptSuffix": "explaining legal concepts patiently, reading glasses now on, legal pad with notes visible, measured precise delivery",
+      "notes": "Complex regulatory explanation scenes"
+    },
+    {
+      "key": "bg_act1_hq_day",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "modern open-plan cybersecurity firm office in Toronto during daytime, glass walls, multiple monitor workstations, city skyline visible through floor-to-ceiling windows, whiteboards covered in incident timelines and sticky notes, warm professional overhead lighting with cool accent LEDs, clean professional aesthetic with slight cyber edge, no people",
+      "notes": "Act 1 primary daytime location"
+    },
+    {
+      "key": "bg_act1_hq_night",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "same open-plan cybersecurity office at night, city lights through floor-to-ceiling windows, crisis mode atmosphere, some desks lit by monitor glow, overhead lights mostly off, urgency of late-night emergency response, warm red alert indicator lights in background, no people",
+      "notes": "Act 1 crisis/night scenes"
+    },
+    {
+      "key": "bg_act1_war_room",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "cybersecurity incident war room, large conference table, digital evidence wall with multiple screens showing breach data and timelines, whiteboards with attack flow diagrams, red alert lighting mixing with blue screen glow, high-stakes crisis atmosphere, papers and coffee cups suggesting long hours, no people",
+      "notes": "Act 1 briefing and team scenes"
+    },
+    {
+      "key": "bg_act1_office_lobby",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "modern corporate office building lobby, security reception desk, badge scanners visible, corporate art on walls, glass and steel architecture, professional first-day-of-work atmosphere, subtle cybersecurity company branding, no people",
+      "notes": "Act 1 opening scene"
+    },
+    {
+      "key": "bg_act2_london_hq_lobby",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "imposing multinational corporate headquarters lobby in London financial district, marble floors, high ceilings, security gates with badge readers, contemporary corporate art, grey British daylight through revolving glass doors, international business atmosphere, subtle surveillance cameras visible, no people",
+      "notes": "Act 2 arrival"
+    },
+    {
+      "key": "bg_act2_data_center",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "corporate data center interior, rows of tall black server racks stretching into distance, blue and white LED indicator lights blinking, raised floor tiles, climate control vents visible, cold clinical atmosphere, cable management visible but chaotic in sections, no people",
+      "notes": "Act 2 data investigation"
+    },
+    {
+      "key": "bg_act2_london_office",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "London corporate office floor, traditional meets modern, wood paneling alongside glass partitions, Thames visible through windows in background, file cabinets and paper records suggesting old processes in digital world, tense bureaucratic atmosphere, no people",
+      "notes": "Act 2 documentation scenes"
+    },
+    {
+      "key": "bg_act3_munich_exterior",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "exterior view of Munich research facility: a converted historic Baroque building with modern glass additions, tension between old stone and new steel and glass, subtle security measures visible at entrance, European city atmosphere, afternoon light, no people",
+      "notes": "Act 3 arrival"
+    },
+    {
+      "key": "bg_act3_munich_lab",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "cutting-edge research laboratory interior inside a converted historic building, stone arches visible beside modern carbon fiber surfaces, multiple high-end workstations with multiple screens, precision scientific instruments, subtle glow of research data on screens, clean orderly precision, no people",
+      "notes": "Act 3 primary lab"
+    },
+    {
+      "key": "bg_act3_server_physical",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "server room interior showing subtle physical security failures: a door held open slightly, exposed cable runs, server rack with an unlocked door hanging ajar, fluorescent lighting, security camera with no blinking light suggesting it is offline, no people",
+      "notes": "Act 3 physical security scene"
+    },
+    {
+      "key": "bg_act3_crypto_lab",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "specialized cryptography workbench, isolated room with secure terminals, HSM hardware security module visible, key management displays, ultra-secure atmosphere, clean sparse environment, no people",
+      "notes": "Act 3 cryptography scenes"
+    },
+    {
+      "key": "bg_act4_singapore_dc_exterior",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "massive hyperscale data center exterior in Singapore at dusk, surrounded by tropical vegetation, the building itself glowing with blue-cyan LED strips, city lights in distance, humid tropical atmosphere, imposing scale, no people",
+      "notes": "Act 4 arrival"
+    },
+    {
+      "key": "bg_act4_singapore_dc_interior",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "hyperscale data center interior, extraordinarily long rows of server racks disappearing into distance, cyan LED strips along the floor and ceiling, perfect order, the scale of global infrastructure, futuristic and immense, no people",
+      "notes": "Act 4 data center interior"
+    },
+    {
+      "key": "bg_act4_noc",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "network operations center with dramatic curved wall of screens showing live global network topology maps, alert dashboards, traffic visualization, blue and cyan ambient lighting from the monitors, command center aesthetic, multiple workstation rows, no people",
+      "notes": "Act 4 network investigation"
+    },
+    {
+      "key": "bg_act4_cable_room",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "network infrastructure room, hundreds of ethernet cables organized into massive patch panels, fiber optic cables glowing with data, the physical layer of the internet, satisfying organization meets overwhelming scale, no people",
+      "notes": "Act 4 physical network scenes"
+    },
+    {
+      "key": "bg_act5_ny_financial",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "Wall Street financial operations floor, trading terminals and financial screens, glass-walled executive offices visible in background, Hudson River view through windows, high-stakes financial atmosphere, polished executive furniture mixed with active trading floor energy, no people",
+      "notes": "Act 5 primary location"
+    },
+    {
+      "key": "bg_act5_interview_room",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "spare corporate conference room repurposed as an interview room, single table with two chairs facing each other, one-way glass mirror subtly suggested, fluorescent overhead lighting creating harsh shadows, tension in the minimalism, legal notepad on table, no people",
+      "notes": "Act 5 Ghost interview"
+    },
+    {
+      "key": "bg_act5_access_logs",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "forensic analysis workstation, multiple screens showing access logs and user activity data, log analysis software, identity management dashboards, the digital trail of a breach investigation, intense focus atmosphere, no people",
+      "notes": "Act 5 access log investigation"
+    },
+    {
+      "key": "bg_act6_sentinel_lab",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "professional cybersecurity research lab, multiple high-powered workstations with Kali Linux terminals, network topology maps on screens, vulnerability scanning results visible, organized professional chaos of active security research, no people",
+      "notes": "Act 6 Sentinel lab scenes"
+    },
+    {
+      "key": "bg_act6_cloud_abstract",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "abstract visual metaphor for cloud infrastructure: glowing server nodes as constellations on dark digital background, connection lines between nodes in cyan, some connections red indicating vulnerabilities, beautiful and threatening at the same time, no people",
+      "notes": "Act 6 cloud assessment scenes"
+    },
+    {
+      "key": "bg_act6_assessment_results",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "vulnerability assessment results dashboard on large screens, color-coded severity bar showing critical high medium low findings, professional security assessment report displayed, organized clinical environment, the moment of reckoning, no people",
+      "notes": "Act 6 findings reveal"
+    },
+    {
+      "key": "bg_act7_tokyo_soc",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "massive security operations center in Tokyo, floor-to-ceiling curved monitor walls showing global threat maps and incident dashboards, multiple analyst workstation rows, mix of red alert lighting and blue operational lighting, Japanese text visible on some indicators, exhausted crisis atmosphere, coffee cups and energy drinks on desks, no people",
+      "notes": "Act 7 primary location"
+    },
+    {
+      "key": "bg_act7_tokyo_exterior",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "cyberpunk Tokyo street at night as seen through SOC window, rain creating neon reflections on wet streets below, layered city lights in blues and magentas, suited professionals visible far below, the feeling of a crisis contained inside while the city continues below, no people visible up close",
+      "notes": "Act 7 night exterior"
+    },
+    {
+      "key": "bg_act7_forensics_lab",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "digital forensics laboratory, forensic imaging workstations, evidence storage with tagged drives and devices in sealed bags, write-blocker hardware visible, chain of custody documentation visible, clinical precision and order, no people",
+      "notes": "Act 7 forensics scenes"
+    },
+    {
+      "key": "bg_act8_sf_office",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "modern SoMa San Francisco technology company open office, exposed concrete ceilings with industrial pendant lights, living plant walls, standing desks mixed with collaborative spaces, whiteboards covered in software architecture diagrams, agile sprint boards, Bay Bridge or San Francisco skyline visible through large windows, casual creative energy of a software company, no people",
+      "notes": "Act 8 primary location"
+    },
+    {
+      "key": "bg_act8_code_review",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "small technical review room, large monitor displaying code with some lines highlighted in red, code review atmosphere, developer and security annotation sticky notes on whiteboard beside the screen, the moment of finding the vulnerability, tense focused atmosphere, no people",
+      "notes": "Act 8 code review"
+    },
+    {
+      "key": "bg_act8_git_history",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "git commit history and diff view on large monitor, code timeline scrolling back years, the specific aesthetic of a git blame investigation, developer workspace with energy drink and worn keyboard, the archaeology of a vulnerability, no people",
+      "notes": "Act 8 git investigation"
+    },
+    {
+      "key": "evidence_ir_plan_blank",
+      "type": "evidence",
+      "aspectRatio": "3:4",
+      "promptSuffix": "corporate document, incident response plan template with almost entirely blank sections, red DRAFT stamp from 2021, corporate Meridian Global letterhead at top, the irony of a blank emergency plan, document photography style, realistic",
+      "notes": "Act 1 evidence reveal"
+    },
+    {
+      "key": "evidence_risk_register",
+      "type": "evidence",
+      "aspectRatio": "16:9",
+      "promptSuffix": "corporate spreadsheet screenshot showing a risk register with only 3 entries out of hundreds of visible blank rows, color-coded severity heatmap, RED status for most, last updated 2019, cybersecurity risk management context",
+      "notes": "Act 1 risk register reveal"
+    },
+    {
+      "key": "evidence_ghost_access_profile",
+      "type": "evidence",
+      "aspectRatio": "16:9",
+      "promptSuffix": "user access management system screenshot showing a single user's access profile with an alarming number of system permissions listed, last access review date showing NEVER, privileged access to 847 systems in red text, identity management database aesthetic",
+      "notes": "Act 5 access revelation"
+    },
+    {
+      "key": "evidence_packet_capture",
+      "type": "evidence",
+      "aspectRatio": "16:9",
+      "promptSuffix": "network packet capture tool screenshot similar to Wireshark, filtered to show suspicious DNS query patterns with encoded data in subdomain names, highlighted in red, the visual signature of DNS exfiltration, hacker-detected aesthetic",
+      "notes": "Act 4 DNS exfiltration discovery"
+    },
+    {
+      "key": "evidence_expired_cert",
+      "type": "evidence",
+      "aspectRatio": "3:4",
+      "promptSuffix": "SSL certificate error dialog in a browser, large red warning indicators, EXPIRED certificate details showing expiration date years past, SELF-SIGNED warning also visible, the visual that caused a security failure, realistic UI screenshot style",
+      "notes": "Act 3 PKI failure"
+    },
+    {
+      "key": "evidence_flat_network",
+      "type": "evidence",
+      "aspectRatio": "16:9",
+      "promptSuffix": "simple network architecture diagram on whiteboard or digital canvas, flat network topology showing single perimeter firewall protecting everything, all internal systems on same network segment, no segmentation, attack paths visible as red arrows going everywhere, security failure design",
+      "notes": "Act 4 network architecture failure"
+    },
+    {
+      "key": "evidence_vuln_report_cover",
+      "type": "evidence",
+      "aspectRatio": "3:4",
+      "promptSuffix": "professional vulnerability assessment report cover page, Sentinel Dynamics consultancy branding, CONFIDENTIAL stamp, summary statistics showing 847 Critical findings in alarming red, 2300 High findings in orange, Meridian Global client name, date, the report that reveals everything",
+      "notes": "Act 6 assessment results"
+    },
+    {
+      "key": "diagram_osi_model",
+      "type": "diagram",
+      "aspectRatio": "1:1",
+      "promptSuffix": "clean educational diagram of the OSI model 7 layers as a stacked horizontal bar chart, cyberpunk aesthetic, dark background, each layer in a different cyan to purple gradient color, layer names and example protocols listed, professional technical illustration",
+      "notes": "Library reference, Act 4 teaching"
+    },
+    {
+      "key": "diagram_cia_triad",
+      "type": "diagram",
+      "aspectRatio": "1:1",
+      "promptSuffix": "elegant triange diagram showing CIA triad: Confidentiality, Integrity, Availability at three corners, cyberpunk glow effect on triangle edges in cyan, dark background, each concept with a small icon, professional clean design",
+      "notes": "Act 1 and library reference"
+    },
+    {
+      "key": "diagram_kill_chain",
+      "type": "diagram",
+      "aspectRatio": "16:9",
+      "promptSuffix": "cyber kill chain diagram showing the 7 phases: Reconnaissance, Weaponization, Delivery, Exploitation, Installation, Command and Control, Actions on Objectives, horizontal flow diagram, each phase with icon, dark background, red to orange color progression suggesting escalation",
+      "notes": "Library reference and Act overview"
+    },
+    {
+      "key": "diagram_ir_lifecycle",
+      "type": "diagram",
+      "aspectRatio": "1:1",
+      "promptSuffix": "circular incident response lifecycle diagram showing 6 phases: Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned, arrows showing the cycle, cyberpunk aesthetic, professional educational illustration",
+      "notes": "Act 7 teaching and library reference"
+    },
+    {
+      "key": "diagram_access_models",
+      "type": "diagram",
+      "aspectRatio": "16:9",
+      "promptSuffix": "side by side comparison table diagram showing access control models: DAC, MAC, RBAC, ABAC, each column showing who controls access and how, clean table design, cyberpunk aesthetic with dark background and cyan accent lines, professional and clear",
+      "notes": "Act 5 teaching and library"
+    },
+    {
+      "key": "diagram_sdlc_security",
+      "type": "diagram",
+      "aspectRatio": "16:9",
+      "promptSuffix": "software development lifecycle diagram with security gates integrated at each phase: Requirements, Design, Implementation, Testing, Deployment, Maintenance, security shield icons at each phase showing integration points, DevSecOps aesthetic, dark professional background",
+      "notes": "Act 8 teaching and library"
+    },
+    {
+      "key": "diagram_crypto_comparison",
+      "type": "diagram",
+      "aspectRatio": "16:9",
+      "promptSuffix": "cryptography comparison illustration showing symmetric encryption as a single key opening a padlock versus asymmetric as a padlock with public slot and private key opener, simple but clear visual metaphor, dark background, professional educational style",
+      "notes": "Act 3 cryptography teaching"
+    },
+    {
+      "key": "diagram_bell_lapudula",
+      "type": "diagram",
+      "aspectRatio": "16:9",
+      "promptSuffix": "Bell-LaPadula model diagram showing security classification levels as horizontal layers: Top Secret, Secret, Confidential, Unclassified from top to bottom, arrows showing allowed read down and write up directions, red X on read up and write down directions, clear cyberpunk educational style",
+      "notes": "Act 3 security models"
+    },
+    {
+      "key": "diagram_biba",
+      "type": "diagram",
+      "aspectRatio": "16:9",
+      "promptSuffix": "Biba integrity model diagram showing integrity levels as horizontal layers, arrows showing allowed read down and write up but NOT read up or write down, comparison note showing it is the opposite of Bell-LaPadula, clean educational diagram, dark background",
+      "notes": "Act 3 security models"
+    },
+    {
+      "key": "diagram_risk_matrix",
+      "type": "diagram",
+      "aspectRatio": "1:1",
+      "promptSuffix": "risk assessment matrix 5x5 grid showing likelihood on X axis and impact on Y axis, color coded from green low risk to red critical risk, with example risks plotted as points, cyberpunk aesthetic with clean grid, professional risk management visual",
+      "notes": "Act 1 risk management"
+    },
+    {
+      "key": "diagram_data_lifecycle",
+      "type": "diagram",
+      "aspectRatio": "16:9",
+      "promptSuffix": "data lifecycle management diagram showing circular flow: Create, Store, Use, Share, Archive, Destroy, each phase with an icon, data management controls noted at each stage, clean professional educational diagram, dark cyberpunk background",
+      "notes": "Act 2 data lifecycle teaching"
+    },
+    {
+      "key": "ui_world_map",
+      "type": "ui",
+      "aspectRatio": "16:9",
+      "promptSuffix": "stylized dark world map with 8 glowing location pins connected by flight path arcs in cyan: Toronto Canada, London England, Munich Germany, Singapore, New York USA, remote cloud location abstract, Tokyo Japan, San Francisco California USA, cyberpunk aesthetic, stars in background, each pin a different size suggesting act order, no text labels needed",
+      "notes": "Story hub world map"
+    },
+    {
+      "key": "ui_title_screen",
+      "type": "ui",
+      "aspectRatio": "16:9",
+      "promptSuffix": "CISSP Quest title screen composition: silhouette of a young cybersecurity analyst standing at a floor-to-ceiling window looking at a dark city skyline, holographic displays showing security data floating in the room, dramatic backlighting creating a powerful silhouette, cyberpunk atmosphere, sense of both urgency and possibility",
+      "notes": "Title screen and loading screen"
+    },
+    {
+      "key": "ui_dashboard_hero",
+      "type": "ui",
+      "aspectRatio": "16:9",
+      "promptSuffix": "cybersecurity analyst command center dashboard aesthetic, dark background with cyan accent lines, abstract data visualization elements, professional cyber aesthetic suitable as a dashboard background, no specific UI elements",
+      "notes": "Dashboard background"
+    },
+    {
+      "key": "ui_achievement_bg",
+      "type": "ui",
+      "aspectRatio": "1:1",
+      "promptSuffix": "achievement unlock celebration visual: starburst of gold and cyan light rays from center, dark background, satisfying visual reward aesthetic, no text, suitable for being overlaid with achievement details",
+      "notes": "Achievement unlock overlay"
+    },
+    {
+      "key": "ui_act_card_locked",
+      "type": "ui",
+      "aspectRatio": "3:2",
+      "promptSuffix": "locked content card visual: subtle padlock icon centered, dark gradient background with subtle circuit board pattern, greyed out professional aesthetic suggesting valuable content awaiting unlock, clean minimal design",
+      "notes": "Locked act card background"
+    },
+    {
+      "key": "loading_screen_1",
+      "type": "ui",
+      "aspectRatio": "16:9",
+      "promptSuffix": "loading screen: abstract cybersecurity concept visualization, data streams flowing through dark space, professional loading screen aesthetic with subtle motion suggestion, cyberpunk color palette of deep navy and cyan",
+      "notes": "Loading screen variant 1"
+    },
+    {
+      "key": "loading_screen_2",
+      "type": "ui",
+      "aspectRatio": "16:9",
+      "promptSuffix": "loading screen: global network visualization from space, connection lines between continents glowing cyan, dark space background, the Meridian breach spread represented as a red glow moving across connection lines",
+      "notes": "Loading screen variant 2"
+    },
+    {
+      "key": "loading_screen_3",
+      "type": "ui",
+      "aspectRatio": "16:9",
+      "promptSuffix": "loading screen: cyberpunk hallway with server racks on both sides, perspective view going deep into distance, blue LED strips, professional data center atmosphere, sense of entering a digital world",
+      "notes": "Loading screen variant 3"
+    },
+    {
+      "key": "landing_hero",
+      "type": "ui",
+      "aspectRatio": "16:9",
+      "promptSuffix": "marketing hero image: dynamic cybersecurity professional standing before a wall of holographic security data, confident pose suggesting mastery and readiness, cyberpunk corporate aesthetic, high quality professional marketing visual, sense of empowerment and expertise",
+      "notes": "Landing page hero image"
+    },
+    {
+      "key": "tanaka_notebook_style",
+      "type": "ui",
+      "aspectRatio": "3:4",
+      "promptSuffix": "the aesthetic of a digital notebook page in a study journal: slightly textured off-white digital paper with handwriting-style annotations in ink alongside typed content, subtle coffee stain ring in corner, professional academic journal meets cyberpunk era, cozy study aesthetic",
+      "notes": "Tanaka's Sentinel Files notebook pages"
+    },
+    {
+      "key": "epilogue_exam_room",
+      "type": "background",
+      "aspectRatio": "16:9",
+      "promptSuffix": "CISSP exam room setting: clean professional testing center, rows of computer terminals, controlled environment, quiet focus atmosphere, the final test location, slightly surreal quality mixing digital and physical, no people",
+      "notes": "Epilogue exam simulation background"
+    },
+    {
+      "key": "epilogue_celebration",
+      "type": "ui",
+      "aspectRatio": "16:9",
+      "promptSuffix": "celebration scene: burst of confetti and light in gold and cyan colors, achievement visual for passing a major certification, dynamic joyful energy, particles and light effects, no people needed, suitable for overlay",
+      "notes": "Exam pass celebration"
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+WEBVTT
+
+00:00.000 --> 00:08.880
+to its two parts. You've got cryptos and graphy, and both of those have Greek roots. In fact,
+
+00:08.880 --> 00:16.400
+if you look at the word.
+
+00:16.400 --> 00:30.080
+We are now going to focus on the importance that cryptography provides in helping achieve.
+
+00:30.080 --> 00:50.880
+We are now going to focus on the importance that cryptography provides in helping achieve security
+
+00:50.880 --> 00:57.040
+services, and you're going to see that cryptography today is fundamental. In achieving not just one,
+
+00:57.040 --> 01:03.040
+but five really important security services that have become really important in the security
+
+01:03.040 --> 01:09.520
+industry. But before we get into that, if you look at the word cryptography itself and you break it
+
+01:09.520 --> 01:18.960
+up into its two parts, you've got cryptos and graphy, and both of those have Greek roots. In fact,
+
+01:18.960 --> 01:27.200
+if you look at the word cryptos, it translates into the word secret and graphy translates into the
+
+01:27.200 --> 01:36.000
+word writing. So cryptography is all about writing secrets, and the obvious reason why we want to
+
+01:36.000 --> 01:43.520
+turn something into a secret is to keep it confidential. So confidentiality is the main goal of
+
+01:43.520 --> 01:48.720
+cryptography, but as you will see, there are some other ones that have become really important
+
+01:48.720 --> 01:55.920
+that cryptography can help us achieve in today's environments. In fact, these are the five services
+
+01:55.920 --> 02:03.120
+that cryptography can achieve, and very effectively. The first, of course, is confidentiality. There's
+
+02:03.120 --> 02:09.440
+nothing better than cryptography to achieve confidentiality services. In fact, we've known that for
+
+02:09.440 --> 02:15.840
+thousands of years, and that's why cryptography has been used throughout history, mostly to achieve
+
+02:15.840 --> 02:21.680
+confidentiality, but in today's environments, there's nothing better than confidentiality to really
+
+02:21.680 --> 02:29.440
+achieve that goal in a really large way. Now, cryptography can also help us with integrity,
+
+02:29.440 --> 02:36.080
+and what we mean by integrity typically is this. If I send you a message, when you receive that message,
+
+02:36.080 --> 02:42.080
+you want to know that nothing happened along the way, because things could happen along the way.
+
+02:42.080 --> 02:49.360
+For example, someone can change it purposely, or errors can happen in transmission, but regardless
+
+02:49.360 --> 02:56.080
+of what caused the change, we want to be able to identify that that information has changed
+
+02:56.080 --> 03:01.840
+along the way. So that's what integrity really means from a cryptography perspective, and to make
+
+03:01.840 --> 03:07.360
+this really easy for us, and for you, from an exam perspective. What you want to do is you want to
+
+03:07.360 --> 03:15.360
+equate integrity to hashing. That's how we achieve integrity or message integrity controls in
+
+03:15.360 --> 03:22.560
+cryptography through hashing. So hashing equals integrity. Integrity equals hashing. If you connect those
+
+03:22.560 --> 03:29.200
+two, it's going to be really useful to you. Now, we have to understand what hashing is. Hashing by
+
+03:29.200 --> 03:38.320
+definition is what we call one-way encryption. As opposed to two-way encryption. Two-way encryption
+
+03:38.320 --> 03:44.480
+means we can take something and turn it into a secret, but then we can take that secret, which is
+
+03:44.480 --> 03:50.960
+usually referred to as ciphertext, and turn it back into the original plaintext. That's two-way
+
+03:50.960 --> 03:58.240
+encryption. We can encrypt and decrypt. Two-way encryption requires keys, because keys is what makes
+
+03:58.480 --> 04:05.280
+it easy to encrypt, but also what makes it easy to decrypt at the other end. That's what we call two-way
+
+04:05.280 --> 04:13.040
+encryption. Hashing, which addresses integrity, by definition is only one-way. We take our data that
+
+04:13.040 --> 04:19.680
+we're going to send, for example, and then we one-way encrypt it, and it produces something
+
+04:19.680 --> 04:26.160
+typically called a digest that can be useful in addressing whether something happens along the
+
+04:26.160 --> 04:31.040
+way. And of course, we're going to look at these methods as we go through this presentation and show
+
+04:31.040 --> 04:37.200
+you exactly how each of these are achieved by using cryptography services. But for now, just
+
+04:37.200 --> 04:45.760
+equate integrity to hashing. Hashing means we go one-way does not require keys. Now, the third
+
+04:45.760 --> 04:51.760
+service that cryptography can provide for us is what we call authenticity. And some people
+
+04:51.840 --> 04:58.800
+refer to this as proof of origin. So don't confuse it with authentication of people. That's not what
+
+04:58.800 --> 05:06.720
+this service is in regards to authenticity or proof of origin. Means that we can authenticate and
+
+05:06.720 --> 05:13.200
+know where something came from. So if I send you a message, you'll be able to prove that it actually
+
+05:13.200 --> 05:20.800
+came from me by using cryptography services. And that in today's environments may be very important.
+
+05:20.800 --> 05:26.560
+And here's a perfect example. If we want to patch our Microsoft operating systems,
+
+05:26.560 --> 05:32.720
+we want that patch to actually come from Microsoft. So we may ask Microsoft to do something related
+
+05:32.720 --> 05:38.640
+to cryptography so that when that patch comes to us, we can do something related to cryptography
+
+05:38.640 --> 05:45.360
+that it proves to us that that patch actually came from Microsoft and not some other organization
+
+05:45.360 --> 05:52.480
+pretending to be Microsoft. That's what we refer to as authenticity or proof of origin.
+
+05:52.480 --> 06:00.000
+The next service that cryptography can provide for us is non-repudiation. The key word here is the
+
+06:00.000 --> 06:08.720
+word repudiation. If you look that up in a dictionary, it means to be able to deny. So non-repudiation
+
+06:08.720 --> 06:15.520
+means the inability to deny. You cannot deny having done something. So if I send you a message,
+
+06:16.320 --> 06:23.040
+I cannot say later that it wasn't me that sent that particular message. That's what we call
+
+06:23.040 --> 06:29.520
+non-repudiation. And very effectively, we can achieve this in cryptography. And what you want to
+
+06:29.520 --> 06:36.480
+do here, just like we equated integrity to hashing. Hashing equals integrity, integrity equals
+
+06:36.480 --> 06:42.640
+hashing. We can do the same thing here to make it easy for you. We can equate non-repudiation
+
+06:42.640 --> 06:49.440
+to digital signatures. So non-repudiation equals digital signatures, digital signatures equals
+
+06:49.440 --> 06:56.560
+non-repudiation because that's how we achieve this service called non-repudiation. Now what you
+
+06:56.560 --> 07:02.800
+also need to remember here is that there are two flavors of non-repudiation. And these are the
+
+07:02.800 --> 07:08.800
+correct terms that we need to use because they are the correct terminology used in the industry.
+
+07:08.800 --> 07:17.760
+There is non-repudiation of origin, origin, which means the sender, me as the sender, cannot say that
+
+07:17.760 --> 07:24.560
+it wasn't me that sent a particular message. You'll be able to prove it. That's non-repudiation
+
+07:24.560 --> 07:31.920
+of origin. The sender cannot deny having sent or done something. There's also non-repudiation of
+
+07:31.920 --> 07:39.600
+delivery. Delivery means you as the receiver of a message cannot say that you've received a
+
+07:39.600 --> 07:46.240
+different message than the one that you actually did receive. So that's non-repudiation of delivery
+
+07:46.240 --> 07:52.080
+and both as you'll see later are achieved through digital signatures because that's how we
+
+07:52.080 --> 07:58.960
+achieve non-repudiation. And the last service that cryptography can provide for us is a form of
+
+07:58.960 --> 08:05.200
+access control. Now you know what access control means means allowing people to access certain
+
+08:05.200 --> 08:12.480
+resources. You're authorizing people to be able to access certain resources. And here's how cryptography
+
+08:12.480 --> 08:19.920
+can achieve that. I can encrypt a file or some asset and then give you the key or some people the
+
+08:19.920 --> 08:26.160
+key to be able to decrypt it, which means I'm authorizing those individuals to be able to access
+
+08:26.160 --> 08:32.640
+that file or that resource. So that's a form of access control. And of course you need to remember
+
+08:32.640 --> 08:38.720
+these five services or memorize them because they are the five services that can be achieved
+
+08:38.720 --> 08:46.640
+through cryptography and very important in today's environments to achieve all of these or some
+
+08:46.640 --> 08:53.200
+level of each of these and cryptography can do a really good job in each one as you'll see as we
+
+08:53.200 --> 09:01.440
+go through this presentation. Now there's two ways that people refer to for example data and how
+
+09:01.440 --> 09:08.240
+it needs to be protected. Now some people would actually argue that there's a third state that data
+
+09:08.240 --> 09:14.720
+can be in. But you've heard of these data at rest means that we are storing something onto some
+
+09:14.720 --> 09:22.800
+sort of device or technology. And data in transit also referred to as data in motion means that
+
+09:22.800 --> 09:30.640
+data is moving usually across networks. Bottom line is cryptography in how it achieves those five
+
+09:30.640 --> 09:38.240
+services can be used to protect both data at rest and data in transit. The third state that some
+
+09:38.240 --> 09:46.560
+people argue also exist is data in use but that's particularly challenging to protect and cryptography
+
+09:46.560 --> 09:51.680
+really can't help us with that. So we're going to talk about that later on. But for now just remember
+
+09:51.680 --> 09:59.200
+that cryptography can protect data at rest and data in transit or in motion as it's moving across
+
+09:59.200 --> 10:08.480
+networks. Now where is cryptography used today? And these are just a sampling of some of the examples
+
+10:08.480 --> 10:15.440
+and architectures and technologies where it's obviously useful to use cryptography. Today cryptography
+
+10:15.440 --> 10:22.240
+is everywhere and you know cryptography has been around for thousands of years but it's over the
+
+10:22.240 --> 10:28.960
+last number of decades that we've really realized that cryptography can be useful in achieving those
+
+10:28.960 --> 10:35.920
+five services in all kinds of applications and environments some of which you see here on this
+
+10:35.920 --> 10:37.920
+screen plus a whole bunch more.
+

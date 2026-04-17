@@ -1,0 +1,38 @@
+start	end	text
+0	18320	Walsh, those things that go from the floor of the ceiling in physical security, we're
+18320	19840	concerned with them.
+19840	43040	We want to know what they're made out of.
+43040	46160	The wall construction, in other words, what the wall is made out of, makes a big difference
+46160	48080	as to how secure the wall is.
+48080	51680	If you want a nice secure bank vault or a data center, you're probably not going to build
+51680	56160	your wall at a regular stick and timber, stick and frame, you're going to build it out
+56160	60160	of a secure concrete reinforced wall or something like that.
+60160	63960	A question that often comes up on the exam that you should understand is that you want
+63960	67840	the wall to go all the way to the real ceiling and all the way to the real floor.
+67840	68920	What do we mean by that?
+68920	72640	Well, in a lot of office buildings, it's very common to have what's called a false ceiling.
+72640	75880	If you look up in your office, you'll probably see something just like this.
+75880	77280	We've got these looks like panels.
+77280	81240	You can push those panels out and you'll find that there's another 2, 3, 4 feet of
+81240	87680	space between that drop ceiling and the actual real ceiling of the concrete floor above.
+87680	92840	What you usually find up there is electrical wiring and HVAC piping and things like that.
+92840	97200	The reason I'm mentioning this is that in a lot of office spaces, if you push up one
+97200	100720	of those ceiling panels and you look over, if there's a wall in front of you and you push
+100720	105800	up the ceiling panel, you can often see over into the next space because the wall doesn't
+105800	110640	truly go to the actual ceiling, it just goes up to the drop ceiling.
+110640	114600	If you want a good, secure area, if you have a higher valley area that you want to protect
+114600	118440	access to, you've got to make sure that that wall actually truly extends all the way to
+118440	120040	the true ceiling.
+120040	124600	Within data centers, we very commonly have raised floors.
+124600	130440	These floors will be 24, 36 inches off the ground, off of the true floor.
+130440	131440	What's running underneath there?
+131440	134960	You've got all your electrical cables and that's usually where you duct your cold air
+135040	136680	for cooling the servers.
+136680	141920	Again, if your floor only goes to the raised floor, someone could climb underneath and get
+141920	142920	around.
+142920	148760	You've got to make sure those walls go to the true ceiling and the true floor.
+148760	153880	As part of this, we can monitor to see who's moving through a building.
+153880	157360	This is the idea of intrusion detection systems within a building.
+157360	161200	This is things like having motion detection sensors, having proper walls in place to
+161200	165160	control access and thinking about things like ventilation shafts and so forth.
+165160	168200	That's all part of intrusion detection within a building.

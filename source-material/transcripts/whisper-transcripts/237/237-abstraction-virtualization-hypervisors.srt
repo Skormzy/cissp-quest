@@ -1,0 +1,144 @@
+1
+00:00:00,000 --> 00:00:19,000
+Let's talk about a concept that we use everywhere in computing and security, and that is the concept of abstraction.
+
+2
+00:00:19,000 --> 00:00:39,000
+Let's talk about a concept that we use everywhere in computing and security, and that is the concept of abstraction.
+
+3
+00:00:39,000 --> 00:00:44,000
+Abstraction is this idea that you hide the underlying complexity or detail of a system.
+
+4
+00:00:44,000 --> 00:00:49,000
+Let's look at an example first of this before we get into the details of where we use abstraction.
+
+5
+00:00:49,000 --> 00:00:57,000
+Think about driving a car. When you get into a car, you just turn the key, hit the go pedal, and off you go.
+
+6
+00:00:57,000 --> 00:01:00,000
+Maybe you steer a little bit, don't bother with the brake pedal.
+
+7
+00:01:01,000 --> 00:01:09,000
+But there's a ton of abstraction that's going on underneath that. If you think about it, you don't have to understand the vast majority of what makes a car actually go.
+
+8
+00:01:09,000 --> 00:01:15,000
+You don't have to think about valve timing, you don't have to think about fuel pressures, you don't have to think about any of these sorts of things.
+
+9
+00:01:15,000 --> 00:01:22,000
+You're just steering and driving. All the underlying complexity that makes that vehicle actually run is abstracted away.
+
+10
+00:01:22,000 --> 00:01:29,000
+We just have this simplified interface of two pedals and a steering wheel to control all of these massive underlying complexity.
+
+11
+00:01:30,000 --> 00:01:35,000
+This is a concept we use everywhere in computing. It's really helpful.
+
+12
+00:01:35,000 --> 00:01:46,000
+Think about it. If you're driving, if you had to be constantly worrying about what's the exact valve timing I should use for going up a hill versus around a corner and exactly what should the fuel pressure be and rate and so forth,
+
+13
+00:01:46,000 --> 00:01:54,000
+it would distract you from the higher level task you want to be performing, which is actually driving the car, making you go in the right direction, obeying traffic lights and so forth.
+
+14
+00:01:54,000 --> 00:02:05,000
+We use this concept in computing all the time. We abstract away the complexity of underlying systems, which allows us to then focus on higher level things.
+
+15
+00:02:05,000 --> 00:02:13,000
+Another great example of this is programming languages. If you think about what does a CPU actually understand from a programming language perspective?
+
+16
+00:02:13,000 --> 00:02:26,000
+CPUs understand machine code, which is simply ones and zeros. If someone were to hand you a program that was a million ones and zeros, as a human you would have no idea how that actually worked and what it did.
+
+17
+00:02:26,000 --> 00:02:38,000
+Humans do not program in machine language. The first example of abstraction that we used within programming language was moved up to say assembly and we've had multiple layers of abstraction since then.
+
+18
+00:02:39,000 --> 00:02:49,000
+So let's look at an example of where we use abstraction all the time in computing and it's something you'll likely come across on the exam and that is the concept of a hypervisor.
+
+19
+00:02:49,000 --> 00:02:54,000
+So what is a hypervisor? Let's spend a moment on this. It's an important concept to understand.
+
+20
+00:02:54,000 --> 00:03:03,000
+So you have an underlying computer system hardware. You've got a CPU, you've got RAM, you've got a hard drive. This is the components of the server.
+
+21
+00:03:03,000 --> 00:03:10,000
+And you can install an operating system that is then meant to control all the underlying hardware like Windows or Unix or Linux.
+
+22
+00:03:10,000 --> 00:03:20,000
+Now operating systems are inherently selfish. They expect to have complete and total control of all of the underlying hardware because that's their job.
+
+23
+00:03:20,000 --> 00:03:27,000
+So what would happen if you were to try and run two operating systems simultaneously on the same piece of hardware?
+
+24
+00:03:27,000 --> 00:03:33,000
+If you were to try and install, say Windows and Unix and get them to run at the same time on the same hardware.
+
+25
+00:03:33,000 --> 00:03:42,000
+Well, what would happen is they would absolutely conflict with each other. They would both be expecting to have complete control of the hardware and so it would never work. The system would never boot.
+
+26
+00:03:42,000 --> 00:03:53,000
+So it is impossible to run two operating systems simultaneously on the same piece of hardware and yet that's what we do all the time.
+
+27
+00:03:53,000 --> 00:04:05,000
+We call this, for instance, a virtual machine. A virtual machine is an operating system that then runs on top of a piece of hardware and you can run multiple virtual machines simultaneously on the same piece of underlying hardware.
+
+28
+00:04:05,000 --> 00:04:17,000
+How do we achieve this? Well, we implement a layer of abstraction between the operating system and the underlying hardware. And that layer of abstraction, that software that's in between, we call it the hypervisor.
+
+29
+00:04:17,000 --> 00:04:26,000
+What the hypervisors do is they are giant liars. What they essentially do is to each and every operating system, every virtual machine that's running on top of the hypervisor.
+
+30
+00:04:26,000 --> 00:04:33,000
+The hypervisor lies to the operating system and says, oh yeah, operating system one, you're number one, you're the best, you're in total and complete control.
+
+31
+00:04:33,000 --> 00:04:40,000
+And then what's it say to operating system number two? The M number two, it says, you're number one, you're total and complete control.
+
+32
+00:04:40,000 --> 00:04:52,000
+It's lying to each of these operating systems. It's virtualizing, creating virtual components, virtual CPU, virtual RAM, virtual hard drives, and the operating system is just controlling these virtual components.
+
+33
+00:04:52,000 --> 00:04:59,000
+And the hypervisor is then translating any requests down to the actual hardware. So it's creating a layer of abstraction.
+
+34
+00:05:00,000 --> 00:05:10,000
+And we use these hypervisors all the time in computing nowadays and not only do they allow us to run multiple virtual machines, but that hypervisor can see exactly what those virtual machines are doing.
+
+35
+00:05:10,000 --> 00:05:17,000
+And so that allows us to have some control and to be able to monitor what those VMs are doing. So watch out for some wording on the exam around this.
+
+36
+00:05:17,000 --> 00:05:27,000
+A hypervisor is also sometimes referred to as a virtual monitor. So watch out for wording like that and you'll likely see questions on hypervisors. And hopefully now you understand the concept.
+

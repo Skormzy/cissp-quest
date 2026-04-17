@@ -1,0 +1,266 @@
+WEBVTT
+
+00:00.000 --> 00:18.040
+We've just gone through how we protect specific vulnerabilities in systems and so forth,
+
+00:18.040 --> 00:34.040
+where you know, how do you protect against emanation?
+
+00:34.040 --> 00:38.040
+We've just gone through how we protect specific vulnerabilities in systems and so forth,
+
+00:38.040 --> 00:41.600
+where you know, how do you protect against emanations and how do you protect against
+
+00:41.600 --> 00:43.640
+single points of failure and so forth.
+
+00:43.640 --> 00:47.040
+Now let's talk more overall, how do you protect systems?
+
+00:47.040 --> 00:51.040
+How do you protect overall systems like an entire mobile device, an entire desktop,
+
+00:51.040 --> 00:54.040
+a laptop, or even an entire server?
+
+00:54.040 --> 00:58.040
+And the simple way to think about this is that these are wildly complex systems.
+
+00:58.040 --> 01:01.040
+Like, even take an example, like my phone.
+
+01:01.040 --> 01:04.040
+What hardware and software is in a device like this?
+
+01:04.040 --> 01:07.040
+They are remarkably complex devices.
+
+01:07.040 --> 01:12.040
+From a hardware perspective, we've got a CPU, we've got RAM, we've got tons of storage.
+
+01:12.040 --> 01:15.040
+How about even just from a radio as perspective, how many radios are in this?
+
+01:15.040 --> 01:17.040
+Well, is your Wi-Fi?
+
+01:17.040 --> 01:18.040
+There's your cellular?
+
+01:18.040 --> 01:19.040
+There's your Bluetooth?
+
+01:19.040 --> 01:20.040
+There's your RFID?
+
+01:20.040 --> 01:22.040
+I mean, that's just four radios right there.
+
+01:22.040 --> 01:23.040
+There could be more.
+
+01:23.040 --> 01:27.040
+And then from a software perspective, we have a very complicated operating system.
+
+01:27.040 --> 01:29.040
+We have multiple apps running on top of that.
+
+01:29.040 --> 01:33.040
+What I'm trying to get at is that any of these types of devices, even mobile devices,
+
+01:33.040 --> 01:38.040
+and especially after something like a server, they are extremely complex devices.
+
+01:38.040 --> 01:42.040
+So how do we go about securing such a complex device?
+
+01:42.040 --> 01:44.040
+Well, it's a concept John has already talked about.
+
+01:44.040 --> 01:48.040
+To protect anything, you break it down into its components.
+
+01:48.040 --> 01:50.040
+And then you protect each of those components.
+
+01:50.040 --> 01:54.040
+The more valuable the system, the more time you're going to spend subdividing it
+
+01:54.040 --> 01:56.040
+into more and more smaller components.
+
+01:56.040 --> 01:59.040
+Rather than just looking at the CPU, you could look at parts of the CPU.
+
+01:59.040 --> 02:03.040
+Rather than just looking at the operating system as a whole, you could look at the libraries,
+
+02:03.040 --> 02:05.040
+the kernel, the drivers.
+
+02:05.040 --> 02:10.040
+You break it down into its components and you secure each of those components.
+
+02:10.040 --> 02:11.040
+Here's a good question for you.
+
+02:11.040 --> 02:14.040
+You know any devices made up of hardware, software, and so forth?
+
+02:14.040 --> 02:17.040
+Where is it hardest to detect vulnerabilities?
+
+02:17.040 --> 02:20.040
+This is an exam question that's come up recently.
+
+02:20.040 --> 02:22.040
+Where is it hardest?
+
+02:22.040 --> 02:23.040
+Hardware.
+
+02:23.040 --> 02:27.040
+And the reason being is that we have very well established practices and expertise
+
+02:27.040 --> 02:30.040
+in how to detect software malware on our systems as an example.
+
+02:30.040 --> 02:34.040
+But there's very few organizations that I've ever come across that will, for instance,
+
+02:34.040 --> 02:38.040
+look at a new server that's arrived, just look at every chip on that motherboard
+
+02:38.040 --> 02:44.040
+to make sure that someone hasn't installed something in the hardware or some routines in the firmware.
+
+02:44.040 --> 02:50.040
+So hardware is, if you've got a question on that, hardware is where it's most difficult to detect vulnerabilities.
+
+02:50.040 --> 02:55.040
+Now when we think about when I say to you, you know, you should secure components,
+
+02:55.040 --> 02:57.040
+what do I actually mean by that?
+
+02:57.040 --> 03:01.040
+And how do you decide what controls to put in place and to what, you know, to what,
+
+03:01.040 --> 03:04.040
+how much effort to put into place for controls?
+
+03:04.040 --> 03:07.040
+Ultimately what it comes down to is based on organizational relevance.
+
+03:07.040 --> 03:10.040
+So security controls need to be based on how valuable.
+
+03:10.040 --> 03:14.040
+By the way, that term organizational relevance, what does that really mean?
+
+03:14.040 --> 03:19.040
+Well, it means what does this system, this process do with an organization?
+
+03:19.040 --> 03:23.040
+What's its organizational relevance, which implies value?
+
+03:23.040 --> 03:24.040
+Watch out for that in the exam.
+
+03:24.040 --> 03:29.040
+If you see something that says like organizational relevance, it's implying how valuable the system is.
+
+03:29.040 --> 03:33.040
+And so we implement controls based on the value of the system, the process.
+
+03:34.040 --> 03:40.040
+Specific to mobile systems, things like cell phones, there's one particular technology that I want to talk about.
+
+03:40.040 --> 03:44.040
+And that is MDM mobile device management software.
+
+03:44.040 --> 03:46.040
+It's essentially like installing big brother on your phone.
+
+03:46.040 --> 03:50.040
+It allows a corporation to install a little agent on a device.
+
+03:50.040 --> 03:54.040
+The MDM software is an agent that gets installed on an endpoint, like a phone.
+
+03:54.040 --> 03:59.040
+And then that software agent allows the corporation to monitor the device,
+
+03:59.040 --> 04:02.040
+to implement, to require certain controls.
+
+04:02.040 --> 04:05.040
+The MDM software, for instance, will enforce whole drive encryption,
+
+04:05.040 --> 04:08.040
+will enforce strong passwords, things like that.
+
+04:08.040 --> 04:10.040
+And even things like remote white.
+
+04:10.040 --> 04:12.040
+So that's MDM software.
+
+04:12.040 --> 04:17.040
+And it can even go to the point of if a device isn't in compliance.
+
+04:17.040 --> 04:20.040
+And this is used a lot where organizations allow BYOD or CYOD
+
+04:20.040 --> 04:22.040
+bring your own device, carry your own device.
+
+04:22.040 --> 04:26.040
+If an organization is allowing people to bring in their personal phones,
+
+04:26.040 --> 04:29.040
+it's a very good idea to install this MDM software on those devices,
+
+04:29.040 --> 04:33.040
+to make sure that those devices are secure before they're allowed to connect to
+
+04:33.040 --> 04:37.040
+and obtain information from the corporate network.
+
+04:37.040 --> 04:39.040
+Now, a final piece I want to talk about here.
+
+04:39.040 --> 04:43.040
+And this is applied to whenever you want to protect any sort of system.
+
+04:43.040 --> 04:45.040
+You go through this process of hardening.
+
+04:45.040 --> 04:47.040
+And we've talked about this a couple times now, right?
+
+04:47.040 --> 04:51.040
+It's this concept of going through a device, looking very carefully at the configuration,
+
+04:51.040 --> 04:53.040
+making sure all the patches are in place,
+
+04:53.040 --> 04:58.040
+disabling unnecessary services, installing the appropriate security controls
+
+04:58.040 --> 05:01.040
+like anti-mower, host-based firewall, host-based IDS IPS.
+
+05:01.040 --> 05:07.040
+It's going through a checklist and locking down any type of device.
+
+05:07.040 --> 05:11.040
+And this concept of hardening absolutely applies to how you secure a mobile device,
+
+05:11.040 --> 05:14.040
+a laptop, a server.
+
+05:14.040 --> 05:19.040
+So there you go. That's how you do a better job of addressing vulnerabilities and systems.
+

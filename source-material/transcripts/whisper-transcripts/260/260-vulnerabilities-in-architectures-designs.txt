@@ -1,0 +1,148 @@
+In the last few modules, we've talked about all the different components that we have within
+a system.
+Now let's talk about some of the significant vulnerabilities.
+In the last few modules, we've talked about all the different components that we have
+within a system.
+Now let's talk about some of the significant vulnerabilities that we have in systems.
+So here's a list of some of the major architectural risks that exist in systems, things like single
+points of failures and bypass controls and race conditions.
+We'll go through each of these and we'll talk about what the risk is or what the vulnerability
+is and in most cases how you would go about mitigating that vulnerability.
+Let's start with this concept of a single point of failure.
+So what is a single point of failure?
+Well a single point of failure is where you've got a single system or process that if it
+goes down, everything goes down.
+So in this little diagram that we have here, we've got the sketchy internet at the very
+top there.
+We've got the traffic coming in from the internet going through a firewall and then through
+a router down to our little happy systems in our trusted internal network.
+You don't have a trusted network.
+We'll talk with that later.
+So what are the single points of failure in this diagram here?
+Well there's two.
+Our firewall and our router are both single points of failure.
+So how do we address the risks of single points of failure?
+Well, it's through redundancy or having multiple systems and in this diagram here you can
+see we don't just have one firewall and one router.
+We have two firewalls and two routers and we have them interconnected.
+So if one router goes down or one firewall goes down, the traffic is just routed around.
+So that's how we reduce the risk of single points of failure.
+Next, let's talk about bypass controls.
+Now before I explain exactly what a bypass control is, let me tell you a story and I think
+this will all make sense, okay?
+So let's say I'm a network administrator and I've just bought some wicked new firewall.
+It's like a million dollar firewall and being the very security conscious network administrator
+that I am.
+When this firewall gets delivered in the morning, I type in as my first task, I type in
+some super strong 50 character password for the root account so that it's a very secure
+firewall and you know, that was a big job.
+So I go off and have lunch and then I come back from lunch and I type in the super secure
+50 character password and correct password, crap.
+I type it in again, I type it in another time, oh, I've just forgotten the password to
+the million dollar firewall.
+What do I do now?
+Do I take the million dollar firewall and just throw it in the garbage because I mean,
+this is the root account without access to this account.
+You can't configure this firewall.
+So what do you do?
+Well, you get out a paperclip, you bend it open and walk up to the back of the firewall,
+find a little pinhole in the back, hold the paperclip in there for about 10 seconds and
+what happens?
+The firewall configuration resets.
+This is a perfect example of a bypass control.
+So in the diagram that I'm showing you here, our regular control is that a user would
+log into a system with a password.
+But let's say the user has forgotten their password.
+We want to implement a bypass control.
+So bypass controls are controls that we intentionally build into a system to allow us to bypass some
+primary mechanism, like say the authentication mechanism.
+So we very clear on this wording, bypass controls are intentional.
+They're intentionally built into a system.
+Do they introduce additional risks?
+Of course they do.
+And this example that I just gave you with the million dollar firewall, if someone was
+able to get physical access to that firewall, they could reset the firewall.
+And there are lots and lots of examples of bypass controls out there.
+And all of them, whenever you implement a bypass control, it introduces additional risk.
+So how do we reduce the risk of bypass controls?
+Well, you've got to implement the appropriate mitigating controls, whatever those happen
+to be.
+In the example of a firewall, it would be physical security.
+As long as you prevent someone an unauthorized person from getting physical access to the
+firewall, they can't reset the firewall.
+So whatever is the appropriate mitigating control, you put that in place to reduce the
+risk of any new risk you've implemented with a bypass control.
+And now let's talk about these six letters here, TOC, TOU, TalkTow.
+What do they stand for?
+Well, TOC, time of check and TOU, time of use.
+What this refers to is often also referred to as a race condition.
+And let me tell you another story to explain this one.
+So let's say I walk into work in the morning, I get my laptop out, plug it in, and type
+in my username and password and log into the system.
+And just as I log in, someone from HR comes and says, Rob, kind of please see you in my
+office.
+And I say, yeah, sure, no problem.
+We walk right over to their office, and they sit me down and say, and they say, Rob,
+you're a terrible employee, we're firing you.
+And I think my response would probably be like, yeah, I get it, I'm a pretty horrible
+person.
+I'm on the same page.
+I get it.
+No worries.
+So it's a very quick discussion.
+And I leave to the HR person's office, and I'm back at my desk in like three minutes.
+What do I find when I'm back at my desk?
+Well, I may well find that my laptop is still logged in.
+My screensaver might not be set to time out for, say, five minutes.
+So if I'm back at my laptop, and I'm able to access that laptop, should I be able to?
+And of course not.
+I've just been fired.
+This is a perfect example of time of check, time of use, or a race condition.
+The idea is if an attacker can race in and get access to and use a system before there's
+the next check, they might be able to do something that they're not supposed to.
+They might be able to hijack the session as an example.
+So how do we reduce the risk of time of check, time of use, or race conditions?
+Well, you have to increase the frequency of reauthentication.
+So in the example I gave of coming back to my laptop, if the screensaver password had
+come up after even just one minute, then I wouldn't have had unauthorized access to
+that system.
+So the way we do deal with the risk of time of check, time of use is increase the frequency
+of reauthentication.
+The next vulnerability we're going to talk about is emanations.
+Now let's start with an definition.
+What does emanations mean?
+Well, computer systems emanate all sorts of different stuff.
+They emanate light from the screen.
+They emanate sounds.
+They emanate radio waves and some of them are intentional, things like our Wi-Fi.
+Our magnetic hard drives when they're being used emanate magnetic waves.
+There's all sorts of stuff that our systems emanate.
+And the risk with emanations is that someone may be able to detect those emanations and
+gather information that they're not supposed to from those emanations.
+Now there's three major ways that we can deal with the risk of emanations.
+The first is shielding.
+So what this means is you put some sort of shield around the device that blocks electromagnetic
+waves.
+An example of shielding is something known as tempest.
+And you should remember this.
+So tempest is a tech suite of technologies developed by the Royal Military to protect their
+planes and tanks and things like that from the rescues or whomever, from the bad guys
+whoever those happen to be.
+So one of the ways that we prevent reduce the risk of emanations is shielding.
+The next is white noise.
+What is white noise?
+Static random noise.
+And the idea behind white noise is that if you blast a really strong signal of random
+noise, whatever small weak emanations might be coming out of your system will be overwhelmed
+by the random noise, preventing the attacker from listening in and gathering data from
+your system.
+The final major way that we can deal with the risk of emanations is what are known as control
+zones.
+Think of this as physical security.
+Control zones simply means that if someone isn't able to get close enough to your system
+that's emanating these weak signals, then they're not going to be able to pick them up.
+And so this is why in the movies, the super security government system is always buried
+in some bunker underground inside of a mountain.
+And the only way to get through getting near it is to hire Tom Cruise to repel out of
+the vents in the ceiling or something like that.
+So control zones, control physical access to the device to reduce the risk of emanations.

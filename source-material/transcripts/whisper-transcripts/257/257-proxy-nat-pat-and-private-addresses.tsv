@@ -1,0 +1,149 @@
+start	end	text
+0	2900	specific requests from a security perspective,
+2900	4420	because it's better equipped,
+4420	8140	it's more intelligence to be able to handle that.
+8140	10140	And that's what we call a proxy.
+23140	26140	One of the ways that we can provide really good security
+26140	28620	across a network is to use the concept
+28620	30320	of what we call a proxy.
+43200	46200	One of the ways that we can provide really good security
+46200	48680	across a network is to use the concept
+48680	50440	of what we call a proxy.
+50440	51720	Now, if you look at that word,
+51720	53960	if you look it up in a dictionary, for example,
+53960	57760	it'll say acting on behalf of something else.
+57760	60720	The idea is, as a request comes in,
+60720	63400	we redirect it to something else
+63400	65720	that is better equipped to make that decision.
+65720	69040	In other words, we build something specifically
+69040	73040	to handle specific requests from a security perspective
+73040	74560	because it's better equipped,
+74560	78280	it's more intelligence to be able to handle that.
+78280	80320	And that's what we call a proxy.
+80320	83360	A proxy typically is an application,
+83360	85400	and because it is an application,
+85400	87120	it's running at layer seven,
+87240	90080	and therefore has a lot of intelligence
+90080	92840	to be able to make decisions that we need
+92840	96720	in order to either allow or deny certain things.
+96720	100720	So the concept of a proxy server is exactly what you see here.
+100720	104200	It can typically be a server that's running applications
+104200	108600	that has intelligence to be able to make very informed
+108600	111640	decisions about almost anything.
+111640	113520	Perfect example of this would be
+113720	116680	an application proxy firewall,
+116680	120920	which is really an application that we've built
+120920	123320	to make very informed decisions,
+123320	127200	such as deep packet inspection, web content filtering,
+127200	131160	or anything else that you wanna be able to do at layer seven.
+131160	134040	And because we're doing it at layer seven,
+134040	136800	that's where we have the most intelligence
+136800	140040	to be able to make the best security decision.
+140040	143760	And here is what it looks like from a diagram perspective.
+143760	147040	You've got a client that's trying to make a connection
+147040	150920	to a server, but that is gonna be done through something
+150920	153520	in the middle called the proxy server,
+153520	156480	which is really an application that's better equipped
+156480	161480	to make that decision on behalf of all of the security rules
+161800	164240	that we need to be able to enforce.
+164240	167680	A different way to look at this is what you see here.
+167760	172120	So while the perceived connection is really from client
+172120	176160	to server, the connection is either allowed to happen
+176160	178200	or not through the proxy.
+178200	181880	So what we do is we redirect that decision
+181880	184320	or that request to the proxy.
+184320	187520	And because the proxy has been built specifically
+187520	191280	to make that decision, it will enforce certain rules
+191280	196080	and either allow or deny that connection to be established.
+196080	199480	So from a user's perspective at the client,
+199480	202840	that connection is happening from client to server,
+202840	206840	but it's really happening through the proxy server itself,
+206840	209040	which is again built specifically
+209040	211560	to handle those security decisions.
+211560	213520	And because it's an application,
+213520	218680	it can make some really informed decisions at that level.
+218680	222160	And so some of the things that we can do at layer seven
+222160	224080	are things like that.
+224080	227320	And that ends up being an application
+227320	232320	that actually changes IP addresses to other IP addresses.
+233840	236520	And if you think about how a company
+236520	240120	has an internal network that you might be part of,
+240120	242320	as you go out to the internet,
+243320	246360	we might want to change your IP address
+246360	249240	so that you can go out to the internet
+249240	252680	and be routable and be able to access things.
+252680	256120	But from a security perspective, what Nat can do
+256120	258880	is it can change the IP address
+258880	262720	and all of those things that look internal to the organization
+262720	265080	so that when you go out to the internet,
+265080	268560	anything that relates to the internal network
+268560	272640	and its IP addressing schemes can be hidden
+272640	275240	from anybody out there out on the internet.
+275240	280240	So Nat can be useful in hiding our real addressing schemes
+280280	284120	and if you remember to what all attacks require
+284120	286440	and that is the reconnaissance phase,
+286440	289600	you want to be able to hide a lot of what we have internally
+289600	292800	so that they're not visible to anyone out on the internet.
+292800	297080	So Nat can be really useful from a security perspective
+297080	302080	because it can be used to hide your real addressing schemes
+302080	307080	as you allow people to go out to the internet.
+307160	311120	Now something that's part of Nat is what we call Pat.
+311120	313760	So Nat is network address translation
+313760	316760	which translates internal IP addresses
+316760	320080	to routable IP addresses out on the internet
+320080	322880	but what might be needed as part of that
+322880	326080	is what we call Pat, port address translation
+326080	328120	and here's how this works.
+328120	330080	You might have a whole bunch of machines
+330080	333520	on the internal network that are going out to the internet.
+333520	337160	They could all use the same IP address
+337160	339960	that they've been changed to so that they can be routable
+339960	341800	across the outside internet.
+341800	345360	So a whole bunch of machines can go out with the same IP address
+345360	347880	but what would distinguish each one of them
+347880	350200	is the port numbers that are gonna be different
+350200	352440	for each one of those machines.
+352440	355480	And obviously what we have to do is we have to keep track
+355480	358600	of that so that when the request comes back
+358600	360720	we can route it back to the machine
+360720	362720	that originated this.
+362720	366480	That's what Nat provides and it is part of TCP IP.
+366480	368480	So here's a perfect example.
+368480	371960	Let's say that you are the machine
+371960	375680	that is making a request out to the internet.
+375680	380760	The Nat capable device or proxy that sits at your parameters
+380800	385440	would understand your source IP address, destination IP address,
+385440	389280	source port and destination port and change that
+389280	391640	to something that is routable.
+391640	393920	But it would have to keep track of that
+393920	396120	so that when the request comes back
+396120	398440	we can change it back and route it back
+398440	400480	to your specific machine.
+400480	403600	This is what Nat and Pat can do.
+403600	405560	And of course from a security perspective
+405560	408640	what you need to remember is that it can be useful
+408640	411720	in hiding our real addressing schemes
+411720	414920	as we allow machines from the inside of the network
+414920	418880	to actually go out to the internet and web.
+418880	423200	Now one of the other reasons why we need Nat and Pat
+423200	427800	is that we have what are called private address ranges
+427800	431400	that are used by organizations internally.
+431400	433800	And so if you're a large organization
+433800	436320	you might be in the range of the 10 dot
+436320	438200	that is outlined here.
+438200	439880	As you go out to the internet
+439880	442920	those IP addresses are not routable.
+442920	445600	So it is Nat that needs to change it
+445600	447800	to something that is routable.
+447800	451680	And then when it comes back we routed back to your machine.
+451680	455040	It's Nat and Pat that does that.
+455040	457320	Now as far as the exam is concerned
+457320	462320	you don't need to memorize the private IP address ranges
+462320	466920	that are specified for example in RFC 1918
+466920	469240	which talks about private addresses
+469240	472040	that can be used by companies.
+472120	475480	But these are the ones that are allocated
+475480	478360	as being private and of course not routable
+478360	479640	across the internet.
+479640	482560	And that's why we need Nat and Pat
+482560	486000	to be able to handle this nicely for us.

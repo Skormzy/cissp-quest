@@ -1,0 +1,106 @@
+start	end	text
+0	19800	All right, here we are at layer number two, which is the data link layer, appropriate
+19800	39880	name. All right, here we are at layer number two, which is the data link layer, appropriate
+39880	47040	name for this layer, data link really means that it links the data between the two adjacent
+47040	54320	layers that are next to it. So if you know what the layer below the data link layer is,
+54320	59880	that's the physical layer. And then above the data link layer we have the network layer.
+59880	66160	The data link layer allows those two adjacent layers to actually talk to each other. Because
+66160	71880	when you look at what the network layer works with, it works with data grams and packets,
+71880	77800	that's not what the physical layer works with. The physical layer as we've already learned can
+77800	84000	only work with bits, zeros and ones. So the layer in between, which is this layer, guess what it
+84000	92960	does? It takes information from the network layer as data grams and formats those as bits so that
+92960	98480	the physical layer can work with them as bits. At the other end, guess what the data link layer
+98480	105280	does? It takes the bits of information from the physical layer and formats them in such a way so
+105280	111920	that the network layer can work with them as packets and data grams. So it really allows the two
+111920	118720	adjacent layers to it to be able to talk to each other. Think of it as the translator or the
+118720	125840	go between that allows the two adjacent layers to talk to each other. Now at this, at this layer is
+125840	134080	also where we reference what are called your physical unique address across a network. In other
+134080	140720	words, a network is made up of different devices that are connected to each other, but the network
+140720	149280	needs to understand each of those devices uniquely. So there needs to be some sort of unique physical
+149280	155280	address that the network can reference for each of the devices that are connected to each other.
+155600	161920	This is called the MAC address. The MAC address is really a function of your network card that
+161920	168720	allows you to connect to the network and every device connected to a network has to have a unique
+168720	176080	physical MAC address that is referenced here at layer two. And it looks something like you see
+176080	183520	there on your screen, but what the industry needs to make sure is that each of these MAC addresses
+183520	190320	are unique as they come from the manufacturers. So there is a system by which this is insured.
+190320	196080	For example, the first number of bits for your MAC address relates to the vendor.
+197280	202480	And so that would be unique to a vendor. And then the next set of bits is something else that
+202480	208560	ensures uniqueness and so on so that we can have network cards and devices that come from different
+208560	215040	manufacturers. They all need to have unique physical addresses because if you didn't,
+215040	222000	that would confuse the network every device or node connected to a network has to have a unique
+222000	228960	physical address that is referenced here as a MAC address. Although when we get to the network
+228960	236240	layer, you'll see that the logical addressing in networking is actually done at the network layer,
+236240	242480	not at the data link layer, which was what we're talking about here. The data link layer simply
+242480	249440	provides the physical unique address through the MAC address itself. Now here's where we also talk
+249440	255600	about the two types of networks that exist because if you remember what a network is, it's a bunch
+255600	262960	of devices that are connected to each other. Now how we communicate with other devices is the
+262960	268960	difference between circuit switch networks and packet switch networks. Those are the two types
+268960	275760	of networks that can exist. Now the easiest way to think of circuit switch networks is the
+275760	282560	phone network itself, the PSTN, the public switch telephone network or what some telephone people
+282560	290800	call the POTS, the plain old telephone system. That network has been around for over 100 years in
+290800	296960	some cases. But what they figured out back in those days was that the best way to carry the
+296960	304000	human voice, which is what this network has been built to do, are actually analog frequencies,
+304000	311680	I think, between 4,000 hertz and 6,000 hertz. But this network has been built to handle analog
+311680	317520	frequencies because that's the best way to represent your voice. But in order to be able to
+317520	324160	communicate across this network and here's why it's called a circuit switch network, two devices
+324160	330800	that need to communicate with each other have to actually establish a circuit or a connection between
+330800	338000	them. Now that connection can be either physical or logical, but we need to establish a full duplex
+338000	343600	type of connection, which means we can talk in both directions at the same time. Our animation
+343760	348880	here I think does a pretty good job of showing what this looks like. There is a series of devices
+348880	356240	along the way called switches across the telephone network that will ultimately establish a connection
+356240	362320	between you and that other person that you want to talk to. And of course what you do is you dial
+362320	369200	their number, but that activates those switches across the way that will ultimately establish
+369200	375120	a logical or physical connection so that now we can talk back and forth in both directions.
+375120	380720	That's what we call a full duplex type of connection. We can both talk to each other at the same
+380720	385920	time, even though if we did that, we wouldn't understand each other, but that is possible. That's
+385920	392800	what we call full duplex type of connection. This is what the telephone network is and in fact,
+392800	398800	if you think of the telephone network, it is a perfect example of a circuit switch network.
+398800	405920	The telephone network. Now, if you remember back in the old days, when data started to become
+405920	412960	something that was really important to organizations, the only way that you could connect remotely
+412960	419360	to your internal network was to actually use the only network that was available for us to do that.
+419360	425600	And that was the telephone network, but the problem with the telephone network is that it has
+425600	433200	a limitation because it is a analog technology. It was built to carry the human voice and the
+433200	440080	best way to do that is to use analog technologies. So the only way that you could carry data across
+440080	448480	it was to take your digital signals that computers use and turn them into analog so that they could
+448480	454960	be carried across the analog telephone network. And then at the other end, you would have a similar
+455040	462320	device that would take that analog signal and turn it back into digital. And of course, those devices
+462320	469600	are called modems, aren't they? In fact, the word modem comes from modulation, demodulation,
+469600	475760	which does exactly what we just described. It takes your digital signals, turns them into analog
+475760	481520	so that they can be carried across the analog telephone network. And then, of course, at the other
+481520	486240	end, we turn it back into digital. Now, there's always been a problem with this. And that is,
+486240	492720	there's a limitation in the speeds and the bandwidth, for example, that we can host. And that is
+492720	500400	because the analog telephone network is analog. It's backbone is analog. And so we've always had
+500400	507440	that limitation, which I think is 56,000 bits per second. And a lot of people ask a question,
+507440	514640	why haven't we improved modem technology to give us faster speeds? Well, we have, in fact,
+514640	521840	in fact, all of you probably use DSL modems and cable modems that handle much faster speeds.
+522320	529280	But the problem with the telephone network is not in the modem. It's in the network itself.
+529280	535760	That's why we still have that limitation with modems. So obviously, when data started to
+535760	542640	become a requirement, we couldn't use modems anymore because of that limitation. So that forced
+542640	550560	companies to build separate and specific data networks to handle the quantity of data, the speeds
+550560	557120	that we required today. And those are called packet switched networks. So the easiest way to think
+557120	563280	of this is that all data networks are packet switched. The way this works is if we need to send
+563280	569680	information between devices, we're not going to establish a circuit or connection first.
+569680	576160	What I do if I need to send you information as I take that information and I break it up into
+576160	583440	manageable chunks. And then I individually address each of those chunks. And then I send them along
+583440	591040	the way. Now those chunks, called packets or datagrams typically, will travel in different directions.
+591520	597280	You know, they may arrive in a different order than they were sent. Some of them may not even arrive.
+597280	603920	But you know, basically we have the technology to be able to do that, receive those datagrams and packets
+603920	610000	and reconstruct them into what the original data look like. That's what all data networks do.
+610000	616800	And because we break things up into manageable chunks that can be each individually addressed
+616880	624800	and sent along the way, these are called packet switch networks. All data networks work this way.
+624800	633040	All data networks are packet switch networks because they can handle the high volumes and bandwidths
+633040	639040	and speeds that we need today for the applications that really data networks are built for today.
+639040	646400	Here's just a basic summary of the two types of networks that can exist. And pretty
+646400	651760	intuitively you can see the difference here and what they're typically used for. Just remember
+651760	657360	that circuit switched is the voice network. All data networks are packet switch because they
+657360	663760	can give us the speeds and the bandwidth and what we need today for our applications.
+663760	670320	Now across data networks though, sometimes you may want connections that are established on demand
+671040	678560	or for example, maybe companies need to link, you know, a data network in one location to a data
+678560	684960	network in another location permanently. Let's say we are a company that has offices in two
+684960	692080	different cities. And so we may want to link those two offices or data networks together permanently.
+692080	698320	That's what we call permanent virtual circuits. Those are data network connections that are
+698320	705040	established typically across what we call wide area network technologies that are offered to us
+705040	712320	by our providers. We'll talk more about that later on. Whereas a switched virtual circuit is one
+712320	718080	that we establish on demand. And then once we're finished, we tear it down. Perfect example of that
+718080	724000	would be a VPN connection. So that's the difference between the two types of connections that we can
+724000	734960	establish across data networks or packet switch networks.

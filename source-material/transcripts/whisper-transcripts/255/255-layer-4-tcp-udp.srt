@@ -1,0 +1,104 @@
+1
+00:00:00,000 --> 00:00:20,000
+Ah, Layer 4, the Transport Layer.
+
+2
+00:00:20,000 --> 00:00:46,000
+Ah, Layer 4, the Transport Layer. Well, they've done a really good job of naming these layers within the OSI model for what they actually do.
+
+3
+00:00:46,000 --> 00:00:54,000
+And this is a perfect example of that. The Transport Layer is really responsible for the transporting of information.
+
+4
+00:00:54,000 --> 00:01:01,000
+Think of it as the truck that carries the information between communicating entities across a network itself.
+
+5
+00:01:01,000 --> 00:01:15,000
+So if you think about how a truck can carry information to two locations back and forth, one way to do it is if we want reliability to exist, let's build a road first.
+
+6
+00:01:15,000 --> 00:01:28,000
+Let's build a nice road that the truck can go across really reliably and so that it can get there and then come back and say, wow, the road is still good, let's send the next truck.
+
+7
+00:01:28,000 --> 00:01:34,000
+But building that road is going to take time. That requires overhead.
+
+8
+00:01:34,000 --> 00:01:48,000
+And that's why at the Transport Layer we have really two ways to provide transport services. Reliably where we need to build the road first and then those trucks can go across that road in a nice easy way.
+
+9
+00:01:48,000 --> 00:01:57,000
+The other way is unreliably. Maybe we don't have time to build the road first and so we're going to try and get those trucks there in any way possible.
+
+10
+00:01:57,000 --> 00:02:08,000
+That's why there are really two TCP-IP protocols that run at the Transport Layer that provide truck services.
+
+11
+00:02:08,000 --> 00:02:23,000
+And the two, I'm sure you've heard of, TCP provides reliable, ordered, connection-oriented, sequence type of truck services where we have to build that road first.
+
+12
+00:02:23,000 --> 00:02:40,000
+And once we have it, the truck can go to its destination, deliver its information, come back and say, okay, the road is still okay, let's send the next truck and so on until we do everything that needs to be transmitted to its destination.
+
+13
+00:02:40,000 --> 00:02:52,000
+The other protocol that operates at the Transport Layer provides unreliable, I'll try my best, but there are no guarantees that anything is going to work type of services.
+
+14
+00:02:52,000 --> 00:03:06,000
+And that's what we call UDP. A lot of people will refer it to as send and pray that truck and those truck drivers, for example, will get to the destination and deliver all of that information.
+
+15
+00:03:07,000 --> 00:03:18,000
+And here is why the two are obviously different. TCP is used for reliable type of transmissions, but we're going to have to pay for it.
+
+16
+00:03:18,000 --> 00:03:25,000
+Not only do we have to build that road, but then only one truck can go across that road at any time.
+
+17
+00:03:25,000 --> 00:03:37,000
+Whereas in UDP, it's often used for where we require speed. So what I'm going to do is I'm going to load up as many trucks as I can with as much information as I can.
+
+18
+00:03:37,000 --> 00:03:42,000
+And then I'm going to tell the truck drivers, go on, try and find your way to the destination.
+
+19
+00:03:42,000 --> 00:03:51,000
+And these truck drivers will try their best. They'll go in any direction that they think might be useful. Some of them will go backwards instead of forwards.
+
+20
+00:03:51,000 --> 00:03:58,000
+Some of them will never get there because they'll end up in the ditch, but it seems to work for most things.
+
+21
+00:03:58,000 --> 00:04:13,000
+So obviously TCP is used for reliability. UDP, we use for anything that requires speed for things like streaming, audio and video.
+
+22
+00:04:13,000 --> 00:04:22,000
+But also where we require a lot of speed, like DNS requests and things like that. That's what UDP is very useful for.
+
+23
+00:04:22,000 --> 00:04:33,000
+And here's why UDP is very quick, but unreliable, whereas TCP is something that provides reliability, but needs ordered truck services.
+
+24
+00:04:33,000 --> 00:04:41,000
+When you look at the headers of both of these, you'll see that there's a lot more information in the TCP header.
+
+25
+00:04:41,000 --> 00:04:52,000
+So it takes longer for us to process all of that information and be able to handle it. That's why we can only send one truck at a time basically in a ordered fashion.
+
+26
+00:04:52,000 --> 00:05:10,000
+TCP is reliable. UDP header doesn't have much information in it, which allows us to process that information much quicker so that it's useful for things like streaming, audio, video and anything that requires speed as opposed to reliability.
+

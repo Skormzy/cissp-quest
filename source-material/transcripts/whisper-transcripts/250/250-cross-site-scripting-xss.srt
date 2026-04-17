@@ -1,0 +1,388 @@
+1
+00:00:00,000 --> 00:00:03,840
+Let me start with a little story, because I think it'll help explain the technicalities
+
+2
+00:00:03,840 --> 00:00:07,080
+of what's actually happening behind the scenes.
+
+3
+00:00:07,080 --> 00:00:11,560
+So imagine a website where you can post images and comments underneath.
+
+4
+00:00:11,560 --> 00:00:13,520
+So think of, say, Facebook.
+
+5
+00:00:13,520 --> 00:00:15,880
+But I'm not suggesting Facebook is vulnerable to this, okay?
+
+6
+00:00:15,880 --> 00:00:17,400
+You need to find a vulnerable website.
+
+7
+00:00:17,400 --> 00:00:20,440
+But let's just all think about Facebook, because there's probably a website we're all
+
+8
+00:00:20,440 --> 00:00:22,000
+familiar with.
+
+9
+00:00:22,000 --> 00:00:26,120
+So I log into Facebook one day, and I noticed that my buddy has posted a picture of him
+
+10
+00:00:26,120 --> 00:00:27,440
+and his daughter.
+
+11
+00:00:27,440 --> 00:00:31,080
+And being the very good friend that I am, I decide to post a comment underneath.
+
+12
+00:00:31,080 --> 00:00:33,520
+And so I write something like, oh, what a lovely picture.
+
+13
+00:00:33,520 --> 00:00:35,400
+It's too bad she looks just like you do.
+
+14
+00:00:35,400 --> 00:00:37,720
+So that's the crappy comment I leave.
+
+15
+00:00:37,720 --> 00:00:40,640
+Now what happens when I hit submit?
+
+16
+00:00:40,640 --> 00:00:43,440
+That comment gets sent to Facebook servers.
+
+17
+00:00:43,440 --> 00:00:46,360
+The comment is stored in a database somewhere.
+
+18
+00:00:46,360 --> 00:00:52,000
+And now every subsequent user that goes and views that picture is going to see my crappy
+
+19
+00:00:52,000 --> 00:00:54,120
+comment underneath.
+
+20
+00:00:54,120 --> 00:00:57,920
+And so what's happening is my comment data is actually being stored on the server.
+
+21
+00:00:57,920 --> 00:01:02,720
+And then every subsequent user that visits the website, that HTML code contains the
+
+22
+00:01:02,720 --> 00:01:03,720
+comment.
+
+23
+00:01:03,720 --> 00:01:07,960
+And the user's browser is downloading that comment, and it's displaying it, like it's
+
+24
+00:01:07,960 --> 00:01:09,440
+supposed to.
+
+25
+00:01:09,440 --> 00:01:10,760
+So that's the scenario, okay?
+
+26
+00:01:10,760 --> 00:01:13,680
+Now, here's what's going to happen.
+
+27
+00:01:13,680 --> 00:01:17,120
+Our baddie here, you can tell they're baddie, right, the fedora.
+
+28
+00:01:17,120 --> 00:01:21,760
+Our baddie here is going to discover a vulnerable website, and it has to be a vulnerable website,
+
+29
+00:01:21,760 --> 00:01:24,160
+which I'll explain why in a few minutes.
+
+30
+00:01:24,160 --> 00:01:27,080
+So our baddie discovers a vulnerable website.
+
+31
+00:01:27,080 --> 00:01:28,360
+And here's what our baddie does.
+
+32
+00:01:28,360 --> 00:01:32,200
+Our baddie injects some malicious code into the web page.
+
+33
+00:01:32,200 --> 00:01:34,280
+And that sounds very technical, doesn't it?
+
+34
+00:01:34,280 --> 00:01:40,920
+But it could literally be as simple as typing some code in a comment field and hitting submit.
+
+35
+00:01:40,920 --> 00:01:45,080
+And what's the code that you're going to type into the comment field of the website?
+
+36
+00:01:45,080 --> 00:01:46,720
+JavaScript.
+
+37
+00:01:46,720 --> 00:01:49,440
+Now why does it have to be a vulnerable website?
+
+38
+00:01:49,440 --> 00:01:54,440
+Well, because no website should ever just accept JavaScript code as a comment and store
+
+39
+00:01:54,440 --> 00:02:00,400
+that code in the database, and especially then redisplay all that code to every user.
+
+40
+00:02:00,400 --> 00:02:04,160
+But that's why our baddie discovers a vulnerable website.
+
+41
+00:02:04,160 --> 00:02:08,560
+So our baddie injects the code into the web page into the website, they submit their comment,
+
+42
+00:02:08,560 --> 00:02:11,360
+the comment gets stored on the server.
+
+43
+00:02:11,360 --> 00:02:12,960
+Now what happens?
+
+44
+00:02:12,960 --> 00:02:17,520
+Every subsequent user that visits that website, their browser is going to download the web
+
+45
+00:02:17,520 --> 00:02:22,880
+page, and embedded in that web page is going to be the JavaScript code.
+
+46
+00:02:22,880 --> 00:02:25,960
+And their browser is going to do exactly what it's designed to do.
+
+47
+00:02:25,960 --> 00:02:30,960
+Their browser is going to parse the HTML page, it's going to come across the JavaScript,
+
+48
+00:02:30,960 --> 00:02:36,160
+and it's going to execute the JavaScript, it's what it's designed to do.
+
+49
+00:02:36,160 --> 00:02:41,520
+And now when our victim's browser executes that JavaScript code, what typically happens?
+
+50
+00:02:41,520 --> 00:02:45,920
+Well, some data is sent back to our baddie here.
+
+51
+00:02:45,920 --> 00:02:49,360
+So this is an example of stored cross-site scripting.
+
+52
+00:02:49,360 --> 00:02:50,720
+Why do we call it stored?
+
+53
+00:02:50,720 --> 00:02:55,520
+Well, it's because the JavaScript code is stored on the server.
+
+54
+00:02:55,520 --> 00:03:00,400
+We also call it persistent, and the reason we call it persistent is because every subsequent
+
+55
+00:03:00,400 --> 00:03:05,120
+user that goes to this particular page and views, you know, and downloads this malicious
+
+56
+00:03:05,120 --> 00:03:08,080
+code, it's going to execute on their browser.
+
+57
+00:03:08,080 --> 00:03:12,400
+So stored, persistent, cross-site scripting.
+
+58
+00:03:12,400 --> 00:03:15,320
+Now let's talk about another type of cross-site scripting.
+
+59
+00:03:15,320 --> 00:03:18,360
+This is known as reflected cross-site scripting.
+
+60
+00:03:18,360 --> 00:03:23,360
+So I'm going to set up another little scenario to help you imagine how this works.
+
+61
+00:03:23,360 --> 00:03:26,400
+Imagine going to a website like Google.com.
+
+62
+00:03:26,400 --> 00:03:31,320
+When you go to Google, when you go to Google.com, and you type in a search query in the search
+
+63
+00:03:31,320 --> 00:03:34,400
+bar and hit search, what happens?
+
+64
+00:03:34,400 --> 00:03:40,040
+Well, the search results page says, here are your search results for cat or dog or whatever
+
+65
+00:03:40,040 --> 00:03:43,000
+you've searched for.
+
+66
+00:03:43,000 --> 00:03:45,680
+So imagine that scenario, OK?
+
+67
+00:03:45,680 --> 00:03:46,760
+So here's what's going to happen.
+
+68
+00:03:46,760 --> 00:03:50,360
+Our baddie is going to do, again, discover a vulnerable website.
+
+69
+00:03:50,360 --> 00:03:54,040
+And our baddie is going to first create a URL.
+
+70
+00:03:54,040 --> 00:03:56,640
+A URL stands for a universal resource locator.
+
+71
+00:03:56,640 --> 00:04:00,680
+This is what you type up in your browser bar to go to a particular site or page on a
+
+72
+00:04:00,680 --> 00:04:02,160
+website.
+
+73
+00:04:02,160 --> 00:04:05,880
+And what our baddie is going to do here is think of Google.com again.
+
+74
+00:04:05,880 --> 00:04:10,720
+When you type in Google.com and you search for something, the search results URL page will
+
+75
+00:04:10,720 --> 00:04:17,600
+say Google.com, question mark, search equals, whatever you searched for.
+
+76
+00:04:17,600 --> 00:04:21,720
+Our baddie is going to create a URL for like that, except in the search field, instead of
+
+77
+00:04:21,720 --> 00:04:27,120
+putting in some word or some sentence, what's our baddie going to put in the URL?
+
+78
+00:04:27,120 --> 00:04:28,760
+JavaScript code.
+
+79
+00:04:28,760 --> 00:04:33,240
+So our baddie creates this URL containing the JavaScript code.
+
+80
+00:04:33,240 --> 00:04:36,360
+Sends it to our victim here.
+
+81
+00:04:36,360 --> 00:04:40,920
+And through some sort of social engineering technique, maybe phishing or something like
+
+82
+00:04:40,920 --> 00:04:46,280
+that, our baddie here somehow convinces the user to click on the URL.
+
+83
+00:04:46,280 --> 00:04:50,920
+When the user clicks on the URL, that sends the request to the web server.
+
+84
+00:04:50,920 --> 00:04:54,560
+The web server is going to then reflect that code back to the user.
+
+85
+00:04:54,560 --> 00:04:55,560
+It's like the search.
+
+86
+00:04:55,560 --> 00:04:59,680
+It's like the page is saying, here are your search results for JavaScript code.
+
+87
+00:04:59,680 --> 00:05:04,640
+So the website is going to reflect the malicious code back to the user.
+
+88
+00:05:04,640 --> 00:05:09,800
+The malicious code is going to be contained in the page that comes back to the user.
+
+89
+00:05:09,800 --> 00:05:13,080
+And once our users browse are going to do, exactly what it's designed to do.
+
+90
+00:05:13,080 --> 00:05:19,160
+It's going to parse through the page, hit the malicious JavaScript code and execute it.
+
+91
+00:05:19,160 --> 00:05:26,400
+And once the final step here, well, this malicious code is going to run and it's going to send
+
+92
+00:05:26,400 --> 00:05:29,240
+some data back to the baddie once again.
+
+93
+00:05:29,240 --> 00:05:34,400
+So overall, it's the same effect, which is the target of attack here is the user.
+
+94
+00:05:34,400 --> 00:05:39,240
+And in both stored and reflected and, sorry, in both stored and persistent and reflected
+
+95
+00:05:39,240 --> 00:05:43,400
+cross-site scripting, it's all about sending data back to the baddie.
+
+96
+00:05:43,400 --> 00:05:48,360
+But in reflected cross-site scripting, there's a few important things to understand here.
+
+97
+00:05:48,360 --> 00:05:52,600
+Number one, why do we call it reflected cross-site scripting?
+

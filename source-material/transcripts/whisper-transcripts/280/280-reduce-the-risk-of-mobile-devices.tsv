@@ -1,0 +1,155 @@
+start	end	text
+0	16800	The mobile systems are mobile devices.
+16800	17800	What are mobile devices?
+17800	33800	Well, it's all of our devices.
+33800	36800	Mobile systems are mobile devices.
+36800	37800	What are mobile devices?
+37800	40800	Well, it's all of our devices that are mobile.
+40800	45800	Things like our iPhones, our iPads, our little mini-super computers
+45800	50800	that we keep in our pockets that store gigabytes, maybe even terabytes of data
+50800	54800	and are unbelievably powerful little computers.
+54800	56800	So what's the risk with these mobile devices?
+56800	60800	Well, it's the fact that they can store so much data nowadays
+60800	62800	and the fact that they're mobile.
+62800	65800	Because what inevitably happens is someone puts a bunch of data on this device
+65800	67800	that probably shouldn't be on there.
+67800	71800	And then they forget their device somewhere inevitably in the cab,
+71800	73800	in the airport, on the train.
+73800	76800	Let's talk about an example of this actually occurring.
+76800	80800	And it highlights just what the risks are with mobile devices.
+80800	86800	So there was a healthcare provider in the US, I think it was in Minnesota, in 2011.
+86800	91800	A employee of that company left their laptop in their car.
+91800	96800	The laptop had about 20 million records on it, on about 23,000 patients.
+96800	101800	And they left this laptop in their car when they wanted to do a Starbucks or something like that.
+101800	105800	And what inevitably happens, the laptop was stolen.
+105800	110800	There was a whole series of extremely unfortunate events that all occurred
+110800	113800	because of that lost one lost laptop.
+113800	115800	So what happened?
+115800	117800	Well, there was a lawsuit by the Auditor General.
+117800	121800	There was a giant settlement, millions of dollars with the Auditor General.
+121800	125800	Their CEO, COO, CFO were all fired and replaced.
+125800	130800	There was two class action lawsuits from patients whose data was potentially exposed.
+130800	134800	There was a settlement with the FTC.
+134800	136800	Over 170 jobs were cut.
+136800	140800	And as a final kick in the pants, they were delisted from the New York Stock Exchange.
+140800	142800	They were publicly traded company.
+142800	148800	All of this, all of these tragic events occurred because of one lost laptop.
+148800	150800	And then companies never recovered.
+150800	152800	I've checked on their stock price a couple times since then.
+152800	153800	And they've never recovered.
+153800	155800	They've never gotten back to the highs they were once at.
+155800	157800	And they don't actually exist anymore.
+157800	158800	They were bought out.
+158800	164800	So this whole tale of woe was because of one lost or stolen laptop.
+164800	166800	So let's spend a minute thinking about this.
+166800	170800	What would be the best way to have prevented this event from occurring?
+170800	172800	This lost or stolen laptop?
+172800	175800	And all the horrible things that happened afterwards?
+175800	177800	About a lot of you were thinking, hold drive encryption.
+177800	181800	They should have encrypted the entire contents of the hard drive.
+181800	186800	Because the whole idea behind hold drive encryption is, even if someone steals your laptop,
+186800	189800	they'll find that all the data is being encrypted.
+189800	193800	And don't get me wrong, hold drive encryption, excellent idea, defense and depth,
+193800	196800	have multiple layers of controls, all good.
+196800	200800	But there's actually more of a flaw in hold drive encryption than most people realize.
+200800	205800	And that is, while the hold drive encryption is amazing, it'll use, you know, like AES,
+205800	210800	256-based encryption, it's unbelievably difficult to break the encryption.
+210800	214800	But the problem is, if someone has stolen your laptop,
+214800	218800	how long do they have to figure out how to break that encryption?
+218800	223800	And do they, in fact, need that extremely difficult to find 256-bit key?
+223800	224800	No.
+224800	230800	What they, in fact, need to unlock that excellent encryption is the user's password.
+230800	233800	And how good are our user's passwords?
+233800	234800	Horrible.
+234800	237800	The most common password in the world is password.
+237800	241800	So an attacker that steals a laptop that has hold drive encryption
+241800	246800	has an unlimited amount of time to try and discover probably a very bad password.
+246800	250800	And you might be saying, oh, but lots of laptops have protection mechanisms that only allow you
+250800	252800	to try a password so many times.
+252800	257800	Well, those mechanisms are pretty easy to defeat if you have physical control of a laptop
+257800	258800	of its in your possession.
+258800	263800	So hold drive encryption, not a bad control, but not the best way for preventing this.
+263800	264800	Okay.
+264800	268800	What about remote white capabilities?
+268800	273800	Lots of cell phones and even some laptops have the ability to remotely wipe the device.
+273800	278800	Again, not a bad control, but not as good as most people think.
+278800	283800	Because what's required for that remote white capability to be activated?
+283800	288800	The device has to be sent a signal and the device has to receive that signal.
+288800	289800	And he's skilled attacker.
+289800	292800	Soon as they steal a laptop, what are they going to do?
+292800	295800	Well, they're going to put that laptop in a fair day cage,
+295800	299800	in an envelope in something that's going to block that signal from being received.
+299800	302800	And then when they get it back to their criminal layer and their parents' basement,
+302800	305800	they're going to put themselves in this fair day cage.
+305800	312800	And so that laptop, is it ever going to receive that kill switch that signal to wipe the drive?
+312800	313800	Of course not.
+313800	317800	Now, for reasons, I decided to look into this a little bit.
+317800	320800	I thought, you know, let's find out how expensive it is to get one of these sleeves
+320800	323800	that you can put a laptop in a fair day cage, essentially.
+323800	328800	So I went on Amazon and on Amazon.com, like 2030 bucks, you can get a nice haul quality one.
+328800	330800	I was like, that's pretty good, not too bad.
+330800	332800	Then I was like, I bet you can do better.
+332800	335800	So I went to Alibaba, straight from China, right?
+335800	338800	On Alibaba, as long as you're willing to buy like 500 of them,
+338800	340800	you get them for like three bucks a piece.
+340800	341800	Pretty darn good.
+341800	344800	But then I thought, you know what? I can do even better.
+344800	346800	So it turns out, bag of chips.
+346800	350800	If you open up a bag of chips, you see that silver lining inside, it's mylar.
+350800	352800	It's a pretty good blocker of radio waves.
+353800	357800	So you go to Costco, buy yourselves a jumbo bag of chips, you got snacks,
+357800	360800	you got the fair day cage you need, there you go.
+360800	363800	You can defeat the remote wipe capability.
+363800	368800	So what's the best answer for how we prevent this type of mobile data breach?
+368800	373800	The best answer in fact is to not have the data on the laptop.
+373800	378800	If there isn't sensitive data on the laptop, then there's no worries about that laptop being lost or stolen,
+378800	381800	which is inevitably going to happen.
+381800	386800	So it turns out, one of the best ways of preventing these types of breaches is policies,
+386800	389800	procedures, user awareness training, and education,
+389800	394800	so that users know not to store highly sensitive data on their mobile devices.
+394800	399800	So when we think about how do we reduce the risk of mobile devices,
+399800	402800	one of the best ways is through policy, education, awareness.
+402800	406800	And then of course, do have the other physically and the other controls in place,
+406800	409800	still a very good idea, defense and depth to have things like whole drive encryption,
+409800	414800	to have remote wipe capabilities, to have good anti-malware capabilities, whatever.
+414800	418800	You know, still use all those controls, but the best one, training and awareness.
+418800	423800	Now let's talk about a couple of other controls that are really important to have with mobile devices.
+423800	428800	And we'll get into how you secure the connection between mobile device and the device itself at a moment.
+428800	433800	But one other thing we should spend a moment on here is if you're writing an application
+433800	436800	that's going to be used on a mobile device, which is very common nowadays,
+436800	441800	writing apps and web apps for phones and laptops and things like that.
+441800	444800	There's a really good set of guidance out there.
+444800	450800	A top 10 list of the top 10 things you should probably avoid when you're creating your mobile application.
+450800	453800	So there's an organization out there that probably many of you have heard of,
+453800	458800	a WASP. They do a really great job of investigating mobile devices,
+458800	462800	web applications, things like that, and figuring out what are the top 10 security risks
+462800	467800	that cause the vast majority of the breaches. And they've created a mobile device top 10,
+467800	473800	and it's listed here on the screen. Don't need to memorize it, but do know what you could use something like this for.
+473800	479800	And the use of something like this is if you're developing an application or a group within your organization
+479800	484800	is developing an application, they should be very aware of things like the OOS mobile top 10.
+484800	491800	And they should be making sure that the application they're creating is not vulnerable to any of these top 10 things.
+491800	497800	Continuing on the concept of policies related to mobile devices.
+497800	502800	A couple of major policies you should have related to mobile devices are things like an acceptable use policy.
+502800	509800	What mobile devices can and can't be used for? For organizations that allow employees to bring in their own devices,
+509800	513800	their own phones, you should have things like BYOD or CYOD policies.
+513800	517800	Bring your own device. I always think it's BYOD, bring your own booths, but that's totally different thing.
+517800	525800	So BYOD is bring your own device, CYOD carry your own device. These are policies that define if someone's bringing in their own personal device,
+525800	529800	requiring, for instance, certain security controls be there from a corporate perspective,
+529800	533800	making sure the phones aren't jail-broken, that they have a whole drive encryption, that sort of thing.
+533800	537800	And it's also a good idea to have a policy around personal computers.
+537800	546800	And in my opinion that policy should be, no personal computers allowed, it's very, very difficult for an organization to know that a personal computer is secure.
+547800	558800	There's so many ways to install, backdoor is an unintended, you know, things on a laptop that a corporation does not want to bring into their environment.
+558800	565800	Now when we think about mobile devices, the whole point of having a mobile device is you can use it wherever you are anywhere in the world.
+565800	569800	And often we are connecting that mobile device back to our corporate network.
+569800	574800	And we're transferring data back and forth between wherever we are in the world and the corporate network.
+574800	581800	And where is that data transiting? The internet. The biggest hive of vile scum in the world, right?
+581800	588800	I mean, it's the internet. No traffic going around across the internet should be secure traffic, unless that traffic is encrypted.
+588800	595800	So an important security control to have with mobile devices is to encrypt the traffic between the mobile device and the corporate network.
+595800	600800	And while we often use for this, our solutions like VPNs, virtual private networks.
+600800	603800	And we'll talk about VPNs in a lot more detail in the networking domain.
+603800	610800	The final consideration is the security of the endpoint itself, even if you have the most secure connection in the world.
+610800	619800	An attacker is still going to know all the sensitive data if they have control of the endpoint if they've somehow installed a backdoor or malware on the phone or the laptop.
+619800	628800	So the final major piece of mobile security is how do you actually make sure that the endpoint that the laptop, iPad, phone is actually secure.
+628800	636800	And that's that we use that concept of hardening, right, where you go through whatever the appropriate security controls are to disable on an unnecessary services,
+636800	640800	close unneeded ports, install anti malware, all those sorts of things.
+640800	644800	And you should do that for any of your mobile devices that you're using out there.

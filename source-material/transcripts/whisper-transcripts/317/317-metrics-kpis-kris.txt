@@ -1,0 +1,58 @@
+Okay, we're still in the domain number 6, which is testing and assessment.
+We're still in the domain number 6, which is testing and assessment.
+This section here talks about how security will be collecting certain types of information
+that we need to provide assurance to stakeholders.
+And the theme of this is that we may be collecting very technical information related to certain things that security does.
+But the bottom line is that we're going to need to translate that into language that the stakeholders and our audience wants to hear it in.
+Always based on goals and objectives of the organization itself.
+And Rob's going to tell us what smart metrics are.
+Yeah, I'm sure if you've ever had to do an employee performance review, you've come across this horrible acronym.
+And you don't have to memorize smart metrics for the exam, but it highlights what we're talking about here,
+which is when you want to be able to tell someone is the testing we're doing going well,
+is the system operating effectively.
+You've got to think very carefully about what metric data do you collect.
+And this is where you have this idea of smart.
+Is the metric data very specific?
+Is it measurable? Is it actionable? Is it relevant? Is it timely?
+You've got to think very carefully about what metrics you're collecting and what they'll tell people.
+Because I'm sure you've seen this. There's plenty of examples where you can collect useless metrics.
+Would it be useful if the CEO asked, how secure is our environment?
+And you said, oh well, we've had 7 billion hits against our firewall.
+Would that tell the CEO anything?
+No, you have to translate into terms that relate to risk and exposure to the organization, for example.
+Exactly.
+Now, one bit of terminology that you need to know about are these different key indicators.
+And there's two. There is key performance indicators.
+And there's key risk indicators, KPIs and KRIs.
+And here's a really simple way that I found to think about these, okay?
+Because it sounds kind of confusing.
+Key performance indicators are backward looking.
+And by that, I mean, by looking backwards, you can say, did we actually achieve the performance goals that we were looking to meet?
+Like if we said, we're going to go and do this thing, we're going to spend this money on this, we're going to do this that and the other thing.
+KPIs look backwards and say, did we actually achieve that?
+And then KRIs, key risk indicators, are forward looking.
+This is where you say things like, you know, these are the risks that we're worried about occurring.
+That might happen. These are the things that could potentially happen.
+And KRIs are how you measure to see, look forward and say, are these things actually occurring?
+And that's the key difference between those two.
+Yeah. And again, important to relate these to goals and objectives of the organization.
+In fact, sometimes, you know, even though we're talking KPIs and KRIs, we need to relate these to KGIs, which are key goal indicators that upper management to CEO, the Board of Directors, would be really interested in.
+Exactly.
+Now, can we ever measure everything?
+Can we know, yeah, I mean, can we ever measure anything? And the answer, of course, is no.
+So how do we decide to what to focus our metrics on?
+Well, good answer would always be value, but if we understand the goals and objectives of the organization, then, you know, and if we involve those people at that level, they're going to tell us what they're interested in measuring.
+And that's what we, security professionals and what security does, should put priority on.
+Always measuring things in terms of goals and objectives of the organization and what's meaningful to those people at that level.
+Yeah, I mean, whatever the organization is trying to achieve, we should be figuring out how we can show, develop metrics that we're going to show.
+Are we actually getting there? That's a perfect example of how we align security with overall business goals and objectives.
+Yeah, we've got some examples here on the next slide.
+But, you know, the point that we're trying to make here is when you look at some of these, they may be at the technical level that may need others to be able to translate into goals and objectives of the organization.
+So this is an area that I think security has struggled with in the past, but that's because we've always had that bottom-up approach to security, and that makes it difficult to try and relate to goals and objectives.
+The answer to this is top-down, and if those people are involved in what security does, it becomes easy in measuring what they're interested in.
+Yeah, and different stakeholders are going to want to know different things.
+So backup verification is an example. You would never tell the CEO how many of the backups have been verified correctly.
+But the person that's in charge of backups, they'd want to know that.
+So the metrics are going to vary depending on who you're reporting them to, and that's just all we want to show with this slide.
+Speak the audience's language, which means based on what they want to hear, based on what they are accountable for, goals and objectives.
+Metrics, it doesn't matter.

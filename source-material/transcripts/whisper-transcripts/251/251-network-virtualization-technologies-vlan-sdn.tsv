@@ -1,0 +1,81 @@
+start	end	text
+0	20000	Network virtualization technologies. This is where we introduce the concept of abstraction.
+30000	41000	Network virtualization technologies. This is where we introduce the concept of abstraction into our networks,
+41000	47000	where we abstract away some of the details of our networks and allow us to virtualize parts of our network.
+47000	51000	Now, we're going to talk about network virtualization from two primary aspects.
+51000	60000	We're going to talk about VLANs, virtual local area networks, and very much an evolution of that, SDS, software defined networks.
+60000	64000	So let's jump into this. We're going to start by talking about VLANs.
+64000	70000	VLANs are something we've had for many, many years, and I've got a little picture here that's meant to show you roughly how this works.
+70000	74000	So here's how you should interpret this little diagram here, okay?
+74000	79000	We've got four different computer systems. All connected to this big rectangle here is a switch.
+79000	85000	So we've got four systems connected to the switch. They're plugged into the RJ45 jacks on the switch.
+85000	90000	And how would a switch typically allow these systems to talk to each other?
+90000	95000	Well, the whole purpose of a switch is to let every system talk to every other system on the switch.
+95000	100000	And so the way this is configured right now is that all of these systems, all four of them, could talk to each other.
+100000	102000	That's the whole point of the switch.
+102000	111000	But let's say that we have a scenario where these first two computers are in a department, and these second two computers are any different departments.
+111000	115000	And these two departments do not like each other. I'm sure you can think of some example in your organization.
+115000	123000	Maybe it's the audit function and marketing, or maybe it's engineering, and the business people, I don't know.
+123000	131000	Take your example. The point is these two different systems are in two different departments, and they don't want to be able to talk to each other.
+131000	137000	So how would we segment this network? How would we make it so that the first two systems could only talk to each other?
+137000	140000	And the second two systems could only talk to each other.
+140000	143000	Well, the expensive way to do this would be to buy a second switch.
+143000	149000	We put the first two computers on the first switch. We put the second two computers on the second switch, and there we go.
+149000	154000	We have physically segmented separated out these systems.
+154000	161000	But that's kind of expensive, isn't it? We've had to buy now a whole separate physical switch. We have to maintain a whole separate physical switch, it gets expensive.
+161000	169000	So instead of doing physical segmentation, we can do logical segmentation. We can separate out these systems using software.
+169000	175000	And that's fundamentally the idea behind VLANs, virtual local area networks.
+175000	180000	So the idea here is that we could assign VLAN segments to these different systems.
+180000	186000	We put the first two systems on VLAN 1. We put the second two systems on VLAN 2.
+186000	192000	And the whole purpose of putting systems on a VLAN is that those VLANs are separated essentially.
+192000	199000	And so if the first two systems are on VLAN 1, the only other systems are going to be able to communicate with our systems on VLAN 1.
+199000	201000	So in other words, with each other.
+201000	207000	And the second two systems on VLAN 2, because they're both on VLAN 2, they can only talk to each other.
+207000	212000	So we've created virtual logical segmentation of our systems.
+212000	214000	And that's what VLANing is all about.
+214000	219000	And you can extend this beyond just one switch. We can add multiple switches to the environments.
+219000	227000	We can interconnect those switches. And then on each of those systems, those switches, we can create the same VLAN segments.
+227000	230000	So as you can see here now, we have eight computer systems.
+230000	236000	But only four of them can talk to each other. Any of the ones in VLAN 1, they can talk to each other across the switches.
+236000	241000	And then the other four systems, only they can talk to each other on VLAN 2.
+241000	247000	So that's a virtual local area network. It's a way of creating logical network segmentation.
+247000	252000	And if a system in VLAN 1 wanted to talk to a system in VLAN 2, it would have to go through a router.
+252000	257000	And it's at the router that we could apply rules around what traffic's allowed to go where.
+257000	264000	So there you go, VLANs. Now, very much an evolution of VLANs, or what are known as software defined networks.
+264000	270000	And software defined networks are where we essentially abstract away and virtualize everything within a network.
+270000	278000	We can create an entire virtualized network on top of a physical network, or multiple virtualized networks on top of one physical network.
+279000	283000	But before we get into explaining exactly how we do that, we have to define a bit of terminology.
+283000	287000	And that's the difference between the control plane and the data plane.
+287000	294000	So this little diagram that you have up on the screen here, what this is showing you is you've got three different network devices.
+294000	304000	In a traditional network, each network device, each switch, each router is going to have both the control plane and the data plane within the switch.
+304000	309000	So first of all, what's the control plane? The control plane is the intelligence.
+309000	316000	It's the control plane that decides how to forward packets, who they go to across what route it's the decision maker.
+316000	322000	So the control plane decides how to move traffic around, and the data plane is the doer.
+322000	328000	The data plane actually moves the packets based on the direction from the control plane.
+328000	333000	And a traditional network, every single network device out there is configured independently.
+333000	340000	If you want to change the configuration of this switch over here, you have to log into this switch, change this switch's control plane.
+340000	346000	And if you want to change this router over here, you have to log into this router, and change this router's control plane.
+346000	351000	All of the intelligence the control is on each individual device in the network.
+351000	358000	Now, one of the fundamental differences between a traditional network and a software defined network is this.
+358000	366000	You separate out the control plane. The control plane is now all centrally controlled from one location.
+366000	370000	And you still have devices like switches and routers out there and so forth.
+370000	376000	But the big difference is that the intelligence is not at each individual device. It's all centralized.
+376000	387000	So the control plane is running from one central system, which then connects to all the other devices out there to tell them how to forward switch, how to forward packets, how to think essentially.
+387000	391000	So what's the advantage of doing this of centralizing your control plane?
+391000	398000	And by the way, here's another diagram that shows you the difference here between a traditional network and a software defined network, the control plane is separated out.
+398000	407000	So what's the advantage of doing this? Well, it allows you, as the name suggests, it allows you to centralize all the network intelligence.
+407000	419000	So think of it this way. Think of the public cloud. And we've talked about the characteristics of cloud, how it's on-demand self-service, for instance, which means that you can show up at the cloud, request any service, and then magically it just gets done for you.
+419000	427000	We can request all new networks, all new systems, network bandwidth, whatever. And just magically all this gets provisioned for us.
+427000	433000	How does that actually work? Are there people running around AWS's Azure's Google data centers, constantly moving around switches?
+433000	440000	I like to think of them as like an army of bloompas running around doing this. No, I mean, they don't employ armies of bloompas.
+440000	457000	What they have are software that controls everything. So in say the public cloud, if you decide that, you know what, I want this system connected over to that system, and I want this database connected to it, and I want to create a connection to, you know, something else in another data center somewhere else.
+457000	466000	There's no physical switches that have to be moved around. Instead, the centralized intelligence system will say, okay, well, we need to make this connection, that connection, that connection, that whatever.
+466000	477000	It will simply control all of the network devices within the cloud environment from one centralized intelligence system. And that allows programmatic network control, network configuration.
+477000	486000	And what that means is that you can control your entire network now, not by moving around physical plugs and network cables, but by sending software commands.
+486000	503000	The whole idea here is that you can create an entire virtualized network on top of a physical network. And so from a customer's perspective, instead of, you know, configuring a physical switch, or a physical router, or a physical firewall, what they're configuring is a virtual firewall, a virtual router, a virtual switch.
+503000	513000	Which then means that if they want to create a new firewall, if they want to change their firewall configuration, if they want to change their switch, all of it is done through software commands, programmatic control.
+513000	522000	And this allows you to create multiple overlapping IP segments. And think of this again from the public cloud perspective. In the public cloud, you have millions of different users.
+522000	537000	And each of them are allowed to choose whatever IP addresses they want. Normally that would be a problem. In a traditional network, if someone said, you know what, I want 10.0.0.1, and then someone else right beside them said, I want 10.0.0.1, what would you have? You'd have a conflict.
+537000	552000	But because in software-defined networking, we're creating virtual networks. Each virtual network can have whatever configuration they want. They can use whatever IP address ranges they want. They can create whatever virtual network devices they want, and configure them in whatever way they want.
+552000	566000	So fundamentally, software-defined networks are about abstracting away all of the actual physical network, and allowing you to create an entirely virtualized network on top of that. Multiple virtualized networks.
+566000	585000	And here's an example of some of the more capabilities this provides, far greater flexibility to reconfigure things. And this is one of the fundamental building blocks in cloud. When we talk about resource pooling and how we can share the network across multiple clients, it's software-defined networks that enable this.

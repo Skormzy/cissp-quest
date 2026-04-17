@@ -1,0 +1,153 @@
+start	end	text
+0	18280	One of the most important aspects of network security for any organization is to protect
+18280	37640	against attacks and one of the most important aspects of network security for any organization is
+37640	44960	to protect against attacks and if you hear the news and everything else these days, network
+44960	51520	attacks are something that every organization has to worry about but also protect against and so
+51520	58880	that becomes the focus, large focus of any network security program of any organization. Now we
+58880	63920	could spend weeks talking about the different types of attacks that are possible out there, there
+63920	69760	are so many. We are only going to focus on the ones that you might see on the exam that we know are
+69760	77440	there and that the CISSP common body of knowledge obviously addresses. We're going to start with
+77440	86640	what are called IP based attacks and these are attacks that operate at layer 3 because as you know,
+86640	95200	IP is a TCP IP protocol that operates at the network layer and because of that we remember saying
+95200	103040	something like IP is like the captain of the team, it is what drives a lot of what the other
+103040	109200	protocols and layers need to do in order to allow communications to happen. So there's a lot of
+109200	114800	attacks that can happen here and we're going to focus on some of the important ones. The ones that
+114800	122480	you see on your screen, the ones on both ends, the overlapping fragment attack and the tear drop
+123040	130320	fragment attack are all fragmentation attacks. If you remember to what IP is responsible for, there are
+130320	137760	really two major things that IP and the network layer needs to be able to do. Those two things are
+137760	146400	fragmentation and addressing and so the attacks that you typically find here are against those two
+146400	152880	functionalities, fragmentation and the addressing part. So both of these, the overlapping fragment
+152880	159520	attack and the tear drop fragment attack result in denial of service. That's what you need to remember
+159520	164880	about these two. We don't have to get into the details of them but just understand that they are
+164880	170560	denial of service attacks that lead to denial of service. The denial of service simply means
+170640	177200	any attack that tries to bring down the ability of a system or an architecture or an application
+177200	182720	or something to do what it's supposed to. So those are denial service attacks. Now the one
+182720	189680	that you see in the middle, IP spoofing. On its own simply means to spoof an IP address. Spoofing
+189680	195520	means to pretend to be something else, usually because that something else is more authorized
+195600	204240	than you are. So you try and spoof IP addresses or MAC addresses or user IDs or an email address
+204240	210800	because that other thing is more authorized than you are. That's simply what we mean by spoofing.
+210800	218400	Here specifically this is IP spoofing. So you are spoofing a IP address to look like you are
+218400	226080	legitimate but it is the basis. IP spoofing is the basis for two very important attacks that
+226080	232240	you might see again and they are spurf and fraggle. Now both of these sound cute but they're
+232240	237600	really not that cute if you experience them. And again both of these you need to remember
+237600	245520	are denial of service attacks as well but they both require IP spoofing first and then if you flood
+246160	255360	the host with ICMP echo packets that's what the smurf attack does. So the smurf attack basically
+255360	264320	is IP spoofing and then we flood the host with ICMP echo requests which ultimately will bring
+264320	272160	that host down causing the denial of service condition. Now most organizations are actually not
+272160	278720	prone to the smurf attack and here's why it's pretty standard for most organizations to block
+278720	287680	incoming ICMP packets because ICMP is also the basis for two very important commands out there
+287680	294400	that can provide very useful information to potential attackers and those two commands are
+294400	302880	ping and trace route and if you know anything about those two commands ping tries to see if a host
+302880	311280	is reachable if it's alive if it's operating system if it's operating that might be way too much
+311280	318320	information that you want to give out to potential attackers out on the web. And so the other
+319040	326240	command that also uses ICMP is trace route and that's even more dangerous because it tries to map
+326240	331760	what your network elements actually look like which again can be pretty useful to an attacker
+331760	337200	that's sitting out there and that's why it's pretty standard for all organizations out there to
+337200	344480	block incoming ICMP traffic right at the firewall so that you don't let potential attackers out on the
+344480	351440	web ping and trace route what our network elements and hosts look like so it's pretty standard
+351440	358480	to block that and that's why this attack the smurf attack because it uses ICMP packets isn't really
+358480	365120	meaningful for most organizations but attackers are pretty crafty individuals they've devised a
+365120	373280	similar attack called fraggle which just like smurf uses IP spoofing as the basis for the attack
+373280	381120	first but then instead of flooding the host with ICMP packets we flood the host with UDP packets
+381120	388880	and nobody out there blocks incoming UDP because UDP is too valuable for a lot of things related to
+388880	395040	streaming voice over IP DNS requests and so on so that's a pretty meaningful attack that you
+395040	400800	need to protect against but very difficult to do that all right so as a summary we've talked about
+400800	408240	the two denali service attacks called smurf and fraggle and they both require IP spoofing
+408240	414480	as the basis for the attack and then we flood the host that's how both attacks work and you need
+414480	421600	to remember that they both result in denali service attacks and in fact the next slide here talks
+421600	429280	about the two types of denali service attacks as categories that exist out there and I think you've
+429280	434880	heard of these we have what's called denali service which really means any attack that tries to
+434880	440720	bring down the ability of something to do what it's supposed to that is referred to as a general
+440720	449040	category of attacks called denali service now distributed denali service attacks is where we
+449040	456560	compromise a whole bunch of hosts and then get each one of them to attack a specific other host
+456560	461600	the idea is if you want to bring down that host you may not be able to do it yourself because
+461600	466800	you don't have enough bandwidth or processing power to be able to do it so what you need to do
+466800	473520	first is solicit help from a whole bunch of other machines out there in other words you compromise
+473520	479200	all of those machines and then you get each one of them to attack that machine that you want to
+479200	486000	bring down at the same time it's a distributed denali service it has a whole bunch of zombies
+486000	493760	sometimes these are referred to as zombie attacks because you are using those machines as an
+493760	499680	attacker you're using those machines that you've compromised to attack a specific other one
+499680	505200	that's why we referred to those sometimes as zombie attacks but they're distributed denali service
+505200	513520	attacks now you need to remember that a distributed denali service attack is actually a category of
+513520	519520	denali service the overall category is called denali service of which distributed denali service
+519520	528400	is one example of and so here's another attack that we need to worry about again in this entire
+528400	534720	section we're focusing on some of the most prevalent attacks that exist out there that we from a
+534720	540080	security perspective need to protect against as part of network security one of them is what we
+540080	546640	call the man in the middle attack so any person that can sit in the middle of two things that are
+546640	551920	trying to communicate with each other is referred to as a man in the middle attack so in this
+551920	560800	example we can intercept we can lead to denali service anything that can originate usually outside
+560800	568320	on the internet can be considered to be a denali service attack or a man in the middle attack because
+568320	576000	again the internet and the web is typically in the middle of all other networks that companies
+576000	583040	have set up so any attack that originates out on the internet or the web can be considered to be
+583040	588480	a man in the middle attack and if you think about it that way it'll be easy from an example
+588480	595120	perspective the easiest attack that a man in the middle can perform is usually a denali service
+595120	601600	attack because that typically originates from the web and impacts organizations out there
+602400	608640	another attack that we need to be weary of and protect against is what we call spoofing now
+608640	614800	I know we've talked about that term spoofing many times it simply means to pretend to be something
+614800	621680	else or someone else because that's something or someone else typically has more privileges or
+621680	629760	capabilities and so what can you spoof we can spoof IP addresses we can spoof MAC addresses we
+629760	636160	can also spoof DNS servers or email that belongs to someone else again you're trying to pretend to
+636160	642560	be something else because that's something else typically has more privileges than you do that we
+642560	651440	referred to as spoofing sometimes also referred to as masquerading and these are some of the tools
+652400	660960	that are available for attackers to try and figure out information that may lead to potential
+660960	667680	attacks because if you think about any attack the first phase in any potential attack is always
+667680	675120	what we call reconnaissance reconnaissance means you know the initial gathering of information about
+675120	683440	a potential target that would allow us to ultimately attack that target from any network attack
+683440	690320	perspective and so some of these tools like ping and trace route can be very useful to attackers
+690320	696480	because they can gain some very useful information that ultimately will allow them to be successful
+696480	702720	in their attacks now we've already talked about how ping and trace route the basis for both of
+702720	710640	those attacks is ICMP so it's pretty standard for most organizations to block incoming ICMP which
+710640	718560	renders these two commands and possibilities useless from an attack perspective if you block
+718560	727200	incoming ICMP now DHCP is another one of those TCP IP protocols that sometimes are problematic
+728000	736720	we all experience this DHCP is a protocol that automatically assigns you a valid IP address
+737280	744160	in the range that's been allocated for a specific network so when you check into a hotel or you go
+744160	750800	to Starbucks or you go anywhere where there's a network available a Wi-Fi network available
+750800	759120	as soon as you connect to that network it is DHCP that's part of TCP IP that assigns you a valid
+759120	765920	IP address now that seems very useful but it's also very useful to attackers because at that point
+765920	772800	they become typically a trusted entity on the network and in many cases that's all the network
+772800	780320	requires to trust that device from a network security perspective what we want to do is we want
+780320	788480	to allow DHCP to assign a valid IP address but what should happen after that is authentication
+788480	795360	of not only the device that's just connected but also the person that's sitting behind that device
+795360	802080	in other words it's really important if you're going to allow DHCP to assign valid IP addresses
+802560	809840	to subsequently authenticate the device that's connecting which is called node authentication
+809840	816720	but then we also need to know who is sitting behind that node and that's where we do user authentication
+816720	823200	so across a network it's really important to address authentication at two levels the node
+823200	829360	authentication which means we can authenticate based on things like MAC address or IP address
+829360	835120	but then we have to authenticate the person sitting behind that node and that's where we use
+835120	840640	access control to authenticate the person by using the three factors that you're aware of
+840640	847600	authentication by knowledge ownership and characteristics or a combination of all of those
+848880	855360	now here's another example of an attack that is very prevalent and it's called ARP poisoning
+855360	864720	we've already talked about ARP and what ARP does ARP is it maps IP addresses to the correct MAC
+864720	871280	addresses and this is required on any network because the logical addressing that is used across
+871280	877760	any network is called IP addressing and that is something that happens at the network layer
+877760	883520	so if you want to connect to a server out there or if you want to send an email ultimately the way
+883520	890480	that that information is actually transmitted and connected to the receiver is through the logical
+890480	897280	addressing that happens across networks which is what we call IP addressing but as a request comes
+897280	905680	in to your internal network it has to take that IP address and it has to be mapped to the correct
+905680	912800	MAC address which is what makes every single device across a network unique it's your physical
+912800	920000	address that makes you unique on any network that is something that is referenced as a MAC address
+920000	926800	at the data link layer so what the network needs to do is it needs to take that IP address
+926800	933360	and map it to the correct MAC address as a request comes in to the internal network
+933360	939840	and the protocol that does that is actually called ARP now the way that ARP works is that every
+939840	947920	device that's connected to a network will have its own ARP table that allows these resolutions to
+947920	954880	be made the idea is when a router handles that datagram that's coming into the network it will
+954880	962480	broadcast out to the entire segment and say okay who belongs to this and based on the information
+962480	969840	that's in your ARP table you would say it's me and so therefore the router would send that
+969840	976560	information to you based on the information that's in your ARP table now here's how easy it is
+976560	984560	for an attacker to influence this so that the wrong decision is made so if I'm an attacker on a
+984560	992880	segment and I want to pretend to be some other device all I need to do is change my own ARP table
+992880	999920	to point to some other device and then any information meant for that device will be sent to me
+999920	1007120	because of that entry that I've put in my own ARP table so when the router broadcasts out and says
+1007120	1013680	who belongs to this I'm gonna say it's me because I've put in that entry in my own ARP table
+1013680	1019120	so then the router will send that information to me as opposed to the real device I can look at
+1019120	1025440	that information I can change it and then I can route it back and that device would never know
+1025440	1033040	this is how easy it is to perform ARP poisoning and so this is pretty difficult to handle as
+1033040	1039120	something that can happen across any segment of a network and the slide that you see in front of
+1039280	1047040	you basically describes how that attacker can influence the wrong decisions that are being made
+1047040	1055360	by ARP because ARP uses tables and anything that uses tables typically does not require security
+1055360	1063120	to be able to make decisions and so ARP is not the only protocol out there and service out there
+1063120	1070240	that is influenced by the wrong decisions anything that uses tables is typically prone to the same
+1070240	1076880	problem ARP is one example routers use tables to make decisions they can be influenced in much
+1076880	1084960	the same way DNS uses tables to make decisions they can be influenced in much the same way switches
+1084960	1093520	use tables these devices and protocols all have basically the same problem as ARP poisoning
+1093520	1095520	that we just described here

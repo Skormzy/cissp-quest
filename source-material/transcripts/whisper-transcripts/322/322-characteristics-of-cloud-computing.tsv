@@ -1,0 +1,217 @@
+start	end	text
+0	17000	Everyone in their dog is moving to the cloud.
+17000	20000	So you'd expect there to be a lot of questions on the exam.
+20000	37000	Everyone in their dog is moving to the cloud.
+37000	41000	So you'd expect there to be a lot of questions on the exam related to cloud computing.
+41000	45000	Because there's one or two security issues involved with moving to the cloud.
+45000	50000	And while there will be some questions on the exam related to cloud, there's not a huge amount of them.
+50000	56000	And in fact, there's only this one small section in this entire giant course that we're going to talk about cloud computing.
+56000	58000	And the reason for that is this.
+58000	64000	ISC squared, the organization behind this CISSP exam, made a decision a few years ago.
+64000	66000	They were seeing where the industry was going.
+66000	69000	They were seeing that everyone was starting to move to the cloud.
+69000	71000	And so they had a decision to make.
+71000	77000	When they were updating the CISSP exam material, they could start to build in more and more and more cloud material.
+77000	81000	Or they could break it out as an entirely different certification.
+81000	83000	And that's exactly what they did.
+83000	89000	They broke it out into a separate certification, which is the CCSP Certified Cloud Security Professional.
+89000	92000	Another one of those courses that we teach.
+92000	95000	Another course that we teach.
+95000	97000	And the reason that they chose to do this.
+97000	102000	And I think it was a good decision, not just that they were trying to make more money on certifications.
+102000	105000	There's a lot of intricacies in cloud.
+105000	107000	There's a lot of fundamental concepts that you need to understand.
+107000	113000	And there's a lot in the governance, the processes, the technicalities of how to properly move to the cloud.
+113000	119000	Secure the cloud, know how to have interoperability, portability, be able to remember, have a reversibility, get out of the cloud.
+119000	121000	There's a lot of complication here.
+121000	124000	And it's more than would reasonably fit in this course.
+124000	128000	And so I think it made a lot of sense for them to move that into a separate certification.
+128000	134000	And so in this course, the CISSP, I'm going to cover cloud at like the 10,000 or 30,000 foot level.
+134000	136000	Very high level, just some of the very basics.
+136000	139000	Because you will get a few questions, but not a huge amount of them.
+139000	144000	And if you really want to get deep into the cloud computing, go and take something like the CCSP.
+144000	146000	So let's get into some of the basics of the cloud.
+146000	149000	And let me start by asking you this simple question.
+149000	151000	What is the cloud?
+151000	152000	Think about this from above.
+152000	156000	Trying to find it in very simple, easy to understand terms.
+156000	161000	How would you explain it to someone who has never understood the cloud or never thought of it before?
+161000	163000	It's actually a bit of a trick question.
+163000	169000	It's very difficult to describe what is cloud in very simple terms.
+169000	173000	And the reason is this, cloud is many, many different things to many different people.
+173000	176000	It can be systems running in your own data center.
+176000	179000	It can be systems running in another service provider's data center.
+180000	183000	It can be everything from, you know, creating an entire virtual data center
+183000	188000	to just doing identity access management or security as a service or database as a service.
+188000	192000	There is so many things that fall under the umbrella of cloud.
+192000	199000	What the industry has settled on is rather than trying to come up with a nice, simple, concise definition of cloud, which is impossible.
+199000	203000	Instead, what we use is a set of defining characteristics.
+203000	207000	There's five primary and a sixth kind of characteristic.
+207000	212000	That if a service complies with these characteristics, then you can call it cloud.
+212000	215000	So let's spend a few minutes going through those characteristics.
+215000	219000	And it starts to help explain a little bit of what cloud actually is.
+219000	223000	The first characteristic is on-demand self-service.
+223000	229000	And this is the idea that if you are using cloud, you can request cloud services by yourself.
+229000	231000	And you can do it whenever you want.
+231000	234000	Nowadays, what does it actually take to request cloud services?
+234000	237000	Well, for free stuff, you can just sign up for free.
+237000	240000	Things like Gmail and box and all these sorts of things.
+240000	244000	These are big cloud services that you need nothing more than maybe an email address to sign up for.
+244000	248000	And even the paid services, all you really need is a credit card number.
+248000	251000	And this is a really important defining characteristic of cloud.
+251000	254000	Because a lot of organizations nowadays, they want to fail fast.
+254000	257000	They want to innovate. They want to rapidly try things out.
+257000	261000	And that's very difficult to do in a traditional environment where,
+261000	267000	if a lot of my clients, I ask them, how long does it take you to get a new server provision in your environment?
+267000	273000	And it's not uncommon for someone to say weeks, maybe even months, two, three months, to get a new server provisioned.
+273000	276000	If you're trying to rapidly innovate, fail fast.
+276000	281000	It's pretty hard to do that if you're waiting two or three months just for a server to be set up.
+281000	285000	And so one of the really, really valuable things of cloud on-demand self-service,
+285000	289000	you can sign up for an unbelievable amount of services, terabytes of storage,
+289000	294000	machine learning algorithms, vision APIs, all sorts of crazy stuff.
+294000	297000	And all you need is clicking a couple of those buttons.
+297000	301000	And it all happens instantaneously or nearly so.
+301000	303000	Lost my pointer. There we go.
+303000	305000	So that's the first characteristic of cloud.
+305000	308000	The next one is what is known as broad network access.
+308000	315000	And what this characteristic is about is from where and what type of devices can you access the cloud.
+315000	318000	Most cloud services are web-based applications.
+318000	323000	And most cloud is public cloud or software as a service in the public cloud.
+323000	329000	Which means that the vast majority of the way that we access the cloud is through a web browser across the internet.
+329000	333000	And everything has a web browser installed in it nowadays.
+333000	337000	I was at Home Depot recently and I was browsing the internet on a fridge.
+337000	342000	So on-demand self-service means you can essentially access most of these cloud services from anywhere in the world.
+342000	346000	Because most cloud services are accessed through a web browser.
+347000	350000	Now the next characteristic resource pooling.
+350000	352000	This is where we need to spend a few minutes on this one.
+352000	354000	This one is really critical.
+354000	358000	There are three primary resources that we pool share in the cloud.
+358000	362000	Compute network and storage.
+362000	368000	And when we say we pool or we share these resources, what we're saying is that as a customer in the cloud,
+368000	371000	you can get access to compute computers, you know, like a CPU essentially.
+371000	373000	It allows you to do problem solving.
+373000	374000	You can get access to network.
+374000	378000	The ability to move bits around between your different systems, databases, and so forth.
+378000	381000	And storage, which allows you to store the bits.
+381000	384000	In the cloud, you can get access to all three of these resources.
+384000	389000	But very importantly, your access to all of these resources is virtualized.
+389000	396000	You do not have direct physical access to a hard drive to a CPU to the network.
+396000	399000	Your access to all of these services is virtualized.
+399000	401000	There's a layer of abstraction.
+401000	406000	Which allows all of these resources to be shared across cloud customers.
+406000	408000	What's the advantage of this?
+408000	410000	Because there's a big one.
+410000	412000	Let me ask you this.
+412000	417000	In a traditional data center, if you were to look at an average server, like the payroll server,
+417000	422000	what would the average utilization be of an average server in a well-run data center?
+422000	426000	The answer is usually somewhere in the range to 10 to 20%.
+426000	429000	So you take this very expensive piece of hardware, a server,
+429000	435000	and you're only utilizing 10 to 20% of the resources on that server, on average.
+435000	439000	It's a very inefficient use of that and very expensive hardware.
+439000	442000	And any well-run data center is like this traditional data center.
+442000	444000	Why?
+444000	448000	Well, it's because you don't size a server based on average utilization.
+448000	452000	You size a server based on peak utilization.
+452000	454000	And so take the payroll server as an example.
+454000	457000	The vast majority of this time, what's the payroll server doing?
+457000	458000	Not much.
+458000	462000	Once in a while someone might log in to like pay you less or something, but that's it.
+462000	466000	But then once every two weeks or once a month, what's the payroll server do?
+466000	468000	It runs the payroll batch job.
+468000	471000	And then for that period of time, you know, your CPU usage, your RAM usage,
+471000	473000	it's spiked, max utilization.
+473000	476000	And then you go back to doing almost nothing.
+476000	479000	So in a traditional data center, we're only getting, you know,
+479000	482000	we're only using 10 to 20% of the capacity of our systems.
+482000	484000	Very inefficient.
+484000	488000	Now in the public and the cloud, especially the public cloud,
+488000	494000	because access to resources virtualized, it allows us to share those resources.
+494000	497000	So in the cloud, we don't have what's typically what's called a server.
+497000	498000	You have a compute node.
+498000	500000	A compute node is essentially a server.
+500000	505000	It's a CPU and a SRAM on top of which you can run virtual machines.
+505000	510000	And these virtual machines are accessing the compute resources of this compute node.
+510000	515000	Now in the cloud, because you can share this compute node across multiple clients,
+515000	520000	you can run multiple virtual machines simultaneously on top of a hypervisor,
+520000	522000	which is on top of the compute node.
+522000	527000	And so these multiple virtual machines can share the underlying hardware,
+527000	531000	which allows you to put a whole bunch of different virtual machines,
+531000	536000	virtual servers on top of one compute node, and get much better resource utilization
+536000	538000	of that underlying hardware.
+538000	543000	Because each of those virtual servers might only be running along at 10 to 20% capacity,
+543000	544000	something like that.
+544000	546000	But if you put enough of them onto a compute node,
+546000	549000	the overall resource usage of the compute node,
+549000	552000	the underlying physical hardware, what's that?
+552000	556000	Well, in the cloud, it's not uncommon to achieve resource utilization of 70, 80,
+556000	559000	maybe even 90% of the underlying hardware.
+559000	562000	So traditional data sender, you're getting like 10 to 20% utilization of the hardware.
+562000	567000	In the cloud, you might be achieving 70, 80% utilization of the underlying hardware.
+567000	570000	So much more effective use of the underlying hardware,
+570000	575000	because you can virtualize, share the access amongst customers.
+575000	578000	And I'll add one other piece to this that really helps drive down the costs.
+578000	583000	When you look at what the big cloud providers and how much hardware they buy,
+583000	585000	it is astronomical.
+585000	589000	They buy a huge number of hard drives of CPUs, of network devices.
+589000	592000	And so as a result, the prices that they're paying for that hardware
+592000	596000	is, you know, economies of scale much lower than a traditional company
+596000	598000	could typically buy stuff for.
+598000	601000	Like when you look at the Amazon, the Google's, the Facebook's,
+601000	605000	the Azure Microsoft of the world, they buy hardware at staggering levels.
+605000	609000	They're spending billions of dollars every year building out their data centers,
+609000	612000	which means they get economies of scale that no one else can achieve.
+612000	617000	And that makes the underlying costs of the compute network and storage
+617000	621000	and the cloud much cheaper than what you can traditionally achieve
+621000	624000	in a traditional data center.
+624000	627000	But I'll caveat that with one very important thing.
+627000	630000	And my experience working with a lot of companies that move to the cloud,
+630000	633000	they're overall costs moving to the cloud have not actually been cheaper.
+633000	637000	The underlying resources and compute network and storage are cheaper.
+637000	640000	But when you layer on top of all the additional services that you need,
+640000	642000	it can often end up being a lot more expensive.
+642000	644000	That's a discussion for another course.
+644000	646000	But that's resource pooling.
+646000	650000	You share compute network and storage across multiple customers.
+651000	655000	Now, next one, rapid elasticity and scalability.
+655000	659000	What this means is that in the cloud, you can rapidly, quickly increase
+659000	662000	your, your use of compute network and storage.
+662000	666000	If you suddenly want hundreds of new virtual CPUs to run something on top of,
+666000	670000	done. If you want a petabyte of storage, done.
+670000	673000	If you want tons and more network bandwidth, done.
+673000	676000	And this again is very different than traditional data center.
+676000	678000	Let's say in a traditional data center, you're like,
+678000	680000	you know what, I want a petabyte of storage.
+680000	683000	So you call up EMC, takes them a month or two,
+683000	686000	but they ship out a few trucks worth of hard drives and storage race servers.
+686000	688000	And you spend another month setting all this stuff up.
+688000	690000	And now you've got your petabyte of storage.
+690000	693000	And then you're like, nah, you know what, I don't need any more.
+693000	696000	Too bad, you bought it. It's yours now, right?
+696000	700000	Whereas in the cloud, rapid elasticity means you can quickly increase
+700000	703000	your utilization of any of the compute network and storage.
+703000	706000	And just as rapidly decrease your utilization.
+706000	708000	So rapid elasticity.
+708000	712000	And care closely tied to this is what's known as measured service,
+712000	716000	which is the cloud service provider carefully measures your usage of the cloud,
+716000	719000	how much compute you're using, how much network, how much storage,
+719000	721000	and you only pay for what you use.
+721000	725000	And so if you're only using that petabyte of storage for 10 minutes,
+725000	729000	you're only paying for that petabyte of storage for 10 minutes.
+729000	733000	So those are the five defining characteristics of cloud.
+733000	736000	And if you get any questions asking you what are the five defining characteristics,
+736000	738000	that's them.
+738000	742000	But there's sometimes a sixth characteristic that's put in there.
+742000	745000	And it's known as multi-tenancy.
+745000	750000	And the reason that's not always in the list is because it's not always true.
+750000	753000	There's one major difference between public cloud and private cloud.
+753000	756000	Public cloud is accessible usable by anyone.
+756000	758000	So therefore it is multi-tenancy.
+758000	764000	But private cloud is reserved only accessible by one consumer.
+764000	767000	Therefore, not multi-tenancy.
+767000	769000	The majority of cloud is public cloud.
+769000	771000	So the majority of cloud is multi-tenancy.
+771000	772000	But not all of it.
+772000	775000	We'll talk about the different deployment models in the next video.
+775000	779000	We'll talk about public, private, community, and hybrid cloud.
+779000	782000	But that's why multi-tenancy doesn't apply everywhere.
+788000	790000	Thank you very much.

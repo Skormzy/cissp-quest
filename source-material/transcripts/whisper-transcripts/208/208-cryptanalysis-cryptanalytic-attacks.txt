@@ -1,0 +1,137 @@
+Cryptanalysis, the art and science of breaking cryptosystems
+Cryptanalysis, the art and science of breaking cryptosystems
+of cracking codes, of trying to figure out how to break these very cool cryptographic algorithms
+that we spent all this time talking about. And when I say the art and the science,
+that's quite true. It takes a very clever, very devious mind to try and figure out
+how to break cryptographic systems. There are two categories of cryptanalysis
+that we're going to look at. Cryptanalytical attacks and cryptographic attacks.
+In this module, we're going to focus on cryptanalytical attacks.
+So when we say cryptanalytical attacks, what do we mean?
+What is the primary goal of all cryptanalytical attacks?
+And this is actually really important to understand.
+Because when you're thinking about these different types of attacks,
+if you understand what you're always after, what the primary goal is,
+it makes a lot of you understand how you're going about it.
+The primary goal of all cryptanalytical attacks is to deduce the key.
+Figure out what the key is that's being used in the cryptosystem.
+Let's talk about brute force attacks.
+Brute force attacks are very simple.
+You try every single possible key until you find the right key.
+But while they're simple, they're not very effective in modern day cryptography.
+Because as soon as you get a key length of a reasonable size,
+trying to find the one specific key that you're looking for to brute force a key
+is not a realistic type of attack.
+So here's an interesting table that we're showing you here.
+This shows you a few pieces of information.
+The proper name for this first column would be the key length.
+It's the number. It's the number of bits and the key.
+The second column is showing you the number of keys.
+Better name for that would be the key space.
+And the third column is telling you the attack time.
+Now here's the interesting thing behind this.
+This attack time is based on a system that was built in 1999,
+specifically to brute force des.
+So in 1999, the EFF spent $250,000 to build a system.
+Best name system ever, Deepcrack.
+So they built a system in 1999 called Deepcrack,
+specifically designed to break des and to brute force a des key.
+In 1999, it took 20 hours to brute force a des key.
+Now, our modern day systems have gotten significantly faster
+than what we had in 1999,
+orders of magnitude faster.
+But even so, it doesn't matter.
+So a modern day system could brute force a des key in minutes, maybe hours.
+But once you start to increase the key length,
+if you increase the key length by even one bit,
+what happens to the key space?
+It doubles.
+And so it grows exponentially.
+And by the time we get up to 128-bit,
+even especially 256-bit keys,
+the concept that you could possibly brute force that key is
+completely absurd.
+And here's a way to think of that,
+to understand how insanely impossible it is to try and brute force
+a 256-bit key.
+We need to think of some sort of way of wrapping our head around,
+just how big is the key space for a 256-bit key?
+So here's a way to think about it, okay?
+Think about the number of atoms.
+So there's a lot of atoms in, say, a person.
+Now, when we talk about a 256-bit key,
+the key space is 1.15, 1.15 times 10 to the 77th.
+That's the key space.
+That's a huge number.
+How big is that?
+Well, if we compare it to the number of atoms,
+the number of atoms in the human body is only 10 to the 27th.
+Again, we're looking for 10 to the 77th.
+No, we're near close.
+Okay, well, what about the number of atoms in the earth?
+Well, that's only 10 to the 50th.
+Again, no, we're near close.
+Okay, so what about the number of atoms in the
+our solar system, the Sun, Earth, Neptune, Mars,
+all the matter in our little solar system?
+That's only 10 to the 52nd.
+Again, no, we're near close.
+You have to actually get up to the entire observable universe.
+That's about 10 to the 79th atoms in the entire observable universe.
+That's an insanely large number.
+When someone says to you, oh, we're going to brute force a 256-bit key,
+what they're essentially saying is that they're trying to find one
+and only one unique atom in the entire observable universe.
+It's insane.
+It is totally impossible with modern-day technology to possibly
+brute force a 50 to 256-bit key, and it's going to be impossible for quite a ways to go.
+So what are reasonable techniques that we could use?
+Well, let's go through a few other crypto-analytical attacks.
+And again, I'm going to remind you,
+the whole point of all these attacks is to deduce the key,
+figure out the key.
+Now, the first attack we're going to look at is what's known as a
+cypher-text-only attack.
+And as the name implies, all that the crypto-analysis has access to here,
+the only attack is just the cypher-text.
+So this is a very difficult type of an attack.
+The next is what's known as a plain-text attack.
+In a plain-text attack, the crypto-analysis actually has access to the cypher-text
+and the plain-text.
+So maybe a spy or someone like that smuggled out the plain-text.
+They pulled the cypher-text off the wire, so they have access to both.
+If the crypto-analysis already has the plain-text and the cypher-text,
+why are they doing anything to find the key?
+Because with the key, you can decode all the other messages
+and perhaps even forge your own messages.
+So that's a plain-text attack.
+Now, the next two attacks have the word chosen in them.
+Here's what chosen means.
+Chosen means the crypto-analysis has access to the machine or the algorithm
+that's performing the encryption.
+And so, in a chosen plain-text attack,
+what that means is that the crypto-analysis is able to choose the plain-text
+that they feed into the machine or the algorithm,
+look at the result in cypher-text to determine, to deduce the key.
+Now, with modern algorithms that we use, des AES, so forth,
+do we know, do we have access to the algorithms?
+And the answer is absolutely yes.
+These modern-day algorithms, they're open source.
+So think of a chosen plain-text attack as you have access to the AES,
+AES algorithm.
+You choose what plain-text to feed into it.
+You look at the result in cypher-text to try and deduce the key.
+The next one is known as a chosen cypher-text.
+And as you're probably guessing, a chosen cypher-text attack
+is where the crypto-analysis feeds in some cypher-text, some chosen cypher-text.
+Looks at the result in plain-text to try and deduce the key.
+Now, the next two types of attacks known as linear and differential.
+All you should really know about these is they are using complicated math to try and deduce the key.
+So you see linear, you see differential, just think, complicated math,
+complicated math to try and deduce the key.
+And the final one we'll talk about is what's known as a factoring attack.
+Now, what is the only algorithm that we talked about that used factoring
+as the hard math problem behind it?
+RSA.
+So if you see factoring as the hard, as a type of an crypto-analytical attack,
+the only algorithm that you need to think about is RSA.
+So associate those in your mind.

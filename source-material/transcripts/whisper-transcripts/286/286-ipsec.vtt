@@ -1,0 +1,212 @@
+WEBVTT
+
+00:00.000 --> 00:29.440
+IEP sec, one of the most commonly used protocols for VPNs, so John, I've heard about
+
+00:29.440 --> 00:39.360
+these security. IEP sec, one of the most commonly used protocols for VPNs, so John, I've heard about
+
+00:39.360 --> 00:46.080
+these security associations in IEP sec, what's that all about? Well, first IEP sec, really important
+
+00:46.080 --> 00:51.520
+for them to understand, not only because it's a tunneling protocol, it provides security,
+
+00:51.520 --> 00:57.040
+it can be used as VPNs, but it's also built into IP version 6, and that's why, you know, there may be
+
+00:57.040 --> 01:03.200
+a lot of questions on the exam that reflect on this, but yeah, security associations. That's how we,
+
+01:03.200 --> 01:08.080
+because remember, this IP sec is something that operates at the network layer, and in fact,
+
+01:08.080 --> 01:15.440
+it is IP that uses it, that's why it's called IP sec, but devices that operate at the network
+
+01:15.440 --> 01:23.200
+layer, like routers, will use what are called security associations to connect to other devices
+
+01:23.360 --> 01:28.000
+and other things. They're simplex, right, which means they only run in one direction. Correct,
+
+01:28.000 --> 01:33.600
+so these security associations are what we call one-way simplex connections, so if you and I want
+
+01:33.600 --> 01:37.920
+to talk to each other, how many connections do we need? Well, or a security association. If you want
+
+01:37.920 --> 01:43.760
+to be able to talk to me as well, we need one from me to you, one from you to me, that's what simplex
+
+01:43.760 --> 01:49.120
+means, it's like radio, right? Radio can only be received by your radio or the signals, it's one
+
+01:49.280 --> 01:53.920
+way, that's what simplex means, so yeah, later we're going to talk about why there are four
+
+01:53.920 --> 02:01.360
+required, but we need to get you to talk about something else before we get to that, but that's
+
+02:01.360 --> 02:06.560
+what a security association is, it's simply a connection between devices and they are one-way
+
+02:06.560 --> 02:12.720
+simplex connections, but here's why we need to keep track of these, because as a device that
+
+02:12.720 --> 02:17.680
+operates at the network layer, I could be connected to you, but I can also be connected to other
+
+02:17.680 --> 02:23.760
+devices at the same time, and so I don't need to keep track of those. Yeah, that's right,
+
+02:23.760 --> 02:28.080
+that's why we need to keep track of some of these attributes that you see up on the screen here,
+
+02:28.080 --> 02:35.040
+that's what security associations are. Okay, so now IPsec allows you to create a VPN, and obviously
+
+02:35.040 --> 02:39.440
+you're supposed to send traffic data back very quickly, so that means you need to encrypt the data
+
+02:39.440 --> 02:45.280
+very quickly, so that means we have to use symmetric cryptography, and now we have the problem of
+
+02:45.360 --> 02:50.000
+key distribution, so how does IPsec solve that? Our students know exactly that, because we've
+
+02:50.000 --> 02:55.760
+talked about that. The only type of cryptography that we can use in order to do things across
+
+02:55.760 --> 03:01.600
+networks, because it's the only thing that's fast enough is symmetric, as Rob just said, and that
+
+03:01.600 --> 03:06.880
+means we have to have the same key at both ends, and so I think we went through the Diffie Helmand
+
+03:06.880 --> 03:13.280
+Key Exchange Protocol. Remember that, that mathematical magic that allows two different locations
+
+03:13.280 --> 03:19.360
+to come up with the same secret, which can be used as keys, session keys to encrypt and decrypt,
+
+03:19.360 --> 03:26.000
+so you may get a question that says, what's the key management protocol that IPsec uses?
+
+03:26.000 --> 03:29.360
+Yeah, because it's not Diffie Helmand, right, so what is it? It's a version of Diffie Helmand,
+
+03:29.360 --> 03:35.360
+everything is a version of Diffie Helmand, but in this case it's called IKE Internet Key Exchange,
+
+03:35.360 --> 03:39.920
+it's just different math in Diffie Helmand, but it does the same thing. Yes, so remember that,
+
+03:39.920 --> 03:46.160
+that's pretty important to understand. Now, next slide talks about the two modes, but these
+
+03:46.160 --> 03:52.640
+really refer to the two services that IPsec can provide. Yeah, because it's a complicated protocol,
+
+03:52.640 --> 03:56.720
+you've got a ton of options, it's the way you can do, and the first two options you have are
+
+03:56.720 --> 04:03.280
+whether you want to run at an age authentication header or ESP encapsulating security payload.
+
+04:03.280 --> 04:08.240
+So what's the difference? Authentication header just provides integrity, data origin,
+
+04:08.240 --> 04:14.960
+and replay protection. So it's basically just integrity, and not one important thing.
+
+04:16.000 --> 04:20.080
+Well, encryption. Encryption. Right. And that's what ESP provides. It's everything that
+
+04:20.080 --> 04:26.240
+age provides, plus encryption. Sure. And we said that IPsec really provides two distinct
+
+04:26.240 --> 04:32.400
+security capabilities, authentication, and encryption. That's what these two sub protocols really
+
+04:32.400 --> 04:39.520
+provide. And yeah, I think you need to tell us what the next two things are here, the two modes.
+
+04:39.520 --> 04:44.480
+It gets even more complicated. Yeah, because then you can run it in transport mode or tunnel mode,
+
+04:44.480 --> 04:48.960
+and you'll recall John having talked about tunneling, tunneling means that you take a datagram,
+
+04:48.960 --> 04:53.040
+and you put it within the datapart of another datagram, which means essentially that you add a new
+
+04:53.040 --> 04:57.920
+header. And so that's the difference between these two modes. In transport mode, you don't do any
+
+04:57.920 --> 05:03.040
+tunneling. You just reuse the original header. But in tunnel mode, you actually tunnel the
+
+05:03.040 --> 05:09.200
+packets. You add a new header. Perfect. And so I think this next slide here, while looking a little
+
+05:09.200 --> 05:14.000
+bit complicated, kind of shows how this all fits together. So we can first of all run in authentication
+
+05:14.000 --> 05:19.600
+header mode, and then you can run authentication header mode in either transport mode or tunnel mode.
+
+05:19.600 --> 05:23.760
+So when you're running in transport mode, you're just reusing your original header. You're adding
+
+05:23.760 --> 05:28.320
+the authentication header. That's the AHP's, and you've got your data. And then in tunnel mode,
+
+05:28.320 --> 05:34.480
+you're adding that new header. And then when you go into ESP, looks exactly the same, except the
+
+05:34.480 --> 05:39.920
+big difference here is that you are encrypting the actual data. And so it's only running in ESP
+
+05:39.920 --> 05:46.400
+mode. It's a VPN, right? Correct. Well, because a VPN by definition is tunneling plus encryption.
+
+05:46.400 --> 05:52.080
+That was for you. It was a reminder. Yep. And so let's give people a good way to remember this,
+
+05:52.080 --> 05:55.760
+because there's really four different ways that you can use this, correct? And so,
+
+05:57.360 --> 06:02.880
+is there an easy way for them to understand this? Like authentication header transport mode means
+
+06:02.880 --> 06:07.680
+this, correct? I don't remember the diagram, I guess? Yeah. Memorize the diagram. They may
+
+06:07.680 --> 06:14.160
+ask you about any of these four different ways that really relate to authentication header and ESP,
+
+06:14.160 --> 06:19.760
+whether in transport mode or in tunnel mode. And to bring it back to security associations,
+
+06:19.760 --> 06:24.960
+this is why you need up to four of them. Because if you want both a connection and you want to
+
+06:25.520 --> 06:31.040
+encrypt that connection, then you need two simplex connections in each direction.
+
+06:31.600 --> 06:36.720
+Right. So if you remember that simplex, they're simplex connections. So if Rob and I want to talk
+
+06:36.720 --> 06:41.920
+to each other in both directions, we need two security associations. But if we want both
+
+06:41.920 --> 06:48.080
+authentication and encryption in both directions, you cannot host those two things across one security
+
+06:48.080 --> 06:53.600
+association. You need one for each, meaning we need two in both directions, which would equal four.
+
+06:53.600 --> 07:04.320
+Yeah. There you go. Bye, peace out.
+

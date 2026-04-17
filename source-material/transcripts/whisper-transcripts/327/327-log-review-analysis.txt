@@ -1,0 +1,116 @@
+So we're going to talk very briefly about logging and analysis right now, and then we'll
+get into a little more deeply when we talk about security information and event management
+systems in domain 7.
+But let's start with the basics.
+Why do we logging and monitoring?
+I like this slide.
+It does a good job of summarizing why we do this.
+First of all, we only want to log what is relevant.
+It is absolutely possible with our systems to produce, especially modern systems, to produce
+an unbelievable amount of logging data.
+But we don't care about all of that.
+You only want to log what is relevant.
+How do you determine how to log what is relevant?
+A really good way of doing this is to go back to risk management.
+If you think about what are the key risks for an asset, that's a pretty good way of thinking
+about how would we detect if one of those risks had occurred?
+Maybe that's what we should turn logging on for.
+So only log what is relevant.
+And then review those logs.
+Someone has to be proactively or some system has to be proactively looking at those logs.
+And this is where you truly do new system.
+Modern day systems can produce just, especially in a big environment.
+You can have millions of events happening per second.
+And there's no way that a person could actually look through that.
+You need a system involved that's able to look at all this event data and be able to identify
+useful information.
+And you really do want to be reviewing the logs proactively.
+You can just go back and look at the logs after you've had a breach, but it's better to
+do it proactively.
+And then the final thing, what are you actually looking for?
+Well, you're looking for things like errors and anomalies.
+And here's a good summary, right?
+Errors, unexpected errors, are a good indication that a system might not be working properly.
+Modification to a system, especially if it's unauthorized modification.
+That's probably something you want to look at and breaches.
+Now as I mentioned in domain seven, we'll go into seam, sim systems, and much more detail.
+And we'll talk through all the steps that they go through for the aggregation generation,
+correlation of logs.
+We'll talk about that later on.
+For now, let's just say that when it comes to where can we collect a log event data from
+everywhere?
+And what do we want to do?
+We want to pull all that data into our log correlation system into one central system so
+that we can then analyze that data, look for the proverbial needle and a stack of needles.
+One of the problems we face when logging is our endpoint devices, things like our firewalls,
+can produce an enormous amount of logging data.
+But they typically have very limited storage on board.
+And so if we have a requirement to keep a huge amount of logging data, it's often difficult
+or impossible to do that on the endpoint.
+So let's talk about a couple of methods of how we can limit log file sizes.
+Two major methods that you need to know about, circular overwrite and clipping levels.
+Now let's start with circular overwrite.
+The way circular overwrite works is you set a maximum log file size or length.
+And then you start writing log event data until you reach the maximum file size or the
+maximum number of lines and then you circle back to the top and start overwriting.
+That's circular overwrite.
+And what it means is that your log file size is never ending at larger than the maximum
+number of entries or the file size that you set because as soon as you reach that maximum,
+you circle back to the top and start overwriting.
+The other method you can use is what's known as clipping levels.
+When clipping levels is this idea that we set a threshold below that threshold, don't
+bother logging anything.
+Above that threshold, start logging.
+Here's an example.
+Failed or incorrect passwords.
+So when I change my password for the first month or first week anyways, I type in the
+wrong password and it's a failed log event.
+This happens all the time for people.
+And so the vast majority of the time, if you see one failed log in attempt, it's not concerning.
+So you might set a threshold and you would say, you know what, below say three failed log
+in attempts in 30 seconds or not going to log anything.
+So all those times that people are just fat fingering their password or forgetting their
+password, you're not logging any of that.
+But if you suddenly see like 50 failed log in attempts within 30 seconds, should you be
+logging that?
+Absolutely.
+That's probably someone trying to brute force your system.
+And so that's the idea of clipping levels.
+You set a threshold below that threshold, don't log anything.
+Love that threshold, start logging.
+Here's a good question.
+Which of these methods, circular overwrite or clipping levels, would be better if you
+wanted to detect a breach?
+And the answer is clipping levels.
+And the reason is that with circular overwrite, if you want to investigate a breach, you need
+the log data.
+And in circular overwrite, you're erasing your log data, data, you're overwriting your
+data once you get to a certain point.
+Whereas with clipping levels, you're limiting the amount of data, but you're not ever
+overwriting it.
+So if you get a question like that, the better type of logging, of a better method of
+limiting log file sizes, if you're looking for a breach, is clipping levels.
+Final part about logging here that I want to mention.
+And this relates to the time that we attach to a log file.
+You want to have consistent timestamps.
+I'm going to talk later on in the SIM system about how if you want to correlate events,
+line them up with each other.
+You need to have consistent timestamps.
+Has to be the same date, you know, same year, month, day, format, same, 12 or 25 hour
+clock format, whatever it is, make it consistent.
+The final piece is all of the systems in your environment need to have the same system
+time.
+If you want to be able to trace, track, how in a tracker, how an attacker traversed your
+network, got into different systems, got a foothold here and then moved there, it is
+very difficult to trace and figure out exactly what someone did, an attacker did, if your
+systems have different clock times, if this one's five seconds faster, that one's three
+seconds slower, it becomes very difficult to trace events.
+And so the way that we can make sure that all of our systems, clocks are aligned is through
+the MNTP protocol, network time protocol.
+And as the name implies, this protocol allows a server to synchronize its system clock.
+And there are basically what you can connect with this is an atomic clock.
+And through the MNTP protocol, you can synchronize your system clock with one of these world
+atomic clocks through NASA or other US agencies and other agencies around the world.
+And if every system in your environment is using the MNTP to synchronize the system
+clock, all the servers in the environment, all the systems in the environment will have
+the exact same time.

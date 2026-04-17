@@ -1,0 +1,77 @@
+WEBVTT
+
+00:00.000 --> 00:20.120
+All right, so we've been talking about how firewalls provide obviously security.
+
+00:30.000 --> 00:45.000
+All right, so we've been talking about how firewalls provide obviously security from the perspective of either allowing or denying certain traffic.
+
+00:45.000 --> 00:57.000
+Now, it's important for us to remember something that we've talked about several times, and that is how a complete control needs to be preventive, detective, and corrective.
+
+00:57.000 --> 01:06.000
+And that applies to how we implement firewalls as well. So if you think about what a firewall is, it's a preventive type of a control.
+
+01:06.000 --> 01:15.000
+And so we also need to have detective and corrective capabilities put in at those locations where our firewalls are going to be.
+
+01:15.000 --> 01:26.000
+And so when it comes to detection and correction capabilities, we obviously have technologies available today to be able to do what's called data inspection.
+
+01:26.000 --> 01:37.000
+Now, if you think about how the unit of information that goes across a network is called a packet or a data graph, that data graph is really made up of two components.
+
+01:37.000 --> 01:41.000
+You've got the header portion and the data portion.
+
+01:41.000 --> 01:53.000
+Being able to interpret and look at the data portion, which is also referred to as the payload, gives us the ability to do some really enhanced things from a detection perspective.
+
+01:53.000 --> 02:07.000
+Really, what this is called is data inspection. We can inspect the data part of the data graph to be able to recognize, for example, malicious intent or malware or attacks, for example,
+
+02:07.000 --> 02:15.000
+so that we can provide the detection and correction capabilities that we need to have together with those firewalls.
+
+02:15.000 --> 02:28.000
+And so if you look at some of the decisions that we can typically make by being able to look at the data portion of the data graph, we can certainly do things like not just virus scanning, but obviously anti malware protection as well.
+
+02:28.000 --> 02:47.000
+We can do stateful inspection, which means really make decisions based on historical information that we have kept, for example, state and context information related to some of the traffic that's going back and forth between our network and other networks.
+
+02:47.000 --> 02:57.000
+And we can also inspect the actual content of that data to be able to recognize and do things like web content filtering, for example.
+
+02:57.000 --> 03:06.000
+Now, the way that intrusion detection has evolved, we really have two technologies, you know, IDSs and IPSs.
+
+03:06.000 --> 03:10.000
+And it's important for us to understand the difference between the two.
+
+03:10.000 --> 03:23.000
+And if you base it just on the words, an intrusion detection system can only detect, but again, it would not make sense for a company to implement a intrusion detection system,
+
+03:23.000 --> 03:31.000
+whose sole purpose is to detect, because as we've said, you need to have preventive, detective and corrective capabilities.
+
+03:31.000 --> 03:45.000
+So if you have an IDS by definition, it can only detect, but the way that you would set it up in an environment is that it would be able to detect things, but then also trigger the corrective capability that needs to happen.
+
+03:45.000 --> 03:54.000
+In other words, the IDS system could be connected back to the firewall that does, for example, you know, draw packets or closes connections, for example.
+
+03:54.000 --> 04:01.000
+And now we have a control that is preventive, detective and corrective as well.
+
+04:01.000 --> 04:14.000
+Now, obviously, the industry has evolved to the point where we have some newer technologies for intrusion detection that actually are able to provide those three things all in line, all in one technology.
+
+04:14.000 --> 04:27.000
+And that's really what IPS systems are. Intrusion prevention systems are really technologies that provide prevent, detect and correct capabilities all in line in the same technology itself.
+
+04:27.000 --> 04:42.000
+Think of them as the next evolution of intrusion detection systems that the industry has come up with, because obviously the technology has evolved to the point where it's almost like an intrusion detection system that has some capabilities to prevent,
+
+04:42.000 --> 04:51.000
+but also correct all in line. The next generation of IDS systems are really called IPS systems.
+

@@ -1,0 +1,101 @@
+WEBVTT
+
+00:00.000 --> 00:19.000
+Continue in our discussion of testing. Let's now talk about operational testing.
+
+00:19.000 --> 00:39.000
+Continue in our discussion of testing. Let's now talk about operational testing.
+
+00:39.000 --> 00:43.000
+There's three major types of operational testing that we're going to talk about.
+
+00:43.000 --> 00:47.000
+Rum, synthetic transactions and progression testing. Let's start with rum.
+
+00:47.000 --> 00:57.000
+Rum stands for real user monitoring. Real user monitoring is simply the concept that you watch your log files to see what real users are doing with your system.
+
+00:57.000 --> 01:04.000
+Are they when they're accessing your website? Are there certain error messages popping up like 404 or a file mod found or something like that?
+
+01:04.000 --> 01:11.000
+So, watching your log files to see how real users are watching your system is known as real user monitoring.
+
+01:11.000 --> 01:20.000
+Now, what about synthetic transactions? Synthetic transactions is this idea that we synthesize or we create transactions on a system.
+
+01:20.000 --> 01:25.000
+How do we do that? Well, think of it as creating little software scripts or bots.
+
+01:25.000 --> 01:29.000
+And these little software scripts or bots will perform certain functions.
+
+01:29.000 --> 01:32.000
+So, maybe a good way to think about this is an online banking system.
+
+01:32.000 --> 01:39.000
+An online banking system has all sorts of functionality. You can log in. You can check your account balance. You can transfer funds.
+
+01:39.000 --> 01:46.000
+You could write synthetic transactions that would test or would perform each of these operations. One of them would log in.
+
+01:46.000 --> 01:50.000
+Another would transfer funds. Another would check an account balance.
+
+01:50.000 --> 01:56.000
+And if you write a synthetic transaction or a little bot that tests each of these pieces of functionality,
+
+01:56.000 --> 02:05.000
+then you can run all those transactions, those synthetic transactions, and see all the functions, for instance, on your website working correctly.
+
+02:05.000 --> 02:12.000
+And there's another really cool usage for synthetic transactions. And that is, what if instead of running these one at a time?
+
+02:12.000 --> 02:21.000
+What if you were to run 10,000 of them simultaneously? What would that test? Well, that would test load or performance of your application.
+
+02:21.000 --> 02:26.000
+See how your application performs if it's getting hit by a whole lack of users like on Black Friday.
+
+02:26.000 --> 02:31.000
+So, you can use synthetic transactions to test the performance of your application.
+
+02:31.000 --> 02:39.000
+Here's a really good test question that sometimes comes up. What would be the most accurate environment in which you perform synthetic transactions?
+
+02:39.000 --> 02:47.000
+And the answer is production. If you truly want to know how your system is going to react to a huge load,
+
+02:47.000 --> 02:53.000
+the best environment to test in is production. Are you going to be extremely careful about doing that? Of course.
+
+02:53.000 --> 03:01.000
+You're all sorts of testing and dev and so forth, so forth first. But if you truly want to know how your application is going to react, test and production.
+
+03:02.000 --> 03:06.000
+The next type of testing we're going to talk about is regression testing.
+
+03:06.000 --> 03:15.000
+And regression testing is simply the idea that if you make a change to a system, not only do you want to check to make sure all the new functionalities working correctly,
+
+03:15.000 --> 03:20.000
+but also make sure that all the existing functionality keeps working properly.
+
+03:20.000 --> 03:29.000
+That is regression testing. It's this concept of testing code or testing systems to make sure you didn't break anything when you implement a change.
+
+03:29.000 --> 03:35.000
+With any of the testing that we've talked about in the last few modules, it's important to have very clear test results.
+
+03:35.000 --> 03:41.000
+To know, for instance, did your test actually pass or did it fail? You don't want the result of the test to be, eh, maybe.
+
+03:41.000 --> 03:49.000
+You wanted to be, yes, it passed or no, it didn't pass. And you want to be able to have the right level of detail in the test results,
+
+03:49.000 --> 03:58.000
+the right metrics reported to the right people. The way that you report the results of a test is going to vary depending on who the audience of that test result is and what it is they're looking to see.
+
+03:58.000 --> 04:00.000
+We're looking to see.
+

@@ -1,0 +1,54 @@
+start	end	text
+0	3480	something trying to actively access an
+3480	7560	object. An object is the passive entity. It's
+7560	12360	whatever is being accessed. It can be another problem.
+23840	27360	We've gone through a brief overview of the reference monitor concept,
+27480	30080	the implementation of which is the security kernel.
+44240	47360	We've gone through a brief overview of the reference monitor concept,
+47560	51800	the implementation of which is the security kernel, and this is one of the
+51800	55120	components within the TCB, the trusted computing base.
+55760	59680	These next few slides are where we delve into each of these pieces in a little more detail.
+61280	64880	Now, we have to start with, of course, what's the subject versus what's an object?
+65360	71040	And the subject is the active entity. It's a person or it's a process. It's something
+71040	77760	trying to actively access an object. And an object is the passive entity. It's
+77760	82240	whatever is being accessed. It can be another process. It could be a database,
+82400	86800	a sharepoint site, a hard drive, could even be a building or a system.
+87680	94240	This is the object. And the reference monitor concept is this whole idea that we want to be
+94240	101600	able to mediate or control a subject's access to an object, control and mediate that access
+101600	106880	based on a set of rules. And all this is logged and monitored. This is the reference monitor
+107440	113040	concept. And of course, for this concept to be effective, we have to implement it.
+113680	118320	And so a security kernel is the implementation of the reference monitor concept.
+119200	124080	And a security kernel can be anything. It can be hardware, firmware, software,
+124080	129680	anything that's actually controlling a subject's access to an object is fundamentally a security
+130320	136640	kernel. So a padlock, a door badge system, a login mechanism on a computer system,
+137200	141920	a operating system controlling access to components with the operating system,
+141920	146640	a hypervisor controlling which virtual machines can connect to which of the underlying
+146640	150960	physical hardware. All of these are fundamentally security kernels.
+152800	158080	And the RMZ and the implementation of which the security kernel has to demonstrate
+158080	163920	three properties to be a good security kernel. First, completeness. And this is about not being
+163920	170080	able to bypass the rules. The subject should not be able to bypass and directly access an object
+170080	177600	and bypass the mediation. So completeness impossible to bypass. Isolation, the rules are
+177600	184400	tamper proof that can only be changed modified by an authorized individual. And verifiability.
+184960	190800	How do you verify that this security kernel is actually working correctly, typically by logging
+190800	195200	and monitoring the activity that's occurring, which subjects are getting to access to which
+195200	202880	objects and which circumstances. And the final piece that we'll talk about here is the tcb.
+203520	207200	And this is where we'll spend a minute here because there's often questions on the tcb and it
+207200	213040	often confuses people a little bit. So here's the perfect definition of the tcb. It's the
+213040	218720	totality of protection mechanisms within an architecture. So what does that actually mean?
+218720	225520	Let's start with the word totality. What does totality mean? It means all everything, the assembly,
+225520	232640	the collection, all of the components. So here's a really big hint for the exam. If you see anything
+232640	240080	that says any word that means all the collection, the assembly, the everything related to the
+240080	247200	protection mechanisms, that is the tcb. So it's all of the mechanisms that are responsible for
+247200	253200	protecting a system. Think of it this way. Picture any type of architecture. Let's take a laptop
+253200	257360	as an example. You might be sitting in front of one right now. Your laptop is going to have all
+257360	262160	starts of components in it. You're going to have a CPU ram. You're going to have a hard drive.
+262160	266400	You're going to have USB ports. You're going to have an operating system and all sorts of
+266400	270400	applications and firmware. These are all the components within the architecture.
+271200	275760	Some of those components are responsible for the security of a system. Things like your anti-malware
+275760	283920	software, your security kernels, your host-based firewall. So the tcb is that subset of if you take
+283920	288960	all of the components, it's the subset that are responsible for security. That is the tcb.
+289600	294720	And so when we say you know what can make up the tcb, it's anything that is responsible for
+294720	299520	security. Could be hardware, could be firmware, could be software, could be processes.
+300240	305200	So that's the tcb. And the next few modules will start to talk through a bunch of different
+305200	311520	components that we have within modern computing systems. And some of these components are in fact
+311520	322320	security kernels and some of them are components within the tcb.

@@ -1,0 +1,95 @@
+Alright, here we are at Layer 3 in the OSI model.
+We've been slowly moving up.
+Alright, here we are at Layer 3 in the OSI model.
+We've been slowly moving up.
+Now if you remember how we equated the OSI model to a team, like a sports team for example,
+usually you pick a captain of the team and that person is usually the one that has the
+most leadership qualities, can inspire the others, can coordinate so that the team more
+effectively achieves its goal.
+Well, if you were to pick a captain of the OSI team, it would have to be the network
+layer.
+The network layer has some protocols within it that are really fundamental to what
+networking is and how we allow communications across network itself.
+And so the network layer and protocols that operate here that are part of TCPIP.
+Remember how we implement the OSI model is through TCPIP and its family of protocols.
+So there are protocols that operate at the network layer here that really drive everything
+that happens and are the captain of the team.
+That protocol has to be IP.
+In fact, if you remember what we talked about earlier as far as the network layer is concerned,
+it's really responsible for two really important capabilities and responsibilities that need
+to happen across network.
+And it's what you see here on your slide.
+The first is what we call fragmentation, which means, for example, taking the email that
+I'm sending you and breaking it down or fragmenting it into manageable chunks that are typically
+called packets or data grams.
+But then it's also the network layer through IP here that needs to deliver each of those
+data grams to the destination using some sort of addressing scheme, which you know is
+referred to as IP addressing.
+So remember that the network layer includes the IP protocol, which is really responsible
+for two very important things, fragmentation and addressing of those fragments so that
+they can get to their destination.
+Now, if we draw this, the unit of information that the network layer or IP uses at the network
+layer is usually referred to as a packet.
+But more appropriately, it should be called a data gram.
+So if you look at what a data gram looks like, it really has two important components
+to allow the network layer here and IP to not only deliver that information to you, but
+as effectively as possible.
+So if you look at the two components that make up a data gram or a packet, you're going
+to have the data portion, which is also referred to as the payload by some people, most network
+people will call it the payload.
+But in order to get this data gram to its destination, we need addressing information
+that is usually included in what we call the header portion of the data gram.
+So this is the unit that IP, for example, uses at the network layer to do fragmentation,
+which means breaking that email into data grams, but then allowing each of these data grams
+to be delivered to its destination.
+So those are the two important functions that the network layer through IP takes care
+of.
+Now, obviously what's important here is there needs to be fields in the header portion
+of the data gram that allows this entire data gram to be delivered to its destination.
+So there are fields in here called source IP address, destination IP address, and some
+other fields that allow fragmentation and delivery through addressing, for example, at the network
+layer.
+Now that field called source IP address and destination IP address are 32 bits of information.
+32 bits.
+And what they've done is they've taken those 32 bits and divided it into four groups
+of eight bits.
+That's why you end up seeing IP addresses like the one you see on your slide here, right?
+So you've got IP addresses that might look like something like this.
+But really this represents the 32 bits that are in the header portion of the data gram.
+You've just taken those 32 bits and divided it into four groups of eight bits.
+Now if you do the math because this is bits, if you've got something that's 32 bits, there
+are only so many finite, unique IP addresses that that can represent.
+So if you do two to the 32 and work that out, it's going to equal just under 4.3 billion
+unique IP addresses that can be referenced across any network like the internet.
+And so that's a limitation that we have known about.
+And something that has saved us in allowing us to have many more things connected to the
+internet rather than this limitation is something called NAT that we're going to talk about
+later on.
+But this limitation that the industry has known for a number of years has led to the development
+of something called IP version 6, which we're going to talk about later on.
+But one of the things that they've done in IP version 6 is they've expanded the addressing
+to actually 128 bits for both the source IP address and the destination IP address.
+And something else that's relevant from a security perspective in IP version 6 is the
+inclusion of security called IPSec, which will add authentication and encryption natively
+into the IP version 6 protocol when everybody's using it.
+And so the next thing that you see up here on your slide is not anything that's relevant
+from the perspective of you having to understand each of these different IEEE document numbers
+that you see here.
+The important thing to remember at this point is the importance of that organization called
+the IEEE.
+The IEEE is the Institute of Electric and Electronic Engineers.
+And they are a bunch of bright people that get together when a technology first appears
+or improves, for example.
+And what they do is they sit down and ratify, which means they agree on what a technology
+needs to look like so that vendors and anyone else that wants to offer products related
+to that technology will have to conform to the standards and not go off in their own direction.
+And so when they ratify some of these technologies and what they need to look like, they issue
+what are called IEEE document numbers.
+And you're probably familiar with the family of 802.11 IEEE specifications for wireless
+lands.
+And as we've evolved, for example, what we used to have was 802.11A and then B came
+along and then G came along and then N came along and AC came along, they've ratified
+each of those standards so that everybody conforms to those standards.
+That's the importance of the IEEE.
+So there's different specifications for different technologies that exist out there.
+You don't need to memorize them all, obviously, for purposes of the exam.

@@ -1,0 +1,157 @@
+start	end	text
+0	4360	or sewage treatment plants, or nuclear reactors.
+4360	7680	All of these major pieces of expensive hardware
+7680	10680	are run by what are called industrial control systems.
+10680	26320	And this module, we're going to talk about industrial control systems
+26320	28720	and internet of things.
+28720	43520	Let's start with industrial control systems.
+43520	46400	In this module, we're going to talk about industrial control systems
+46400	48800	and internet of things.
+48800	51480	Let's start with industrial control systems.
+51480	55080	And a definition, what are industrial control systems?
+55080	58920	Well, industrial control systems are the hardware and the software
+58920	61600	that control big expensive hardware.
+61600	64600	So think manufacturing facilities with all those raw watts
+64600	67920	that are building cars or iPhones.
+67920	71600	Or think of water treatment plants, or sewage treatment plants,
+71600	74520	or nuclear reactors.
+74520	77840	All of these major pieces of expensive hardware
+77840	82160	are run by what are called industrial control systems.
+82160	86240	So given that these industrial control systems control very expensive
+86240	90440	and often very delicate and potentially catastrophic systems
+90440	94040	if they were to fail, like nuclear power plants or water treatment plants,
+94040	98360	these systems have to be very secure and very reliable.
+98360	101320	There's three major types of industrial control systems
+101320	102800	that you need to know both for the examine.
+102800	104480	You do not have to be an expert on these,
+104480	107280	but you should recognize that these systems,
+107280	108600	you're the names of these systems,
+108600	111160	are examples of industrial control systems.
+111160	113280	The most common are SCADA systems.
+113280	117080	You've also got DCS and PLC systems.
+117080	118480	And actually remember for the exam,
+118480	121360	you do not have to memorize all these acronyms.
+121360	124160	There'll be a little window that you can button that you can click
+124160	127560	that will show you a pop-up window that contains all sorts of acronyms
+127560	129480	and what they actually stand for.
+129480	131560	So you don't have to memorize the exact wording of these things
+131560	134000	and you won't get definitional type questions on that.
+134000	137880	So be aware SCADA, DCS and PLC.
+137880	140720	These are very common types of industrial control systems.
+142320	145760	Now, the big risk that we have with industrial control systems
+145760	147160	is that these are very expensive,
+147160	149720	very important systems that are controlling,
+149720	153200	often extremely expensive, very delicate systems.
+153200	156360	And the big security risk is that the hardware,
+156360	158480	the software that these SCADA systems are running around
+158480	160920	or these industrial control systems are running on
+160920	163200	is often very outdated.
+163200	166360	It's not uncommon to come across industrial control systems
+166360	168600	that are still running on like Windows NT.
+168600	169880	It's crazy sometimes.
+170880	173160	So let's start with a question.
+173160	175720	Why are some of these such critical systems running
+175720	179080	on such old antiquated hardware and software?
+179080	182720	And the answer is these are very, very critical systems
+182720	184720	that are often highly customized.
+184720	187120	So it's often very difficult to upgrade
+187120	189480	the underlying operating system and hardware.
+189480	193280	And a lot of these big facilities very much run by the philosophy
+193880	196600	of if it ain't broken, don't fix it.
+196600	199000	Because you do not want to cause an outage
+199000	201000	or cause these systems to malfunction.
+202120	205040	So in many cases, we have very outdated,
+205040	208800	very insecure hardware and underlying operating systems
+208800	211800	that these industrial control systems are running on top of.
+211800	215080	And yet these are extremely critical systems.
+215080	216440	So how do we protect them?
+216440	219760	How do we reduce the risk related to these systems?
+219760	221680	The number one best way, and this is what you should remember
+221680	224040	is the exam, air gap.
+224040	227360	So air gaping is the concept that the industrial control system,
+227360	228800	the network that it's on,
+228800	232160	should absolutely not be connected to the rest
+232160	235080	of the corporate network and especially the internet.
+235080	236840	There should be a physical air gap,
+236840	239880	literally no connection between the industrial control system
+239880	243080	network and the rest of the corporate network
+243080	244240	and especially the internet.
+244240	246440	So remember air gaping is one of the best ways
+246440	249120	of reducing the risk of industrial control systems.
+250000	253080	Now, let's talk about the internet of things.
+253080	254720	What is the internet of things?
+254720	256840	Well, it's all sorts of devices
+256840	260040	that have been given the ability to connect to the internet
+260040	262280	that probably shouldn't be connected to the internet,
+262280	264880	like your fridge and your stove and your dishwasher
+264880	265960	and your light bulb.
+267840	270760	So here's what's really led to this.
+270760	273400	The ability to make a little computer chip,
+273400	275440	basically a little mini computer
+275440	278800	that has Wi-Fi capabilities and can connect to the internet
+278800	280640	has become unbelievably cheap.
+280640	283760	We can make these things for a couple of bucks.
+283760	286360	And as a result, it's become extraordinarily cheap
+286360	289720	to put these capabilities into all sorts of devices.
+289720	291920	And that's exactly what's happening.
+291920	294200	And there's a few big risks here.
+294200	298760	One, most of these internet of things chips
+298760	303600	are made by big OEM, original equipment manufacturers.
+303600	305360	They were, there's just a few manufacturers
+305360	307800	that make the vast majority of these
+307800	309480	internet of things little computers
+309480	311320	that enable this capability.
+311320	315000	And security is not typically their top priority.
+315000	318560	It's to make these things to the lowest possible dollar.
+318560	322480	And so a lot of the internet of things devices out there
+322480	324800	are wildly insecure.
+324800	326760	They have big vulnerabilities in them.
+326760	330360	And a lot of them are actually very difficult to patch.
+330360	332040	And you combine that with the fact that
+332040	333320	when you install these capabilities
+333320	335160	in a lot of devices like a fridge or a stove,
+335160	338160	I mean, who thinks to patch their fridge?
+338160	340920	It's just, it's not something that people think about.
+340920	343240	You plug this device in, you connect it to the internet,
+343240	344800	and then you forget that it's there.
+344800	347480	You forget it's connected to the internet.
+347480	349000	And that leads to the next big risk.
+349000	352080	And that is that these internet of things devices
+352080	357280	can provide a really easy attack platform for a hacker.
+357280	359920	So I'll give you an example of this.
+359920	362920	The largest ever denial of service attack,
+362920	366720	the largest ever denial of service attack in history,
+366720	370440	originated from security cameras.
+370440	373760	So someone discovered a vulnerability in security cameras,
+373760	375840	installed some malware that allowed them
+375840	378440	to remotely control these security cameras,
+378440	381840	created a giant botnet essentially of these security cameras,
+381840	384800	and then perpetrated the largest denial of service attack
+384800	387800	in history from security cameras.
+387800	390520	That's pretty ironic.
+390520	394480	And that highlights the risk with these systems.
+394480	396560	We don't realize they're connected to the internet,
+396560	398880	and we don't think to patch them.
+398880	401400	And because we've put them often deep inside of our corporate
+401400	404040	networks or inside of our personal networks,
+404040	405640	we don't think of the fact that someone
+405640	407840	may be able to remotely connect to this device,
+407840	412880	compromise the device, and now they're inside of our environment.
+412880	416640	So how do we reduce the risk of internet of things devices?
+416640	418480	How do we deal with this problem?
+418480	421200	Well, it's best to think of internet of things devices
+421200	424200	as a computer system, because that's literally what they are.
+424200	427360	So all the same principles that you'd apply to protecting
+427360	430320	any computer system apply to internet of things devices.
+430320	431600	You need to make sure they're patched.
+431600	433320	You need to make sure they're configured properly
+433320	436000	that they have proper authentication in place.
+436000	438200	And because it's often difficult to do all of that
+438200	439480	with a lot of these devices,
+439480	441520	network segmentation is really important.
+441520	443720	Put these things on their own network segment.
+443720	446200	If they truly do need to connect to the internet,
+446200	448040	put them off in some network where that's
+448080	451080	all that they can connect to, or even better yet,
+451080	453360	don't connect them to any internet.
+453360	454960	So that's internet of things.

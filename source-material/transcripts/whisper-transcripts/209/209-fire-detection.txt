@@ -1,0 +1,48 @@
+Let's talk about one of my favorite subjects. Fire!
+Let's talk about one of my favorite subjects. Fire!
+Now, it's good to think about fire from a physical security perspective as a risk.
+And with any risk, the deal, the way that we want to deal with that risk is by putting in place
+and mitigating controls, specifically a complete control.
+And a complete control, of course, is a combination of preventive, detective, and corrective.
+So, how do we prevent a fire? Well, the best way to prevent fire is to not have any combustible materials,
+anything that will burn. And so, for example, in a data center, if you're bringing in new servers,
+you want to make sure that you unpack the servers on the loading dock.
+We've all a very combustible cardboard on the loading dock. And what are you bringing to the server room?
+Just the bare metal servers. So this is a perfect example of how we try and prevent fire.
+Don't have any combustible materials. Now, preventive, detective, and corrective.
+If we do have a fire, the very first thing we want to be able to do is quickly as possible is detect the fire.
+And that's what we're going to talk about in this module.
+And then the final thing, if we have detective fire, is quickly as possible we want to try and correct a fire.
+And in the next module, we'll talk about different types of fire, correction, or fire suppression systems.
+So let's talk about methods we can use to detect a fire. There's three major methods that we can use.
+We can use what are known as flame detectors. These are basically video cameras that look for infrared or UV light.
+And so they can see the flames that are looking up from a fire.
+But we want to try and detect a fire as early as possible. And if you're at the point where you've got big,
+licking flames like behind me here, that's not a very good way to detect a fire as early as possible.
+The next method that we can use are what are known as heat detectors.
+And heat detectors are just like they sound like they're basically temperature sensors.
+And they look for a rapid rise in temperature. And so you'd have these heat sensors spread around your facility.
+And if one or two of them detect a rapid rise in temperature, that's a pretty good indication that you have a fire.
+But again, if you're at the point where the temperature is spiking, the fire is pretty far along.
+So heat detectors are not necessarily the best way to detect a fire as early as possible.
+And that leads us to the last and probably most important method to detect a fire as early as possible. And that's smoke detectors.
+And there's a number of different types of smoke detectors we're going to talk about here.
+Let's start with what are known as ionization sensors.
+Ionization sensors, the way they work, it's actually quite cool. They have a small amount of radioactive material inside the smoke detector.
+And it actually ionizes particles. And these particles flow between two metal plates.
+And what happens if smoke particles enter this little chamber, the smoke particles will actually disrupt the flow of ionized particles.
+And therefore allow you to detect fire. So that's ionization sensors.
+The next most common are what are known as photoelectric.
+And again, this is kind of neat how this works. So in a photoelectric sensor, you have a light source and a sensor.
+And the light source is pointed a little off angle. So it's not pointed right at the sensor.
+And what happens is if smoke particles pass through the sensing chamber, the smoke particles will actually cause the light to reflect into the sensing area.
+And so if the sensor suddenly picks up that light's being reflected into the sensor, that's an indication that smoke particles are passing through the sensor and you have a fire.
+Now, most of the sensors that we use nowadays in homes and most common business ones are what are known as dual sensors.
+And just as name implies, they're a combination of both ionization and photoelectric.
+And there's one final type of smoke detection system that you should know about.
+And this is the most sensitive type of system. And it's very aptly named. It's called the Vesda system, which stands for very early smoke detection apparatus.
+So just as the name implies, these systems are really good at detecting a fire as early as possible.
+But these systems are not commonly seen because they're very, very sensitive and they're very expensive.
+So where you tend to see Vesda systems are in places like data centers and museums.
+But if you ever get a question asking you, what is the best way to detect a fire as early as possible?
+It's smoke detectors, look first for smoke detectors and the best type of smoke detector, Vesda.

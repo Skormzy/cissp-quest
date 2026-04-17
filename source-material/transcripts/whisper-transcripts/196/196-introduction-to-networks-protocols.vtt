@@ -1,0 +1,98 @@
+WEBVTT
+
+00:00.000 --> 00:19.640
+Here we go with domain number 4 which is obviously all about network security and we have
+
+00:19.640 --> 00:39.520
+to start. Here we go with domain number 4 which is obviously all about network security and we
+
+00:39.520 --> 00:45.480
+have to start right at the beginning and understand what a network actually is before we can
+
+00:45.480 --> 00:51.320
+start talking about how we can protect and network and what it provides from a services perspective
+
+00:51.320 --> 00:56.920
+because obviously networking today is very important in any organization and just like any other
+
+00:56.920 --> 01:02.200
+valuable asset of the organization it's really there to allow the organization to achieve its
+
+01:02.200 --> 01:07.320
+goals and objectives but when you think about the investment that companies make in networking it's
+
+01:07.320 --> 01:13.720
+really important to be able to protect not only what it provides but all of the services and assets
+
+01:13.720 --> 01:20.360
+and resources and data for example that really allows all kinds of people to be able to access
+
+01:20.360 --> 01:26.440
+which is pretty important part of any organization to achieve network security. Now before we can talk
+
+01:26.440 --> 01:35.320
+about what the network is and how to protect it let's really describe what networking and you know
+
+01:35.320 --> 01:42.200
+how devices for example that are connected to each other actually talk to each other and so let's
+
+01:42.200 --> 01:48.920
+start at the basics what is a network a network is at least two devices that are connected to each
+
+01:48.920 --> 01:55.800
+other for the purpose of communicating and just like you and I communicate for example how people
+
+01:55.800 --> 02:01.960
+communicate with each other certainly require some rules so for example when one person speaks the
+
+02:01.960 --> 02:09.320
+other one listens but communication really happens because you know people are able to send and
+
+02:09.320 --> 02:16.280
+receive messages so for example right now I'm sending messages to you through the spoken voice
+
+02:16.280 --> 02:24.200
+but you have the ability to receive those messages understand them interpret them and act on them
+
+02:24.200 --> 02:29.400
+that's how people communicate that's how you and I communicate it's the same requirement that
+
+02:29.400 --> 02:35.240
+exists across a network so when you have devices that are connected to each other which essentially
+
+02:35.240 --> 02:40.920
+is what a network is at least two devices communicating with each other they have to be able to send
+
+02:40.920 --> 02:47.400
+and receive messages and not only do they send and receive messages but you have to have the
+
+02:47.400 --> 02:54.920
+ability to interpret what those messages mean and then act on them to be able to ultimately communicate
+
+02:54.920 --> 03:00.600
+and that's really what networking is all about so a network is a bunch of devices that are connected
+
+03:00.600 --> 03:06.920
+to each other that really understand the same rules for example to be able to allow communications to
+
+03:06.920 --> 03:14.760
+happen now the way that you and I communicate is by understanding rules for communications to happen
+
+03:14.760 --> 03:21.640
+across a network we don't call them rules they are called protocols so the word protocol really
+
+03:21.640 --> 03:27.480
+means the rules by which communications can happen between devices that are connected to each other
+
+03:27.480 --> 03:33.240
+for the purpose of communicating and sharing information in fact if you look at the definition
+
+03:33.240 --> 03:40.760
+of a protocol it might be something like this a standard set of rules that dictate for example how
+
+03:40.760 --> 03:47.560
+devices communicate with each other but also how they send and receive messages but are also able
+
+03:47.560 --> 03:58.920
+to interpret those messages and then act on them that's really what a protocol is
+

@@ -1,0 +1,75 @@
+What are the steps we go through when we want to get access to a computer system?
+We often refer to these as the access system.
+What are the steps we go through when we want to get access to a computer system?
+We often refer to these as the access control services.
+There's four major access control services.
+Essentially the steps that we have to go through to get access to a system and use that system.
+Think about this. When you walk up to a computer system and you jiggle a mouse, what's the first thing that you need to do to get access to that system?
+Hopefully, jiggling the mouse did just entirely unlock the system and give you full access.
+Hopefully, there's some sort of access control services in place.
+What's the first thing that you need to do to get access to a system?
+The first thing you need to do is identification. Identification is where you assert your identity to the system.
+You somehow uniquely identify yourself with a username or maybe biometric data.
+So that is identification. It's where I identify myself to a system.
+And hopefully, just typing in my username or which doesn't give me full access to the system.
+Because the next step is authentication.
+This is where the system needs to verify my identity.
+It has to somehow figure out am I actually who I say am.
+So how can the system authenticate me? Verify my identity.
+Well, there are three factors of authentication.
+There's authentication by knowledge, something you know.
+There's authentication by ownership, something you have.
+And there's authentication by characteristic, how you behave or your physiology.
+So those are the three factors of authentication.
+And we'll get into those in a lot more detail later on.
+Okay, so step one, I assert my identity, identified myself.
+Step two, I authenticated myself somehow.
+What's the next step? It's authorization.
+This is where the system determines exactly what my access is going to be.
+This is where we apply those principles we've already talked about, like least privilege.
+Need to know separation of duties.
+You don't want to authorize someone to have access beyond anything that they need to do their job.
+So that is the authorization step.
+There's one final and in fact, most important step.
+And that is accountability.
+The whole reason that we do access control is to make users accountable for their actions on a system.
+Because this is so incredibly important, we in fact give this a special name.
+We call it the principle of access control.
+So the whole reason and listen very carefully here because there's often questions on this.
+The whole principle of access control is accountability.
+How do you achieve accountability?
+Well, you have to have uniquely identified someone properly authenticated them, properly authorize them,
+and then log in monitor what they're doing on the system to then and only then make them accountable for their actions on the system.
+That is the principle of access control.
+Let's talk about how we identify ourselves.
+Identification ideally needs to be unique.
+You do not want to have shared user accounts.
+It's a very bad idea for 50 people in the organization to have all share one admin account.
+So ideally identification needs to be unique.
+Tied to a particular individual.
+And the way that we identify ourselves are examples like I've already given.
+User ID, account number, badges, which is a name and a picture.
+We can even use biometrics for identification.
+Some good practices around identification, like I said, unique,
+should also not be descriptive of your job.
+So for instance, if I was the network administrator, I'd probably call myself network administrator god.
+And the problem with that is that if there's any attackers on our environment,
+what account are they going to try and break and do first, do you think?
+Probably the network administrator god account.
+The other problem is that people change roles.
+And what would inevitably probably happen to me is I would get demoted.
+And I would no longer be network administrator god.
+Now it would be network administrator lackey.
+And my username would no longer apply to the role that I was in.
+So it's not good for the roles to be tied to a particular description of what they someone does.
+And then the final piece is secure issuance.
+You need some way of getting someone their credentials securely.
+So you don't ever just want to write out someone's username and password on a sticky note and leave it on their monitor.
+I mean, we're security people.
+We know better than that.
+You got to stick it on a sticky note on the bottom of their keyboard.
+That's how we do secure issuance, right?
+Of course not, right?
+But you need a secure issuance process, some way of getting these credentials to someone securely.
+And the next few videos we'll talk about how we do these factors of authentication in more detail,
+authentication by knowledge, ownership and characteristic.

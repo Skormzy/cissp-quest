@@ -1,0 +1,158 @@
+Let's start with the definition.
+Let's start with the definition.
+What is SQL or SQL?
+SQL stands for structured query language.
+This is the language we use for communicating with databases.
+And SQL injection are attacks where we're somehow able to send code directly to the database and directly manipulate the database.
+Typically, we should not be allowed to do this.
+So let's go through an example of what SQL injection can look like.
+And think of this as a web server with a database behind it.
+This is a very common configuration.
+Most websites nowadays are often referred to as dynamic websites where they can store content and create dynamic pages depending on what the user is requested and data that's being pulled out of the database.
+And so these dynamic websites inherently require a connection to a database.
+And a user should never be able to directly communicate with that database.
+But using SQL injection, they might be able to.
+So let's look at how this can happen.
+We're going to look at a very simple example.
+So here's a login mechanism where we're supposed to provide our username and password.
+We send that username and password to the web server.
+The web server then needs to query the database to see if there's a matching username and password.
+If there is a matching username and password, the database should return true essentially.
+It should say yes.
+Return true, there's a matching username and password, and the user should be authenticated.
+And if there's no matching username and password, the database should return false indicating.
+You know, this is an invalid user.
+Don't let them in.
+Now rather than providing a valid or even invalid username and password, here's what we're going to put in.
+We're going to put AA, apostrophe, or 1 equals 1 dash dash.
+The pink text here, the AA, doesn't matter.
+It couldn't be anything.
+This gold text here, this is the SQL injection.
+And we're also going to put something in password field, BBB, doesn't matter.
+You can put whatever you want in there.
+So I'm going to send this data to the web server.
+And the web server is now going to create a SQL request to the database,
+asking if this username and this password exist in the database to see if this should be an authenticated user.
+So here's the SQL statement that the web server creates.
+Select from users where user name equals, and what's the web server going to put in here?
+Well, if it's a very badly coded web server, what it might do is drop in this exact data that I've provided.
+So it'll put in AA, apostrophe, or 1 equals 1 dash dash.
+And what's it going to put in the password field?
+The password that I provided, BBB.
+And this SQL statement is now going to be sent to the database server.
+And it's now the database server's job to try and interpret this statement that it's received from the web server.
+So let's look at how the database server actually interprets this statement.
+Can you see the first problem here?
+The first problem is actually this apostrophe right here.
+Because how does the database treat this apostrophe?
+Well, it treats this apostrophe as the end of the username.
+And so the database is going to look for a user called AA.
+And is there a matching user called AA in the database? Probably not.
+But we'll get to that in a second.
+Now, what about this OR part?
+What does it treat that as? Is it part of the username?
+No, because this is the end of the username.
+This OR is actually treated as SQL code.
+So the database thinks this is an OR statement.
+And then 1 equals 1. Is 1 equal to 1?
+Yes.
+So that'll return true.
+We'll see that in a moment as well.
+And then the last really bit tricky part here is this dash dash.
+In SQL code, what does dash dash mean?
+It means everything after this is a comment.
+So the database is going to ignore everything after this.
+This end statement, this password BBB.
+It's going to ignore all of that.
+And so here's how the database actually interprets this statement.
+It's going to say where users false.
+There's probably no matching username.
+OR is 1 equal to 1?
+Yes, that's true. So OR true.
+And then the rest of this is a comment.
+So it ignores it.
+And so what this statement ends up being understood as is,
+select from users where true.
+Because OR statements, if either side of the OR statement is true,
+it returns true.
+So this statement, no matter what you put in for a username, returns true.
+And half, if the database returns true to the web server,
+what's the web server going to think?
+The web server is going to think this is an authenticated user.
+And it might let the user into the system.
+So this is a very simple example of SQL injection.
+But it highlights essentially how it works.
+And that is, the web server passes unauthenticated,
+unvalidated data directly to the database server.
+And there is the answer you should also be looking for.
+How do we reduce the risk of SQL injection?
+Well, we should never, ever, ever just take you direct user input
+and pass it directly to the database.
+So the answer, you can, you will often get very complicated questions
+on the exam related to SQL injection.
+The answer boils down to a very simple thing.
+We have to validate our user's input.
+We have to sanitize our user's input.
+Any word that you find that indicates that you're cleaning up
+removing special characters, sanitizing, validating user input
+is how we reduce or how we eliminate the problem of SQL injection.
+The other type of question you might see on the exam related to SQL
+is they might ask you what are some examples of SQL injection.
+And they'll give you some different lines of code.
+They might show you some C sharp and some Java, whatever.
+So you should be able to recognize what SQL code looks like.
+So I don't think you need to memorize all these commands.
+Just memorize kind of the, what they look like.
+So you've got commands like create, alter, drop, truncate.
+This is how we create tables and so forth.
+You've got select, search, inserts, updates.
+This is how we enter, modify, read data from a database.
+You've got things like grant and revoke, creating users,
+and then commits and rollbacks and save points
+as well backing up the data.
+So if you see any of these types of commands,
+this is going to be SQL code.
+And here's a few examples of SQL code.
+So what would this return?
+Select star from users.
+This would return all of the data in the user's table.
+Hey, what about this one?
+Insert into the users, user ID, password, values, rob, pass 1, 2, 3.
+What's this statement do?
+Creates a new entry.
+Creates a new user with user name rob and password.
+So just create a new user account for myself.
+What about this one?
+Drop accounts receivable.
+Well, that's just a jerk move.
+That just deletes the entire table in the database.
+So if you get questions asking you what are examples
+of SQL code, SQL injection, it has to be SQL code.
+So look for stuff like this.
+Now, turns out there are actually comics out there
+about SQL injection.
+Here's one of them.
+Little Bobby tables by XKCD.
+Brilliant comic.
+I'll give you a moment to read this.
+Before I show you this picture,
+I want you to promise you're going to try this at home, OK?
+So I'd like you to print out,
+tape this in front of your car, and try this at home, OK?
+What's this one do?
+The idea behind this one, and by the way,
+do not try this at home.
+The idea behind this one is if you were to tape
+this in front of your car,
+and then drive through a speed trap at 200 miles per hour,
+the speed trap is going to take a picture of the front of your car.
+And those speed trap systems are designed
+to read your license plate number.
+They have OCR software, optical character recognition software,
+that's meant to read your license plate,
+and store that data, look up that data in the database.
+So the idea here is it might read this bit of SQL code
+and SQL injection code here, and crash the police database
+or something like that.
+So obviously don't try that at home.
+SQL injection.

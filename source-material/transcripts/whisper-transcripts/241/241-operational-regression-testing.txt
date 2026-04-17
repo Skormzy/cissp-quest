@@ -1,0 +1,33 @@
+Continue in our discussion of testing. Let's now talk about operational testing.
+Continue in our discussion of testing. Let's now talk about operational testing.
+There's three major types of operational testing that we're going to talk about.
+Rum, synthetic transactions and progression testing. Let's start with rum.
+Rum stands for real user monitoring. Real user monitoring is simply the concept that you watch your log files to see what real users are doing with your system.
+Are they when they're accessing your website? Are there certain error messages popping up like 404 or a file mod found or something like that?
+So, watching your log files to see how real users are watching your system is known as real user monitoring.
+Now, what about synthetic transactions? Synthetic transactions is this idea that we synthesize or we create transactions on a system.
+How do we do that? Well, think of it as creating little software scripts or bots.
+And these little software scripts or bots will perform certain functions.
+So, maybe a good way to think about this is an online banking system.
+An online banking system has all sorts of functionality. You can log in. You can check your account balance. You can transfer funds.
+You could write synthetic transactions that would test or would perform each of these operations. One of them would log in.
+Another would transfer funds. Another would check an account balance.
+And if you write a synthetic transaction or a little bot that tests each of these pieces of functionality,
+then you can run all those transactions, those synthetic transactions, and see all the functions, for instance, on your website working correctly.
+And there's another really cool usage for synthetic transactions. And that is, what if instead of running these one at a time?
+What if you were to run 10,000 of them simultaneously? What would that test? Well, that would test load or performance of your application.
+See how your application performs if it's getting hit by a whole lack of users like on Black Friday.
+So, you can use synthetic transactions to test the performance of your application.
+Here's a really good test question that sometimes comes up. What would be the most accurate environment in which you perform synthetic transactions?
+And the answer is production. If you truly want to know how your system is going to react to a huge load,
+the best environment to test in is production. Are you going to be extremely careful about doing that? Of course.
+You're all sorts of testing and dev and so forth, so forth first. But if you truly want to know how your application is going to react, test and production.
+The next type of testing we're going to talk about is regression testing.
+And regression testing is simply the idea that if you make a change to a system, not only do you want to check to make sure all the new functionalities working correctly,
+but also make sure that all the existing functionality keeps working properly.
+That is regression testing. It's this concept of testing code or testing systems to make sure you didn't break anything when you implement a change.
+With any of the testing that we've talked about in the last few modules, it's important to have very clear test results.
+To know, for instance, did your test actually pass or did it fail? You don't want the result of the test to be, eh, maybe.
+You wanted to be, yes, it passed or no, it didn't pass. And you want to be able to have the right level of detail in the test results,
+the right metrics reported to the right people. The way that you report the results of a test is going to vary depending on who the audience of that test result is and what it is they're looking to see.
+We're looking to see.

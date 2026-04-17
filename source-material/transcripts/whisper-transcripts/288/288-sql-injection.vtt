@@ -1,0 +1,476 @@
+WEBVTT
+
+00:00.000 --> 00:20.000
+Let's start with the definition.
+
+00:20.000 --> 00:40.000
+Let's start with the definition.
+
+00:40.000 --> 00:43.000
+What is SQL or SQL?
+
+00:43.000 --> 00:46.000
+SQL stands for structured query language.
+
+00:46.000 --> 00:50.000
+This is the language we use for communicating with databases.
+
+00:50.000 --> 01:00.000
+And SQL injection are attacks where we're somehow able to send code directly to the database and directly manipulate the database.
+
+01:00.000 --> 01:02.000
+Typically, we should not be allowed to do this.
+
+01:02.000 --> 01:06.000
+So let's go through an example of what SQL injection can look like.
+
+01:06.000 --> 01:10.000
+And think of this as a web server with a database behind it.
+
+01:10.000 --> 01:12.000
+This is a very common configuration.
+
+01:12.000 --> 01:25.000
+Most websites nowadays are often referred to as dynamic websites where they can store content and create dynamic pages depending on what the user is requested and data that's being pulled out of the database.
+
+01:25.000 --> 01:30.000
+And so these dynamic websites inherently require a connection to a database.
+
+01:30.000 --> 01:36.000
+And a user should never be able to directly communicate with that database.
+
+01:36.000 --> 01:39.000
+But using SQL injection, they might be able to.
+
+01:39.000 --> 01:41.000
+So let's look at how this can happen.
+
+01:41.000 --> 01:43.000
+We're going to look at a very simple example.
+
+01:43.000 --> 01:48.000
+So here's a login mechanism where we're supposed to provide our username and password.
+
+01:48.000 --> 01:51.000
+We send that username and password to the web server.
+
+01:51.000 --> 01:56.000
+The web server then needs to query the database to see if there's a matching username and password.
+
+01:56.000 --> 02:02.000
+If there is a matching username and password, the database should return true essentially.
+
+02:02.000 --> 02:03.000
+It should say yes.
+
+02:03.000 --> 02:08.000
+Return true, there's a matching username and password, and the user should be authenticated.
+
+02:08.000 --> 02:13.000
+And if there's no matching username and password, the database should return false indicating.
+
+02:13.000 --> 02:15.000
+You know, this is an invalid user.
+
+02:15.000 --> 02:17.000
+Don't let them in.
+
+02:17.000 --> 02:22.000
+Now rather than providing a valid or even invalid username and password, here's what we're going to put in.
+
+02:22.000 --> 02:26.000
+We're going to put AA, apostrophe, or 1 equals 1 dash dash.
+
+02:26.000 --> 02:28.000
+The pink text here, the AA, doesn't matter.
+
+02:28.000 --> 02:29.000
+It couldn't be anything.
+
+02:29.000 --> 02:33.000
+This gold text here, this is the SQL injection.
+
+02:33.000 --> 02:36.000
+And we're also going to put something in password field, BBB, doesn't matter.
+
+02:36.000 --> 02:38.000
+You can put whatever you want in there.
+
+02:38.000 --> 02:41.000
+So I'm going to send this data to the web server.
+
+02:41.000 --> 02:46.000
+And the web server is now going to create a SQL request to the database,
+
+02:46.000 --> 02:53.000
+asking if this username and this password exist in the database to see if this should be an authenticated user.
+
+02:53.000 --> 02:57.000
+So here's the SQL statement that the web server creates.
+
+02:57.000 --> 03:02.000
+Select from users where user name equals, and what's the web server going to put in here?
+
+03:02.000 --> 03:11.000
+Well, if it's a very badly coded web server, what it might do is drop in this exact data that I've provided.
+
+03:11.000 --> 03:15.000
+So it'll put in AA, apostrophe, or 1 equals 1 dash dash.
+
+03:15.000 --> 03:18.000
+And what's it going to put in the password field?
+
+03:18.000 --> 03:21.000
+The password that I provided, BBB.
+
+03:21.000 --> 03:25.000
+And this SQL statement is now going to be sent to the database server.
+
+03:25.000 --> 03:31.000
+And it's now the database server's job to try and interpret this statement that it's received from the web server.
+
+03:31.000 --> 03:34.000
+So let's look at how the database server actually interprets this statement.
+
+03:34.000 --> 03:37.000
+Can you see the first problem here?
+
+03:37.000 --> 03:41.000
+The first problem is actually this apostrophe right here.
+
+03:41.000 --> 03:44.000
+Because how does the database treat this apostrophe?
+
+03:44.000 --> 03:47.000
+Well, it treats this apostrophe as the end of the username.
+
+03:47.000 --> 03:51.000
+And so the database is going to look for a user called AA.
+
+03:51.000 --> 03:55.000
+And is there a matching user called AA in the database? Probably not.
+
+03:55.000 --> 03:57.000
+But we'll get to that in a second.
+
+03:58.000 --> 04:00.000
+Now, what about this OR part?
+
+04:00.000 --> 04:02.000
+What does it treat that as? Is it part of the username?
+
+04:02.000 --> 04:04.000
+No, because this is the end of the username.
+
+04:04.000 --> 04:07.000
+This OR is actually treated as SQL code.
+
+04:07.000 --> 04:10.000
+So the database thinks this is an OR statement.
+
+04:10.000 --> 04:13.000
+And then 1 equals 1. Is 1 equal to 1?
+
+04:13.000 --> 04:15.000
+Yes.
+
+04:15.000 --> 04:16.000
+So that'll return true.
+
+04:16.000 --> 04:18.000
+We'll see that in a moment as well.
+
+04:18.000 --> 04:21.000
+And then the last really bit tricky part here is this dash dash.
+
+04:21.000 --> 04:24.000
+In SQL code, what does dash dash mean?
+
+04:24.000 --> 04:27.000
+It means everything after this is a comment.
+
+04:27.000 --> 04:30.000
+So the database is going to ignore everything after this.
+
+04:30.000 --> 04:32.000
+This end statement, this password BBB.
+
+04:32.000 --> 04:34.000
+It's going to ignore all of that.
+
+04:34.000 --> 04:37.000
+And so here's how the database actually interprets this statement.
+
+04:37.000 --> 04:40.000
+It's going to say where users false.
+
+04:40.000 --> 04:42.000
+There's probably no matching username.
+
+04:42.000 --> 04:45.000
+OR is 1 equal to 1?
+
+04:45.000 --> 04:47.000
+Yes, that's true. So OR true.
+
+04:47.000 --> 04:49.000
+And then the rest of this is a comment.
+
+04:49.000 --> 04:50.000
+So it ignores it.
+
+04:50.000 --> 04:54.000
+And so what this statement ends up being understood as is,
+
+04:54.000 --> 04:57.000
+select from users where true.
+
+04:57.000 --> 05:00.000
+Because OR statements, if either side of the OR statement is true,
+
+05:00.000 --> 05:01.000
+it returns true.
+
+05:01.000 --> 05:07.000
+So this statement, no matter what you put in for a username, returns true.
+
+05:07.000 --> 05:10.000
+And half, if the database returns true to the web server,
+
+05:10.000 --> 05:12.000
+what's the web server going to think?
+
+05:12.000 --> 05:16.000
+The web server is going to think this is an authenticated user.
+
+05:16.000 --> 05:18.000
+And it might let the user into the system.
+
+05:18.000 --> 05:21.000
+So this is a very simple example of SQL injection.
+
+05:21.000 --> 05:23.000
+But it highlights essentially how it works.
+
+05:23.000 --> 05:27.000
+And that is, the web server passes unauthenticated,
+
+05:27.000 --> 05:31.000
+unvalidated data directly to the database server.
+
+05:31.000 --> 05:33.000
+And there is the answer you should also be looking for.
+
+05:33.000 --> 05:36.000
+How do we reduce the risk of SQL injection?
+
+05:36.000 --> 05:40.000
+Well, we should never, ever, ever just take you direct user input
+
+05:40.000 --> 05:43.000
+and pass it directly to the database.
+
+05:43.000 --> 05:46.000
+So the answer, you can, you will often get very complicated questions
+
+05:46.000 --> 05:49.000
+on the exam related to SQL injection.
+
+05:49.000 --> 05:52.000
+The answer boils down to a very simple thing.
+
+05:52.000 --> 05:55.000
+We have to validate our user's input.
+
+05:55.000 --> 05:57.000
+We have to sanitize our user's input.
+
+05:57.000 --> 06:00.000
+Any word that you find that indicates that you're cleaning up
+
+06:00.000 --> 06:04.000
+removing special characters, sanitizing, validating user input
+
+06:04.000 --> 06:09.000
+is how we reduce or how we eliminate the problem of SQL injection.
+
+06:09.000 --> 06:13.000
+The other type of question you might see on the exam related to SQL
+
+06:13.000 --> 06:17.000
+is they might ask you what are some examples of SQL injection.
+
+06:17.000 --> 06:19.000
+And they'll give you some different lines of code.
+
+06:19.000 --> 06:22.000
+They might show you some C sharp and some Java, whatever.
+
+06:22.000 --> 06:24.000
+So you should be able to recognize what SQL code looks like.
+
+06:24.000 --> 06:26.000
+So I don't think you need to memorize all these commands.
+
+06:26.000 --> 06:29.000
+Just memorize kind of the, what they look like.
+
+06:29.000 --> 06:31.000
+So you've got commands like create, alter, drop, truncate.
+
+06:31.000 --> 06:34.000
+This is how we create tables and so forth.
+
+06:34.000 --> 06:36.000
+You've got select, search, inserts, updates.
+
+06:36.000 --> 06:40.000
+This is how we enter, modify, read data from a database.
+
+06:40.000 --> 06:43.000
+You've got things like grant and revoke, creating users,
+
+06:43.000 --> 06:45.000
+and then commits and rollbacks and save points
+
+06:45.000 --> 06:46.000
+as well backing up the data.
+
+06:46.000 --> 06:48.000
+So if you see any of these types of commands,
+
+06:48.000 --> 06:50.000
+this is going to be SQL code.
+
+06:50.000 --> 06:52.000
+And here's a few examples of SQL code.
+
+06:52.000 --> 06:53.000
+So what would this return?
+
+06:53.000 --> 06:56.000
+Select star from users.
+
+06:56.000 --> 06:59.000
+This would return all of the data in the user's table.
+
+06:59.000 --> 07:01.000
+Hey, what about this one?
+
+07:01.000 --> 07:05.000
+Insert into the users, user ID, password, values, rob, pass 1, 2, 3.
+
+07:05.000 --> 07:07.000
+What's this statement do?
+
+07:08.000 --> 07:10.000
+Creates a new entry.
+
+07:10.000 --> 07:13.000
+Creates a new user with user name rob and password.
+
+07:13.000 --> 07:15.000
+So just create a new user account for myself.
+
+07:15.000 --> 07:16.000
+What about this one?
+
+07:16.000 --> 07:18.000
+Drop accounts receivable.
+
+07:18.000 --> 07:20.000
+Well, that's just a jerk move.
+
+07:20.000 --> 07:22.000
+That just deletes the entire table in the database.
+
+07:22.000 --> 07:25.000
+So if you get questions asking you what are examples
+
+07:25.000 --> 07:28.000
+of SQL code, SQL injection, it has to be SQL code.
+
+07:28.000 --> 07:30.000
+So look for stuff like this.
+
+07:30.000 --> 07:32.000
+Now, turns out there are actually comics out there
+
+07:32.000 --> 07:34.000
+about SQL injection.
+
+07:34.000 --> 07:35.000
+Here's one of them.
+
+07:35.000 --> 07:37.000
+Little Bobby tables by XKCD.
+
+07:37.000 --> 07:39.000
+Brilliant comic.
+
+07:39.000 --> 07:41.000
+I'll give you a moment to read this.
+
+07:49.000 --> 07:51.000
+Before I show you this picture,
+
+07:51.000 --> 07:53.000
+I want you to promise you're going to try this at home, OK?
+
+07:53.000 --> 07:54.000
+So I'd like you to print out,
+
+07:54.000 --> 07:57.000
+tape this in front of your car, and try this at home, OK?
+
+07:57.000 --> 07:59.000
+What's this one do?
+
+07:59.000 --> 08:01.000
+The idea behind this one, and by the way,
+
+08:01.000 --> 08:02.000
+do not try this at home.
+
+08:03.000 --> 08:05.000
+The idea behind this one is if you were to tape
+
+08:05.000 --> 08:06.000
+this in front of your car,
+
+08:06.000 --> 08:09.000
+and then drive through a speed trap at 200 miles per hour,
+
+08:09.000 --> 08:12.000
+the speed trap is going to take a picture of the front of your car.
+
+08:12.000 --> 08:14.000
+And those speed trap systems are designed
+
+08:14.000 --> 08:16.000
+to read your license plate number.
+
+08:16.000 --> 08:21.000
+They have OCR software, optical character recognition software,
+
+08:21.000 --> 08:23.000
+that's meant to read your license plate,
+
+08:23.000 --> 08:26.000
+and store that data, look up that data in the database.
+
+08:26.000 --> 08:31.000
+So the idea here is it might read this bit of SQL code
+
+08:31.000 --> 08:34.000
+and SQL injection code here, and crash the police database
+
+08:34.000 --> 08:35.000
+or something like that.
+
+08:35.000 --> 08:37.000
+So obviously don't try that at home.
+
+08:37.000 --> 08:38.000
+SQL injection.
+

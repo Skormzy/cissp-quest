@@ -1,0 +1,652 @@
+1
+00:00:00,000 --> 00:00:17,180
+All right, so we've been talking about security architecture and engineering and just to
+
+2
+00:00:17,180 --> 00:00:34,680
+refocus. That means how we. All right, so we've been talking about security
+
+3
+00:00:34,680 --> 00:00:40,520
+architecture and engineering and just to refocus. That means how we build
+
+4
+00:00:40,520 --> 00:00:45,400
+architectures but also protect them by going through the engineering process
+
+5
+00:00:45,400 --> 00:00:50,080
+itself which are the phases of how we need to involve security right from the
+
+6
+00:00:50,080 --> 00:00:54,760
+start and throughout each of the phases. Now what can be really helpful from a
+
+7
+00:00:54,760 --> 00:00:59,080
+security perspective is what we call models. Now before we get into what we
+
+8
+00:00:59,080 --> 00:01:03,000
+call security models, we have to pause here and think about what the word
+
+9
+00:01:03,000 --> 00:01:08,040
+model actually means because these are really useful in security. The word
+
+10
+00:01:08,040 --> 00:01:14,400
+model is simply a representation of something. So if we have something that
+
+11
+00:01:14,400 --> 00:01:19,120
+represents what the ultimate architecture needs to look like, it can be
+
+12
+00:01:19,120 --> 00:01:23,860
+really helpful from a security perspective. So security models provide the
+
+13
+00:01:23,860 --> 00:01:29,320
+rules by which we can build something that ultimately is going to be secure. So
+
+14
+00:01:29,320 --> 00:01:33,180
+there are security models that exist out there that have been around for a
+
+15
+00:01:33,180 --> 00:01:38,520
+very long time that can provide the rules by which we can implement security
+
+16
+00:01:38,520 --> 00:01:45,640
+and ultimately have secure architectures that become importantly secured from
+
+17
+00:01:45,640 --> 00:01:50,920
+a confidentiality perspective, from a integrity perspective. We typically don't
+
+18
+00:01:50,920 --> 00:01:56,760
+need models to tell us how to achieve availability because availability is
+
+19
+00:01:56,760 --> 00:02:01,760
+addressed through redundancy. We don't need rules to be able to understand what
+
+20
+00:02:01,760 --> 00:02:07,320
+that is like. We simply build in cost-effective redundancy and we achieve
+
+21
+00:02:07,320 --> 00:02:12,840
+availability. But there are rules by which we can achieve confidentiality and
+
+22
+00:02:12,840 --> 00:02:18,360
+integrity. Those are referred to as security models. And some of these I'm sure
+
+23
+00:02:18,360 --> 00:02:25,280
+you've heard of, Bellapagela, Biba, Clark Wilson, Brewer Nash are the major
+
+24
+00:02:25,280 --> 00:02:30,680
+models that we need to focus on as far as the exam is concerned. Now what you
+
+25
+00:02:30,680 --> 00:02:35,560
+need to remember is that there are really two types of models that only exist.
+
+26
+00:02:35,560 --> 00:02:42,920
+Latest-based and rule-based. Only two types of models. Latest-based and rule-based.
+
+27
+00:02:42,920 --> 00:02:48,120
+There are only two Latest-based models that we need to concern ourselves with.
+
+28
+00:02:48,120 --> 00:02:53,440
+And the difference between them will be very apparent for you. But basically one
+
+29
+00:02:53,440 --> 00:03:00,000
+addresses confidentiality only. The other one addresses integrity only. That's the
+
+30
+00:03:00,000 --> 00:03:04,720
+difference between the two Latest-based models. So if you see questions on the
+
+31
+00:03:04,720 --> 00:03:10,760
+exam that talk about what is the Latest-based model, then you know that the
+
+32
+00:03:10,760 --> 00:03:16,440
+answer can only be one of two choices. Bellapagela only addresses confidentiality
+
+33
+00:03:16,440 --> 00:03:22,320
+and Biba only addresses integrity. So first of all, let's look at what a
+
+34
+00:03:22,320 --> 00:03:27,600
+Latest is. So if I say the word Latest, what comes to your mind? You may
+
+35
+00:03:27,600 --> 00:03:32,080
+picture something that you see on your screen here as the slide. The best way to
+
+36
+00:03:32,080 --> 00:03:37,920
+think of what a Latest-based model is is a layer-based model. So we've got
+
+37
+00:03:37,920 --> 00:03:43,600
+different layers that provide different levels of security. So let's start, for
+
+38
+00:03:43,600 --> 00:03:49,240
+example, with the first one, which is Bellapagela. The names of these models
+
+39
+00:03:49,240 --> 00:03:53,440
+come from the people that came up with the rules in the first place. And this
+
+40
+00:03:53,440 --> 00:03:59,280
+model actually dates back to the early 70s. But it was Bell and La Padilla that
+
+41
+00:03:59,280 --> 00:04:04,520
+came up with the rules that we have to implement in order to address confidentiality.
+
+42
+00:04:04,520 --> 00:04:08,880
+Now a lot of people think, why is it that we have to still think about these
+
+43
+00:04:08,880 --> 00:04:13,920
+models, you know, decades later. Surely they've become obsolete. But the answer
+
+44
+00:04:13,920 --> 00:04:17,360
+to that is something that all of us as security professionals should
+
+45
+00:04:17,360 --> 00:04:22,680
+understand. And that is even though these models are very old, the fundamental
+
+46
+00:04:22,680 --> 00:04:28,360
+concepts that they address and therefore the rules to achieve, for example,
+
+47
+00:04:28,360 --> 00:04:33,400
+confidentiality are the same today as they were decades ago. And they will be
+
+48
+00:04:33,400 --> 00:04:38,400
+the same decades from now. The fundamental rules and concepts are the same in
+
+49
+00:04:38,400 --> 00:04:43,360
+how we dress confidentiality. Technology has changed, but the fundamental rules
+
+50
+00:04:43,360 --> 00:04:47,920
+will never change. And so it's important for us to realize what those rules are
+
+51
+00:04:47,920 --> 00:04:53,200
+that you need to implement in order to achieve confidentiality. So these two
+
+52
+00:04:53,200 --> 00:04:58,340
+people thought, okay, if we want confidentiality to exist in any environment,
+
+53
+00:04:58,340 --> 00:05:03,340
+what are the rules that need to exist? What are the rules that we need to enforce?
+
+54
+00:05:03,340 --> 00:05:08,700
+And the first thing that they thought of is, okay, what happens in any architecture?
+
+55
+00:05:08,700 --> 00:05:15,700
+There is always interaction between two entities. Those two entities are subjects
+
+56
+00:05:15,700 --> 00:05:20,340
+and objects. I mean, when you look at any architecture, those are the two
+
+57
+00:05:20,340 --> 00:05:25,020
+fundamental entities that will always interface with each other. And the
+
+58
+00:05:25,020 --> 00:05:30,020
+difference between them, as we've learned before, is that subjects are always the
+
+59
+00:05:30,020 --> 00:05:35,140
+active entity. The objects are going to be the passive entity. But if we want
+
+60
+00:05:35,140 --> 00:05:41,700
+security to exist, we have to enforce rules between subjects and objects. So if you
+
+61
+00:05:41,700 --> 00:05:48,020
+think of a lattice-based model, which is a layer-based model, this model only
+
+62
+00:05:48,020 --> 00:05:54,380
+addresses confidentiality. So let's use a example. Let's say that we have three
+
+63
+00:05:54,380 --> 00:06:01,460
+levels of confidentiality, high, medium, and low. And we have subjects, we have
+
+64
+00:06:01,460 --> 00:06:06,580
+been placed in the medium layer. From a read perspective, what is it that
+
+65
+00:06:06,580 --> 00:06:11,780
+subject should be able to do from a read perspective? So if we are in the
+
+66
+00:06:11,780 --> 00:06:17,580
+medium layer, what can we read to enforce confidentiality and always have
+
+67
+00:06:17,580 --> 00:06:23,140
+confidentiality requirements be addressed? Well, we can read anything that's in our
+
+68
+00:06:23,140 --> 00:06:29,020
+layer. You can always do anything in our layer because that's the layer that
+
+69
+00:06:29,020 --> 00:06:35,100
+we've been placed at. But we can also read anything that is below us. Because
+
+70
+00:06:35,100 --> 00:06:41,500
+anything that is below us is less sensitive from a confidentiality perspective. So
+
+71
+00:06:41,500 --> 00:06:47,380
+if you allow reading down, you are not breaking confidentiality requirements.
+
+72
+00:06:47,380 --> 00:06:53,580
+However, we should not allow reading up because if we do, then you'd be
+
+73
+00:06:53,580 --> 00:06:58,940
+allowing subjects to read sensitive information that they are not cleared for.
+
+74
+00:06:58,940 --> 00:07:05,060
+That would break confidentiality. So the first rule of Bellapagela is actually
+
+75
+00:07:05,060 --> 00:07:11,820
+if you have read capabilities, you can only read at your layer or down. Now
+
+76
+00:07:11,820 --> 00:07:17,420
+what if we have right capabilities, right capabilities? Let's say we're in
+
+77
+00:07:17,420 --> 00:07:22,740
+that medium layer. And so what is it that you can write to? Well, if you think
+
+78
+00:07:22,740 --> 00:07:26,540
+about this from a confidentiality perspective, you can always do things that
+
+79
+00:07:26,540 --> 00:07:32,100
+your own layer. So we can write to objects at our own layer, but to enforce
+
+80
+00:07:32,100 --> 00:07:37,580
+confidentiality, what do we need to do? We need to allow either writing up or
+
+81
+00:07:37,580 --> 00:07:43,740
+writing down to enforce confidentiality. However, you would allow writing up and
+
+82
+00:07:43,740 --> 00:07:50,220
+not down. And here's why. If you allow writing down, we'd be taking knowledge
+
+83
+00:07:50,220 --> 00:07:56,220
+that is available to us at the medium layer. And we'd be writing it down to a
+
+84
+00:07:56,220 --> 00:08:01,900
+lower layer thereby disclosing confidential information to those people that are
+
+85
+00:08:01,900 --> 00:08:07,620
+below us. That would break confidentiality. And therefore, writing down is not
+
+86
+00:08:07,620 --> 00:08:12,980
+allowed. Writing up, however, is okay from a confidentiality perspective.
+
+87
+00:08:12,980 --> 00:08:18,940
+Because those people above us can already read what exists in our own layer. So
+
+88
+00:08:18,940 --> 00:08:24,420
+it's okay to take anything from our layer and write it up. That does not break
+
+89
+00:08:24,420 --> 00:08:30,300
+confidentiality. So that's the second rule of the Bellapagela model. You can read
+
+90
+00:08:30,340 --> 00:08:36,660
+at your layer or up, not down because that would break confidentiality. Now, the
+
+91
+00:08:36,660 --> 00:08:43,420
+only last rule that exists here with Bellapagela is really combining both
+
+92
+00:08:43,420 --> 00:08:49,580
+rules together. What if you have the ability to read and write? Well, based on the
+
+93
+00:08:49,580 --> 00:08:54,780
+previous two rules, the only thing that you can do is read and write at your own
+
+94
+00:08:54,780 --> 00:09:00,180
+layer. Nothing higher, nothing lower. And that's what we depict here as the last
+
+95
+00:09:00,340 --> 00:09:06,100
+rule in the Bellapagela model. Now, one more thing to think about here before we move
+
+96
+00:09:06,100 --> 00:09:11,940
+on to the next lattice-based model. But these guys, Bell and LaPagela, actually
+
+97
+00:09:11,940 --> 00:09:18,060
+named each of these rules. The ability to be able to read is referred to as the
+
+98
+00:09:18,060 --> 00:09:23,940
+simple security property. So if you see simple on the exam, it simply means the
+
+99
+00:09:23,940 --> 00:09:30,380
+ability to read. The ability to write is referred to as the star property. So if you
+
+100
+00:09:30,380 --> 00:09:34,540
+see star, it means the ability to write. And of course, we know that you can only
+
+101
+00:09:34,540 --> 00:09:41,140
+write at your layer or higher. And the ability to read and write is referred to as the
+
+102
+00:09:41,140 --> 00:09:47,460
+strong star property. So strong star means being able to read and write at the same
+
+103
+00:09:47,460 --> 00:09:55,940
+time. Now, let's move on to the next lattice-based model, which of course is called Beba. Remember
+
+104
+00:09:55,940 --> 00:10:03,940
+Bellapagela only addresses confidentiality. Beba only addresses integrity. All right, now
+
+105
+00:10:03,940 --> 00:10:09,620
+the Beba model is something that only addresses integrity. This guy called Beba came along
+
+106
+00:10:09,620 --> 00:10:16,180
+years after Bellapagela. Looked at the Bellapagela model and said, wow, this is a great model,
+
+107
+00:10:16,180 --> 00:10:22,980
+but in my environment, Beba said, I'm only interested in integrity, not so much confidentiality.
+
+108
+00:10:22,980 --> 00:10:30,180
+I'd like to have a model that is similar, but addresses integrity, not so much confidentiality.
+
+109
+00:10:30,180 --> 00:10:36,180
+And so basically what he did is he took the Bellapagela model and adapted it to address
+
+110
+00:10:36,180 --> 00:10:41,980
+integrity. Maybe he worked in a bank where something like integrity is very important.
+
+111
+00:10:41,980 --> 00:10:46,860
+So what he did is he modified the rules to address integrity. Before we can understand
+
+112
+00:10:46,860 --> 00:10:52,540
+this one, we have to just pause for a second and think about what integrity actually means
+
+113
+00:10:52,540 --> 00:10:57,020
+from a security perspective. I think we've talked about this a few times, but integrity
+
+114
+00:10:57,020 --> 00:11:06,220
+means meaningfulness, timeliness, currency, but accuracy is something that integrity really
+
+115
+00:11:06,220 --> 00:11:12,380
+addresses. And if we think of integrity as addressing accuracy, it allows us to understand
+
+116
+00:11:12,380 --> 00:11:19,740
+this model really easily. So instead of having three layers, let's say, of confidentiality,
+
+117
+00:11:19,740 --> 00:11:27,500
+like Bellapagela addresses, this one addresses layers of integrity accuracy. So let's say we have
+
+118
+00:11:27,500 --> 00:11:33,500
+three layers of accuracy, high, medium, and low. And just like before, we've been placed in
+
+119
+00:11:33,660 --> 00:11:40,540
+the medium layer. Now, from a read perspective, what should we be able to read? Well, if you think
+
+120
+00:11:40,540 --> 00:11:47,420
+about this, because we are reading layers of accuracy, it's going to be the opposite of Bellapagela.
+
+121
+00:11:47,420 --> 00:11:53,900
+We should not be able to read anything that is lower than us. Because if you allow that,
+
+122
+00:11:53,900 --> 00:12:00,380
+you are allowing people to read information that is less accurate. And so what you want is you
+
+123
+00:12:00,380 --> 00:12:08,540
+want people to be able to read levels of higher accuracy, because reading higher accuracy information
+
+124
+00:12:08,540 --> 00:12:14,940
+allows us to become more accurate, more knowledgeable, more current, more accurate in our knowledge.
+
+125
+00:12:14,940 --> 00:12:22,140
+So in this case, we allow reading up, not down, because if you allow reading down, you'd be allowing
+
+126
+00:12:22,140 --> 00:12:28,220
+people to read less accurate information. But if they can read up, they can read more accurate
+
+127
+00:12:28,220 --> 00:12:33,980
+information, which obviously allows them to be more accurate in the decisions that they actually
+
+128
+00:12:33,980 --> 00:12:42,780
+make. So the Bibel model is actually the opposite of Bellapagela. We do allow reading up and not
+
+129
+00:12:42,780 --> 00:12:50,540
+down. And similarly, if you have right capabilities, what should you be able to write to? Well, you can
+
+130
+00:12:50,540 --> 00:12:55,500
+write to your own layer, because you can always do things at your own layer. But in this case,
+
+131
+00:12:55,500 --> 00:13:02,220
+we allow writing down, because you're taking information from our layer, which is more accurate
+
+132
+00:13:02,220 --> 00:13:09,820
+than the layer below us. So by taking knowledge of information from our layer and writing it down
+
+133
+00:13:09,820 --> 00:13:17,260
+to a lower layer, you are improving that layer with more accurate information, which is a goal of
+
+134
+00:13:17,260 --> 00:13:24,780
+accuracy and integrity. So again, this is the opposite. We allow writing down, we should not allow
+
+135
+00:13:24,780 --> 00:13:30,940
+writing up, because again, that layer is already more accurate. If we allowed writing up, you'd be
+
+136
+00:13:30,940 --> 00:13:38,940
+contaminating that layer with less accurate information. So the second rule of Biba is you can write
+
+137
+00:13:38,940 --> 00:13:46,620
+down, not up. And then the third rule is combining these together, right? That's called the strong
+
+138
+00:13:46,620 --> 00:13:52,940
+star property as well, which means you can only do things at your own layer, nothing higher, nothing
+
+139
+00:13:53,660 --> 00:13:59,580
+lower. Now, there is a third rule or a fourth rule, basically, that is called the invocation
+
+140
+00:13:59,580 --> 00:14:06,940
+property. Invocation properly simply means that you cannot send information to someone that is
+
+141
+00:14:06,940 --> 00:14:13,740
+rated at a higher layer of integrity than you are, because again, you'd be contaminating their
+
+142
+00:14:13,740 --> 00:14:20,220
+knowledge with less accurate information. So it's almost like the ability to write rule that we
+
+143
+00:14:20,220 --> 00:14:27,100
+just described. Now, what you need to remember about the Biba model as well is that he kept the same
+
+144
+00:14:27,100 --> 00:14:35,100
+names that Belapagela came up with. In other words, simple star and strong star, but the difference
+
+145
+00:14:35,100 --> 00:14:42,300
+here is the second word. This is going to help you on the exam. If you look for the second word
+
+146
+00:14:42,300 --> 00:14:49,180
+after the words simple star and strong star, it's going to tell you whether the exam is talking about
+
+147
+00:14:49,180 --> 00:14:55,500
+the Belapagela model or the Biba model. Because if the second word says integrity, for example,
+
+148
+00:14:55,500 --> 00:15:03,820
+simple integrity property or the star integrity property or the strong star integrity property,
+
+149
+00:15:03,820 --> 00:15:09,580
+then obviously they're talking about the Biba model. If it says anything else like the simple
+
+150
+00:15:09,580 --> 00:15:15,740
+security property, then they're talking about the Belapagela model. That's how you distinguish
+
+151
+00:15:15,740 --> 00:15:24,300
+between the two. So that essentially is the Biba model. Now, what if you're an organization
+
+152
+00:15:24,860 --> 00:15:33,900
+where confidentiality and integrity are requirements like most organizations today? So you may want to
+
+153
+00:15:33,900 --> 00:15:41,260
+implement both Belapagela and Biba. But if you look at the rules that they each enforce,
+
+154
+00:15:41,260 --> 00:15:47,020
+you see that they're the opposite of each other. So if you implement both Belapagela and Biba,
+
+155
+00:15:47,020 --> 00:15:52,060
+you'd have models that really cancel each other out, which would mean that nobody would have
+
+156
+00:15:52,060 --> 00:15:58,940
+access to anything, which I suppose would be very secure, but not very practical. And so how do you
+
+157
+00:15:58,940 --> 00:16:05,340
+implement both Belapagela and Biba together? Which obviously are requirements of most organizations
+
+158
+00:16:05,820 --> 00:16:12,460
+today. Well, the way that you do it is called the Lippner implementation, named after this guy
+
+159
+00:16:12,460 --> 00:16:20,140
+called Lippner, who was able to take both Belapagela and Biba and put them together. And it's not
+
+160
+00:16:20,140 --> 00:16:26,940
+really considered to be a model on its own. The Lippner is referred to as a implementation
+
+161
+00:16:26,940 --> 00:16:33,660
+and not a model, but he was able to take both Belapagela and Biba and put them together and
+
+162
+00:16:33,660 --> 00:16:40,060
+actually make them work in an organization. It's called the Lippner implementation of both
+
+163
+00:16:40,060 --> 00:16:50,060
+Belapagela and Biba.
+

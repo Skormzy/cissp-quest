@@ -1,0 +1,94 @@
+start	end	text
+0	19280	To explain cross-site request forgeries, I want to first go through a little example.
+19280	38160	And for this example, to explain cross-site request forgeries, I want to first go through
+38160	39360	a little example.
+39360	42200	And for this example, we need someone who makes too much money.
+42200	43200	John?
+43200	46760	Hey, those Canadian pesos?
+47760	48760	All right.
+48760	51760	So let's imagine John here, who obviously makes too much money.
+51760	53760	He just stands around counting it.
+53760	55760	So I'd like you to imagine a scenario, okay?
+55760	58760	So John is, you know, we're going to imagine in the morning, okay?
+58760	63760	So he's sitting there in the morning, sipping his over-priced latte because he makes too much money, right?
+63760	68760	And he's reading his newspaper that's been ironed for him because, you know, he's got people to do that.
+68760	73760	So when John is going through his morning ritual, he also likes to log into his online banking system.
+73760	75760	Hey, John, who do you bank with?
+75760	76760	That's okay.
+76760	77760	Never mind.
+77760	78760	Don't need to know.
+78760	79760	I know who it is.
+79760	84760	So John likes to log into his online bank and check how much money he has there to sort of roll around virtually,
+84760	86760	like Scrooge McDuck in hell with his money.
+86760	89760	And I'm going to be the baddie here.
+89760	91760	And I'm going to know that John is doing that.
+91760	95760	Okay, so that's the scenario I want you to imagine, okay?
+95760	97760	So here's what's going to happen.
+97760	100760	I'm going to send a request to John.
+100760	102760	I'm going to send to the URL.
+102760	107760	And that URL, and I'm going to somehow trick him into clicking on that URL.
+107760	111760	When he clicks on that URL, it's going to send a request to his online bank,
+111760	116760	requesting fund transfers from his account to my account.
+116760	121760	Now, when John clicks on that link, what's going to happen?
+121760	124760	So if he clicks on that link to transfer funds from his account to my account,
+124760	127760	what's his bank going to do when it receives that request?
+127760	132760	Well, in setting up this scenario, I said very clearly that John was logged in.
+132760	135760	And so when he clicks on that URL, what's his online bank going to do?
+135760	139760	Well, it's going to see a valid request coming from a valid user, John,
+139760	141760	to transfer funds from his account to my account.
+141760	145760	So the server is going to execute that request.
+145760	150760	And all $13 that John has in his account is going to get transferred into my account.
+150760	154760	This is essentially what cross-state request forageories look like.
+154760	156760	So let's walk through the technicalities of here.
+157760	159760	So we have our baddie here.
+159760	162760	Our baddie forages a request for fund transfers.
+162760	166760	So he'd obviously, he or she would obviously have to do a little bit of research here
+166760	170760	to figure out exactly what URL would need to look like to transfer the funds.
+170760	173760	But let's assume our baddie has figured that out.
+173760	176760	They forage this request. They create this URL.
+176760	181760	And then our baddie here sends that URL that hyperlink to our victim here.
+181760	183760	And through social engineering, something like that,
+183760	186760	somehow tricks our victim into clicking on that link.
+186760	190760	And when that user clicks on the link and sends that request to the web server,
+190760	192760	what's the web server do?
+192760	194760	Well, it does exactly what it's designed to do.
+194760	199760	It's receiving a valid request from a valid user, so it executes the requests.
+199760	204760	And some funds are transferred to, say, the baddie's bank account.
+204760	207760	So this is the heart of cross-state request forageory.
+207760	210760	It's that it's a valid request coming from a valid user.
+211760	213760	And this is not actually as hard as you think it is.
+213760	217760	Because of one very interesting little technique that we have
+217760	219760	that we use all the time on the web nowadays.
+219760	222760	You've probably noticed when you log into a lot of websites,
+222760	224760	you'll see that little button that tick-pock that says,
+224760	226760	keep me logged in for two weeks.
+226760	230760	When you do that, what's being stored on your computer system is a cookie.
+230760	233760	So your system, every time you go to that website,
+233760	235760	your system will send that cookie to the web server.
+235760	238760	And the web server will, that cookie contains a unique identifier.
+239760	241760	And so the server knows, aha, that's you.
+241760	244760	And so you don't actually necessarily have to have the user logged in
+244760	248760	right at that exact moment when the baddie here sends this request.
+248760	251760	It can often be hours, days later, after someone has logged in.
+251760	253760	But because of these persistent connections,
+253760	255760	these keep me logged in for two weeks.
+255760	258760	These types of attacks can often be performed much, much later.
+258760	262760	Or the baddie here could first do a cross-site scripting attack
+262760	264760	to obtain the user's cookie.
+264760	266760	Lots of different ways of doing this.
+267760	270760	But here's the key thing that you need to know about cross-site request forgeries.
+270760	272760	Who's the target of attack?
+272760	274760	Ultimately, who is the baddie going after here?
+274760	277760	Is it our user here or is it the web server?
+277760	280760	And ultimately, in cross-site request forgeries,
+280760	283760	the target of attack is the server.
+283760	285760	So here's a quick summary.
+285760	287760	In a module before we talked about cross-site scripting,
+287760	290760	here's a quick summary of the diff key differences between cross-site scripting
+290760	293760	and cross-site request forgeries.
+293760	296760	So cross-site scripting, the major thing you need to remember here,
+296760	302760	the target of attack in cross-site scripting is the user's browser, the client's browser.
+302760	305760	And in cross-site request forgeries,
+305760	308760	the target of attack is not the user, but the server.
+308760	310760	That's a very important difference to remember
+310760	313760	between these two very common types of attacks.

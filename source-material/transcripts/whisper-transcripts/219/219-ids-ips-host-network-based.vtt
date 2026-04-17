@@ -1,0 +1,116 @@
+WEBVTT
+
+00:00.000 --> 00:20.000
+All right, continuing our discussion on intrusion detection systems and intrusion prevention systems.
+
+00:30.000 --> 00:40.000
+All right, continuing our discussion on intrusion detection systems and intrusion prevention systems.
+
+00:40.000 --> 00:48.000
+We've already talked about how they typically work and so on, but we need to talk about the two types that actually exist.
+
+00:48.000 --> 00:54.000
+So as we said earlier, there really is no difference between IDSs and IPSs.
+
+00:54.000 --> 01:02.000
+IPSs really have the ability to not only detect but also prevent, detect and correct all in line.
+
+01:02.000 --> 01:11.000
+But when you look at, for example, the two types, and that's the keyword that we need to focus on here is types of IDSs and IPSs.
+
+01:11.000 --> 01:17.000
+It is, or they are what you see up on your slide here, network-based and host-based.
+
+01:17.000 --> 01:21.000
+And of course, those words tell you exactly the difference or how they work.
+
+01:21.000 --> 01:30.000
+Network-based IDSs slash IPSs will monitor network traffic to make sure that it's okay and not breaking any rules, for example.
+
+01:30.000 --> 01:39.000
+Whereas host-based, what that requires is typically agents that are running on your important hosts like your servers.
+
+01:39.000 --> 01:45.000
+And they can watch for activity at those hosts to make sure that nothing breaks the rules.
+
+01:45.000 --> 01:54.000
+So here, network-based usually requires sensors that are strategically placed across the network to make sure that network traffic is okay.
+
+01:54.000 --> 02:02.000
+Host-based requires agents that can monitor the activity at specific hosts like who is changing system files,
+
+02:02.000 --> 02:05.000
+who is accessing databases and so on.
+
+02:05.000 --> 02:16.000
+And obviously, an organization would want to implement a combination of both to really provide really good detective capabilities from an IDS and IPS perspective.
+
+02:16.000 --> 02:22.000
+The slide that you see here is really giving us a view of how they differ from each other.
+
+02:22.000 --> 02:29.000
+The IDS setup that you see at the top of the slide really is only able to detect, for example.
+
+02:29.000 --> 02:38.000
+But again, it wouldn't make sense for an organization to have a standalone IDS system whose sole purpose is to detect.
+
+02:38.000 --> 02:44.000
+It needs to be able to trigger the corrective capability that needs to happen after that.
+
+02:44.000 --> 02:52.000
+As we've said many times and you should always remember, a complete control is one that can prevent, detect, and correct.
+
+02:52.000 --> 02:59.000
+So if you're using an IDS system, it really needs to be coupled with the preventive control, which is the firewall.
+
+02:59.000 --> 03:04.000
+But then when the IDS detects, it needs to trigger the corrective capability.
+
+03:04.000 --> 03:13.000
+And that's what you see in the bottom representation here, where we've got an IPS system that really has the ability to prevent, detect, and correct
+
+03:13.000 --> 03:26.000
+all in line. And so think of IPS systems as the next evolution of how we implement, for example, IDS capabilities so that ultimately we have prevent, detect, and correct capability.
+
+03:26.000 --> 03:32.000
+Now typical architectures that exist out there for organizations, you know, vary.
+
+03:32.000 --> 03:41.000
+But of course, if you've got different environments like a DMZ, for example, where you have services that are available from the outside internet,
+
+03:41.000 --> 03:45.000
+you need to be able to detect activity that is happening there as well.
+
+03:45.000 --> 03:52.000
+So that's one architecture where you need to have preventive, detective, and corrective capabilities.
+
+03:52.000 --> 04:10.000
+But then if you look at how typical organizations structure their architectures, there may be other points of your network where you obviously need to be able to not only prevent, but also detect, and correct, which is what these capabilities give you here.
+
+04:10.000 --> 04:20.000
+And if you look at, you know, possibly some other legs that your network may have, then obviously we need those capabilities at those connections as well.
+
+04:20.000 --> 04:24.000
+Again, prevent, detect, correct, is what we need.
+
+04:24.000 --> 04:32.000
+Now some of the things that make IDS as an IPS is capable is obviously the ability to, for example, monitor the traffic.
+
+04:32.000 --> 04:42.000
+And that requires you to put, for example, certain devices and technologies in what you see here mirror mode or span mode or promiscuous mode.
+
+04:42.000 --> 04:45.000
+A lot of people will refer to these as promiscuous mode.
+
+04:45.000 --> 05:01.000
+But for example, a network administrator may want to put their network card into promiscuous mode so that it allows broadcasts from everyone and anyone across the network so that they can ultimately do their job, which is monitor the network.
+
+05:01.000 --> 05:12.000
+To properly administer and monitor the network, they would have to accept broadcasts and look at broadcasts, for example, from across the entire network.
+
+05:12.000 --> 05:28.000
+So these are really important concepts to allow, for example, your IDS and IPS systems to be able to monitor all traffic by obviously utilizing mirror mode, span mode, and promiscuous mode as well.
+
+05:28.000 --> 05:40.000
+Music
+

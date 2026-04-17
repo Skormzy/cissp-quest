@@ -1,0 +1,372 @@
+1
+00:00:00,000 --> 00:00:10,000
+Music
+
+2
+00:00:10,000 --> 00:00:20,000
+Music
+
+3
+00:00:20,000 --> 00:00:28,000
+Music
+
+4
+00:00:28,000 --> 00:00:36,000
+Music
+
+5
+00:00:36,000 --> 00:00:38,000
+Single sign on
+
+6
+00:00:38,000 --> 00:00:40,000
+So what's the concept of single sign on?
+
+7
+00:00:40,000 --> 00:00:47,000
+It's this idea that a user can enter one set of credentials and magically get access to a whole bunch of different systems.
+
+8
+00:00:47,000 --> 00:00:49,000
+Here's what it basically looks like.
+
+9
+00:00:49,000 --> 00:00:51,000
+We've got our user system here.
+
+10
+00:00:51,000 --> 00:00:55,000
+They enter their one set of credentials into the authentication server.
+
+11
+00:00:55,000 --> 00:00:59,000
+And then they magically get access to a whole bunch of other systems out there.
+
+12
+00:00:59,000 --> 00:01:01,000
+That's the theory.
+
+13
+00:01:01,000 --> 00:01:03,000
+That's the idea of single sign on.
+
+14
+00:01:03,000 --> 00:01:05,000
+So what are the pros and cons of this?
+
+15
+00:01:05,000 --> 00:01:07,000
+Well, I mean, users love it.
+
+16
+00:01:07,000 --> 00:01:09,000
+They don't have to remember all these different passwords.
+
+17
+00:01:09,000 --> 00:01:15,000
+And so potentially they might remember instead of having to remember 10 crappy passwords,
+
+18
+00:01:15,000 --> 00:01:21,000
+they'll maybe remember one better password, although in my experience that doesn't usually happen.
+
+19
+00:01:21,000 --> 00:01:24,000
+It also allows for centralized administration.
+
+20
+00:01:24,000 --> 00:01:29,000
+If you want to create, modify, someone's account, remove someone's account on a whole bunch of systems.
+
+21
+00:01:29,000 --> 00:01:32,000
+If you're using a single sign on system, it's much easier to do so.
+
+22
+00:01:32,000 --> 00:01:34,000
+What are the downsides, the cons?
+
+23
+00:01:34,000 --> 00:01:40,000
+Well, it's absolutely a single point of failure from both an availability and a compromise perspective.
+
+24
+00:01:40,000 --> 00:01:45,000
+Now let's look at the basics of how any of these single sign on systems work.
+
+25
+00:01:45,000 --> 00:01:50,000
+The basic idea here is that our user wants to get access to the application.
+
+26
+00:01:50,000 --> 00:01:56,000
+In order to get access to the application, they'll have to authenticate which the authentication server.
+
+27
+00:01:56,000 --> 00:02:00,000
+So our user here is going to send a login request to the application.
+
+28
+00:02:00,000 --> 00:02:05,000
+If our user is currently authenticated if they have a valid ticket or token,
+
+29
+00:02:05,000 --> 00:02:07,000
+then they'll probably be let right in.
+
+30
+00:02:07,000 --> 00:02:10,000
+But let's assume that our user doesn't currently have a valid ticket or token.
+
+31
+00:02:10,000 --> 00:02:11,000
+What's going to happen?
+
+32
+00:02:11,000 --> 00:02:14,000
+Well, they'll be redirected back.
+
+33
+00:02:14,000 --> 00:02:17,000
+And then they'll be redirected back to the authentication server.
+
+34
+00:02:18,000 --> 00:02:20,000
+And what will they do with the authentication server?
+
+35
+00:02:20,000 --> 00:02:25,000
+Authenticate through knowledge, ownership, characteristic or some combination thereof.
+
+36
+00:02:25,000 --> 00:02:31,000
+Once they've authenticated with the authentication server, they'll be provided with a ticket or token
+
+37
+00:02:31,000 --> 00:02:34,000
+and redirected back to the application.
+
+38
+00:02:34,000 --> 00:02:39,000
+The application will then read the assertion statements, the contents of that ticket or token,
+
+39
+00:02:39,000 --> 00:02:46,000
+and make an authorization decision as to whether or not that user is able to actually access the application.
+
+40
+00:02:46,000 --> 00:02:51,000
+So that at a basic level is how any of these single sign-on type systems work.
+
+41
+00:02:51,000 --> 00:02:56,000
+So now let's look at one particular technology that enables single sign-on, Kerberos.
+
+42
+00:02:56,000 --> 00:03:02,000
+Kerberos is a pretty old technology, pretty old protocol, and frankly not very good,
+
+43
+00:03:02,000 --> 00:03:07,000
+but it is commonly pervasively used with an organization to enable single sign-on.
+
+44
+00:03:07,000 --> 00:03:11,000
+And the reason it's used so pervasively, even though it's not great, it's built into Microsoft products.
+
+45
+00:03:11,000 --> 00:03:14,000
+It's been used for years, it's just become a standard.
+
+46
+00:03:14,000 --> 00:03:16,000
+And so why is it called Kerberos?
+
+47
+00:03:16,000 --> 00:03:18,000
+There's a fun little bit of history behind this.
+
+48
+00:03:18,000 --> 00:03:24,000
+So in Greek mythology, there's the three-headed dog, Cerberos, guarding the gates to Hades.
+
+49
+00:03:24,000 --> 00:03:32,000
+And so the creators of Kerberos were creating a protocol that would have sort of three major capabilities,
+
+50
+00:03:32,000 --> 00:03:35,000
+accounting, authentication, and auditing.
+
+51
+00:03:35,000 --> 00:03:40,000
+And so they thought of it as a three-headed dog, and so they decided to call it Kerberos.
+
+52
+00:03:41,000 --> 00:03:43,000
+So let's look at how Kerberos works.
+
+53
+00:03:43,000 --> 00:03:47,000
+And if you've ever read about Kerberos in a book to figure out all the various pieces of it,
+
+54
+00:03:47,000 --> 00:03:52,000
+and how ticket-granting tickets, and ticket-granting servers, and KDCs, and anything else fits together,
+
+55
+00:03:52,000 --> 00:03:53,000
+it's a bit of a nightmare.
+
+56
+00:03:53,000 --> 00:04:01,000
+So let me try and make it as simple as possible, and highlight just the most key aspects that you need to know about Kerberos.
+
+57
+00:04:01,000 --> 00:04:08,000
+So first of all, with Kerberos, we have our client here, and we have the service that our client eventually wants to access here.
+
+58
+00:04:08,000 --> 00:04:15,000
+And in order to access that service, the first thing that our user or client here is going to do, in this case, Alice,
+
+59
+00:04:15,000 --> 00:04:20,000
+she's going to go to what's called the authentication service, the AS.
+
+60
+00:04:20,000 --> 00:04:27,000
+And what the AS is going to return back to her is an encrypted ticket-granting ticket, a TGT.
+
+61
+00:04:27,000 --> 00:04:33,000
+Now, this TGT, this ticket-granting ticket, is encrypted with her password, with Alice's password.
+
+62
+00:04:33,000 --> 00:04:38,000
+So what Alice decrypts the ticket-granting ticket with is her password.
+
+63
+00:04:38,000 --> 00:04:46,000
+So now she has a copy of the ticket-granting ticket, and she now makes a request to the ticket-granting service, the TGS.
+
+64
+00:04:46,000 --> 00:04:55,000
+And what she says to the TGS is, here's my ticket-granting ticket, here's my user information, and here's the service that I want access to.
+
+65
+00:04:55,000 --> 00:05:04,000
+And then the TGT-granting service will make a decision, and if it decides that she's going to have access, it will return Alice a service ticket.
+
+66
+00:05:04,000 --> 00:05:13,000
+And it's finally this service ticket that Alice can use to go and access the service that she wants to access.
+
+67
+00:05:13,000 --> 00:05:23,000
+A few important things here. This ticket or token contains some assertion statements, some information, like Alice's username, and some other assertion statements like that.
+
+68
+00:05:23,000 --> 00:05:30,000
+But very importantly, does it contain Alice's password or her other authentication credentials? No.
+
+69
+00:05:30,000 --> 00:05:36,000
+Because you do not want all your different services, your different systems out there, to know Alice's password.
+
+70
+00:05:36,000 --> 00:05:41,000
+The only system we want to know Alice's password is the authentication service.
+
+71
+00:05:41,000 --> 00:05:55,000
+Now there's one more bit of terminology you should know here, and that is that these two pieces, the authentication service and the ticket-granting service, are typically sort of bundled together and called the Key Distribution Center, the KDC.
+
+72
+00:05:55,000 --> 00:05:59,000
+So those are the major pieces of Kerberos that you need to know.
+
+73
+00:05:59,000 --> 00:06:08,000
+Now let's talk about two major issues with Kerberos. The first is that it only supports symmetric cryptography.
+
+74
+00:06:08,000 --> 00:06:18,000
+Now of course, we've talked about the major problem with symmetric cryptography is both Key Distribution and the number of keys that you need grows exponentially.
+
+75
+00:06:18,000 --> 00:06:29,000
+The more systems there are, the environment. So it can be quite difficult to manage the keys in a Kerberos environment because of the fact that only supports symmetric cryptography.
+
+76
+00:06:29,000 --> 00:06:36,000
+The other issue is that it only supports one ticket-granting ticket. Here's why that's an issue.
+
+77
+00:06:36,000 --> 00:06:51,000
+It's a very good practice in security to expire someone's access or force them to reauthenticate at a particular interval depending on the value of the system, the more valuable the system, the more often you want that person to reauthenticate.
+
+78
+00:06:51,000 --> 00:06:59,000
+The same idea applies to Kerberos. So if we want to force a user to reauthenticate, we would expire their ticket.
+
+79
+00:06:59,000 --> 00:07:05,000
+And let's say they have access to 10 different systems, and one of those systems is a really high-value system.
+
+80
+00:07:05,000 --> 00:07:13,000
+So you're going to expire that ticket based on the frequency necessary for the really high-value system, maybe every 10 minutes.
+
+81
+00:07:13,000 --> 00:07:18,000
+But here's the problem. Let's say that our user, even though they have access to the high-value system, they're not using that system.
+
+82
+00:07:18,000 --> 00:07:26,000
+They're over here using the company Wiki or something, which is a super low-value system, and it would probably be fine if they reauthenticated every decade.
+
+83
+00:07:26,000 --> 00:07:36,000
+But the problem is because that ticket-granting ticket is set to expire based on the most valuable system, that ticket-granting ticket is going to be expiring every 10 minutes.
+
+84
+00:07:36,000 --> 00:07:45,000
+And our user here that's accessing this low-value system is being forced to reauthenticate every 10 minutes, very irritating the user, not great.
+
+85
+00:07:45,000 --> 00:07:49,000
+So those are the two major issues that you should know about Kerberos.
+
+86
+00:07:49,000 --> 00:07:59,000
+And there's one other major technology that enables single sign on that you need to know about, and it's called sesame, as in open sesame.
+
+87
+00:07:59,000 --> 00:08:04,000
+Now open sesame addresses the two major issues that we have with Kerberos.
+
+88
+00:08:04,000 --> 00:08:09,000
+It's those Europeans again, they looked at Kerberos, and they said, we can do better.
+
+89
+00:08:09,000 --> 00:08:14,000
+And they created sesame. And it addresses the two major issues with Kerberos.
+
+90
+00:08:14,000 --> 00:08:24,000
+It supports not only symmetric, but also asymmetric keys, and it doesn't issue just one ticket-aid issues, multiple tickets.
+
+91
+00:08:24,000 --> 00:08:32,000
+So you're very likely to get quite a few questions on Kerberos, so know the most about that one, and you might get one question on sesame if any.
+
+92
+00:08:32,000 --> 00:08:37,000
+So those are the two major protocols that enable single sign on.
+
+93
+00:08:44,000 --> 00:08:49,000
+Thank you.
+

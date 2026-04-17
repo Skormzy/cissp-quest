@@ -1,0 +1,876 @@
+1
+00:00:00,000 --> 00:00:17,000
+We've talked about how we can identify ourselves to a system.
+
+2
+00:00:17,000 --> 00:00:20,000
+We've talked about how we authenticate ourselves to a system.
+
+3
+00:00:30,000 --> 00:00:37,000
+We've talked about how we can identify ourselves to a system.
+
+4
+00:00:37,000 --> 00:00:40,000
+We've talked about how we authenticate ourselves to a system
+
+5
+00:00:40,000 --> 00:00:44,000
+through authentication by knowledge, ownership, or characteristic.
+
+6
+00:00:44,000 --> 00:00:47,000
+Now, let's talk about how we authorize.
+
+7
+00:00:47,000 --> 00:00:50,000
+How the system determines what our access will be.
+
+8
+00:00:50,000 --> 00:00:55,000
+There's three major philosophies for authorization.
+
+9
+00:00:55,000 --> 00:00:59,000
+The first is known as discretionary access control.
+
+10
+00:00:59,000 --> 00:01:01,000
+And listen very carefully to this definition.
+
+11
+00:01:01,000 --> 00:01:06,000
+Discretionary access control means that the owner decides
+
+12
+00:01:06,000 --> 00:01:09,000
+who's going to get access to the system.
+
+13
+00:01:09,000 --> 00:01:14,000
+Now, is that a good security practice for the owner decides who should get access?
+
+14
+00:01:14,000 --> 00:01:16,000
+Absolutely.
+
+15
+00:01:16,000 --> 00:01:18,000
+Is that commonly what's done?
+
+16
+00:01:18,000 --> 00:01:20,000
+Unfortunately not.
+
+17
+00:01:20,000 --> 00:01:23,000
+It's very common that it's not the owner that decides who gets access.
+
+18
+00:01:23,000 --> 00:01:28,000
+Instead, it's someone an IT or some other system administrator like that.
+
+19
+00:01:28,000 --> 00:01:30,000
+And they're not the owner of the system.
+
+20
+00:01:30,000 --> 00:01:35,000
+So the perfect definition of discretionary access means the owner decides.
+
+21
+00:01:35,000 --> 00:01:39,000
+And there's three types of discretionary access that you need to know about.
+
+22
+00:01:39,000 --> 00:01:44,000
+There is rule-based, role-based, and attribute-based.
+
+23
+00:01:44,000 --> 00:01:47,000
+And we'll talk through each of those in more detail in a moment.
+
+24
+00:01:47,000 --> 00:01:52,000
+The next access control philosophy is non-disgressionary.
+
+25
+00:01:52,000 --> 00:01:57,000
+So if discretionary means the owner decides what does non-disgressionary mean?
+
+26
+00:01:57,000 --> 00:02:01,000
+Well, it means someone other than the owner decides.
+
+27
+00:02:01,000 --> 00:02:05,000
+And as I mentioned, that's very common in the world today in a lot of organizations,
+
+28
+00:02:05,000 --> 00:02:07,000
+but not a good practice.
+
+29
+00:02:07,000 --> 00:02:11,000
+The final philosophy is what's known as mandatory access control.
+
+30
+00:02:11,000 --> 00:02:15,000
+And this is where the system decides.
+
+31
+00:02:15,000 --> 00:02:17,000
+This is very rarely seen.
+
+32
+00:02:17,000 --> 00:02:21,000
+And we'll talk about it in a few minutes here, but it's very rare to see mandatory access control.
+
+33
+00:02:21,000 --> 00:02:27,000
+The two that you'll see the most out in the real world are discretionary and non-disgressionary.
+
+34
+00:02:27,000 --> 00:02:29,000
+So let's dig into each of these.
+
+35
+00:02:29,000 --> 00:02:34,000
+Now, relating this back to the reference monitor concepts and security kernels,
+
+36
+00:02:34,000 --> 00:02:41,000
+what these authorization steps are all about is determining the rules that get fed into our mediation.
+
+37
+00:02:41,000 --> 00:02:48,000
+And as we talked about in discretionary access, it's the owner that determines these rules.
+
+38
+00:02:48,000 --> 00:02:53,000
+Now, role-based access is where we have this concept of defining roles
+
+39
+00:02:53,000 --> 00:02:58,000
+and then assigning users to those roles, which defines what access they get.
+
+40
+00:02:58,000 --> 00:03:06,000
+And role-based access can be an awesome idea in situations where you've got a ton of users that all share the same role.
+
+41
+00:03:06,000 --> 00:03:07,000
+Think call centers.
+
+42
+00:03:07,000 --> 00:03:09,000
+You might have 500 people in a call center.
+
+43
+00:03:09,000 --> 00:03:11,000
+They all need the same system access.
+
+44
+00:03:11,000 --> 00:03:16,000
+So you define one role, assign all 500 employees to that one role.
+
+45
+00:03:16,000 --> 00:03:21,000
+And then if you need to make changes to their access, you only have to update one role.
+
+46
+00:03:21,000 --> 00:03:23,000
+Makes this very easy.
+
+47
+00:03:23,000 --> 00:03:30,000
+Now, in my experience, it's often challenging to implement role-based access across the entire organization.
+
+48
+00:03:30,000 --> 00:03:37,000
+I've been involved in a number of these implementations, and it's not uncommon to end up with more roles than you have employees,
+
+49
+00:03:37,000 --> 00:03:40,000
+which kind of negates making this whole process more efficient.
+
+50
+00:03:40,000 --> 00:03:45,000
+The other challenge a lot of organizations have is that many systems don't support role-based access, older legacy systems.
+
+51
+00:03:46,000 --> 00:03:48,000
+So role-based access create idea.
+
+52
+00:03:48,000 --> 00:03:50,000
+Not always easy to accomplish.
+
+53
+00:03:50,000 --> 00:03:55,000
+Rule-based access is where a simple set of rules.
+
+54
+00:03:55,000 --> 00:03:58,000
+Often, these are known as accles, access control lists.
+
+55
+00:03:58,000 --> 00:04:03,000
+It's simply a file that says this user has access to this resource or this asset.
+
+56
+00:04:03,000 --> 00:04:06,000
+So rule-based access is simply a set of rules.
+
+57
+00:04:06,000 --> 00:04:09,000
+And those rules are going to be unique to each user.
+
+58
+00:04:09,000 --> 00:04:16,000
+And so if you need to update 10 users access, you'd have to go and update their 10 unique rule sets.
+
+59
+00:04:16,000 --> 00:04:21,000
+Let's talk about an emerging form of access.
+
+60
+00:04:21,000 --> 00:04:23,000
+And it's known as attribute-based access.
+
+61
+00:04:23,000 --> 00:04:27,000
+And to give a bit of context as to why this is really useful and important nowadays,
+
+62
+00:04:27,000 --> 00:04:31,000
+let's talk about where the industry is trending as it comes to access to systems,
+
+63
+00:04:31,000 --> 00:04:35,000
+and what type of systems are being created, and where those systems are hosted.
+
+64
+00:04:35,000 --> 00:04:41,000
+So nowadays, it's very common for most applications to be web-based applications.
+
+65
+00:04:41,000 --> 00:04:45,000
+And for a lot of those applications to be hosted in the cloud,
+
+66
+00:04:45,000 --> 00:04:47,000
+which we call software as a service.
+
+67
+00:04:47,000 --> 00:04:52,000
+Now, if you have an application hosted in the cloud as software as a service,
+
+68
+00:04:52,000 --> 00:04:56,000
+all of the defense and depth controls that you would have used to have had
+
+69
+00:04:56,000 --> 00:04:59,000
+when that application was deep within your corporate resources,
+
+70
+00:04:59,000 --> 00:05:02,000
+or deep within your corporate network, they're gone.
+
+71
+00:05:02,000 --> 00:05:07,000
+You know, it used to be very common that applications were hosted inside a company's own IT infrastructure.
+
+72
+00:05:07,000 --> 00:05:11,000
+And there was multiple layers of defense, firewalls, and all sorts of other controls
+
+73
+00:05:11,000 --> 00:05:16,000
+that would prevent unauthorized users from getting near that secure internal system.
+
+74
+00:05:16,000 --> 00:05:21,000
+But when we host the system in the cloud, who can access this system?
+
+75
+00:05:21,000 --> 00:05:23,000
+Potentially anyone on the internet.
+
+76
+00:05:23,000 --> 00:05:28,000
+And this is where the idea of attribute-based access becomes much more important.
+
+77
+00:05:29,000 --> 00:05:32,000
+Because the idea here is when we put a system out on the internet,
+
+78
+00:05:32,000 --> 00:05:34,000
+all those defense and depth controls are now gone.
+
+79
+00:05:34,000 --> 00:05:36,000
+We don't have those controls in place.
+
+80
+00:05:36,000 --> 00:05:40,000
+And so the access controls, the controls that we use to control access to the application,
+
+81
+00:05:40,000 --> 00:05:43,000
+become much, much more important.
+
+82
+00:05:43,000 --> 00:05:46,000
+And attribute-based access really takes that into account.
+
+83
+00:05:46,000 --> 00:05:51,000
+Because the idea behind attribute-based access is rather than just looking at a simple user name and password
+
+84
+00:05:51,000 --> 00:05:54,000
+to grant someone access, and authorize what they're allowed to access,
+
+85
+00:05:55,000 --> 00:06:00,000
+instead you look at a bunch of attributes such as you could look at the user
+
+86
+00:06:00,000 --> 00:06:04,000
+and specifically what's their identity, what department do they work in,
+
+87
+00:06:04,000 --> 00:06:06,000
+what date and time are they logging in from.
+
+88
+00:06:06,000 --> 00:06:10,000
+You could look at what environment they're logging in from.
+
+89
+00:06:10,000 --> 00:06:14,000
+Are they using, for instance, a Linux system and everyone in the company is being issued
+
+90
+00:06:14,000 --> 00:06:16,000
+Macs or Windows computers.
+
+91
+00:06:16,000 --> 00:06:19,000
+You could look at the operating system they're running.
+
+92
+00:06:19,000 --> 00:06:21,000
+You could look at even at their geographic location.
+
+93
+00:06:21,000 --> 00:06:24,000
+A lot of devices nowadays have GPS on board,
+
+94
+00:06:24,000 --> 00:06:27,000
+so you can see someone's fairly accurate latitude and longitude.
+
+95
+00:06:27,000 --> 00:06:31,000
+And if they're trying to log in from somewhere sketchy like, say, Canada,
+
+96
+00:06:31,000 --> 00:06:33,000
+that's going to look instantly suspicious.
+
+97
+00:06:33,000 --> 00:06:37,000
+You could look at what resources they're wanting to actually access.
+
+98
+00:06:37,000 --> 00:06:39,000
+Is this top-secret documents?
+
+99
+00:06:39,000 --> 00:06:45,000
+Is it, you know, is it an entire database or just a file?
+
+100
+00:06:45,000 --> 00:06:48,000
+And you could even look at what exactly do they want to do?
+
+101
+00:06:48,000 --> 00:06:50,000
+Do they want to read the file?
+
+102
+00:06:50,000 --> 00:06:52,000
+Do they want to download the entire thing?
+
+103
+00:06:52,000 --> 00:06:54,000
+Do they want to modify it?
+
+104
+00:06:54,000 --> 00:06:57,000
+So you can look at all these different attributes and then,
+
+105
+00:06:57,000 --> 00:07:00,000
+based on all this, you can make an authorization decision.
+
+106
+00:07:00,000 --> 00:07:04,000
+And the way that we make these authorization decisions is based on a set of policy,
+
+107
+00:07:04,000 --> 00:07:05,000
+some logic.
+
+108
+00:07:05,000 --> 00:07:08,000
+It's basically a set of rules that we program into our authorization engine
+
+109
+00:07:08,000 --> 00:07:13,000
+so that it then can make a determination as to permit or deny certain actions,
+
+110
+00:07:13,000 --> 00:07:15,000
+looking at all these different attributes.
+
+111
+00:07:15,000 --> 00:07:18,000
+So that's the idea behind attribute-based access.
+
+112
+00:07:18,000 --> 00:07:21,000
+And I'll bet a lot of you have actually seen an example of this recently.
+
+113
+00:07:21,000 --> 00:07:25,000
+Now, these policies that we use to program our authorization engine,
+
+114
+00:07:25,000 --> 00:07:28,000
+the language that we use that we write these policy statements in,
+
+115
+00:07:28,000 --> 00:07:33,000
+is known as XACML, the Extensible Access Control Markup Language.
+
+116
+00:07:33,000 --> 00:07:38,000
+So just remember that as the language that we use to write the policies in,
+
+117
+00:07:38,000 --> 00:07:40,000
+attribute-based access.
+
+118
+00:07:40,000 --> 00:07:44,000
+And you might think attribute-based access is this super rare thing
+
+119
+00:07:44,000 --> 00:07:47,000
+I've never seen before, but I would bet every single one of you have seen it.
+
+120
+00:07:47,000 --> 00:07:49,000
+And here's a perfect example.
+
+121
+00:07:49,000 --> 00:07:53,000
+You've probably logged into a website recently where you had to click a box that said,
+
+122
+00:07:53,000 --> 00:07:54,000
+I'm not a robot.
+
+123
+00:07:54,000 --> 00:07:58,000
+How does clicking a box prove that you're not a robot?
+
+124
+00:07:58,000 --> 00:08:01,000
+Well, what's going on behind the scenes is that Google,
+
+125
+00:08:01,000 --> 00:08:05,000
+who runs this recapture system, is looking at a whole bunch of different attributes
+
+126
+00:08:05,000 --> 00:08:07,000
+when you try and click that box.
+
+127
+00:08:07,000 --> 00:08:10,000
+They're looking at the IP address that you're coming from,
+
+128
+00:08:10,000 --> 00:08:13,000
+the type of system you're on, how many times you've tried to click on that box
+
+129
+00:08:13,000 --> 00:08:14,000
+in the last few minutes.
+
+130
+00:08:14,000 --> 00:08:18,000
+And importantly, they're looking at how you click on that box.
+
+131
+00:08:18,000 --> 00:08:21,000
+If you were a robot, you'd probably go right to the center of the box,
+
+132
+00:08:21,000 --> 00:08:23,000
+click dead center, it'd be very mechanical.
+
+133
+00:08:23,000 --> 00:08:27,000
+If you're a human, you'd probably drunkenly stagger up to the box,
+
+134
+00:08:27,000 --> 00:08:29,000
+barely get the edge of it.
+
+135
+00:08:29,000 --> 00:08:30,000
+It would look very different.
+
+136
+00:08:30,000 --> 00:08:34,000
+And so this whole, I'm not a robot, is looking at all these different attributes
+
+137
+00:08:34,000 --> 00:08:37,000
+to decide whether you're a robot or not.
+
+138
+00:08:37,000 --> 00:08:39,000
+Okay, this next little bit, not an exam,
+
+139
+00:08:39,000 --> 00:08:41,000
+but I think it's a really fun little bit of trivia.
+
+140
+00:08:41,000 --> 00:08:43,000
+That's quite interesting to know.
+
+141
+00:08:43,000 --> 00:08:46,000
+So the system before, I'm not a robot checkbox,
+
+142
+00:08:46,000 --> 00:08:48,000
+used to be this capture system,
+
+143
+00:08:48,000 --> 00:08:52,000
+where you had to type in this horribly scrambled and mangled text.
+
+144
+00:08:52,000 --> 00:08:54,000
+Where did that text come from?
+
+145
+00:08:54,000 --> 00:08:57,000
+For many years, where a lot of that text came from,
+
+146
+00:08:57,000 --> 00:09:00,000
+was from the Google book scanning project.
+
+147
+00:09:00,000 --> 00:09:02,000
+Google had a, and they think they stole or doing it,
+
+148
+00:09:02,000 --> 00:09:06,000
+they had a project where they were trying to scan all the world's old books
+
+149
+00:09:06,000 --> 00:09:09,000
+so that they could put them online and make them searchable.
+
+150
+00:09:09,000 --> 00:09:11,000
+Great idea.
+
+151
+00:09:11,000 --> 00:09:15,000
+The problem was that a lot of these books being very old and kind of rough shape
+
+152
+00:09:15,000 --> 00:09:18,000
+were very difficult for the OCR, the optical character recognition software
+
+153
+00:09:18,000 --> 00:09:20,000
+to actually figure out what the letters were.
+
+154
+00:09:20,000 --> 00:09:23,000
+And so what Google did is they got millions of us all around the world
+
+155
+00:09:23,000 --> 00:09:25,000
+to translate these books for them.
+
+156
+00:09:25,000 --> 00:09:27,000
+They would take these mangled bits of text,
+
+157
+00:09:27,000 --> 00:09:29,000
+they put them in these captures,
+
+158
+00:09:29,000 --> 00:09:31,000
+and then we would type in what we thought the characters were.
+
+159
+00:09:31,000 --> 00:09:34,000
+And if enough of us said, oh yeah, that's a B, or that's a J,
+
+160
+00:09:34,000 --> 00:09:36,000
+then the system would go, okay, yeah, that's the letter,
+
+161
+00:09:36,000 --> 00:09:38,000
+and that's how the recapture system worked.
+
+162
+00:09:38,000 --> 00:09:40,000
+So that's where the letters came from.
+
+163
+00:09:40,000 --> 00:09:42,000
+Where did some of the numbers come from?
+
+164
+00:09:42,000 --> 00:09:46,000
+Well, for a while there, Google was sourcing the numbers
+
+165
+00:09:46,000 --> 00:09:48,000
+from their street view project.
+
+166
+00:09:48,000 --> 00:09:50,000
+Google has been driving cars all around the world,
+
+167
+00:09:50,000 --> 00:09:53,000
+taking pictures of all the world's streets, and capturing house numbers.
+
+168
+00:09:53,000 --> 00:09:56,000
+And they wanted to be able to tie a particular picture of a house
+
+169
+00:09:56,000 --> 00:09:59,000
+to that house number so that when you typed in a address,
+
+170
+00:09:59,000 --> 00:10:01,000
+they could show you the exact house.
+
+171
+00:10:01,000 --> 00:10:04,000
+And in some instances, the pictures captured of the house numbers
+
+172
+00:10:04,000 --> 00:10:06,000
+were tough for the computer system to translate.
+
+173
+00:10:06,000 --> 00:10:08,000
+And so, what do they do?
+
+174
+00:10:08,000 --> 00:10:11,000
+They put those numbers into the recapture system.
+
+175
+00:10:11,000 --> 00:10:16,000
+And millions of us around the world entered what we thought those numbers were,
+
+176
+00:10:16,000 --> 00:10:20,000
+trained Google's system on how to recognize those numbers and those letters.
+
+177
+00:10:20,000 --> 00:10:22,000
+So that's kind of where that came from.
+
+178
+00:10:22,000 --> 00:10:25,000
+Now, one final piece here that's, I think, really cool.
+
+179
+00:10:25,000 --> 00:10:27,000
+In the new, I'm not a robot system.
+
+180
+00:10:27,000 --> 00:10:29,000
+It makes a bit of a risk-based decision.
+
+181
+00:10:29,000 --> 00:10:32,000
+If it's not entirely sure whether you're a robot or not,
+
+182
+00:10:32,000 --> 00:10:34,000
+it'll actually show you a grid of pictures,
+
+183
+00:10:34,000 --> 00:10:36,000
+a three-by-three grid of pictures.
+
+184
+00:10:36,000 --> 00:10:38,000
+And when the system was first put out there,
+
+185
+00:10:38,000 --> 00:10:40,000
+it was usually pictures of kittens and bunnies.
+
+186
+00:10:40,000 --> 00:10:43,000
+And they'd ask you to, like, which of the puppies here or which of the kittens?
+
+187
+00:10:43,000 --> 00:10:47,000
+But now, when you get those grid of pictures, what are most of the pictures?
+
+188
+00:10:47,000 --> 00:10:50,000
+There's street signs, there's school buses, things like that.
+
+189
+00:10:50,000 --> 00:10:52,000
+Because what are you training now?
+
+190
+00:10:52,000 --> 00:10:55,000
+You're training Google's self-driving cars. They're Waymo cars.
+
+191
+00:10:55,000 --> 00:10:59,000
+So, Google's been very good at figuring out how to get all of us around the world
+
+192
+00:10:59,000 --> 00:11:03,000
+to work for free to train their machine learning algorithms.
+
+193
+00:11:03,000 --> 00:11:08,000
+Now, the next type of authorization is mandatory access control.
+
+194
+00:11:08,000 --> 00:11:10,000
+And we have to spend a minute on this one.
+
+195
+00:11:10,000 --> 00:11:12,000
+As I want to explain something important,
+
+196
+00:11:12,000 --> 00:11:16,000
+mandatory access control is very, very rare to see.
+
+197
+00:11:16,000 --> 00:11:17,000
+Here's why.
+
+198
+00:11:17,000 --> 00:11:20,000
+In order to have mandatory access control,
+
+199
+00:11:20,000 --> 00:11:24,000
+every single asset in the organization has to have a classification.
+
+200
+00:11:24,000 --> 00:11:28,000
+And every single user has to have some sort of security clearance.
+
+201
+00:11:28,000 --> 00:11:32,000
+Because the system has to decide who's going to get access to what,
+
+202
+00:11:32,000 --> 00:11:33,000
+based on all this.
+
+203
+00:11:33,000 --> 00:11:38,000
+And it's very rare for organizations to have classified all of their assets
+
+204
+00:11:38,000 --> 00:11:41,000
+and to have security clearance and classified all of their users.
+
+205
+00:11:41,000 --> 00:11:46,000
+So, it's very rare to see mandatory access control outside of US military
+
+206
+00:11:46,000 --> 00:11:48,000
+and other governmental types of organizations.
+
+207
+00:11:48,000 --> 00:11:50,000
+So, I'd warn you on the exam.
+
+208
+00:11:50,000 --> 00:11:54,000
+Mandatory access control is very rarely the right answer.
+
+209
+00:11:54,000 --> 00:11:58,000
+Because you almost never see it in the real world.
+
+210
+00:11:58,000 --> 00:12:02,000
+And an important part that you might see on the exam related to mandatory access control
+
+211
+00:12:02,000 --> 00:12:04,000
+is that it requires labeling.
+
+212
+00:12:04,000 --> 00:12:09,000
+We have to label our data so that the system can decide who gets access to what.
+
+213
+00:12:09,000 --> 00:12:14,000
+The final authorization philosophy is non-discretionary.
+
+214
+00:12:14,000 --> 00:12:17,000
+And non-discretionary means who determines the rules?
+
+215
+00:12:17,000 --> 00:12:19,000
+Not the owner.
+
+216
+00:12:19,000 --> 00:12:21,000
+Someone from IT or something like that.
+
+217
+00:12:21,000 --> 00:12:22,000
+So, there you go.
+
+218
+00:12:22,000 --> 00:12:25,000
+Those are the major access control philosophies.
+
+219
+00:12:25,000 --> 00:12:37,000
+Music
+

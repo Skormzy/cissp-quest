@@ -1,0 +1,389 @@
+WEBVTT
+
+00:00.000 --> 00:19.840
+John has talked about how you should associate hashing with integrity.
+
+00:19.840 --> 00:40.660
+John has talked about how you should associate hashing with integrity. So let's play
+
+00:40.660 --> 00:45.820
+that out. Let's use a scenario here where I want to send an email to my future
+
+00:45.820 --> 00:50.760
+business partner here at Nigel. So I want to send Nigel an email with a contract in place
+
+00:50.760 --> 00:55.400
+because he and I are going to start a business together, horse trading. So I want to send an
+
+00:55.400 --> 01:00.320
+email containing a legal contract and I want to make sure that Nigel receives exactly
+
+01:00.320 --> 01:04.400
+the same contract as what I have sent because it's a business contract. I want to make
+
+01:04.400 --> 01:10.640
+sure that the message has integrity. So I create my message here, my email. I write
+
+01:10.640 --> 01:17.880
+the email and then I hash the email and I attach that hash value to the email. So now
+
+01:17.880 --> 01:24.400
+this email here contains the message of the email and a hash value at the bottom. And
+
+01:24.400 --> 01:31.160
+now I send the message over to Nigel here. He receives the message. Now he wants to make
+
+01:31.160 --> 01:35.880
+sure that the message, the message that he received has integrity. So how is he going
+
+01:35.880 --> 01:42.280
+to do that? Well, he will hash the message that he received and he will compare that
+
+01:42.280 --> 01:47.480
+to the hash value that he's just calculated to the one that I attached to the email. And
+
+01:47.480 --> 01:53.440
+if those hash values match, then he'll know the message has integrity. So this looks
+
+01:53.440 --> 01:59.320
+good, right? We've used hashing to prove the integrity of a message. But there's actually
+
+01:59.320 --> 02:05.360
+a big problem here. And to explain this problem, we need to introduce another actor into our
+
+02:05.360 --> 02:10.400
+little scenario here. Here's the additional character that we need in our little scenario
+
+02:10.400 --> 02:15.760
+here, my malicious munchkin. Here's what's going to happen. We're going to replay the scenario
+
+02:15.760 --> 02:21.920
+over again. I'm going to create an email containing some information that I want to have integrity.
+
+02:21.920 --> 02:26.560
+That I want Nigel here to know has integrity. So I'm going to write the message. I'm going
+
+02:26.560 --> 02:31.880
+to attach the hash value to the message. And I'm going to send that message to Nigel.
+
+02:32.280 --> 02:36.680
+My malicious munchkin here is going to perform a malicious munchkin in the middle attack,
+
+02:36.680 --> 02:41.640
+a man in the middle attack. She's going to catch the ball. She's going to intercept the message.
+
+02:42.680 --> 02:48.920
+Now, she's going to modify the message because does integrity provide, if we've just hashed
+
+02:48.920 --> 02:55.800
+the message, does that provide confidentiality? No, she can read the message. And what she can do
+
+02:55.880 --> 03:02.200
+is she can modify the message. And then she can just remove my hash value, calculate a new hash
+
+03:02.200 --> 03:09.000
+value and send it to Nigel. So that's exactly what she's going to do. She's going to modify the message.
+
+03:09.000 --> 03:14.520
+And then she's going to forward it onto Nigel. Nigel is going to receive the message.
+
+03:15.400 --> 03:20.040
+He's going to hash the message that he received. He's going to compare that to the hash value that's
+
+03:20.040 --> 03:25.480
+attached to the message. And what is he going to find? He's going to find that they match. And so
+
+03:25.480 --> 03:31.480
+Nigel is going to assume that the message has integrity. And this is the really big flaw here.
+
+03:31.480 --> 03:38.040
+This is why you cannot use simply a hash value attached to a message to prove integrity.
+
+03:38.040 --> 03:42.760
+Because any little malicious munchkin here could have intercepted the message in transit.
+
+03:44.040 --> 03:49.560
+Change the message, take it off my hash value and replace it with her own or their own and
+
+03:49.640 --> 03:54.120
+forward on the message. And the receiver has no idea this has happened.
+
+03:55.480 --> 04:01.400
+So this is why we do not simply use a hash value to prove that a message has integrity.
+
+04:01.400 --> 04:07.560
+Instead we use digital signatures. So this is what the section is about. We're going to talk about
+
+04:07.560 --> 04:13.800
+what we can use digital signatures for and how we create them. So let's start with what can we
+
+04:13.800 --> 04:22.360
+use digital signatures for? They provide three services, integrity, authenticity, and non-repediation.
+
+04:23.960 --> 04:28.520
+So using digital signatures we can achieve integrity, authenticity, and non-repediation.
+
+04:28.520 --> 04:33.640
+Let's start by describing how we create a digital signature. It's actually remarkably easy.
+
+04:33.640 --> 04:39.960
+There's only two steps involved. Step one in creating a digital signature is the sender
+
+04:39.960 --> 04:47.080
+hashes the message. When you hash a message it produces a fixed length message digest.
+
+04:49.400 --> 04:54.360
+So that's step one, hash the message. Step two, and listen very carefully here.
+
+04:55.160 --> 05:01.480
+Step two, the sender encrypts the hash value with the sender's private key.
+
+05:02.760 --> 05:06.840
+And that produces a digital signature. That's all a digital signature is.
+
+05:06.840 --> 05:12.840
+It's simply the hash value of the message, the file, encrypted with the sender's private key.
+
+05:13.480 --> 05:18.600
+So how large are digital signatures? They're actually quite small. Because what are we encrypting here?
+
+05:18.600 --> 05:23.640
+We're just encrypting a hash value. And how large your hash value is? Well, we've talked about
+
+05:23.640 --> 05:30.280
+differing hashing algorithms like MD5 and SHA1 and SHA256. They're creating message digest hash
+
+05:30.280 --> 05:39.000
+values between 128 bits, 256 bits, maybe 512 bits at the maximum. So all that we're encrypting
+
+05:39.000 --> 05:45.640
+here is a few hundred bits of data, a really small amount of data. And the encryption process does
+
+05:45.640 --> 05:52.360
+not add much the size. So digital signatures are very, very small. So let's go through a quick
+
+05:52.360 --> 05:57.880
+diagram that shows how this actually works when you have a sender and a receiver and they're
+
+05:57.880 --> 06:04.040
+using a digital signature to send a message. So here we're going to use an Alice and Bob diagram.
+
+06:04.600 --> 06:10.120
+And we're going to start with the message. So here is the message that Alice wants to send to Bob.
+
+06:11.480 --> 06:18.840
+Alice wants to have this message to have integrity, authenticity, and non-repediation. To achieve
+
+06:18.840 --> 06:24.600
+those three services, Alice is going to create her own digital signature. There are two steps
+
+06:24.600 --> 06:31.960
+required to create a digital signature. I'll step one, Alice will hash the message, producing a
+
+06:31.960 --> 06:38.920
+fixed-length message digest. Step two, the sender Alice will encrypt the message digest with her
+
+06:39.560 --> 06:47.080
+private key, producing a digital signature. So that's the only steps that are required to create
+
+06:47.080 --> 06:53.480
+a digital signature. Alice can now attach that digital signature to the message and send it over to
+
+06:53.480 --> 06:59.320
+Bob. Now I want to ask you something and I want you to pay very close attention here.
+
+07:00.280 --> 07:07.480
+In sending this message with a digital signature attached, did we achieve confidentiality? Can anyone
+
+07:07.480 --> 07:16.680
+read this message? Yes, be very, very clear on this. Digital signatures do not provide confidentiality.
+
+07:16.680 --> 07:23.880
+Anyone can read the message. All the digital signatures provide are integrity, authenticity,
+
+07:23.880 --> 07:30.840
+and non-repediation. So to achieve integrity, authenticity, and non-repediation, Bob has to do
+
+07:30.840 --> 07:36.600
+some work with the digital signature. The first thing he has to do is decrypt it because a digital
+
+07:36.600 --> 07:44.200
+signature is ciphertext. So Bob is going to decrypt the digital signature with Alice's public key.
+
+07:44.600 --> 07:50.520
+And when Bob decrypts the digital signature with Alice's public key, he's going to get back the
+
+07:50.520 --> 07:57.400
+hash value that Alice created. And if that digital signature decrypted with Alice's public key,
+
+07:57.400 --> 08:03.080
+who's the only person in the world that could have created that digital signature, Alice with her
+
+08:03.640 --> 08:09.480
+private key. So if that digital signature decrypts with Alice's public key, what that proves is
+
+08:10.040 --> 08:18.200
+authenticity. Bob knows the message came from Alice. Now the next thing Bob needs to do is he wants to
+
+08:18.200 --> 08:23.560
+actually see if there's integrity. So what he has to do is he has to hash the message that
+
+08:23.560 --> 08:29.000
+he received. And he needs to compare the hash value that he's just calculated to the hash value
+
+08:29.000 --> 08:35.000
+that he received in the message from Alice. And if those hash values match, Bob will know that
+
+08:35.000 --> 08:41.560
+the message had integrity. And when you have integrity and authenticity, then you have non-repidiation
+
+08:41.560 --> 08:48.520
+of origin. Alice cannot deny that she sent the message because Bob knows it came from Alice,
+
+08:48.520 --> 08:54.280
+and he knows the message has integrity. So he knows the message came from Alice, and he knows
+
+08:54.280 --> 09:00.120
+the message has not been changed. Therefore, Alice cannot deny non-repidiation of origin that she
+
+09:00.200 --> 09:07.720
+sent the message. So that's how we use digital signatures. Okay, now that we understand digital
+
+09:07.720 --> 09:14.120
+signatures, let's replay the scenario over again. But instead of attaching just a hash value to the
+
+09:14.120 --> 09:21.000
+message, instead I'm going to attach a digital signature. So I'm going to write the message,
+
+09:21.000 --> 09:25.480
+and then I'm going to create a digital signature, only two steps involved. I'm going to hash the
+
+09:26.200 --> 09:30.840
+message, producing a message digest, and then I'm going to encrypt that message digest with my
+
+09:31.560 --> 09:37.480
+private key. And I'm going to attach that digital signature to the message. And then what I'm
+
+09:37.480 --> 09:43.720
+going to do is I'm going to forward that message and send that message over to Nigel. Now my
+
+09:43.720 --> 09:48.680
+malicious munchkin here being the malicious individual that she is is going to continue to be malicious.
+
+09:48.680 --> 09:53.960
+She's going to intercept the message. So she's going to intercept the message.
+
+09:54.760 --> 10:02.040
+And now, can she read the message? Yes, digital signatures do not provide confidentiality.
+
+10:03.000 --> 10:08.040
+So she can read the message. She can even modify the message, but here's the really important
+
+10:08.040 --> 10:14.600
+question. Can she change my digital signature? So she wanted to modify the message and then
+
+10:15.560 --> 10:23.560
+modify the hash value inside of my digital signature. Can she do that? No. Because in order to be
+
+10:23.560 --> 10:31.400
+able to modify a digital signature, she would need my private key. And I never share my private key
+
+10:31.400 --> 10:37.480
+with anyone under any circumstances. And so even though my malicious munchkin here can intercept
+
+10:37.480 --> 10:43.480
+the message, and she can read the message, and she can modify the message, she cannot modify
+
+10:43.560 --> 10:50.200
+my digital signature. So she could modify the message and forward it on to Nigel, but Nigel would
+
+10:50.200 --> 10:55.240
+know because he's not able to modify my digital signature. So when he gets the message, he would
+
+10:55.880 --> 11:00.920
+hash the message, he would decrypt my digital signature, and he would compare the hash value
+
+11:00.920 --> 11:06.200
+in my digital signature to the hash value that he just calculated, and they will be different.
+
+11:06.200 --> 11:10.360
+They won't match. And therefore, he will know the message has been modified.
+
+11:11.160 --> 11:15.560
+So by using digital signatures for preventing my little malicious munchkin here, our attacker
+
+11:16.200 --> 11:21.640
+from modifying the hash value. Now, there's one other scenario you might be thinking about here,
+
+11:21.640 --> 11:28.360
+and that is what if my malicious little munchkin here rather than trying to change my digital signature?
+
+11:28.360 --> 11:33.400
+What if she just stripped off my digital signature and attached her own digital signature?
+
+11:33.400 --> 11:38.920
+So she could modify the message, she could calculate a new hash value, she could then encrypt that
+
+11:38.920 --> 11:44.040
+hash value with her private key, creating her own digital signature, and the hash value in her
+
+11:44.040 --> 11:49.320
+digital signature is going to match the message. So she could do all of that, and then she could
+
+11:49.320 --> 11:55.240
+forward it on to Nigel. But here's the problem with that. As soon as Nigel receives the message,
+
+11:55.240 --> 12:00.360
+he's going to try and decrypt the digital signature attached to it with my public key.
+
+12:01.640 --> 12:06.360
+And if it's a digital signature that's been created by my little malicious munchkin with her
+
+12:06.360 --> 12:13.000
+private key, it is not going to decrypt with my public key. So Nigel, the receiver is going to know
+
+12:13.480 --> 12:17.800
+that this is not my digital signature, he's going to know that this message didn't come from me,
+
+12:17.800 --> 12:23.000
+he's going to know it doesn't have authenticity. So this is how digital signatures solve the problem
+
+12:23.000 --> 12:28.440
+of a man in the middle, a malicious munchkin in the middle, intercepting a message and modifying
+
+12:28.440 --> 12:34.040
+the message and just replacing the hash value. And so remember, digital signatures provide integrity,
+
+12:34.040 --> 12:39.960
+authenticity, and non-repediation. The final piece that we need to cover here is what can we use
+
+12:39.960 --> 12:43.400
+digital signatures for beyond just what we've already talked about with sending a message?
+
+12:44.120 --> 12:48.280
+Well, it can actually be used for all sorts of different things. They can be used for code signing,
+
+12:48.280 --> 12:52.360
+like we talked about earlier, so that you can know who some code came from, and that that code
+
+12:52.360 --> 12:58.840
+hadn't been modified and trans it. You can even use them for signing documents. There's
+
+12:59.080 --> 13:05.400
+many countries jurisdictions in the world that actually have laws on the books that allow you to
+
+13:05.400 --> 13:11.720
+use digital signatures to sign legal documents. And in fact, a digital signature is a lot more
+
+13:11.720 --> 13:17.880
+trustworthy than an actual signature, because a digital like an actual signature is not impossible to
+
+13:17.880 --> 13:25.240
+forge, but to forge a digital signature. What would you need? He would need the sender's private key.
+
+13:25.240 --> 13:28.600
+And as long as they've done a very good job of protecting that private key,
+
+13:28.600 --> 13:41.160
+it's basically impossible to forge a digital signature. So that's digital signatures.
+

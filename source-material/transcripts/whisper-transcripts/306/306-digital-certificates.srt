@@ -1,0 +1,372 @@
+1
+00:00:00,000 --> 00:00:18,320
+We've talked about how if you want to send a message and you want that message to have
+
+2
+00:00:18,320 --> 00:00:37,840
+integrity authenticity. We've talked about how if you want to send a message and you want that
+
+3
+00:00:37,840 --> 00:00:42,960
+message to have integrity authenticity and underpidiation that you should attach a digital signature
+
+4
+00:00:42,960 --> 00:00:50,640
+to the message and then you can send that message on to the receiver Nigel here and Nigel will if
+
+5
+00:00:50,640 --> 00:00:56,400
+you recall that digital signature is encrypted with my private key so Nigel needs to decrypt the
+
+6
+00:00:56,400 --> 00:01:03,280
+message with my public key but there's something we glossed over there and that is how does Nigel
+
+7
+00:01:03,280 --> 00:01:10,480
+have a copy of my public key and how do I have a copy of his public key so we need to talk about
+
+8
+00:01:10,480 --> 00:01:16,000
+a step that precedes sending our first message back and forth and that is that we need to exchange
+
+9
+00:01:16,000 --> 00:01:24,480
+our public keys so here's my public key Nigel needs to have a copy of my public key so I send him
+
+10
+00:01:24,480 --> 00:01:30,320
+a copy and he does the same he stores it and he does the same thing in reverse he sends me a copy
+
+11
+00:01:30,320 --> 00:01:38,080
+of his public key good okay excellent we now have a copy of each other's public keys and now I
+
+12
+00:01:38,080 --> 00:01:43,200
+create my message hash my message encrypt the hash value with my private key creating a
+
+13
+00:01:43,200 --> 00:01:48,640
+digital signature and I send that message over to Nigel and everything looks perfect here because
+
+14
+00:01:48,640 --> 00:01:55,680
+he decrypts my digital signature using the public key that he got for me and it proves authenticity
+
+15
+00:01:55,680 --> 00:02:01,360
+integrity and underpidiation everything looks perfect here right but there's a big flaw here
+
+16
+00:02:02,080 --> 00:02:10,400
+and the flaw is in the exchange of our public keys so let's replay the scenario again okay so here's
+
+17
+00:02:10,400 --> 00:02:18,320
+the fundamental problem when I send my public key to Nigel here my my main list just a little
+
+18
+00:02:18,320 --> 00:02:24,880
+munchkin is going to intercept that public key and instead of forwarding my public key onto Nigel
+
+19
+00:02:24,880 --> 00:02:30,880
+she's going to forward on her public key and so what Nigel in fact ends up with is not a copy of my
+
+20
+00:02:30,880 --> 00:02:39,840
+public key but our attackers our malicious munchkins public key so I roll my I send my key over to
+
+21
+00:02:39,840 --> 00:02:48,080
+Nigel what he receives is a copy of our malicious munchkins our attackers public key and the same
+
+22
+00:02:48,080 --> 00:02:54,160
+thing in reverse Nigel was sending me a copy of his public key but instead of sending receiving his
+
+23
+00:02:54,160 --> 00:03:02,240
+public key I get a copy of the malicious munchkins public key and so now both of us have our malicious
+
+24
+00:03:02,240 --> 00:03:08,480
+munchkins public key and we think I think I have Nigel's public key he thinks he has my public key
+
+25
+00:03:08,480 --> 00:03:14,560
+but what do we in fact have the malicious munchkins public key and here's the really good question
+
+26
+00:03:14,560 --> 00:03:19,760
+and I want you to think carefully about this do we know it is there any way that I can tell that
+
+27
+00:03:19,760 --> 00:03:25,520
+this is the malicious munchkins public key and not Nigel's public key and is there any way that he
+
+28
+00:03:25,520 --> 00:03:32,960
+can tell that he has the malicious munchkins public key and not my public key and the answer is there's
+
+29
+00:03:32,960 --> 00:03:40,400
+no way to tell and the reason being is that fundamentally what is a public key it's a number it's
+
+30
+00:03:40,400 --> 00:03:46,080
+a string of ones and zeros that's it that's all that a public key is and so if I have a string of
+
+31
+00:03:46,080 --> 00:03:51,120
+numbers I have no idea if that string of numbers belongs to the malicious munchkin or if it belongs
+
+32
+00:03:51,120 --> 00:03:57,760
+to Nigel and same thing for him and this is the really big problem that we have and that is how do
+
+33
+00:03:57,760 --> 00:04:05,600
+we verify the owner of a public key how do we know who a public key actually belongs to and the
+
+34
+00:04:05,600 --> 00:04:11,440
+solution to this problem is digital certificates so how do we go about getting a digital certificate
+
+35
+00:04:11,440 --> 00:04:16,480
+let's go back to Alice here let's say it's Alice that wants to create her own digital certificate
+
+36
+00:04:17,120 --> 00:04:22,160
+here's what Alice will do Alice will provide a little bit of information on herself
+
+37
+00:04:22,160 --> 00:04:30,400
+and a pot a copy of her public key and she will send this information to a certificate authority
+
+38
+00:04:30,400 --> 00:04:34,880
+you've probably heard of C.A.'s before what are some of the big well-known C.A.'s things like
+
+39
+00:04:34,880 --> 00:04:40,160
+Commodo, GoDaddy and Trust that's the best one in the world they're Canadian there's all these
+
+40
+00:04:40,160 --> 00:04:45,680
+different public C.A.'s and so what Alice is going to do is she's going to go to one of these big
+
+41
+00:04:45,680 --> 00:04:50,800
+public C.A.'s and she's going to provide that C.A. with a copy of her public key and a little bit
+
+42
+00:04:50,800 --> 00:04:56,640
+of information on herself including her name now the first thing that's going to happen is when
+
+43
+00:04:56,640 --> 00:05:02,640
+she sends this information to the certificate authority the C.A. is first going to identity
+
+44
+00:05:02,640 --> 00:05:07,280
+proofer his C.A.'s going to make sure if she says her name is Alice that she is in fact actually
+
+45
+00:05:07,360 --> 00:05:13,760
+Alice and not say our malicious munchkin so the first step our C.A. does is identity proofing
+
+46
+00:05:14,640 --> 00:05:20,080
+and then assuming that it's actually Alice that's providing her public key the certificate
+
+47
+00:05:20,080 --> 00:05:24,880
+authority will encrypt the information that Alice provided and that was a little bit of information
+
+48
+00:05:24,880 --> 00:05:31,840
+on herself and a copy of her public key and the certificate authority will encrypt this information
+
+49
+00:05:31,920 --> 00:05:39,920
+with the C.A.'s private key and that's it that's all that's required to create a digital certificate
+
+50
+00:05:39,920 --> 00:05:44,560
+it's simply the name of the owner and a little bit of information about them and a copy of the
+
+51
+00:05:44,560 --> 00:05:52,320
+owners public key all of that encrypted with the C.A.'s private key and that creates a digital
+
+52
+00:05:52,320 --> 00:05:59,280
+certificate and so a digital certificate is just a bit of a cipher text encrypted with the C.A.'s
+
+53
+00:05:59,280 --> 00:06:06,320
+private key so who can decrypt a digital certificate anyone that has the C.A.'s
+
+54
+00:06:06,960 --> 00:06:12,880
+public key and who has the big C.A.'s public key like who has come out or go daddy or
+
+55
+00:06:12,880 --> 00:06:19,680
+and trusts public key the answer is everyone has them how does everyone have them well these
+
+56
+00:06:19,680 --> 00:06:25,040
+big C.A.'s public keys their digital certificates come pre-installed in things like our browsers
+
+57
+00:06:25,040 --> 00:06:30,480
+and our operating systems and so you can assume that everyone has the big C.A.'s public keys
+
+58
+00:06:30,480 --> 00:06:35,920
+and therefore anyone can decrypt a digital certificate that comes from one of the big C.A.'s
+
+59
+00:06:37,360 --> 00:06:40,320
+so let's replay the scenario one final time
+
+60
+00:06:43,200 --> 00:06:48,800
+we start the scenario with sending each other our public keys but you never listen very carefully
+
+61
+00:06:48,880 --> 00:06:55,280
+here you never ever send someone a copy of your public key because anyone could intercept and
+
+62
+00:06:55,280 --> 00:07:02,000
+replace that public key and transit instead what you send someone is a copy of your digital certificate
+
+63
+00:07:02,000 --> 00:07:07,680
+so here's my digital certificate I am going to send my digital certificate over to Nigel
+
+64
+00:07:10,880 --> 00:07:16,240
+now our malicious munchkin is going to continue to be the malicious little munchkin that she is
+
+65
+00:07:16,240 --> 00:07:22,240
+she is going to intercept that digital certificate in transit can she decrypt the digital certificate
+
+66
+00:07:22,800 --> 00:07:30,480
+yes anyone can decrypt it so she can decrypt my digital certificate but can she replace my
+
+67
+00:07:30,480 --> 00:07:37,200
+public key inside the digital certificate with her own public key and the answer is most definitely
+
+68
+00:07:37,200 --> 00:07:42,880
+no there is no way that she can modify my digital certificate there's no way that she can remove
+
+69
+00:07:42,880 --> 00:07:48,400
+my public key and replace it with her public key because in order to modify or create a new digital
+
+70
+00:07:48,400 --> 00:07:55,520
+certificate she would need a copy of the C.A.'s private key and you can bet the C.A. does a very very
+
+71
+00:07:55,520 --> 00:08:02,000
+good job of protecting their private key and the same thing when Nigel sends his digital certificate
+
+72
+00:08:02,000 --> 00:08:07,120
+over to me our malicious munchkin here is going to intercept his digital certificate but she can't
+
+73
+00:08:07,120 --> 00:08:14,160
+modify it what if she were to send because what she did in the last scenario is she forwarded us
+
+74
+00:08:14,160 --> 00:08:20,400
+not our own public keys but her own and so instead of forwarding on my digital certificate to
+
+75
+00:08:20,400 --> 00:08:25,840
+Nigel what if she forwarded on her digital certificate and the same thing in the other direction
+
+76
+00:08:25,840 --> 00:08:31,840
+what if she forwarded on instead of Nigel's digital certificate to me she forwards on her own
+
+77
+00:08:31,920 --> 00:08:36,720
+digital certificate would Nigel and I know because when we just exchanged public keys
+
+78
+00:08:36,720 --> 00:08:43,280
+there was no way for us to know this but remember what does the digital certificate contain
+
+79
+00:08:43,280 --> 00:08:52,240
+it contains the owner it contains the public key and the name of the owner of the public key
+
+80
+00:08:52,240 --> 00:08:57,120
+and so the first thing that's going to happen is that when Nigel and I decrypt the digital
+
+81
+00:08:57,120 --> 00:09:01,520
+certificates that came from our malicious munchkin here what we're going to find is that instead of
+
+82
+00:09:01,520 --> 00:09:06,000
+saying you know instead of Nigel's digital certificate saying this belongs to Nigel it's going to
+
+83
+00:09:06,000 --> 00:09:12,080
+say it belongs to the malicious munchkin and when Nigel there decrypts my digital certificate he's
+
+84
+00:09:12,080 --> 00:09:16,960
+going to find that instead of it's saying it belongs to Robert belongs to the malicious munchkin
+
+85
+00:09:17,840 --> 00:09:24,080
+so digital certificates are the way that we solve this problem of mad in the middle attacks and
+
+86
+00:09:24,800 --> 00:09:30,960
+forging or replacing public keys digital certificates are how we bind an owner to their
+
+87
+00:09:30,960 --> 00:09:37,200
+public key so you know who a public key actually belongs to now one final piece that we need to cover
+
+88
+00:09:37,200 --> 00:09:41,360
+here and that is that there are lots of different certificate authorities around the world
+
+89
+00:09:42,000 --> 00:09:47,520
+and we want this whole system to be interoperable so that all of our different browsers all of our
+
+90
+00:09:47,520 --> 00:09:52,960
+different systems we can all use digital certificates from different sources and the way that we make
+
+91
+00:09:52,960 --> 00:09:58,400
+this whole system interoperable is we use standards and the standard by which we create digital
+
+92
+00:09:58,400 --> 00:10:05,600
+certificates is x 509 so just remember that the standard that we use to create digital certificates
+
+93
+00:10:05,600 --> 00:10:22,240
+so they're all created they all fall the same format is x 509
+

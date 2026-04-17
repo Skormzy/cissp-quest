@@ -1,0 +1,146 @@
+WEBVTT
+
+00:00.000 --> 00:20.000
+Let's talk about one of my favorite subjects. Fire!
+
+00:30.000 --> 00:40.000
+Let's talk about one of my favorite subjects. Fire!
+
+00:40.000 --> 00:45.000
+Now, it's good to think about fire from a physical security perspective as a risk.
+
+00:45.000 --> 00:50.000
+And with any risk, the deal, the way that we want to deal with that risk is by putting in place
+
+00:50.000 --> 00:54.000
+and mitigating controls, specifically a complete control.
+
+00:54.000 --> 00:59.000
+And a complete control, of course, is a combination of preventive, detective, and corrective.
+
+00:59.000 --> 01:06.000
+So, how do we prevent a fire? Well, the best way to prevent fire is to not have any combustible materials,
+
+01:06.000 --> 01:12.000
+anything that will burn. And so, for example, in a data center, if you're bringing in new servers,
+
+01:12.000 --> 01:15.000
+you want to make sure that you unpack the servers on the loading dock.
+
+01:15.000 --> 01:20.000
+We've all a very combustible cardboard on the loading dock. And what are you bringing to the server room?
+
+01:20.000 --> 01:25.000
+Just the bare metal servers. So this is a perfect example of how we try and prevent fire.
+
+01:25.000 --> 01:30.000
+Don't have any combustible materials. Now, preventive, detective, and corrective.
+
+01:30.000 --> 01:36.000
+If we do have a fire, the very first thing we want to be able to do is quickly as possible is detect the fire.
+
+01:36.000 --> 01:38.000
+And that's what we're going to talk about in this module.
+
+01:38.000 --> 01:44.000
+And then the final thing, if we have detective fire, is quickly as possible we want to try and correct a fire.
+
+01:44.000 --> 01:49.000
+And in the next module, we'll talk about different types of fire, correction, or fire suppression systems.
+
+01:49.000 --> 01:56.000
+So let's talk about methods we can use to detect a fire. There's three major methods that we can use.
+
+01:56.000 --> 02:04.000
+We can use what are known as flame detectors. These are basically video cameras that look for infrared or UV light.
+
+02:04.000 --> 02:08.000
+And so they can see the flames that are looking up from a fire.
+
+02:08.000 --> 02:13.000
+But we want to try and detect a fire as early as possible. And if you're at the point where you've got big,
+
+02:13.000 --> 02:20.000
+licking flames like behind me here, that's not a very good way to detect a fire as early as possible.
+
+02:20.000 --> 02:24.000
+The next method that we can use are what are known as heat detectors.
+
+02:24.000 --> 02:28.000
+And heat detectors are just like they sound like they're basically temperature sensors.
+
+02:28.000 --> 02:34.000
+And they look for a rapid rise in temperature. And so you'd have these heat sensors spread around your facility.
+
+02:34.000 --> 02:40.000
+And if one or two of them detect a rapid rise in temperature, that's a pretty good indication that you have a fire.
+
+02:40.000 --> 02:45.000
+But again, if you're at the point where the temperature is spiking, the fire is pretty far along.
+
+02:45.000 --> 02:50.000
+So heat detectors are not necessarily the best way to detect a fire as early as possible.
+
+02:50.000 --> 02:58.000
+And that leads us to the last and probably most important method to detect a fire as early as possible. And that's smoke detectors.
+
+02:58.000 --> 03:01.000
+And there's a number of different types of smoke detectors we're going to talk about here.
+
+03:01.000 --> 03:05.000
+Let's start with what are known as ionization sensors.
+
+03:05.000 --> 03:13.000
+Ionization sensors, the way they work, it's actually quite cool. They have a small amount of radioactive material inside the smoke detector.
+
+03:13.000 --> 03:18.000
+And it actually ionizes particles. And these particles flow between two metal plates.
+
+03:18.000 --> 03:26.000
+And what happens if smoke particles enter this little chamber, the smoke particles will actually disrupt the flow of ionized particles.
+
+03:26.000 --> 03:31.000
+And therefore allow you to detect fire. So that's ionization sensors.
+
+03:31.000 --> 03:35.000
+The next most common are what are known as photoelectric.
+
+03:35.000 --> 03:42.000
+And again, this is kind of neat how this works. So in a photoelectric sensor, you have a light source and a sensor.
+
+03:42.000 --> 03:46.000
+And the light source is pointed a little off angle. So it's not pointed right at the sensor.
+
+03:46.000 --> 03:55.000
+And what happens is if smoke particles pass through the sensing chamber, the smoke particles will actually cause the light to reflect into the sensing area.
+
+03:55.000 --> 04:05.000
+And so if the sensor suddenly picks up that light's being reflected into the sensor, that's an indication that smoke particles are passing through the sensor and you have a fire.
+
+04:05.000 --> 04:11.000
+Now, most of the sensors that we use nowadays in homes and most common business ones are what are known as dual sensors.
+
+04:11.000 --> 04:17.000
+And just as name implies, they're a combination of both ionization and photoelectric.
+
+04:17.000 --> 04:21.000
+And there's one final type of smoke detection system that you should know about.
+
+04:21.000 --> 04:30.000
+And this is the most sensitive type of system. And it's very aptly named. It's called the Vesda system, which stands for very early smoke detection apparatus.
+
+04:30.000 --> 04:36.000
+So just as the name implies, these systems are really good at detecting a fire as early as possible.
+
+04:36.000 --> 04:42.000
+But these systems are not commonly seen because they're very, very sensitive and they're very expensive.
+
+04:42.000 --> 04:47.000
+So where you tend to see Vesda systems are in places like data centers and museums.
+
+04:47.000 --> 04:52.000
+But if you ever get a question asking you, what is the best way to detect a fire as early as possible?
+
+04:52.000 --> 04:58.000
+It's smoke detectors, look first for smoke detectors and the best type of smoke detector, Vesda.
+

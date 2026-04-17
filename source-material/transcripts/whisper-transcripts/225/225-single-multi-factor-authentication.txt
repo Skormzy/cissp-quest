@@ -1,0 +1,46 @@
+We've talked about the three factors of authentication, authentication by knowledge, ownership,
+and
+We've talked about the three factors of authentication, authentication by knowledge, ownership, and characteristic.
+We can use these different factors, alone or in combination, to achieve what is often
+referred to as single or multifactor authentication.
+Let's start with single factor authentication.
+What does that mean?
+Well, at the most basic level,
+single factor authentication simply means
+that we use one of those three factors of authentication.
+So it's simply authentication by knowledge
+or authentication by ownership
+or authentication by characteristic by themselves.
+So if I were to ask you this question,
+a user logs into a system using an RSA ID token.
+What is that?
+Is that multifactor or is that single factor?
+And the answer of course is that it's
+single factor authentication
+because the only factor of authentication
+they used by just using an RSA ID key
+is authentication by ownership.
+Now, what about multifactor authentication?
+You've undoubtedly heard this term.
+It gets thrown around all of the place.
+What is the true and perfect definition
+of multifactor authentication?
+The perfect definition is that multifactor authentication
+is two or more different factors of authentication.
+And so a key to my bank is a perfect example of this.
+Just recently, they rolled out
+this whole multifactor authentication initiative
+and they were very proud of themselves
+that they now had MFA multifactor authentication.
+And what you had to do, what you have to do now,
+to log in with MFA is you have to provide first your password
+and then answer a security question.
+And is that multifactor authentication?
+Well, it's authentication by knowledge
+and then authentication by knowledge.
+Two factors, but they're the same factors.
+So that is not truly multifactor authentication.
+So that's the difference between single factor
+and multifactor authentication.
+So that means that you're not 100% integrated.
+That's what you needed.

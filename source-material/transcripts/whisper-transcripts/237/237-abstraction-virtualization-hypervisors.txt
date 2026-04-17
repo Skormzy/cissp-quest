@@ -1,0 +1,36 @@
+Let's talk about a concept that we use everywhere in computing and security, and that is the concept of abstraction.
+Let's talk about a concept that we use everywhere in computing and security, and that is the concept of abstraction.
+Abstraction is this idea that you hide the underlying complexity or detail of a system.
+Let's look at an example first of this before we get into the details of where we use abstraction.
+Think about driving a car. When you get into a car, you just turn the key, hit the go pedal, and off you go.
+Maybe you steer a little bit, don't bother with the brake pedal.
+But there's a ton of abstraction that's going on underneath that. If you think about it, you don't have to understand the vast majority of what makes a car actually go.
+You don't have to think about valve timing, you don't have to think about fuel pressures, you don't have to think about any of these sorts of things.
+You're just steering and driving. All the underlying complexity that makes that vehicle actually run is abstracted away.
+We just have this simplified interface of two pedals and a steering wheel to control all of these massive underlying complexity.
+This is a concept we use everywhere in computing. It's really helpful.
+Think about it. If you're driving, if you had to be constantly worrying about what's the exact valve timing I should use for going up a hill versus around a corner and exactly what should the fuel pressure be and rate and so forth,
+it would distract you from the higher level task you want to be performing, which is actually driving the car, making you go in the right direction, obeying traffic lights and so forth.
+We use this concept in computing all the time. We abstract away the complexity of underlying systems, which allows us to then focus on higher level things.
+Another great example of this is programming languages. If you think about what does a CPU actually understand from a programming language perspective?
+CPUs understand machine code, which is simply ones and zeros. If someone were to hand you a program that was a million ones and zeros, as a human you would have no idea how that actually worked and what it did.
+Humans do not program in machine language. The first example of abstraction that we used within programming language was moved up to say assembly and we've had multiple layers of abstraction since then.
+So let's look at an example of where we use abstraction all the time in computing and it's something you'll likely come across on the exam and that is the concept of a hypervisor.
+So what is a hypervisor? Let's spend a moment on this. It's an important concept to understand.
+So you have an underlying computer system hardware. You've got a CPU, you've got RAM, you've got a hard drive. This is the components of the server.
+And you can install an operating system that is then meant to control all the underlying hardware like Windows or Unix or Linux.
+Now operating systems are inherently selfish. They expect to have complete and total control of all of the underlying hardware because that's their job.
+So what would happen if you were to try and run two operating systems simultaneously on the same piece of hardware?
+If you were to try and install, say Windows and Unix and get them to run at the same time on the same hardware.
+Well, what would happen is they would absolutely conflict with each other. They would both be expecting to have complete control of the hardware and so it would never work. The system would never boot.
+So it is impossible to run two operating systems simultaneously on the same piece of hardware and yet that's what we do all the time.
+We call this, for instance, a virtual machine. A virtual machine is an operating system that then runs on top of a piece of hardware and you can run multiple virtual machines simultaneously on the same piece of underlying hardware.
+How do we achieve this? Well, we implement a layer of abstraction between the operating system and the underlying hardware. And that layer of abstraction, that software that's in between, we call it the hypervisor.
+What the hypervisors do is they are giant liars. What they essentially do is to each and every operating system, every virtual machine that's running on top of the hypervisor.
+The hypervisor lies to the operating system and says, oh yeah, operating system one, you're number one, you're the best, you're in total and complete control.
+And then what's it say to operating system number two? The M number two, it says, you're number one, you're total and complete control.
+It's lying to each of these operating systems. It's virtualizing, creating virtual components, virtual CPU, virtual RAM, virtual hard drives, and the operating system is just controlling these virtual components.
+And the hypervisor is then translating any requests down to the actual hardware. So it's creating a layer of abstraction.
+And we use these hypervisors all the time in computing nowadays and not only do they allow us to run multiple virtual machines, but that hypervisor can see exactly what those virtual machines are doing.
+And so that allows us to have some control and to be able to monitor what those VMs are doing. So watch out for some wording on the exam around this.
+A hypervisor is also sometimes referred to as a virtual monitor. So watch out for wording like that and you'll likely see questions on hypervisors. And hopefully now you understand the concept.

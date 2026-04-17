@@ -1,0 +1,70 @@
+IEP sec, one of the most commonly used protocols for VPNs, so John, I've heard about
+these security. IEP sec, one of the most commonly used protocols for VPNs, so John, I've heard about
+these security associations in IEP sec, what's that all about? Well, first IEP sec, really important
+for them to understand, not only because it's a tunneling protocol, it provides security,
+it can be used as VPNs, but it's also built into IP version 6, and that's why, you know, there may be
+a lot of questions on the exam that reflect on this, but yeah, security associations. That's how we,
+because remember, this IP sec is something that operates at the network layer, and in fact,
+it is IP that uses it, that's why it's called IP sec, but devices that operate at the network
+layer, like routers, will use what are called security associations to connect to other devices
+and other things. They're simplex, right, which means they only run in one direction. Correct,
+so these security associations are what we call one-way simplex connections, so if you and I want
+to talk to each other, how many connections do we need? Well, or a security association. If you want
+to be able to talk to me as well, we need one from me to you, one from you to me, that's what simplex
+means, it's like radio, right? Radio can only be received by your radio or the signals, it's one
+way, that's what simplex means, so yeah, later we're going to talk about why there are four
+required, but we need to get you to talk about something else before we get to that, but that's
+what a security association is, it's simply a connection between devices and they are one-way
+simplex connections, but here's why we need to keep track of these, because as a device that
+operates at the network layer, I could be connected to you, but I can also be connected to other
+devices at the same time, and so I don't need to keep track of those. Yeah, that's right,
+that's why we need to keep track of some of these attributes that you see up on the screen here,
+that's what security associations are. Okay, so now IPsec allows you to create a VPN, and obviously
+you're supposed to send traffic data back very quickly, so that means you need to encrypt the data
+very quickly, so that means we have to use symmetric cryptography, and now we have the problem of
+key distribution, so how does IPsec solve that? Our students know exactly that, because we've
+talked about that. The only type of cryptography that we can use in order to do things across
+networks, because it's the only thing that's fast enough is symmetric, as Rob just said, and that
+means we have to have the same key at both ends, and so I think we went through the Diffie Helmand
+Key Exchange Protocol. Remember that, that mathematical magic that allows two different locations
+to come up with the same secret, which can be used as keys, session keys to encrypt and decrypt,
+so you may get a question that says, what's the key management protocol that IPsec uses?
+Yeah, because it's not Diffie Helmand, right, so what is it? It's a version of Diffie Helmand,
+everything is a version of Diffie Helmand, but in this case it's called IKE Internet Key Exchange,
+it's just different math in Diffie Helmand, but it does the same thing. Yes, so remember that,
+that's pretty important to understand. Now, next slide talks about the two modes, but these
+really refer to the two services that IPsec can provide. Yeah, because it's a complicated protocol,
+you've got a ton of options, it's the way you can do, and the first two options you have are
+whether you want to run at an age authentication header or ESP encapsulating security payload.
+So what's the difference? Authentication header just provides integrity, data origin,
+and replay protection. So it's basically just integrity, and not one important thing.
+Well, encryption. Encryption. Right. And that's what ESP provides. It's everything that
+age provides, plus encryption. Sure. And we said that IPsec really provides two distinct
+security capabilities, authentication, and encryption. That's what these two sub protocols really
+provide. And yeah, I think you need to tell us what the next two things are here, the two modes.
+It gets even more complicated. Yeah, because then you can run it in transport mode or tunnel mode,
+and you'll recall John having talked about tunneling, tunneling means that you take a datagram,
+and you put it within the datapart of another datagram, which means essentially that you add a new
+header. And so that's the difference between these two modes. In transport mode, you don't do any
+tunneling. You just reuse the original header. But in tunnel mode, you actually tunnel the
+packets. You add a new header. Perfect. And so I think this next slide here, while looking a little
+bit complicated, kind of shows how this all fits together. So we can first of all run in authentication
+header mode, and then you can run authentication header mode in either transport mode or tunnel mode.
+So when you're running in transport mode, you're just reusing your original header. You're adding
+the authentication header. That's the AHP's, and you've got your data. And then in tunnel mode,
+you're adding that new header. And then when you go into ESP, looks exactly the same, except the
+big difference here is that you are encrypting the actual data. And so it's only running in ESP
+mode. It's a VPN, right? Correct. Well, because a VPN by definition is tunneling plus encryption.
+That was for you. It was a reminder. Yep. And so let's give people a good way to remember this,
+because there's really four different ways that you can use this, correct? And so,
+is there an easy way for them to understand this? Like authentication header transport mode means
+this, correct? I don't remember the diagram, I guess? Yeah. Memorize the diagram. They may
+ask you about any of these four different ways that really relate to authentication header and ESP,
+whether in transport mode or in tunnel mode. And to bring it back to security associations,
+this is why you need up to four of them. Because if you want both a connection and you want to
+encrypt that connection, then you need two simplex connections in each direction.
+Right. So if you remember that simplex, they're simplex connections. So if Rob and I want to talk
+to each other in both directions, we need two security associations. But if we want both
+authentication and encryption in both directions, you cannot host those two things across one security
+association. You need one for each, meaning we need two in both directions, which would equal four.
+Yeah. There you go. Bye, peace out.

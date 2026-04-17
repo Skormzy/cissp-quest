@@ -1,0 +1,219 @@
+We've talked about how we can identify ourselves to a system.
+We've talked about how we authenticate ourselves to a system.
+We've talked about how we can identify ourselves to a system.
+We've talked about how we authenticate ourselves to a system
+through authentication by knowledge, ownership, or characteristic.
+Now, let's talk about how we authorize.
+How the system determines what our access will be.
+There's three major philosophies for authorization.
+The first is known as discretionary access control.
+And listen very carefully to this definition.
+Discretionary access control means that the owner decides
+who's going to get access to the system.
+Now, is that a good security practice for the owner decides who should get access?
+Absolutely.
+Is that commonly what's done?
+Unfortunately not.
+It's very common that it's not the owner that decides who gets access.
+Instead, it's someone an IT or some other system administrator like that.
+And they're not the owner of the system.
+So the perfect definition of discretionary access means the owner decides.
+And there's three types of discretionary access that you need to know about.
+There is rule-based, role-based, and attribute-based.
+And we'll talk through each of those in more detail in a moment.
+The next access control philosophy is non-disgressionary.
+So if discretionary means the owner decides what does non-disgressionary mean?
+Well, it means someone other than the owner decides.
+And as I mentioned, that's very common in the world today in a lot of organizations,
+but not a good practice.
+The final philosophy is what's known as mandatory access control.
+And this is where the system decides.
+This is very rarely seen.
+And we'll talk about it in a few minutes here, but it's very rare to see mandatory access control.
+The two that you'll see the most out in the real world are discretionary and non-disgressionary.
+So let's dig into each of these.
+Now, relating this back to the reference monitor concepts and security kernels,
+what these authorization steps are all about is determining the rules that get fed into our mediation.
+And as we talked about in discretionary access, it's the owner that determines these rules.
+Now, role-based access is where we have this concept of defining roles
+and then assigning users to those roles, which defines what access they get.
+And role-based access can be an awesome idea in situations where you've got a ton of users that all share the same role.
+Think call centers.
+You might have 500 people in a call center.
+They all need the same system access.
+So you define one role, assign all 500 employees to that one role.
+And then if you need to make changes to their access, you only have to update one role.
+Makes this very easy.
+Now, in my experience, it's often challenging to implement role-based access across the entire organization.
+I've been involved in a number of these implementations, and it's not uncommon to end up with more roles than you have employees,
+which kind of negates making this whole process more efficient.
+The other challenge a lot of organizations have is that many systems don't support role-based access, older legacy systems.
+So role-based access create idea.
+Not always easy to accomplish.
+Rule-based access is where a simple set of rules.
+Often, these are known as accles, access control lists.
+It's simply a file that says this user has access to this resource or this asset.
+So rule-based access is simply a set of rules.
+And those rules are going to be unique to each user.
+And so if you need to update 10 users access, you'd have to go and update their 10 unique rule sets.
+Let's talk about an emerging form of access.
+And it's known as attribute-based access.
+And to give a bit of context as to why this is really useful and important nowadays,
+let's talk about where the industry is trending as it comes to access to systems,
+and what type of systems are being created, and where those systems are hosted.
+So nowadays, it's very common for most applications to be web-based applications.
+And for a lot of those applications to be hosted in the cloud,
+which we call software as a service.
+Now, if you have an application hosted in the cloud as software as a service,
+all of the defense and depth controls that you would have used to have had
+when that application was deep within your corporate resources,
+or deep within your corporate network, they're gone.
+You know, it used to be very common that applications were hosted inside a company's own IT infrastructure.
+And there was multiple layers of defense, firewalls, and all sorts of other controls
+that would prevent unauthorized users from getting near that secure internal system.
+But when we host the system in the cloud, who can access this system?
+Potentially anyone on the internet.
+And this is where the idea of attribute-based access becomes much more important.
+Because the idea here is when we put a system out on the internet,
+all those defense and depth controls are now gone.
+We don't have those controls in place.
+And so the access controls, the controls that we use to control access to the application,
+become much, much more important.
+And attribute-based access really takes that into account.
+Because the idea behind attribute-based access is rather than just looking at a simple user name and password
+to grant someone access, and authorize what they're allowed to access,
+instead you look at a bunch of attributes such as you could look at the user
+and specifically what's their identity, what department do they work in,
+what date and time are they logging in from.
+You could look at what environment they're logging in from.
+Are they using, for instance, a Linux system and everyone in the company is being issued
+Macs or Windows computers.
+You could look at the operating system they're running.
+You could look at even at their geographic location.
+A lot of devices nowadays have GPS on board,
+so you can see someone's fairly accurate latitude and longitude.
+And if they're trying to log in from somewhere sketchy like, say, Canada,
+that's going to look instantly suspicious.
+You could look at what resources they're wanting to actually access.
+Is this top-secret documents?
+Is it, you know, is it an entire database or just a file?
+And you could even look at what exactly do they want to do?
+Do they want to read the file?
+Do they want to download the entire thing?
+Do they want to modify it?
+So you can look at all these different attributes and then,
+based on all this, you can make an authorization decision.
+And the way that we make these authorization decisions is based on a set of policy,
+some logic.
+It's basically a set of rules that we program into our authorization engine
+so that it then can make a determination as to permit or deny certain actions,
+looking at all these different attributes.
+So that's the idea behind attribute-based access.
+And I'll bet a lot of you have actually seen an example of this recently.
+Now, these policies that we use to program our authorization engine,
+the language that we use that we write these policy statements in,
+is known as XACML, the Extensible Access Control Markup Language.
+So just remember that as the language that we use to write the policies in,
+attribute-based access.
+And you might think attribute-based access is this super rare thing
+I've never seen before, but I would bet every single one of you have seen it.
+And here's a perfect example.
+You've probably logged into a website recently where you had to click a box that said,
+I'm not a robot.
+How does clicking a box prove that you're not a robot?
+Well, what's going on behind the scenes is that Google,
+who runs this recapture system, is looking at a whole bunch of different attributes
+when you try and click that box.
+They're looking at the IP address that you're coming from,
+the type of system you're on, how many times you've tried to click on that box
+in the last few minutes.
+And importantly, they're looking at how you click on that box.
+If you were a robot, you'd probably go right to the center of the box,
+click dead center, it'd be very mechanical.
+If you're a human, you'd probably drunkenly stagger up to the box,
+barely get the edge of it.
+It would look very different.
+And so this whole, I'm not a robot, is looking at all these different attributes
+to decide whether you're a robot or not.
+Okay, this next little bit, not an exam,
+but I think it's a really fun little bit of trivia.
+That's quite interesting to know.
+So the system before, I'm not a robot checkbox,
+used to be this capture system,
+where you had to type in this horribly scrambled and mangled text.
+Where did that text come from?
+For many years, where a lot of that text came from,
+was from the Google book scanning project.
+Google had a, and they think they stole or doing it,
+they had a project where they were trying to scan all the world's old books
+so that they could put them online and make them searchable.
+Great idea.
+The problem was that a lot of these books being very old and kind of rough shape
+were very difficult for the OCR, the optical character recognition software
+to actually figure out what the letters were.
+And so what Google did is they got millions of us all around the world
+to translate these books for them.
+They would take these mangled bits of text,
+they put them in these captures,
+and then we would type in what we thought the characters were.
+And if enough of us said, oh yeah, that's a B, or that's a J,
+then the system would go, okay, yeah, that's the letter,
+and that's how the recapture system worked.
+So that's where the letters came from.
+Where did some of the numbers come from?
+Well, for a while there, Google was sourcing the numbers
+from their street view project.
+Google has been driving cars all around the world,
+taking pictures of all the world's streets, and capturing house numbers.
+And they wanted to be able to tie a particular picture of a house
+to that house number so that when you typed in a address,
+they could show you the exact house.
+And in some instances, the pictures captured of the house numbers
+were tough for the computer system to translate.
+And so, what do they do?
+They put those numbers into the recapture system.
+And millions of us around the world entered what we thought those numbers were,
+trained Google's system on how to recognize those numbers and those letters.
+So that's kind of where that came from.
+Now, one final piece here that's, I think, really cool.
+In the new, I'm not a robot system.
+It makes a bit of a risk-based decision.
+If it's not entirely sure whether you're a robot or not,
+it'll actually show you a grid of pictures,
+a three-by-three grid of pictures.
+And when the system was first put out there,
+it was usually pictures of kittens and bunnies.
+And they'd ask you to, like, which of the puppies here or which of the kittens?
+But now, when you get those grid of pictures, what are most of the pictures?
+There's street signs, there's school buses, things like that.
+Because what are you training now?
+You're training Google's self-driving cars. They're Waymo cars.
+So, Google's been very good at figuring out how to get all of us around the world
+to work for free to train their machine learning algorithms.
+Now, the next type of authorization is mandatory access control.
+And we have to spend a minute on this one.
+As I want to explain something important,
+mandatory access control is very, very rare to see.
+Here's why.
+In order to have mandatory access control,
+every single asset in the organization has to have a classification.
+And every single user has to have some sort of security clearance.
+Because the system has to decide who's going to get access to what,
+based on all this.
+And it's very rare for organizations to have classified all of their assets
+and to have security clearance and classified all of their users.
+So, it's very rare to see mandatory access control outside of US military
+and other governmental types of organizations.
+So, I'd warn you on the exam.
+Mandatory access control is very rarely the right answer.
+Because you almost never see it in the real world.
+And an important part that you might see on the exam related to mandatory access control
+is that it requires labeling.
+We have to label our data so that the system can decide who gets access to what.
+The final authorization philosophy is non-discretionary.
+And non-discretionary means who determines the rules?
+Not the owner.
+Someone from IT or something like that.
+So, there you go.
+Those are the major access control philosophies.
+Music

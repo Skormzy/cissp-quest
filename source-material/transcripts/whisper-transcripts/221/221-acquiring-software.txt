@@ -1,0 +1,25 @@
+We've been talking about how security needs to be involved in the software development process,
+not only in what we call, we've been talking about how security needs to be involved in the software development process,
+not only in what we call the SDL, see the systems development lifecycle, but in the entire system lifecycle,
+which includes other phases like decommissioning, for example. But what if you're an organization that does not develop your own software?
+In fact, you may buy it or you may contract out to development companies to develop for you.
+The bottom line is should security be involved in that process, and the answer to that is a resounding yes of course.
+Because obviously if you're buying software or you're getting it built from some other organization,
+you want to make sure that that software is obviously free from vulnerabilities and exploits.
+But also does the functionality that it's supposed to, especially from a security perspective, and that requires us to understand the requirements ahead of time.
+It's never a good idea to involve security after the fact, as you know, but in many cases when companies are buying software,
+they don't involve security until after the fact, and one of the things that we have to think about is that if you buy software,
+you're not actually buying the software itself, you're buying licenses to use that software, and most companies will not give you the source code,
+which makes it problematic from our perspective to be able to understand whether first of all the right security controls are in there,
+and whether there are vulnerabilities and exploits or back doors for example that may be included in that software.
+So providing software assurance is something that's pretty important from our perspective.
+Without having access to the code that becomes pretty difficult unless you involve security in understanding the requirements right from the start
+and throughout each of the phases of buying software, for example.
+So what you see here on this slide are the typical phases of how a company might contract out, you know, buying software or developing software from another organization,
+and it starts with the planning and the requirements, and that's a pretty important phase, isn't it?
+Understanding the security requirements of that software is something that we would have to write into the RFP, for example,
+that's going to be issued out there so that we can ensure that the right level of security is actually designed and built into ultimately the application that we're going to buy.
+And then when we contract out, we're going to make sure that again, we're following the policies, the requirements, and security is going to be involved in the acceptance phase as well to ensure that that product does what it's supposed to from a security perspective.
+And then, of course, while that product is being used, security monitors and tests and is involved in logging and monitoring.
+In other words, security is involved in all of the phases of buying software or contracting it out to some other organizations as we should right from the start and throughout each of the phases of anything.
+Thank you.

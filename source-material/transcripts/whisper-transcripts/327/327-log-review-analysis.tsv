@@ -1,0 +1,117 @@
+start	end	text
+0	5160	So we're going to talk very briefly about logging and analysis right now, and then we'll
+5160	8480	get into a little more deeply when we talk about security information and event management
+8480	10400	systems in domain 7.
+10400	13600	But let's start with the basics.
+13600	15480	Why do we logging and monitoring?
+15480	16480	I like this slide.
+16480	18760	It does a good job of summarizing why we do this.
+18760	22600	First of all, we only want to log what is relevant.
+22600	26840	It is absolutely possible with our systems to produce, especially modern systems, to produce
+26840	29960	an unbelievable amount of logging data.
+29960	31440	But we don't care about all of that.
+31440	34400	You only want to log what is relevant.
+34400	36400	How do you determine how to log what is relevant?
+36400	40280	A really good way of doing this is to go back to risk management.
+40280	44160	If you think about what are the key risks for an asset, that's a pretty good way of thinking
+44160	47760	about how would we detect if one of those risks had occurred?
+47760	49440	Maybe that's what we should turn logging on for.
+49440	51720	So only log what is relevant.
+51720	54520	And then review those logs.
+54520	58760	Someone has to be proactively or some system has to be proactively looking at those logs.
+58760	60800	And this is where you truly do new system.
+60800	63520	Modern day systems can produce just, especially in a big environment.
+63520	65760	You can have millions of events happening per second.
+65760	68480	And there's no way that a person could actually look through that.
+68480	74240	You need a system involved that's able to look at all this event data and be able to identify
+74240	75680	useful information.
+75680	78920	And you really do want to be reviewing the logs proactively.
+78920	82440	You can just go back and look at the logs after you've had a breach, but it's better to
+82440	83920	do it proactively.
+83920	85760	And then the final thing, what are you actually looking for?
+85760	88840	Well, you're looking for things like errors and anomalies.
+88840	90480	And here's a good summary, right?
+90480	95040	Errors, unexpected errors, are a good indication that a system might not be working properly.
+95040	97800	Modification to a system, especially if it's unauthorized modification.
+97800	101880	That's probably something you want to look at and breaches.
+101880	106080	Now as I mentioned in domain seven, we'll go into seam, sim systems, and much more detail.
+106080	111800	And we'll talk through all the steps that they go through for the aggregation generation,
+111800	112800	correlation of logs.
+112800	115640	We'll talk about that later on.
+115640	120720	For now, let's just say that when it comes to where can we collect a log event data from
+120720	121720	everywhere?
+121720	122720	And what do we want to do?
+122720	127040	We want to pull all that data into our log correlation system into one central system so
+127040	134560	that we can then analyze that data, look for the proverbial needle and a stack of needles.
+134560	140360	One of the problems we face when logging is our endpoint devices, things like our firewalls,
+140360	143000	can produce an enormous amount of logging data.
+143000	146040	But they typically have very limited storage on board.
+146040	151120	And so if we have a requirement to keep a huge amount of logging data, it's often difficult
+151120	153480	or impossible to do that on the endpoint.
+153480	157720	So let's talk about a couple of methods of how we can limit log file sizes.
+157720	162080	Two major methods that you need to know about, circular overwrite and clipping levels.
+162080	164800	Now let's start with circular overwrite.
+164800	170160	The way circular overwrite works is you set a maximum log file size or length.
+170160	176200	And then you start writing log event data until you reach the maximum file size or the
+176200	181120	maximum number of lines and then you circle back to the top and start overwriting.
+181120	183520	That's circular overwrite.
+183520	187160	And what it means is that your log file size is never ending at larger than the maximum
+187160	191880	number of entries or the file size that you set because as soon as you reach that maximum,
+191880	195200	you circle back to the top and start overwriting.
+195200	199080	The other method you can use is what's known as clipping levels.
+199080	203200	When clipping levels is this idea that we set a threshold below that threshold, don't
+203200	204720	bother logging anything.
+204720	207120	Above that threshold, start logging.
+207120	209880	Here's an example.
+209880	212560	Failed or incorrect passwords.
+212560	217200	So when I change my password for the first month or first week anyways, I type in the
+217200	220240	wrong password and it's a failed log event.
+220240	222480	This happens all the time for people.
+222480	227440	And so the vast majority of the time, if you see one failed log in attempt, it's not concerning.
+227440	230960	So you might set a threshold and you would say, you know what, below say three failed log
+230960	234320	in attempts in 30 seconds or not going to log anything.
+234320	238440	So all those times that people are just fat fingering their password or forgetting their
+238440	240960	password, you're not logging any of that.
+240960	245320	But if you suddenly see like 50 failed log in attempts within 30 seconds, should you be
+245320	246320	logging that?
+246320	247320	Absolutely.
+247320	250200	That's probably someone trying to brute force your system.
+250200	251760	And so that's the idea of clipping levels.
+251760	255240	You set a threshold below that threshold, don't log anything.
+255240	258360	Love that threshold, start logging.
+258360	260320	Here's a good question.
+260320	265480	Which of these methods, circular overwrite or clipping levels, would be better if you
+265480	269480	wanted to detect a breach?
+269480	271320	And the answer is clipping levels.
+271320	274880	And the reason is that with circular overwrite, if you want to investigate a breach, you need
+274880	275880	the log data.
+275880	280400	And in circular overwrite, you're erasing your log data, data, you're overwriting your
+280400	282280	data once you get to a certain point.
+282280	285840	Whereas with clipping levels, you're limiting the amount of data, but you're not ever
+285840	286840	overwriting it.
+286840	290640	So if you get a question like that, the better type of logging, of a better method of
+290640	296280	limiting log file sizes, if you're looking for a breach, is clipping levels.
+296280	299320	Final part about logging here that I want to mention.
+299320	303520	And this relates to the time that we attach to a log file.
+303520	305320	You want to have consistent timestamps.
+305320	309960	I'm going to talk later on in the SIM system about how if you want to correlate events,
+309960	311200	line them up with each other.
+311200	313400	You need to have consistent timestamps.
+313400	318140	Has to be the same date, you know, same year, month, day, format, same, 12 or 25 hour
+318140	321440	clock format, whatever it is, make it consistent.
+321440	326240	The final piece is all of the systems in your environment need to have the same system
+326240	327240	time.
+327240	331200	If you want to be able to trace, track, how in a tracker, how an attacker traversed your
+331200	335320	network, got into different systems, got a foothold here and then moved there, it is
+335320	341440	very difficult to trace and figure out exactly what someone did, an attacker did, if your
+341440	345720	systems have different clock times, if this one's five seconds faster, that one's three
+345720	349400	seconds slower, it becomes very difficult to trace events.
+349400	354240	And so the way that we can make sure that all of our systems, clocks are aligned is through
+354240	358640	the MNTP protocol, network time protocol.
+358640	364240	And as the name implies, this protocol allows a server to synchronize its system clock.
+364240	368520	And there are basically what you can connect with this is an atomic clock.
+368520	372080	And through the MNTP protocol, you can synchronize your system clock with one of these world
+372080	376400	atomic clocks through NASA or other US agencies and other agencies around the world.
+376400	380300	And if every system in your environment is using the MNTP to synchronize the system
+380300	384440	clock, all the servers in the environment, all the systems in the environment will have
+384440	385440	the exact same time.

@@ -1,0 +1,99 @@
+You're still here?
+You're still here?
+It's perseverance.
+I started talking about how within physical security we care about the infrastructure support systems.
+And by that I mean making sure that we provide a good clean supply of power, network, and HVAC.
+So let's talk through each of these pieces, actually two of them in detail, power and HVAC.
+And we're going to start with power.
+And the goal within physical security is to have a good clean consistent supply of power.
+And there's a few components that we need to talk about that provide that good clean consistent supply of electricity of power.
+Let's start with UPS's uninterruptible power supplies.
+UPS's are essentially giant batteries.
+And they provide two primary capabilities for us.
+One is that as soon as the power goes out they provide instantaneous but short term power.
+And by that I mean the electricity is running through this giant battery on its way into the building.
+And so if the power from the mains cuts then the UPS giant battery provides instantaneous power to the rest of the building.
+But only for a short period of time.
+The other thing the UPS provides is what we refer to as power conditioning.
+There's rectification and other circuitry in within these systems typically that will clean up the power.
+And what I mean by that is that alternate and current AC current, if you look at it on a oscilloscope it should be a nice perfect sine wave.
+But if the amplitude is too high, the frequency is too high or too low, you get dirty power, spikes, things like that.
+And dirty power, bad for equipment.
+So UPS's can clean up the power.
+Now I mentioned that UPS's only provide power for a short period of time until what happens.
+Until the generator gets up to speed.
+Because the next major device we have to talk about are generators.
+Typically very large diesel engines hooked up to an alternator.
+Now if we have this big generator that's able to produce power for the entire facility, why do we still need the UPS?
+Generators being big diesel engines, typically they take time to spin up to get up to speed.
+Sometimes 20, 30, 40, 50, even 60 seconds before they're online up and running and providing power.
+And so our UPS has covered this short window from when the power from the mains is cut and when the generator is up to speed.
+So that's the use of the UPS. Now generators.
+Because they're big diesel engines, they require maintenance.
+I've seen a couple of organizations that have had this problem.
+They've bought a generator, they've put it out in the parking lot, they've never touched it, never run it for 10 years.
+The power went out and what did the generator do?
+Nothing.
+These things require maintenance.
+Usually a good idea to power these things on at least once a month, do yearly load tests.
+Don't have to remember any of these exact sort of numbers for the exam, but do recognize that generators need constant maintenance, well-defined maintenance schedules.
+You also have to think about what percentage of the building can the generator supply the whole building by itself?
+Do you need multiple of them together? What amount of power can they supply?
+And how much fuel do you have?
+You have to think about how long of power outage are we expecting?
+How long do we need to stay up and running for?
+And you need to have at least that amount of fuel supply in a tank somewhere nearby.
+And related to this, you have to usually have contracts in place.
+So if you know that you only have 72 hours worth of fuel on site,
+you should probably have a contract in place that's going to get you fuel in less than 72 hours, 48 hours, something like that.
+A lot of organizations recently learned a hard lesson related to this in Texas.
+When the most recent cyclone came through Texas and knocked out all sorts of buildings and infrastructure,
+lots of companies had backup generators and those backup generators were running and those companies had contracts with fuel suppliers in Texas.
+But the hard lesson they learned is that when FEMA came in, when the federal government came in to help clean up the mess,
+they made sure really important services like fire and police stations and hospitals had power.
+They just took the fuel basically.
+They basically said the fuel, I forget the proper term right now, but they said the fuels are as we needed for critical services.
+And it doesn't matter what contracts you might have in place, we're using it for these critical services.
+And so these organizations, even though they had fuel contracts in place, still ran out of fuel and their systems went down.
+So a lot of these, a lot of companies now are looking at putting in place fuel supply contracts that are out of state.
+Now, we now have to talk about a few different types of power outages.
+These first two here, blackouts, faults. This is a complete and total loss of power.
+A blackout is a complete and total loss of power for a long period of time.
+And a fault is a complete and total loss of power for a very short period of time.
+The next three, brownout, sags, dips and surges, these are about not complete power loss but power and degradation.
+So a brownout is a long period of time of too low of voltage.
+This is usually intentionally done by utilities companies in order to insert it instead of having a complete blackout,
+they'll have a brownout where it's not total as much power as you want, but at least it's nothing.
+Sags and dips are short, brief moments of not enough power and surges are brief moments of way too much power.
+Think lightning strikes.
+The other thing we have to be concerned with with power is electrical noise, EMI, RFI.
+These are examples of where we get noise on the electrical line.
+And this is why we have things like shielding around our and twisted pair in our networking devices, stuff like that.
+Let's now talk about HVAC equipment, heating, ventilation and air conditioning.
+Our HVAC systems are what provide air at the perfect temperature, the perfect humidity and filtered into the building and into our data centers.
+Now, happy to report you don't have to remember the actual temperature ranges, humidity ranges and so forth for the exam,
+but you do need to know roughly what these HVAC systems are for.
+So number one, they provide air at the right temperature, because especially we as people we like air to be the right temperature, or else we're miserable,
+but we also use air within a data center, for instance, to do what?
+Well, that air is being brought, that cool air is being brought into the data center to cool the equipment.
+It's all being sucked through the front of the server, run through the heat sinks at a server and exhaust it out the back.
+So that air has to be the right temperature in order to properly cool the servers and keep them from overheating.
+We also have to provide air at the right humidity.
+What happens if the air is too dry, if there's not enough humidity?
+You get static, you get shorts.
+What happens if the air is too humid?
+You get condensation, water and electricity, bad, so too low, static, too high humidity.
+And then the final thing is air quality.
+You want to remove contaminants, dust, debris, things like that from the air, filter the air before it's brought into the data center.
+For that reason, I already talked about why do we bring air into a data center to cool the servers?
+And if that air has dust, dirt, debris in it, you're going to be sucking that air through the servers,
+clogging the heat sinks, clogging the system up with dirt and debris, they're going to overheat, short out, bad.
+And there's one final bit of terminology you should be aware of related to HVAC systems.
+And that is positive pressurization.
+And this is the idea that we want to pump the air into the building, into the, especially the data center, at slightly above ambient pressure.
+Not much, but a little bit.
+And you probably experience this.
+If you walk into a mall or something like that and you open the door and you get this rush of air coming at you, that's positive pressurization.
+The reason we want that in a data center is that if the air is positively pressurized, if anyone opens a door, if there's any cracks in the building,
+anything like that, you're forcing out nice, clean, filtered air and you're not letting dirty air contaminants come into the building.
+So that's positive pressurization.

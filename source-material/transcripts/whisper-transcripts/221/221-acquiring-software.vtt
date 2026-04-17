@@ -1,0 +1,77 @@
+WEBVTT
+
+00:00.000 --> 00:18.960
+We've been talking about how security needs to be involved in the software development process,
+
+00:18.960 --> 00:38.960
+not only in what we call, we've been talking about how security needs to be involved in the software development process,
+
+00:38.960 --> 00:45.960
+not only in what we call the SDL, see the systems development lifecycle, but in the entire system lifecycle,
+
+00:45.960 --> 00:53.960
+which includes other phases like decommissioning, for example. But what if you're an organization that does not develop your own software?
+
+00:53.960 --> 01:00.960
+In fact, you may buy it or you may contract out to development companies to develop for you.
+
+01:00.960 --> 01:09.960
+The bottom line is should security be involved in that process, and the answer to that is a resounding yes of course.
+
+01:09.960 --> 01:15.960
+Because obviously if you're buying software or you're getting it built from some other organization,
+
+01:15.960 --> 01:20.960
+you want to make sure that that software is obviously free from vulnerabilities and exploits.
+
+01:20.960 --> 01:29.960
+But also does the functionality that it's supposed to, especially from a security perspective, and that requires us to understand the requirements ahead of time.
+
+01:29.960 --> 01:37.960
+It's never a good idea to involve security after the fact, as you know, but in many cases when companies are buying software,
+
+01:37.960 --> 01:44.960
+they don't involve security until after the fact, and one of the things that we have to think about is that if you buy software,
+
+01:44.960 --> 01:53.960
+you're not actually buying the software itself, you're buying licenses to use that software, and most companies will not give you the source code,
+
+01:53.960 --> 02:00.960
+which makes it problematic from our perspective to be able to understand whether first of all the right security controls are in there,
+
+02:00.960 --> 02:08.960
+and whether there are vulnerabilities and exploits or back doors for example that may be included in that software.
+
+02:08.960 --> 02:13.960
+So providing software assurance is something that's pretty important from our perspective.
+
+02:13.960 --> 02:22.960
+Without having access to the code that becomes pretty difficult unless you involve security in understanding the requirements right from the start
+
+02:22.960 --> 02:27.960
+and throughout each of the phases of buying software, for example.
+
+02:27.960 --> 02:37.960
+So what you see here on this slide are the typical phases of how a company might contract out, you know, buying software or developing software from another organization,
+
+02:37.960 --> 02:42.960
+and it starts with the planning and the requirements, and that's a pretty important phase, isn't it?
+
+02:42.960 --> 02:50.960
+Understanding the security requirements of that software is something that we would have to write into the RFP, for example,
+
+02:50.960 --> 03:01.960
+that's going to be issued out there so that we can ensure that the right level of security is actually designed and built into ultimately the application that we're going to buy.
+
+03:01.960 --> 03:16.960
+And then when we contract out, we're going to make sure that again, we're following the policies, the requirements, and security is going to be involved in the acceptance phase as well to ensure that that product does what it's supposed to from a security perspective.
+
+03:16.960 --> 03:24.960
+And then, of course, while that product is being used, security monitors and tests and is involved in logging and monitoring.
+
+03:24.960 --> 03:38.960
+In other words, security is involved in all of the phases of buying software or contracting it out to some other organizations as we should right from the start and throughout each of the phases of anything.
+
+03:46.960 --> 03:51.960
+Thank you.
+

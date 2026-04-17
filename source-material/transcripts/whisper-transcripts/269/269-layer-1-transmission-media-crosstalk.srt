@@ -1,0 +1,220 @@
+1
+00:00:00,000 --> 00:00:19,440
+Alright, so let's get into the OSI model and what we're going to do at this point is we're
+
+2
+00:00:19,440 --> 00:00:38,640
+going to start. Alright, so let's get into the OSI model and what we're going to do at this
+
+3
+00:00:38,640 --> 00:00:44,320
+point is we're going to start with layer number one which is the physical layer as you know and we're
+
+4
+00:00:44,320 --> 00:00:50,400
+going to talk about some important things about each of the layers as we start going up. For example,
+
+5
+00:00:50,400 --> 00:00:58,400
+we're going to talk about what the layer actually does, some of the significant risks and security
+
+6
+00:00:58,400 --> 00:01:04,480
+that needs to be applied at each of these layers but also significant devices and protocols that
+
+7
+00:01:04,480 --> 00:01:09,360
+operate at each of the layers. So we're going to do this for physical layer, layer number one and
+
+8
+00:01:09,360 --> 00:01:15,120
+then we'll do the same for layer number two, the data link layer and then we'll do the same for
+
+9
+00:01:15,120 --> 00:01:20,880
+layer number three, the network layer and go all the way up to layer number seven, the application
+
+10
+00:01:20,880 --> 00:01:25,520
+layer. But let's start with layer number one and we've already talked about what this does but
+
+11
+00:01:25,520 --> 00:01:33,440
+the physical layer is what connects devices together. Obviously a network has to be a whole bunch of
+
+12
+00:01:33,440 --> 00:01:39,920
+devices that are connected to each other. How we connect those devices together is what's happening
+
+13
+00:01:39,920 --> 00:01:46,960
+at the physical layer. So the physical layer uses really two ways to connect devices together. If
+
+14
+00:01:46,960 --> 00:01:53,840
+you think about this makes logical sense we can connect devices together using wired technologies
+
+15
+00:01:53,840 --> 00:01:59,760
+or wireless technologies and we're going to talk about wireless later on in this course but for now
+
+16
+00:01:59,760 --> 00:02:07,680
+let's focus on the three different types of media that we can use to connect the physical
+
+17
+00:02:07,680 --> 00:02:14,400
+layer or devices together using the physical layer and that is of course twisted pair coaxial
+
+18
+00:02:14,400 --> 00:02:22,480
+and fiber optic technologies. Now one of the questions that they may ask you in regards to this
+
+19
+00:02:23,360 --> 00:02:28,640
+on the exam is which of these would you choose but what's important for us to understand
+
+20
+00:02:29,280 --> 00:02:37,520
+is the advantages and disadvantages that each of these provide but from a security perspective.
+
+21
+00:02:37,520 --> 00:02:44,560
+So if you look at the three types of wired technologies that we can use you know a lot of people
+
+22
+00:02:44,560 --> 00:02:51,440
+would say well let's use fiber optic but you would not say it's fiber optic because of speed. In fact
+
+23
+00:02:51,440 --> 00:02:57,920
+there is no limitation in how we can send voltage across twisted pair and coaxial
+
+24
+00:02:58,960 --> 00:03:04,480
+as well like we could probably the limitation would be speed of light as well as light that
+
+25
+00:03:04,480 --> 00:03:11,440
+fiber optic uses. So on the exam questions you really need to focus on what it's asking you
+
+26
+00:03:11,440 --> 00:03:17,680
+and that is the security advantage and some of these have better advantages than others. Now
+
+27
+00:03:17,680 --> 00:03:23,120
+if you remember to what the physical layer actually does the only thing it can do because that's
+
+28
+00:03:23,120 --> 00:03:30,800
+where we are the least intelligent layer one is the least intelligent but it's the most efficient
+
+29
+00:03:30,800 --> 00:03:37,760
+it's the fastest. All it knows how to do is represent the zeros and the ones using the technology
+
+30
+00:03:37,760 --> 00:03:45,120
+that it understands. So for using twisted pair we're sending voltage across the line in order to
+
+31
+00:03:45,120 --> 00:03:53,120
+represent the zeros and the ones and in fact a one is plus five volts a zero is minus five volts
+
+32
+00:03:53,120 --> 00:03:59,680
+that's what we send across the line to represent the bits the zeros and the ones. Now they might
+
+33
+00:03:59,680 --> 00:04:06,800
+ask you why we twist I mean twisted pair means exactly that. We've got two wires that are actually
+
+34
+00:04:06,800 --> 00:04:12,800
+twisted a certain way and the reason we do that is if you twist a certain way creates a magnetic
+
+35
+00:04:12,800 --> 00:04:19,760
+field that keeps the signal within that magnetic field. So it gives us some added protection against
+
+36
+00:04:19,760 --> 00:04:26,400
+crosstalk noise interference and then you'll probably know this you know there's different types
+
+37
+00:04:26,400 --> 00:04:34,160
+of twisted pair shielded and unshielded. What would be better obviously shielded because it gives
+
+38
+00:04:34,160 --> 00:04:40,800
+us protection as well. Now the next media that you see there is coaxial and I think you can picture
+
+39
+00:04:40,800 --> 00:04:46,720
+what this looks like because it's typically used by your cable companies to deliver television
+
+40
+00:04:46,720 --> 00:04:53,120
+signals into your house but really what's delivering those signals and that information is that little
+
+41
+00:04:53,120 --> 00:04:59,600
+copper wire that's in the middle of that coaxial cable and if you look at that coaxial cable it
+
+42
+00:04:59,600 --> 00:05:06,320
+actually has shielding and some other things built in to try and protect the quality and the
+
+43
+00:05:06,320 --> 00:05:12,560
+integrity of that signal that's going across that little copper wire and the only disadvantage
+
+44
+00:05:12,560 --> 00:05:20,960
+of using coaxial is what they say it's expensive and it may be stiffer to use for certain types
+
+45
+00:05:20,960 --> 00:05:30,320
+of applications. The preferred media to use today is fiber optic not only does it give us enhancements
+
+46
+00:05:30,320 --> 00:05:37,040
+in integrity but there are some added capabilities from a security perspective because it's harder
+
+47
+00:05:37,040 --> 00:05:44,480
+to tap into and it gives us more protection against noise and interference and crosstalk so those
+
+48
+00:05:44,480 --> 00:05:49,760
+are the types of questions that they may ask you which of these would be best to use from a
+
+49
+00:05:49,760 --> 00:05:57,200
+security perspective and your choice would be fiber optic and here's a definition of what crosstalk
+
+50
+00:05:57,520 --> 00:06:04,160
+is which could be one of those issues that you need to address always in whatever wire media we
+
+51
+00:06:04,160 --> 00:06:10,800
+are using to connect devices together. So it's a signal that bleeds into another basically so that's
+
+52
+00:06:10,800 --> 00:06:15,760
+why shielding and some of those protection mechanisms are required so we want to limit
+
+53
+00:06:16,640 --> 00:06:22,800
+what crosstalk impacts the quality of that transmission. So if you see a question like this one
+
+54
+00:06:22,800 --> 00:06:29,360
+crosstalk is least of an issue with which media the obvious answer to this would be fiber optic
+
+55
+00:06:29,360 --> 00:06:39,920
+cabling and that's why we would choose that from a security perspective.
+

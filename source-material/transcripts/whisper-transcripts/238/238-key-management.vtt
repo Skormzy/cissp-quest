@@ -1,0 +1,470 @@
+WEBVTT
+
+00:00.000 --> 00:17.240
+Key Management As we've talked about in the cryptography sections,
+
+00:17.240 --> 00:33.240
+Key Management is incredibly important.
+
+00:33.240 --> 00:37.240
+Key Management As we've talked about in the cryptography sections,
+
+00:37.240 --> 00:40.240
+Key Management is incredibly important.
+
+00:40.240 --> 00:45.240
+There's one very good reason for that, and it's actually known as Kirchhoff's principle.
+
+00:45.240 --> 00:50.240
+Kirchhoff's principle states that a crypto system should be secure,
+
+00:50.240 --> 00:54.240
+even if everything about the system is known except the key.
+
+00:54.240 --> 00:57.240
+So an attacker can know the ciphertext.
+
+00:57.240 --> 00:59.240
+They can know the algorithm that's being used.
+
+00:59.240 --> 01:01.240
+They can know the initialization vector.
+
+01:01.240 --> 01:05.240
+They can know all of this, but as long as the key is kept secret,
+
+01:05.240 --> 01:08.240
+then you'll have a secure system.
+
+01:08.240 --> 01:12.240
+And so key management, how we generate, how we distribute,
+
+01:12.240 --> 01:16.240
+how we change or rotate keys, how we distribute those keys,
+
+01:16.240 --> 01:20.240
+how we destroy those keys, and then finally, if we need to recover those keys,
+
+01:20.240 --> 01:23.240
+it's incredibly important that we do all this very well.
+
+01:23.240 --> 01:25.240
+So let's walk through each of these steps.
+
+01:25.240 --> 01:30.240
+And let's start with key generation, or creation of keys.
+
+01:30.240 --> 01:35.240
+Now when we talk about creating a key, what we're actually doing is we have the key space
+
+01:35.240 --> 01:39.240
+that we've talked about, all the possible combinations of a key.
+
+01:39.240 --> 01:46.240
+And key generation is about randomly selecting one key out of that entire key space.
+
+01:46.240 --> 01:49.240
+And we want to randomly select a key.
+
+01:49.240 --> 01:53.240
+It would be a very bad idea if our key generation process simply picked keys one after another
+
+01:53.240 --> 01:54.240
+in a linear fashion.
+
+01:54.240 --> 01:57.240
+Because what do we always want to avoid in cryptography?
+
+01:57.240 --> 01:58.240
+Patterns.
+
+01:58.240 --> 02:05.240
+And so we need to be able to, as randomly as possible, select a key from the entire key space.
+
+02:05.240 --> 02:07.240
+So that's really what key generation is about.
+
+02:08.240 --> 02:14.240
+And this has to be an automated process because human beings we are terrible at true randomness.
+
+02:14.240 --> 02:18.240
+And so we need to get our computer systems to try and randomly select a key,
+
+02:18.240 --> 02:20.240
+except there's one slight wrinkle there.
+
+02:20.240 --> 02:28.240
+And that is our computer systems that we used today are also not capable of actually generating truly random numbers.
+
+02:28.240 --> 02:32.240
+But what we can use are what are known as pseudo random number generators.
+
+02:32.240 --> 02:36.240
+These are generators that, while not truly random,
+
+02:36.240 --> 02:38.240
+they're pretty much close enough.
+
+02:38.240 --> 02:42.240
+You know, they won't start to reproduce patterns until maybe billions of years down the road.
+
+02:42.240 --> 02:46.240
+So good enough to sort of randomly select a key from the entire space, key space.
+
+02:46.240 --> 02:48.240
+So that's key generation.
+
+02:48.240 --> 02:51.240
+Next is key distribution.
+
+02:51.240 --> 02:53.240
+Especially with symmetric keys.
+
+02:53.240 --> 02:57.240
+Once a symmetric key has been generated, you've now got the very big problem of how do you get that key
+
+02:57.240 --> 03:00.240
+to the other part of that you're communicating with.
+
+03:00.240 --> 03:03.240
+We've already talked about one method out of band.
+
+03:03.240 --> 03:07.240
+But that's not very efficient. It's often very difficult to do that.
+
+03:07.240 --> 03:10.240
+Another method that you could use is key wrapping.
+
+03:10.240 --> 03:14.240
+Key wrapping sounds confusing, but let me explain it in a very simple way.
+
+03:14.240 --> 03:17.240
+Let's say that you're planning on communicating with someone all week long
+
+03:17.240 --> 03:19.240
+and every hour you want to change keys.
+
+03:19.240 --> 03:24.240
+So you're going to need a whole bunch of keys, symmetric keys, to communicate with this person all week long.
+
+03:24.240 --> 03:30.240
+So to make this process more efficient, what you decide to do is generate a whole bunch of symmetric keys.
+
+03:30.240 --> 03:32.240
+Maybe you generate a hundred of them.
+
+03:32.240 --> 03:36.240
+And then what you do is you take those hundred symmetric keys, you put them in a bundle,
+
+03:36.240 --> 03:40.240
+and you encrypt all of them with one symmetric key.
+
+03:40.240 --> 03:44.240
+So you take a whole bunch of symmetric keys, encrypt them with one symmetric key.
+
+03:44.240 --> 03:47.240
+And now you only have to do one key distribution.
+
+03:47.240 --> 03:54.240
+You only have to communicate that securely, that one key so that you can then securely send the ciphertext of all the other keys.
+
+03:54.240 --> 03:59.240
+That's key wrapping, encrypting a bunch of keys with another symmetric key.
+
+03:59.240 --> 04:04.240
+And of course the other major method that you can use that we've talked about is hybrid key distribution,
+
+04:04.240 --> 04:07.240
+where you use a combination of asymmetric and symmetric.
+
+04:07.240 --> 04:12.240
+You use the asymmetric cryptography to send the symmetric key.
+
+04:12.240 --> 04:16.240
+Now let's talk about where you actually store the encryption keys.
+
+04:16.240 --> 04:19.240
+There's two major physical devices that we're going to talk about here.
+
+04:19.240 --> 04:23.240
+First, TPMs, trusted platform modules.
+
+04:23.240 --> 04:28.240
+A TPM is actually a little microchip that is built into the motherboard of a system,
+
+04:28.240 --> 04:33.240
+to the hardware of a computer system, like a laptop, a server, a cell phone.
+
+04:33.240 --> 04:41.240
+A TPM module is actually a tiny little crypto processor that's used to generate and more importantly, store encryption keys.
+
+04:41.240 --> 04:45.240
+And a great way to think about this is you've probably heard of this concept of whole drive encryption,
+
+04:45.240 --> 04:49.240
+where you encrypt an entire hard drive, so that if a laptop is stolen for instance,
+
+04:49.240 --> 04:53.240
+the attacker won't be able to decrypt the data.
+
+04:53.240 --> 04:57.240
+But if you're using whole drive encryption, where are the encryption keys stored?
+
+04:57.240 --> 05:02.240
+They obviously can't be on the hard drive because if the attacker had the hard drive with the keys on it,
+
+05:02.240 --> 05:04.240
+they'd just be able to unlock it.
+
+05:04.240 --> 05:06.240
+And this is where TPM modules come in.
+
+05:06.240 --> 05:09.240
+If you ever use a device that supports whole drive encryption,
+
+05:09.240 --> 05:14.240
+it has to have one of these TPM modules in it because it's on the TPM trusted platform module
+
+05:14.240 --> 05:17.240
+that the encryption keys are actually stored.
+
+05:17.240 --> 05:21.240
+And these modules are specifically built to be very difficult to break into,
+
+05:21.240 --> 05:24.240
+so that even if someone does steal your laptop,
+
+05:24.240 --> 05:29.240
+it's very difficult for them to actually extract the keys from a TPM module.
+
+05:29.240 --> 05:35.240
+The next type of device we'll talk about is what's known as an HSM, a hardware security module.
+
+05:35.240 --> 05:38.240
+And HSM is also designed to securely store keys,
+
+05:38.240 --> 05:41.240
+but not just for an endpoint, like a TPM.
+
+05:41.240 --> 05:46.240
+Instead, an HSM module stores the encryption keys for the entire organization.
+
+05:46.240 --> 05:51.240
+So an HSM module basically just looks like a server, a very hardened server.
+
+05:51.240 --> 05:59.240
+It's plugged to the network and you can communicate with an HSM over the network to request the certain keys or to store certain keys.
+
+05:59.240 --> 06:03.240
+So just remember, TPM for storing the key keys on an endpoint,
+
+06:03.240 --> 06:07.240
+HSM for storing keys for the entire organization.
+
+06:07.240 --> 06:10.240
+Next, let's talk about key rotation.
+
+06:10.240 --> 06:15.240
+So key rotation is the concept that's a good idea to change your encryption keys on a periodic basis.
+
+06:15.240 --> 06:20.240
+The idea here is that if someone were to compromise or figure out your keys,
+
+06:20.240 --> 06:23.240
+if you're changing the keys on a periodic basis,
+
+06:23.240 --> 06:27.240
+then they'll only get a small amount of your data and not all of it.
+
+06:27.240 --> 06:29.240
+So that's the idea of key rotation.
+
+06:29.240 --> 06:33.240
+If you ever get a question asking you how often you should rotate your keys,
+
+06:33.240 --> 06:36.240
+what do you think the answer would be?
+
+06:36.240 --> 06:39.240
+The perfect answer is as often as necessary,
+
+06:39.240 --> 06:42.240
+because it's going to entirely depend on the value of the system,
+
+06:42.240 --> 06:46.240
+how critical, how valuable the data is that's being encrypted.
+
+06:46.240 --> 06:50.240
+And so for very valuable systems, I'll give you an example.
+
+06:50.240 --> 06:55.240
+Some VPN solutions that are passing very important data back and forth across the VPN,
+
+06:55.240 --> 06:58.240
+they can be rotating encryption keys every few seconds.
+
+06:58.240 --> 07:00.240
+Other keys you might rotate only every year.
+
+07:00.240 --> 07:03.240
+So it all depends on the value of the system.
+
+07:03.240 --> 07:06.240
+Next, let's talk about key recovery.
+
+07:06.240 --> 07:10.240
+So if you've accidentally lost or destroyed your keys, how do you get them back?
+
+07:10.240 --> 07:13.240
+There's three major methods that you need to know about.
+
+07:13.240 --> 07:15.240
+The first is split knowledge.
+
+07:15.240 --> 07:19.240
+And the idea behind split knowledge could be as simple as write the key on a piece of paper,
+
+07:19.240 --> 07:23.240
+cut the piece of paper in half, give the two pieces of paper to two different people,
+
+07:23.240 --> 07:26.240
+and you've split the knowledge of the key.
+
+07:26.240 --> 07:29.240
+There's much more advanced ways of doing this so that if part of the paper is lost,
+
+07:29.240 --> 07:34.240
+you can recover it and stuff, but split knowledge is simply the idea that you split the knowledge of the key
+
+07:34.240 --> 07:38.240
+up amongst two or more different people.
+
+07:38.240 --> 07:41.240
+Next is what's known as dual control.
+
+07:41.240 --> 07:46.240
+When I think of dual control, I always think about how do they launch the nuclear missiles out of a submarine.
+
+07:46.240 --> 07:48.240
+You always have to have the captain in the first mate.
+
+07:48.240 --> 07:52.240
+They each put their keys in some sort of console, turn them both at the same time,
+
+07:52.240 --> 07:54.240
+and then whew, the missiles launch.
+
+07:54.240 --> 07:56.240
+That's the idea behind dual control.
+
+07:56.240 --> 08:00.240
+Two or more people have to work together to recover the keys.
+
+08:00.240 --> 08:02.240
+Perfect example of this would be a safe.
+
+08:02.240 --> 08:05.240
+Where the safe has both the key and a pinpad.
+
+08:05.240 --> 08:09.240
+One person would have the key, the other person would have the pinpad,
+
+08:09.240 --> 08:13.240
+code, they'd have to work together, dual control too, unlock the safe.
+
+08:13.240 --> 08:16.240
+The final method is key escrow.
+
+08:16.240 --> 08:20.240
+This is the idea that you store your encryption keys with a trusted third party,
+
+08:20.240 --> 08:26.240
+an organization that's specifically in the business of securely storing encryption keys.
+
+08:26.240 --> 08:32.240
+Now one final piece, and that is key destruction or key disposition.
+
+08:32.240 --> 08:35.240
+How do you go about destroying your encryption keys?
+
+08:35.240 --> 08:40.240
+There are instances where you absolutely have to have destroyed every single copy of the key,
+
+08:40.240 --> 08:44.240
+and an example of that is what's known as crypto shredding.
+
+08:44.240 --> 08:48.240
+So crypto shredding is the idea that you want to be able to securely destroy your data,
+
+08:48.240 --> 08:54.240
+but you're not able to use the best destruction method, which is physical destruction of the media.
+
+08:54.240 --> 08:56.240
+So think of storing data in the cloud.
+
+08:56.240 --> 08:59.240
+If you have data stored in the cloud, and you say to your cloud provider,
+
+08:59.240 --> 09:02.240
+hey, I want you to destroy all of my data.
+
+09:02.240 --> 09:06.240
+Are they going to destroy the media, the hard drives the data is stored on?
+
+09:06.240 --> 09:12.240
+Of course not, because lots of other customers' data is on those same hard drives.
+
+09:12.240 --> 09:15.240
+So this is where you could potentially use crypto shredding.
+
+09:15.240 --> 09:20.240
+What you would do is you would make sure that your data was all encrypted in the cloud,
+
+09:20.240 --> 09:27.240
+and then you would destroy, and listen carefully here, you would destroy every single copy of the key.
+
+09:27.240 --> 09:33.240
+And if you've destroyed every single copy of the key, then the data has been crypto shredding.
+
+09:33.240 --> 09:35.240
+Crypto shredding.
+
+09:35.240 --> 09:38.240
+No one can recover the data because the keys are gone.
+
+09:38.240 --> 09:41.240
+And then you could say to your cloud provider, okay, I've crypto shredding my data,
+
+09:41.240 --> 09:43.240
+go ahead and delete the data.
+
+09:43.240 --> 09:46.240
+The important part here is you're actually crypto shredding the data.
+
+09:46.240 --> 09:50.240
+It's a defensible destruction method that you could potentially use in the cloud.
+
+09:58.240 --> 10:00.240
+You
+
+10:00.240 --> 10:03.240
+You
+
+10:03.240 --> 10:06.240
+You
+
+10:06.240 --> 10:09.240
+You
+
+10:09.240 --> 10:13.240
+You
+
+10:13.240 --> 10:17.240
+You
+
+10:17.240 --> 10:21.240
+You
+
+10:21.240 --> 10:25.240
+You
+

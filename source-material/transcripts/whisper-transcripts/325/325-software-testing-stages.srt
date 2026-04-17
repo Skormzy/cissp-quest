@@ -1,0 +1,236 @@
+1
+00:00:00,000 --> 00:00:17,000
+We just went through an overview of software testing and assessments.
+
+2
+00:00:17,000 --> 00:00:20,000
+Let's now get into some of the testing that we can actually perform.
+
+3
+00:00:31,000 --> 00:00:36,000
+We just went through an overview of software testing and assessments.
+
+4
+00:00:36,000 --> 00:00:42,000
+Let's now get into some of the testing that we can actually perform, some of the specific types of tests.
+
+5
+00:00:42,000 --> 00:00:48,000
+Before we do that, actually, let's understand where could security be involved in testing.
+
+6
+00:00:48,000 --> 00:00:52,000
+Now, this next diagram, do not memorize it for the exam.
+
+7
+00:00:52,000 --> 00:00:54,000
+This is just Rob made this diagram up.
+
+8
+00:00:54,000 --> 00:00:57,000
+But I find it helpful to visualize where you can do different types of testing
+
+9
+00:00:58,000 --> 00:01:00,000
+and say the software development lifecycle.
+
+10
+00:01:00,000 --> 00:01:04,000
+And so if we think about, say, the planning phase should security be involved in planning?
+
+11
+00:01:04,000 --> 00:01:09,000
+Absolutely. Security can be involved to help make sure that the requirements have been appropriately captured,
+
+12
+00:01:09,000 --> 00:01:16,000
+that all the security requirements that you need to be built into the system have been appropriately captured and validated.
+
+13
+00:01:16,000 --> 00:01:21,000
+Next, design. Security can be heavily involved in designing what sort of control should be built into the system
+
+14
+00:01:21,000 --> 00:01:25,000
+to provide confidentiality, integrity, availability, and so forth.
+
+15
+00:01:26,000 --> 00:01:31,000
+Security can be involved in the actual development phase to make sure that those controls are actually being built into the system
+
+16
+00:01:31,000 --> 00:01:37,000
+by performing things like vulnerability assessments and getting into things like unit, integration, and system testing
+
+17
+00:01:37,000 --> 00:01:39,000
+that we'll talk about in a moment here.
+
+18
+00:01:39,000 --> 00:01:48,000
+And security can be involved in the deployment process where the application is moved from QA into test into actual production.
+
+19
+00:01:48,000 --> 00:01:54,000
+And security can be involved in doing things like vulnerability assessments and log analysis and so forth.
+
+20
+00:01:54,000 --> 00:02:00,000
+And then finally, operation. When the system is actually out and being an operating system, security can continue to be involved in testing
+
+21
+00:02:00,000 --> 00:02:04,000
+to continue to do validation, vulnerability assessment testing, log analysis.
+
+22
+00:02:04,000 --> 00:02:08,000
+And there's even a part on here I haven't added, which would be what about when you decommission the system?
+
+23
+00:02:08,000 --> 00:02:13,000
+Security can be involved then as well to make sure the data is securely destroyed and so forth.
+
+24
+00:02:13,000 --> 00:02:16,000
+So security can be involved throughout all of this process.
+
+25
+00:02:16,000 --> 00:02:21,000
+If you ever get a question asking you when, at what stage should security be coming involved?
+
+26
+00:02:21,000 --> 00:02:27,000
+There's a very simple answer and that is the earliest possible stage on that list.
+
+27
+00:02:27,000 --> 00:02:35,000
+If you see the dawn of time as one of the answers, that's probably the right answer because security should be involved from a start and throughout.
+
+28
+00:02:35,000 --> 00:02:42,000
+This is why we have this concept of baking security in because security should be involved right from the start and throughout.
+
+29
+00:02:42,000 --> 00:02:46,000
+And we so we refer to this as baking security into the system.
+
+30
+00:02:46,000 --> 00:02:50,000
+Let's now look at some of the actual types of tests that we can do.
+
+31
+00:02:50,000 --> 00:02:53,000
+The first is unit testing.
+
+32
+00:02:53,000 --> 00:02:56,000
+Think about this way. Think of the Windows operating system.
+
+33
+00:02:56,000 --> 00:03:01,000
+Windows is 50 million lines of code. It's a huge, huge piece of software.
+
+34
+00:03:01,000 --> 00:03:08,000
+And there is not just one poor soul change to his chain to his desk or her desk in the basement of Microsoft that's been churning out the windows.
+
+35
+00:03:08,000 --> 00:03:11,000
+There was 50 million lines of code for the past 20 years.
+
+36
+00:03:11,000 --> 00:03:14,000
+No, there's many people that are changing to their desks doing that.
+
+37
+00:03:14,000 --> 00:03:21,000
+The point is a huge software project like that involves whole teams of different people and to wildly oversimplify this.
+
+38
+00:03:21,000 --> 00:03:24,000
+One team might be responsible for keyboard input.
+
+39
+00:03:24,000 --> 00:03:29,000
+Another might be involved for mouse input. Another might be involved with displaying the graphics on the screen.
+
+40
+00:03:29,000 --> 00:03:35,000
+And all of these different pieces, these different units of software are going to have to work with each other.
+
+41
+00:03:35,000 --> 00:03:41,000
+And they're going to have to be designed ahead of time to be able to eventually connect to interface and work together.
+
+42
+00:03:41,000 --> 00:03:47,000
+But when you first start developing, when a team is first given the task of saying, hey, you work on the keyboard input,
+
+43
+00:03:47,000 --> 00:03:50,000
+the very first type of testing you can do is unit testing.
+
+44
+00:03:50,000 --> 00:04:00,000
+If this unit of software is meant to take input from the keyboard, then you can test that little unit in isolation and make sure it does what it's supposed to do by itself.
+
+45
+00:04:00,000 --> 00:04:02,000
+That's unit testing.
+
+46
+00:04:02,000 --> 00:04:08,000
+As more and more units start to be built, you can start to do what's known as interface testing.
+
+47
+00:04:08,000 --> 00:04:15,000
+Interfaces are standardized to find ways that these units are meant to connect to each other, talk with each other.
+
+48
+00:04:15,000 --> 00:04:20,000
+And so interface testing is where you connect these pieces together and make sure they connect correctly.
+
+49
+00:04:20,000 --> 00:04:23,000
+That's why I've included a graphics of some Lego blocks here.
+
+50
+00:04:23,000 --> 00:04:29,000
+Because, you can buy Lego blocks today that will still work with Lego blocks made in the 1950s.
+
+51
+00:04:29,000 --> 00:04:37,000
+And the reason they still work connect together properly is because it's a very precisely defined and controlled interface that is the Lego block.
+
+52
+00:04:37,000 --> 00:04:40,000
+Same idea in software interface testing.
+
+53
+00:04:40,000 --> 00:04:44,000
+You can make sure that these interfaces that are meant to connect to each other do.
+
+54
+00:04:44,000 --> 00:04:53,000
+As you connect more and more of these units together, you can start to do integration testing, testing units, groups of units of software together.
+
+55
+00:04:53,000 --> 00:04:59,000
+And as you build up and do more and more integration testing, you'll eventually get to the point where you can do system testing.
+
+56
+00:05:00,000 --> 00:05:08,000
+This is where you can test the entire system with all of the units of software integrated together and working as one whole system testing.
+
+57
+00:05:08,000 --> 00:05:16,000
+Now this final slide here, I've already talked about it, but I just love Lego and I figured out how to weigh it away to animate it so that the Lego blocks actually connect together.
+
+58
+00:05:16,000 --> 00:05:20,000
+Yeah, there it is. So, that's the only takeaway from that slide. It's just interface testing.
+
+59
+00:05:29,000 --> 00:05:32,000
+You
+

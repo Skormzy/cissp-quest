@@ -1,0 +1,455 @@
+WEBVTT
+
+00:00.000 --> 00:20.240
+All right, so there are only two types of cryptography that exist, Symmetric and Asymmetric.
+
+00:30.000 --> 00:40.000
+All right, so there are only two types of cryptography that exist, Symmetric and Asymmetric.
+
+00:40.000 --> 00:45.000
+And if you look those up in a dictionary, if you look up the word Symmetric in a dictionary, for example,
+
+00:45.000 --> 00:51.000
+it's going to say the same. And obviously what they're talking about is the key.
+
+00:51.000 --> 00:58.000
+The same key has to be at both ends for sender and receiver to be able to communicate with each other.
+
+00:58.000 --> 01:01.000
+That's what we refer to as Symmetric key cryptography.
+
+01:01.000 --> 01:05.000
+Asymmetric, on the other hand, means not the same.
+
+01:05.000 --> 01:10.000
+Therefore, we have different keys that encrypt and decrypt at both ends.
+
+01:10.000 --> 01:13.000
+But for now, we're going to talk about Symmetric key cryptography.
+
+01:13.000 --> 01:20.000
+And one of the things that I think we need to always remember is that the advantage of Symmetric key cryptography,
+
+01:20.000 --> 01:25.000
+it's going to be that it's very fast. That's its biggest advantage.
+
+01:25.000 --> 01:32.000
+And for what companies do today, and what we need to do across, for example, untrusted networks,
+
+01:32.000 --> 01:36.000
+we have a lot of data that may need to be encrypted and decrypted.
+
+01:36.000 --> 01:41.000
+Symmetric key cryptography is really the only solution that we can use.
+
+01:41.000 --> 01:46.000
+But then again, the problem that we have with this is called key distribution.
+
+01:46.000 --> 01:52.000
+How do we securely distribute the key to the other end without having anybody in between
+
+01:52.000 --> 01:59.000
+to know what that key is, which is a fundamental problem associated with Symmetric key cryptography?
+
+01:59.000 --> 02:05.000
+And so when we look at the Symmetric key cryptography method itself,
+
+02:05.000 --> 02:10.000
+there are some key advantages and disadvantages that we need to think about.
+
+02:10.000 --> 02:13.000
+Of course, the biggest advantage is speed.
+
+02:13.000 --> 02:18.000
+In fact, it can encrypt to the tune of hundreds of millions of bits per second.
+
+02:18.000 --> 02:21.000
+That's how fast these algorithms actually are.
+
+02:21.000 --> 02:26.000
+And if we're using some algorithms that support large or long key lengths,
+
+02:26.000 --> 02:30.000
+then obviously these end up very strong algorithms.
+
+02:30.000 --> 02:35.000
+Now, the disadvantages are, and what you see in yellow here is what we need to keep in mind
+
+02:35.000 --> 02:37.000
+and always focus on.
+
+02:37.000 --> 02:43.000
+The biggest disadvantage of Symmetric key cryptography is the problem of key distribution.
+
+02:43.000 --> 02:45.000
+Now, that's part of what we call key management.
+
+02:45.000 --> 02:48.000
+We're going to focus on key management issues later on.
+
+02:48.000 --> 02:56.000
+But for now, the biggest part of key management issue that is associated with Symmetric key cryptography
+
+02:56.000 --> 02:59.000
+is the key distribution problem.
+
+02:59.000 --> 03:05.000
+There is a secondary problem that we also need to think about, and that is scalability.
+
+03:05.000 --> 03:10.000
+It does not scale well as you start adding more people, for example,
+
+03:10.000 --> 03:14.000
+that need to be involved in secure communications.
+
+03:14.000 --> 03:19.000
+And the way that you figure this out is that if you have two people, for example,
+
+03:19.000 --> 03:24.000
+that need to communicate securely with each other, there's one key that's required,
+
+03:24.000 --> 03:32.000
+as long as the sender and receiver have the same key, then those two people can communicate securely with each other.
+
+03:32.000 --> 03:38.000
+But the problem is, as you start adding more people, you need to add more keys.
+
+03:38.000 --> 03:42.000
+And in fact, the number of keys required starts growing exponentially.
+
+03:42.000 --> 03:48.000
+For example, if we have three people in a group that need to communicate securely with each other,
+
+03:48.000 --> 03:55.000
+the number of keys required now for each of those people to communicate securely with each other is three.
+
+03:55.000 --> 04:01.000
+And if you go to four people, for example, the number of keys that are required actually grows to six.
+
+04:01.000 --> 04:09.000
+From this point on, every time you add one more person, it actually doubles the number of keys that are required.
+
+04:09.000 --> 04:16.000
+So it's growing exponentially. So if you had ten people that needed to securely communicate with each other,
+
+04:16.000 --> 04:19.000
+the number of keys required would be forty-five.
+
+04:19.000 --> 04:23.000
+And if you bring that number up to a thousand people, for example,
+
+04:23.000 --> 04:30.000
+all of a sudden we need almost five hundred thousand keys that need to be securely managed, for example,
+
+04:30.000 --> 04:35.000
+in that system that allows those people to communicate securely with each other.
+
+04:35.000 --> 04:42.000
+So this type of cryptography, even though it has some really good advantages, doesn't scale very well.
+
+04:42.000 --> 04:47.000
+And that's the secondary problem that it also has as far as a disadvantageous concern.
+
+04:47.000 --> 04:54.000
+So for now, just remember the biggest advantage, which is speed, the biggest disadvantage is key distribution.
+
+04:54.000 --> 05:03.000
+But a secondary problem is also this problem of scalability where the keys grow exponentially as you add more people to it.
+
+05:03.000 --> 05:09.000
+Now there are a number of symmetric algorithms that the industry has come up with.
+
+05:09.000 --> 05:14.000
+And certainly they all have the same advantages and disadvantages that we just talked about.
+
+05:14.000 --> 05:18.000
+But some end up being more popular than others.
+
+05:18.000 --> 05:23.000
+And so for example, DES is still a very popular algorithm that is used out there.
+
+05:23.000 --> 05:28.000
+And as you know, the problem with DES is it only supports a 56-bit key,
+
+05:28.000 --> 05:34.000
+which really today and today's technology makes it insecure because people do have.
+
+05:34.000 --> 05:42.000
+And certainly companies and organizations do have the ability to be able to brute force that entire key space in a few hours.
+
+05:42.000 --> 05:51.000
+You know, most of us don't have the infrastructure, the time, the money to be able to build infrastructures that can, for example,
+
+05:51.000 --> 05:58.000
+brute force 56-bit technology like DES, but certainly companies and other organizations would be able to do that.
+
+05:58.000 --> 06:04.000
+But knowing that DES was becoming obsolete is something that the industry is known for many years now.
+
+06:04.000 --> 06:13.000
+And that really led to the development of a other symmetric algorithm called idea that you see here up on your screen.
+
+06:13.000 --> 06:19.000
+And so what you want to remember about idea is that it's also symmetric, requires the same key at both ends.
+
+06:19.000 --> 06:26.000
+It's very fast. And it was the first algorithm to use a 128-bit key, for example.
+
+06:26.000 --> 06:36.000
+So you may need to remember that idea is the first symmetric algorithm to use a key size of 128 bits.
+
+06:36.000 --> 06:44.000
+Now, there are some other algorithms that exist out there that are not as often used, for example, cast, safer.
+
+06:44.000 --> 06:50.000
+There's the fish algorithms that exist out there. They all have really advantages and disadvantages.
+
+06:50.000 --> 07:01.000
+But the ones that are the most commonly used are still, for example, DES, but used in double DES and triple DES mode that we're going to talk about later on.
+
+07:01.000 --> 07:07.000
+Now, there is a very popular algorithm that exists out there that is called AES.
+
+07:07.000 --> 07:19.000
+And the reason it's called AES is because it was the winner of a sponsored competition by the US government called the Advanced Encryption Standard.
+
+07:19.000 --> 07:29.000
+And what the US government did, realizing that DES was becoming obsolete and DES was used for a lot of applications within the US government.
+
+07:29.000 --> 07:37.000
+They invited cryptographers around the world to submit their algorithms that could eventually be chosen as a replacement for DES.
+
+07:37.000 --> 07:44.000
+And so I think they started off with some 30 odd algorithms that were submitted by people around the world.
+
+07:44.000 --> 07:52.000
+And slowly, over the span of three or four years, they tested them and slowly waited them down to the best one.
+
+07:52.000 --> 08:01.000
+And the best algorithm that was chosen as the winner of this competition was a algorithm that came out of Belgium called Rindall.
+
+08:01.000 --> 08:08.000
+And so used in a specific way is what the AES algorithm is today.
+
+08:08.000 --> 08:17.000
+And what's nice about the Rindall algorithm and therefore the AES algorithm is that it's considered to be a variable algorithm.
+
+08:17.000 --> 08:27.000
+You can choose the key size, you can choose the block size, and you can also choose the number of rounds that it does for substitutions and transpositions.
+
+08:27.000 --> 08:40.000
+But the AES algorithm supports key sizes of up to 256 bits, which, as you know, is very strong and will be for a long time to come.
+
+08:40.000 --> 08:46.000
+And so that is becoming a really popular algorithm embedded into all kinds of products.
+
+08:46.000 --> 08:51.000
+And some of the numbers that you see on the slide here are what you may need to remember.
+
+08:51.000 --> 09:01.000
+So for example, the key size in DES is 56, but in the AES algorithm, you know, we can support key lengths of up to 256 bits.
+
+09:01.000 --> 09:06.000
+There are some other algorithms on here that are symmetric, obviously.
+
+09:06.000 --> 09:16.000
+The only difference between RC4 that you see on your screen and everything else that's on this slide is that RC4 is a stream cipher,
+
+09:16.000 --> 09:21.000
+whereas all of these other algorithms are considered to be block ciphers.
+
+09:21.000 --> 09:36.000
+And the best algorithms are the ones typically that provide the largest key lengths, and therefore that equates to a larger key space, which makes it stronger against brute force attacks.
+
+09:36.000 --> 09:45.000
+Now, if you look at any book that's been written about cryptography, or if you see a discussion online, for example,
+
+09:45.000 --> 09:53.000
+you will typically see a slide that looks like this. And what it is, it's a comparison of strengths of some of these symmetric algorithms.
+
+09:53.000 --> 10:04.000
+And the way that you typically read these charts is that anything that supports a key length of less than 80 bits is typically considered to be weak today.
+
+10:04.000 --> 10:12.000
+And so what we need to use in cryptography applications are really algorithms that are 80 bits and more.
+
+10:12.000 --> 10:17.000
+And that's why you see, obviously, algorithms like AES be very popular.
+
+10:17.000 --> 10:34.000
+But cryptologists really agree that anything that's 80 bits and larger typically provides security that is overwhelming and very strong, and really enough for what we are doing today.
+
+10:34.000 --> 10:46.000
+But still, the most popular algorithms that you see here are DES used in triple DES mode, which really supports a key length as you see here of 168 bits.
+
+10:46.000 --> 11:07.000
+But the effective key length, because of something called the meat in the middle attack, reduces its key strength to 112 effective key bit strength, which again is excellent as the cryptologists tell us that anything 80 and above is excellent.
+
+11:07.000 --> 11:12.000
+But obviously, AES is something that's very popular today as well.
+
+11:12.000 --> 11:24.000
+You don't have to memorize these numbers, just get a feel for obviously the strongest algorithms like AES and triple DES, for example, as they relate to key strength.
+
+11:25.000 --> 11:37.000
+Now, we do have to talk a little bit about DES and how obviously it is not something that is considered to be strong enough given the speed of processors today.
+
+11:37.000 --> 11:48.000
+So our processors are fast enough to be able to brute force that entire key space of DES, 72 quadrillion possible keys, is what it supports.
+
+11:48.000 --> 11:53.000
+But we have enough technology today to be able to go through that in a few hours.
+
+11:53.000 --> 12:05.000
+But realizing that DES is one of the best algorithms from a confusion and diffusion perspective, in other words, how it does substitution and transposition is really excellent.
+
+12:05.000 --> 12:15.000
+The industry has come up with ways to do some creative things with the keys so that it stands up better against brute force attacks.
+
+12:15.000 --> 12:20.000
+And what they've come up with is double DES and triple DES.
+
+12:20.000 --> 12:25.000
+Now, double DES simply doubles the keys being used in single DES.
+
+12:25.000 --> 12:34.000
+So if you take one 56-bit key and you combine it with a second 56-bit key, is really what double DES is.
+
+12:34.000 --> 12:38.000
+And so now you have a key length that is 112 bits.
+
+12:38.000 --> 12:53.000
+But there is a specific attack that the industry has come up with called meat in the middle attack that effectively, I mean, the reason it's called meat in the middle attack is because you start at both ends of the key space.
+
+12:53.000 --> 12:57.000
+You start at key number one and key number 72 quadrillion.
+
+12:57.000 --> 13:03.000
+And using this specific attack, you start moving towards the middle testing keys.
+
+13:03.000 --> 13:09.000
+And once you get to the middle, you meat in the middle, you will have found both keys that are being used.
+
+13:09.000 --> 13:16.000
+And so it turns out that double DES is no more secure than single DES given this meat in the middle attack.
+
+13:16.000 --> 13:19.000
+And that's why the industry does not use it anymore.
+
+13:19.000 --> 13:24.000
+It's very difficult to find any specific implementation of double DES.
+
+13:24.000 --> 13:27.000
+Triple DES, however, is very popular.
+
+13:27.000 --> 13:41.000
+And as the triple word implies, what we do here is we take either two keys or three keys and use them creatively together to create what triple DES really is.
+
+13:41.000 --> 13:51.000
+The triple is in reference to not the number of keys that are being used, but the three iterations that triple DES always uses.
+
+13:51.000 --> 14:04.000
+And so for example, one of the ways that you could use triple DES in is you have the first key and then the second key and a third different key that will do the encryption.
+
+14:04.000 --> 14:14.000
+So you can encrypt encrypt with three different keys, for example, but you could also use triple DES with two different keys.
+
+14:14.000 --> 14:28.000
+I know it sounds a little bit confusing, but really it isn't because if you use two keys and triple DES, what happens is you encrypt with the first key, you encrypt with the second key, and then you encrypt with the first key again.
+
+14:28.000 --> 14:41.000
+So the reason it's called triple DES is not because of the number of keys that are being used, but the three iterations, for example, encrypt, encrypt, encrypt, that we are doing with the triple DES operations.
+
+14:41.000 --> 14:50.000
+And it turns out then that the key strength of triple DES is actually 56 times three, which is 168.
+
+14:50.000 --> 15:03.000
+Now one of the things that we need to remember here is that same meat in the middle attack that renders double DES, no more secure than single DES can also be applied to triple DES.
+
+15:03.000 --> 15:09.000
+And just like it does in double DES, it effectively removes 56 bits of strength.
+
+15:09.000 --> 15:25.000
+But in triple DES, if you're starting with 168 bits of strength, and you can remove 56 bits of strength given the meat in the middle attack, you're still left with 112, which is excellent by today's standards.
+
+15:25.000 --> 15:41.000
+And that's why even though triple DES is prone to the meat in the middle attack, it's still widely used because effectively it still provides 112 bits of strength, which again is very strong as far as the industry is concerned.
+
+15:41.000 --> 15:52.000
+Now one algorithm that is very popular and has become very popular over the last number of years is the AES algorithm that we've already talked about.
+
+15:52.000 --> 16:00.000
+And as you know, the winner of that AES competition was this algorithm that came out of Belgium called Rindall.
+
+16:00.000 --> 16:07.000
+And so used in a specific way, for example, is what the AES algorithm actually is.
+
+16:07.000 --> 16:12.000
+And what you want to remember about the AES algorithm is that it is variable.
+
+16:12.000 --> 16:18.000
+We can choose the key size, but typically it is used in 256 bit mode.
+
+16:18.000 --> 16:25.000
+We can choose the number of rounds that it does for simple substitutions and transpositions.
+
+16:25.000 --> 16:34.000
+And you can also choose the block size that it works because this is also a block symmetric cipher that is used a lot in the industry.
+
+16:34.000 --> 16:38.000
+I think if you remember those, you'll be just fine.
+
+16:38.000 --> 16:44.000
+And so just to summarize how symmetric key cryptography actually works.
+
+16:44.000 --> 16:50.000
+What we've got here is a nice diagram that I think provides a visual representation of what this looks like.
+
+16:50.000 --> 16:57.000
+And so if sender and receiver want to be able to communicate using symmetric key cryptography,
+
+16:57.000 --> 17:05.000
+the sender starts the process by encrypting the message with obviously some symmetric algorithm.
+
+17:05.000 --> 17:14.000
+And that requires the sender to be able to choose one symmetric key in that entire key space that that specific algorithm supports.
+
+17:14.000 --> 17:19.000
+And so what they will do is encrypt the message, send it over to the receiver.
+
+17:19.000 --> 17:30.000
+But the only way that that receiver will be able to decrypt that message is to have the exact same symmetric key to be able to decrypt that message quickly.
+
+17:30.000 --> 17:38.000
+And so this illustrates the problem that we always have in symmetric key cryptography, which is obviously key distribution.
+
+17:38.000 --> 17:47.000
+And the book answer to how we get that symmetric key from sender to receiver is out of band.
+
+17:47.000 --> 17:59.000
+And out of band implies that we use some other channel that is more secure than the channel that we are using for example to communicate the encrypted message in.
+
+17:59.000 --> 18:05.000
+So the idea is out of band would assume some other method that is much more secure.
+
+18:05.000 --> 18:10.000
+Those people meet somewhere in between for example, and exchange keys.
+
+18:10.000 --> 18:20.000
+Now we call this a book answer because in most implementations of cryptography out of band communications is typically not available.
+
+18:20.000 --> 18:33.000
+Because if some other communications channel is available that counts as out of band, which is more secure than for example what we're communicating to exchange the messages in.
+
+18:33.000 --> 18:38.000
+Why wouldn't we use that to communicate the secret messages with anyways.
+
+18:38.000 --> 18:42.000
+And so typically out of band is not available, but it is the book answer.
+
+18:42.000 --> 19:03.000
+And again, the perfect definition of out of band means that it is a other communication channel that has more security and that ensures that the keys obviously the symmetric keys will be communicated using a secure channel ensuring that only sender and receiver will have those symmetric keys.
+
+19:12.000 --> 19:27.000
+And again, the perfect definition of out of band will have those symmetric keys.
+

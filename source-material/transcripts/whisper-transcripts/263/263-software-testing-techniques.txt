@@ -1,0 +1,123 @@
+Testing code for days, weeks on end, that's manual testing done by a person.
+Automated testing is where we're using an automated tool.
+We're continuing our discussion of various different techniques that we can
+use to test software. So in this slide here we're going to talk about different
+testing techniques and there's a different sort of categories we're going to go
+through and you can mix and match these different tests as I'll explain at
+the end after I've provided a simple explanation of each of these. So let's
+talk about whether we're doing manual or automated testing. What's the difference?
+Well manual testing is some poor soul, change their desk, testing code for days,
+weeks on end, that's manual testing done by a person. Automated testing is where
+we're using an automated tool like a code scanning tool. So that's manual versus
+automated. Run time is about whether the code is actually running. So static testing
+means the code is not running, it's static, which means what are we actually
+testing here? Well we're looking at the source code itself and we're scanning
+through looking for problems in this course in the source code like say not
+doing bounds checking. Dynamic testing on the other hand means the code is
+running. So this is where the code is essentially a black box. We're feeding
+input, we're looking at output, we're seeing how the code responds when it's
+running and fuzz testing is actually a form of dynamic testing. And here's how I
+like to think about fuzz testing. What would happen if you put a sugar high
+four-year-old in front of a computer system and said go crazy, what would they
+do? It would be chaos, they'd be slamming on the keyboard, they'd be sticking
+baloney in the CD drive, it would be total insanity. That's a pretty good way to
+think of fuzz testing. The whole point of fuzz testing is to throw chaos, random,
+unexpected input at the system to see how it reacts. And most systems are
+probably going to find, you're going to find problems. And the reason for this is
+programmers are very logical people. You expect logical input, provides logical
+output. When you throw chaos in a system, it tends to cause them to break. I'll
+share a fun story about this that I had personally. So I had a, I had a
+professor in university who loved to give really brutal assignments like, and give
+you like 24 hours notice or something. And so everyone would always be in the
+computer lab till like 3 a.m. or something when the assignment was due the
+next morning. And he knew this. And he would sometimes come by the computer lab
+in the middle of the night when we were all just zombies trying to finish our
+code. And he would just walk by someone's keyboard when they were running their
+code. And he would just mash his hand into the keyboard. And what would inevitably
+happen? Well, the computer would, the program would crash. He was a lovely
+fellow. So that's fuzz testing. And then access to code, this refers to whether
+or not you have access to the code when you're testing. In black box testing, you
+obviously don't have access. It's a black box to you. And in white box testing, it
+means you have access to the code. Now we can mix and match these different
+things. So for instance, what would be an automated static white box test? Well,
+that would be running a code scanning tool like say HP fortify against our source
+code. And what about say a manual dynamic black box test? Well, that could be a
+pen tester manually trying to find vulnerabilities in the code. So you can
+mix and match these to achieve different types of tests. Next, let's talk about
+what are known as positive negative and misuse testing. To explain these, let's
+think about a login mechanism where you're expected to provide a username and
+a password. Positive testing would be if you provided a correct user name and a
+correct password, what should the system do? It should log you in. So that means the
+system works as expected. Negative testing is for normal errors. What sort of
+normal errors would you expect with a login mechanism? Well, I don't know about
+you, but whenever I change my password for like the next week, I fat finger my
+password, I forget my password. So I incorrectly passed type my password. And what
+should the system do? Should it explode? No, it should gracefully error out and say,
+you know, something nice like, have you forgotten your password? You would eat
+something like that. So that's a normal negative error. You expect those type of
+errors. The final type of testing you can do is what's known as misuse testing.
+This is where you're looking for someone who's abusing the system. They're
+trying to do something that a normal user wouldn't do like say SQL injection. So
+these are three types of tests that we can run. Now, a topic that's come up a lot
+recently on the exam is what is known as equivalence partitioning and boundary
+value analysis. Both of these techniques are used to make our testing more
+efficient. Rather than having to test every possible single test case, these two
+different techniques allow us to reduce the amount of testing that we do, but
+still get good coverage. Still make sure we're testing and making sure that our
+code is working correctly. Now, to kind of explain the differences between these
+two, let's imagine a input box here where you're supposed to provide a
+password between 18 to 16 characters. And we want to check to see if our code is
+working correctly, if enhandling to make sure that a password is between eight
+and 16 characters. So let's say here's all the possible password links that you
+could have between zero and we're going to test up to 24. A very inefficient way
+of testing. This is you could test. Okay, what happens if I provide no password?
+Does it work properly? What about a password of one? A password of two, three. You
+could try each and every single one of these one by one. Do every single test
+case. Not very efficient. So the first method that we can use here is what's
+known as identifying the boundaries, boundary value analysis. So what are the
+boundaries? Well, we have this boundary between seven, eight, and nine characters.
+There's a boundary here. If you provide less than eight characters, it should give
+you an error. And if you provide eight characters or more, it should allow your
+password. So we have a boundary at eight. Where's our second boundary? Well, it
+should accept up to and including 16 characters and it should error on more than
+16 characters. So we have another boundary here. So boundary value analysis is
+about identifying these boundaries and then focusing or testing on either side
+of the boundary. So if we want to make sure that our code works, we could test
+every possible value, but why not just test the boundaries? So we could test seven
+characters and eight characters. And we could test 16 characters and 17
+characters. So boundary value analysis is this idea of identifying the boundaries
+and testing on either side of the boundary. Equivalent partitioning is the idea
+of identifying different partitions. So we've got essentially three partitions
+here. We have below seven characters, eight to 16 characters and above 17
+characters. So these are our three partitions. And then what we can do is choose
+test cases within those partitions. And again, both of these are about trying to
+reduce the amount of testing that we do. And here's a quick summary of them. So in
+equivalence partitioning, we're dividing our input partitions into groups which
+exhibit similar behavior. And in boundary value analysis, we're identifying and
+focusing our testing around the boundaries. So I've put together a little
+sampling of these different types of tests. So you can see what they look like.
+See if you understand what they look like. So we're supposed to provide a
+enter a number between zero and nine. So let's say we decide to enter this as our
+number. What type of test would that be? Well, I mean, this is an example of
+sequel injection. So that would be misuse testing. Okay, what if we were to
+provide this? We're supposed to enter a number between zero and nine and we put
+in 10. Well, that would be a negative test. It's a normal expected error.
+Someone might put in, you know, a character to one the other side accidentally.
+Okay, what if we enter the number two? Well, that would be a positive test.
+That's normal expected input. What if we put in these nine? If we tested these
+individually one by one, we tested negative one, we tested one, we tested eight
+and we tested 10. Well, this would be an example of boundary value and
+analysis because those numbers are on either side of the boundaries. And then the
+final one that we could try here would be say negative five, five and 15.
+These are all numbers from our three different partitions. So that would be an
+example of equivalent partitioning. Next, let's talk about this concept of test
+coverage analysis. And this is simply the idea that when you're testing a piece
+of software, you can never test every possible piece of functionality within the
+code. And so test, test coverage analysis is simply what percentage of the code
+source code is actually covered by our testing. Obviously, the more certain that
+you want to be that the code is working properly that there aren't bugs in the
+software, you want to be closer and closer to 100% of your source code. But it's
+very expensive, very difficult to achieve that. And so what's going to drive the
+test coverage analysis that you want to achieve? Well, the more valuable the
+system, the more you're going to invest in testing that system and making sure
+that it's working properly.

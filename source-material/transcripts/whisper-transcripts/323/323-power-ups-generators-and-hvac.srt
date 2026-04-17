@@ -1,0 +1,396 @@
+1
+00:00:00,000 --> 00:00:20,000
+You're still here?
+
+2
+00:00:30,000 --> 00:00:40,000
+You're still here?
+
+3
+00:00:40,000 --> 00:00:44,000
+It's perseverance.
+
+4
+00:00:44,000 --> 00:00:49,000
+I started talking about how within physical security we care about the infrastructure support systems.
+
+5
+00:00:49,000 --> 00:00:56,000
+And by that I mean making sure that we provide a good clean supply of power, network, and HVAC.
+
+6
+00:00:56,000 --> 00:01:02,000
+So let's talk through each of these pieces, actually two of them in detail, power and HVAC.
+
+7
+00:01:02,000 --> 00:01:06,000
+And we're going to start with power.
+
+8
+00:01:06,000 --> 00:01:12,000
+And the goal within physical security is to have a good clean consistent supply of power.
+
+9
+00:01:12,000 --> 00:01:18,000
+And there's a few components that we need to talk about that provide that good clean consistent supply of electricity of power.
+
+10
+00:01:18,000 --> 00:01:22,000
+Let's start with UPS's uninterruptible power supplies.
+
+11
+00:01:22,000 --> 00:01:25,000
+UPS's are essentially giant batteries.
+
+12
+00:01:25,000 --> 00:01:29,000
+And they provide two primary capabilities for us.
+
+13
+00:01:29,000 --> 00:01:36,000
+One is that as soon as the power goes out they provide instantaneous but short term power.
+
+14
+00:01:36,000 --> 00:01:41,000
+And by that I mean the electricity is running through this giant battery on its way into the building.
+
+15
+00:01:41,000 --> 00:01:48,000
+And so if the power from the mains cuts then the UPS giant battery provides instantaneous power to the rest of the building.
+
+16
+00:01:48,000 --> 00:01:51,000
+But only for a short period of time.
+
+17
+00:01:51,000 --> 00:01:55,000
+The other thing the UPS provides is what we refer to as power conditioning.
+
+18
+00:01:55,000 --> 00:02:01,000
+There's rectification and other circuitry in within these systems typically that will clean up the power.
+
+19
+00:02:01,000 --> 00:02:08,000
+And what I mean by that is that alternate and current AC current, if you look at it on a oscilloscope it should be a nice perfect sine wave.
+
+20
+00:02:09,000 --> 00:02:15,000
+But if the amplitude is too high, the frequency is too high or too low, you get dirty power, spikes, things like that.
+
+21
+00:02:15,000 --> 00:02:18,000
+And dirty power, bad for equipment.
+
+22
+00:02:18,000 --> 00:02:21,000
+So UPS's can clean up the power.
+
+23
+00:02:21,000 --> 00:02:28,000
+Now I mentioned that UPS's only provide power for a short period of time until what happens.
+
+24
+00:02:28,000 --> 00:02:30,000
+Until the generator gets up to speed.
+
+25
+00:02:30,000 --> 00:02:33,000
+Because the next major device we have to talk about are generators.
+
+26
+00:02:33,000 --> 00:02:37,000
+Typically very large diesel engines hooked up to an alternator.
+
+27
+00:02:37,000 --> 00:02:45,000
+Now if we have this big generator that's able to produce power for the entire facility, why do we still need the UPS?
+
+28
+00:02:45,000 --> 00:02:51,000
+Generators being big diesel engines, typically they take time to spin up to get up to speed.
+
+29
+00:02:51,000 --> 00:02:56,000
+Sometimes 20, 30, 40, 50, even 60 seconds before they're online up and running and providing power.
+
+30
+00:02:57,000 --> 00:03:04,000
+And so our UPS has covered this short window from when the power from the mains is cut and when the generator is up to speed.
+
+31
+00:03:04,000 --> 00:03:08,000
+So that's the use of the UPS. Now generators.
+
+32
+00:03:08,000 --> 00:03:12,000
+Because they're big diesel engines, they require maintenance.
+
+33
+00:03:12,000 --> 00:03:15,000
+I've seen a couple of organizations that have had this problem.
+
+34
+00:03:15,000 --> 00:03:20,000
+They've bought a generator, they've put it out in the parking lot, they've never touched it, never run it for 10 years.
+
+35
+00:03:20,000 --> 00:03:23,000
+The power went out and what did the generator do?
+
+36
+00:03:23,000 --> 00:03:24,000
+Nothing.
+
+37
+00:03:24,000 --> 00:03:26,000
+These things require maintenance.
+
+38
+00:03:26,000 --> 00:03:31,000
+Usually a good idea to power these things on at least once a month, do yearly load tests.
+
+39
+00:03:31,000 --> 00:03:38,000
+Don't have to remember any of these exact sort of numbers for the exam, but do recognize that generators need constant maintenance, well-defined maintenance schedules.
+
+40
+00:03:38,000 --> 00:03:44,000
+You also have to think about what percentage of the building can the generator supply the whole building by itself?
+
+41
+00:03:44,000 --> 00:03:47,000
+Do you need multiple of them together? What amount of power can they supply?
+
+42
+00:03:47,000 --> 00:03:50,000
+And how much fuel do you have?
+
+43
+00:03:51,000 --> 00:03:55,000
+You have to think about how long of power outage are we expecting?
+
+44
+00:03:55,000 --> 00:03:57,000
+How long do we need to stay up and running for?
+
+45
+00:03:57,000 --> 00:04:02,000
+And you need to have at least that amount of fuel supply in a tank somewhere nearby.
+
+46
+00:04:02,000 --> 00:04:06,000
+And related to this, you have to usually have contracts in place.
+
+47
+00:04:06,000 --> 00:04:11,000
+So if you know that you only have 72 hours worth of fuel on site,
+
+48
+00:04:11,000 --> 00:04:17,000
+you should probably have a contract in place that's going to get you fuel in less than 72 hours, 48 hours, something like that.
+
+49
+00:04:18,000 --> 00:04:22,000
+A lot of organizations recently learned a hard lesson related to this in Texas.
+
+50
+00:04:22,000 --> 00:04:29,000
+When the most recent cyclone came through Texas and knocked out all sorts of buildings and infrastructure,
+
+51
+00:04:29,000 --> 00:04:37,000
+lots of companies had backup generators and those backup generators were running and those companies had contracts with fuel suppliers in Texas.
+
+52
+00:04:37,000 --> 00:04:42,000
+But the hard lesson they learned is that when FEMA came in, when the federal government came in to help clean up the mess,
+
+53
+00:04:42,000 --> 00:04:47,000
+they made sure really important services like fire and police stations and hospitals had power.
+
+54
+00:04:47,000 --> 00:04:50,000
+They just took the fuel basically.
+
+55
+00:04:50,000 --> 00:04:56,000
+They basically said the fuel, I forget the proper term right now, but they said the fuels are as we needed for critical services.
+
+56
+00:04:56,000 --> 00:05:00,000
+And it doesn't matter what contracts you might have in place, we're using it for these critical services.
+
+57
+00:05:00,000 --> 00:05:06,000
+And so these organizations, even though they had fuel contracts in place, still ran out of fuel and their systems went down.
+
+58
+00:05:06,000 --> 00:05:13,000
+So a lot of these, a lot of companies now are looking at putting in place fuel supply contracts that are out of state.
+
+59
+00:05:13,000 --> 00:05:17,000
+Now, we now have to talk about a few different types of power outages.
+
+60
+00:05:17,000 --> 00:05:22,000
+These first two here, blackouts, faults. This is a complete and total loss of power.
+
+61
+00:05:22,000 --> 00:05:26,000
+A blackout is a complete and total loss of power for a long period of time.
+
+62
+00:05:26,000 --> 00:05:31,000
+And a fault is a complete and total loss of power for a very short period of time.
+
+63
+00:05:31,000 --> 00:05:38,000
+The next three, brownout, sags, dips and surges, these are about not complete power loss but power and degradation.
+
+64
+00:05:38,000 --> 00:05:42,000
+So a brownout is a long period of time of too low of voltage.
+
+65
+00:05:42,000 --> 00:05:48,000
+This is usually intentionally done by utilities companies in order to insert it instead of having a complete blackout,
+
+66
+00:05:48,000 --> 00:05:53,000
+they'll have a brownout where it's not total as much power as you want, but at least it's nothing.
+
+67
+00:05:53,000 --> 00:06:01,000
+Sags and dips are short, brief moments of not enough power and surges are brief moments of way too much power.
+
+68
+00:06:01,000 --> 00:06:03,000
+Think lightning strikes.
+
+69
+00:06:03,000 --> 00:06:08,000
+The other thing we have to be concerned with with power is electrical noise, EMI, RFI.
+
+70
+00:06:08,000 --> 00:06:11,000
+These are examples of where we get noise on the electrical line.
+
+71
+00:06:11,000 --> 00:06:18,000
+And this is why we have things like shielding around our and twisted pair in our networking devices, stuff like that.
+
+72
+00:06:18,000 --> 00:06:23,000
+Let's now talk about HVAC equipment, heating, ventilation and air conditioning.
+
+73
+00:06:23,000 --> 00:06:32,000
+Our HVAC systems are what provide air at the perfect temperature, the perfect humidity and filtered into the building and into our data centers.
+
+74
+00:06:32,000 --> 00:06:39,000
+Now, happy to report you don't have to remember the actual temperature ranges, humidity ranges and so forth for the exam,
+
+75
+00:06:39,000 --> 00:06:43,000
+but you do need to know roughly what these HVAC systems are for.
+
+76
+00:06:43,000 --> 00:06:50,000
+So number one, they provide air at the right temperature, because especially we as people we like air to be the right temperature, or else we're miserable,
+
+77
+00:06:50,000 --> 00:06:54,000
+but we also use air within a data center, for instance, to do what?
+
+78
+00:06:54,000 --> 00:06:59,000
+Well, that air is being brought, that cool air is being brought into the data center to cool the equipment.
+
+79
+00:06:59,000 --> 00:07:04,000
+It's all being sucked through the front of the server, run through the heat sinks at a server and exhaust it out the back.
+
+80
+00:07:04,000 --> 00:07:10,000
+So that air has to be the right temperature in order to properly cool the servers and keep them from overheating.
+
+81
+00:07:10,000 --> 00:07:13,000
+We also have to provide air at the right humidity.
+
+82
+00:07:13,000 --> 00:07:17,000
+What happens if the air is too dry, if there's not enough humidity?
+
+83
+00:07:17,000 --> 00:07:20,000
+You get static, you get shorts.
+
+84
+00:07:20,000 --> 00:07:22,000
+What happens if the air is too humid?
+
+85
+00:07:22,000 --> 00:07:29,000
+You get condensation, water and electricity, bad, so too low, static, too high humidity.
+
+86
+00:07:29,000 --> 00:07:31,000
+And then the final thing is air quality.
+
+87
+00:07:31,000 --> 00:07:37,000
+You want to remove contaminants, dust, debris, things like that from the air, filter the air before it's brought into the data center.
+
+88
+00:07:37,000 --> 00:07:42,000
+For that reason, I already talked about why do we bring air into a data center to cool the servers?
+
+89
+00:07:42,000 --> 00:07:47,000
+And if that air has dust, dirt, debris in it, you're going to be sucking that air through the servers,
+
+90
+00:07:47,000 --> 00:07:54,000
+clogging the heat sinks, clogging the system up with dirt and debris, they're going to overheat, short out, bad.
+
+91
+00:07:54,000 --> 00:07:59,000
+And there's one final bit of terminology you should be aware of related to HVAC systems.
+
+92
+00:07:59,000 --> 00:08:02,000
+And that is positive pressurization.
+
+93
+00:08:02,000 --> 00:08:09,000
+And this is the idea that we want to pump the air into the building, into the, especially the data center, at slightly above ambient pressure.
+
+94
+00:08:09,000 --> 00:08:11,000
+Not much, but a little bit.
+
+95
+00:08:11,000 --> 00:08:12,000
+And you probably experience this.
+
+96
+00:08:12,000 --> 00:08:19,000
+If you walk into a mall or something like that and you open the door and you get this rush of air coming at you, that's positive pressurization.
+
+97
+00:08:19,000 --> 00:08:26,000
+The reason we want that in a data center is that if the air is positively pressurized, if anyone opens a door, if there's any cracks in the building,
+
+98
+00:08:26,000 --> 00:08:33,000
+anything like that, you're forcing out nice, clean, filtered air and you're not letting dirty air contaminants come into the building.
+
+99
+00:08:33,000 --> 00:08:36,000
+So that's positive pressurization.
+

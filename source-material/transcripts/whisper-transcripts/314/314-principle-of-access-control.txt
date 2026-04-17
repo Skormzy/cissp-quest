@@ -1,0 +1,21 @@
+How do we actually achieve the principal of access control?
+How do we achieve accountability?
+Well, we have to first uniquely identify someone.
+If you haven't uniquely identified.
+The principal of access control.
+You may recall when we talked about the access control services, identification, authentication,
+authorization, and accountability, the other name that we gave for accountability.
+This most important thing that we do in access control is the principal of access control.
+Accountability is the principal of access control.
+The principal of access control is accountability.
+How do we actually achieve the principal of access control?
+How do we achieve accountability?
+Well, we have to first uniquely identify someone.
+If you haven't uniquely identified something, can you make them accountable for their actions on a system?
+Next step is we have to properly authenticate someone, verify their identity.
+Make sure they are who we think they are.
+We then have to properly authorize them.
+Using concepts at least privilege and need to know separation of duties,
+we need to give them appropriate access on the system.
+And then we need to log and monitor what they're doing.
+And only then can we achieve the principal of access control accountability.

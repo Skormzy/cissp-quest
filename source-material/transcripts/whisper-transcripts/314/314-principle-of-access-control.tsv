@@ -1,0 +1,22 @@
+start	end	text
+0	2640	How do we actually achieve the principal of access control?
+2640	5200	How do we achieve accountability?
+5200	8920	Well, we have to first uniquely identify someone.
+8920	10240	If you haven't uniquely identified.
+40240	47560	The principal of access control.
+47560	53280	You may recall when we talked about the access control services, identification, authentication,
+53280	58360	authorization, and accountability, the other name that we gave for accountability.
+58360	63720	This most important thing that we do in access control is the principal of access control.
+63720	66600	Accountability is the principal of access control.
+66600	70080	The principal of access control is accountability.
+70120	72840	How do we actually achieve the principal of access control?
+72840	75400	How do we achieve accountability?
+75400	79120	Well, we have to first uniquely identify someone.
+79120	84320	If you haven't uniquely identified something, can you make them accountable for their actions on a system?
+84320	88360	Next step is we have to properly authenticate someone, verify their identity.
+88360	91080	Make sure they are who we think they are.
+91080	93680	We then have to properly authorize them.
+93680	96960	Using concepts at least privilege and need to know separation of duties,
+96960	100520	we need to give them appropriate access on the system.
+100520	104960	And then we need to log and monitor what they're doing.
+104960	109760	And only then can we achieve the principal of access control accountability.

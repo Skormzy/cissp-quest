@@ -1,0 +1,160 @@
+start	end	text
+0	24000	We're now going to talk about some interesting laws and regulations that you may have to
+24000	27320	think about as a security professional from around the world.
+27320	32320	We're going to start with some interesting, kind of more historical laws related to cryptography.
+32320	37480	Then we're going to talk about something known as the Wasson Arrangements and then some
+37480	39840	trans-border data flow laws or data residency laws.
+39840	42480	But let's start here with this kind of historical footnote.
+42480	45600	So here's a really interesting bit of historical trivia.
+45600	51240	I'm going to take us back to sort of the late 70s, early 80s.
+51240	57000	Back then, some amazing new cryptographic techniques and algorithms we're being developed.
+57000	60320	It's like des the data encryption standard that we'll talk about.
+60320	65000	And things like asymmetric cryptography, which would solve the symmetric key distribution
+65000	66000	problem.
+66000	67000	We'll get into all that later.
+67000	71400	But these new cryptographic techniques were amazing.
+71400	73320	And you could do some really incredible things with them.
+73320	79760	You could encrypt information in such a way that no one, no one, could decrypt it.
+79760	86480	And this was rather troubling to certain organizations, agencies, like the NSA.
+86480	88800	The national security agency in the US.
+88800	90920	And so certain laws were put in place.
+90920	92920	So here is the fear, right?
+92920	96640	Certain governments around the world were concerned that, hey, if someone were to encrypt
+96640	102960	information with these new cryptographic techniques, we say the NSA would not be able to decrypt
+102960	103960	it.
+103960	106520	We don't have, they didn't have the technology to decrypt it.
+106520	108280	And that was obviously very troubling to them, right?
+108280	109280	Because they're job.
+109280	111840	Well, for, you know, there's a lot of agencies around the world, not just the NSA.
+111840	114800	And I should probably stop saying NSA because they're probably going to be able to find
+114800	115800	me.
+116080	121240	So the point is there are certain agencies, governments around the world that wanted
+121240	127000	to restrict these cryptographic algorithms and make sure that they didn't get into sketchy
+127000	131440	hands, like, I don't know, sketchy Canadians like me.
+131440	135920	So certain laws were put in place to restrict the export of cryptographic algorithms.
+135920	139640	And there's two of these laws that you need to know about, ITAR and EAR.
+139640	143040	Here's the sort of simple thing you have to remember about them.
+143040	146760	So ITAR stands for the International Traffic and Arms Regulations.
+146760	150960	By the way, these are both US-centric regulations.
+150960	156520	ITAR, here's the key thing I remember, focuses on defense-related items.
+156520	161720	In other words, technology systems that are specifically meant for defense.
+161720	163840	That's what ITAR focuses on.
+163840	168360	And so certain cryptographic algorithms might fall under that category of only being used
+168360	171200	by defense, and therefore they'd be covered by ITAR.
+171680	178120	EAR, the export administration regulations, they cover what are called dual use items.
+178120	182240	Dual use items are things, technologies, systems, night vision goggles.
+182240	184960	Night vision goggles can be used by the military.
+184960	188600	They can also be used by people in regular day lives, although I don't know why you're
+188600	190520	wondering on night vision goggles.
+190520	194520	But there are certain technologies that are used systems, technologies that are used
+194520	197440	both by the military and by civilians.
+197440	199720	And that's what are considered to be dual use items.
+199720	202320	And EAR covers dual use items.
+202320	206880	Simple way to remember this, ITAR covers defense stuff, EAR covers defense and everything
+206880	207880	else.
+207880	209560	It's kind of the way to think about it.
+209560	210880	So these were really serious laws.
+210880	215440	If you were found to be in violation of these laws, then you could be thrown in federal
+215440	216440	prison.
+216440	217760	It was pretty significant.
+217760	220920	And these laws were expanded to cover cryptographic systems.
+220920	226560	And so back in the kind of 80s, there was certain famous cryptographers that were actually
+226800	227560	worried.
+227560	230400	It was looking concerningly like they were going to end up in federal prison because they
+230400	235440	were creating these algorithms and wanting to put them out in the world.
+235440	239680	Now the reason these laws are still in place, but the reason they're not really applicable
+239680	244200	anymore is that nowadays the absolute best algorithms that we use, like say the advanced
+244200	247320	encryption standard, which we'll talk about later.
+247320	249200	It's an open source algorithm.
+249200	251160	Everyone has access to it around the world.
+251160	254920	And in fact, that's why we trust it so much because it's an open source algorithm.
+254920	258720	Most of the thousands of cryptographers around the world have all looked at AES, studied
+258720	261800	it, and no one's found a significant vulnerability in it.
+261800	263800	And that's why we trust it so much.
+263800	268040	And so the best algorithms and encryption algorithms that we use nowadays are open source,
+268040	270840	which is why these laws are not really applicable anymore.
+270840	271840	They're not really enforced.
+271840	274440	So it's a bit of a historical relic, but there you go.
+274440	277080	You might come across ITAR or EAR on the exam.
+277080	279040	Not super important topic.
+279040	283880	One more not super important topic is something known as the wassinar arrangement.
+283880	288200	This is a keyword here, voluntary regime.
+288200	295200	So there's 42 signing members, 42 countries that got together, and they signed this arrangement.
+295200	300040	And the whole point of this is that they are meant to exchange information, primarily related
+300040	302520	to arms, weapons, things like that.
+302520	306640	And the whole purpose is, as you can see here, wassinar aims to promote greater responsibility
+306640	311480	among its members to, in exports of weapons and dole use goods, than to prevent destabilizing
+311480	312480	communications.
+312480	317560	So basically, these 42 signing members, these 42 countries, are exchanging information
+317560	321000	about what sort of weapons and systems they're developing.
+321000	322880	And they're trying to be open and transparent about this.
+322880	326400	So there isn't concerns that, oh, this country might be building up a big stockpile over
+326400	330560	here, but maybe they aren't, they're meant to share information.
+330560	334520	Not super important, but it does sometimes the wassinar arrangement sometimes is mentioned
+334520	335520	on the exam.
+335520	339960	So now you know what it is, voluntary regime between 42 signing members.
+339960	345320	Wassinar is a little town in the Netherlands, and it was in this little town in the Netherlands
+345320	350840	that all of these 40, where the summit was, where these 42 delegations of these 42 countries
+350840	352480	got together and signed this arrangement.
+352480	356800	So that's why it's called the wassinar arrangement, not super important.
+356800	362000	What we are going to talk about now is very important, and very pertinent to today's
+362000	363000	world.
+363000	367200	And these are what we're now going to talk about are trans-border, data flow, or data residency,
+367200	369120	or data localization laws.
+369120	370120	They have these different names.
+370120	378120	They're all the same exact concept, which is these laws are designed to prevent the flow
+378120	382400	of data across physical borders.
+382400	386000	So for instance, I'm from the province of British Columbia.
+386000	391400	There's a trans-border data flow law here in BC related to ensuring that BC residents
+391400	396560	data, any resident on the government stores on BC residents remain on systems that are
+396560	403480	in BC and not, say, transferred down and stored on servers south of us in the US.
+403480	404480	Why?
+404480	409160	Well, because the government here believes that they have a responsibility to protect
+409160	410480	the citizens data.
+410480	415080	And if that data was to be stored in systems and say the US, there may not be the same privacy
+415080	418240	laws and regulations in place to protect that data.
+418240	422040	And so, and this is one of the major reasons that all sorts of different countries around
+422040	423400	the world are doing this.
+423400	426080	The poster child of this is the European Union.
+426080	431440	The European Union's overarching privacy directive, which is known as GDPR.
+431440	440120	It has a very stringent data residency requirement in it, which basically states, if
+440120	445720	anyone, any organization of any type collects data on European Union citizens, that data needs
+445720	450240	to be stored on servers in a European Union member state.
+450240	454200	And it's for the exact reason I just mentioned earlier, which is the European Union wants
+454200	458240	to make sure that they are properly protecting their citizens data, making sure that the
+458240	461360	right privacy controls are applied to that data.
+461360	464760	And they can only do that if that data is stored on systems in the EU.
+464760	469960	If that data was stored on systems and say the US, then I keep picking on the US here,
+469960	474480	because the US is fairly well known to have not having the greatest privacy laws.
+474480	477960	They also have this lovely thing called the Patriot Act, which I'm oversimplifying here,
+477960	484180	but basically says, if any data trends at the US, even just passes through the US,
+484180	488220	which a ton of internet traffic does, then that data is now the property of the US government.
+488220	489540	They can do whatever they want with it.
+489540	493700	It's not quite that severe, but it's that kind of idea.
+493700	496740	So certain countries around the world have said, you know what?
+496740	500220	We want to control where this data can be stored.
+500220	504020	And we want that data to remain within our country's boundaries.
+504020	507020	And that way we can make sure we have proper control of the data.
+507020	512860	And so these trans-border data flow laws are often related to personal data, PII personally
+512860	515260	identifiable information, but not always.
+515260	518980	Certain countries, you know, like Russia, China, for instance, they have these trans-border
+518980	523300	data flow laws, and they're trying to make sure that certain state information is not
+523300	525540	leaving their physical borders.
+525540	530180	So just remember this, trans-border data flow laws, and here's the other names, data residency,
+530180	531740	data localization laws.
+531740	537660	These are laws that require that data remain within certain physical boundaries.
+537660	541220	And of course, the reason this is so pertinent nowadays is that everyone's moving their
+541220	542580	data to the cloud.
+542580	544580	And when you're storing your data in the cloud, where's the data?
+544580	546980	I don't know, somewhere in the cloud.
+546980	553220	It's very, very easy to fall a foul of these data residency laws if you're storing data
+553220	556460	in the cloud, and you're not careful about exactly where you store it.
+556460	562780	Now to be clear, the big cloud service providers, this is why they have data centers spread
+562780	563780	around the planet.
+563780	567900	They have data centers within the UEU, for instance.
+567900	571500	So if you're collecting European citizens data, and you're storing it in the Amazon
+571500	576980	cloud, you better make sure that you've configured your data storage location to be in data centers
+576980	581460	that are in the EU, so that you can remain in compliance with these laws.
+581460	586660	So that's trans-border data flow, data residency, data localization laws, ensuring that data
+586660	589140	remains within certain physical boundaries.
+589140	592820	It doesn't pass out outside of those boundaries to ensure the protection of the data.

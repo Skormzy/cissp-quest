@@ -1,0 +1,446 @@
+WEBVTT
+
+00:00.000 --> 00:16.440
+In the last few modules, we've talked about all the different components that we have within
+
+00:16.440 --> 00:17.440
+a system.
+
+00:17.440 --> 00:33.040
+Now let's talk about some of the significant vulnerabilities.
+
+00:33.040 --> 00:36.280
+In the last few modules, we've talked about all the different components that we have
+
+00:36.280 --> 00:37.600
+within a system.
+
+00:37.600 --> 00:47.360
+Now let's talk about some of the significant vulnerabilities that we have in systems.
+
+00:47.360 --> 00:52.240
+So here's a list of some of the major architectural risks that exist in systems, things like single
+
+00:52.240 --> 00:55.200
+points of failures and bypass controls and race conditions.
+
+00:55.200 --> 00:58.880
+We'll go through each of these and we'll talk about what the risk is or what the vulnerability
+
+00:58.880 --> 01:04.200
+is and in most cases how you would go about mitigating that vulnerability.
+
+01:04.200 --> 01:07.760
+Let's start with this concept of a single point of failure.
+
+01:07.760 --> 01:10.320
+So what is a single point of failure?
+
+01:10.320 --> 01:14.560
+Well a single point of failure is where you've got a single system or process that if it
+
+01:14.560 --> 01:17.160
+goes down, everything goes down.
+
+01:17.160 --> 01:20.920
+So in this little diagram that we have here, we've got the sketchy internet at the very
+
+01:20.920 --> 01:22.120
+top there.
+
+01:22.120 --> 01:26.160
+We've got the traffic coming in from the internet going through a firewall and then through
+
+01:26.160 --> 01:31.120
+a router down to our little happy systems in our trusted internal network.
+
+01:31.120 --> 01:32.120
+You don't have a trusted network.
+
+01:32.120 --> 01:33.920
+We'll talk with that later.
+
+01:33.920 --> 01:37.520
+So what are the single points of failure in this diagram here?
+
+01:37.520 --> 01:39.280
+Well there's two.
+
+01:39.280 --> 01:43.800
+Our firewall and our router are both single points of failure.
+
+01:43.800 --> 01:47.760
+So how do we address the risks of single points of failure?
+
+01:47.760 --> 01:53.800
+Well, it's through redundancy or having multiple systems and in this diagram here you can
+
+01:53.800 --> 01:56.640
+see we don't just have one firewall and one router.
+
+01:56.640 --> 02:01.840
+We have two firewalls and two routers and we have them interconnected.
+
+02:01.840 --> 02:07.080
+So if one router goes down or one firewall goes down, the traffic is just routed around.
+
+02:07.080 --> 02:10.600
+So that's how we reduce the risk of single points of failure.
+
+02:11.080 --> 02:14.560
+Next, let's talk about bypass controls.
+
+02:14.560 --> 02:18.480
+Now before I explain exactly what a bypass control is, let me tell you a story and I think
+
+02:18.480 --> 02:20.200
+this will all make sense, okay?
+
+02:20.200 --> 02:24.760
+So let's say I'm a network administrator and I've just bought some wicked new firewall.
+
+02:24.760 --> 02:29.520
+It's like a million dollar firewall and being the very security conscious network administrator
+
+02:29.520 --> 02:30.520
+that I am.
+
+02:30.520 --> 02:34.920
+When this firewall gets delivered in the morning, I type in as my first task, I type in
+
+02:34.920 --> 02:39.840
+some super strong 50 character password for the root account so that it's a very secure
+
+02:39.840 --> 02:42.560
+firewall and you know, that was a big job.
+
+02:42.560 --> 02:47.320
+So I go off and have lunch and then I come back from lunch and I type in the super secure
+
+02:47.320 --> 02:51.360
+50 character password and correct password, crap.
+
+02:51.360 --> 02:58.200
+I type it in again, I type it in another time, oh, I've just forgotten the password to
+
+02:58.200 --> 03:00.360
+the million dollar firewall.
+
+03:00.360 --> 03:01.360
+What do I do now?
+
+03:01.360 --> 03:04.480
+Do I take the million dollar firewall and just throw it in the garbage because I mean,
+
+03:04.480 --> 03:07.560
+this is the root account without access to this account.
+
+03:07.560 --> 03:09.800
+You can't configure this firewall.
+
+03:09.800 --> 03:10.800
+So what do you do?
+
+03:10.800 --> 03:15.960
+Well, you get out a paperclip, you bend it open and walk up to the back of the firewall,
+
+03:15.960 --> 03:20.240
+find a little pinhole in the back, hold the paperclip in there for about 10 seconds and
+
+03:20.240 --> 03:21.640
+what happens?
+
+03:21.640 --> 03:24.240
+The firewall configuration resets.
+
+03:24.240 --> 03:27.440
+This is a perfect example of a bypass control.
+
+03:27.440 --> 03:31.600
+So in the diagram that I'm showing you here, our regular control is that a user would
+
+03:31.600 --> 03:35.000
+log into a system with a password.
+
+03:35.000 --> 03:37.880
+But let's say the user has forgotten their password.
+
+03:37.880 --> 03:41.600
+We want to implement a bypass control.
+
+03:41.600 --> 03:47.880
+So bypass controls are controls that we intentionally build into a system to allow us to bypass some
+
+03:47.880 --> 03:51.000
+primary mechanism, like say the authentication mechanism.
+
+03:51.000 --> 03:54.840
+So we very clear on this wording, bypass controls are intentional.
+
+03:54.840 --> 03:57.800
+They're intentionally built into a system.
+
+03:57.800 --> 03:59.800
+Do they introduce additional risks?
+
+03:59.800 --> 04:00.800
+Of course they do.
+
+04:00.800 --> 04:04.080
+And this example that I just gave you with the million dollar firewall, if someone was
+
+04:04.080 --> 04:08.800
+able to get physical access to that firewall, they could reset the firewall.
+
+04:08.800 --> 04:12.440
+And there are lots and lots of examples of bypass controls out there.
+
+04:12.440 --> 04:17.760
+And all of them, whenever you implement a bypass control, it introduces additional risk.
+
+04:17.760 --> 04:21.120
+So how do we reduce the risk of bypass controls?
+
+04:21.120 --> 04:25.160
+Well, you've got to implement the appropriate mitigating controls, whatever those happen
+
+04:25.160 --> 04:26.160
+to be.
+
+04:26.160 --> 04:29.680
+In the example of a firewall, it would be physical security.
+
+04:29.680 --> 04:33.880
+As long as you prevent someone an unauthorized person from getting physical access to the
+
+04:33.880 --> 04:36.920
+firewall, they can't reset the firewall.
+
+04:36.920 --> 04:40.680
+So whatever is the appropriate mitigating control, you put that in place to reduce the
+
+04:40.680 --> 04:45.320
+risk of any new risk you've implemented with a bypass control.
+
+04:45.320 --> 04:51.200
+And now let's talk about these six letters here, TOC, TOU, TalkTow.
+
+04:51.200 --> 04:52.200
+What do they stand for?
+
+04:52.200 --> 04:58.400
+Well, TOC, time of check and TOU, time of use.
+
+04:58.400 --> 05:01.600
+What this refers to is often also referred to as a race condition.
+
+05:01.600 --> 05:04.200
+And let me tell you another story to explain this one.
+
+05:04.200 --> 05:09.840
+So let's say I walk into work in the morning, I get my laptop out, plug it in, and type
+
+05:09.840 --> 05:12.480
+in my username and password and log into the system.
+
+05:12.480 --> 05:16.800
+And just as I log in, someone from HR comes and says, Rob, kind of please see you in my
+
+05:16.800 --> 05:17.800
+office.
+
+05:17.800 --> 05:19.000
+And I say, yeah, sure, no problem.
+
+05:19.000 --> 05:23.720
+We walk right over to their office, and they sit me down and say, and they say, Rob,
+
+05:23.720 --> 05:26.480
+you're a terrible employee, we're firing you.
+
+05:26.480 --> 05:31.040
+And I think my response would probably be like, yeah, I get it, I'm a pretty horrible
+
+05:31.040 --> 05:32.040
+person.
+
+05:32.040 --> 05:33.040
+I'm on the same page.
+
+05:33.040 --> 05:34.040
+I get it.
+
+05:34.040 --> 05:35.040
+No worries.
+
+05:35.040 --> 05:36.320
+So it's a very quick discussion.
+
+05:36.320 --> 05:41.480
+And I leave to the HR person's office, and I'm back at my desk in like three minutes.
+
+05:41.480 --> 05:43.720
+What do I find when I'm back at my desk?
+
+05:43.720 --> 05:48.600
+Well, I may well find that my laptop is still logged in.
+
+05:48.600 --> 05:53.040
+My screensaver might not be set to time out for, say, five minutes.
+
+05:53.040 --> 05:57.800
+So if I'm back at my laptop, and I'm able to access that laptop, should I be able to?
+
+05:57.800 --> 05:58.800
+And of course not.
+
+05:58.800 --> 06:00.200
+I've just been fired.
+
+06:00.200 --> 06:04.560
+This is a perfect example of time of check, time of use, or a race condition.
+
+06:04.560 --> 06:10.120
+The idea is if an attacker can race in and get access to and use a system before there's
+
+06:10.120 --> 06:14.400
+the next check, they might be able to do something that they're not supposed to.
+
+06:14.400 --> 06:17.320
+They might be able to hijack the session as an example.
+
+06:17.320 --> 06:23.000
+So how do we reduce the risk of time of check, time of use, or race conditions?
+
+06:23.000 --> 06:26.120
+Well, you have to increase the frequency of reauthentication.
+
+06:26.120 --> 06:29.880
+So in the example I gave of coming back to my laptop, if the screensaver password had
+
+06:29.880 --> 06:34.320
+come up after even just one minute, then I wouldn't have had unauthorized access to
+
+06:34.320 --> 06:35.320
+that system.
+
+06:35.320 --> 06:40.520
+So the way we do deal with the risk of time of check, time of use is increase the frequency
+
+06:40.520 --> 06:44.240
+of reauthentication.
+
+06:44.240 --> 06:47.000
+The next vulnerability we're going to talk about is emanations.
+
+06:47.000 --> 06:48.880
+Now let's start with an definition.
+
+06:48.880 --> 06:50.600
+What does emanations mean?
+
+06:50.600 --> 06:54.280
+Well, computer systems emanate all sorts of different stuff.
+
+06:54.280 --> 06:56.480
+They emanate light from the screen.
+
+06:56.480 --> 06:58.200
+They emanate sounds.
+
+06:58.200 --> 07:02.360
+They emanate radio waves and some of them are intentional, things like our Wi-Fi.
+
+07:02.360 --> 07:05.880
+Our magnetic hard drives when they're being used emanate magnetic waves.
+
+07:05.880 --> 07:10.120
+There's all sorts of stuff that our systems emanate.
+
+07:10.120 --> 07:16.000
+And the risk with emanations is that someone may be able to detect those emanations and
+
+07:16.000 --> 07:21.200
+gather information that they're not supposed to from those emanations.
+
+07:21.200 --> 07:26.040
+Now there's three major ways that we can deal with the risk of emanations.
+
+07:26.040 --> 07:28.400
+The first is shielding.
+
+07:28.400 --> 07:35.160
+So what this means is you put some sort of shield around the device that blocks electromagnetic
+
+07:35.160 --> 07:36.480
+waves.
+
+07:36.480 --> 07:39.480
+An example of shielding is something known as tempest.
+
+07:39.480 --> 07:40.640
+And you should remember this.
+
+07:40.640 --> 07:47.000
+So tempest is a tech suite of technologies developed by the Royal Military to protect their
+
+07:47.000 --> 07:52.440
+planes and tanks and things like that from the rescues or whomever, from the bad guys
+
+07:52.440 --> 07:54.320
+whoever those happen to be.
+
+07:54.320 --> 08:00.320
+So one of the ways that we prevent reduce the risk of emanations is shielding.
+
+08:00.320 --> 08:03.000
+The next is white noise.
+
+08:03.000 --> 08:04.800
+What is white noise?
+
+08:04.800 --> 08:06.840
+Static random noise.
+
+08:06.840 --> 08:10.920
+And the idea behind white noise is that if you blast a really strong signal of random
+
+08:10.920 --> 08:16.520
+noise, whatever small weak emanations might be coming out of your system will be overwhelmed
+
+08:16.520 --> 08:21.000
+by the random noise, preventing the attacker from listening in and gathering data from
+
+08:21.000 --> 08:23.240
+your system.
+
+08:23.240 --> 08:27.720
+The final major way that we can deal with the risk of emanations is what are known as control
+
+08:27.720 --> 08:28.720
+zones.
+
+08:28.720 --> 08:30.720
+Think of this as physical security.
+
+08:30.720 --> 08:35.080
+Control zones simply means that if someone isn't able to get close enough to your system
+
+08:35.080 --> 08:39.840
+that's emanating these weak signals, then they're not going to be able to pick them up.
+
+08:39.840 --> 08:44.640
+And so this is why in the movies, the super security government system is always buried
+
+08:44.640 --> 08:47.640
+in some bunker underground inside of a mountain.
+
+08:47.640 --> 08:51.520
+And the only way to get through getting near it is to hire Tom Cruise to repel out of
+
+08:51.520 --> 08:53.600
+the vents in the ceiling or something like that.
+
+08:53.600 --> 08:58.400
+So control zones, control physical access to the device to reduce the risk of emanations.
+

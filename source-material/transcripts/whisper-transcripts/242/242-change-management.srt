@@ -1,0 +1,444 @@
+1
+00:00:00,000 --> 00:00:14,560
+Change management.
+
+2
+00:00:14,560 --> 00:00:19,120
+This is the process that organizations use to make sure that changes are cost effective
+
+3
+00:00:19,120 --> 00:00:48,080
+that all changes are made in a controlled manner they go through a proper process.
+
+4
+00:00:48,080 --> 00:00:51,840
+So let's talk through that process, the change management process and the components
+
+5
+00:00:51,840 --> 00:00:53,360
+of that process.
+
+6
+00:00:53,360 --> 00:00:58,200
+But before we do, I want to briefly cover what happens if an organization doesn't
+
+7
+00:00:58,200 --> 00:01:01,180
+have a very good change management process or the other end of the spectrum if their
+
+8
+00:01:01,180 --> 00:01:04,440
+change management process is too rigorous, too arduous.
+
+9
+00:01:04,440 --> 00:01:06,280
+So let's think for a moment.
+
+10
+00:01:06,280 --> 00:01:10,840
+If an organization doesn't have a change management process, what happens?
+
+11
+00:01:10,840 --> 00:01:14,240
+Well changes are being made and they're not being documented.
+
+12
+00:01:14,240 --> 00:01:19,360
+No one's looking at what the impact of that change might be, what stakeholders might
+
+13
+00:01:19,360 --> 00:01:20,360
+be affected.
+
+14
+00:01:20,360 --> 00:01:22,040
+They're not seeking approval.
+
+15
+00:01:22,040 --> 00:01:26,560
+So what happens when an organization has a non-existent or inefficient change management
+
+16
+00:01:26,560 --> 00:01:27,560
+process?
+
+17
+00:01:27,560 --> 00:01:30,280
+Well the organization tends to be very reactive.
+
+18
+00:01:30,280 --> 00:01:32,240
+They're constantly fighting fires.
+
+19
+00:01:32,240 --> 00:01:36,320
+Stuff is breaking all the time and no one understands why.
+
+20
+00:01:36,320 --> 00:01:40,440
+Someone might have come in at midnight and made a change to the firewall, not told anyone.
+
+21
+00:01:40,440 --> 00:01:44,400
+Now the next morning, a large swath of the network is offline and no one can figure
+
+22
+00:01:44,400 --> 00:01:45,840
+out why.
+
+23
+00:01:45,840 --> 00:01:51,480
+So a lack of change management can very definitely lead to a very reactive environment where you
+
+24
+00:01:51,480 --> 00:01:55,000
+can't, you're just constantly trying to figure out why the stuff's breaking and you're
+
+25
+00:01:55,000 --> 00:01:59,720
+not able to get proactive, start to improve or make things better.
+
+26
+00:01:59,720 --> 00:02:03,680
+The other end of the spectrum is what happens if an organization's process is change management
+
+27
+00:02:03,680 --> 00:02:05,840
+process is too rigorous.
+
+28
+00:02:05,840 --> 00:02:11,160
+For even a super minor change, you have to go through 17 levels of approval in triplicate.
+
+29
+00:02:11,160 --> 00:02:12,480
+What happens then?
+
+30
+00:02:12,480 --> 00:02:18,520
+Well inevitably, if a change is too hard to make, if it's way too much paperwork to go through,
+
+31
+00:02:18,520 --> 00:02:23,320
+people will find ways of avoiding the process and it'll also slow the organization down,
+
+32
+00:02:23,320 --> 00:02:27,600
+make it so that it's too bureaucratic, too slow to get things done.
+
+33
+00:02:27,600 --> 00:02:28,920
+So that's kind of the challenges.
+
+34
+00:02:28,920 --> 00:02:33,160
+We want to find the happy middle in between them with our change management process.
+
+35
+00:02:33,160 --> 00:02:36,640
+It needs to be flexible and it needs to be efficient.
+
+36
+00:02:36,640 --> 00:02:41,600
+So now let's start to walk through the components of the change management process.
+
+37
+00:02:41,600 --> 00:02:46,040
+And the very first step is a change request comes in.
+
+38
+00:02:46,040 --> 00:02:47,480
+Where can a change request come from?
+
+39
+00:02:47,480 --> 00:02:51,800
+Well, all sorts of different places, I might be to say, hey, we have to install a patch
+
+40
+00:02:51,800 --> 00:02:55,160
+on a system, make a configuration change to a system.
+
+41
+00:02:55,160 --> 00:03:00,000
+We want to create a new system, we want to add some additional functionality, we want
+
+42
+00:03:00,000 --> 00:03:02,720
+to do any of these sorts of things.
+
+43
+00:03:02,720 --> 00:03:06,960
+So change requests can come from all over the organization.
+
+44
+00:03:06,960 --> 00:03:09,640
+The next step is to do an impact analysis.
+
+45
+00:03:09,640 --> 00:03:12,800
+To figure out how big of a deal is this change?
+
+46
+00:03:12,800 --> 00:03:17,080
+Is it a very minor change to a very low value system that can be done in just a few minutes
+
+47
+00:03:17,080 --> 00:03:18,680
+and not affect anyone?
+
+48
+00:03:18,680 --> 00:03:23,280
+Or is this like a multi-million dollar project that's going to take months and it's going
+
+49
+00:03:23,280 --> 00:03:27,400
+to cost millions of dollars and it can infect all sorts of different people?
+
+50
+00:03:27,400 --> 00:03:31,640
+Or is this like an emergency patch that we need to do because there's a zero day out
+
+51
+00:03:31,640 --> 00:03:35,640
+there and we have to patch these systems yesterday?
+
+52
+00:03:35,640 --> 00:03:40,040
+The impact analysis will identify what type of change it is, which will then drive the
+
+53
+00:03:40,040 --> 00:03:41,640
+rest of the process.
+
+54
+00:03:41,640 --> 00:03:45,760
+For very expensive, very big changes that affect a lot of people, you probably need to go
+
+55
+00:03:45,760 --> 00:03:48,160
+through a lot of levels of approval.
+
+56
+00:03:48,160 --> 00:03:52,520
+For emergency changes, you might skip a lot of those approvals to very quickly implement
+
+57
+00:03:52,520 --> 00:03:54,920
+the change.
+
+58
+00:03:54,920 --> 00:03:58,840
+So the next step of the change management process is the approval step.
+
+59
+00:03:58,840 --> 00:04:02,040
+This is where someone actually needs to approve the change.
+
+60
+00:04:02,040 --> 00:04:05,480
+And this is probably where you've heard of terms like cabs or e-cabs.
+
+61
+00:04:05,480 --> 00:04:10,560
+A cab is a change advisory board made up of stakeholders from all across the organization
+
+62
+00:04:10,560 --> 00:04:15,560
+that can provide input on whether or not this change makes sense, if it's cost effective,
+
+63
+00:04:15,560 --> 00:04:20,800
+how to do it in an efficient way, how to minimize impact, all these sorts of things.
+
+64
+00:04:20,800 --> 00:04:26,920
+And if it's a really big change, you might even escalate up to e-cap, executive change
+
+65
+00:04:26,960 --> 00:04:29,640
+advisory boards.
+
+66
+00:04:29,640 --> 00:04:31,560
+The next step is build and test.
+
+67
+00:04:31,560 --> 00:04:35,960
+So actually start to create whatever the change is, test to make sure the change is going
+
+68
+00:04:35,960 --> 00:04:39,000
+to work properly, start to create back-out plans.
+
+69
+00:04:39,000 --> 00:04:44,240
+So if the change doesn't go well, you can get back to it in our previous state.
+
+70
+00:04:44,240 --> 00:04:46,200
+Next is notification.
+
+71
+00:04:46,200 --> 00:04:51,080
+Notification is where you notify all the relevant stakeholders that the change is about
+
+72
+00:04:51,080 --> 00:04:52,080
+to occur.
+
+73
+00:04:52,080 --> 00:04:55,560
+That might be consumers, it might be business owners, management.
+
+74
+00:04:56,120 --> 00:05:00,880
+Whoever needs to know, whoever is a relevant stakeholder, you need to notify them because
+
+75
+00:05:00,880 --> 00:05:05,720
+you're about to actually implement the change.
+
+76
+00:05:05,720 --> 00:05:09,080
+The next step after implementation is validation.
+
+77
+00:05:09,080 --> 00:05:12,640
+And this is where you check to make sure that, okay, this change was supposed to provide
+
+78
+00:05:12,640 --> 00:05:15,800
+this new functionality or patch this system.
+
+79
+00:05:15,800 --> 00:05:19,560
+So the validation step is where you make sure that whatever the change was has actually
+
+80
+00:05:19,560 --> 00:05:21,360
+occurred correctly.
+
+81
+00:05:21,360 --> 00:05:25,360
+And this is also where you include that testing that we've talked about, regression
+
+82
+00:05:25,360 --> 00:05:28,840
+testing, progression testing, of course, is where you go back and make sure you haven't
+
+83
+00:05:28,840 --> 00:05:31,560
+broken any existing functionality.
+
+84
+00:05:31,560 --> 00:05:34,640
+So all this falls under validation.
+
+85
+00:05:34,640 --> 00:05:38,640
+And then the final step is updating your versioning, your baselines.
+
+86
+00:05:38,640 --> 00:05:43,560
+So we've talked about baselines, a baseline is the standard configuration for a system
+
+87
+00:05:43,560 --> 00:05:47,480
+of all the controls or all the configuration that should be in place.
+
+88
+00:05:47,480 --> 00:05:52,120
+If you've made a change to a system, you need to update that system's baseline.
+
+89
+00:05:52,120 --> 00:05:56,400
+You might also, this may also trigger you to go and update for certain plans like say
+
+90
+00:05:56,400 --> 00:06:01,440
+the DRP plan because your DRP plan is meant to recover a system.
+
+91
+00:06:01,440 --> 00:06:05,840
+And it obviously needs to recover the system to wherever it was right before it failed,
+
+92
+00:06:05,840 --> 00:06:11,440
+which means any changes you've made to the system might require an update to the DRP plan.
+
+93
+00:06:11,440 --> 00:06:15,920
+So there's a bunch of updating of documents that might need to occur at the end of change
+
+94
+00:06:15,920 --> 00:06:17,600
+management.
+
+95
+00:06:18,560 --> 00:06:23,040
+And there's one final piece that's not mentioned here, but it's included throughout all of these steps.
+
+96
+00:06:23,040 --> 00:06:25,120
+And that is documentation.
+
+97
+00:06:25,120 --> 00:06:28,880
+All of these steps should be documented where the change request come from.
+
+98
+00:06:28,880 --> 00:06:31,280
+What was the impact and results of the impact analysis?
+
+99
+00:06:31,280 --> 00:06:32,720
+Who approved the change?
+
+100
+00:06:32,720 --> 00:06:34,800
+What was actually built and tested?
+
+101
+00:06:34,800 --> 00:06:36,120
+Who was notified?
+
+102
+00:06:36,120 --> 00:06:37,280
+How was it actually implemented?
+
+103
+00:06:37,280 --> 00:06:38,520
+And when?
+
+104
+00:06:38,520 --> 00:06:40,440
+What sort of testing validation occurred?
+
+105
+00:06:40,440 --> 00:06:41,480
+Did it work properly?
+
+106
+00:06:41,480 --> 00:06:46,120
+And what updates are made to all the various documents that's necessary?
+
+107
+00:06:46,120 --> 00:06:47,640
+There should always be documentation.
+
+108
+00:06:47,640 --> 00:06:50,680
+It doesn't have to be overly, it doesn't have to be hundreds of pages.
+
+109
+00:06:50,680 --> 00:06:53,800
+It's going to depend on the type of change, but there should be clear documentation so
+
+110
+00:06:53,800 --> 00:06:57,440
+you know what has changed and when and why.
+
+111
+00:06:57,440 --> 00:06:59,440
+So that's the change management process.
+

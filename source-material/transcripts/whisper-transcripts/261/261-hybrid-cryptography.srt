@@ -1,0 +1,100 @@
+1
+00:00:00,000 --> 00:00:20,000
+We've talked about the advantages of symmetric key cryptography, and just to remind you, they are that...
+
+2
+00:00:30,000 --> 00:00:37,000
+that symmetric algorithms are really fast, in fact, they can encrypt to the tune of hundreds of millions of bits per second.
+
+3
+00:00:37,000 --> 00:00:44,000
+But the problem that symmetric has is key distribution. Now, asymmetric is the opposite, isn't it?
+
+4
+00:00:44,000 --> 00:00:50,000
+The advantage of asymmetric is that it gets rid of the problem of key distribution.
+
+5
+00:00:50,000 --> 00:01:00,000
+Now, asymmetric is the opposite, isn't it? The advantage of asymmetric is that it gets rid of the problem of key distribution,
+
+6
+00:01:00,000 --> 00:01:12,000
+but introduces that slowness problem. And so that's why today all crypto systems and solutions that exist out there are actually what we call hybrid.
+
+7
+00:01:12,000 --> 00:01:21,000
+And hybrid simply means that they use both symmetric and asymmetric key cryptography algorithms for what they're both good at.
+
+8
+00:01:21,000 --> 00:01:28,000
+And so what you need to remember here is that symmetric is usually used for bulk and speed.
+
+9
+00:01:28,000 --> 00:01:36,000
+Anything that requires a lot of encryption, a lot of decryption, and wherever we need to do it really quickly.
+
+10
+00:01:36,000 --> 00:01:46,000
+Asymmetric algorithms are used to exchange these symmetric keys that are required at both ends in order to be able to do that.
+
+11
+00:01:46,000 --> 00:01:56,000
+So today, off cryptography solutions, implementations are what we call hybrid. And then what they'll do is they'll also add functionality to address
+
+12
+00:01:56,000 --> 00:02:06,000
+hashing algorithms for integrity, digital signature algorithms to address non-repediation. And that's what we call crypto system.
+
+13
+00:02:06,000 --> 00:02:15,000
+Really hybrid products that support all kinds of different algorithms to achieve really the five services that cryptography can for us.
+
+14
+00:02:15,000 --> 00:02:21,000
+But let's look at an example here of hybrid cryptography by using again Alice and Bob.
+
+15
+00:02:21,000 --> 00:02:29,000
+So let's say Alice wants to send a very large message to Bob because it's a very large message.
+
+16
+00:02:29,000 --> 00:02:37,000
+The only option that they can use is symmetric cryptography. And so let's say they've decided to use dads for this.
+
+17
+00:02:37,000 --> 00:02:50,000
+So what Alice does is she's going to encrypt that very large message with dads which requires her to choose one of the possible keys, symmetric keys,
+
+18
+00:02:50,000 --> 00:03:02,000
+that Dez uses. Now she knows that the only way that Bob will be able to decrypt that message is to have the exact same symmetric key.
+
+19
+00:03:02,000 --> 00:03:19,000
+So that's the problem of key distribution that we've talked about. But Alice knows a good way to do this and send it to Bob securely because what she can do is she can take that 56-bit symmetric key that Bob requires.
+
+20
+00:03:19,000 --> 00:03:39,000
+And encrypt it with Bob's public key. All right, because if Alice encrypts that symmetric key with Bob's public key that ensures that the only person out there that can decrypt that is Bob with his private key that he keeps private to himself.
+
+21
+00:03:39,000 --> 00:03:57,000
+And so now when he receives that he will be able to decrypt it with what no one else has which is his private key at which point he will have the same symmetric key that Alice used in order to encrypt that very large message.
+
+22
+00:03:57,000 --> 00:04:10,000
+And Bob now will be able to decrypt very quickly as well because ultimately they both used symmetric key cryptography to be able to encrypt and decrypt that message quickly.
+
+23
+00:04:10,000 --> 00:04:20,000
+But they've used asymmetric key cryptography to be able to exchange the symmetric key that is required at both ends.
+
+24
+00:04:20,000 --> 00:04:32,000
+So this is a perfect example of what hybrid cryptography looks like today. Simply means we use a combination of symmetric and asymmetric for what they're each good at.
+
+25
+00:04:32,000 --> 00:04:42,000
+Symmetric always use for bulk and speed, asymmetric always use to exchange symmetric keys that are required at both ends.
+

@@ -1,0 +1,117 @@
+start	end	text
+0	19680	Okay, don't be number six, all about testing and assessment.
+19680	40680	Okay, don't be number six, all about testing and assessment. And we've learned how
+40680	46240	it's important to really have every control address two things, right? Functional
+46240	53240	and assurance, those are the two very important pillars that every control needs to be supported
+53240	60480	by. And so this domain obviously is focused on the assurance part. How do we provide assurance
+60480	67560	to our stakeholders that first of all security is contributing towards goals and objectives,
+67560	72680	but also that we have the right level of security built into certain architectures like applications
+72680	78760	and the network and really anything that provides value to the organization. That's what we're
+78760	86160	focusing on in this domain. And obviously the best way to address that assurance is through testing
+86160	93920	and assessment that the security function has to be focused on and involved in. Yeah, we've got
+93920	97400	a little slide here, not some you need to know for the exam, but I think it highlights an important
+97400	103920	point, which is our systems are getting unbelievably complex and we are, you know, businesses are incredibly
+103920	109880	reliant on these systems to perform business functions. And so we've got a little slide here that
+109880	114520	talks about this, the numbers down the side here are the number of lines of code. It's not a great
+114520	118040	measure, but it's a way of thinking about just how complex of a system, obviously the more
+118040	123200	lines of code, the more complex the system. And then we've got what they line up to here. So what do
+123200	128760	you think 50,000 lines of code? What's what does that line up to? Yeah, I would say an average
+128760	135000	iPhone app. Yeah, that's your average iPhone app. Now what about 6.5 million lines of code? Yeah,
+135000	141400	I don't like that number, but probably Boeing avionics. Yeah, they're excellent systems that have
+141400	150520	been working perfectly. 50 million lines of code. Yeah, that'd be Microsoft Windows. Yeah, which
+150520	155120	highlights something important. I mean, all of us are our applications run on top of operating
+155120	159080	systems. And Windows is not unique in being around 50 million lines of code, but that highlights
+159080	164320	just how insanely large and complex these systems are. And if you want a secure system that's going
+164320	169240	to be reliable, have integrity, et cetera, it needs to be working properly. And when you have 50
+169240	173880	million lines of code, is there is there possibly going to be one or two bugs? I don't know, John,
+173880	178960	has there ever been a bug found in Microsoft's code? None of them I can think of. And then so
+178960	183600	then what's two billion lines of code? That's Google services. So I mean, this is just a way of showing
+183600	189000	you in high level terms, just how complex our systems are. And we need these systems to be working
+189000	196000	properly, which is why we need to test them. And so here's a question right that people have
+196000	203000	seen. What's the purpose of testing and assessing these architectures, applications, and so on. And
+203000	208840	obviously it is to provide assurance to our stakeholders that the right level of security is in those
+209560	215160	valuable assets of the organization, right? But testing needs to involve security. We're not just
+215160	220360	testing for functionality, we're testing for security functionality as well. As you love to call it
+220360	227480	non-functional testing. Yeah, drives as crazy as security professionals. Security often gets called
+227480	232600	non-functional testing. It's getting lumped in with that, which whenever projects, you know,
+232600	236760	behind schedule over budget, what testing are you not going to do? Oh, don't bother doing the
+236760	242360	non-functional stuff. Well, to me, non-functional are not two words that you can put together. I mean,
+242360	248040	non-functional, what does that mean? It means it's not functioning. And definitely security is
+248040	254520	something that has to function. And so we should never relate to security as anything other than
+254520	260360	functionality that is very valuable and important, exactly. And so when we talk about security assessment
+260360	264120	and testing, you know, what are we talking about? Where are we doing it? Are we just doing it when
+264120	268760	we're developing a system? And the answer is no. I mean, testing is throughout the entire lifecycle
+268760	272360	the system. It starts right from the very earliest of the conception of what you might be building
+272360	277640	through the entire lifecycle, even, you know, through obviously build and then operation. And even
+277640	282440	at the end of the lifecycle, when an application is no longer needed, you've got to test to make sure
+282440	286840	you just securely destroy the data. Or have you moved it on to the next system properly? So security
+286840	291320	assessment and assessing is involved throughout the entire process. Yeah, not just development,
+291320	297560	but the entire lifecycle. So next slide talks about validation and verification. What's the difference?
+297560	301480	Yeah. So these are some words you might see. So validation is at the very start.
+301480	306040	Validation is this concept that when someone first says, let's build an application or a system,
+306040	310040	the first thing you have to understand is what does someone actually want to build? What are the
+310040	316200	business requirements? Because if you don't understand what the product is, you can never possibly
+316200	320200	build it properly and especially include the right security controls. If you only find out once it's
+320200	325320	in production that, oh, hey, by the way, there's some credit card data in there. Oh, okay. Now we've
+325320	329640	got to include all the PCI controls. Don't worry, there's only a thousand of those. So validation is
+329640	334600	about how do you validate that you've truly understood the business requirements? That you gathered
+334600	339000	them all, captured them correctly, and they cover all the requirements. So that's why I like to
+339000	343400	refer to as are you building the right product? Have you truly understood what it is that you're supposed
+343400	348600	to be building? And then verification is everything that follows that. Once you start actually building
+348600	352920	the system and building the security controls into it, you want to make sure you're the product,
+352920	358280	you're building the product right. Doesn't actually work correctly as it was designed. Do all the
+358280	361960	security controls that you're implementing, you're verifying that those security controls are actually
+361960	366920	working correctly. Yeah. And I think we have to relate this to security, right? Validation and
+366920	373400	verification needs to be applied to what security does in the overall architecture or system that we're
+373400	380600	building. So next up, an important part of validation and just testing in general is that can we ever
+380600	387160	be 100% certain that a piece of software is working correctly? The answer is no. Yeah.
+388360	393000	It's impossible. I used to do a lot of programming. There was some lines of code where I couldn't even
+393000	397960	tell you if a single line of code was working correctly. So we can never be 100% certain. Instead,
+397960	402040	this is where we have this concept of you want to develop a level of confidence. You want to be,
+402040	405240	you know, do you want to be just like, yeah, sure, good enough or do you want to be like really
+405240	409000	certain it's working correctly? So what would drive that, John? What would make you decide? I want to
+409000	413240	be really, really confident this is working correctly. Well, you have to understand the requirements
+413240	419560	from a stakeholder perspective. So the owner's management, whoever it is that your stakeholder is,
+419560	424600	that you're building this for, you need to understand the requirements, but also how security fits in.
+424600	428680	And how valuable the system is, the organization, right? The more valuable the system, the more sure
+428680	432760	you want to be that it's working correctly. So then as part of verification, are we building the
+432760	436760	product right? This is where we talk about the three C's. What are these all about? Yeah, you see
+436760	442600	that here, completeness, right? Means exactly that. Let's make sure that we cover everything.
+442600	449480	Correctness is accuracy, integrity, and so on. And consistency means that the system works
+449480	454600	properly from a security perspective, from start to finish. It's consistently addressing the
+454600	461160	security requirements. These are things that you want to verify are not only built in as far as
+461160	465880	the product itself, but also operating that way once we're using it. And we can use these when
+465880	469880	we're developing test cases, right? completeness, how do we have test cases that cover everything,
+469880	473560	correctness to each test case? Look at the right stuff and consistency or all the test cases
+473560	477160	consistent from one to the next. Is that kind of the idea? Yes, absolutely. Perfect.
+477880	481720	And then next question, how do we decide how much effort do we invest in testing?
+482280	487080	Well, this is an answer that everybody should know by now. It's always based on the value that
+487080	493880	it represents to the organization. Value is what drives security, including the testing that we do
+493880	500840	to prove to stakeholders that security is contributing value. When we look at testing strategies at
+500840	504680	at a really high level, how do we go about testing things? There's kind of three major ways
+504680	509160	we can go about this. We can do internal testing, which means if it's, let's say we're talking about
+509160	514600	Acme Corporation, internal testing would be Acme's own auditors looking at Acme's own systems.
+514600	520120	It's all internal. External would be Acme, for instance, looking at one of their service providers.
+520120	523720	And actually, I'll spend one second on external here because there's sometimes questions on the test
+523720	527000	that kind of befubble people. External can actually mean two different things.
+527640	532600	External could be where Acme's own internal auditors are looking at a service provider. That's
+532600	537000	external to them. Or it could be that way around. Let's say that Acme is developing a system,
+537000	542040	and the upper management doesn't quite have the confidence that their internal people know
+542040	546040	quite what they're doing. And they want an outsider's opinion, someone external to the organization
+546040	549880	to take a look at things. And so that can be the other definition of external, where someone
+549880	555880	like an external auditor is looking in. And then third party obviously implies there are three
+555880	559800	parties involved. So this is usually where you have a service provider, like a big cloud provider,
+559800	564920	like say, as you are, they will have millions of customers, hundreds of thousands of customers.
+564920	568760	And they don't want to have to have every single one of those customers audit them individually.
+568760	573400	So they'll hire a trusted third party audit firm to conduct an audit, produce a report,
+573400	577000	which then gets handed out to all of their customers. We'll talk about that in a lot more detail
+577000	582920	later on, but those are the three parties consumer service provider and the external auditor.
+584760	590680	Next slide talks about the role of security in testing. And one of the things that we have to
+590680	597160	remember is that, you know, testing should be done by the stakeholders that are involved in
+597160	603320	providing assurance towards. And so security really needs to be part of the entire teams.
+603320	610600	But the teams also need to include the owners and management and possibly some others
+610600	617000	that have a stake in understanding that security is contributing towards value and working
+617000	621480	properly as far as the testing that we do. And the key part here is it's not security is not
+621480	625800	actually conducting the testing. What's what's security doing? Well, we're monitoring,
+625800	629560	but we're also providing assurance from a security perspective. Yeah, we're advising,
+629560	633560	we're looking at the results and that's sort of the role of the security professional.

@@ -1,0 +1,100 @@
+start	end	text
+0	20000	You're still here?
+30000	40000	You're still here?
+40000	44000	It's perseverance.
+44000	49000	I started talking about how within physical security we care about the infrastructure support systems.
+49000	56000	And by that I mean making sure that we provide a good clean supply of power, network, and HVAC.
+56000	62000	So let's talk through each of these pieces, actually two of them in detail, power and HVAC.
+62000	66000	And we're going to start with power.
+66000	72000	And the goal within physical security is to have a good clean consistent supply of power.
+72000	78000	And there's a few components that we need to talk about that provide that good clean consistent supply of electricity of power.
+78000	82000	Let's start with UPS's uninterruptible power supplies.
+82000	85000	UPS's are essentially giant batteries.
+85000	89000	And they provide two primary capabilities for us.
+89000	96000	One is that as soon as the power goes out they provide instantaneous but short term power.
+96000	101000	And by that I mean the electricity is running through this giant battery on its way into the building.
+101000	108000	And so if the power from the mains cuts then the UPS giant battery provides instantaneous power to the rest of the building.
+108000	111000	But only for a short period of time.
+111000	115000	The other thing the UPS provides is what we refer to as power conditioning.
+115000	121000	There's rectification and other circuitry in within these systems typically that will clean up the power.
+121000	128000	And what I mean by that is that alternate and current AC current, if you look at it on a oscilloscope it should be a nice perfect sine wave.
+129000	135000	But if the amplitude is too high, the frequency is too high or too low, you get dirty power, spikes, things like that.
+135000	138000	And dirty power, bad for equipment.
+138000	141000	So UPS's can clean up the power.
+141000	148000	Now I mentioned that UPS's only provide power for a short period of time until what happens.
+148000	150000	Until the generator gets up to speed.
+150000	153000	Because the next major device we have to talk about are generators.
+153000	157000	Typically very large diesel engines hooked up to an alternator.
+157000	165000	Now if we have this big generator that's able to produce power for the entire facility, why do we still need the UPS?
+165000	171000	Generators being big diesel engines, typically they take time to spin up to get up to speed.
+171000	176000	Sometimes 20, 30, 40, 50, even 60 seconds before they're online up and running and providing power.
+177000	184000	And so our UPS has covered this short window from when the power from the mains is cut and when the generator is up to speed.
+184000	188000	So that's the use of the UPS. Now generators.
+188000	192000	Because they're big diesel engines, they require maintenance.
+192000	195000	I've seen a couple of organizations that have had this problem.
+195000	200000	They've bought a generator, they've put it out in the parking lot, they've never touched it, never run it for 10 years.
+200000	203000	The power went out and what did the generator do?
+203000	204000	Nothing.
+204000	206000	These things require maintenance.
+206000	211000	Usually a good idea to power these things on at least once a month, do yearly load tests.
+211000	218000	Don't have to remember any of these exact sort of numbers for the exam, but do recognize that generators need constant maintenance, well-defined maintenance schedules.
+218000	224000	You also have to think about what percentage of the building can the generator supply the whole building by itself?
+224000	227000	Do you need multiple of them together? What amount of power can they supply?
+227000	230000	And how much fuel do you have?
+231000	235000	You have to think about how long of power outage are we expecting?
+235000	237000	How long do we need to stay up and running for?
+237000	242000	And you need to have at least that amount of fuel supply in a tank somewhere nearby.
+242000	246000	And related to this, you have to usually have contracts in place.
+246000	251000	So if you know that you only have 72 hours worth of fuel on site,
+251000	257000	you should probably have a contract in place that's going to get you fuel in less than 72 hours, 48 hours, something like that.
+258000	262000	A lot of organizations recently learned a hard lesson related to this in Texas.
+262000	269000	When the most recent cyclone came through Texas and knocked out all sorts of buildings and infrastructure,
+269000	277000	lots of companies had backup generators and those backup generators were running and those companies had contracts with fuel suppliers in Texas.
+277000	282000	But the hard lesson they learned is that when FEMA came in, when the federal government came in to help clean up the mess,
+282000	287000	they made sure really important services like fire and police stations and hospitals had power.
+287000	290000	They just took the fuel basically.
+290000	296000	They basically said the fuel, I forget the proper term right now, but they said the fuels are as we needed for critical services.
+296000	300000	And it doesn't matter what contracts you might have in place, we're using it for these critical services.
+300000	306000	And so these organizations, even though they had fuel contracts in place, still ran out of fuel and their systems went down.
+306000	313000	So a lot of these, a lot of companies now are looking at putting in place fuel supply contracts that are out of state.
+313000	317000	Now, we now have to talk about a few different types of power outages.
+317000	322000	These first two here, blackouts, faults. This is a complete and total loss of power.
+322000	326000	A blackout is a complete and total loss of power for a long period of time.
+326000	331000	And a fault is a complete and total loss of power for a very short period of time.
+331000	338000	The next three, brownout, sags, dips and surges, these are about not complete power loss but power and degradation.
+338000	342000	So a brownout is a long period of time of too low of voltage.
+342000	348000	This is usually intentionally done by utilities companies in order to insert it instead of having a complete blackout,
+348000	353000	they'll have a brownout where it's not total as much power as you want, but at least it's nothing.
+353000	361000	Sags and dips are short, brief moments of not enough power and surges are brief moments of way too much power.
+361000	363000	Think lightning strikes.
+363000	368000	The other thing we have to be concerned with with power is electrical noise, EMI, RFI.
+368000	371000	These are examples of where we get noise on the electrical line.
+371000	378000	And this is why we have things like shielding around our and twisted pair in our networking devices, stuff like that.
+378000	383000	Let's now talk about HVAC equipment, heating, ventilation and air conditioning.
+383000	392000	Our HVAC systems are what provide air at the perfect temperature, the perfect humidity and filtered into the building and into our data centers.
+392000	399000	Now, happy to report you don't have to remember the actual temperature ranges, humidity ranges and so forth for the exam,
+399000	403000	but you do need to know roughly what these HVAC systems are for.
+403000	410000	So number one, they provide air at the right temperature, because especially we as people we like air to be the right temperature, or else we're miserable,
+410000	414000	but we also use air within a data center, for instance, to do what?
+414000	419000	Well, that air is being brought, that cool air is being brought into the data center to cool the equipment.
+419000	424000	It's all being sucked through the front of the server, run through the heat sinks at a server and exhaust it out the back.
+424000	430000	So that air has to be the right temperature in order to properly cool the servers and keep them from overheating.
+430000	433000	We also have to provide air at the right humidity.
+433000	437000	What happens if the air is too dry, if there's not enough humidity?
+437000	440000	You get static, you get shorts.
+440000	442000	What happens if the air is too humid?
+442000	449000	You get condensation, water and electricity, bad, so too low, static, too high humidity.
+449000	451000	And then the final thing is air quality.
+451000	457000	You want to remove contaminants, dust, debris, things like that from the air, filter the air before it's brought into the data center.
+457000	462000	For that reason, I already talked about why do we bring air into a data center to cool the servers?
+462000	467000	And if that air has dust, dirt, debris in it, you're going to be sucking that air through the servers,
+467000	474000	clogging the heat sinks, clogging the system up with dirt and debris, they're going to overheat, short out, bad.
+474000	479000	And there's one final bit of terminology you should be aware of related to HVAC systems.
+479000	482000	And that is positive pressurization.
+482000	489000	And this is the idea that we want to pump the air into the building, into the, especially the data center, at slightly above ambient pressure.
+489000	491000	Not much, but a little bit.
+491000	492000	And you probably experience this.
+492000	499000	If you walk into a mall or something like that and you open the door and you get this rush of air coming at you, that's positive pressurization.
+499000	506000	The reason we want that in a data center is that if the air is positively pressurized, if anyone opens a door, if there's any cracks in the building,
+506000	513000	anything like that, you're forcing out nice, clean, filtered air and you're not letting dirty air contaminants come into the building.
+513000	516000	So that's positive pressurization.

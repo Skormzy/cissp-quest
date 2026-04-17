@@ -1,0 +1,76 @@
+start	end	text
+0	18000	What are the steps we go through when we want to get access to a computer system?
+18000	33000	We often refer to these as the access system.
+33000	38000	What are the steps we go through when we want to get access to a computer system?
+38000	41000	We often refer to these as the access control services.
+41000	44000	There's four major access control services.
+44000	50000	Essentially the steps that we have to go through to get access to a system and use that system.
+50000	58000	Think about this. When you walk up to a computer system and you jiggle a mouse, what's the first thing that you need to do to get access to that system?
+58000	63000	Hopefully, jiggling the mouse did just entirely unlock the system and give you full access.
+63000	67000	Hopefully, there's some sort of access control services in place.
+67000	70000	What's the first thing that you need to do to get access to a system?
+70000	78000	The first thing you need to do is identification. Identification is where you assert your identity to the system.
+78000	84000	You somehow uniquely identify yourself with a username or maybe biometric data.
+84000	89000	So that is identification. It's where I identify myself to a system.
+89000	96000	And hopefully, just typing in my username or which doesn't give me full access to the system.
+96000	100000	Because the next step is authentication.
+100000	104000	This is where the system needs to verify my identity.
+104000	108000	It has to somehow figure out am I actually who I say am.
+108000	112000	So how can the system authenticate me? Verify my identity.
+112000	115000	Well, there are three factors of authentication.
+115000	118000	There's authentication by knowledge, something you know.
+118000	122000	There's authentication by ownership, something you have.
+122000	127000	And there's authentication by characteristic, how you behave or your physiology.
+127000	130000	So those are the three factors of authentication.
+130000	133000	And we'll get into those in a lot more detail later on.
+133000	137000	Okay, so step one, I assert my identity, identified myself.
+137000	140000	Step two, I authenticated myself somehow.
+140000	144000	What's the next step? It's authorization.
+144000	149000	This is where the system determines exactly what my access is going to be.
+149000	153000	This is where we apply those principles we've already talked about, like least privilege.
+153000	155000	Need to know separation of duties.
+155000	160000	You don't want to authorize someone to have access beyond anything that they need to do their job.
+160000	163000	So that is the authorization step.
+163000	167000	There's one final and in fact, most important step.
+167000	169000	And that is accountability.
+169000	175000	The whole reason that we do access control is to make users accountable for their actions on a system.
+175000	178000	Because this is so incredibly important, we in fact give this a special name.
+178000	181000	We call it the principle of access control.
+181000	185000	So the whole reason and listen very carefully here because there's often questions on this.
+185000	190000	The whole principle of access control is accountability.
+190000	192000	How do you achieve accountability?
+192000	197000	Well, you have to have uniquely identified someone properly authenticated them, properly authorize them,
+197000	205000	and then log in monitor what they're doing on the system to then and only then make them accountable for their actions on the system.
+205000	208000	That is the principle of access control.
+208000	211000	Let's talk about how we identify ourselves.
+211000	214000	Identification ideally needs to be unique.
+214000	217000	You do not want to have shared user accounts.
+217000	222000	It's a very bad idea for 50 people in the organization to have all share one admin account.
+222000	226000	So ideally identification needs to be unique.
+226000	228000	Tied to a particular individual.
+228000	232000	And the way that we identify ourselves are examples like I've already given.
+232000	236000	User ID, account number, badges, which is a name and a picture.
+236000	239000	We can even use biometrics for identification.
+239000	243000	Some good practices around identification, like I said, unique,
+243000	246000	should also not be descriptive of your job.
+246000	251000	So for instance, if I was the network administrator, I'd probably call myself network administrator god.
+251000	256000	And the problem with that is that if there's any attackers on our environment,
+256000	259000	what account are they going to try and break and do first, do you think?
+259000	262000	Probably the network administrator god account.
+262000	264000	The other problem is that people change roles.
+264000	268000	And what would inevitably probably happen to me is I would get demoted.
+268000	270000	And I would no longer be network administrator god.
+270000	273000	Now it would be network administrator lackey.
+273000	277000	And my username would no longer apply to the role that I was in.
+277000	282000	So it's not good for the roles to be tied to a particular description of what they someone does.
+282000	285000	And then the final piece is secure issuance.
+285000	289000	You need some way of getting someone their credentials securely.
+289000	295000	So you don't ever just want to write out someone's username and password on a sticky note and leave it on their monitor.
+295000	297000	I mean, we're security people.
+297000	298000	We know better than that.
+298000	300000	You got to stick it on a sticky note on the bottom of their keyboard.
+300000	302000	That's how we do secure issuance, right?
+302000	303000	Of course not, right?
+303000	308000	But you need a secure issuance process, some way of getting these credentials to someone securely.
+308000	312000	And the next few videos we'll talk about how we do these factors of authentication in more detail,
+312000	316000	authentication by knowledge, ownership and characteristic.

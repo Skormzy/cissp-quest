@@ -1,0 +1,470 @@
+WEBVTT
+
+00:00.000 --> 00:04.360
+or sewage treatment plants, or nuclear reactors.
+
+00:04.360 --> 00:07.680
+All of these major pieces of expensive hardware
+
+00:07.680 --> 00:10.680
+are run by what are called industrial control systems.
+
+00:10.680 --> 00:26.320
+And this module, we're going to talk about industrial control systems
+
+00:26.320 --> 00:28.720
+and internet of things.
+
+00:28.720 --> 00:43.520
+Let's start with industrial control systems.
+
+00:43.520 --> 00:46.400
+In this module, we're going to talk about industrial control systems
+
+00:46.400 --> 00:48.800
+and internet of things.
+
+00:48.800 --> 00:51.480
+Let's start with industrial control systems.
+
+00:51.480 --> 00:55.080
+And a definition, what are industrial control systems?
+
+00:55.080 --> 00:58.920
+Well, industrial control systems are the hardware and the software
+
+00:58.920 --> 01:01.600
+that control big expensive hardware.
+
+01:01.600 --> 01:04.600
+So think manufacturing facilities with all those raw watts
+
+01:04.600 --> 01:07.920
+that are building cars or iPhones.
+
+01:07.920 --> 01:11.600
+Or think of water treatment plants, or sewage treatment plants,
+
+01:11.600 --> 01:14.520
+or nuclear reactors.
+
+01:14.520 --> 01:17.840
+All of these major pieces of expensive hardware
+
+01:17.840 --> 01:22.160
+are run by what are called industrial control systems.
+
+01:22.160 --> 01:26.240
+So given that these industrial control systems control very expensive
+
+01:26.240 --> 01:30.440
+and often very delicate and potentially catastrophic systems
+
+01:30.440 --> 01:34.040
+if they were to fail, like nuclear power plants or water treatment plants,
+
+01:34.040 --> 01:38.360
+these systems have to be very secure and very reliable.
+
+01:38.360 --> 01:41.320
+There's three major types of industrial control systems
+
+01:41.320 --> 01:42.800
+that you need to know both for the examine.
+
+01:42.800 --> 01:44.480
+You do not have to be an expert on these,
+
+01:44.480 --> 01:47.280
+but you should recognize that these systems,
+
+01:47.280 --> 01:48.600
+you're the names of these systems,
+
+01:48.600 --> 01:51.160
+are examples of industrial control systems.
+
+01:51.160 --> 01:53.280
+The most common are SCADA systems.
+
+01:53.280 --> 01:57.080
+You've also got DCS and PLC systems.
+
+01:57.080 --> 01:58.480
+And actually remember for the exam,
+
+01:58.480 --> 02:01.360
+you do not have to memorize all these acronyms.
+
+02:01.360 --> 02:04.160
+There'll be a little window that you can button that you can click
+
+02:04.160 --> 02:07.560
+that will show you a pop-up window that contains all sorts of acronyms
+
+02:07.560 --> 02:09.480
+and what they actually stand for.
+
+02:09.480 --> 02:11.560
+So you don't have to memorize the exact wording of these things
+
+02:11.560 --> 02:14.000
+and you won't get definitional type questions on that.
+
+02:14.000 --> 02:17.880
+So be aware SCADA, DCS and PLC.
+
+02:17.880 --> 02:20.720
+These are very common types of industrial control systems.
+
+02:22.320 --> 02:25.760
+Now, the big risk that we have with industrial control systems
+
+02:25.760 --> 02:27.160
+is that these are very expensive,
+
+02:27.160 --> 02:29.720
+very important systems that are controlling,
+
+02:29.720 --> 02:33.200
+often extremely expensive, very delicate systems.
+
+02:33.200 --> 02:36.360
+And the big security risk is that the hardware,
+
+02:36.360 --> 02:38.480
+the software that these SCADA systems are running around
+
+02:38.480 --> 02:40.920
+or these industrial control systems are running on
+
+02:40.920 --> 02:43.200
+is often very outdated.
+
+02:43.200 --> 02:46.360
+It's not uncommon to come across industrial control systems
+
+02:46.360 --> 02:48.600
+that are still running on like Windows NT.
+
+02:48.600 --> 02:49.880
+It's crazy sometimes.
+
+02:50.880 --> 02:53.160
+So let's start with a question.
+
+02:53.160 --> 02:55.720
+Why are some of these such critical systems running
+
+02:55.720 --> 02:59.080
+on such old antiquated hardware and software?
+
+02:59.080 --> 03:02.720
+And the answer is these are very, very critical systems
+
+03:02.720 --> 03:04.720
+that are often highly customized.
+
+03:04.720 --> 03:07.120
+So it's often very difficult to upgrade
+
+03:07.120 --> 03:09.480
+the underlying operating system and hardware.
+
+03:09.480 --> 03:13.280
+And a lot of these big facilities very much run by the philosophy
+
+03:13.880 --> 03:16.600
+of if it ain't broken, don't fix it.
+
+03:16.600 --> 03:19.000
+Because you do not want to cause an outage
+
+03:19.000 --> 03:21.000
+or cause these systems to malfunction.
+
+03:22.120 --> 03:25.040
+So in many cases, we have very outdated,
+
+03:25.040 --> 03:28.800
+very insecure hardware and underlying operating systems
+
+03:28.800 --> 03:31.800
+that these industrial control systems are running on top of.
+
+03:31.800 --> 03:35.080
+And yet these are extremely critical systems.
+
+03:35.080 --> 03:36.440
+So how do we protect them?
+
+03:36.440 --> 03:39.760
+How do we reduce the risk related to these systems?
+
+03:39.760 --> 03:41.680
+The number one best way, and this is what you should remember
+
+03:41.680 --> 03:44.040
+is the exam, air gap.
+
+03:44.040 --> 03:47.360
+So air gaping is the concept that the industrial control system,
+
+03:47.360 --> 03:48.800
+the network that it's on,
+
+03:48.800 --> 03:52.160
+should absolutely not be connected to the rest
+
+03:52.160 --> 03:55.080
+of the corporate network and especially the internet.
+
+03:55.080 --> 03:56.840
+There should be a physical air gap,
+
+03:56.840 --> 03:59.880
+literally no connection between the industrial control system
+
+03:59.880 --> 04:03.080
+network and the rest of the corporate network
+
+04:03.080 --> 04:04.240
+and especially the internet.
+
+04:04.240 --> 04:06.440
+So remember air gaping is one of the best ways
+
+04:06.440 --> 04:09.120
+of reducing the risk of industrial control systems.
+
+04:10.000 --> 04:13.080
+Now, let's talk about the internet of things.
+
+04:13.080 --> 04:14.720
+What is the internet of things?
+
+04:14.720 --> 04:16.840
+Well, it's all sorts of devices
+
+04:16.840 --> 04:20.040
+that have been given the ability to connect to the internet
+
+04:20.040 --> 04:22.280
+that probably shouldn't be connected to the internet,
+
+04:22.280 --> 04:24.880
+like your fridge and your stove and your dishwasher
+
+04:24.880 --> 04:25.960
+and your light bulb.
+
+04:27.840 --> 04:30.760
+So here's what's really led to this.
+
+04:30.760 --> 04:33.400
+The ability to make a little computer chip,
+
+04:33.400 --> 04:35.440
+basically a little mini computer
+
+04:35.440 --> 04:38.800
+that has Wi-Fi capabilities and can connect to the internet
+
+04:38.800 --> 04:40.640
+has become unbelievably cheap.
+
+04:40.640 --> 04:43.760
+We can make these things for a couple of bucks.
+
+04:43.760 --> 04:46.360
+And as a result, it's become extraordinarily cheap
+
+04:46.360 --> 04:49.720
+to put these capabilities into all sorts of devices.
+
+04:49.720 --> 04:51.920
+And that's exactly what's happening.
+
+04:51.920 --> 04:54.200
+And there's a few big risks here.
+
+04:54.200 --> 04:58.760
+One, most of these internet of things chips
+
+04:58.760 --> 05:03.600
+are made by big OEM, original equipment manufacturers.
+
+05:03.600 --> 05:05.360
+They were, there's just a few manufacturers
+
+05:05.360 --> 05:07.800
+that make the vast majority of these
+
+05:07.800 --> 05:09.480
+internet of things little computers
+
+05:09.480 --> 05:11.320
+that enable this capability.
+
+05:11.320 --> 05:15.000
+And security is not typically their top priority.
+
+05:15.000 --> 05:18.560
+It's to make these things to the lowest possible dollar.
+
+05:18.560 --> 05:22.480
+And so a lot of the internet of things devices out there
+
+05:22.480 --> 05:24.800
+are wildly insecure.
+
+05:24.800 --> 05:26.760
+They have big vulnerabilities in them.
+
+05:26.760 --> 05:30.360
+And a lot of them are actually very difficult to patch.
+
+05:30.360 --> 05:32.040
+And you combine that with the fact that
+
+05:32.040 --> 05:33.320
+when you install these capabilities
+
+05:33.320 --> 05:35.160
+in a lot of devices like a fridge or a stove,
+
+05:35.160 --> 05:38.160
+I mean, who thinks to patch their fridge?
+
+05:38.160 --> 05:40.920
+It's just, it's not something that people think about.
+
+05:40.920 --> 05:43.240
+You plug this device in, you connect it to the internet,
+
+05:43.240 --> 05:44.800
+and then you forget that it's there.
+
+05:44.800 --> 05:47.480
+You forget it's connected to the internet.
+
+05:47.480 --> 05:49.000
+And that leads to the next big risk.
+
+05:49.000 --> 05:52.080
+And that is that these internet of things devices
+
+05:52.080 --> 05:57.280
+can provide a really easy attack platform for a hacker.
+
+05:57.280 --> 05:59.920
+So I'll give you an example of this.
+
+05:59.920 --> 06:02.920
+The largest ever denial of service attack,
+
+06:02.920 --> 06:06.720
+the largest ever denial of service attack in history,
+
+06:06.720 --> 06:10.440
+originated from security cameras.
+
+06:10.440 --> 06:13.760
+So someone discovered a vulnerability in security cameras,
+
+06:13.760 --> 06:15.840
+installed some malware that allowed them
+
+06:15.840 --> 06:18.440
+to remotely control these security cameras,
+
+06:18.440 --> 06:21.840
+created a giant botnet essentially of these security cameras,
+
+06:21.840 --> 06:24.800
+and then perpetrated the largest denial of service attack
+
+06:24.800 --> 06:27.800
+in history from security cameras.
+
+06:27.800 --> 06:30.520
+That's pretty ironic.
+
+06:30.520 --> 06:34.480
+And that highlights the risk with these systems.
+
+06:34.480 --> 06:36.560
+We don't realize they're connected to the internet,
+
+06:36.560 --> 06:38.880
+and we don't think to patch them.
+
+06:38.880 --> 06:41.400
+And because we've put them often deep inside of our corporate
+
+06:41.400 --> 06:44.040
+networks or inside of our personal networks,
+
+06:44.040 --> 06:45.640
+we don't think of the fact that someone
+
+06:45.640 --> 06:47.840
+may be able to remotely connect to this device,
+
+06:47.840 --> 06:52.880
+compromise the device, and now they're inside of our environment.
+
+06:52.880 --> 06:56.640
+So how do we reduce the risk of internet of things devices?
+
+06:56.640 --> 06:58.480
+How do we deal with this problem?
+
+06:58.480 --> 07:01.200
+Well, it's best to think of internet of things devices
+
+07:01.200 --> 07:04.200
+as a computer system, because that's literally what they are.
+
+07:04.200 --> 07:07.360
+So all the same principles that you'd apply to protecting
+
+07:07.360 --> 07:10.320
+any computer system apply to internet of things devices.
+
+07:10.320 --> 07:11.600
+You need to make sure they're patched.
+
+07:11.600 --> 07:13.320
+You need to make sure they're configured properly
+
+07:13.320 --> 07:16.000
+that they have proper authentication in place.
+
+07:16.000 --> 07:18.200
+And because it's often difficult to do all of that
+
+07:18.200 --> 07:19.480
+with a lot of these devices,
+
+07:19.480 --> 07:21.520
+network segmentation is really important.
+
+07:21.520 --> 07:23.720
+Put these things on their own network segment.
+
+07:23.720 --> 07:26.200
+If they truly do need to connect to the internet,
+
+07:26.200 --> 07:28.040
+put them off in some network where that's
+
+07:28.080 --> 07:31.080
+all that they can connect to, or even better yet,
+
+07:31.080 --> 07:33.360
+don't connect them to any internet.
+
+07:33.360 --> 07:34.960
+So that's internet of things.
+

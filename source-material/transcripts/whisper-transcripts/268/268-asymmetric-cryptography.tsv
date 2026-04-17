@@ -1,0 +1,136 @@
+start	end	text
+0	5800	These two gentlemen, Diffie and Helmann, actually came up with an idea, and they published
+5800	10040	a paper called New Directions in Cryptography.
+30000	51480	In this module, we're going to describe asymmetric key cryptography and how it works, so if you
+51480	59520	remember to what the advantages and disadvantages of symmetric cryptography are, it's very fast,
+59520	62680	but it has this problem of key distribution.
+62680	68720	People have been thinking about this problem of key distribution for thousands of years.
+68720	75360	And in 1976, these two gentlemen, Diffie and Helmann, actually came up with an idea,
+75360	81200	and they published a paper called New Directions in Cryptography, because they talked about
+81200	88720	how there might be a different way to do cryptography that gets rid of the problem of key distribution.
+88720	94040	And so they published a paper called New Directions in Cryptography, and within it, they actually
+94040	98440	described this process, and they actually called it public key cryptography, and that's
+98440	101040	why a lot of people still call it that today.
+101040	106280	But it should really be called asymmetric key cryptography, and what they went on to describe
+106280	113320	basically is that they said, okay, if you think about symmetric, you know, we need the
+113320	120520	same key at both ends, and that requires key distribution, which in many cases is a very
+120520	122040	big problem.
+122040	128040	So they went on to describe how, what if everybody has two keys instead of one?
+128040	130360	So I would have my own two keys.
+130360	132080	You would have your own two keys.
+132080	135200	This person over here has their own two keys.
+135200	137120	Everybody has a key pair.
+137120	142680	But most importantly, the two keys, for example that I have, are related to each other
+142680	143680	mathematically.
+143680	149280	There's a mathematical relationship that links my two keys together.
+149280	155960	The idea is, if I use one to encrypt, you can never use the same one to decrypt.
+155960	156960	It's not possible.
+156960	159080	You have to use the other one.
+159080	163120	And the reason this works is because the two are linked mathematically.
+163120	167240	So if I use this one to encrypt, it's this one that decrypts.
+167240	170840	If I use this one to encrypt, it's this other one that decrypts.
+170840	173920	You can never encrypt and decrypt with the same key.
+173920	180840	So the idea is, I'm going to take one of my keys and I'm going to give it to anyone, the
+180840	185480	whole world possibly, that may want to communicate with me securely.
+185480	190760	And because I'm going to give that key to anyone who may want to communicate with me securely,
+190760	193240	I'm going to call that one my public key.
+193240	196440	So the entire world may have my public key.
+196440	202400	But if anyone wants to communicate with me securely, a secret message, let's say, they
+202400	206480	will encrypt that message with my public key.
+206480	213040	And even though everyone else has my public key, nobody can read that message because you
+213040	217400	can never encrypt and decrypt with the same key, it has to be the other one.
+217400	224280	So if anyone out there encrypts a message with my public key, the only key that can decrypt
+224280	227800	is the other key that I keep private to myself.
+227800	234720	This key, I will never disclose, communicate, divulge or send to anyone else.
+234720	237600	I will always keep it private to myself.
+237600	240640	That's why I'm going to call that my private key.
+240640	245160	So this solves the problem of key distribution, doesn't it?
+245160	250520	Because the only key that I ever have to distribute is my public key and I don't care how many
+250520	251520	people have it.
+251520	256000	In fact, I can assume that the entire world has my public key.
+256000	263000	As long as I keep my other private key that is associated with it, private to myself,
+263000	268200	it's very important to keep the private key private to myself, never disclose it, communicate
+268200	269520	it, and so on.
+269520	276520	This solves the problem of key distribution, but it actually introduces another problem
+276520	278840	that is pretty substantial.
+278840	284360	And that is the only way that this works is because the two keys are related to each
+284360	286200	other mathematically.
+286200	291640	So if I give my public key out to the entire world, I've got to make sure that nobody
+291640	299080	out there can use my public key and compute the mathematical relationship that links my
+299080	300880	two keys together.
+300880	305480	Because if that was possible, anybody out there that has my public key will be able to
+305480	311720	compute the relationship and therefore derive knowledge of my private key by having access
+311720	313720	to my public key.
+313720	316280	And so we have to be able to prevent that.
+316280	322240	And the only way that we can prevent this is to use or to link the two keys together
+322240	330240	using really hard math and use really large numbers in that hard math.
+330240	336760	The idea is whoever has my public key may be able to compute what the relationship is.
+336760	342800	But because we are using hard math and very large numbers, given today's technology in
+342800	348040	our speed of processors, it would take that person hundreds of years in order to be able
+348040	355240	to compute as long as we're using really large numbers to link the two keys together.
+355240	356880	And so it's possible.
+356880	362120	But because we're using really large numbers, it's not feasible and no one's even going
+362120	367080	to try because it's going to take too much computational power to derive knowledge.
+367080	374080	And one of the issues that we have with asymmetric key cryptography is as processors become faster
+374080	377360	and technology improves, guess what we have to do?
+377360	383760	We have to keep increasing the size of those numbers that link the two keys together.
+383760	389240	The problem is this because we have to use hard math and really large numbers.
+389240	395800	This becomes computationally intensive and therefore there's a price to pay.
+395800	402320	The price to pay is that this type of cryptography becomes really slow as a result because of
+402320	407960	that mathematical intensity that links the two keys together.
+407960	413400	So because we're using really large numbers, it's going to take a really long time to encrypt
+413400	415000	and decrypt with the two.
+415000	416520	That's what the price is.
+416520	422440	But if you look at this, it does solve the problem of key distribution, but it makes this
+422440	425360	type of cryptography really slow.
+425360	432800	So if you remember the advantages of symmetric, very fast, but it has the problem of key distribution.
+432800	435560	This is the actual opposite, isn't it?
+435560	440160	Solves the problem of key distribution, but becomes very slow.
+440160	443640	And that's why the two are really complementary to each other.
+443640	448760	And we'll talk about that later on, but most cryptography solutions today end up being
+448760	455800	a combination of symmetric and asymmetric for what they're each good at.
+455800	463360	Symmetric is typically used for bulk and speed and asymmetric is used to exchange the symmetric
+463360	468600	keys that are required in both ends in order to be able to do things quickly.
+468600	475880	So today we have hybrid products, crypto systems that really combine symmetric algorithms
+475880	481720	and asymmetric together to be able to use them both for what they're really good at.
+481720	487600	So in summary, when you look at the advantages and disadvantages of asymmetric, it's going
+487600	491160	to be the opposite of what we had for symmetric.
+491160	498360	The advantage is that it solves the problem of key distribution, but it becomes really
+498360	499360	slow.
+499360	504560	Now one of the other problems that we had with symmetric was the scalability problem.
+504560	510080	If you add a whole bunch of people that need it to communicate securely with each other
+510080	516520	using symmetric key cryptography, the number of keys required was going to grow exponentially.
+516520	523680	In fact, I think we used an example of 1,000 people needing to communicate securely with
+523680	527600	each other, would require almost half a million keys.
+527600	534440	Well, this type of cryptography also solves the problem of scalability, because if we have
+534440	540520	1,000 people that need to communicate securely with each other, all that's required is a total
+540520	547240	of 2,000 keys, because every person has their key pair, private and public key.
+547240	554200	So 1,000 people total of 2,000 keys, that's a whole lot easier to manage than obviously
+554200	556960	almost half a million keys.
+556960	562200	So there are advantages and disadvantages to this, but that's why it makes sense to use
+562200	565440	them together, symmetric and asymmetric.
+565440	568680	So here's a slide that talks about how this works.
+568680	574000	And what you need to focus on here is that you start seeing how this type of cryptography
+574000	580320	actually provides some added advantages that we didn't have before with symmetric.
+580320	587200	But if you want to address confidentiality, what needs to happen here is the person sending
+587200	593320	me, for example, a secret message, will have to encrypt that message with my public key.
+593320	598680	To address confidentiality, you will always encrypt with the receiver's public key.
+598680	604720	All right, so it's the public key of the receiver that allows us to achieve confidentiality,
+604720	610880	because then the receiver will have to use their private key, which nobody else has.
+610880	615200	And so that ensures confidentiality of the message.
+615200	618840	You will always encrypt with the receiver's public key.
+618840	622400	Now here's something else though that we can achieve.
+622400	629880	So if you remember, let's say that I am going to encrypt a message with my private key,
+629880	632080	my private key.
+632080	633480	Who can read that message?
+633480	638620	Well, it's going to be anybody that has my public key, which I have to assume is the
+638620	640080	entire world.
+640080	641640	So why would I ever do that?
+641640	646880	Why would I ever encrypt a message with my private key, knowing that anyone out there
+646880	651000	that has my public key will be able to read that message?
+651000	654600	Because that obviously does not address confidentiality.
+654600	656400	Well here's the answer to that.
+656400	661160	If I encrypt a message with my private key and all of you can decrypt it with what you
+661160	665600	know is my public key, that proves to you where it came from.
+665600	669680	And so we're starting to address possibly something that's very important to address
+669680	670760	in today's environment.

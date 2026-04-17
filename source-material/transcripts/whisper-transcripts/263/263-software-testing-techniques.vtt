@@ -1,0 +1,371 @@
+WEBVTT
+
+00:00.000 --> 00:26.680
+Testing code for days, weeks on end, that's manual testing done by a person.
+
+00:26.680 --> 00:29.760
+Automated testing is where we're using an automated tool.
+
+00:29.760 --> 00:46.600
+We're continuing our discussion of various different techniques that we can
+
+00:46.600 --> 00:51.080
+use to test software. So in this slide here we're going to talk about different
+
+00:51.080 --> 00:54.480
+testing techniques and there's a different sort of categories we're going to go
+
+00:54.480 --> 00:58.040
+through and you can mix and match these different tests as I'll explain at
+
+00:58.040 --> 01:02.360
+the end after I've provided a simple explanation of each of these. So let's
+
+01:02.360 --> 01:06.440
+talk about whether we're doing manual or automated testing. What's the difference?
+
+01:06.440 --> 01:12.160
+Well manual testing is some poor soul, change their desk, testing code for days,
+
+01:12.160 --> 01:17.480
+weeks on end, that's manual testing done by a person. Automated testing is where
+
+01:17.480 --> 01:23.440
+we're using an automated tool like a code scanning tool. So that's manual versus
+
+01:23.440 --> 01:29.640
+automated. Run time is about whether the code is actually running. So static testing
+
+01:29.640 --> 01:34.160
+means the code is not running, it's static, which means what are we actually
+
+01:34.160 --> 01:38.920
+testing here? Well we're looking at the source code itself and we're scanning
+
+01:38.920 --> 01:43.520
+through looking for problems in this course in the source code like say not
+
+01:43.520 --> 01:48.200
+doing bounds checking. Dynamic testing on the other hand means the code is
+
+01:48.200 --> 01:53.040
+running. So this is where the code is essentially a black box. We're feeding
+
+01:53.040 --> 01:56.760
+input, we're looking at output, we're seeing how the code responds when it's
+
+01:56.760 --> 02:02.960
+running and fuzz testing is actually a form of dynamic testing. And here's how I
+
+02:02.960 --> 02:06.680
+like to think about fuzz testing. What would happen if you put a sugar high
+
+02:06.680 --> 02:10.520
+four-year-old in front of a computer system and said go crazy, what would they
+
+02:10.520 --> 02:14.480
+do? It would be chaos, they'd be slamming on the keyboard, they'd be sticking
+
+02:14.480 --> 02:18.720
+baloney in the CD drive, it would be total insanity. That's a pretty good way to
+
+02:18.720 --> 02:24.240
+think of fuzz testing. The whole point of fuzz testing is to throw chaos, random,
+
+02:24.240 --> 02:29.240
+unexpected input at the system to see how it reacts. And most systems are
+
+02:29.240 --> 02:33.160
+probably going to find, you're going to find problems. And the reason for this is
+
+02:33.160 --> 02:37.840
+programmers are very logical people. You expect logical input, provides logical
+
+02:37.840 --> 02:42.200
+output. When you throw chaos in a system, it tends to cause them to break. I'll
+
+02:42.200 --> 02:46.040
+share a fun story about this that I had personally. So I had a, I had a
+
+02:46.040 --> 02:50.360
+professor in university who loved to give really brutal assignments like, and give
+
+02:50.360 --> 02:53.440
+you like 24 hours notice or something. And so everyone would always be in the
+
+02:53.440 --> 02:56.520
+computer lab till like 3 a.m. or something when the assignment was due the
+
+02:56.520 --> 03:00.120
+next morning. And he knew this. And he would sometimes come by the computer lab
+
+03:00.120 --> 03:03.200
+in the middle of the night when we were all just zombies trying to finish our
+
+03:03.200 --> 03:06.560
+code. And he would just walk by someone's keyboard when they were running their
+
+03:06.560 --> 03:10.080
+code. And he would just mash his hand into the keyboard. And what would inevitably
+
+03:10.080 --> 03:15.200
+happen? Well, the computer would, the program would crash. He was a lovely
+
+03:15.200 --> 03:20.960
+fellow. So that's fuzz testing. And then access to code, this refers to whether
+
+03:20.960 --> 03:25.360
+or not you have access to the code when you're testing. In black box testing, you
+
+03:25.360 --> 03:28.920
+obviously don't have access. It's a black box to you. And in white box testing, it
+
+03:28.920 --> 03:32.880
+means you have access to the code. Now we can mix and match these different
+
+03:32.880 --> 03:38.840
+things. So for instance, what would be an automated static white box test? Well,
+
+03:38.840 --> 03:44.480
+that would be running a code scanning tool like say HP fortify against our source
+
+03:44.480 --> 03:50.320
+code. And what about say a manual dynamic black box test? Well, that could be a
+
+03:50.320 --> 03:54.600
+pen tester manually trying to find vulnerabilities in the code. So you can
+
+03:54.600 --> 03:59.360
+mix and match these to achieve different types of tests. Next, let's talk about
+
+03:59.360 --> 04:04.720
+what are known as positive negative and misuse testing. To explain these, let's
+
+04:04.720 --> 04:08.320
+think about a login mechanism where you're expected to provide a username and
+
+04:08.320 --> 04:14.320
+a password. Positive testing would be if you provided a correct user name and a
+
+04:14.320 --> 04:19.280
+correct password, what should the system do? It should log you in. So that means the
+
+04:19.280 --> 04:25.280
+system works as expected. Negative testing is for normal errors. What sort of
+
+04:25.280 --> 04:29.320
+normal errors would you expect with a login mechanism? Well, I don't know about
+
+04:29.320 --> 04:32.320
+you, but whenever I change my password for like the next week, I fat finger my
+
+04:32.320 --> 04:37.200
+password, I forget my password. So I incorrectly passed type my password. And what
+
+04:37.200 --> 04:40.960
+should the system do? Should it explode? No, it should gracefully error out and say,
+
+04:40.960 --> 04:44.200
+you know, something nice like, have you forgotten your password? You would eat
+
+04:44.200 --> 04:48.560
+something like that. So that's a normal negative error. You expect those type of
+
+04:48.560 --> 04:53.120
+errors. The final type of testing you can do is what's known as misuse testing.
+
+04:53.120 --> 04:56.840
+This is where you're looking for someone who's abusing the system. They're
+
+04:56.840 --> 05:02.200
+trying to do something that a normal user wouldn't do like say SQL injection. So
+
+05:02.200 --> 05:06.560
+these are three types of tests that we can run. Now, a topic that's come up a lot
+
+05:06.560 --> 05:10.720
+recently on the exam is what is known as equivalence partitioning and boundary
+
+05:10.720 --> 05:15.520
+value analysis. Both of these techniques are used to make our testing more
+
+05:15.520 --> 05:20.720
+efficient. Rather than having to test every possible single test case, these two
+
+05:20.720 --> 05:25.000
+different techniques allow us to reduce the amount of testing that we do, but
+
+05:25.000 --> 05:28.800
+still get good coverage. Still make sure we're testing and making sure that our
+
+05:28.800 --> 05:33.240
+code is working correctly. Now, to kind of explain the differences between these
+
+05:33.240 --> 05:37.760
+two, let's imagine a input box here where you're supposed to provide a
+
+05:37.760 --> 05:42.520
+password between 18 to 16 characters. And we want to check to see if our code is
+
+05:42.520 --> 05:47.000
+working correctly, if enhandling to make sure that a password is between eight
+
+05:47.000 --> 05:53.280
+and 16 characters. So let's say here's all the possible password links that you
+
+05:53.280 --> 05:57.240
+could have between zero and we're going to test up to 24. A very inefficient way
+
+05:57.240 --> 06:00.680
+of testing. This is you could test. Okay, what happens if I provide no password?
+
+06:00.680 --> 06:04.520
+Does it work properly? What about a password of one? A password of two, three. You
+
+06:04.520 --> 06:08.640
+could try each and every single one of these one by one. Do every single test
+
+06:08.640 --> 06:13.640
+case. Not very efficient. So the first method that we can use here is what's
+
+06:13.640 --> 06:18.280
+known as identifying the boundaries, boundary value analysis. So what are the
+
+06:18.280 --> 06:23.600
+boundaries? Well, we have this boundary between seven, eight, and nine characters.
+
+06:23.600 --> 06:28.520
+There's a boundary here. If you provide less than eight characters, it should give
+
+06:28.520 --> 06:32.200
+you an error. And if you provide eight characters or more, it should allow your
+
+06:32.200 --> 06:37.320
+password. So we have a boundary at eight. Where's our second boundary? Well, it
+
+06:37.320 --> 06:43.280
+should accept up to and including 16 characters and it should error on more than
+
+06:43.280 --> 06:47.880
+16 characters. So we have another boundary here. So boundary value analysis is
+
+06:47.880 --> 06:52.640
+about identifying these boundaries and then focusing or testing on either side
+
+06:52.640 --> 06:55.920
+of the boundary. So if we want to make sure that our code works, we could test
+
+06:55.920 --> 07:00.320
+every possible value, but why not just test the boundaries? So we could test seven
+
+07:00.320 --> 07:05.080
+characters and eight characters. And we could test 16 characters and 17
+
+07:05.080 --> 07:09.240
+characters. So boundary value analysis is this idea of identifying the boundaries
+
+07:09.240 --> 07:14.960
+and testing on either side of the boundary. Equivalent partitioning is the idea
+
+07:14.960 --> 07:20.200
+of identifying different partitions. So we've got essentially three partitions
+
+07:20.200 --> 07:26.800
+here. We have below seven characters, eight to 16 characters and above 17
+
+07:26.800 --> 07:31.840
+characters. So these are our three partitions. And then what we can do is choose
+
+07:31.840 --> 07:38.120
+test cases within those partitions. And again, both of these are about trying to
+
+07:38.120 --> 07:42.360
+reduce the amount of testing that we do. And here's a quick summary of them. So in
+
+07:42.360 --> 07:46.880
+equivalence partitioning, we're dividing our input partitions into groups which
+
+07:46.880 --> 07:51.680
+exhibit similar behavior. And in boundary value analysis, we're identifying and
+
+07:51.680 --> 07:57.360
+focusing our testing around the boundaries. So I've put together a little
+
+07:57.360 --> 08:00.600
+sampling of these different types of tests. So you can see what they look like.
+
+08:00.600 --> 08:05.520
+See if you understand what they look like. So we're supposed to provide a
+
+08:05.520 --> 08:10.520
+enter a number between zero and nine. So let's say we decide to enter this as our
+
+08:10.520 --> 08:15.160
+number. What type of test would that be? Well, I mean, this is an example of
+
+08:15.160 --> 08:20.000
+sequel injection. So that would be misuse testing. Okay, what if we were to
+
+08:20.000 --> 08:23.920
+provide this? We're supposed to enter a number between zero and nine and we put
+
+08:23.920 --> 08:28.640
+in 10. Well, that would be a negative test. It's a normal expected error.
+
+08:28.640 --> 08:31.840
+Someone might put in, you know, a character to one the other side accidentally.
+
+08:31.840 --> 08:37.640
+Okay, what if we enter the number two? Well, that would be a positive test.
+
+08:37.640 --> 08:42.680
+That's normal expected input. What if we put in these nine? If we tested these
+
+08:42.680 --> 08:46.680
+individually one by one, we tested negative one, we tested one, we tested eight
+
+08:46.680 --> 08:51.360
+and we tested 10. Well, this would be an example of boundary value and
+
+08:51.360 --> 08:56.240
+analysis because those numbers are on either side of the boundaries. And then the
+
+08:56.240 --> 09:01.040
+final one that we could try here would be say negative five, five and 15.
+
+09:01.040 --> 09:05.560
+These are all numbers from our three different partitions. So that would be an
+
+09:05.560 --> 09:12.720
+example of equivalent partitioning. Next, let's talk about this concept of test
+
+09:12.720 --> 09:16.840
+coverage analysis. And this is simply the idea that when you're testing a piece
+
+09:16.840 --> 09:21.320
+of software, you can never test every possible piece of functionality within the
+
+09:21.320 --> 09:26.720
+code. And so test, test coverage analysis is simply what percentage of the code
+
+09:26.720 --> 09:31.280
+source code is actually covered by our testing. Obviously, the more certain that
+
+09:31.280 --> 09:34.680
+you want to be that the code is working properly that there aren't bugs in the
+
+09:34.680 --> 09:38.640
+software, you want to be closer and closer to 100% of your source code. But it's
+
+09:38.640 --> 09:43.360
+very expensive, very difficult to achieve that. And so what's going to drive the
+
+09:43.360 --> 09:47.160
+test coverage analysis that you want to achieve? Well, the more valuable the
+
+09:47.160 --> 09:50.920
+system, the more you're going to invest in testing that system and making sure
+
+09:50.920 --> 09:54.200
+that it's working properly.
+

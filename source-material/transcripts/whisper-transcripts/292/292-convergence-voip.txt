@@ -1,0 +1,57 @@
+In this module we're going to talk about something called convergence and a lot of people
+refer to this as IP. In this module we're going to talk about something called convergence and a lot of
+people refer to this as IP convergence and some people get confused as to what it means but
+basically IP convergence is the ability of our data networks that we've had for a very long time to
+carry not only data but a whole bunch of other things that have become really important for companies to
+address across their networks today. So for example IP telephony or voice over IP the ability of the
+network to not only carry data but also multimedia audio video and possibly some other things as well
+is what we call convergence. When you think about what networks were built to do was only carry data but
+today they've got to do much more and that's what we call convergence. Convergence is simply the
+ability of your standard TCP IP network to carry data and a whole bunch more and these are some
+examples. We've got fiber channel over ethernet we've got ice-cazy capabilities for doing things related to
+storage and backing up and restoring and probably the most obvious example of converged protocols which
+means the ability of the data network to carry also voice which a lot of people refer to as voice over
+IP but more appropriately should be called IP telephony. And so when you look at the traditional way that
+companies had to connect themselves to the voice network in the past for voice capabilities we had to
+basically connect ourselves to two distinct networks companies would have had to connect themselves to the
+voice network for voice requirements and then we built data networks to handle our data requirements.
+What we can do today is we can actually carry voice over our data network and that's one example of
+IP convergence because now we have technologies that can allow us to take your voice, digitize it,
+packetize it and then carry it across the data network so that you and I can carry on a
+conversation really across a data data network and that's what we call IP telephony or some people call
+voice over IP but when you look at the way that fundamentally our data networks are done and built the way
+that we carry information across networks is by taking your information breaking it up into packets and
+then sending those packets across a network those packets may travel in different directions they may arrive in a
+different order than they were sent so fundamentally it wouldn't be easy to allow you and I to be able to carry on a
+conversation if that's the way that our voice communications was sent across a data network so that's what voice over
+IP or IP telephony protocols have given us the ability to do. We can take our voice, digitize it, packetize it and send it across the
+network as packets but address some of the issues that would result if those packets for example traveled in different
+directions so these are some of the most popular protocols that the industry has developed to allow us to
+carry voice across data networks and not have some of the problems that would be associated with that so SRTP is one that
+actually adds some security into voice communications because if you think about how we can carry voice over data that would
+mean that we inherit the insecurities that typically data networks have I mean if you look at a data network
+fundamentally it does not address confidentiality or integrity or availability and so if you want security of your voice
+transmissions natively it's not there if you're just doing IP telephony or voice over IP without using specific
+protocols like this one SRTP does add the ability to have secure transmission of voice
+communications by using things like authentication and encryption as part of how you and I ultimately communicate across that IP telephony network another
+popular one is SIP the unfortunate part about IP telephony protocols is that there really isn't many standards in the industry
+usually the vendors will standardize on their own protocols and then if you go with the specific vendor you're typically limited to the security
+capabilities that that vendor will give you which might not be enough to address your requirements for authentication
+encryption and some other things that might be very important in your voice communications across your entire data
+network especially if you're going across different countries or around the globe and using voice over IP or IP telephony but now if you're using IP telephony
+protocols which means you can carry voice over data it's very important to address some of the security concerns that that really
+allows for example if you want confidentiality of those voice transmissions natively it's not there and so if you want to achieve confidentiality we need to encrypt
+but the problem with cryptography and encryption is that it adds what we call latency latency means it takes time to encrypt
+and it takes time to decrypt at both ends so if you want confidentiality and you encrypt the transmissions it may result
+in a little bit of a delay in how you and I are communicating by using voice communications which might make it very frustrating
+you've all experienced this where if you call someone up with your mobile phone and there's a bit of a delay in that transmission
+it's very difficult to communicate and that would be the case every single time that we would use encryption
+in voice over IP transmissions integrity is hard to achieve as well one of the easiest things that you can do
+across a IP telephony environment is to pretend to be someone else or pretend to be from a number that someone else
+represents and so these are easy things you just need software to be able to achieve some exploits and vulnerabilities
+across your IP telephony environments and it's a reason why we see a lot of wishing type of attacks today
+and you may know what this is but it's a form of fishing that specifically happens across your voice over IP
+environments because it's very easy for the attackers to spoof no numbers or numbers that may look familiar to you
+and that's how they get you to provide information that you shouldn't that's what we call wishing attacks
+just a other flavor of fishing that uses voice over IP capabilities that every company has because they've
+implemented IP telephony solutions

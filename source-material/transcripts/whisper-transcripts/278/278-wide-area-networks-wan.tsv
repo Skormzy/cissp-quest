@@ -1,0 +1,75 @@
+start	end	text
+0	6680	or even another country, for example, there are technologies that allow this.
+6680	13840	That's what we call wide-area network technologies.
+13840	28120	In this module, we're going to discuss what a lot of organizations have as a need, and
+28120	43160	that is to connect devices across.
+43160	48200	In this module, we're going to discuss what a lot of organizations have as a need, and
+48200	51680	that is to connect devices across wide areas.
+51680	56040	We've been talking about what a network is, and that is a bunch of devices that are connected
+56040	59120	to each other for the purpose of communications.
+59120	64120	But companies today have a need to connect devices across wide areas.
+64120	70640	So if there's a need to connect devices in one city to devices across another city,
+70640	77120	or even another country, for example, there are technologies that allow this.
+77120	80720	That's what we call wide-area network technologies.
+80720	84880	So there's different options that companies can use, and these are some of them.
+84880	89600	We can use modems, although that wouldn't be very good anymore.
+89600	91640	But there are other options.
+91640	98240	Typically, these are some of the options that you can lease from the service providers that
+98240	103600	have built capabilities to allow companies to connect across wide areas.
+103600	106520	So we have dedicated lease lines as an option.
+106520	114160	Those are lines like T1s, T2s, T3s that allow connections across wide areas.
+114160	120240	We can also use satellite and other wireless links, like microwave capabilities.
+120240	126280	But the problem with those is, typically, you'll have large footprints, but also a lot
+126280	132200	of interference from nature and some other things that may impact the quality and the integrity
+132200	136400	of the communications that are going across those wide areas.
+136400	141960	What most companies use today is what we call data packet carrier services.
+141960	147520	And so these are networks that have been created by the service providers themselves,
+147520	150040	like AT&T and so on.
+150040	156720	And what they do is they will lease connections to you across these data networks that have
+156720	162120	been built specifically to allow connections across wide areas.
+162120	166080	And just like anything else, these technologies have evolved.
+166080	173320	The original data packet carrier services that were offered to us by these providers was
+173320	175080	X25.
+175080	184320	X25 is a data packet carrier service that sends information across the network by using
+184320	185320	packets.
+185320	190680	In fact, all of these are their packet switch networks, but they're meant to allow companies
+190680	193400	to allow to connect across wide areas.
+193400	198600	Now because X25 was the original one, it's really an older technology, but it's still
+198600	205560	considered by many to be the best one to handle error correction and problems that you
+205560	210640	may have in transmitting information across those networks.
+210640	215960	But it requires a high overhead in order to achieve that really good error correction
+215960	217200	that it offers us.
+217200	219440	And so the speeds are very limited.
+219440	224480	There's a lot of overhead, but it's still the best network for error correction.
+224480	230360	In fact, what happened, if you look at this historically, is the industry created frame
+230360	234640	relay to really replace X25.
+234640	240440	And so that was a better technology that didn't do as well for error correction, but certainly
+240440	242120	gave us faster speeds.
+242120	247120	And in fact, that was replaced by what we call ATM.
+247120	251800	How was one of the latest technologies that we've already had for a large number of
+251800	252800	years?
+252800	257480	Today, we have a better technology for this, and it's called MPLS.
+257480	262960	And one of the improvements that they've made with MPLS is not only speed and quality
+262960	268640	of service, but they can also offer us some built-in security, and this is what you want
+268640	276520	to remember, MPLS networks will use what are called forwarding tables and labeling schemes
+276520	283240	to ensure that, for example, our connection that we're using across the MPLS network that
+283240	285960	belongs to a provider.
+285960	293480	Our path that our information is using across their network cannot be touched by anyone
+293480	294480	else.
+294480	300140	And so the providers will guarantee that our path and the devices that are using our
+300140	307300	path cannot be touched or used by anyone else while they're being used for our transmission.
+307300	312380	So they can guarantee that the path that our information is taking is ours.
+312380	316420	And so they'll say things like, you don't need to encrypt because nobody can get to your
+316420	317820	information.
+317820	323140	But I know companies that are using MPLS and still encrypt the information because even
+323140	328180	though the providers will tell us that nobody can get to those paths, there is one entity
+328180	331340	that can, and that is the provider themselves.
+331340	335620	And just because we're paying them for a service doesn't mean that we should trust them to
+335620	338340	be able to see our information.
+338340	345420	And so it may be required that even though MPLS has built-in security that we would still
+345420	350700	use authentication and encryption to protect that traffic based on its value.
+350700	356780	Now what you want to remember about MPLS is that it uses technology that is forwarding
+356780	363500	tables and labeling schemes to ensure that those paths are our paths and nobody can
+363500	364700	get to them.
+364700	371260	And that's the built-in security that is part of what we call MPLS networks for wide-area
+371260	372820	network capabilities.

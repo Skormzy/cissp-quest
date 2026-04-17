@@ -1,0 +1,218 @@
+WEBVTT
+
+00:00.000 --> 00:20.000
+Let's start by defining what is the session.
+
+00:20.000 --> 00:40.000
+Well, let's start by defining what is the session.
+
+00:40.000 --> 00:46.000
+Well, when a user logs into a system, when they've properly identified themselves, when they've authenticated themselves,
+
+00:46.000 --> 00:51.000
+and they've been authorized into the system, that begins what is known as a session.
+
+00:51.000 --> 00:56.000
+And we want to manage these sessions. We want to make sure that these sessions are secure.
+
+00:56.000 --> 01:01.000
+Because one of the major things we want to watch out for is something called session hijacking.
+
+01:01.000 --> 01:07.000
+Session hijacking is where an attacker, a baddie, somehow takes over a user session.
+
+01:07.000 --> 01:11.000
+And a session, of course, means that the user is authenticated. They have access to the system.
+
+01:11.000 --> 01:16.000
+So if someone takes over hijacks your session, it means that they would have the same rights as you.
+
+01:16.000 --> 01:20.000
+There's a bunch of different ways of conducting session hijacking.
+
+01:20.000 --> 01:27.000
+It can be very complicated. It can also be very simple. For instance, if I were to log into my laptop and then walk away,
+
+01:27.000 --> 01:32.000
+while my laptop is still logged in, and someone else was to come up to my laptop and start using a laptop,
+
+01:32.000 --> 01:36.000
+what have they done with my session? They have hijacked it.
+
+01:36.000 --> 01:42.000
+So it can be as simple as that. It can also be very complicated, hijacking, VPN sessions, all sorts of things like that.
+
+01:42.000 --> 01:49.000
+Here's a good question. What's the very best way of preventing session hijacking?
+
+01:49.000 --> 01:54.000
+Well, the very best way is to actually force reauthentication.
+
+01:54.000 --> 01:57.000
+So if your screensaver comes up and requires you to log back in,
+
+01:57.000 --> 02:00.000
+if you require someone to put in their password again,
+
+02:00.000 --> 02:05.000
+it's going to, if you terminate the session and then require someone to reauthenticate,
+
+02:05.000 --> 02:08.000
+anyone that had hijacked the session has now lost access.
+
+02:08.000 --> 02:12.000
+So the perfect answer of how we prevent session hijacking is very simple.
+
+02:12.000 --> 02:15.000
+It's actually to force reauthentication.
+
+02:15.000 --> 02:21.000
+And if you're really concerned about high session hijacking, you might even move to almost continuous reauthentication.
+
+02:21.000 --> 02:25.000
+For example, some VPN solutions are actually doing this behind the scenes,
+
+02:25.000 --> 02:32.000
+without us even realizing they're constantly reauthenticating to trying to prevent something like session hijacking.
+
+02:32.000 --> 02:38.000
+Now let's talk about some of the different methods that we use for managing sessions.
+
+02:38.000 --> 02:41.000
+The first one, known as schedule limitations,
+
+02:41.000 --> 02:45.000
+actually controls when you're allowed to open or create a session.
+
+02:45.000 --> 02:52.000
+So the idea here is that if an organization's employees all work from 8 a.m. to 5 p.m. Monday through Friday,
+
+02:52.000 --> 02:59.000
+then schedule limitations could be set up to only allow users to create a session to log in to their system
+
+02:59.000 --> 03:03.000
+between, say, 8 a.m. and 5 p.m. Monday through Friday.
+
+03:03.000 --> 03:08.000
+If someone tried it Saturday night at 2 a.m., they would just be blocked.
+
+03:08.000 --> 03:11.000
+They would say, nope, session cannot be created right now.
+
+03:11.000 --> 03:14.000
+So that's the idea of session limitations.
+
+03:14.000 --> 03:17.000
+The next one is log in limitations.
+
+03:18.000 --> 03:22.000
+And this goes back to this idea that we never want to have shared accounts.
+
+03:22.000 --> 03:25.000
+We want to have one account to one user.
+
+03:25.000 --> 03:28.000
+And that one user should only be logged in once because they have one system.
+
+03:28.000 --> 03:34.000
+So log in limitation is about only letting a user log in with a certain set of credentials once.
+
+03:34.000 --> 03:40.000
+And if someone else is trying to log in with the same credentials, then you know that's a problem.
+
+03:40.000 --> 03:42.000
+Next is timeouts.
+
+03:42.000 --> 03:44.000
+And we use timeouts all the time.
+
+03:44.000 --> 03:47.000
+Perfect example is your screensaver.
+
+03:47.000 --> 03:50.000
+Your screensaver is usually set for something like 5 minutes.
+
+03:50.000 --> 03:53.000
+And at 5 minutes of inactivity, what happens?
+
+03:53.000 --> 03:55.000
+Well, your screensaver comes up.
+
+03:55.000 --> 03:59.000
+And when you go back to the system and you try and you jiggle the mouse,
+
+03:59.000 --> 04:01.000
+you get the screensaver to go away.
+
+04:01.000 --> 04:04.000
+Before you can use the system again, what do you have to do?
+
+04:04.000 --> 04:05.000
+Log in.
+
+04:05.000 --> 04:08.000
+So this is an example of session timeout.
+
+04:08.000 --> 04:11.000
+And lots of different systems do this, like an online banking system, for instance.
+
+04:11.000 --> 04:15.000
+Well, often like log you out after 5 minutes of inactivity.
+
+04:15.000 --> 04:20.000
+Now, let's talk about registration or the idea of identity proofing.
+
+04:20.000 --> 04:25.000
+So identity proofing is this concept that when a new employee joins the organization,
+
+04:25.000 --> 04:28.000
+you want to make sure that they actually are who they say they are.
+
+04:28.000 --> 04:29.000
+You've done interviews.
+
+04:29.000 --> 04:30.000
+You've done background checks.
+
+04:30.000 --> 04:33.000
+You've made sure that this is the perfect employee for your organization.
+
+04:33.000 --> 04:37.000
+But you want to make sure that when they actually show up on their first day of work,
+
+04:37.000 --> 04:41.000
+that they are who they say they are, that you're giving out the badge, the credentials,
+
+04:41.000 --> 04:45.000
+all the keys to the kingdom to the right person.
+
+04:45.000 --> 04:47.000
+So how can we identity proof someone?
+
+04:47.000 --> 04:52.000
+If they first show up for work, how can we confirm that they are who they say they are?
+
+04:52.000 --> 04:57.000
+Well, one of the easiest ways of identity proofing someone is to ask for their government ID,
+
+04:57.000 --> 05:00.000
+something like a driver's license or a passport.
+
+05:00.000 --> 05:03.000
+So that's simply the concept of identity proofing.
+
+05:03.000 --> 05:06.000
+We use it all sorts of places when someone first joins the organization.
+
+05:06.000 --> 05:11.000
+We talked about it, we'll talk about it in relation to certificate authorities
+
+05:11.000 --> 05:16.000
+and how a registration authority in RA will identity proof someone before they give them
+
+05:16.000 --> 05:17.000
+a digital certificate.
+
+05:17.000 --> 05:20.000
+So that's registration and identity proofing.
+

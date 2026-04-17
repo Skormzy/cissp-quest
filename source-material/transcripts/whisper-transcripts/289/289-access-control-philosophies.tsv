@@ -1,0 +1,220 @@
+start	end	text
+0	17000	We've talked about how we can identify ourselves to a system.
+17000	20000	We've talked about how we authenticate ourselves to a system.
+30000	37000	We've talked about how we can identify ourselves to a system.
+37000	40000	We've talked about how we authenticate ourselves to a system
+40000	44000	through authentication by knowledge, ownership, or characteristic.
+44000	47000	Now, let's talk about how we authorize.
+47000	50000	How the system determines what our access will be.
+50000	55000	There's three major philosophies for authorization.
+55000	59000	The first is known as discretionary access control.
+59000	61000	And listen very carefully to this definition.
+61000	66000	Discretionary access control means that the owner decides
+66000	69000	who's going to get access to the system.
+69000	74000	Now, is that a good security practice for the owner decides who should get access?
+74000	76000	Absolutely.
+76000	78000	Is that commonly what's done?
+78000	80000	Unfortunately not.
+80000	83000	It's very common that it's not the owner that decides who gets access.
+83000	88000	Instead, it's someone an IT or some other system administrator like that.
+88000	90000	And they're not the owner of the system.
+90000	95000	So the perfect definition of discretionary access means the owner decides.
+95000	99000	And there's three types of discretionary access that you need to know about.
+99000	104000	There is rule-based, role-based, and attribute-based.
+104000	107000	And we'll talk through each of those in more detail in a moment.
+107000	112000	The next access control philosophy is non-disgressionary.
+112000	117000	So if discretionary means the owner decides what does non-disgressionary mean?
+117000	121000	Well, it means someone other than the owner decides.
+121000	125000	And as I mentioned, that's very common in the world today in a lot of organizations,
+125000	127000	but not a good practice.
+127000	131000	The final philosophy is what's known as mandatory access control.
+131000	135000	And this is where the system decides.
+135000	137000	This is very rarely seen.
+137000	141000	And we'll talk about it in a few minutes here, but it's very rare to see mandatory access control.
+141000	147000	The two that you'll see the most out in the real world are discretionary and non-disgressionary.
+147000	149000	So let's dig into each of these.
+149000	154000	Now, relating this back to the reference monitor concepts and security kernels,
+154000	161000	what these authorization steps are all about is determining the rules that get fed into our mediation.
+161000	168000	And as we talked about in discretionary access, it's the owner that determines these rules.
+168000	173000	Now, role-based access is where we have this concept of defining roles
+173000	178000	and then assigning users to those roles, which defines what access they get.
+178000	186000	And role-based access can be an awesome idea in situations where you've got a ton of users that all share the same role.
+186000	187000	Think call centers.
+187000	189000	You might have 500 people in a call center.
+189000	191000	They all need the same system access.
+191000	196000	So you define one role, assign all 500 employees to that one role.
+196000	201000	And then if you need to make changes to their access, you only have to update one role.
+201000	203000	Makes this very easy.
+203000	210000	Now, in my experience, it's often challenging to implement role-based access across the entire organization.
+210000	217000	I've been involved in a number of these implementations, and it's not uncommon to end up with more roles than you have employees,
+217000	220000	which kind of negates making this whole process more efficient.
+220000	225000	The other challenge a lot of organizations have is that many systems don't support role-based access, older legacy systems.
+226000	228000	So role-based access create idea.
+228000	230000	Not always easy to accomplish.
+230000	235000	Rule-based access is where a simple set of rules.
+235000	238000	Often, these are known as accles, access control lists.
+238000	243000	It's simply a file that says this user has access to this resource or this asset.
+243000	246000	So rule-based access is simply a set of rules.
+246000	249000	And those rules are going to be unique to each user.
+249000	256000	And so if you need to update 10 users access, you'd have to go and update their 10 unique rule sets.
+256000	261000	Let's talk about an emerging form of access.
+261000	263000	And it's known as attribute-based access.
+263000	267000	And to give a bit of context as to why this is really useful and important nowadays,
+267000	271000	let's talk about where the industry is trending as it comes to access to systems,
+271000	275000	and what type of systems are being created, and where those systems are hosted.
+275000	281000	So nowadays, it's very common for most applications to be web-based applications.
+281000	285000	And for a lot of those applications to be hosted in the cloud,
+285000	287000	which we call software as a service.
+287000	292000	Now, if you have an application hosted in the cloud as software as a service,
+292000	296000	all of the defense and depth controls that you would have used to have had
+296000	299000	when that application was deep within your corporate resources,
+299000	302000	or deep within your corporate network, they're gone.
+302000	307000	You know, it used to be very common that applications were hosted inside a company's own IT infrastructure.
+307000	311000	And there was multiple layers of defense, firewalls, and all sorts of other controls
+311000	316000	that would prevent unauthorized users from getting near that secure internal system.
+316000	321000	But when we host the system in the cloud, who can access this system?
+321000	323000	Potentially anyone on the internet.
+323000	328000	And this is where the idea of attribute-based access becomes much more important.
+329000	332000	Because the idea here is when we put a system out on the internet,
+332000	334000	all those defense and depth controls are now gone.
+334000	336000	We don't have those controls in place.
+336000	340000	And so the access controls, the controls that we use to control access to the application,
+340000	343000	become much, much more important.
+343000	346000	And attribute-based access really takes that into account.
+346000	351000	Because the idea behind attribute-based access is rather than just looking at a simple user name and password
+351000	354000	to grant someone access, and authorize what they're allowed to access,
+355000	360000	instead you look at a bunch of attributes such as you could look at the user
+360000	364000	and specifically what's their identity, what department do they work in,
+364000	366000	what date and time are they logging in from.
+366000	370000	You could look at what environment they're logging in from.
+370000	374000	Are they using, for instance, a Linux system and everyone in the company is being issued
+374000	376000	Macs or Windows computers.
+376000	379000	You could look at the operating system they're running.
+379000	381000	You could look at even at their geographic location.
+381000	384000	A lot of devices nowadays have GPS on board,
+384000	387000	so you can see someone's fairly accurate latitude and longitude.
+387000	391000	And if they're trying to log in from somewhere sketchy like, say, Canada,
+391000	393000	that's going to look instantly suspicious.
+393000	397000	You could look at what resources they're wanting to actually access.
+397000	399000	Is this top-secret documents?
+399000	405000	Is it, you know, is it an entire database or just a file?
+405000	408000	And you could even look at what exactly do they want to do?
+408000	410000	Do they want to read the file?
+410000	412000	Do they want to download the entire thing?
+412000	414000	Do they want to modify it?
+414000	417000	So you can look at all these different attributes and then,
+417000	420000	based on all this, you can make an authorization decision.
+420000	424000	And the way that we make these authorization decisions is based on a set of policy,
+424000	425000	some logic.
+425000	428000	It's basically a set of rules that we program into our authorization engine
+428000	433000	so that it then can make a determination as to permit or deny certain actions,
+433000	435000	looking at all these different attributes.
+435000	438000	So that's the idea behind attribute-based access.
+438000	441000	And I'll bet a lot of you have actually seen an example of this recently.
+441000	445000	Now, these policies that we use to program our authorization engine,
+445000	448000	the language that we use that we write these policy statements in,
+448000	453000	is known as XACML, the Extensible Access Control Markup Language.
+453000	458000	So just remember that as the language that we use to write the policies in,
+458000	460000	attribute-based access.
+460000	464000	And you might think attribute-based access is this super rare thing
+464000	467000	I've never seen before, but I would bet every single one of you have seen it.
+467000	469000	And here's a perfect example.
+469000	473000	You've probably logged into a website recently where you had to click a box that said,
+473000	474000	I'm not a robot.
+474000	478000	How does clicking a box prove that you're not a robot?
+478000	481000	Well, what's going on behind the scenes is that Google,
+481000	485000	who runs this recapture system, is looking at a whole bunch of different attributes
+485000	487000	when you try and click that box.
+487000	490000	They're looking at the IP address that you're coming from,
+490000	493000	the type of system you're on, how many times you've tried to click on that box
+493000	494000	in the last few minutes.
+494000	498000	And importantly, they're looking at how you click on that box.
+498000	501000	If you were a robot, you'd probably go right to the center of the box,
+501000	503000	click dead center, it'd be very mechanical.
+503000	507000	If you're a human, you'd probably drunkenly stagger up to the box,
+507000	509000	barely get the edge of it.
+509000	510000	It would look very different.
+510000	514000	And so this whole, I'm not a robot, is looking at all these different attributes
+514000	517000	to decide whether you're a robot or not.
+517000	519000	Okay, this next little bit, not an exam,
+519000	521000	but I think it's a really fun little bit of trivia.
+521000	523000	That's quite interesting to know.
+523000	526000	So the system before, I'm not a robot checkbox,
+526000	528000	used to be this capture system,
+528000	532000	where you had to type in this horribly scrambled and mangled text.
+532000	534000	Where did that text come from?
+534000	537000	For many years, where a lot of that text came from,
+537000	540000	was from the Google book scanning project.
+540000	542000	Google had a, and they think they stole or doing it,
+542000	546000	they had a project where they were trying to scan all the world's old books
+546000	549000	so that they could put them online and make them searchable.
+549000	551000	Great idea.
+551000	555000	The problem was that a lot of these books being very old and kind of rough shape
+555000	558000	were very difficult for the OCR, the optical character recognition software
+558000	560000	to actually figure out what the letters were.
+560000	563000	And so what Google did is they got millions of us all around the world
+563000	565000	to translate these books for them.
+565000	567000	They would take these mangled bits of text,
+567000	569000	they put them in these captures,
+569000	571000	and then we would type in what we thought the characters were.
+571000	574000	And if enough of us said, oh yeah, that's a B, or that's a J,
+574000	576000	then the system would go, okay, yeah, that's the letter,
+576000	578000	and that's how the recapture system worked.
+578000	580000	So that's where the letters came from.
+580000	582000	Where did some of the numbers come from?
+582000	586000	Well, for a while there, Google was sourcing the numbers
+586000	588000	from their street view project.
+588000	590000	Google has been driving cars all around the world,
+590000	593000	taking pictures of all the world's streets, and capturing house numbers.
+593000	596000	And they wanted to be able to tie a particular picture of a house
+596000	599000	to that house number so that when you typed in a address,
+599000	601000	they could show you the exact house.
+601000	604000	And in some instances, the pictures captured of the house numbers
+604000	606000	were tough for the computer system to translate.
+606000	608000	And so, what do they do?
+608000	611000	They put those numbers into the recapture system.
+611000	616000	And millions of us around the world entered what we thought those numbers were,
+616000	620000	trained Google's system on how to recognize those numbers and those letters.
+620000	622000	So that's kind of where that came from.
+622000	625000	Now, one final piece here that's, I think, really cool.
+625000	627000	In the new, I'm not a robot system.
+627000	629000	It makes a bit of a risk-based decision.
+629000	632000	If it's not entirely sure whether you're a robot or not,
+632000	634000	it'll actually show you a grid of pictures,
+634000	636000	a three-by-three grid of pictures.
+636000	638000	And when the system was first put out there,
+638000	640000	it was usually pictures of kittens and bunnies.
+640000	643000	And they'd ask you to, like, which of the puppies here or which of the kittens?
+643000	647000	But now, when you get those grid of pictures, what are most of the pictures?
+647000	650000	There's street signs, there's school buses, things like that.
+650000	652000	Because what are you training now?
+652000	655000	You're training Google's self-driving cars. They're Waymo cars.
+655000	659000	So, Google's been very good at figuring out how to get all of us around the world
+659000	663000	to work for free to train their machine learning algorithms.
+663000	668000	Now, the next type of authorization is mandatory access control.
+668000	670000	And we have to spend a minute on this one.
+670000	672000	As I want to explain something important,
+672000	676000	mandatory access control is very, very rare to see.
+676000	677000	Here's why.
+677000	680000	In order to have mandatory access control,
+680000	684000	every single asset in the organization has to have a classification.
+684000	688000	And every single user has to have some sort of security clearance.
+688000	692000	Because the system has to decide who's going to get access to what,
+692000	693000	based on all this.
+693000	698000	And it's very rare for organizations to have classified all of their assets
+698000	701000	and to have security clearance and classified all of their users.
+701000	706000	So, it's very rare to see mandatory access control outside of US military
+706000	708000	and other governmental types of organizations.
+708000	710000	So, I'd warn you on the exam.
+710000	714000	Mandatory access control is very rarely the right answer.
+714000	718000	Because you almost never see it in the real world.
+718000	722000	And an important part that you might see on the exam related to mandatory access control
+722000	724000	is that it requires labeling.
+724000	729000	We have to label our data so that the system can decide who gets access to what.
+729000	734000	The final authorization philosophy is non-discretionary.
+734000	737000	And non-discretionary means who determines the rules?
+737000	739000	Not the owner.
+739000	741000	Someone from IT or something like that.
+741000	742000	So, there you go.
+742000	745000	Those are the major access control philosophies.
+745000	757000	Music

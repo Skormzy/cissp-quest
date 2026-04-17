@@ -1,0 +1,46 @@
+start	end	text
+30000	43520	Wow, you're still here.
+43520	44520	That is some perseverance.
+44520	46520	I'm proud of you.
+46520	47520	Let's keep going.
+47520	51800	I'm happy to report this is an easy one.
+51800	55000	Identity as a service.
+55000	56000	What does that mean?
+56000	59440	It means we can do any of the stuff that we have already talked about around identity
+59440	63120	and access management, except that we can do it in the cloud.
+63120	64120	That's identity as a service.
+64120	67720	There's a little more to it than they need to know.
+67720	69000	Here's the table.
+69000	72760	There are a number of different identities that we can use in identity as a service.
+72760	75760	So let's go through each of these and I'll provide you a nice simple definition of each
+75760	78920	one.
+78920	81280	Let's start with cloud identity.
+81280	86760	The idea of a cloud identity is that the identity, your information, your credential
+86760	92320	information is entirely stored in the cloud and you authenticate in the cloud because
+92320	93440	everything is stored in the cloud.
+93440	95880	That's cloud identity.
+95880	101320	Sync identity is where you have an identity in your local corporate store on premise and
+101320	106200	you have an identity in the cloud and sync means that they are connected and a change to
+106200	110720	one is synchronized to the other, a change to this one is synchronized to the other one.
+110720	113680	So sync identities, they're synchronized.
+113680	119120	And the authentication can occur either on premise or in the cloud.
+119120	123000	Federated identity is where you use federated access.
+123000	127520	This whole process that we've already talked through about having three entities, the identity
+127520	132240	provider, the relying party, the service provider, and the user or the principal.
+132240	136120	And where the actual identity provider is located whether it's on premise or in the cloud
+136120	137880	doesn't matter.
+137880	142160	Federated identity is just this concept of using federated access.
+142160	145680	And the last one is known as a linked identity.
+145680	150160	This is where you still have two separate identities, one on premise and one in the cloud.
+150160	154240	But the key difference between linked identity and synced identity, in sync, there was if
+154240	156800	a change was made to one, it was synchronized to the other.
+156800	160740	In linked, there's a connection to say that these are both accounts that belong to the
+160740	166680	same user, but an update to one does not synchronize automatically, update the other.
+166680	170120	And so in linked identity, if you change this account in the cloud, it doesn't automatically
+170120	174160	update this local account and vice versa.
+174160	180000	So those are the major types of accounts that we can use in the cloud.
+180000	183640	And the final piece slide here is just related to what are all the services that we can have
+183640	185000	in identity as a service.
+185000	188160	And like I said, it's anything that you can do on premise, you can do provisioning,
+188160	192600	you can do access management, you can do single sign-on, you can do multi-factor, all
+192600	194560	of this stuff, you can do it in the cloud.

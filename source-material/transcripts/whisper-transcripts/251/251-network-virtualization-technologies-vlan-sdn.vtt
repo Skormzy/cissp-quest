@@ -1,0 +1,242 @@
+WEBVTT
+
+00:00.000 --> 00:20.000
+Network virtualization technologies. This is where we introduce the concept of abstraction.
+
+00:30.000 --> 00:41.000
+Network virtualization technologies. This is where we introduce the concept of abstraction into our networks,
+
+00:41.000 --> 00:47.000
+where we abstract away some of the details of our networks and allow us to virtualize parts of our network.
+
+00:47.000 --> 00:51.000
+Now, we're going to talk about network virtualization from two primary aspects.
+
+00:51.000 --> 01:00.000
+We're going to talk about VLANs, virtual local area networks, and very much an evolution of that, SDS, software defined networks.
+
+01:00.000 --> 01:04.000
+So let's jump into this. We're going to start by talking about VLANs.
+
+01:04.000 --> 01:10.000
+VLANs are something we've had for many, many years, and I've got a little picture here that's meant to show you roughly how this works.
+
+01:10.000 --> 01:14.000
+So here's how you should interpret this little diagram here, okay?
+
+01:14.000 --> 01:19.000
+We've got four different computer systems. All connected to this big rectangle here is a switch.
+
+01:19.000 --> 01:25.000
+So we've got four systems connected to the switch. They're plugged into the RJ45 jacks on the switch.
+
+01:25.000 --> 01:30.000
+And how would a switch typically allow these systems to talk to each other?
+
+01:30.000 --> 01:35.000
+Well, the whole purpose of a switch is to let every system talk to every other system on the switch.
+
+01:35.000 --> 01:40.000
+And so the way this is configured right now is that all of these systems, all four of them, could talk to each other.
+
+01:40.000 --> 01:42.000
+That's the whole point of the switch.
+
+01:42.000 --> 01:51.000
+But let's say that we have a scenario where these first two computers are in a department, and these second two computers are any different departments.
+
+01:51.000 --> 01:55.000
+And these two departments do not like each other. I'm sure you can think of some example in your organization.
+
+01:55.000 --> 02:03.000
+Maybe it's the audit function and marketing, or maybe it's engineering, and the business people, I don't know.
+
+02:03.000 --> 02:11.000
+Take your example. The point is these two different systems are in two different departments, and they don't want to be able to talk to each other.
+
+02:11.000 --> 02:17.000
+So how would we segment this network? How would we make it so that the first two systems could only talk to each other?
+
+02:17.000 --> 02:20.000
+And the second two systems could only talk to each other.
+
+02:20.000 --> 02:23.000
+Well, the expensive way to do this would be to buy a second switch.
+
+02:23.000 --> 02:29.000
+We put the first two computers on the first switch. We put the second two computers on the second switch, and there we go.
+
+02:29.000 --> 02:34.000
+We have physically segmented separated out these systems.
+
+02:34.000 --> 02:41.000
+But that's kind of expensive, isn't it? We've had to buy now a whole separate physical switch. We have to maintain a whole separate physical switch, it gets expensive.
+
+02:41.000 --> 02:49.000
+So instead of doing physical segmentation, we can do logical segmentation. We can separate out these systems using software.
+
+02:49.000 --> 02:55.000
+And that's fundamentally the idea behind VLANs, virtual local area networks.
+
+02:55.000 --> 03:00.000
+So the idea here is that we could assign VLAN segments to these different systems.
+
+03:00.000 --> 03:06.000
+We put the first two systems on VLAN 1. We put the second two systems on VLAN 2.
+
+03:06.000 --> 03:12.000
+And the whole purpose of putting systems on a VLAN is that those VLANs are separated essentially.
+
+03:12.000 --> 03:19.000
+And so if the first two systems are on VLAN 1, the only other systems are going to be able to communicate with our systems on VLAN 1.
+
+03:19.000 --> 03:21.000
+So in other words, with each other.
+
+03:21.000 --> 03:27.000
+And the second two systems on VLAN 2, because they're both on VLAN 2, they can only talk to each other.
+
+03:27.000 --> 03:32.000
+So we've created virtual logical segmentation of our systems.
+
+03:32.000 --> 03:34.000
+And that's what VLANing is all about.
+
+03:34.000 --> 03:39.000
+And you can extend this beyond just one switch. We can add multiple switches to the environments.
+
+03:39.000 --> 03:47.000
+We can interconnect those switches. And then on each of those systems, those switches, we can create the same VLAN segments.
+
+03:47.000 --> 03:50.000
+So as you can see here now, we have eight computer systems.
+
+03:50.000 --> 03:56.000
+But only four of them can talk to each other. Any of the ones in VLAN 1, they can talk to each other across the switches.
+
+03:56.000 --> 04:01.000
+And then the other four systems, only they can talk to each other on VLAN 2.
+
+04:01.000 --> 04:07.000
+So that's a virtual local area network. It's a way of creating logical network segmentation.
+
+04:07.000 --> 04:12.000
+And if a system in VLAN 1 wanted to talk to a system in VLAN 2, it would have to go through a router.
+
+04:12.000 --> 04:17.000
+And it's at the router that we could apply rules around what traffic's allowed to go where.
+
+04:17.000 --> 04:24.000
+So there you go, VLANs. Now, very much an evolution of VLANs, or what are known as software defined networks.
+
+04:24.000 --> 04:30.000
+And software defined networks are where we essentially abstract away and virtualize everything within a network.
+
+04:30.000 --> 04:38.000
+We can create an entire virtualized network on top of a physical network, or multiple virtualized networks on top of one physical network.
+
+04:39.000 --> 04:43.000
+But before we get into explaining exactly how we do that, we have to define a bit of terminology.
+
+04:43.000 --> 04:47.000
+And that's the difference between the control plane and the data plane.
+
+04:47.000 --> 04:54.000
+So this little diagram that you have up on the screen here, what this is showing you is you've got three different network devices.
+
+04:54.000 --> 05:04.000
+In a traditional network, each network device, each switch, each router is going to have both the control plane and the data plane within the switch.
+
+05:04.000 --> 05:09.000
+So first of all, what's the control plane? The control plane is the intelligence.
+
+05:09.000 --> 05:16.000
+It's the control plane that decides how to forward packets, who they go to across what route it's the decision maker.
+
+05:16.000 --> 05:22.000
+So the control plane decides how to move traffic around, and the data plane is the doer.
+
+05:22.000 --> 05:28.000
+The data plane actually moves the packets based on the direction from the control plane.
+
+05:28.000 --> 05:33.000
+And a traditional network, every single network device out there is configured independently.
+
+05:33.000 --> 05:40.000
+If you want to change the configuration of this switch over here, you have to log into this switch, change this switch's control plane.
+
+05:40.000 --> 05:46.000
+And if you want to change this router over here, you have to log into this router, and change this router's control plane.
+
+05:46.000 --> 05:51.000
+All of the intelligence the control is on each individual device in the network.
+
+05:51.000 --> 05:58.000
+Now, one of the fundamental differences between a traditional network and a software defined network is this.
+
+05:58.000 --> 06:06.000
+You separate out the control plane. The control plane is now all centrally controlled from one location.
+
+06:06.000 --> 06:10.000
+And you still have devices like switches and routers out there and so forth.
+
+06:10.000 --> 06:16.000
+But the big difference is that the intelligence is not at each individual device. It's all centralized.
+
+06:16.000 --> 06:27.000
+So the control plane is running from one central system, which then connects to all the other devices out there to tell them how to forward switch, how to forward packets, how to think essentially.
+
+06:27.000 --> 06:31.000
+So what's the advantage of doing this of centralizing your control plane?
+
+06:31.000 --> 06:38.000
+And by the way, here's another diagram that shows you the difference here between a traditional network and a software defined network, the control plane is separated out.
+
+06:38.000 --> 06:47.000
+So what's the advantage of doing this? Well, it allows you, as the name suggests, it allows you to centralize all the network intelligence.
+
+06:47.000 --> 06:59.000
+So think of it this way. Think of the public cloud. And we've talked about the characteristics of cloud, how it's on-demand self-service, for instance, which means that you can show up at the cloud, request any service, and then magically it just gets done for you.
+
+06:59.000 --> 07:07.000
+We can request all new networks, all new systems, network bandwidth, whatever. And just magically all this gets provisioned for us.
+
+07:07.000 --> 07:13.000
+How does that actually work? Are there people running around AWS's Azure's Google data centers, constantly moving around switches?
+
+07:13.000 --> 07:20.000
+I like to think of them as like an army of bloompas running around doing this. No, I mean, they don't employ armies of bloompas.
+
+07:20.000 --> 07:37.000
+What they have are software that controls everything. So in say the public cloud, if you decide that, you know what, I want this system connected over to that system, and I want this database connected to it, and I want to create a connection to, you know, something else in another data center somewhere else.
+
+07:37.000 --> 07:46.000
+There's no physical switches that have to be moved around. Instead, the centralized intelligence system will say, okay, well, we need to make this connection, that connection, that connection, that whatever.
+
+07:46.000 --> 07:57.000
+It will simply control all of the network devices within the cloud environment from one centralized intelligence system. And that allows programmatic network control, network configuration.
+
+07:57.000 --> 08:06.000
+And what that means is that you can control your entire network now, not by moving around physical plugs and network cables, but by sending software commands.
+
+08:06.000 --> 08:23.000
+The whole idea here is that you can create an entire virtualized network on top of a physical network. And so from a customer's perspective, instead of, you know, configuring a physical switch, or a physical router, or a physical firewall, what they're configuring is a virtual firewall, a virtual router, a virtual switch.
+
+08:23.000 --> 08:33.000
+Which then means that if they want to create a new firewall, if they want to change their firewall configuration, if they want to change their switch, all of it is done through software commands, programmatic control.
+
+08:33.000 --> 08:42.000
+And this allows you to create multiple overlapping IP segments. And think of this again from the public cloud perspective. In the public cloud, you have millions of different users.
+
+08:42.000 --> 08:57.000
+And each of them are allowed to choose whatever IP addresses they want. Normally that would be a problem. In a traditional network, if someone said, you know what, I want 10.0.0.1, and then someone else right beside them said, I want 10.0.0.1, what would you have? You'd have a conflict.
+
+08:57.000 --> 09:12.000
+But because in software-defined networking, we're creating virtual networks. Each virtual network can have whatever configuration they want. They can use whatever IP address ranges they want. They can create whatever virtual network devices they want, and configure them in whatever way they want.
+
+09:12.000 --> 09:26.000
+So fundamentally, software-defined networks are about abstracting away all of the actual physical network, and allowing you to create an entirely virtualized network on top of that. Multiple virtualized networks.
+
+09:26.000 --> 09:45.000
+And here's an example of some of the more capabilities this provides, far greater flexibility to reconfigure things. And this is one of the fundamental building blocks in cloud. When we talk about resource pooling and how we can share the network across multiple clients, it's software-defined networks that enable this.
+

@@ -1,0 +1,124 @@
+Okay, so as you know we are going up the OSI model layers and we are at Layer 2, the
+data link. Okay, so as you know we are going up the OSI model layers and we
+are at Layer 2, the data link layer, and there are some significant protocols that
+operate at Layer 2 that we can think of from a security perspective. Now if you
+remember back in the old days when the only way to get into a network
+remotely was to use dial up lines and modems, the industry had a problem. The
+problem was how do we allow TCP IP to run across dial up lines? So the industry
+had to come up with a protocol that would allow TCP IP and its protocols to
+run across dial up line. As you know dial up lines are analog connections and
+so they had to create a protocol that would allow that and what they came up
+with is something called slip. Serial line interface protocol is what that
+stands for. Now eventually when remote access became really popular they
+decided to replace this protocol with something better because as companies
+started to offer remote access to everyone and it became a necessity for all
+organizations. They decided to replace that older slip protocol with something
+that is much better and what they called it is what you see here PPP point to
+point protocol. Now by the time they did this they realized that a lot of companies
+were offering remote access and what they should do with this protocol because it
+was going to be used for remote access is build some authentication protocols
+right into this PPP protocol because they realized that this would be used by
+people that would be connecting in remotely by using for example VPNs and so they
+decided to build three authentication protocols as part of the PPP
+authentication protocol itself or remote access protocol itself and they gave
+us three instead of one and the reason that there are three is because they all
+provide different levels of security as you'll see and this is something that's
+important for you to focus on. The first one the first authentication protocol
+that they built natively into PPP is called PAP password authentication protocol.
+This one is the simplest but it's also the least secure. In fact what this
+uses is a plain text reusable static password in order to authenticate the
+individual at the other end that's trying to connect remotely. Now if you think
+about those three words that I just use plain text reusable static those are not
+good security words but that's all that PAP supports and so what it does is it
+sends your password across the line in plain text so if there's anybody in
+between like there is likely to be they can see your password and here's the
+real problem we can never change that password you cannot force a password
+change so PAP is not very good and you wonder why did we even have it but it is
+supported by a lot of simple network devices and in fact in the early days of
+remote access this was really the only option for people and companies to
+offer remote access and it's still widely used by many applications. What's better
+is the second one it's called CHAP challenge handshake authentication protocol.
+What this one does is it addresses some of the problems that EAP does or has and
+so when we send the password across the line using CHAP it is encrypted and
+you can force people to change passwords every 30 days or every 60 days or
+whatever it is that the company decides on and so it's a much more secure
+protocol in fact it is very popular out there even today for organizations that
+offer remote access through VPNs because ultimately this person sitting
+behind that VPN needs to be authenticated and a lot of companies have
+standardized on the CHAP protocol as part of for example their radius and
+tax and diameter administration systems that companies will implement in
+order to host remote access but CHAP much better and in fact it also supports
+two factor authentication which has become pre-standard for organizations to
+use in order to allow remote access. The best one is actually the third one and
+it's called EAP and the reason it's the best is because of the E the E stands for
+extensible and so it can be adaptable it can be changed so almost address
+anything that an organization might want from a remote access perspective so
+that the way that they built EAP is that it's very flexible you can use it in
+conjunction with almost anything else and so you see it a lot today in any
+service that requires remote access in fact the next slide here gives us an
+idea of EAP and how good it is there is one version of it that you would be wise
+to understand as we have seen it appear on the exam and that is P EAP and the
+P is actually for protected EAP and so what they do with this one is they
+protect the EAP traffic across a SSL and TLS tunnel in other words the EAP
+traffic that contains your authentication information is actually protected by
+using the SSL slash TLS protocol which provides authentication and
+encryption and possibly some other things so remember P EAP which stands for
+protected EAP simply tunnels the EAP traffic across a SSL slash TLS tunnel but
+here's why EAP is so extensible there are many versions of it that the
+industry has come up with to really suit any remote access capability that any
+organization or service might require so we've got EAP TLS we've got EAP T TLS
+and we've got EAP P EAP which we just talked about we've got lightweight EAP as
+well and they all provide as you can see here different levels of allowing
+remote entities to authenticate through the EAP protocol but do it in such a
+way so that it becomes very efficient for the organization that's hosting the
+remote access requirements there's even a EAP MD5 which really addresses the
+integrity of that traffic as it goes through for example the EAP authentication
+information even though we've provided a really good slide here probably the
+one that is the most important for you to remember is P EAP that we've talked
+about just before now we're still at layer 2 and what we need to understand at
+layer 2 are some of the significant devices and protocols that operate at
+layer 2 of the OSI model and as far as devices are concerned really two of
+them that are significant bridges and switches both operate at layer 2 and
+therefore because they operate at layer 2 they are still very efficient but
+they are really dumb devices in other words we can't really ask any of these
+devices to make any security decisions they just don't have the intelligence to
+be able to do that but both bridges and switches are layer 2 devices now don't
+overthink these questions because as you know today companies can buy layer
+3 switches they can buy layer 4 switches you can even buy layer 7 switches but
+unless the exam specifically mentions those words you need to remember that a
+switch natively operates at layer 2 and they are both bridges and switches
+dumb devices in fact that's why we call them bridges they simply bridge two
+things together and that bridge does not care what's going across it it has
+no ability to interpret it so these are very fast devices but we cannot use
+them to make any sort of security decisions switches have a little more
+functionality than bridges do because of the ports that are available at the
+back of a switch and so if you connect devices to the ports that are at the
+back of the switch it starts giving us the ability to start creating what
+are called segments or virtual lands as we will discuss later when we get into
+the partitioning and segmentation aspect of network security now these are
+some of the other layer 2 protocols that are noteworthy at layer 2 and you'll
+know that some of these are layer 2 for sure because they are called L2 L2
+TP obviously the L2 stands for layer 2 but PPTP also a layer 2 tunneling
+protocol we just described what slip was that older protocol that was used for
+remote access that was eventually replaced by the PPP protocol that contains
+those authentication protocols that we just talked about PAP, CHAP and EAP also
+at this layer is what we call ARP and reverse ARP and those are some significant
+protocols that operate at layer 2 what ARP does is it maps IP addresses which
+is the logical addressing that's used across networking to specific MAC
+addresses which is what makes you unique on any network and so as something
+comes in as an IP address the network has to take that and map it to the
+correct MAC address and that's what ARP does now when we originate a outgoing
+request from the internal network it obviously originates from your MAC
+address but that has to be converted to the correct IP address which is what
+reverse ARP does but both ARP and reverse ARP are layer 2 protocols that work
+basically together now L2F PPTP L2TP or what we call tunneling protocols tunneling
+protocols simply take something and encapsulate them within something else and
+we'll learn later that this is the precursor for how we create and use VPNs
+because VPNs require tunneling first and then encryption so these protocols
+that you see here L2F PPTP L2TP are layer 2 tunneling protocols and
+because they operate at layer 2 they are still very efficient but they may
+lack in functionality as you know the lower down the layers we go the less we
+can do but the more efficient we become the higher up you go the more we can
+do the more functional we become but the less efficient we become so these are
+very efficient tunneling protocols that operate at layer 2 but may be limited
+in some of the functionality that they can offer

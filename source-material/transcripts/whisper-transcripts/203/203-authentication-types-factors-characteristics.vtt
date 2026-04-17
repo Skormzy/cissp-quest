@@ -1,0 +1,344 @@
+WEBVTT
+
+00:00.000 --> 00:20.000
+We've talked about how there's three factors of authentication, authentication by knowledge,
+
+00:20.000 --> 00:47.000
+authentication by ownership, and authentication by characteristic. Let's dig into authentication by characteristics,
+
+00:47.000 --> 00:54.000
+otherwise commonly known as biometric systems. There's actually two major types of authentication by characteristic,
+
+00:54.000 --> 00:59.000
+which is in fact why we call it authentication by characteristic and not just biometric systems,
+
+00:59.000 --> 01:06.000
+because the two primary types of authentication by characteristic is physiological and behavioral.
+
+01:06.000 --> 01:12.000
+Physiological is our physiology, what makes you up, your fingerprints, your hand prints, your iris, your retina.
+
+01:12.000 --> 01:19.000
+This is your physiology, it's what makes you up. Behavioral, on the other hand, is how you behave,
+
+01:19.000 --> 01:25.000
+how you talk, how you walk, how you type. So when you hear authentication by characteristic,
+
+01:25.000 --> 01:31.000
+these are the two major characteristics that you're looking at, physiological and behavioral.
+
+01:31.000 --> 01:36.000
+Now, before we get into the actual different types of biometric systems, we first have to talk about
+
+01:36.000 --> 01:43.000
+a couple of the major considerations related to biometric systems. The first is processing speed.
+
+01:43.000 --> 01:49.000
+Some of these biometric systems can be a lot slower than a regular system where you just type in a password
+
+01:49.000 --> 01:53.000
+or something like that, and the system almost instantly knows whether that's the correct password.
+
+01:53.000 --> 01:59.000
+Some of these biometric systems can take a fair amount of time to scan, which leads directly to the next
+
+01:59.000 --> 02:05.000
+consideration, which is user acceptance. How willing are users to accept this biometric system?
+
+02:05.000 --> 02:10.000
+Especially some of them, like we're going to talk about in a moment here, iris-based systems, where you have to put your
+
+02:10.000 --> 02:15.000
+eye up to this gummy gross cup, you get a super bright light flash in your eye like I'm in front of right now,
+
+02:15.000 --> 02:21.000
+and it's a little bit uncomfortable for the user, and so the user acceptance of those types of systems can be fairly low.
+
+02:21.000 --> 02:28.000
+And then the final, and frankly, this is the most important consideration, is the protection of the biometric data.
+
+02:28.000 --> 02:33.000
+So we only have one set of fingerprints, one hand print, one iris, one vein pattern.
+
+02:33.000 --> 02:39.000
+If that data is exposed, if it's out there, there's no way that we can create a new set of fingerprints, a new iris.
+
+02:39.000 --> 02:44.000
+And so it's extremely important that we protect biometric data.
+
+02:44.000 --> 02:49.000
+The final consideration that we're going to talk about is accuracy of biometric systems.
+
+02:49.000 --> 02:55.000
+And before we, there's actually two different error rates, but before we get into those, we have to talk about a very important concept.
+
+02:55.000 --> 02:58.000
+And that is that biometric systems are not binary.
+
+02:58.000 --> 03:00.000
+What do I mean by that?
+
+03:00.000 --> 03:06.000
+Well, with the other authentication characteristics like authentication by knowledge or ownership,
+
+03:06.000 --> 03:13.000
+the system can be 100% sure that that is your password, or 100% sure that that isn't your password.
+
+03:13.000 --> 03:16.000
+The same is not true with biometric systems.
+
+03:16.000 --> 03:21.000
+And we've all experienced this with our iPhones where we'll go to unlock the phone with our thumb or our finger,
+
+03:21.000 --> 03:26.000
+and it won't work because our finger is a little bit dirty or wet or greasy or something.
+
+03:26.000 --> 03:32.000
+And so we have these error rates in biometric systems, they're not 100% accurate, they're not 100% in binary.
+
+03:32.000 --> 03:35.000
+So let's talk about these two different error rates.
+
+03:35.000 --> 03:40.000
+The first is known as a type one false reject error.
+
+03:40.000 --> 03:46.000
+And what that means is that a valid user is falsely rejected from getting into the system.
+
+03:46.000 --> 03:52.000
+So this is where a valid user tries to authenticate themselves, and the system says, not allowed, you're rejected.
+
+03:52.000 --> 03:54.000
+So that's a type one error.
+
+03:54.000 --> 03:58.000
+A type two error is essentially the exact opposite, the inverse.
+
+03:58.000 --> 04:03.000
+A type two error is known as a false acceptance error.
+
+04:03.000 --> 04:08.000
+It's where an invalid user is falsely accepted into the system.
+
+04:08.000 --> 04:14.000
+In other words, some baddy, some person that shouldn't be getting into the system was allowed into the system.
+
+04:14.000 --> 04:16.000
+That's a type two error.
+
+04:16.000 --> 04:19.000
+So which is worse, type one or type two?
+
+04:19.000 --> 04:24.000
+Absolutely, type two, it means type one is just a user being irritated, stupid thing doesn't work.
+
+04:24.000 --> 04:29.000
+Type two is you're letting an attacker into your system very bad.
+
+04:29.000 --> 04:34.000
+Now what's interesting about these two error rates is they're inverse to each other.
+
+04:34.000 --> 04:41.000
+As you try and reduce, for instance, the number of type one errors, you're going to start to increase the number of type two errors, or the same thing in the other direction.
+
+04:41.000 --> 04:46.000
+As you try and reduce the number of type two errors, the number of type one errors are going to go up.
+
+04:46.000 --> 04:49.000
+And if you were to graph this, it would look something like this.
+
+04:49.000 --> 04:54.000
+As your type one errors go down, your type two errors are going to go up.
+
+04:54.000 --> 04:58.000
+Now there's a particular spot on this graph that's of interest to us.
+
+04:58.000 --> 05:00.000
+And it's where these lines intersect.
+
+05:00.000 --> 05:03.000
+And we call this a rather absolute name thing.
+
+05:03.000 --> 05:05.000
+We call it the cross over error rate.
+
+05:05.000 --> 05:11.000
+And the cross over error rate is essentially a measure of how accurate is the biometric system overall.
+
+05:11.000 --> 05:21.000
+So this is a really important measurement of if you're evaluating different biometric systems, the cross over error rate will help you identify a system that is overall fairly accurate.
+
+05:21.000 --> 05:24.000
+And this is also a great example of a hotspot question.
+
+05:24.000 --> 05:26.000
+So I'll put that one out there.
+
+05:26.000 --> 05:30.000
+Now let's look at the types of actual types of biometric systems.
+
+05:30.000 --> 05:33.000
+And we're going to start with the physiological ones.
+
+05:33.000 --> 05:35.000
+And most of these are pretty obvious as to what they are.
+
+05:35.000 --> 05:37.000
+So finger print scanners.
+
+05:37.000 --> 05:38.000
+What do they look at?
+
+05:38.000 --> 05:39.000
+A mere finger print.
+
+05:39.000 --> 05:40.000
+Hand geometry.
+
+05:40.000 --> 05:43.000
+This is where it looks at the actual geometry of your hand.
+
+05:43.000 --> 05:46.000
+You always see these ones in the movies because they look like super cool right.
+
+05:46.000 --> 05:48.000
+The scanner is going by a green screen.
+
+05:48.000 --> 05:50.000
+It looks awesome, right?
+
+05:50.000 --> 05:52.000
+Be very rarely see these in real life.
+
+05:52.000 --> 05:54.000
+So the next type is known as vascular pattern.
+
+05:54.000 --> 05:59.000
+Vascular pattern systems look at the vein pattern, usually on the back of your hand.
+
+05:59.000 --> 06:03.000
+And in fact, most of you are going to see this when you go and sit the CISSP exam.
+
+06:03.000 --> 06:08.000
+When you get checked into a Pearson View Testing Center, they will actually, as part of the check-in process,
+
+06:08.000 --> 06:11.000
+they'll scan your hand, the back of your hand.
+
+06:11.000 --> 06:15.000
+And the reason they do that is not because they know your vascular pattern ahead of time,
+
+06:15.000 --> 06:19.000
+but so that if you decide to take a break, they want to make sure that it's you coming back into the room
+
+06:19.000 --> 06:22.000
+and not someone that you've paid to take the test for you.
+
+06:22.000 --> 06:24.000
+So that's a vascular pattern system.
+
+06:24.000 --> 06:27.000
+And the next is facial. They obviously look at your face.
+
+06:27.000 --> 06:30.000
+A lot of modern smartphones do that nowadays.
+
+06:30.000 --> 06:32.000
+Next is iris.
+
+06:32.000 --> 06:37.000
+So the iris is obviously part of the eye, but what part of the eye?
+
+06:37.000 --> 06:40.000
+Well, the iris is actually the colored ring around our eye.
+
+06:40.000 --> 06:45.000
+So the brown, green, the blue, that part of our eye, the colored ring, that is our iris.
+
+06:45.000 --> 06:50.000
+And iris-based biometric systems look obviously at the iris.
+
+06:50.000 --> 06:55.000
+And the final type of physiological-based biometric system is retina.
+
+06:55.000 --> 06:58.000
+And retina, again, part of your eyeball, but which part?
+
+06:58.000 --> 07:01.000
+Well, your retina is actually the back of your eyeball.
+
+07:01.000 --> 07:06.000
+And what retina-based systems are looking at is actually the vane pattern on the back of your eye.
+
+07:06.000 --> 07:12.000
+And so if you ever get a question or if you're wondering what is the most accurate type of biometric system,
+
+07:12.000 --> 07:15.000
+the answer is absolutely retina-based systems.
+
+07:15.000 --> 07:18.000
+And yet, you see them very rarely out in the real world.
+
+07:18.000 --> 07:20.000
+And the reason for that is a couple of things.
+
+07:20.000 --> 07:22.000
+One, users hate them.
+
+07:22.000 --> 07:23.000
+I've used these systems a few times.
+
+07:23.000 --> 07:25.000
+You walk up to this gummy, gross rubber cup.
+
+07:25.000 --> 07:26.000
+You put it up to your eye.
+
+07:26.000 --> 07:29.000
+A super bright light is flash in your eye, so you're now blinded.
+
+07:29.000 --> 07:32.000
+It's very unpleasant to use these systems.
+
+07:32.000 --> 07:35.000
+And they have some pretty big privacy-related issues.
+
+07:35.000 --> 07:39.000
+You can tell, for instance, if someone has diabetes, you can tell if they're pregnant or not.
+
+07:39.000 --> 07:43.000
+So that's a bit of concern from a privacy perspective.
+
+07:43.000 --> 07:47.000
+So retina-based systems, very accurate, but they have some big downsides.
+
+07:48.000 --> 07:51.000
+So those are all the physiological-based.
+
+07:51.000 --> 07:53.000
+Now let's look at the behavioral-based systems.
+
+07:53.000 --> 07:55.000
+And this is obviously how we behave.
+
+07:55.000 --> 07:59.000
+So things like voice, how we speak, signature, how we write,
+
+07:59.000 --> 08:01.000
+keystroke, how we type.
+
+08:01.000 --> 08:05.000
+And another one that maybe should be included here as well is gate, how we walk.
+
+08:05.000 --> 08:08.000
+Gate-based biometric systems are becoming very commonly used.
+
+08:08.000 --> 08:12.000
+And they actually watch how someone walks past a camera system.
+
+08:12.000 --> 08:14.000
+And they've been found to be quite accurate.
+
+08:14.000 --> 08:19.000
+So those are all the authentication methods by Characteristic.
+

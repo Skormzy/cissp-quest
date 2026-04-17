@@ -1,0 +1,338 @@
+WEBVTT
+
+00:00.000 --> 00:20.000
+We're continuing our discussion of the major components and systems that we use within IT and we're now...
+
+00:31.000 --> 00:42.000
+We're continuing our discussion of the major components and systems that we use within IT and we're now have arrived at distributed systems.
+
+00:42.000 --> 00:43.000
+So what are those, John?
+
+00:43.000 --> 00:49.000
+Yeah, distributed systems. I think the easiest way to think of what a distributed system is is a network.
+
+00:49.000 --> 00:56.000
+A distributed system is simply a bunch of devices, nodes that are connected to each other for whatever purpose.
+
+00:56.000 --> 01:01.000
+Either communications or sharing tasks or doing things that are important today.
+
+01:01.000 --> 01:04.000
+Think of a network as a distributed system.
+
+01:04.000 --> 01:08.000
+Yeah, the largest distributed system in the world is the Internet.
+
+01:08.000 --> 01:11.000
+Yeah, we use distributed systems all the time.
+
+01:11.000 --> 01:14.000
+So what's a grid computing then?
+
+01:14.000 --> 01:20.000
+Well, I think if you look at the slide here, it gives us a good indication of what grid computing is.
+
+01:20.000 --> 01:32.000
+Simply a whole bunch of devices that are connected to each other to work towards one common task so that they can all contribute and make the task much easier or even possible to achieve.
+
+01:32.000 --> 01:34.000
+In fact, I think you've got a pretty good example.
+
+01:34.000 --> 01:39.000
+Yeah, so there's this organization called SETI and they are looking for aliens, little green people.
+
+01:39.000 --> 01:41.000
+Why they always green? I don't know.
+
+01:41.000 --> 01:47.000
+Here's the problem with SETI. They're searching for aliens, but as you can imagine, they're not super well-funded.
+
+01:47.000 --> 01:50.000
+It's hard to get academic grants for looking for aliens.
+
+01:50.000 --> 02:01.000
+So SETI has managed over the years to get access to radio telescopes to listen to the night sky and to pick up the signals that ET might be sending, radio signals.
+
+02:01.000 --> 02:06.000
+And so SETI has managed to get time on radio telescopes and now they have all this data, but they have a big problem.
+
+02:06.000 --> 02:14.000
+They need to scan through this data to look for patterns and that takes a lot of computing power and they don't have any budgets.
+
+02:14.000 --> 02:19.000
+So what they figured out, and this is really cool, they did this like 20 years ago, it was called SETI at home.
+
+02:19.000 --> 02:25.000
+It was a screensaver you could install on your computer and what would happen is you would download your computer when the screensaver ran,
+
+02:25.000 --> 02:32.000
+would download a little slice of this radio data and then your computer would scan through that data looking for signals or aliens.
+
+02:32.000 --> 02:37.000
+And then when your computer was done, it would send back that little slice of data to the SETI organization and you'd get the new one.
+
+02:37.000 --> 02:48.000
+And they called the SETI at home and they made a bit of a, they kind of gamified it, they made a bit of a competition out of it where there was a leader board as to exactly how many people were computing so many chunks of data per day and so forth.
+
+02:48.000 --> 02:52.000
+And it ended up being at the time the largest grid computer in the world.
+
+02:52.000 --> 02:57.000
+There was millions of systems all working on this at once and so that created a massive grid computer.
+
+02:57.000 --> 03:01.000
+And that's what grid computing is, a whole bunch of systems working together trying to solve a single problem.
+
+03:01.000 --> 03:27.000
+Yep and you know obviously we have to relate this to security correct so if you look at the slide that you have in front of you, you know that's what the architecture looks like but from a security perspective you need to protect not only that server in the middle for example that drives everything but also all of the individual components that are part of that grid computing architecture because they may have very valuable information that belongs to organizations.
+
+03:27.000 --> 03:34.000
+So just like anything else you have to break the architecture down into components and to protect each one as we know.
+
+03:34.000 --> 03:37.000
+Next topic, data warehouses, what are those John?
+
+03:37.000 --> 03:52.000
+Well companies have been doing this because you know when you look at the history of databases companies have been building databases so that we can store valuable and meaningful information in these formats.
+
+03:52.000 --> 03:58.000
+But then you know looking at the databases and updating them is what drives business decisions.
+
+03:58.000 --> 04:09.000
+And so we found value because historically we had different databases that companies had built for different purposes and they may have their own little data store.
+
+04:09.000 --> 04:17.000
+And if you're trying to analyze the data in a centralized place, if you're trying to analyze data it's very hard to do that when it's all fragmented spread across all these systems.
+
+04:17.000 --> 04:44.000
+Yeah so companies figured out that there's value in taking all of this different information possibly in different formats and putting it all together because if you put information all together gives you the ability to analyze that data and you can find much more meaningful information related to what trends, relationships, correlations, patterns, all of that invisible data that is now visible because you put everything together.
+
+04:44.000 --> 04:50.000
+Yeah to make better business decisions is what it's all about. But of course now the no one wants to talk about data warehouses anymore.
+
+04:50.000 --> 05:00.000
+The new sexy thing is of course big data. So what's the difference between a data warehouse and big data because the whole idea behind big data is that you bring in data from all these different sources and you analyze the data.
+
+05:00.000 --> 05:04.000
+It sounds just like a data warehouse. So what's the big difference?
+
+05:04.000 --> 05:10.000
+The way I like to remember it and it's pretty common in the industry you've got the three V's volume velocity and variety.
+
+05:10.000 --> 05:18.000
+And let's start with volume. With a data warehouse you tend to be restricted to the computing capacity capacity storage capacity of a single even high power system.
+
+05:18.000 --> 05:29.000
+But in big data you can store data across thousands of systems. And it's worth maybe taking a step back for a moment and think about where did big data actually come from? Where did this concept originate?
+
+05:29.000 --> 05:36.000
+And the creators, the idea where big data first came from was essentially Google because they had a pretty big data problem.
+
+05:36.000 --> 05:43.000
+They were trying to index the entire internet and then be able to search that entire internet in milliseconds. They're still proud of this to this date right.
+
+05:43.000 --> 05:48.000
+They'll show at the bottom of search page how many results how many millions of results were returned in like three milliseconds.
+
+05:48.000 --> 05:55.000
+And so they needed to store a huge amount of data. So that's the volume of data in a big data warehouse.
+
+05:55.000 --> 06:03.000
+In big data you can store your data set across thousands of systems and the other big thing variety.
+
+06:03.000 --> 06:11.000
+With data warehouses you could typically only store relational or nice and clean table database where there's rows and columns.
+
+06:11.000 --> 06:19.000
+But in big data you can store files, unorganized text, pictures, videos, so all this different variety of data.
+
+06:19.000 --> 06:23.000
+And then volume is just how quickly you can ingest it, analyze it, and output it. That's kind of the difference.
+
+06:23.000 --> 06:26.000
+But otherwise both of these are all about doing what?
+
+06:26.000 --> 06:36.000
+Well the whole purpose is to gain business intelligence, metadata, valuable information that can drive better decisions.
+
+06:36.000 --> 06:39.000
+And we often refer to that as data mining or analytics.
+
+06:39.000 --> 06:43.000
+Now there's two kind of major risks we have to be aware of with both of these, right?
+
+06:43.000 --> 06:45.000
+Inference and aggregation.
+
+06:45.000 --> 06:52.000
+Yeah, although you know what's important for us to understand is that aggregation on its own is not a problem.
+
+06:52.000 --> 07:05.000
+And neither is inference, correct? Because that's why we're putting information together to have the ability for us to be able to infer more business decisions and valuable information.
+
+07:05.000 --> 07:10.000
+So I mean this is the reason why we have databases and big data and so on.
+
+07:10.000 --> 07:18.000
+Data mining is all about aggregation putting things together and then being able to infer more sensitive valuable information.
+
+07:18.000 --> 07:25.000
+So this is why we do it. The problem is unauthorized inference and aggregation.
+
+07:25.000 --> 07:34.000
+Because if you put all of this information together to allow us to analyze it, you know that may be easier for unauthorized people to analyze information that you don't want them to do.
+
+07:34.000 --> 07:42.000
+You don't want them to be able to infer or making or inferring things that maybe they're not supposed to, even for real employees.
+
+07:42.000 --> 07:46.000
+So I've got a good example of this and I can talk about it because this was a real world event.
+
+07:46.000 --> 07:51.000
+It was published in a number of papers. It was actually quite a while ago, over six or seven years ago, I think.
+
+07:51.000 --> 07:53.000
+Here's the story. It's kind of a fun one.
+
+07:53.000 --> 07:58.000
+So a man walked into a target store and this guy was just irate. He was furious.
+
+07:58.000 --> 08:04.000
+He just managed to see the store manager and when he got into the store manager's office, he just unleashed on this poor store manager.
+
+08:04.000 --> 08:08.000
+What is wrong with you? What sort of soulless, heartless, disgusting, corporate.
+
+08:08.000 --> 08:15.000
+He was furious and the store manager just at first couldn't understand why this guy was so angry about because he was just like,
+
+08:15.000 --> 08:19.000
+off out of his mind. But as he started to cool down, the story came out.
+
+08:19.000 --> 08:27.000
+And what this guy was so incredibly angry about is that target had been sending pregnancy-related coupons to his teenage daughter.
+
+08:27.000 --> 08:34.000
+Basically saying is like, what is wrong with you people? Are you trying to encourage teen pregnancy? Like, do you have no morals? What is wrong with you?
+
+08:34.000 --> 08:40.000
+So this is what he was so incredibly upset about. So he just unleashed on the store manager and then he left.
+
+08:40.000 --> 08:44.000
+But then he came back a few days later. He asked to see the store manager again.
+
+08:44.000 --> 08:48.000
+And this time, he was a little calmer. In fact, he was a little sheepish.
+
+08:48.000 --> 08:52.000
+And when he got into the store manager's office, he said, I'm here to apologize.
+
+08:52.000 --> 08:56.000
+The reason he had to apologize, turns out she was pregnant.
+
+08:56.000 --> 09:02.000
+So here's the interesting question. How did Target know that his teenage daughter was pregnant before he knew?
+
+09:02.000 --> 09:07.000
+And to be clear, Target did know that his teenage daughter was pregnant before the dad knew.
+
+09:07.000 --> 09:14.000
+How? Well, to me, it's obvious. It was the store manager that got her pregnant.
+
+09:14.000 --> 09:20.000
+I mean, all comes Razor, maybe, you know, maybe even though it's not the real reason. No. Although I can make sense.
+
+09:20.000 --> 09:27.000
+The real reason they knew is, inference and aggregation, Target collects a huge amount of data on their customers.
+
+09:27.000 --> 09:33.000
+They've got, you know, all their brick and mortar stores, all their online presence. They track whatever people are buying.
+
+09:33.000 --> 09:40.000
+They used to have, maybe they still do not an expert on Target, but they used to, they have drug stores in their stores.
+
+09:40.000 --> 09:43.000
+So they would know what sort of drugs you were buying. They had their red card.
+
+09:43.000 --> 09:47.000
+So they were able to track user purposes. They even had debit card or I think credit card services.
+
+09:47.000 --> 09:51.000
+They knew a lot of financial information. And then they do what all these big companies do.
+
+09:51.000 --> 09:55.000
+They combine that through sources like Lexus Nexus and with other things like Google and Facebook.
+
+09:55.000 --> 10:04.000
+And it is remarkable how much these big organizations know about an individual. They'll know your age, your gender, your race, where you live, your socio-economic situation.
+
+10:04.000 --> 10:11.000
+And they know exactly what you're buying. And they employ huge teams of data scientists to look for these little indicators.
+
+10:11.000 --> 10:19.000
+Like if you suddenly switch from scented to unscented hand cream and you start buying this versus that, then the probability that you're pregnant goes way up.
+
+10:19.000 --> 10:22.000
+And that's exactly what they were measuring. And that's how they knew.
+
+10:22.000 --> 10:26.000
+And so the thing I was like to think about here was, was what Target was doing illegal. And I don't want to be clear here.
+
+10:26.000 --> 10:33.000
+Like all the big companies do this. I'm not just picking on Target here. But was what Target was what they were doing, was it illegal?
+
+10:33.000 --> 10:37.000
+And the answer is absolutely not. It was creepy, but not illegal.
+
+10:37.000 --> 10:44.000
+And maybe just to finish this one off, there's one little funny piece here. And that is, so did Target change their ways? Did they suddenly stop doing this?
+
+10:44.000 --> 10:49.000
+No, they just got smarter. They still send out all sorts of targeted advertising, but they make it look less targeted.
+
+10:49.000 --> 10:56.000
+They'll throw in, instead of just being all pregnancy related items, they'll throw in a lawn tractor and a pool table or something else to make it look less targeted.
+
+10:56.000 --> 11:02.000
+So that's the problem of unauthorized inference and aggregation. It's not just Target that does it.
+
+11:02.000 --> 11:10.000
+I'm sure Walmart and other retailers and other industries do it as well. It's all available. It's easy to put all of that information together.
+
+11:10.000 --> 11:17.000
+Let me share one other example that I think really kind of highlights this. So think of a big bank, okay? Big banks often have multiple divisions.
+
+11:17.000 --> 11:21.000
+One division might be the stock traders. They're buying and selling stocks to try and make a profit.
+
+11:21.000 --> 11:27.000
+The other division is your M&A people. They are helping companies buy each other or buy each other, merge.
+
+11:28.000 --> 11:35.000
+Now, what would happen if the stock traders knew what the M&A people were up to? If they knew, for instance, that this company was about to buy that company?
+
+11:35.000 --> 11:41.000
+Would that be useful information to have to buy and sell stocks? It absolutely would be. But what do we call that, John?
+
+11:41.000 --> 11:47.000
+Business intelligence. We call that insider trading, and it is absolutely illegal.
+
+11:47.000 --> 11:59.000
+So that's a perfect example where even within one company, you've got to be very careful about what your employees are allowed to infer from what other employees may be doing because you can easily be guilty of insider trading.
+
+11:59.000 --> 12:01.000
+So how do we prevent this, John?
+
+12:01.000 --> 12:14.000
+Well, there is something that you need to remember. So for unauthorized inference and aggregation, the way that we can prevent to some degree, all of that, is through what we call poly instantiation.
+
+12:14.000 --> 12:29.000
+And if you take that word apart, poly means many, instantiation means instances. It really means allowing information to exist at different classification levels for the purpose of preventing unauthorized inference and aggregation.
+
+12:29.000 --> 12:36.000
+And we're actually going to look at this in more detail later on when we get into domain number eight, because it really applies there.
+
+12:36.000 --> 12:44.000
+We build poly instantiation techniques into our applications to prevent unauthorized risk of inference and aggregation.
+

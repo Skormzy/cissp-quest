@@ -1,0 +1,45 @@
+start	end	text
+0	5000	backing up sensitive data, processing certain sensitive data, all sorts of things like this.
+5000	10000	And so let's briefly talk about this concept of having a risk management.
+22000	25000	We've talked through a ton of concepts now related to risk management.
+25000	30000	How organizations have to identify their most valuable assets, identify all the risks associated with them.
+42000	45000	We've talked through a ton of concepts now related to risk management.
+45000	52000	How organizations have to identify their most valuable assets, identify all the risks associated with those assets, treat all those risks.
+52000	57000	We've talked about all of this from the perspective of companies looking at their own systems and assets.
+57000	63000	But what's incredibly common nowadays is that organizations outsource a ton of stuff.
+63000	70000	They have a ton of different service providers that provide all sorts of often very sensitive and confidential services for an organization,
+70000	75000	backing up sensitive data, processing certain sensitive data, all sorts of things like this.
+75000	81000	And so let's briefly talk about this concept of having a risk management supply chain.
+81000	88000	And what that simply means is that an organization needs to understand all the services that they have from different service providers,
+88000	95000	and then conduct all of this risk management process that we've just talked about on their service providers.
+95000	101000	So understanding what data is being outsourced, what processes are being outsourced, and what are the risks associated with that.
+101000	108000	Now it's very common for instance that data is outsourced, and data is an extremely valuable asset to an organization.
+108000	115000	So an organization needs to understand what assets being outsourced, what are the risks associated with that service provider,
+115000	118000	and then how are they going to treat those risks.
+118000	124000	And this is one of the big challenges with outsourcing is that when an organization outsources something to a service provider,
+124000	129000	they now have far less direct control over the protection mechanisms that they can put in place,
+129000	134000	they can put in place to protect that valuable asset, the data.
+134000	139000	And really what organizations can typically rely on is not putting in place their own controls,
+139000	144000	but rather requesting that the service provider put in place certain controls.
+144000	149000	And so a big part of risk management supply chain is identifying the risks,
+149000	156000	and then making sure that the contracts, the SLAs, the PLAs, whatever contracting vehicle the organization is using.
+156000	167000	Make sure that it's explicitly stated in that contract, what controls the service provider needs to put in place to mitigate the risks that the organization is concerned with.
+167000	170000	So that's the concept of a risk management supply chain.
+170000	175000	One final piece we'll talk about in this risk management domain, and that is risk frameworks.
+175000	182000	We'll talk about frameworks in more detail in domain 3, but for now frameworks are something that provide comprehensive guidance.
+183000	189000	They allow organizations to have a roadmap, have a set of guidance that says, you know, for instance,
+189000	194000	this director relates to risk management, if you want to put in place a risk management function,
+194000	199000	are you just going to start with a blank piece of paper and try and make it up and hope it works well?
+199000	202000	Well, you're going to go to a well established framework that says,
+202000	205000	here's exactly how you put in place a risk management process.
+205000	207000	Here's the different controls that should be in place.
+207000	209000	Here's who should be accountable, responsible for what?
+209000	210000	Here's how it should work.
+210000	216000	So there is guidance out there that can help us figure all this out to not only build a new process,
+216000	221000	but also to look at our existing process and say, how well does this align to industry best practices?
+221000	224000	And you don't have to be an expert on any of the four frameworks we have listed here,
+224000	229000	but just be aware that these frameworks exist and be aware of what you can use them for,
+229000	233000	which is to help you build a new process or to evaluate an existing process.
+233000	239000	And so NIST 800-37, ISO 31,000, COSO, COVID Risk IT,
+239000	242000	these are just examples of risk frameworks.
+242000	244000	And now you know we can use them for.

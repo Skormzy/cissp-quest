@@ -1,0 +1,376 @@
+1
+00:00:00,000 --> 00:00:19,780
+All right, we've defined what cryptography actually means, and as we said before, it means
+
+2
+00:00:19,780 --> 00:00:47,540
+secret writing, any method that takes something and turns it into a secret is a form of cryptography.
+
+3
+00:00:47,540 --> 00:00:57,540
+There are some definitions and terms that we need to be familiar with, not only because they're used in the cryptography industry, but they may appear on the exam as well.
+
+4
+00:00:57,540 --> 00:00:59,540
+So why don't we start looking at some of those?
+
+5
+00:00:59,540 --> 00:01:09,540
+And what you see for example here is the definition of cryptography itself. Any method that turns something into a secret is what we call cryptography.
+
+6
+00:01:09,540 --> 00:01:21,540
+And here's an example of how cryptography systems actually work. We take what's called plain text, and we turn that into a secret, which is typically referred to as ciphertext.
+
+7
+00:01:21,540 --> 00:01:38,540
+That's what we refer to as ciphertext. Now what does allow us, you and I, for example, to communicate with each other using cryptography so that we can encrypt and decrypt at both ends, is what we call the crypto system.
+
+8
+00:01:38,540 --> 00:01:54,540
+The crypto system are the compatible set of applications that you and I would have at both ends to be able to communicate effectively using cryptography and achieve, as you know, the five services that cryptography can provide for us.
+
+9
+00:01:54,540 --> 00:02:11,540
+Confidentiality, integrity, authenticity, non-repudiation, and access control. If you and I need any level of any of those, what we really need to do at both ends is install and use compatible cryptosystems.
+
+10
+00:02:11,540 --> 00:02:20,540
+Just think of the cryptosystems as being the set of applications that are compatible that allows you and I to communicate using cryptography.
+
+11
+00:02:20,540 --> 00:02:39,540
+Perfect example of a cryptosystem that most people are aware of is PGP. I know you know what that stands for, pretty good privacy, but what it is, it's a set of applications that if you and I install at both ends, we can communicate.
+
+12
+00:02:39,540 --> 00:03:00,540
+Now that cryptosystem will have support for things like algorithms and it will allow me, for example, as the sender to be able to encrypt data and then send it to you and you'll be able to decrypt that data at your end as long as you've got compatible cryptosystem that basically does the same thing.
+
+13
+00:03:00,540 --> 00:03:13,540
+Now what we have to understand here is the definition of something called the algorithm. The algorithm, if you look that up in a dictionary, is going to say the set of mathematical instructions that we have to follow.
+
+14
+00:03:13,540 --> 00:03:28,540
+It's the steps that we have to go through in order, for example, for me to encrypt something at my end, but then at your end you can use the algorithm in backwards order those steps to be able to decrypt.
+
+15
+00:03:28,540 --> 00:03:44,540
+Now what all algorithms do is basically fundamental to cryptography and let's use an example here. Let's come up with a word like the word exam, which you're going to pass very easily.
+
+16
+00:03:44,540 --> 00:03:53,540
+But let's say we have this word that we want to turn into a secret, which is what cryptography does for us by definition.
+
+17
+00:03:53,540 --> 00:04:03,540
+Now if you look at the letters that spells out this word, what can we do to these letters to take this and turn it into a secret?
+
+18
+00:04:03,540 --> 00:04:10,540
+Well what might be obvious, first of all, is to take each of the letters and substitute them for other letters.
+
+19
+00:04:10,540 --> 00:04:23,540
+So let's say the E can be represented by a T. The X could be represented by an L. The A could be represented by an X and the M could be represented by a Z.
+
+20
+00:04:23,540 --> 00:04:39,540
+So what we've done here is we've used something called substitution in order to take plain text and turn it into a secret or cipher text.
+
+21
+00:04:39,540 --> 00:04:47,540
+But if someone is looking at this, won't immediately know that it means the word exam. That's what we call substitution.
+
+22
+00:04:47,540 --> 00:04:55,540
+Now there is something else that should be obvious that we can do here in order to take this and also turn it into a secret.
+
+23
+00:04:55,540 --> 00:05:06,540
+What if we don't substitute each of the letters? What if we keep the same letters but let's move them around in such a way so that again it's not immediately obvious that it's the word exam.
+
+24
+00:05:06,540 --> 00:05:13,540
+So we could do something like this.
+
+25
+00:05:13,540 --> 00:05:22,540
+So we've kept the same letters but we've moved them around in such a way so that someone looking at this doesn't immediately know that it's the word exam.
+
+26
+00:05:22,540 --> 00:05:29,540
+What this is called in cryptography terms is transposition.
+
+27
+00:05:29,540 --> 00:05:37,540
+We've transposed the letters in such a way so that we've hidden the meaning. We've turned it into a secret.
+
+28
+00:05:37,540 --> 00:05:47,540
+Now what's the significance of substitution and transpositions? Here it is. The most secure algorithms, the strongest algorithms that we have out there.
+
+29
+00:05:47,540 --> 00:05:54,540
+The ones that you've heard of like des and triple des and AES do exactly this.
+
+30
+00:05:54,540 --> 00:06:04,540
+They do simple substitutions and transpositions in order to take plain text and turn it into cipher text. They all do that fundamentally.
+
+31
+00:06:04,540 --> 00:06:16,540
+That's how we turn things into a secret. Now what cryptographers have told us is that if we do this only once, like we have, I did one round of substitution here.
+
+32
+00:06:16,540 --> 00:06:27,540
+I did one round of transposition here. If you only do one round, it's not very difficult for someone to eventually figure out that this is the word exam and so is this.
+
+33
+00:06:27,540 --> 00:06:33,540
+So the trick in cryptography to make it stronger is to do it over and over again.
+
+34
+00:06:33,540 --> 00:06:46,540
+So if I was to take this and substitute again and then again and then again, then it becomes much more difficult for someone to figure out what the true meaning of the word or message is.
+
+35
+00:06:46,540 --> 00:06:55,540
+And so most encryption algorithms will do a number of rounds or steps of simple substitutions and transpositions.
+
+36
+00:06:55,540 --> 00:07:12,540
+In fact, if we look at an example like des, it does this 16 times, 16 rounds of simple substitutions and transpositions in order to take plain text and turn it into cipher text.
+
+37
+00:07:12,540 --> 00:07:33,540
+Now let's take this a step further and pay attention here. If you knew, for example, what those 16 steps were, would you not be able to take the result of any encryption and because you know what the steps are, you'd be able to work backwards every single time and figure out what the true word or meaning of the message is.
+
+38
+00:07:33,540 --> 00:07:55,540
+So, and in fact, all encryption algorithms are actually published so you can go to a book or the internet and you'll know exactly what the 16 steps that des does actually are for substitution and transpositions and every other algorithm that exists out there are typically published so we know the steps.
+
+39
+00:07:55,540 --> 00:08:18,540
+So that does not provide any security because anybody can work backwards. So the trick in cryptography is that within those steps of substitutions and transpositions, there has to be an element of uniqueness and randomness that is actually used within the steps so that if you know what the steps are, you can work backwards all you want.
+
+40
+00:08:18,540 --> 00:08:28,540
+But because you don't know what that element of uniqueness and randomness actually is, you will not be able to figure out what the true meaning of the word or message is.
+
+41
+00:08:28,540 --> 00:08:39,540
+And of course that element of uniqueness and randomness is called the key. That's the importance of the key.
+
+42
+00:08:39,540 --> 00:08:56,540
+Now, cryptographers don't like to use the word key. What they use is the word crypto variable but that's exactly what the word key actually means.
+
+43
+00:08:56,540 --> 00:09:11,540
+So in cryptography, and this is a really important point for us to understand, everything is known, the algorithm is always known, the steps are always known because typically it's published so that does not provide any security.
+
+44
+00:09:11,540 --> 00:09:24,540
+The only thing that is not known in cryptography is the key, the crypto variable. And so that's what any attacker is trying to figure out is what is the key.
+
+45
+00:09:24,540 --> 00:09:32,540
+And this is why in every implementation of cryptography, I don't miss this, the most important thing is key management.
+
+46
+00:09:32,540 --> 00:09:50,540
+How you handle your keys will dictate whether your crypto system is secure or not. In fact, every single failure of cryptography that we've ever seen has always been because of key management issues where the implementation of key management was not done very well.
+
+47
+00:09:50,540 --> 00:09:57,540
+So that's the importance of the key. Everything else is known. Now, let's take this a step further even.
+
+48
+00:09:57,540 --> 00:10:14,540
+I've shown you here how substitution and transposition works by using letters because it's easy to show the concept. Real cryptography does not work with letters, never works with letters, always works with bits, zeros and ones.
+
+49
+00:10:14,540 --> 00:10:29,540
+So if we were really to encrypt the word exam, any encryption algorithm would take these letters and break it down into the bits that represent those letters and then substitute and transpose each of the bits.
+
+50
+00:10:29,540 --> 00:10:41,540
+And so the key ends up being bits as well. Now, let's say we have an algorithm that supports, let's say two bits in its key length.
+
+51
+00:10:41,540 --> 00:10:56,540
+The key length is two bits. If you know that bits are only zero or one, they can only be zero or one. If you have a key length that is only two bits, what are the only possibilities of keys that that algorithm can support?
+
+52
+00:10:56,540 --> 00:11:11,540
+Well, it would be zero, zero, one, one, zero and one, one. Those are the only possibilities of keys that that algorithm would support based on the key length only being two bits.
+
+53
+00:11:11,540 --> 00:11:31,540
+So if the key is the only thing that provides security, would it take very long for an attacker to decrypt any message that we've encrypted using a really good algorithm? No matter how good our algorithm was in how it does substitution and transpositions in order to hide patterns.
+
+54
+00:11:31,540 --> 00:11:50,540
+The attacker would try this key first to see if it decrypts the message. If that doesn't work, they'll try this one. If that doesn't work, they'll try this one. And if that doesn't work, this one will because there are only four possible key values that that algorithm supports based on its key length.
+
+55
+00:11:50,540 --> 00:12:11,540
+The unique number of keys that is supported by that algorithm is actually called the key space. And that's an important concept and word for you to remember. Now don't confuse the key space with the key length. They are not the same thing, although they are related.
+
+56
+00:12:11,540 --> 00:12:31,540
+In our example here, the key length is two, the key space is four. So something like des, in fact, if we want to make algorithms really strong, guess what we have to do? We have to increase the length of the key so that it equates to a larger key space.
+
+57
+00:12:31,540 --> 00:12:56,540
+So something like des, for example, supports a key length of 56 bits. 56 bits is what the key length of des actually looks like. So if you do the math, how many possibilities of unique keys does that represent? Well, the way we figured out is two raised to the power of 56, two times two times two times two times two, 56 times.
+
+58
+00:12:56,540 --> 00:13:21,540
+And if you work that out, it equals this. 72 with 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0 is behind it. 72 quadrillion possible keys is what any algorithm like des because its key length is 56 will support.
+
+59
+00:13:21,540 --> 00:13:36,540
+So if we encrypt the message using a des key, an attacker would have to find the exact same key, but there are 72 quadrillion possible keys. How long would it take that person to do it?
+
+60
+00:13:36,540 --> 00:13:59,540
+If they're trying one key at a time by hand, it would take longer than their lifetime. So what do people do? They connect computers together that have very fast processors and they have each of those processors look at a certain portion of that key space until they find the right key given today, speed of technology and so on.
+
+61
+00:13:59,540 --> 00:14:23,540
+We can brute force 56 bit algorithms in a few hours, but where are some of those other algorithms that we can use today? For example, the AES algorithm, which stands for the advanced encryption standard supports key length of 256 bits.
+
+62
+00:14:23,540 --> 00:14:38,540
+And so how many possible key values would you have with that? Well, the answer is 2 raised to the power of 256, which equals a really large number. I think Rob later will tell you what that number actually looks like.
+
+63
+00:14:38,540 --> 00:14:55,540
+But this is a massive number. Nobody even tries to brute force that today because doing so would be futile. And it would take you literally given today's technology hundreds of millions of years probably.
+
+64
+00:14:55,540 --> 00:15:06,540
+You could connect every single processor on earth and you would not be able to brute force this. In fact, you wouldn't even be close. That's how strong these algorithms are.
+
+65
+00:15:06,540 --> 00:15:17,540
+And so that's the significance of the algorithms that we have today. Fundamentally, they all do substitution and transpositions of bits.
+
+66
+00:15:17,540 --> 00:15:30,540
+But the way that they do it is good. It is known as the algorithm itself, but within the algorithm it has to support key lengths that really provide the security of algorithms themselves.
+
+67
+00:15:30,540 --> 00:15:40,540
+So when you look at the slides here, there are some issues that we need to understand. And we've already defined what the crypto variable actually is.
+
+68
+00:15:40,540 --> 00:15:51,540
+We talked about the work factor. The work factor is actually the amount of time that it's going to take to brute force some of these algorithms.
+
+69
+00:15:51,540 --> 00:16:02,540
+And so if the exam asks you what the work factor is, it's always a measurement of time. In how long it's going to take to break a specific algorithm.
+
+70
+00:16:02,540 --> 00:16:16,540
+So for des, the work factor is only a few hours. The work factor for something like AES would be massive as we said before. In fact, you couldn't even express it in terms of numbers that make any sense.
+
+71
+00:16:16,540 --> 00:16:32,540
+Now, the way that algorithms provide substitution and transpositions and how well they do it is typically referred to by cryptographers as confusion, diffusion, and avalanche.
+
+72
+00:16:32,540 --> 00:16:53,540
+And that's what you see on your slide there. But that's how cryptographers actually measure how well algorithms do substitution and transpositions in order to be able to provide a lot of security because you want to ultimately hide patterns.
+
+73
+00:16:53,540 --> 00:17:08,540
+The best algorithms that exist out there are the ones that do a really good job of substitution and transpositions. They are said to exhibit a high degree of confusion, diffusion, and avalanche.
+
+74
+00:17:08,540 --> 00:17:25,540
+And avalanche, for example, means that a very small change in the plaintext triggers a really large change in the resulting ciphertext in the degree of complexity that that algorithm does in how it does substitution and transpositions.
+
+75
+00:17:25,540 --> 00:17:48,540
+One of the best algorithms ever developed that exhibits the highest degree of confusion, diffusion, and confusion is actually DES. And cryptographers agree on that. The way that it does this is excellent. The only problem with DES is it only supports a key length of 56 bits and given today's technology, that's not strong enough.
+
+76
+00:17:48,540 --> 00:18:03,540
+Now, one of the ways that algorithms take care of this need to exhibit a high degree of confusion, diffusion, and avalanche is by using initialization vectors that you see on your slide there.
+
+77
+00:18:03,540 --> 00:18:16,540
+And I think you know what that means. Obviously, it stands for people call it IV, initialization vector, but what it is, it's a random starting point. It's a random number that starts the process.
+
+78
+00:18:16,540 --> 00:18:28,540
+And that can be very useful in cryptography because if you start an encryption process with a random number, it ensures that if you encrypt, for example, the same message twice,
+
+79
+00:18:28,540 --> 00:18:48,540
+it's not going to provide the same ciphertext because what would change in those two encryptions is that initialization vector. So the initialization vector used in algorithms will ensure good confusion, diffusion, and avalanche properties.
+
+80
+00:18:49,540 --> 00:19:03,540
+All right. And this slide here simply describes the process by which encryption really happens. And so if you and I have compatible crypto systems at both ends, we can communicate.
+
+81
+00:19:03,540 --> 00:19:13,540
+And typically what happens is this. I will encrypt a message with one of these algorithms, but that requires me to choose one key. Let's say you and I are using DES.
+
+82
+00:19:13,540 --> 00:19:24,540
+I'm going to encrypt that message. I need to choose one key in that entire key space. Now the only way that you'll be able to decrypt that message is to have the exact same key.
+
+83
+00:19:24,540 --> 00:19:36,540
+So this illustrates the fundamental problem that cryptography has. And that is if I want to communicate with you securely and only have you be able to read that message.
+
+84
+00:19:36,540 --> 00:19:53,540
+Somehow I have to get you that key securely. And that's the fundamental problem. I cannot attach the key to the message and send it to you because anyone that's in between that might be able to intercept that message would also have the key to be able to decrypt it.
+
+85
+00:19:53,540 --> 00:20:05,540
+And so how I get you the key is a function of key management, but it illustrates the problem that this type of cryptography has. And that is key distribution.
+
+86
+00:20:05,540 --> 00:20:20,540
+How do we distribute that key securely so that only you and I have access to that key so that you can be able to decrypt the message and be able to read it without having anybody else in between be able to read that message.
+
+87
+00:20:20,540 --> 00:20:31,540
+Now that's the problem of key distribution. The book answer to this in how we should achieve secure key distribution is called out of band.
+
+88
+00:20:31,540 --> 00:20:41,540
+We'll talk about that later on, but out of band simply means that we are going to use a different method than you and I are using to communicate those secret messages in.
+
+89
+00:20:41,540 --> 00:20:53,540
+So if you and I are communicating using the internet, we would not use the internet to exchange the keys. We would have to use a more secure method which is referred to as out of band.
+
+90
+00:20:53,540 --> 00:20:56,540
+And that would be more secure.
+
+91
+00:20:56,540 --> 00:21:13,540
+And so here is a slide that talks about the key space because you'll probably see that on the exam. And so again, do not confuse key length and key space even though the two are related to each other.
+
+92
+00:21:13,540 --> 00:21:23,540
+The key length is simply the length of the key. The key space is the unique number of keys that that algorithm supports based on its key length.
+
+93
+00:21:23,540 --> 00:21:33,540
+Our example here, key length 2, key space 4, des, key length 56, key space 72 quadrillion.
+
+94
+00:21:33,540 --> 00:21:40,540
+So look for those key words on the exam. They'll tell you whether they're talking about key length or key space.
+

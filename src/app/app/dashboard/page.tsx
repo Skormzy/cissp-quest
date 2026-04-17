@@ -119,11 +119,15 @@ export default function DashboardPage() {
       {/* Character Header */}
       <div className="rounded-xl p-6 flex flex-col sm:flex-row items-center gap-6" style={{ background: '#111a2e', border: '1px solid #1e2d4a' }}>
         <CharacterAvatar
-          skin={user.character_skin}
-          hair={user.character_hair}
-          hairColor={user.character_hair_color}
-          gender={user.character_gender || 'Male'}
-          outfit={user.character_outfit}
+          config={{
+            gender: user.character_gender === 'Woman' || user.character_gender === 'Female' ? 'Woman'
+              : user.character_gender === 'Non-binary' ? 'Non-binary' : 'Man',
+            skinTone:  user.character_skin      || 4,
+            eyeShape:  user.character_eye_shape || 1,
+            hairStyle: user.character_hair      || 1,
+            hairColor: user.character_hair_color || '#2d1b00',
+            outfit:    user.character_outfit    || 5,
+          }}
           size={100}
         />
         <div className="text-center sm:text-left flex-1">

@@ -1,0 +1,30 @@
+In the last few videos, we've talked through some very technical types of attacks.
+We've talked about cross-site scripting, we've talked about sequel injection,
+and later on, we'll even talk about buffer overflows. I want to talk about a very simple way to prevent these types of attacks,
+because what all of these attacks have to do with these attacks?
+In the last few videos, we've talked through some very technical types of attacks.
+We've talked about cross-site scripting, we've talked about sequel injection.
+Later on, we'll even talk about buffer overflows.
+What all of these attacks fundamentally rely on is a system that is vulnerable, and what do I mean by that?
+It's a system that is accepting input from a user and storing that input that it should never be accepting and storing.
+This is why, and remember this, drill this into your head, the root of all evil for these types of attacks,
+like cross-site scripting, sequel injection, buffer overflows, is that it's inadequate data validation.
+We're not properly validating what users input. We're not sanitizing their input, and we're not cleaning up their input.
+The root of all evil is inadequate data validation.
+So how do we fundamentally fix problems like cross-site scripting and sequel injection and buffer overflows input validation?
+So here's a big hint for the exam. You will very likely see very technical questions on things like cross-site scripting.
+The solution to how you fix these very technical types of attacks is typically very simple.
+Validate the user's input. If you do not allow JavaScript code to be sent, stored on the server,
+and then re-display to users, you prevent all of these problems from occurring.
+If you don't take sequel code and then send it directly to the database, you prevent sequel injection.
+If you don't allow input that's too large for the buffer, you don't allow buffer overflows to occur.
+So the simple answer you're going to look for on the exam to how you solve these very technical types of attacks is input validation.
+Now it might be phrased in different ways and often in more technical ways.
+But fundamentally, any answer that says you're sanitizing the input, you're cleaning up the input.
+You're somehow validating what the user provides, that's input validation, and that's the answer you should look for.
+And one final piece I'll talk about here. This whole section is about how do we secure web-based applications.
+And I'll show this diagram. I've shown a number of times now.
+And that is the one of the best ways of securing a system is to harden the system.
+Go through a well-defined set of steps, a baseline, to lock that system down.
+Disable unnecessary services, closed unused ports, all that sort of stuff.
+That's how we secure our web-based applications.

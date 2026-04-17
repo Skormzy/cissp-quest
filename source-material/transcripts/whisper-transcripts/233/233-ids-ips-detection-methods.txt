@@ -1,0 +1,67 @@
+Now if you think about how security controls need to be preventive, detective, and corrective,
+we've been talking about how...
+Now if you think about how security controls need to be preventive, detective, and corrective,
+we've been talking about how detective capabilities are provided through IDS and IPS systems.
+Now the corrective action that needs to happen after we detect that something is wrong or
+against the rules is what this section deals with.
+So for example, one of the very first things that we can do is activate sandboxes, and I
+know that we've talked about sandboxes before, but a sandbox is like a safe play area.
+It's an environment where we can test things, for example, and be able to determine if something
+is malicious or not, and that's what we call a sandbox environment.
+So one of the things that your IDS, IPS technologies can correct and activate the corrective action
+would be to test something in a sandbox environment, and we can determine whether something is either
+malicious or not or safe to run in our production environment.
+Now when we talk about IDS as an IPS, I think we've talked about this before, however, it's
+really important to understand the result that may be returned.
+And there are questions on the exam that address this, but basically a IDS slash IPS system
+can return what are called false positives and false negatives.
+Now don't confuse these with what we talked about in the biometric section, which were
+type 1s and type 2s, false rejects and false accepts.
+That's not what we're talking about here.
+Here the terminology is different, false positives and false negatives.
+A false positive is where the IDS system tells us that it is an attack, but in fact it is
+not.
+And that would actually require the organization to launch into its incident response capability
+and at some point determine that it's not a real attack, but we've had to launch into
+our incident management capability.
+That's a false positive where the IDS system thinks it's an attack, but really isn't.
+What's much more critical is what we call a false negative.
+This is where the IDS IPS system does not catch something that it should.
+And from an organization's perspective, that's much more critical because we should be
+catching something that is an issue or an incident, but the IDS IPS system was not able
+to do it.
+And we've talked about how it's important to fine tune your IDS IPS capabilities so that
+we lower, for example, the false positives, but we also try and raise the false negatives.
+I mean, we want the IDS IPS system to be as valuable as possible so that it catches everything.
+And that requires constant fine tuning so that it returns better decisions on an ongoing
+basis.
+Now one of the other corrective things that can happen is what a lot of companies have
+been focusing on for the last number of years.
+And that is to have what are called honeypots and honey nets.
+And if you know anything about these, these are fake environments that companies create
+to look very attractive so that if an intruder has intruded into your network, you lure
+them into these fake environments because they look attractive.
+But because they are fake, they can lure these people into those environments so that you
+can protect your real environments.
+That's the whole purpose of these is to protect your real environments because you're
+luring them into fake environments and at the same time, potentially capturing evidence
+against the perpetrators.
+Now the only difference between honeypot and honeynet is a collection of honeypots.
+And what's really important to understand is the legality of these.
+Depending on where you put them, they can either be an example of enticement or entrapment.
+But the bottom line is companies can use these if someone has already committed a crime.
+Someone has already intruded into your network, then we can lure them into these fake environments
+and that would be considered to be enticement as opposed to entrapment.
+So where you place them is really important part.
+And that's what we're trying to highlight here in this very simple network diagram.
+The honey nets and the honeypots need to be placed in the right environments so that you
+are not entraping individuals but rather enticing them into these fake environments because
+they've already done something that is illegal.
+And as a final slide here in this section, we need to understand the difference between
+enticement and entrapment from a legal perspective.
+And this is why we understand that enticement is legal because someone has already committed
+a crime and therefore honey nets and honeypots become examples of enticement.
+Whereas entrapment would not be legal because you are inducing someone to commit a crime
+that they weren't contemplating doing in the first place.
+So because they've intruded into your network and then you lure them into your honeypot,
+for example, that is an example of enticement.

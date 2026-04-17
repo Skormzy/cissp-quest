@@ -1,0 +1,44 @@
+Let's refocus here for a moment we are still in domain number 7 which is all about
+all of those day-to-day activities that the security function gets into and supports and activates
+and does for example and in this section we're going to talk about how companies buy all kinds of things
+like hardware and software and security needs to be involved in that process right from the start
+and throughout because obviously hardware and software represents value to the organization
+and just like any other valuable asset needs to be protected based on that value.
+Yeah and one of the really important things that organizations need to do is maintain
+asset inventories this is an inventory of everything they have and having been involved in quite a
+number of breach responses it's very very common that the way that attackers find a way into an
+organization is they find a system that no one's remembered is there anymore no one's thinking
+about it and importantly does not have an owner because for every single asset we need to have
+an owner who's accountable for the protection of that asset and when you don't have that when no
+one knows it's there we know when cares is any security be controls being put in places and when
+protecting it patching it configuring it and the answer of course is you know and you know we
+learned all about this in domain number 2 that protecting any asset including hardware and software
+starts with knowing what you have and capturing that into your inventory and then the next step is
+as Rob just mentioned identifying ownership because it's the owners that will start the process
+of protecting those assets because they're in the best position to understand value yeah and so
+asset inventories you got to create add something as soon as you have it and then evergreen these
+things constantly heat them up to date not an easy thing to do no and so that's where we kind of
+talk about the asset management life cycle so walk us through this John what are we what are we doing
+here yeah and I think we've seen this before I mean when you look at the life cycle of any asset
+it you know may start for example at the planning phase you understand that you need something
+to address goals and objectives of the organization and you're going to go out there and buy it for
+example and so the bottom line here is you don't have to memorize these phases the bottom line is
+what we've learned many times and that is security needs to be involved right at the start in the
+planning phase in this case so that we can understand the requirements of security and then build
+that into as we go through the entire life cycle of in this case any asset we call it asset
+management but asset security management needs to be part of that right at the start throughout each
+of the phases as we've said and what ties in with this is this concept of configuration management
+the idea being the behind configuration management is that when you've bought some new piece of
+software new piece of hardware you should never just put it out on the network on the environment
+in the default configuration why not not secure oh I mean if the password is root root or you know
+what of the default is that's well known by attackers so a huge part of deploying new assets in
+the environment is going through configuration management and this is where we've talked about
+that concept of hardening a number of times and where you go through when you configure a device
+according to a baseline that you've established for that device all the sort of configuration that
+needs to be done to make sure that that device is securely configured for your environment
+and then you can deploy it into production but you're not done with configuration management yet
+there's still the all ongoing I mean when a device is out there if you let's say a 50 web
+web servers if you decide to update the configuration of those web servers patch them or something
+what you need to make sure you do with all 50 of them make sure they remain in compliance with
+that baseline so configuration management covers both the deployment and then ongoing
+operations of the system and even the retire the commission phase that is the end

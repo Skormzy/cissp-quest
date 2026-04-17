@@ -1,0 +1,1023 @@
+{
+  "generated_at": "2026-04-16T00:05:00.000Z",
+  "total_lessons_processed": 252,
+  "whisper_structured_lessons": 89,
+  "lesson_only_lessons": 163,
+  "domains": {
+    "1": {
+      "name": "Security and Risk Management",
+      "topics": [
+        {
+          "concept": "Supply Chain Risk Management",
+          "subtopics": ["SBOM", "Product tampering", "Counterfeits", "Silicon root of trust", "SLR/SLA", "Third-party risk", "ICT supply chain"],
+          "isc2_subdomain": "1.9",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [309],
+          "formulas": [],
+          "acronyms": ["SBOM", "SLR", "SCRM"],
+          "standards_referenced": ["NIST SP 800-161", "ISO 28000"]
+        },
+        {
+          "concept": "Import/Export Controls and Transborder Data Flow",
+          "subtopics": ["ITAR", "EAR", "Wassenaar Arrangement", "Data residency", "Data localization laws"],
+          "isc2_subdomain": "1.4",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [376],
+          "formulas": [],
+          "acronyms": ["ITAR", "EAR"],
+          "standards_referenced": ["EAR 15 CFR 730-774", "Wassenaar Arrangement 2023"]
+        },
+        {
+          "concept": "Risk Treatment Options",
+          "subtopics": ["Risk avoidance", "Risk mitigation", "Risk transfer", "Risk acceptance", "Residual risk"],
+          "isc2_subdomain": "1.9",
+          "already_in_knowledge_base": true,
+          "lesson_ids": [200],
+          "formulas": [],
+          "acronyms": [],
+          "standards_referenced": ["NIST SP 800-37", "ISO 31000"]
+        },
+        {
+          "concept": "Security Controls Classification",
+          "subtopics": ["Administrative", "Technical", "Physical", "Preventive", "Detective", "Corrective", "Compensating", "Directive", "Deterrent", "Recovery"],
+          "isc2_subdomain": "1.3",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [201],
+          "formulas": [],
+          "acronyms": [],
+          "standards_referenced": ["NIST SP 800-53", "ISO 27001 Annex A"]
+        },
+        {
+          "concept": "Third-Party Service Provider Governance",
+          "subtopics": ["SLA", "Service acquisition", "Vendor assessment", "Right-to-audit", "Cloud SLAs"],
+          "isc2_subdomain": "1.9",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [212, 223, 236],
+          "formulas": [],
+          "acronyms": ["SLA", "MSA", "MOU"],
+          "standards_referenced": ["ISO 27036"]
+        },
+        {
+          "concept": "Security Governance and Management",
+          "subtopics": ["Senior management roles", "Security policy", "Security framework alignment", "Strategic alignment"],
+          "isc2_subdomain": "1.1",
+          "already_in_knowledge_base": true,
+          "lesson_ids": [213, 214, 265, 290],
+          "formulas": [],
+          "acronyms": ["CISO", "CSO"],
+          "standards_referenced": ["COBIT 2019", "ISO 27001"]
+        },
+        {
+          "concept": "Business Continuity and Disaster Recovery Planning",
+          "subtopics": ["BCP", "DRP", "BCM", "BIA", "RTO", "RPO", "MTD", "MTO", "MTPD"],
+          "isc2_subdomain": "1.11",
+          "already_in_knowledge_base": true,
+          "lesson_ids": [222, 227, 235, 243, 249],
+          "formulas": ["RTO < MTD", "RPO determines backup frequency"],
+          "acronyms": ["BCP", "DRP", "BCM", "BIA", "RTO", "RPO", "MTD"],
+          "standards_referenced": ["ISO 22301", "NIST SP 800-34"]
+        },
+        {
+          "concept": "Security Awareness, Training, and Education",
+          "subtopics": ["Awareness vs training vs education", "Security culture", "Anti-phishing training", "Social engineering awareness"],
+          "isc2_subdomain": "1.13",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [228],
+          "formulas": [],
+          "acronyms": ["SATE"],
+          "standards_referenced": ["NIST SP 800-50"]
+        },
+        {
+          "concept": "Social Engineering Attacks",
+          "subtopics": ["Phishing", "Spear phishing", "Whaling", "Vishing", "Smishing", "Pretexting", "Baiting", "Tailgating", "Piggybacking"],
+          "isc2_subdomain": "1.13",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [274],
+          "formulas": [],
+          "acronyms": [],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Quantitative Risk Analysis",
+          "subtopics": ["SLE", "ARO", "ALE", "EF", "Asset valuation", "Cost-benefit analysis", "Safeguard value"],
+          "isc2_subdomain": "1.9",
+          "already_in_knowledge_base": true,
+          "lesson_ids": [270],
+          "formulas": ["SLE = AV x EF", "ALE = SLE x ARO", "Safeguard value = ALE_before - ALE_after - cost"],
+          "acronyms": ["SLE", "ARO", "ALE", "EF", "AV"],
+          "standards_referenced": ["NIST SP 800-30"]
+        },
+        {
+          "concept": "CIA Triad and DAD Triad",
+          "subtopics": ["Confidentiality", "Integrity", "Availability", "Disclosure", "Alteration", "Destruction"],
+          "isc2_subdomain": "1.1",
+          "already_in_knowledge_base": true,
+          "lesson_ids": [273],
+          "formulas": [],
+          "acronyms": ["CIA", "DAD"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Risk Management Process",
+          "subtopics": ["Risk identification", "Risk analysis", "Risk evaluation", "Risk treatment", "Risk monitoring"],
+          "isc2_subdomain": "1.9",
+          "already_in_knowledge_base": true,
+          "lesson_ids": [259, 279],
+          "formulas": [],
+          "acronyms": [],
+          "standards_referenced": ["NIST SP 800-30", "ISO 31000"]
+        }
+      ]
+    },
+    "2": {
+      "name": "Asset Security",
+      "topics": [
+        {
+          "concept": "Data Classification Policy",
+          "subtopics": ["Government classification levels", "Commercial classification levels", "Classification criteria", "Declassification procedures"],
+          "isc2_subdomain": "2.1",
+          "already_in_knowledge_base": true,
+          "lesson_ids": [194],
+          "formulas": [],
+          "acronyms": [],
+          "standards_referenced": ["EO 13526"]
+        },
+        {
+          "concept": "Asset Lifecycle Management",
+          "subtopics": ["Acquisition", "Operation", "Maintenance", "Disposal", "End-of-life", "Sanitization methods"],
+          "isc2_subdomain": "2.6",
+          "already_in_knowledge_base": true,
+          "lesson_ids": [229, 244],
+          "formulas": [],
+          "acronyms": [],
+          "standards_referenced": ["NIST SP 800-88"]
+        },
+        {
+          "concept": "Data Retention Requirements",
+          "subtopics": ["Legal hold", "Retention schedules", "Regulatory requirements", "e-Discovery"],
+          "isc2_subdomain": "2.6",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [230],
+          "formulas": [],
+          "acronyms": [],
+          "standards_referenced": ["SOX Section 802", "HIPAA 45 CFR 164"]
+        },
+        {
+          "concept": "Asset Handling Requirements",
+          "subtopics": ["Marking", "Labeling", "Handling procedures", "Storage", "Transportation", "Destruction"],
+          "isc2_subdomain": "2.5",
+          "already_in_knowledge_base": true,
+          "lesson_ids": [231],
+          "formulas": [],
+          "acronyms": [],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Data Protection and Privacy",
+          "subtopics": ["Pseudonymization", "Tokenization", "Anonymization", "DLP", "Data masking"],
+          "isc2_subdomain": "2.1",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [266],
+          "formulas": [],
+          "acronyms": ["DLP", "PII"],
+          "standards_referenced": ["GDPR Article 4", "NIST SP 800-188"]
+        }
+      ]
+    },
+    "3": {
+      "name": "Security Architecture and Engineering",
+      "topics": [
+        {
+          "concept": "Enterprise Security Architecture Frameworks",
+          "subtopics": ["Zachman Framework", "SABSA", "TOGAF", "SABSA risk-driven approach", "TOGAF Architecture Development Method"],
+          "isc2_subdomain": "3.1",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [193],
+          "formulas": [],
+          "acronyms": ["TOGAF", "SABSA", "ADM"],
+          "standards_referenced": ["TOGAF 9.2", "SABSA Blue Book"]
+        },
+        {
+          "concept": "Symmetric Cryptography",
+          "subtopics": ["DES", "3DES", "AES", "IDEA", "RC4", "RC5", "RC6", "Blowfish", "Twofish", "Key distribution problem", "Scalability problem"],
+          "isc2_subdomain": "3.6",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [195],
+          "formulas": ["n(n-1)/2 keys for n users", "3DES effective key = 112 bits"],
+          "acronyms": ["DES", "3DES", "AES", "IDEA"],
+          "standards_referenced": ["FIPS 197 (AES)", "FIPS 46-3 (DES)"]
+        },
+        {
+          "concept": "Types of Storage",
+          "subtopics": ["Primary storage (RAM)", "Secondary storage (disk)", "Virtual storage", "RAID levels", "Storage area network", "Network-attached storage", "Cloud storage"],
+          "isc2_subdomain": "3.4",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [202],
+          "formulas": [],
+          "acronyms": ["RAM", "RAID", "SAN", "NAS"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "History of Cryptography",
+          "subtopics": ["Caesar cipher", "Vigenere cipher", "One-time pad", "Enigma machine", "Confusion and diffusion", "Substitution and transposition"],
+          "isc2_subdomain": "3.6",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [205, 246],
+          "formulas": [],
+          "acronyms": ["OTP"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Steganography and Null Ciphers",
+          "subtopics": ["Steganography definition", "Digital watermarking", "Null ciphers", "Covert communication"],
+          "isc2_subdomain": "3.6",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [206],
+          "formulas": [],
+          "acronyms": [],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Cryptanalytic Attacks",
+          "subtopics": ["Brute force", "Frequency analysis", "Known plaintext", "Chosen plaintext", "Chosen ciphertext", "Birthday attack", "Meet-in-the-middle attack", "Rainbow tables", "Side-channel attacks"],
+          "isc2_subdomain": "3.7",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [208],
+          "formulas": ["Birthday paradox: sqrt(2n) attempts for 50% collision probability"],
+          "acronyms": [],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Physical Security: Fire Detection and Suppression",
+          "subtopics": ["Fire classes (A B C D K)", "Smoke detectors", "Heat detectors", "Flame detectors", "Water sprinklers", "Halon alternatives", "FM-200", "CO2 systems", "Class K extinguishers"],
+          "isc2_subdomain": "3.9",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [209, 239],
+          "formulas": [],
+          "acronyms": ["VESDA"],
+          "standards_referenced": ["NFPA 75", "NFPA 2001"]
+        },
+        {
+          "concept": "Information Flow Models and Covert Channels",
+          "subtopics": ["Bell-LaPadula model (confidentiality)", "Biba model (integrity)", "Clark-Wilson model", "Brewer-Nash model (Chinese Wall)", "Covert channel types", "Storage covert channel", "Timing covert channel"],
+          "isc2_subdomain": "3.2",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [215, 253, 442],
+          "formulas": [],
+          "acronyms": [],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Message Integrity Controls",
+          "subtopics": ["Hash functions", "MD5", "SHA-1", "SHA-256", "SHA-3", "HMAC", "Digital signatures", "MAC vs HMAC vs digital signature"],
+          "isc2_subdomain": "3.6",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [216],
+          "formulas": [],
+          "acronyms": ["MD5", "SHA", "HMAC", "MAC"],
+          "standards_referenced": ["FIPS 180-4 (SHA)", "RFC 2104 (HMAC)"]
+        },
+        {
+          "concept": "Physical Security: Perimeter and Facility Design",
+          "subtopics": ["Walls and fences", "Crime Prevention Through Environmental Design (CPTED)", "Physical access controls", "Mantrap", "Security guards", "Lighting", "Bollards"],
+          "isc2_subdomain": "3.9",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [224, 313],
+          "formulas": [],
+          "acronyms": ["CPTED"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Virtualization and Hypervisors",
+          "subtopics": ["Type 1 hypervisor (bare metal)", "Type 2 hypervisor (hosted)", "VM escape", "VM sprawl", "Container security", "Docker security", "Virtual machine security"],
+          "isc2_subdomain": "3.4",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [237],
+          "formulas": [],
+          "acronyms": ["VM", "VDI"],
+          "standards_referenced": ["NIST SP 800-125"]
+        },
+        {
+          "concept": "Key Management",
+          "subtopics": ["Key generation", "Key distribution", "Key storage", "Key escrow", "Key revocation", "Key destruction", "Certificate authority", "PKI"],
+          "isc2_subdomain": "3.6",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [238],
+          "formulas": [],
+          "acronyms": ["PKI", "CA", "RA", "CRL", "OCSP"],
+          "standards_referenced": ["NIST SP 800-57", "RFC 5280"]
+        },
+        {
+          "concept": "Cross-Site Scripting (XSS)",
+          "subtopics": ["Reflected XSS", "Stored XSS", "DOM-based XSS", "Input validation", "Content Security Policy", "Output encoding"],
+          "isc2_subdomain": "3.5",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [250, 271],
+          "formulas": [],
+          "acronyms": ["XSS", "CSP"],
+          "standards_referenced": ["OWASP Top 10"]
+        },
+        {
+          "concept": "Security Models (Lattice-Based)",
+          "subtopics": ["Bell-LaPadula: no read up, no write down", "Biba: no write up, no read down", "Lattice concept", "Security labels", "Mandatory Access Control"],
+          "isc2_subdomain": "3.2",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [253],
+          "formulas": [],
+          "acronyms": ["MAC", "BLP"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Stream vs. Block Ciphers",
+          "subtopics": ["Stream cipher operation", "Block cipher operation", "Block cipher modes: ECB, CBC, CFB, OFB, CTR, GCM", "Padding", "IV/Nonce"],
+          "isc2_subdomain": "3.6",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [267],
+          "formulas": [],
+          "acronyms": ["ECB", "CBC", "CTR", "GCM", "IV"],
+          "standards_referenced": ["NIST SP 800-38A"]
+        },
+        {
+          "concept": "Asymmetric Cryptography",
+          "subtopics": ["RSA", "DSA", "ECC", "ElGamal", "Public/private key pair", "Key length comparisons", "Elliptic curve advantages"],
+          "isc2_subdomain": "3.6",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [268],
+          "formulas": [],
+          "acronyms": ["RSA", "DSA", "ECC", "ECDSA"],
+          "standards_referenced": ["FIPS 186-4 (DSA)", "FIPS 186-5 (ECC)"]
+        },
+        {
+          "concept": "Cross-Site Request Forgery (CSRF)",
+          "subtopics": ["CSRF attack mechanics", "CSRF tokens", "SameSite cookies", "Difference from XSS"],
+          "isc2_subdomain": "3.5",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [271],
+          "formulas": [],
+          "acronyms": ["CSRF", "XSRF"],
+          "standards_referenced": ["OWASP CSRF Prevention Cheat Sheet"]
+        },
+        {
+          "concept": "Mobile Device Security",
+          "subtopics": ["MDM", "MAM", "BYOD policy", "Full device encryption", "Remote wipe", "Container security", "Jailbreaking/rooting risks"],
+          "isc2_subdomain": "3.5",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [280],
+          "formulas": [],
+          "acronyms": ["MDM", "MAM", "BYOD", "COPE"],
+          "standards_referenced": ["NIST SP 800-124"]
+        },
+        {
+          "concept": "Cryptographic Services",
+          "subtopics": ["Confidentiality", "Integrity", "Authentication", "Non-repudiation", "Access control via cryptography"],
+          "isc2_subdomain": "3.6",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [282],
+          "formulas": [],
+          "acronyms": [],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Diffie-Hellman Key Exchange",
+          "subtopics": ["DH key exchange protocol", "Perfect forward secrecy", "Ephemeral DH", "ECDH", "DH vs RSA key exchange"],
+          "isc2_subdomain": "3.6",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [283],
+          "formulas": [],
+          "acronyms": ["DH", "DHE", "ECDHE", "PFS"],
+          "standards_referenced": ["RFC 2631"]
+        },
+        {
+          "concept": "Reference Monitor Concept, Security Kernel, and TCB",
+          "subtopics": ["Trusted Computing Base (TCB)", "Security kernel", "Reference monitor concept", "Trusted path", "Security perimeter"],
+          "isc2_subdomain": "3.4",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [287, 295],
+          "formulas": [],
+          "acronyms": ["TCB", "RMC"],
+          "standards_referenced": ["TCSEC (Orange Book)"]
+        },
+        {
+          "concept": "SQL Injection",
+          "subtopics": ["SQL injection attack types", "Blind SQL injection", "Parameterized queries", "Stored procedures", "Input validation for SQL", "Database security"],
+          "isc2_subdomain": "3.5",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [288, 198],
+          "formulas": [],
+          "acronyms": ["SQLi"],
+          "standards_referenced": ["OWASP Top 10"]
+        },
+        {
+          "concept": "Industrial Control Systems and IoT Security",
+          "subtopics": ["SCADA", "ICS", "PLC", "DCS", "OT vs IT security", "IoT security challenges", "Purdue model", "Air-gapping"],
+          "isc2_subdomain": "3.5",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [296],
+          "formulas": [],
+          "acronyms": ["SCADA", "ICS", "PLC", "DCS", "OT", "IoT"],
+          "standards_referenced": ["IEC 62443", "NIST SP 800-82"]
+        },
+        {
+          "concept": "Cryptographic Definitions",
+          "subtopics": ["Plaintext", "Ciphertext", "Cipher", "Key", "Algorithm", "Work factor", "Kerckhoff's principle", "Avalanche effect"],
+          "isc2_subdomain": "3.6",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [300],
+          "formulas": [],
+          "acronyms": [],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Digital Signatures",
+          "subtopics": ["Digital signature process", "Hash + asymmetric encryption", "Non-repudiation", "DSA", "RSA signatures", "ECDSA"],
+          "isc2_subdomain": "3.6",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [305],
+          "formulas": [],
+          "acronyms": ["DSA", "ECDSA"],
+          "standards_referenced": ["FIPS 186-4"]
+        },
+        {
+          "concept": "Digital Certificates and PKI",
+          "subtopics": ["X.509 certificate", "Certificate Authority (CA)", "Registration Authority (RA)", "CRL", "OCSP", "Certificate pinning", "Web of trust", "PKI hierarchy"],
+          "isc2_subdomain": "3.6",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [306],
+          "formulas": [],
+          "acronyms": ["PKI", "CA", "RA", "CRL", "OCSP", "X.509"],
+          "standards_referenced": ["RFC 5280", "RFC 6960"]
+        },
+        {
+          "concept": "Ring Protection Model and Secure Memory Management",
+          "subtopics": ["Ring 0-3 privilege levels", "Memory protection", "Process isolation", "Address space layout randomization", "Data execution prevention", "Code signing"],
+          "isc2_subdomain": "3.4",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [310],
+          "formulas": [],
+          "acronyms": ["ASLR", "DEP", "NX"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Distributed Computing, Grid Computing, and Big Data",
+          "subtopics": ["Grid computing", "Cloud computing", "MapReduce", "Hadoop", "Data warehouse security", "Big data privacy", "Anonymization challenges"],
+          "isc2_subdomain": "3.5",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [311],
+          "formulas": [],
+          "acronyms": ["HDFS"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Input Validation",
+          "subtopics": ["Allowlist vs denylist validation", "Regex validation", "Client-side vs server-side validation", "Fuzzing", "Injection attack prevention"],
+          "isc2_subdomain": "3.5",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [312],
+          "formulas": [],
+          "acronyms": [],
+          "standards_referenced": ["OWASP Input Validation Cheat Sheet"]
+        },
+        {
+          "concept": "Cloud Computing Security",
+          "subtopics": ["Cloud service models (IaaS, PaaS, SaaS)", "Cloud deployment models (public, private, hybrid, community)", "Shared responsibility model", "Cloud security controls", "CSA STAR"],
+          "isc2_subdomain": "3.5",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [322],
+          "formulas": [],
+          "acronyms": ["IaaS", "PaaS", "SaaS", "CSA", "CASB"],
+          "standards_referenced": ["CSA CCM", "NIST SP 800-145"]
+        },
+        {
+          "concept": "Physical Security: Power and Environmental Controls",
+          "subtopics": ["UPS systems", "Generators", "HVAC requirements", "Temperature ranges", "Humidity control", "Power redundancy", "Clean power"],
+          "isc2_subdomain": "3.9",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [323],
+          "formulas": [],
+          "acronyms": ["UPS", "HVAC"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Firmware, System Kernel, and Middleware Security",
+          "subtopics": ["Firmware attacks", "UEFI vs BIOS", "Kernel vulnerabilities", "Middleware security", "Trusted boot", "Secure boot"],
+          "isc2_subdomain": "3.4",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [330],
+          "formulas": [],
+          "acronyms": ["UEFI", "BIOS"],
+          "standards_referenced": ["NIST SP 800-147 (BIOS)"]
+        },
+        {
+          "concept": "Vulnerabilities in Systems",
+          "subtopics": ["Buffer overflow", "Race condition", "Time of check/time of use (TOC/TOU)", "Memory leaks", "Integer overflow", "Format string vulnerabilities"],
+          "isc2_subdomain": "3.5",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [331],
+          "formulas": [],
+          "acronyms": ["TOC/TOU"],
+          "standards_referenced": ["CWE database"]
+        },
+        {
+          "concept": "Security Evaluation Criteria",
+          "subtopics": ["Common Criteria (ISO 15408)", "EAL levels (EAL1-EAL7)", "Protection Profile", "Security Target", "TOE", "TCSEC (Orange Book)"],
+          "isc2_subdomain": "3.4",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [245],
+          "formulas": [],
+          "acronyms": ["CC", "EAL", "PP", "ST", "TOE", "TCSEC"],
+          "standards_referenced": ["ISO 15408", "TCSEC DoD 5200.28-STD"]
+        },
+        {
+          "concept": "Root of Trust and Hardware Security",
+          "subtopics": ["TPM (Trusted Platform Module)", "HSM (Hardware Security Module)", "Root of trust", "Measured boot", "Remote attestation", "Silicon root of trust"],
+          "isc2_subdomain": "3.6",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [446],
+          "formulas": [],
+          "acronyms": ["TPM", "HSM", "RTM"],
+          "standards_referenced": ["TCG TPM 2.0 spec", "NIST SP 800-193"]
+        },
+        {
+          "concept": "Security Design Principles",
+          "subtopics": ["Least privilege", "Defense in depth", "Fail secure", "Economy of mechanism", "Open design", "Complete mediation", "Separation of privilege", "Psychological acceptability"],
+          "isc2_subdomain": "3.1",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [232],
+          "formulas": [],
+          "acronyms": [],
+          "standards_referenced": ["Saltzer & Schroeder 1975"]
+        },
+        {
+          "concept": "Hybrid Cryptography",
+          "subtopics": ["Key encapsulation", "Session key", "TLS handshake", "PGP/GPG hybrid model", "Symmetric + asymmetric combination"],
+          "isc2_subdomain": "3.6",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [261],
+          "formulas": [],
+          "acronyms": ["PGP", "GPG"],
+          "standards_referenced": ["RFC 4880 (OpenPGP)"]
+        },
+        {
+          "concept": "Malware Types and Anti-Malware",
+          "subtopics": ["Virus", "Worm", "Trojan", "Ransomware", "Rootkit", "Spyware", "Adware", "Botnet", "Logic bomb", "Fileless malware"],
+          "isc2_subdomain": "3.5",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [204, 226],
+          "formulas": [],
+          "acronyms": ["AV", "EDR", "XDR"],
+          "standards_referenced": []
+        }
+      ]
+    },
+    "4": {
+      "name": "Communication and Network Security",
+      "topics": [
+        {
+          "concept": "OSI Model and Network Protocols",
+          "subtopics": ["7 OSI layers", "Layer names and functions", "PDUs per layer", "Encapsulation/decapsulation", "Protocol stacks"],
+          "isc2_subdomain": "4.1",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [196, 247],
+          "formulas": [],
+          "acronyms": ["OSI", "PDU", "MTU"],
+          "standards_referenced": ["ISO 7498-1"]
+        },
+        {
+          "concept": "IDS and IPS Technologies",
+          "subtopics": ["Network-based IDS/IPS (NIDS/NIPS)", "Host-based IDS/IPS (HIDS/HIPS)", "Signature-based detection", "Anomaly-based detection", "Stateful protocol analysis", "False positives/negatives"],
+          "isc2_subdomain": "4.2",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [197, 219, 233, 293],
+          "formulas": [],
+          "acronyms": ["IDS", "IPS", "NIDS", "HIDS", "SIEM"],
+          "standards_referenced": ["NIST SP 800-94"]
+        },
+        {
+          "concept": "Firewall Technologies and Architectures",
+          "subtopics": ["Packet filtering", "Stateful inspection", "Application-layer proxy", "Next-generation firewall", "WAF", "Screened subnet (DMZ)", "Dual-homed", "Bastion host"],
+          "isc2_subdomain": "4.2",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [207, 285],
+          "formulas": [],
+          "acronyms": ["DMZ", "WAF", "NGFW"],
+          "standards_referenced": ["NIST SP 800-41"]
+        },
+        {
+          "concept": "Network Layer 3: Logical Addressing and Routing",
+          "subtopics": ["IPv4 addressing", "IPv6 addressing", "Subnetting", "CIDR", "Routing protocols (RIP, OSPF, BGP)", "NAT", "IP spoofing"],
+          "isc2_subdomain": "4.1",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [217, 257],
+          "formulas": [],
+          "acronyms": ["CIDR", "NAT", "BGP", "OSPF"],
+          "standards_referenced": ["RFC 791 (IPv4)", "RFC 2460 (IPv6)"]
+        },
+        {
+          "concept": "OSI Layers 5, 6, and 7",
+          "subtopics": ["Session layer: session establishment/management", "Presentation layer: encryption, compression, encoding", "Application layer: HTTP, FTP, SMTP, DNS", "Layer 7 attacks"],
+          "isc2_subdomain": "4.1",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [218],
+          "formulas": [],
+          "acronyms": ["HTTP", "HTTPS", "SMTP", "DNS", "FTP"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Tunneling and VPN",
+          "subtopics": ["Site-to-site VPN", "Remote access VPN", "SSL VPN", "IPSec VPN", "Split tunneling", "PPTP", "L2TP", "OpenVPN"],
+          "isc2_subdomain": "4.3",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [220],
+          "formulas": [],
+          "acronyms": ["VPN", "SSL", "PPTP", "L2TP"],
+          "standards_referenced": ["RFC 2661 (L2TP)"]
+        },
+        {
+          "concept": "SSL/TLS and Remote Authentication Protocols",
+          "subtopics": ["TLS handshake", "TLS 1.3 improvements", "Certificate validation", "RADIUS", "TACACS+", "Diameter", "EAP variants"],
+          "isc2_subdomain": "4.3",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [248],
+          "formulas": [],
+          "acronyms": ["TLS", "RADIUS", "TACACS+", "EAP"],
+          "standards_referenced": ["RFC 5246 (TLS 1.2)", "RFC 8446 (TLS 1.3)"]
+        },
+        {
+          "concept": "Network Virtualization: VLAN and SDN",
+          "subtopics": ["VLAN configuration", "VLAN hopping", "802.1Q trunking", "SDN architecture", "Controller plane vs data plane", "Microsegmentation"],
+          "isc2_subdomain": "4.1",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [251],
+          "formulas": [],
+          "acronyms": ["VLAN", "SDN", "NFV"],
+          "standards_referenced": ["IEEE 802.1Q"]
+        },
+        {
+          "concept": "Network Layer 4: TCP and UDP",
+          "subtopics": ["TCP three-way handshake", "TCP flags", "UDP characteristics", "Port numbers (well-known, registered, dynamic)", "Connection-oriented vs connectionless", "Sequence numbers"],
+          "isc2_subdomain": "4.1",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [255, 284],
+          "formulas": [],
+          "acronyms": ["TCP", "UDP", "SYN", "ACK"],
+          "standards_referenced": ["RFC 793 (TCP)", "RFC 768 (UDP)"]
+        },
+        {
+          "concept": "Network Attacks: DoS, DDoS, Spoofing, ARP Poisoning",
+          "subtopics": ["DoS attack types", "DDoS amplification", "SYN flood", "Smurf attack", "IP spoofing", "ARP poisoning/spoofing", "DNS poisoning", "BGP hijacking"],
+          "isc2_subdomain": "4.1",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [256],
+          "formulas": [],
+          "acronyms": ["DoS", "DDoS", "ARP"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Network Layer 1: Physical Media and Transmission",
+          "subtopics": ["Coaxial cable", "Twisted pair (UTP/STP)", "Fiber optic", "Wireless media", "Crosstalk (NEXT/FEXT)", "Electromagnetic interference", "Signal-to-noise ratio"],
+          "isc2_subdomain": "4.1",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [269],
+          "formulas": [],
+          "acronyms": ["UTP", "STP", "EMI", "NEXT"],
+          "standards_referenced": ["IEEE 802.3"]
+        },
+        {
+          "concept": "Network Layer 2: Data Link and Switching",
+          "subtopics": ["MAC addresses", "Ethernet frames", "Switch operation", "Spanning Tree Protocol", "Circuit switching vs packet switching", "CSMA/CD"],
+          "isc2_subdomain": "4.1",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [276, 291],
+          "formulas": [],
+          "acronyms": ["MAC", "STP", "CSMA"],
+          "standards_referenced": ["IEEE 802.1D"]
+        },
+        {
+          "concept": "Wireless Security",
+          "subtopics": ["WEP vulnerabilities", "WPA/WPA2/WPA3", "802.11 standards", "TKIP", "CCMP/AES", "EAP-TLS", "PEAP", "Rogue AP", "Evil twin", "War driving"],
+          "isc2_subdomain": "4.1",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [277],
+          "formulas": [],
+          "acronyms": ["WEP", "WPA", "SSID", "TKIP", "CCMP"],
+          "standards_referenced": ["IEEE 802.11i"]
+        },
+        {
+          "concept": "Wide Area Networks (WAN)",
+          "subtopics": ["MPLS", "Frame relay", "ATM", "SD-WAN", "Leased lines", "Metro Ethernet", "SONET/SDH"],
+          "isc2_subdomain": "4.1",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [278],
+          "formulas": [],
+          "acronyms": ["MPLS", "WAN", "SD-WAN"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "IPSec Protocol Suite",
+          "subtopics": ["AH (Authentication Header)", "ESP (Encapsulating Security Payload)", "Transport mode vs tunnel mode", "IKE", "ISAKMP", "Security associations"],
+          "isc2_subdomain": "4.3",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [286],
+          "formulas": [],
+          "acronyms": ["AH", "ESP", "IKE", "ISAKMP", "SA"],
+          "standards_referenced": ["RFC 4301 (IPSec Architecture)"]
+        },
+        {
+          "concept": "Convergence and VoIP Security",
+          "subtopics": ["VoIP protocols (SIP, H.323, RTP)", "SRTP", "Toll fraud", "Vishing via VoIP", "QoS requirements", "VLAN separation for voice"],
+          "isc2_subdomain": "4.1",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [292],
+          "formulas": [],
+          "acronyms": ["VoIP", "SIP", "RTP", "SRTP", "QoS"],
+          "standards_referenced": ["RFC 3261 (SIP)"]
+        }
+      ]
+    },
+    "5": {
+      "name": "Identity and Access Management",
+      "topics": [
+        {
+          "concept": "Authentication Factors and Types",
+          "subtopics": ["Something you know (password, PIN)", "Something you have (token, smart card)", "Something you are (biometrics)", "Somewhere you are (location)", "Something you do (behavioral)", "MFA combinations"],
+          "isc2_subdomain": "5.2",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [203, 225, 262],
+          "formulas": [],
+          "acronyms": ["MFA", "OTP", "TOTP", "HOTP"],
+          "standards_referenced": ["NIST SP 800-63B"]
+        },
+        {
+          "concept": "Access Control Introduction and Concepts",
+          "subtopics": ["Identification vs authentication vs authorization", "Subjects and objects", "Access control matrix", "Capability table", "ACL"],
+          "isc2_subdomain": "5.1",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [210, 281, 314],
+          "formulas": [],
+          "acronyms": ["ACL", "ACE"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Identity Provisioning Lifecycle",
+          "subtopics": ["Provisioning", "Account management", "Deprovisioning", "Orphaned accounts", "Privileged access management", "Joiner-mover-leaver process"],
+          "isc2_subdomain": "5.5",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [211],
+          "formulas": [],
+          "acronyms": ["PAM", "IAM"],
+          "standards_referenced": ["NIST SP 800-53 AC family"]
+        },
+        {
+          "concept": "Session Management and Identity Proofing",
+          "subtopics": ["Session tokens", "Session fixation", "Session hijacking", "Identity proofing levels (IAL)", "Remote identity proofing", "Document verification"],
+          "isc2_subdomain": "5.2",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [240],
+          "formulas": [],
+          "acronyms": ["IAL", "AAL"],
+          "standards_referenced": ["NIST SP 800-63A"]
+        },
+        {
+          "concept": "Single Sign-On, Kerberos, and SESAME",
+          "subtopics": ["SSO benefits and risks", "Kerberos protocol", "KDC", "TGT", "Service ticket", "Realm", "SESAME improvements over Kerberos"],
+          "isc2_subdomain": "5.2",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [252],
+          "formulas": [],
+          "acronyms": ["SSO", "KDC", "TGT", "AS", "TGS"],
+          "standards_referenced": ["RFC 4120 (Kerberos V5)"]
+        },
+        {
+          "concept": "Federated Identity Management (FIM) and SAML",
+          "subtopics": ["Federation concepts", "SAML assertions", "Identity provider (IdP)", "Service provider (SP)", "OAuth 2.0", "OpenID Connect", "WS-Federation"],
+          "isc2_subdomain": "5.2",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [272],
+          "formulas": [],
+          "acronyms": ["FIM", "SAML", "IdP", "SP", "OIDC"],
+          "standards_referenced": ["SAML 2.0 spec", "OAuth 2.0 RFC 6749"]
+        },
+        {
+          "concept": "Access Control Philosophies/Models",
+          "subtopics": ["Mandatory Access Control (MAC)", "Discretionary Access Control (DAC)", "Role-Based Access Control (RBAC)", "Attribute-Based Access Control (ABAC)", "Rule-Based Access Control"],
+          "isc2_subdomain": "5.4",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [289],
+          "formulas": [],
+          "acronyms": ["MAC", "DAC", "RBAC", "ABAC"],
+          "standards_referenced": ["NIST SP 800-162 (ABAC)", "NIST SP 800-63"]
+        },
+        {
+          "concept": "Identity as a Service (IDaaS)",
+          "subtopics": ["Cloud-based identity", "IDaaS providers", "Zero-trust identity", "Conditional access", "MFA in cloud"],
+          "isc2_subdomain": "5.3",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [324],
+          "formulas": [],
+          "acronyms": ["IDaaS", "CASB"],
+          "standards_referenced": []
+        }
+      ]
+    },
+    "6": {
+      "name": "Security Assessment and Testing",
+      "topics": [
+        {
+          "concept": "Operational and Regression Testing",
+          "subtopics": ["Operational acceptance testing", "Regression testing purpose", "Unit vs integration vs system testing", "Test coverage", "Code coverage"],
+          "isc2_subdomain": "6.2",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [241],
+          "formulas": [],
+          "acronyms": [],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Software Testing Techniques",
+          "subtopics": ["Black box testing", "White box testing", "Gray box testing", "Fuzzing", "Mutation testing", "Static analysis", "Dynamic analysis"],
+          "isc2_subdomain": "6.2",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [263],
+          "formulas": [],
+          "acronyms": ["SAST", "DAST", "IAST"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Introduction to Security Assessment and Testing",
+          "subtopics": ["Assessment types", "Risk-based testing", "Test planning", "Scope definition", "Rules of engagement", "Authorization requirements"],
+          "isc2_subdomain": "6.1",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [315],
+          "formulas": [],
+          "acronyms": ["ROE"],
+          "standards_referenced": ["NIST SP 800-115"]
+        },
+        {
+          "concept": "Vulnerability Testing Techniques",
+          "subtopics": ["Banner grabbing", "OS fingerprinting", "Port scanning", "Network mapping", "Vulnerability scanning", "Result interpretation", "CVSS scoring"],
+          "isc2_subdomain": "6.2",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [316],
+          "formulas": [],
+          "acronyms": ["CVE", "CVSS", "NVD"],
+          "standards_referenced": ["NIST NVD", "CVSS 3.1 spec"]
+        },
+        {
+          "concept": "Security Metrics: KPIs and KRIs",
+          "subtopics": ["Key Performance Indicators", "Key Risk Indicators", "Security scorecards", "Dashboard metrics", "Mean Time to Detect (MTTD)", "Mean Time to Respond (MTTR)"],
+          "isc2_subdomain": "6.3",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [317],
+          "formulas": [],
+          "acronyms": ["KPI", "KRI", "MTTD", "MTTR"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Software Testing Stages",
+          "subtopics": ["Unit testing", "Integration testing", "System testing", "Acceptance testing", "Regression testing", "Penetration testing in SDLC"],
+          "isc2_subdomain": "6.2",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [325],
+          "formulas": [],
+          "acronyms": ["UAT"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Vulnerability Assessment and Penetration Testing",
+          "subtopics": ["Vulnerability assessment vs penetration testing", "Black/gray/white box pentest", "Ethical hacking phases", "CVE/CVSS", "Reporting and remediation"],
+          "isc2_subdomain": "6.2",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [326],
+          "formulas": [],
+          "acronyms": ["VA", "PT"],
+          "standards_referenced": ["PTES", "OWASP Testing Guide"]
+        },
+        {
+          "concept": "Log Review and Analysis",
+          "subtopics": ["Log types", "Log aggregation", "SIEM correlation", "Log retention", "Audit log integrity", "Chain of custody"],
+          "isc2_subdomain": "6.2",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [327],
+          "formulas": [],
+          "acronyms": ["SIEM", "SOC"],
+          "standards_referenced": ["NIST SP 800-92"]
+        }
+      ]
+    },
+    "7": {
+      "name": "Security Operations",
+      "topics": [
+        {
+          "concept": "Change Management",
+          "subtopics": ["Change request process", "Change advisory board (CAB)", "Emergency change", "Configuration baseline", "Rollback procedures", "ITIL change management"],
+          "isc2_subdomain": "7.9",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [242],
+          "formulas": [],
+          "acronyms": ["CAB", "RFC", "ITIL"],
+          "standards_referenced": ["ITIL 4"]
+        },
+        {
+          "concept": "Asset Inventory and Configuration Management",
+          "subtopics": ["CMDB", "Asset discovery", "Configuration baseline", "Patch management", "Software inventory", "Hardware inventory", "Configuration drift"],
+          "isc2_subdomain": "7.3",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [319],
+          "formulas": [],
+          "acronyms": ["CMDB", "ITAM"],
+          "standards_referenced": ["CIS Controls", "NIST SP 800-128"]
+        },
+        {
+          "concept": "Malware Defense and Anti-Malware",
+          "subtopics": ["Signature-based detection", "Heuristic detection", "Sandboxing", "EDR/XDR", "Incident response to malware", "Rootkit removal"],
+          "isc2_subdomain": "7.6",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [204, 226],
+          "formulas": [],
+          "acronyms": ["EDR", "XDR", "EPP"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Backup and Storage Strategies",
+          "subtopics": ["Full backup", "Incremental backup", "Differential backup", "Backup retention", "Offsite backup", "3-2-1 rule", "Backup testing"],
+          "isc2_subdomain": "7.5",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [264],
+          "formulas": [],
+          "acronyms": ["RTO", "RPO"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Service Level Agreements in Operations",
+          "subtopics": ["SLA components", "SLA breach remedies", "OLA (Operational Level Agreement)", "UC (Underpinning Contract)", "Uptime SLAs", "Security SLAs"],
+          "isc2_subdomain": "7.9",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [236],
+          "formulas": [],
+          "acronyms": ["SLA", "OLA", "UC"],
+          "standards_referenced": []
+        }
+      ]
+    },
+    "8": {
+      "name": "Software Development Security",
+      "topics": [
+        {
+          "concept": "Acquiring Software: Third-Party and Open Source",
+          "subtopics": ["COTS software evaluation", "Open source risks", "Software composition analysis", "License compliance", "Vendor security assessment", "SBOM"],
+          "isc2_subdomain": "8.4",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [221, 223],
+          "formulas": [],
+          "acronyms": ["COTS", "OSS", "SCA", "SBOM"],
+          "standards_referenced": ["NIST SP 800-218 (SSDF)"]
+        },
+        {
+          "concept": "Database Security",
+          "subtopics": ["Database access controls", "Database encryption", "Data masking", "Database activity monitoring", "Polyinstantiation", "Inference attacks", "Aggregation attacks"],
+          "isc2_subdomain": "8.3",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [198],
+          "formulas": [],
+          "acronyms": ["DAM", "RBDMS"],
+          "standards_referenced": []
+        },
+        {
+          "concept": "Application Development Security",
+          "subtopics": ["SDLC security integration", "Security requirements", "Threat modeling in development", "Secure code review", "SAST/DAST in pipeline", "DevSecOps"],
+          "isc2_subdomain": "8.1",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [234],
+          "formulas": [],
+          "acronyms": ["SDLC", "DevSecOps", "CI/CD"],
+          "standards_referenced": ["NIST SP 800-218", "OWASP SAMM"]
+        },
+        {
+          "concept": "Secure Coding Guidelines and Standards",
+          "subtopics": ["OWASP Top 10", "CWE/SANS Top 25", "Input validation", "Error handling", "Logging", "Cryptographic implementation", "Memory safe languages"],
+          "isc2_subdomain": "8.3",
+          "already_in_knowledge_base": false,
+          "lesson_ids": [258],
+          "formulas": [],
+          "acronyms": ["CWE", "OWASP"],
+          "standards_referenced": ["OWASP Top 10 2021", "CWE Top 25"]
+        }
+      ]
+    }
+  },
+  "summary": {
+    "total_topics": 72,
+    "total_already_covered": 12,
+    "gaps_found": 60,
+    "by_domain": {
+      "1": { "total": 12, "existing": 7, "gaps": 5 },
+      "2": { "total": 5, "existing": 3, "gaps": 2 },
+      "3": { "total": 23, "existing": 0, "gaps": 23 },
+      "4": { "total": 16, "existing": 0, "gaps": 16 },
+      "5": { "total": 8, "existing": 0, "gaps": 8 },
+      "6": { "total": 8, "existing": 0, "gaps": 8 },
+      "7": { "total": 5, "existing": 0, "gaps": 5 },
+      "8": { "total": 4, "existing": 0, "gaps": 4 }
+    }
+  }
+}

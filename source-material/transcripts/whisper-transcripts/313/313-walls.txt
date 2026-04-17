@@ -1,0 +1,37 @@
+Walsh, those things that go from the floor of the ceiling in physical security, we're
+concerned with them.
+We want to know what they're made out of.
+The wall construction, in other words, what the wall is made out of, makes a big difference
+as to how secure the wall is.
+If you want a nice secure bank vault or a data center, you're probably not going to build
+your wall at a regular stick and timber, stick and frame, you're going to build it out
+of a secure concrete reinforced wall or something like that.
+A question that often comes up on the exam that you should understand is that you want
+the wall to go all the way to the real ceiling and all the way to the real floor.
+What do we mean by that?
+Well, in a lot of office buildings, it's very common to have what's called a false ceiling.
+If you look up in your office, you'll probably see something just like this.
+We've got these looks like panels.
+You can push those panels out and you'll find that there's another 2, 3, 4 feet of
+space between that drop ceiling and the actual real ceiling of the concrete floor above.
+What you usually find up there is electrical wiring and HVAC piping and things like that.
+The reason I'm mentioning this is that in a lot of office spaces, if you push up one
+of those ceiling panels and you look over, if there's a wall in front of you and you push
+up the ceiling panel, you can often see over into the next space because the wall doesn't
+truly go to the actual ceiling, it just goes up to the drop ceiling.
+If you want a good, secure area, if you have a higher valley area that you want to protect
+access to, you've got to make sure that that wall actually truly extends all the way to
+the true ceiling.
+Within data centers, we very commonly have raised floors.
+These floors will be 24, 36 inches off the ground, off of the true floor.
+What's running underneath there?
+You've got all your electrical cables and that's usually where you duct your cold air
+for cooling the servers.
+Again, if your floor only goes to the raised floor, someone could climb underneath and get
+around.
+You've got to make sure those walls go to the true ceiling and the true floor.
+As part of this, we can monitor to see who's moving through a building.
+This is the idea of intrusion detection systems within a building.
+This is things like having motion detection sensors, having proper walls in place to
+control access and thinking about things like ventilation shafts and so forth.
+That's all part of intrusion detection within a building.

@@ -1,0 +1,80 @@
+Network virtualization technologies. This is where we introduce the concept of abstraction.
+Network virtualization technologies. This is where we introduce the concept of abstraction into our networks,
+where we abstract away some of the details of our networks and allow us to virtualize parts of our network.
+Now, we're going to talk about network virtualization from two primary aspects.
+We're going to talk about VLANs, virtual local area networks, and very much an evolution of that, SDS, software defined networks.
+So let's jump into this. We're going to start by talking about VLANs.
+VLANs are something we've had for many, many years, and I've got a little picture here that's meant to show you roughly how this works.
+So here's how you should interpret this little diagram here, okay?
+We've got four different computer systems. All connected to this big rectangle here is a switch.
+So we've got four systems connected to the switch. They're plugged into the RJ45 jacks on the switch.
+And how would a switch typically allow these systems to talk to each other?
+Well, the whole purpose of a switch is to let every system talk to every other system on the switch.
+And so the way this is configured right now is that all of these systems, all four of them, could talk to each other.
+That's the whole point of the switch.
+But let's say that we have a scenario where these first two computers are in a department, and these second two computers are any different departments.
+And these two departments do not like each other. I'm sure you can think of some example in your organization.
+Maybe it's the audit function and marketing, or maybe it's engineering, and the business people, I don't know.
+Take your example. The point is these two different systems are in two different departments, and they don't want to be able to talk to each other.
+So how would we segment this network? How would we make it so that the first two systems could only talk to each other?
+And the second two systems could only talk to each other.
+Well, the expensive way to do this would be to buy a second switch.
+We put the first two computers on the first switch. We put the second two computers on the second switch, and there we go.
+We have physically segmented separated out these systems.
+But that's kind of expensive, isn't it? We've had to buy now a whole separate physical switch. We have to maintain a whole separate physical switch, it gets expensive.
+So instead of doing physical segmentation, we can do logical segmentation. We can separate out these systems using software.
+And that's fundamentally the idea behind VLANs, virtual local area networks.
+So the idea here is that we could assign VLAN segments to these different systems.
+We put the first two systems on VLAN 1. We put the second two systems on VLAN 2.
+And the whole purpose of putting systems on a VLAN is that those VLANs are separated essentially.
+And so if the first two systems are on VLAN 1, the only other systems are going to be able to communicate with our systems on VLAN 1.
+So in other words, with each other.
+And the second two systems on VLAN 2, because they're both on VLAN 2, they can only talk to each other.
+So we've created virtual logical segmentation of our systems.
+And that's what VLANing is all about.
+And you can extend this beyond just one switch. We can add multiple switches to the environments.
+We can interconnect those switches. And then on each of those systems, those switches, we can create the same VLAN segments.
+So as you can see here now, we have eight computer systems.
+But only four of them can talk to each other. Any of the ones in VLAN 1, they can talk to each other across the switches.
+And then the other four systems, only they can talk to each other on VLAN 2.
+So that's a virtual local area network. It's a way of creating logical network segmentation.
+And if a system in VLAN 1 wanted to talk to a system in VLAN 2, it would have to go through a router.
+And it's at the router that we could apply rules around what traffic's allowed to go where.
+So there you go, VLANs. Now, very much an evolution of VLANs, or what are known as software defined networks.
+And software defined networks are where we essentially abstract away and virtualize everything within a network.
+We can create an entire virtualized network on top of a physical network, or multiple virtualized networks on top of one physical network.
+But before we get into explaining exactly how we do that, we have to define a bit of terminology.
+And that's the difference between the control plane and the data plane.
+So this little diagram that you have up on the screen here, what this is showing you is you've got three different network devices.
+In a traditional network, each network device, each switch, each router is going to have both the control plane and the data plane within the switch.
+So first of all, what's the control plane? The control plane is the intelligence.
+It's the control plane that decides how to forward packets, who they go to across what route it's the decision maker.
+So the control plane decides how to move traffic around, and the data plane is the doer.
+The data plane actually moves the packets based on the direction from the control plane.
+And a traditional network, every single network device out there is configured independently.
+If you want to change the configuration of this switch over here, you have to log into this switch, change this switch's control plane.
+And if you want to change this router over here, you have to log into this router, and change this router's control plane.
+All of the intelligence the control is on each individual device in the network.
+Now, one of the fundamental differences between a traditional network and a software defined network is this.
+You separate out the control plane. The control plane is now all centrally controlled from one location.
+And you still have devices like switches and routers out there and so forth.
+But the big difference is that the intelligence is not at each individual device. It's all centralized.
+So the control plane is running from one central system, which then connects to all the other devices out there to tell them how to forward switch, how to forward packets, how to think essentially.
+So what's the advantage of doing this of centralizing your control plane?
+And by the way, here's another diagram that shows you the difference here between a traditional network and a software defined network, the control plane is separated out.
+So what's the advantage of doing this? Well, it allows you, as the name suggests, it allows you to centralize all the network intelligence.
+So think of it this way. Think of the public cloud. And we've talked about the characteristics of cloud, how it's on-demand self-service, for instance, which means that you can show up at the cloud, request any service, and then magically it just gets done for you.
+We can request all new networks, all new systems, network bandwidth, whatever. And just magically all this gets provisioned for us.
+How does that actually work? Are there people running around AWS's Azure's Google data centers, constantly moving around switches?
+I like to think of them as like an army of bloompas running around doing this. No, I mean, they don't employ armies of bloompas.
+What they have are software that controls everything. So in say the public cloud, if you decide that, you know what, I want this system connected over to that system, and I want this database connected to it, and I want to create a connection to, you know, something else in another data center somewhere else.
+There's no physical switches that have to be moved around. Instead, the centralized intelligence system will say, okay, well, we need to make this connection, that connection, that connection, that whatever.
+It will simply control all of the network devices within the cloud environment from one centralized intelligence system. And that allows programmatic network control, network configuration.
+And what that means is that you can control your entire network now, not by moving around physical plugs and network cables, but by sending software commands.
+The whole idea here is that you can create an entire virtualized network on top of a physical network. And so from a customer's perspective, instead of, you know, configuring a physical switch, or a physical router, or a physical firewall, what they're configuring is a virtual firewall, a virtual router, a virtual switch.
+Which then means that if they want to create a new firewall, if they want to change their firewall configuration, if they want to change their switch, all of it is done through software commands, programmatic control.
+And this allows you to create multiple overlapping IP segments. And think of this again from the public cloud perspective. In the public cloud, you have millions of different users.
+And each of them are allowed to choose whatever IP addresses they want. Normally that would be a problem. In a traditional network, if someone said, you know what, I want 10.0.0.1, and then someone else right beside them said, I want 10.0.0.1, what would you have? You'd have a conflict.
+But because in software-defined networking, we're creating virtual networks. Each virtual network can have whatever configuration they want. They can use whatever IP address ranges they want. They can create whatever virtual network devices they want, and configure them in whatever way they want.
+So fundamentally, software-defined networks are about abstracting away all of the actual physical network, and allowing you to create an entirely virtualized network on top of that. Multiple virtualized networks.
+And here's an example of some of the more capabilities this provides, far greater flexibility to reconfigure things. And this is one of the fundamental building blocks in cloud. When we talk about resource pooling and how we can share the network across multiple clients, it's software-defined networks that enable this.

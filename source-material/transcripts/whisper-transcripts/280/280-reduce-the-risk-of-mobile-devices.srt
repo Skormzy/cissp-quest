@@ -1,0 +1,616 @@
+1
+00:00:00,000 --> 00:00:16,800
+The mobile systems are mobile devices.
+
+2
+00:00:16,800 --> 00:00:17,800
+What are mobile devices?
+
+3
+00:00:17,800 --> 00:00:33,800
+Well, it's all of our devices.
+
+4
+00:00:33,800 --> 00:00:36,800
+Mobile systems are mobile devices.
+
+5
+00:00:36,800 --> 00:00:37,800
+What are mobile devices?
+
+6
+00:00:37,800 --> 00:00:40,800
+Well, it's all of our devices that are mobile.
+
+7
+00:00:40,800 --> 00:00:45,800
+Things like our iPhones, our iPads, our little mini-super computers
+
+8
+00:00:45,800 --> 00:00:50,800
+that we keep in our pockets that store gigabytes, maybe even terabytes of data
+
+9
+00:00:50,800 --> 00:00:54,800
+and are unbelievably powerful little computers.
+
+10
+00:00:54,800 --> 00:00:56,800
+So what's the risk with these mobile devices?
+
+11
+00:00:56,800 --> 00:01:00,800
+Well, it's the fact that they can store so much data nowadays
+
+12
+00:01:00,800 --> 00:01:02,800
+and the fact that they're mobile.
+
+13
+00:01:02,800 --> 00:01:05,800
+Because what inevitably happens is someone puts a bunch of data on this device
+
+14
+00:01:05,800 --> 00:01:07,800
+that probably shouldn't be on there.
+
+15
+00:01:07,800 --> 00:01:11,800
+And then they forget their device somewhere inevitably in the cab,
+
+16
+00:01:11,800 --> 00:01:13,800
+in the airport, on the train.
+
+17
+00:01:13,800 --> 00:01:16,800
+Let's talk about an example of this actually occurring.
+
+18
+00:01:16,800 --> 00:01:20,800
+And it highlights just what the risks are with mobile devices.
+
+19
+00:01:20,800 --> 00:01:26,800
+So there was a healthcare provider in the US, I think it was in Minnesota, in 2011.
+
+20
+00:01:26,800 --> 00:01:31,800
+A employee of that company left their laptop in their car.
+
+21
+00:01:31,800 --> 00:01:36,800
+The laptop had about 20 million records on it, on about 23,000 patients.
+
+22
+00:01:36,800 --> 00:01:41,800
+And they left this laptop in their car when they wanted to do a Starbucks or something like that.
+
+23
+00:01:41,800 --> 00:01:45,800
+And what inevitably happens, the laptop was stolen.
+
+24
+00:01:45,800 --> 00:01:50,800
+There was a whole series of extremely unfortunate events that all occurred
+
+25
+00:01:50,800 --> 00:01:53,800
+because of that lost one lost laptop.
+
+26
+00:01:53,800 --> 00:01:55,800
+So what happened?
+
+27
+00:01:55,800 --> 00:01:57,800
+Well, there was a lawsuit by the Auditor General.
+
+28
+00:01:57,800 --> 00:02:01,800
+There was a giant settlement, millions of dollars with the Auditor General.
+
+29
+00:02:01,800 --> 00:02:05,800
+Their CEO, COO, CFO were all fired and replaced.
+
+30
+00:02:05,800 --> 00:02:10,800
+There was two class action lawsuits from patients whose data was potentially exposed.
+
+31
+00:02:10,800 --> 00:02:14,800
+There was a settlement with the FTC.
+
+32
+00:02:14,800 --> 00:02:16,800
+Over 170 jobs were cut.
+
+33
+00:02:16,800 --> 00:02:20,800
+And as a final kick in the pants, they were delisted from the New York Stock Exchange.
+
+34
+00:02:20,800 --> 00:02:22,800
+They were publicly traded company.
+
+35
+00:02:22,800 --> 00:02:28,800
+All of this, all of these tragic events occurred because of one lost laptop.
+
+36
+00:02:28,800 --> 00:02:30,800
+And then companies never recovered.
+
+37
+00:02:30,800 --> 00:02:32,800
+I've checked on their stock price a couple times since then.
+
+38
+00:02:32,800 --> 00:02:33,800
+And they've never recovered.
+
+39
+00:02:33,800 --> 00:02:35,800
+They've never gotten back to the highs they were once at.
+
+40
+00:02:35,800 --> 00:02:37,800
+And they don't actually exist anymore.
+
+41
+00:02:37,800 --> 00:02:38,800
+They were bought out.
+
+42
+00:02:38,800 --> 00:02:44,800
+So this whole tale of woe was because of one lost or stolen laptop.
+
+43
+00:02:44,800 --> 00:02:46,800
+So let's spend a minute thinking about this.
+
+44
+00:02:46,800 --> 00:02:50,800
+What would be the best way to have prevented this event from occurring?
+
+45
+00:02:50,800 --> 00:02:52,800
+This lost or stolen laptop?
+
+46
+00:02:52,800 --> 00:02:55,800
+And all the horrible things that happened afterwards?
+
+47
+00:02:55,800 --> 00:02:57,800
+About a lot of you were thinking, hold drive encryption.
+
+48
+00:02:57,800 --> 00:03:01,800
+They should have encrypted the entire contents of the hard drive.
+
+49
+00:03:01,800 --> 00:03:06,800
+Because the whole idea behind hold drive encryption is, even if someone steals your laptop,
+
+50
+00:03:06,800 --> 00:03:09,800
+they'll find that all the data is being encrypted.
+
+51
+00:03:09,800 --> 00:03:13,800
+And don't get me wrong, hold drive encryption, excellent idea, defense and depth,
+
+52
+00:03:13,800 --> 00:03:16,800
+have multiple layers of controls, all good.
+
+53
+00:03:16,800 --> 00:03:20,800
+But there's actually more of a flaw in hold drive encryption than most people realize.
+
+54
+00:03:20,800 --> 00:03:25,800
+And that is, while the hold drive encryption is amazing, it'll use, you know, like AES,
+
+55
+00:03:25,800 --> 00:03:30,800
+256-based encryption, it's unbelievably difficult to break the encryption.
+
+56
+00:03:30,800 --> 00:03:34,800
+But the problem is, if someone has stolen your laptop,
+
+57
+00:03:34,800 --> 00:03:38,800
+how long do they have to figure out how to break that encryption?
+
+58
+00:03:38,800 --> 00:03:43,800
+And do they, in fact, need that extremely difficult to find 256-bit key?
+
+59
+00:03:43,800 --> 00:03:44,800
+No.
+
+60
+00:03:44,800 --> 00:03:50,800
+What they, in fact, need to unlock that excellent encryption is the user's password.
+
+61
+00:03:50,800 --> 00:03:53,800
+And how good are our user's passwords?
+
+62
+00:03:53,800 --> 00:03:54,800
+Horrible.
+
+63
+00:03:54,800 --> 00:03:57,800
+The most common password in the world is password.
+
+64
+00:03:57,800 --> 00:04:01,800
+So an attacker that steals a laptop that has hold drive encryption
+
+65
+00:04:01,800 --> 00:04:06,800
+has an unlimited amount of time to try and discover probably a very bad password.
+
+66
+00:04:06,800 --> 00:04:10,800
+And you might be saying, oh, but lots of laptops have protection mechanisms that only allow you
+
+67
+00:04:10,800 --> 00:04:12,800
+to try a password so many times.
+
+68
+00:04:12,800 --> 00:04:17,800
+Well, those mechanisms are pretty easy to defeat if you have physical control of a laptop
+
+69
+00:04:17,800 --> 00:04:18,800
+of its in your possession.
+
+70
+00:04:18,800 --> 00:04:23,800
+So hold drive encryption, not a bad control, but not the best way for preventing this.
+
+71
+00:04:23,800 --> 00:04:24,800
+Okay.
+
+72
+00:04:24,800 --> 00:04:28,800
+What about remote white capabilities?
+
+73
+00:04:28,800 --> 00:04:33,800
+Lots of cell phones and even some laptops have the ability to remotely wipe the device.
+
+74
+00:04:33,800 --> 00:04:38,800
+Again, not a bad control, but not as good as most people think.
+
+75
+00:04:38,800 --> 00:04:43,800
+Because what's required for that remote white capability to be activated?
+
+76
+00:04:43,800 --> 00:04:48,800
+The device has to be sent a signal and the device has to receive that signal.
+
+77
+00:04:48,800 --> 00:04:49,800
+And he's skilled attacker.
+
+78
+00:04:49,800 --> 00:04:52,800
+Soon as they steal a laptop, what are they going to do?
+
+79
+00:04:52,800 --> 00:04:55,800
+Well, they're going to put that laptop in a fair day cage,
+
+80
+00:04:55,800 --> 00:04:59,800
+in an envelope in something that's going to block that signal from being received.
+
+81
+00:04:59,800 --> 00:05:02,800
+And then when they get it back to their criminal layer and their parents' basement,
+
+82
+00:05:02,800 --> 00:05:05,800
+they're going to put themselves in this fair day cage.
+
+83
+00:05:05,800 --> 00:05:12,800
+And so that laptop, is it ever going to receive that kill switch that signal to wipe the drive?
+
+84
+00:05:12,800 --> 00:05:13,800
+Of course not.
+
+85
+00:05:13,800 --> 00:05:17,800
+Now, for reasons, I decided to look into this a little bit.
+
+86
+00:05:17,800 --> 00:05:20,800
+I thought, you know, let's find out how expensive it is to get one of these sleeves
+
+87
+00:05:20,800 --> 00:05:23,800
+that you can put a laptop in a fair day cage, essentially.
+
+88
+00:05:23,800 --> 00:05:28,800
+So I went on Amazon and on Amazon.com, like 2030 bucks, you can get a nice haul quality one.
+
+89
+00:05:28,800 --> 00:05:30,800
+I was like, that's pretty good, not too bad.
+
+90
+00:05:30,800 --> 00:05:32,800
+Then I was like, I bet you can do better.
+
+91
+00:05:32,800 --> 00:05:35,800
+So I went to Alibaba, straight from China, right?
+
+92
+00:05:35,800 --> 00:05:38,800
+On Alibaba, as long as you're willing to buy like 500 of them,
+
+93
+00:05:38,800 --> 00:05:40,800
+you get them for like three bucks a piece.
+
+94
+00:05:40,800 --> 00:05:41,800
+Pretty darn good.
+
+95
+00:05:41,800 --> 00:05:44,800
+But then I thought, you know what? I can do even better.
+
+96
+00:05:44,800 --> 00:05:46,800
+So it turns out, bag of chips.
+
+97
+00:05:46,800 --> 00:05:50,800
+If you open up a bag of chips, you see that silver lining inside, it's mylar.
+
+98
+00:05:50,800 --> 00:05:52,800
+It's a pretty good blocker of radio waves.
+
+99
+00:05:53,800 --> 00:05:57,800
+So you go to Costco, buy yourselves a jumbo bag of chips, you got snacks,
+
+100
+00:05:57,800 --> 00:06:00,800
+you got the fair day cage you need, there you go.
+
+101
+00:06:00,800 --> 00:06:03,800
+You can defeat the remote wipe capability.
+
+102
+00:06:03,800 --> 00:06:08,800
+So what's the best answer for how we prevent this type of mobile data breach?
+
+103
+00:06:08,800 --> 00:06:13,800
+The best answer in fact is to not have the data on the laptop.
+
+104
+00:06:13,800 --> 00:06:18,800
+If there isn't sensitive data on the laptop, then there's no worries about that laptop being lost or stolen,
+
+105
+00:06:18,800 --> 00:06:21,800
+which is inevitably going to happen.
+
+106
+00:06:21,800 --> 00:06:26,800
+So it turns out, one of the best ways of preventing these types of breaches is policies,
+
+107
+00:06:26,800 --> 00:06:29,800
+procedures, user awareness training, and education,
+
+108
+00:06:29,800 --> 00:06:34,800
+so that users know not to store highly sensitive data on their mobile devices.
+
+109
+00:06:34,800 --> 00:06:39,800
+So when we think about how do we reduce the risk of mobile devices,
+
+110
+00:06:39,800 --> 00:06:42,800
+one of the best ways is through policy, education, awareness.
+
+111
+00:06:42,800 --> 00:06:46,800
+And then of course, do have the other physically and the other controls in place,
+
+112
+00:06:46,800 --> 00:06:49,800
+still a very good idea, defense and depth to have things like whole drive encryption,
+
+113
+00:06:49,800 --> 00:06:54,800
+to have remote wipe capabilities, to have good anti-malware capabilities, whatever.
+
+114
+00:06:54,800 --> 00:06:58,800
+You know, still use all those controls, but the best one, training and awareness.
+
+115
+00:06:58,800 --> 00:07:03,800
+Now let's talk about a couple of other controls that are really important to have with mobile devices.
+
+116
+00:07:03,800 --> 00:07:08,800
+And we'll get into how you secure the connection between mobile device and the device itself at a moment.
+
+117
+00:07:08,800 --> 00:07:13,800
+But one other thing we should spend a moment on here is if you're writing an application
+
+118
+00:07:13,800 --> 00:07:16,800
+that's going to be used on a mobile device, which is very common nowadays,
+
+119
+00:07:16,800 --> 00:07:21,800
+writing apps and web apps for phones and laptops and things like that.
+
+120
+00:07:21,800 --> 00:07:24,800
+There's a really good set of guidance out there.
+
+121
+00:07:24,800 --> 00:07:30,800
+A top 10 list of the top 10 things you should probably avoid when you're creating your mobile application.
+
+122
+00:07:30,800 --> 00:07:33,800
+So there's an organization out there that probably many of you have heard of,
+
+123
+00:07:33,800 --> 00:07:38,800
+a WASP. They do a really great job of investigating mobile devices,
+
+124
+00:07:38,800 --> 00:07:42,800
+web applications, things like that, and figuring out what are the top 10 security risks
+
+125
+00:07:42,800 --> 00:07:47,800
+that cause the vast majority of the breaches. And they've created a mobile device top 10,
+
+126
+00:07:47,800 --> 00:07:53,800
+and it's listed here on the screen. Don't need to memorize it, but do know what you could use something like this for.
+
+127
+00:07:53,800 --> 00:07:59,800
+And the use of something like this is if you're developing an application or a group within your organization
+
+128
+00:07:59,800 --> 00:08:04,800
+is developing an application, they should be very aware of things like the OOS mobile top 10.
+
+129
+00:08:04,800 --> 00:08:11,800
+And they should be making sure that the application they're creating is not vulnerable to any of these top 10 things.
+
+130
+00:08:11,800 --> 00:08:17,800
+Continuing on the concept of policies related to mobile devices.
+
+131
+00:08:17,800 --> 00:08:22,800
+A couple of major policies you should have related to mobile devices are things like an acceptable use policy.
+
+132
+00:08:22,800 --> 00:08:29,800
+What mobile devices can and can't be used for? For organizations that allow employees to bring in their own devices,
+
+133
+00:08:29,800 --> 00:08:33,800
+their own phones, you should have things like BYOD or CYOD policies.
+
+134
+00:08:33,800 --> 00:08:37,800
+Bring your own device. I always think it's BYOD, bring your own booths, but that's totally different thing.
+
+135
+00:08:37,800 --> 00:08:45,800
+So BYOD is bring your own device, CYOD carry your own device. These are policies that define if someone's bringing in their own personal device,
+
+136
+00:08:45,800 --> 00:08:49,800
+requiring, for instance, certain security controls be there from a corporate perspective,
+
+137
+00:08:49,800 --> 00:08:53,800
+making sure the phones aren't jail-broken, that they have a whole drive encryption, that sort of thing.
+
+138
+00:08:53,800 --> 00:08:57,800
+And it's also a good idea to have a policy around personal computers.
+
+139
+00:08:57,800 --> 00:09:06,800
+And in my opinion that policy should be, no personal computers allowed, it's very, very difficult for an organization to know that a personal computer is secure.
+
+140
+00:09:07,800 --> 00:09:18,800
+There's so many ways to install, backdoor is an unintended, you know, things on a laptop that a corporation does not want to bring into their environment.
+
+141
+00:09:18,800 --> 00:09:25,800
+Now when we think about mobile devices, the whole point of having a mobile device is you can use it wherever you are anywhere in the world.
+
+142
+00:09:25,800 --> 00:09:29,800
+And often we are connecting that mobile device back to our corporate network.
+
+143
+00:09:29,800 --> 00:09:34,800
+And we're transferring data back and forth between wherever we are in the world and the corporate network.
+
+144
+00:09:34,800 --> 00:09:41,800
+And where is that data transiting? The internet. The biggest hive of vile scum in the world, right?
+
+145
+00:09:41,800 --> 00:09:48,800
+I mean, it's the internet. No traffic going around across the internet should be secure traffic, unless that traffic is encrypted.
+
+146
+00:09:48,800 --> 00:09:55,800
+So an important security control to have with mobile devices is to encrypt the traffic between the mobile device and the corporate network.
+
+147
+00:09:55,800 --> 00:10:00,800
+And while we often use for this, our solutions like VPNs, virtual private networks.
+
+148
+00:10:00,800 --> 00:10:03,800
+And we'll talk about VPNs in a lot more detail in the networking domain.
+
+149
+00:10:03,800 --> 00:10:10,800
+The final consideration is the security of the endpoint itself, even if you have the most secure connection in the world.
+
+150
+00:10:10,800 --> 00:10:19,800
+An attacker is still going to know all the sensitive data if they have control of the endpoint if they've somehow installed a backdoor or malware on the phone or the laptop.
+
+151
+00:10:19,800 --> 00:10:28,800
+So the final major piece of mobile security is how do you actually make sure that the endpoint that the laptop, iPad, phone is actually secure.
+
+152
+00:10:28,800 --> 00:10:36,800
+And that's that we use that concept of hardening, right, where you go through whatever the appropriate security controls are to disable on an unnecessary services,
+
+153
+00:10:36,800 --> 00:10:40,800
+close unneeded ports, install anti malware, all those sorts of things.
+
+154
+00:10:40,800 --> 00:10:44,800
+And you should do that for any of your mobile devices that you're using out there.
+

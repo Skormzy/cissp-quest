@@ -1,0 +1,197 @@
+WEBVTT
+
+00:00.000 --> 00:20.000
+All right, so let's refocus a bit on what we've been talking about in this video.
+
+00:30.000 --> 00:41.000
+All right, so let's refocus a bit on what we've been talking about in this entire domain.
+
+00:41.000 --> 00:45.000
+As you know, this domain is called security architecture and engineering.
+
+00:45.000 --> 00:59.000
+And so we're talking about how we protect architectures, but the engineering part of that is how we protect each of the components that make up an architecture by protecting and designing security into each.
+
+00:59.000 --> 01:04.000
+Of the components as we build, for example, the architectures.
+
+01:04.000 --> 01:11.000
+Now, one of the best ways to provide security today is to include and use cryptography.
+
+01:11.000 --> 01:19.000
+And so over the last 50 years or so, cryptography has been something that has been really helpful to us in security.
+
+01:19.000 --> 01:31.000
+And so as security professionals, we need to understand not only, for example, that it is cryptography that provides the services that we are achieving, but how it actually works.
+
+01:31.000 --> 01:39.000
+We need to have an appreciation for how cryptography actually works so that we understand the level of security that it provides.
+
+01:39.000 --> 01:51.000
+And so let's start right with the basics. In fact, if you take the word cryptography itself and you break it up into its two parts, you've got crypto and graphy.
+
+01:51.000 --> 02:00.000
+Now, both of those have Greek roots. In fact, both of those words come from Greek and the words are cryptos and graphy.
+
+02:00.000 --> 02:10.000
+And if you look at the word cryptos in Greek, it actually translates into the word secret and the word graphy translates into the word writing.
+
+02:10.000 --> 02:21.000
+So cryptography is all about writing secrets. Any method that takes, for example, a message or data and it turns it into a secret is a form of cryptography.
+
+02:21.000 --> 02:28.000
+Now, the question is, why do you want to turn something into a secret? And the obvious answer to that is to keep it confidential.
+
+02:28.000 --> 02:44.000
+And you'll see that confidentiality is the main goal of cryptography, but it can really achieve some other really important services that have become essential in how we protect not only information, but other assets by using cryptography itself.
+
+02:44.000 --> 02:51.000
+But for now, let's remember that cryptography means secret writing or turning something into a secret.
+
+02:51.000 --> 03:03.000
+And in fact, the history of cryptography is something that we know is thousands of years old. It's been around for at least 4,000 years, at least that's what historians tell us.
+
+03:03.000 --> 03:13.000
+And the first recorded example of cryptography is actually the Egyptians by using their hieroglyphs.
+
+03:13.000 --> 03:22.000
+And if you've seen these or studied them, you know what they look like, but those symbols that the Egyptians used had a particular meaning.
+
+03:22.000 --> 03:31.000
+But what they did is they specifically kept the meaning of certain symbols from certain user populations to keep an edge over them.
+
+03:31.000 --> 03:40.000
+Because, as you know, throughout history, knowledge is power. And so if you can keep certain knowledge from certain people, you typically have an edge over them.
+
+03:40.000 --> 03:49.000
+And that's why, you know, cryptography is obviously thousands of years old, but it's also been used by, for example, royalty throughout history.
+
+03:49.000 --> 04:06.000
+And so we've got kings and queens and the upper classes throughout history that have used cryptography to try and keep an edge over the common people, as we said before, because if you can keep knowledge from certain power or from certain people, you'll have power over them.
+
+04:06.000 --> 04:12.000
+And so we've also seen some other examples of where cryptography has been used extensively.
+
+04:12.000 --> 04:22.000
+And one of those examples is actually the enigma machine. So the Germans use the enigma machine during the Second World War to try and keep information secret from the Allied forces.
+
+04:22.000 --> 04:38.000
+But when you look at how that enigma machine actually provides security, even by today's standards, it's something that is excellent and protects information really well, even given the technology that we have today to be able to break, for example, something like that.
+
+04:38.000 --> 04:49.000
+And so they had a really good system to keep information secret, and they actually made it even more secure because they changed the key, for example, every day.
+
+04:49.000 --> 05:00.000
+So the key that the enigma machine actually used was something that only lasted one whole day, and then they would change the key at midnight, the very next day, and so on.
+
+05:00.000 --> 05:25.000
+And so they made it even stronger as the way that they used it. But if you know anything about the history of the enigma machine, the Allied forces were actually able to decrypt messages almost in real time, because they were able to figure out some of the patterns, and some of the things that the Germans did that was not very well, not in using the method itself, which is the enigma machine.
+
+05:25.000 --> 05:40.000
+But in the key management that it used, and the reason we're talking about this is because in every implementation of cryptography, what becomes the most important thing is what we call key management.
+
+05:40.000 --> 05:54.000
+Everything else is going to be known, like the methods, for example. In fact, when you look at what the enigma machine was, the Allied forces had plans of what the enigma machine looked like even before the war started.
+
+05:54.000 --> 06:05.000
+And so it's not usually the method or the algorithm, for example, that provides the weakness in how cryptography is sometimes broken.
+
+06:05.000 --> 06:15.000
+The breaking of cryptography systems and the security of cryptography systems is dictated by one thing alone, and that is the key management implementation.
+
+06:15.000 --> 06:29.000
+And if you look at the history of the Second World War, you'll see that the ability of the Allied forces to be able to actually break the enigma codes and read the messages that the Germans were encrypting is what changed the balance of power.
+
+06:29.000 --> 06:36.000
+But what made that system fail was not the enigma machine itself, it's very strong even by today's standards.
+
+06:36.000 --> 06:49.000
+What made it fail was the key management implementation, and throughout history, every failure of cryptography has really been because of a key management implementation issue.
+
+06:49.000 --> 06:57.000
+That's what breaks cryptography is how you handle the keys, which we've referred to as key management, of course.
+
+06:57.000 --> 07:05.000
+And so that's just one example of how obviously, you know, cryptography has failed throughout history.
+
+07:05.000 --> 07:23.000
+Now, if you look at any cryptography book, or what cryptographers like to talk about as being the history of cryptography, they will divide that history in what they call eras, or ages, for example, and typically they are these five that you see on this slide here.
+
+07:23.000 --> 07:33.000
+We've said that cryptography is at least 4,000 years old, but most of that would fit into what we call the manual era of cryptography.
+
+07:33.000 --> 07:48.000
+And examples of that would be simple rearrangements of letters, for example, and how kings and queens and others try to keep information secret from the common people by simply rearranging letters.
+
+07:48.000 --> 07:53.000
+A perfect example of this one would be what you might be aware of, and that is the Caesar cipher.
+
+07:53.000 --> 08:04.000
+Julius Caesar used a very simple substitution algorithm back in his days, and all he did was shifted the alphabet by three characters.
+
+08:04.000 --> 08:12.000
+And that was really effective back in his day, although by today's standards, something like that obviously would not be very effective.
+
+08:12.000 --> 08:22.000
+But because people didn't know how to read, and his enemies didn't know how to interpret the Roman language back in those days, that system was very effective.
+
+08:22.000 --> 08:33.000
+Now, the next era of cryptography is what we call mechanical, and people figured out pretty quickly that doing cryptography by hand is a very slow process.
+
+08:33.000 --> 08:41.000
+And so we have attempts to try and speed up how we can encrypt and decrypt information quicker by using machines.
+
+08:41.000 --> 08:46.000
+Something that would fit in this category is something called the Skytail.
+
+08:46.000 --> 08:52.000
+And the Skytail is something that the Greeks used in the Greek Wars, the Trojans, and so on.
+
+08:52.000 --> 09:09.000
+And the way that worked is if you can imagine a rod of a specific size and length, what they did is they wrapped a leather around this rod from one end to the other, and then what they did is they wrote their message on one side of it.
+
+09:09.000 --> 09:15.000
+So that when you take the leather off this Skytail, you'd have characters that appeared all over the place.
+
+09:15.000 --> 09:23.000
+The only way you'd be able to read the message would be to have an exact same duplicate size and length rod at the other end.
+
+09:23.000 --> 09:30.000
+And that's what they used in order to provide secrecy of certain messages and so on.
+
+09:30.000 --> 09:35.000
+The next era of cryptography is what they call electro-mechanical.
+
+09:35.000 --> 09:46.000
+And at the advent of electricity, we saw that we could speed up a lot of things, and the Enigma machine is something that would fit in this category as well.
+
+09:46.000 --> 09:50.000
+Most cryptography today is what we call electronic.
+
+09:50.000 --> 10:01.000
+And what that simply means is that it's driven by software applications, systems, for example, that most people refer to as crypto systems.
+
+10:01.000 --> 10:11.000
+And as long as you and I, for example, implement the same set of applications at both ends, the same crypto system at both ends, you and I can communicate using cryptography.
+
+10:11.000 --> 10:21.000
+And typically these crypto systems will have support for what we call algorithms and the use of keys that we're going to describe later on.
+
+10:21.000 --> 10:33.000
+But examples of software-based encryption which is used today in all kinds of applications and protocols and technologies and architectures would be some of the things that you see here.
+
+10:33.000 --> 10:45.000
+Like PGP is a perfect example of a crypto system, but also the algorithms, for example, that are built into some of those crypto systems like AES and triple des and so on.
+
+10:45.000 --> 10:51.000
+These are examples of software-based encryption algorithms that are supported through crypto systems.
+
+10:51.000 --> 11:06.000
+The next evolution of cryptography is something that they've already done some advancements in and it's related to what we call quantum cryptography, which uses quantum computing techniques that rely on quantum physics.
+
+11:06.000 --> 11:16.000
+We're not going to get into that obviously hard for us to understand, but basically all they've been able to do in that regard are things related to key management.
+
+11:16.000 --> 11:23.000
+So these are the five eras that represent the history of cryptography which we said is thousands of years old.
+

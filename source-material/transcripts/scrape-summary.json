@@ -1,0 +1,2017 @@
+{
+  "scrapedAt": "2026-04-05T09:05:14.295Z",
+  "site": "https://my.destcert.com",
+  "totalLessons": 251,
+  "successfulTranscripts": 162,
+  "failedTranscripts": 89,
+  "lessons": [
+    {
+      "index": 1,
+      "title": "Lesson 193",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 6174,
+      "errors": []
+    },
+    {
+      "index": 2,
+      "title": "Lesson 194",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 6137,
+      "errors": []
+    },
+    {
+      "index": 3,
+      "title": "Lesson 195",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2678,
+      "errors": []
+    },
+    {
+      "index": 4,
+      "title": "Lesson 196",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1967,
+      "errors": []
+    },
+    {
+      "index": 5,
+      "title": "Lesson 197",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1913,
+      "errors": []
+    },
+    {
+      "index": 6,
+      "title": "Lesson 198",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 10249,
+      "errors": []
+    },
+    {
+      "index": 7,
+      "title": "Lesson 199",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4344,
+      "errors": []
+    },
+    {
+      "index": 8,
+      "title": "Lesson 200",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4936,
+      "errors": []
+    },
+    {
+      "index": 9,
+      "title": "Lesson 201",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4106,
+      "errors": []
+    },
+    {
+      "index": 10,
+      "title": "Lesson 202",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2656,
+      "errors": []
+    },
+    {
+      "index": 11,
+      "title": "Lesson 203",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2199,
+      "errors": []
+    },
+    {
+      "index": 12,
+      "title": "Lesson 204",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 14263,
+      "errors": []
+    },
+    {
+      "index": 13,
+      "title": "Lesson 205",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2680,
+      "errors": []
+    },
+    {
+      "index": 14,
+      "title": "Lesson 206",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2680,
+      "errors": []
+    },
+    {
+      "index": 15,
+      "title": "Lesson 207",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1947,
+      "errors": []
+    },
+    {
+      "index": 16,
+      "title": "Lesson 208",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2696,
+      "errors": []
+    },
+    {
+      "index": 17,
+      "title": "Lesson 209",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2652,
+      "errors": []
+    },
+    {
+      "index": 18,
+      "title": "Lesson 210",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2167,
+      "errors": []
+    },
+    {
+      "index": 19,
+      "title": "Lesson 211",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2149,
+      "errors": []
+    },
+    {
+      "index": 20,
+      "title": "Lesson 212",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 9133,
+      "errors": []
+    },
+    {
+      "index": 21,
+      "title": "Lesson 213",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 8578,
+      "errors": []
+    },
+    {
+      "index": 22,
+      "title": "Lesson 214",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 12448,
+      "errors": []
+    },
+    {
+      "index": 23,
+      "title": "Lesson 215",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2716,
+      "errors": []
+    },
+    {
+      "index": 24,
+      "title": "Lesson 216",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2686,
+      "errors": []
+    },
+    {
+      "index": 25,
+      "title": "Lesson 217",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1961,
+      "errors": []
+    },
+    {
+      "index": 26,
+      "title": "Lesson 218",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1935,
+      "errors": []
+    },
+    {
+      "index": 27,
+      "title": "Lesson 219",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1957,
+      "errors": []
+    },
+    {
+      "index": 28,
+      "title": "Lesson 220",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1927,
+      "errors": []
+    },
+    {
+      "index": 29,
+      "title": "Lesson 221",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2135,
+      "errors": []
+    },
+    {
+      "index": 30,
+      "title": "Lesson 222",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3776,
+      "errors": []
+    },
+    {
+      "index": 31,
+      "title": "Lesson 223",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 2875,
+      "errors": []
+    },
+    {
+      "index": 32,
+      "title": "Lesson 224",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2638,
+      "errors": []
+    },
+    {
+      "index": 33,
+      "title": "Lesson 225",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2177,
+      "errors": []
+    },
+    {
+      "index": 34,
+      "title": "Lesson 226",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 6223,
+      "errors": []
+    },
+    {
+      "index": 35,
+      "title": "Lesson 227",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 1629,
+      "errors": []
+    },
+    {
+      "index": 36,
+      "title": "Lesson 228",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 6343,
+      "errors": []
+    },
+    {
+      "index": 37,
+      "title": "Lesson 229",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 5684,
+      "errors": []
+    },
+    {
+      "index": 38,
+      "title": "Lesson 230",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3850,
+      "errors": []
+    },
+    {
+      "index": 39,
+      "title": "Lesson 231",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 2208,
+      "errors": []
+    },
+    {
+      "index": 40,
+      "title": "Lesson 232",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 12150,
+      "errors": []
+    },
+    {
+      "index": 41,
+      "title": "Lesson 233",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1951,
+      "errors": []
+    },
+    {
+      "index": 42,
+      "title": "Lesson 234",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 1666,
+      "errors": []
+    },
+    {
+      "index": 43,
+      "title": "Lesson 235",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3876,
+      "errors": []
+    },
+    {
+      "index": 44,
+      "title": "Lesson 236",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3266,
+      "errors": []
+    },
+    {
+      "index": 45,
+      "title": "Lesson 237",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2706,
+      "errors": []
+    },
+    {
+      "index": 46,
+      "title": "Lesson 238",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2662,
+      "errors": []
+    },
+    {
+      "index": 47,
+      "title": "Lesson 239",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2656,
+      "errors": []
+    },
+    {
+      "index": 48,
+      "title": "Lesson 240",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2181,
+      "errors": []
+    },
+    {
+      "index": 49,
+      "title": "Lesson 241",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2102,
+      "errors": []
+    },
+    {
+      "index": 50,
+      "title": "Lesson 242",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2779,
+      "errors": []
+    },
+    {
+      "index": 51,
+      "title": "Lesson 243",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 6727,
+      "errors": []
+    },
+    {
+      "index": 52,
+      "title": "Lesson 244",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 10871,
+      "errors": []
+    },
+    {
+      "index": 53,
+      "title": "Lesson 245",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 8271,
+      "errors": []
+    },
+    {
+      "index": 54,
+      "title": "Lesson 246",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 8012,
+      "errors": []
+    },
+    {
+      "index": 55,
+      "title": "Lesson 247",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1931,
+      "errors": []
+    },
+    {
+      "index": 56,
+      "title": "Lesson 248",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1971,
+      "errors": []
+    },
+    {
+      "index": 57,
+      "title": "Lesson 249",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3569,
+      "errors": []
+    },
+    {
+      "index": 58,
+      "title": "Lesson 250",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2686,
+      "errors": []
+    },
+    {
+      "index": 59,
+      "title": "Lesson 251",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1989,
+      "errors": []
+    },
+    {
+      "index": 60,
+      "title": "Lesson 252",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2181,
+      "errors": []
+    },
+    {
+      "index": 61,
+      "title": "Lesson 253",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2736,
+      "errors": []
+    },
+    {
+      "index": 62,
+      "title": "Lesson 254",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2658,
+      "errors": []
+    },
+    {
+      "index": 63,
+      "title": "Lesson 255",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1931,
+      "errors": []
+    },
+    {
+      "index": 64,
+      "title": "Lesson 256",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2011,
+      "errors": []
+    },
+    {
+      "index": 65,
+      "title": "Lesson 257",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1973,
+      "errors": []
+    },
+    {
+      "index": 66,
+      "title": "Lesson 258",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 17636,
+      "errors": []
+    },
+    {
+      "index": 67,
+      "title": "Lesson 259",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4096,
+      "errors": []
+    },
+    {
+      "index": 68,
+      "title": "Lesson 260",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2708,
+      "errors": []
+    },
+    {
+      "index": 69,
+      "title": "Lesson 261",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2662,
+      "errors": []
+    },
+    {
+      "index": 70,
+      "title": "Lesson 262",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2211,
+      "errors": []
+    },
+    {
+      "index": 71,
+      "title": "Lesson 263",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2102,
+      "errors": []
+    },
+    {
+      "index": 72,
+      "title": "Lesson 264",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 7715,
+      "errors": []
+    },
+    {
+      "index": 73,
+      "title": "Lesson 265",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 19050,
+      "errors": []
+    },
+    {
+      "index": 74,
+      "title": "Lesson 266",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 6676,
+      "errors": []
+    },
+    {
+      "index": 75,
+      "title": "Lesson 267",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2682,
+      "errors": []
+    },
+    {
+      "index": 76,
+      "title": "Lesson 268",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2680,
+      "errors": []
+    },
+    {
+      "index": 77,
+      "title": "Lesson 269",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1973,
+      "errors": []
+    },
+    {
+      "index": 78,
+      "title": "Lesson 270",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 6202,
+      "errors": []
+    },
+    {
+      "index": 79,
+      "title": "Lesson 271",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2720,
+      "errors": []
+    },
+    {
+      "index": 80,
+      "title": "Lesson 272",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2189,
+      "errors": []
+    },
+    {
+      "index": 81,
+      "title": "Lesson 273",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3142,
+      "errors": []
+    },
+    {
+      "index": 82,
+      "title": "Lesson 274",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4088,
+      "errors": []
+    },
+    {
+      "index": 83,
+      "title": "Lesson 276",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2019,
+      "errors": []
+    },
+    {
+      "index": 84,
+      "title": "Lesson 277",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2035,
+      "errors": []
+    },
+    {
+      "index": 85,
+      "title": "Lesson 278",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1943,
+      "errors": []
+    },
+    {
+      "index": 86,
+      "title": "Lesson 279",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 5545,
+      "errors": []
+    },
+    {
+      "index": 87,
+      "title": "Lesson 280",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2700,
+      "errors": []
+    },
+    {
+      "index": 88,
+      "title": "Lesson 281",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2169,
+      "errors": []
+    },
+    {
+      "index": 89,
+      "title": "Lesson 282",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2686,
+      "errors": []
+    },
+    {
+      "index": 90,
+      "title": "Lesson 283",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2708,
+      "errors": []
+    },
+    {
+      "index": 91,
+      "title": "Lesson 284",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2003,
+      "errors": []
+    },
+    {
+      "index": 92,
+      "title": "Lesson 285",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1949,
+      "errors": []
+    },
+    {
+      "index": 93,
+      "title": "Lesson 286",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1905,
+      "errors": []
+    },
+    {
+      "index": 94,
+      "title": "Lesson 287",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2712,
+      "errors": []
+    },
+    {
+      "index": 95,
+      "title": "Lesson 288",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2660,
+      "errors": []
+    },
+    {
+      "index": 96,
+      "title": "Lesson 289",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2169,
+      "errors": []
+    },
+    {
+      "index": 97,
+      "title": "Lesson 290",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3290,
+      "errors": []
+    },
+    {
+      "index": 98,
+      "title": "Lesson 291",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2007,
+      "errors": []
+    },
+    {
+      "index": 99,
+      "title": "Lesson 292",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1931,
+      "errors": []
+    },
+    {
+      "index": 100,
+      "title": "Lesson 293",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 1949,
+      "errors": []
+    },
+    {
+      "index": 101,
+      "title": "Lesson 294",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 1758,
+      "errors": []
+    },
+    {
+      "index": 102,
+      "title": "Lesson 295",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2700,
+      "errors": []
+    },
+    {
+      "index": 103,
+      "title": "Lesson 296",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2730,
+      "errors": []
+    },
+    {
+      "index": 104,
+      "title": "Lesson 297",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 13552,
+      "errors": []
+    },
+    {
+      "index": 105,
+      "title": "Lesson 298",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 9180,
+      "errors": []
+    },
+    {
+      "index": 106,
+      "title": "Lesson 299",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4565,
+      "errors": []
+    },
+    {
+      "index": 107,
+      "title": "Lesson 300",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2684,
+      "errors": []
+    },
+    {
+      "index": 108,
+      "title": "Lesson 301",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 9705,
+      "errors": []
+    },
+    {
+      "index": 109,
+      "title": "Lesson 302",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 11430,
+      "errors": []
+    },
+    {
+      "index": 110,
+      "title": "Lesson 303",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 6203,
+      "errors": []
+    },
+    {
+      "index": 111,
+      "title": "Lesson 304",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 7392,
+      "errors": []
+    },
+    {
+      "index": 112,
+      "title": "Lesson 305",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2670,
+      "errors": []
+    },
+    {
+      "index": 113,
+      "title": "Lesson 306",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2674,
+      "errors": []
+    },
+    {
+      "index": 114,
+      "title": "Lesson 307",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 10023,
+      "errors": []
+    },
+    {
+      "index": 115,
+      "title": "Lesson 308",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 8440,
+      "errors": []
+    },
+    {
+      "index": 116,
+      "title": "Lesson 309",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2935,
+      "errors": []
+    },
+    {
+      "index": 117,
+      "title": "Lesson 310",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2774,
+      "errors": []
+    },
+    {
+      "index": 118,
+      "title": "Lesson 311",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2752,
+      "errors": []
+    },
+    {
+      "index": 119,
+      "title": "Lesson 312",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2658,
+      "errors": []
+    },
+    {
+      "index": 120,
+      "title": "Lesson 313",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2634,
+      "errors": []
+    },
+    {
+      "index": 121,
+      "title": "Lesson 314",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2154,
+      "errors": []
+    },
+    {
+      "index": 122,
+      "title": "Lesson 315",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2142,
+      "errors": []
+    },
+    {
+      "index": 123,
+      "title": "Lesson 316",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2226,
+      "errors": []
+    },
+    {
+      "index": 124,
+      "title": "Lesson 317",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2078,
+      "errors": []
+    },
+    {
+      "index": 125,
+      "title": "Lesson 318",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 10854,
+      "errors": []
+    },
+    {
+      "index": 126,
+      "title": "Lesson 319",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2829,
+      "errors": []
+    },
+    {
+      "index": 127,
+      "title": "Lesson 320",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 5654,
+      "errors": []
+    },
+    {
+      "index": 128,
+      "title": "Lesson 321",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 7561,
+      "errors": []
+    },
+    {
+      "index": 129,
+      "title": "Lesson 322",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2702,
+      "errors": []
+    },
+    {
+      "index": 130,
+      "title": "Lesson 323",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2698,
+      "errors": []
+    },
+    {
+      "index": 131,
+      "title": "Lesson 324",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2117,
+      "errors": []
+    },
+    {
+      "index": 132,
+      "title": "Lesson 325",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2084,
+      "errors": []
+    },
+    {
+      "index": 133,
+      "title": "Lesson 326",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2130,
+      "errors": []
+    },
+    {
+      "index": 134,
+      "title": "Lesson 327",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2080,
+      "errors": []
+    },
+    {
+      "index": 135,
+      "title": "Lesson 328",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 2778,
+      "errors": []
+    },
+    {
+      "index": 136,
+      "title": "Lesson 329",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4392,
+      "errors": []
+    },
+    {
+      "index": 137,
+      "title": "Lesson 330",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2696,
+      "errors": []
+    },
+    {
+      "index": 138,
+      "title": "Lesson 331",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2676,
+      "errors": []
+    },
+    {
+      "index": 139,
+      "title": "Lesson 332",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 2817,
+      "errors": []
+    },
+    {
+      "index": 140,
+      "title": "Lesson 333",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 5032,
+      "errors": []
+    },
+    {
+      "index": 141,
+      "title": "Lesson 334",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 14239,
+      "errors": []
+    },
+    {
+      "index": 142,
+      "title": "Lesson 335",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 5291,
+      "errors": []
+    },
+    {
+      "index": 143,
+      "title": "Lesson 336",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 9099,
+      "errors": []
+    },
+    {
+      "index": 144,
+      "title": "Lesson 337",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 2574,
+      "errors": []
+    },
+    {
+      "index": 145,
+      "title": "Lesson 338",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3129,
+      "errors": []
+    },
+    {
+      "index": 146,
+      "title": "Lesson 339",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 6629,
+      "errors": []
+    },
+    {
+      "index": 147,
+      "title": "Lesson 340",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4580,
+      "errors": []
+    },
+    {
+      "index": 148,
+      "title": "Lesson 342",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 7400,
+      "errors": []
+    },
+    {
+      "index": 149,
+      "title": "Lesson 343",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 2079,
+      "errors": []
+    },
+    {
+      "index": 150,
+      "title": "Lesson 344",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3750,
+      "errors": []
+    },
+    {
+      "index": 151,
+      "title": "Lesson 345",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3604,
+      "errors": []
+    },
+    {
+      "index": 152,
+      "title": "Lesson 346",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 2156,
+      "errors": []
+    },
+    {
+      "index": 153,
+      "title": "Lesson 347",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 1441,
+      "errors": []
+    },
+    {
+      "index": 154,
+      "title": "Lesson 348",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 2456,
+      "errors": []
+    },
+    {
+      "index": 155,
+      "title": "Lesson 349",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 913,
+      "errors": []
+    },
+    {
+      "index": 156,
+      "title": "Lesson 350",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 2536,
+      "errors": []
+    },
+    {
+      "index": 157,
+      "title": "Lesson 351",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 1365,
+      "errors": []
+    },
+    {
+      "index": 158,
+      "title": "Lesson 352",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 5245,
+      "errors": []
+    },
+    {
+      "index": 159,
+      "title": "Lesson 353",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 19635,
+      "errors": []
+    },
+    {
+      "index": 160,
+      "title": "Lesson 354",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 6982,
+      "errors": []
+    },
+    {
+      "index": 161,
+      "title": "Lesson 355",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 5452,
+      "errors": []
+    },
+    {
+      "index": 162,
+      "title": "Lesson 356",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4389,
+      "errors": []
+    },
+    {
+      "index": 163,
+      "title": "Lesson 357",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 18477,
+      "errors": []
+    },
+    {
+      "index": 164,
+      "title": "Lesson 358",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 2791,
+      "errors": []
+    },
+    {
+      "index": 165,
+      "title": "Lesson 359",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 5480,
+      "errors": []
+    },
+    {
+      "index": 166,
+      "title": "Lesson 360",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 2472,
+      "errors": []
+    },
+    {
+      "index": 167,
+      "title": "Lesson 361",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4086,
+      "errors": []
+    },
+    {
+      "index": 168,
+      "title": "Lesson 362",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3090,
+      "errors": []
+    },
+    {
+      "index": 169,
+      "title": "Lesson 363",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 5042,
+      "errors": []
+    },
+    {
+      "index": 170,
+      "title": "Lesson 364",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 21696,
+      "errors": []
+    },
+    {
+      "index": 171,
+      "title": "Lesson 365",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4508,
+      "errors": []
+    },
+    {
+      "index": 172,
+      "title": "Lesson 366",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 15234,
+      "errors": []
+    },
+    {
+      "index": 173,
+      "title": "Lesson 367",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 10505,
+      "errors": []
+    },
+    {
+      "index": 174,
+      "title": "Lesson 368",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3651,
+      "errors": []
+    },
+    {
+      "index": 175,
+      "title": "Lesson 369",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3462,
+      "errors": []
+    },
+    {
+      "index": 176,
+      "title": "Lesson 370",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3901,
+      "errors": []
+    },
+    {
+      "index": 177,
+      "title": "Lesson 371",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 12511,
+      "errors": []
+    },
+    {
+      "index": 178,
+      "title": "Lesson 372",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 2876,
+      "errors": []
+    },
+    {
+      "index": 179,
+      "title": "Lesson 373",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 9681,
+      "errors": []
+    },
+    {
+      "index": 180,
+      "title": "Lesson 374",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 11673,
+      "errors": []
+    },
+    {
+      "index": 181,
+      "title": "Lesson 375",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 14486,
+      "errors": []
+    },
+    {
+      "index": 182,
+      "title": "Lesson 376",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2947,
+      "errors": []
+    },
+    {
+      "index": 183,
+      "title": "Lesson 377",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 6037,
+      "errors": []
+    },
+    {
+      "index": 184,
+      "title": "Lesson 378",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 989,
+      "errors": []
+    },
+    {
+      "index": 185,
+      "title": "Lesson 379",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 8781,
+      "errors": []
+    },
+    {
+      "index": 186,
+      "title": "Lesson 380",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 7708,
+      "errors": []
+    },
+    {
+      "index": 187,
+      "title": "Lesson 381",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 1927,
+      "errors": []
+    },
+    {
+      "index": 188,
+      "title": "Lesson 382",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 9043,
+      "errors": []
+    },
+    {
+      "index": 189,
+      "title": "Lesson 383",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 9594,
+      "errors": []
+    },
+    {
+      "index": 190,
+      "title": "Lesson 384",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 14591,
+      "errors": []
+    },
+    {
+      "index": 191,
+      "title": "Lesson 385",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 1802,
+      "errors": []
+    },
+    {
+      "index": 192,
+      "title": "Lesson 386",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 1776,
+      "errors": []
+    },
+    {
+      "index": 193,
+      "title": "Lesson 387",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 1870,
+      "errors": []
+    },
+    {
+      "index": 194,
+      "title": "Lesson 388",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 5502,
+      "errors": []
+    },
+    {
+      "index": 195,
+      "title": "Lesson 389",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 15448,
+      "errors": []
+    },
+    {
+      "index": 196,
+      "title": "Lesson 390",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3398,
+      "errors": []
+    },
+    {
+      "index": 197,
+      "title": "Lesson 391",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 6689,
+      "errors": []
+    },
+    {
+      "index": 198,
+      "title": "Lesson 392",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 6706,
+      "errors": []
+    },
+    {
+      "index": 199,
+      "title": "Lesson 393",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 2290,
+      "errors": []
+    },
+    {
+      "index": 200,
+      "title": "Lesson 394",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 7661,
+      "errors": []
+    },
+    {
+      "index": 201,
+      "title": "Lesson 395",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 5483,
+      "errors": []
+    },
+    {
+      "index": 202,
+      "title": "Lesson 396",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 37133,
+      "errors": []
+    },
+    {
+      "index": 203,
+      "title": "Lesson 397",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 682,
+      "errors": []
+    },
+    {
+      "index": 204,
+      "title": "Lesson 398",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 2880,
+      "errors": []
+    },
+    {
+      "index": 205,
+      "title": "Lesson 399",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3305,
+      "errors": []
+    },
+    {
+      "index": 206,
+      "title": "Lesson 400",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 1427,
+      "errors": []
+    },
+    {
+      "index": 207,
+      "title": "Lesson 401",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 1726,
+      "errors": []
+    },
+    {
+      "index": 208,
+      "title": "Lesson 402",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 1935,
+      "errors": []
+    },
+    {
+      "index": 209,
+      "title": "Lesson 403",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 2166,
+      "errors": []
+    },
+    {
+      "index": 210,
+      "title": "Lesson 404",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 1133,
+      "errors": []
+    },
+    {
+      "index": 211,
+      "title": "Lesson 405",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3116,
+      "errors": []
+    },
+    {
+      "index": 212,
+      "title": "Lesson 406",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 7284,
+      "errors": []
+    },
+    {
+      "index": 213,
+      "title": "Lesson 407",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 17650,
+      "errors": []
+    },
+    {
+      "index": 214,
+      "title": "Lesson 408",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 19480,
+      "errors": []
+    },
+    {
+      "index": 215,
+      "title": "Lesson 409",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4128,
+      "errors": []
+    },
+    {
+      "index": 216,
+      "title": "Lesson 410",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4261,
+      "errors": []
+    },
+    {
+      "index": 217,
+      "title": "Lesson 412",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3972,
+      "errors": []
+    },
+    {
+      "index": 218,
+      "title": "Lesson 413",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 2841,
+      "errors": []
+    },
+    {
+      "index": 219,
+      "title": "Lesson 414",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 2077,
+      "errors": []
+    },
+    {
+      "index": 220,
+      "title": "Lesson 415",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 9244,
+      "errors": []
+    },
+    {
+      "index": 221,
+      "title": "Lesson 416",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4089,
+      "errors": []
+    },
+    {
+      "index": 222,
+      "title": "Lesson 417",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 18464,
+      "errors": []
+    },
+    {
+      "index": 223,
+      "title": "Lesson 418",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 5024,
+      "errors": []
+    },
+    {
+      "index": 224,
+      "title": "Lesson 419",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 15847,
+      "errors": []
+    },
+    {
+      "index": 225,
+      "title": "Lesson 420",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 6538,
+      "errors": []
+    },
+    {
+      "index": 226,
+      "title": "Lesson 421",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 5310,
+      "errors": []
+    },
+    {
+      "index": 227,
+      "title": "Lesson 422",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 17038,
+      "errors": []
+    },
+    {
+      "index": 228,
+      "title": "Lesson 423",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 18549,
+      "errors": []
+    },
+    {
+      "index": 229,
+      "title": "Lesson 424",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4250,
+      "errors": []
+    },
+    {
+      "index": 230,
+      "title": "Lesson 425",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4144,
+      "errors": []
+    },
+    {
+      "index": 231,
+      "title": "Lesson 426",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 14773,
+      "errors": []
+    },
+    {
+      "index": 232,
+      "title": "Lesson 427",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 1672,
+      "errors": []
+    },
+    {
+      "index": 233,
+      "title": "Lesson 428",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 7047,
+      "errors": []
+    },
+    {
+      "index": 234,
+      "title": "Lesson 429",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 844,
+      "errors": []
+    },
+    {
+      "index": 235,
+      "title": "Lesson 430",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 6445,
+      "errors": []
+    },
+    {
+      "index": 236,
+      "title": "Lesson 431",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 17510,
+      "errors": []
+    },
+    {
+      "index": 237,
+      "title": "Lesson 432",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 5277,
+      "errors": []
+    },
+    {
+      "index": 238,
+      "title": "Lesson 433",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3977,
+      "errors": []
+    },
+    {
+      "index": 239,
+      "title": "Lesson 434",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 11103,
+      "errors": []
+    },
+    {
+      "index": 240,
+      "title": "Lesson 435",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4635,
+      "errors": []
+    },
+    {
+      "index": 241,
+      "title": "Lesson 436",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 9272,
+      "errors": []
+    },
+    {
+      "index": 242,
+      "title": "Lesson 437",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4861,
+      "errors": []
+    },
+    {
+      "index": 243,
+      "title": "Lesson 438",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 31354,
+      "errors": []
+    },
+    {
+      "index": 244,
+      "title": "Lesson 439",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 3292,
+      "errors": []
+    },
+    {
+      "index": 245,
+      "title": "Lesson 440",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 790,
+      "errors": []
+    },
+    {
+      "index": 246,
+      "title": "Lesson 441",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 4270,
+      "errors": []
+    },
+    {
+      "index": 247,
+      "title": "Lesson 442",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2688,
+      "errors": []
+    },
+    {
+      "index": 248,
+      "title": "Lesson 443",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 6680,
+      "errors": []
+    },
+    {
+      "index": 249,
+      "title": "Lesson 444",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 7451,
+      "errors": []
+    },
+    {
+      "index": 250,
+      "title": "Lesson 445",
+      "hasTranscript": true,
+      "transcriptSource": "network-intercept-vtt",
+      "transcriptLength": 5656,
+      "errors": []
+    },
+    {
+      "index": 251,
+      "title": "Lesson 446",
+      "hasTranscript": true,
+      "transcriptSource": "full-page-text-fallback",
+      "transcriptLength": 2650,
+      "errors": []
+    }
+  ]
+}

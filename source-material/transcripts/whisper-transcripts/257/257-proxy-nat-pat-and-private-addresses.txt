@@ -1,0 +1,148 @@
+specific requests from a security perspective,
+because it's better equipped,
+it's more intelligence to be able to handle that.
+And that's what we call a proxy.
+One of the ways that we can provide really good security
+across a network is to use the concept
+of what we call a proxy.
+One of the ways that we can provide really good security
+across a network is to use the concept
+of what we call a proxy.
+Now, if you look at that word,
+if you look it up in a dictionary, for example,
+it'll say acting on behalf of something else.
+The idea is, as a request comes in,
+we redirect it to something else
+that is better equipped to make that decision.
+In other words, we build something specifically
+to handle specific requests from a security perspective
+because it's better equipped,
+it's more intelligence to be able to handle that.
+And that's what we call a proxy.
+A proxy typically is an application,
+and because it is an application,
+it's running at layer seven,
+and therefore has a lot of intelligence
+to be able to make decisions that we need
+in order to either allow or deny certain things.
+So the concept of a proxy server is exactly what you see here.
+It can typically be a server that's running applications
+that has intelligence to be able to make very informed
+decisions about almost anything.
+Perfect example of this would be
+an application proxy firewall,
+which is really an application that we've built
+to make very informed decisions,
+such as deep packet inspection, web content filtering,
+or anything else that you wanna be able to do at layer seven.
+And because we're doing it at layer seven,
+that's where we have the most intelligence
+to be able to make the best security decision.
+And here is what it looks like from a diagram perspective.
+You've got a client that's trying to make a connection
+to a server, but that is gonna be done through something
+in the middle called the proxy server,
+which is really an application that's better equipped
+to make that decision on behalf of all of the security rules
+that we need to be able to enforce.
+A different way to look at this is what you see here.
+So while the perceived connection is really from client
+to server, the connection is either allowed to happen
+or not through the proxy.
+So what we do is we redirect that decision
+or that request to the proxy.
+And because the proxy has been built specifically
+to make that decision, it will enforce certain rules
+and either allow or deny that connection to be established.
+So from a user's perspective at the client,
+that connection is happening from client to server,
+but it's really happening through the proxy server itself,
+which is again built specifically
+to handle those security decisions.
+And because it's an application,
+it can make some really informed decisions at that level.
+And so some of the things that we can do at layer seven
+are things like that.
+And that ends up being an application
+that actually changes IP addresses to other IP addresses.
+And if you think about how a company
+has an internal network that you might be part of,
+as you go out to the internet,
+we might want to change your IP address
+so that you can go out to the internet
+and be routable and be able to access things.
+But from a security perspective, what Nat can do
+is it can change the IP address
+and all of those things that look internal to the organization
+so that when you go out to the internet,
+anything that relates to the internal network
+and its IP addressing schemes can be hidden
+from anybody out there out on the internet.
+So Nat can be useful in hiding our real addressing schemes
+and if you remember to what all attacks require
+and that is the reconnaissance phase,
+you want to be able to hide a lot of what we have internally
+so that they're not visible to anyone out on the internet.
+So Nat can be really useful from a security perspective
+because it can be used to hide your real addressing schemes
+as you allow people to go out to the internet.
+Now something that's part of Nat is what we call Pat.
+So Nat is network address translation
+which translates internal IP addresses
+to routable IP addresses out on the internet
+but what might be needed as part of that
+is what we call Pat, port address translation
+and here's how this works.
+You might have a whole bunch of machines
+on the internal network that are going out to the internet.
+They could all use the same IP address
+that they've been changed to so that they can be routable
+across the outside internet.
+So a whole bunch of machines can go out with the same IP address
+but what would distinguish each one of them
+is the port numbers that are gonna be different
+for each one of those machines.
+And obviously what we have to do is we have to keep track
+of that so that when the request comes back
+we can route it back to the machine
+that originated this.
+That's what Nat provides and it is part of TCP IP.
+So here's a perfect example.
+Let's say that you are the machine
+that is making a request out to the internet.
+The Nat capable device or proxy that sits at your parameters
+would understand your source IP address, destination IP address,
+source port and destination port and change that
+to something that is routable.
+But it would have to keep track of that
+so that when the request comes back
+we can change it back and route it back
+to your specific machine.
+This is what Nat and Pat can do.
+And of course from a security perspective
+what you need to remember is that it can be useful
+in hiding our real addressing schemes
+as we allow machines from the inside of the network
+to actually go out to the internet and web.
+Now one of the other reasons why we need Nat and Pat
+is that we have what are called private address ranges
+that are used by organizations internally.
+And so if you're a large organization
+you might be in the range of the 10 dot
+that is outlined here.
+As you go out to the internet
+those IP addresses are not routable.
+So it is Nat that needs to change it
+to something that is routable.
+And then when it comes back we routed back to your machine.
+It's Nat and Pat that does that.
+Now as far as the exam is concerned
+you don't need to memorize the private IP address ranges
+that are specified for example in RFC 1918
+which talks about private addresses
+that can be used by companies.
+But these are the ones that are allocated
+as being private and of course not routable
+across the internet.
+And that's why we need Nat and Pat
+to be able to handle this nicely for us.

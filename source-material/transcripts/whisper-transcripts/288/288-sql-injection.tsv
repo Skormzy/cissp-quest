@@ -1,0 +1,159 @@
+start	end	text
+0	20000	Let's start with the definition.
+20000	40000	Let's start with the definition.
+40000	43000	What is SQL or SQL?
+43000	46000	SQL stands for structured query language.
+46000	50000	This is the language we use for communicating with databases.
+50000	60000	And SQL injection are attacks where we're somehow able to send code directly to the database and directly manipulate the database.
+60000	62000	Typically, we should not be allowed to do this.
+62000	66000	So let's go through an example of what SQL injection can look like.
+66000	70000	And think of this as a web server with a database behind it.
+70000	72000	This is a very common configuration.
+72000	85000	Most websites nowadays are often referred to as dynamic websites where they can store content and create dynamic pages depending on what the user is requested and data that's being pulled out of the database.
+85000	90000	And so these dynamic websites inherently require a connection to a database.
+90000	96000	And a user should never be able to directly communicate with that database.
+96000	99000	But using SQL injection, they might be able to.
+99000	101000	So let's look at how this can happen.
+101000	103000	We're going to look at a very simple example.
+103000	108000	So here's a login mechanism where we're supposed to provide our username and password.
+108000	111000	We send that username and password to the web server.
+111000	116000	The web server then needs to query the database to see if there's a matching username and password.
+116000	122000	If there is a matching username and password, the database should return true essentially.
+122000	123000	It should say yes.
+123000	128000	Return true, there's a matching username and password, and the user should be authenticated.
+128000	133000	And if there's no matching username and password, the database should return false indicating.
+133000	135000	You know, this is an invalid user.
+135000	137000	Don't let them in.
+137000	142000	Now rather than providing a valid or even invalid username and password, here's what we're going to put in.
+142000	146000	We're going to put AA, apostrophe, or 1 equals 1 dash dash.
+146000	148000	The pink text here, the AA, doesn't matter.
+148000	149000	It couldn't be anything.
+149000	153000	This gold text here, this is the SQL injection.
+153000	156000	And we're also going to put something in password field, BBB, doesn't matter.
+156000	158000	You can put whatever you want in there.
+158000	161000	So I'm going to send this data to the web server.
+161000	166000	And the web server is now going to create a SQL request to the database,
+166000	173000	asking if this username and this password exist in the database to see if this should be an authenticated user.
+173000	177000	So here's the SQL statement that the web server creates.
+177000	182000	Select from users where user name equals, and what's the web server going to put in here?
+182000	191000	Well, if it's a very badly coded web server, what it might do is drop in this exact data that I've provided.
+191000	195000	So it'll put in AA, apostrophe, or 1 equals 1 dash dash.
+195000	198000	And what's it going to put in the password field?
+198000	201000	The password that I provided, BBB.
+201000	205000	And this SQL statement is now going to be sent to the database server.
+205000	211000	And it's now the database server's job to try and interpret this statement that it's received from the web server.
+211000	214000	So let's look at how the database server actually interprets this statement.
+214000	217000	Can you see the first problem here?
+217000	221000	The first problem is actually this apostrophe right here.
+221000	224000	Because how does the database treat this apostrophe?
+224000	227000	Well, it treats this apostrophe as the end of the username.
+227000	231000	And so the database is going to look for a user called AA.
+231000	235000	And is there a matching user called AA in the database? Probably not.
+235000	237000	But we'll get to that in a second.
+238000	240000	Now, what about this OR part?
+240000	242000	What does it treat that as? Is it part of the username?
+242000	244000	No, because this is the end of the username.
+244000	247000	This OR is actually treated as SQL code.
+247000	250000	So the database thinks this is an OR statement.
+250000	253000	And then 1 equals 1. Is 1 equal to 1?
+253000	255000	Yes.
+255000	256000	So that'll return true.
+256000	258000	We'll see that in a moment as well.
+258000	261000	And then the last really bit tricky part here is this dash dash.
+261000	264000	In SQL code, what does dash dash mean?
+264000	267000	It means everything after this is a comment.
+267000	270000	So the database is going to ignore everything after this.
+270000	272000	This end statement, this password BBB.
+272000	274000	It's going to ignore all of that.
+274000	277000	And so here's how the database actually interprets this statement.
+277000	280000	It's going to say where users false.
+280000	282000	There's probably no matching username.
+282000	285000	OR is 1 equal to 1?
+285000	287000	Yes, that's true. So OR true.
+287000	289000	And then the rest of this is a comment.
+289000	290000	So it ignores it.
+290000	294000	And so what this statement ends up being understood as is,
+294000	297000	select from users where true.
+297000	300000	Because OR statements, if either side of the OR statement is true,
+300000	301000	it returns true.
+301000	307000	So this statement, no matter what you put in for a username, returns true.
+307000	310000	And half, if the database returns true to the web server,
+310000	312000	what's the web server going to think?
+312000	316000	The web server is going to think this is an authenticated user.
+316000	318000	And it might let the user into the system.
+318000	321000	So this is a very simple example of SQL injection.
+321000	323000	But it highlights essentially how it works.
+323000	327000	And that is, the web server passes unauthenticated,
+327000	331000	unvalidated data directly to the database server.
+331000	333000	And there is the answer you should also be looking for.
+333000	336000	How do we reduce the risk of SQL injection?
+336000	340000	Well, we should never, ever, ever just take you direct user input
+340000	343000	and pass it directly to the database.
+343000	346000	So the answer, you can, you will often get very complicated questions
+346000	349000	on the exam related to SQL injection.
+349000	352000	The answer boils down to a very simple thing.
+352000	355000	We have to validate our user's input.
+355000	357000	We have to sanitize our user's input.
+357000	360000	Any word that you find that indicates that you're cleaning up
+360000	364000	removing special characters, sanitizing, validating user input
+364000	369000	is how we reduce or how we eliminate the problem of SQL injection.
+369000	373000	The other type of question you might see on the exam related to SQL
+373000	377000	is they might ask you what are some examples of SQL injection.
+377000	379000	And they'll give you some different lines of code.
+379000	382000	They might show you some C sharp and some Java, whatever.
+382000	384000	So you should be able to recognize what SQL code looks like.
+384000	386000	So I don't think you need to memorize all these commands.
+386000	389000	Just memorize kind of the, what they look like.
+389000	391000	So you've got commands like create, alter, drop, truncate.
+391000	394000	This is how we create tables and so forth.
+394000	396000	You've got select, search, inserts, updates.
+396000	400000	This is how we enter, modify, read data from a database.
+400000	403000	You've got things like grant and revoke, creating users,
+403000	405000	and then commits and rollbacks and save points
+405000	406000	as well backing up the data.
+406000	408000	So if you see any of these types of commands,
+408000	410000	this is going to be SQL code.
+410000	412000	And here's a few examples of SQL code.
+412000	413000	So what would this return?
+413000	416000	Select star from users.
+416000	419000	This would return all of the data in the user's table.
+419000	421000	Hey, what about this one?
+421000	425000	Insert into the users, user ID, password, values, rob, pass 1, 2, 3.
+425000	427000	What's this statement do?
+428000	430000	Creates a new entry.
+430000	433000	Creates a new user with user name rob and password.
+433000	435000	So just create a new user account for myself.
+435000	436000	What about this one?
+436000	438000	Drop accounts receivable.
+438000	440000	Well, that's just a jerk move.
+440000	442000	That just deletes the entire table in the database.
+442000	445000	So if you get questions asking you what are examples
+445000	448000	of SQL code, SQL injection, it has to be SQL code.
+448000	450000	So look for stuff like this.
+450000	452000	Now, turns out there are actually comics out there
+452000	454000	about SQL injection.
+454000	455000	Here's one of them.
+455000	457000	Little Bobby tables by XKCD.
+457000	459000	Brilliant comic.
+459000	461000	I'll give you a moment to read this.
+469000	471000	Before I show you this picture,
+471000	473000	I want you to promise you're going to try this at home, OK?
+473000	474000	So I'd like you to print out,
+474000	477000	tape this in front of your car, and try this at home, OK?
+477000	479000	What's this one do?
+479000	481000	The idea behind this one, and by the way,
+481000	482000	do not try this at home.
+483000	485000	The idea behind this one is if you were to tape
+485000	486000	this in front of your car,
+486000	489000	and then drive through a speed trap at 200 miles per hour,
+489000	492000	the speed trap is going to take a picture of the front of your car.
+492000	494000	And those speed trap systems are designed
+494000	496000	to read your license plate number.
+496000	501000	They have OCR software, optical character recognition software,
+501000	503000	that's meant to read your license plate,
+503000	506000	and store that data, look up that data in the database.
+506000	511000	So the idea here is it might read this bit of SQL code
+511000	514000	and SQL injection code here, and crash the police database
+514000	515000	or something like that.
+515000	517000	So obviously don't try that at home.
+517000	518000	SQL injection.

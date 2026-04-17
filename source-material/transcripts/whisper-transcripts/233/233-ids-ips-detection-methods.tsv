@@ -1,0 +1,68 @@
+start	end	text
+0	18840	Now if you think about how security controls need to be preventive, detective, and corrective,
+18840	33720	we've been talking about how...
+33720	38920	Now if you think about how security controls need to be preventive, detective, and corrective,
+38920	46400	we've been talking about how detective capabilities are provided through IDS and IPS systems.
+46400	52720	Now the corrective action that needs to happen after we detect that something is wrong or
+52720	56240	against the rules is what this section deals with.
+56240	61440	So for example, one of the very first things that we can do is activate sandboxes, and I
+61440	68160	know that we've talked about sandboxes before, but a sandbox is like a safe play area.
+68160	73960	It's an environment where we can test things, for example, and be able to determine if something
+73960	78200	is malicious or not, and that's what we call a sandbox environment.
+78200	84840	So one of the things that your IDS, IPS technologies can correct and activate the corrective action
+84840	91200	would be to test something in a sandbox environment, and we can determine whether something is either
+91200	96200	malicious or not or safe to run in our production environment.
+96200	101680	Now when we talk about IDS as an IPS, I think we've talked about this before, however, it's
+101680	106760	really important to understand the result that may be returned.
+106760	113280	And there are questions on the exam that address this, but basically a IDS slash IPS system
+113280	118920	can return what are called false positives and false negatives.
+118920	124600	Now don't confuse these with what we talked about in the biometric section, which were
+124600	129400	type 1s and type 2s, false rejects and false accepts.
+129400	131640	That's not what we're talking about here.
+131640	137240	Here the terminology is different, false positives and false negatives.
+137240	144560	A false positive is where the IDS system tells us that it is an attack, but in fact it is
+144560	145560	not.
+145560	152160	And that would actually require the organization to launch into its incident response capability
+152160	157960	and at some point determine that it's not a real attack, but we've had to launch into
+158000	160360	our incident management capability.
+160360	166360	That's a false positive where the IDS system thinks it's an attack, but really isn't.
+166360	172760	What's much more critical is what we call a false negative.
+172760	178480	This is where the IDS IPS system does not catch something that it should.
+178480	182800	And from an organization's perspective, that's much more critical because we should be
+182880	189880	catching something that is an issue or an incident, but the IDS IPS system was not able
+189880	191120	to do it.
+191120	198120	And we've talked about how it's important to fine tune your IDS IPS capabilities so that
+198120	206320	we lower, for example, the false positives, but we also try and raise the false negatives.
+206800	213800	I mean, we want the IDS IPS system to be as valuable as possible so that it catches everything.
+213800	220800	And that requires constant fine tuning so that it returns better decisions on an ongoing
+220800	222160	basis.
+222160	227280	Now one of the other corrective things that can happen is what a lot of companies have
+227280	230680	been focusing on for the last number of years.
+230680	235400	And that is to have what are called honeypots and honey nets.
+235400	241080	And if you know anything about these, these are fake environments that companies create
+241080	247200	to look very attractive so that if an intruder has intruded into your network, you lure
+247200	251440	them into these fake environments because they look attractive.
+251440	257160	But because they are fake, they can lure these people into those environments so that you
+257160	259800	can protect your real environments.
+259800	263520	That's the whole purpose of these is to protect your real environments because you're
+263520	270440	luring them into fake environments and at the same time, potentially capturing evidence
+270440	271960	against the perpetrators.
+271960	280480	Now the only difference between honeypot and honeynet is a collection of honeypots.
+280480	286080	And what's really important to understand is the legality of these.
+286080	292720	Depending on where you put them, they can either be an example of enticement or entrapment.
+292720	300120	But the bottom line is companies can use these if someone has already committed a crime.
+300120	306480	Someone has already intruded into your network, then we can lure them into these fake environments
+306480	311560	and that would be considered to be enticement as opposed to entrapment.
+311560	315160	So where you place them is really important part.
+315160	319680	And that's what we're trying to highlight here in this very simple network diagram.
+319680	324480	The honey nets and the honeypots need to be placed in the right environments so that you
+324480	330960	are not entraping individuals but rather enticing them into these fake environments because
+330960	334960	they've already done something that is illegal.
+334960	342080	And as a final slide here in this section, we need to understand the difference between
+342080	345720	enticement and entrapment from a legal perspective.
+345720	351640	And this is why we understand that enticement is legal because someone has already committed
+351640	357920	a crime and therefore honey nets and honeypots become examples of enticement.
+357920	364960	Whereas entrapment would not be legal because you are inducing someone to commit a crime
+364960	368280	that they weren't contemplating doing in the first place.
+368280	373240	So because they've intruded into your network and then you lure them into your honeypot,
+373240	377480	for example, that is an example of enticement.

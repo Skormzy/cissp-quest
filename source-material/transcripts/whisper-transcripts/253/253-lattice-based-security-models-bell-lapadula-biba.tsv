@@ -1,0 +1,164 @@
+start	end	text
+0	17180	All right, so we've been talking about security architecture and engineering and just to
+17180	34680	refocus. That means how we. All right, so we've been talking about security
+34680	40520	architecture and engineering and just to refocus. That means how we build
+40520	45400	architectures but also protect them by going through the engineering process
+45400	50080	itself which are the phases of how we need to involve security right from the
+50080	54760	start and throughout each of the phases. Now what can be really helpful from a
+54760	59080	security perspective is what we call models. Now before we get into what we
+59080	63000	call security models, we have to pause here and think about what the word
+63000	68040	model actually means because these are really useful in security. The word
+68040	74400	model is simply a representation of something. So if we have something that
+74400	79120	represents what the ultimate architecture needs to look like, it can be
+79120	83860	really helpful from a security perspective. So security models provide the
+83860	89320	rules by which we can build something that ultimately is going to be secure. So
+89320	93180	there are security models that exist out there that have been around for a
+93180	98520	very long time that can provide the rules by which we can implement security
+98520	105640	and ultimately have secure architectures that become importantly secured from
+105640	110920	a confidentiality perspective, from a integrity perspective. We typically don't
+110920	116760	need models to tell us how to achieve availability because availability is
+116760	121760	addressed through redundancy. We don't need rules to be able to understand what
+121760	127320	that is like. We simply build in cost-effective redundancy and we achieve
+127320	132840	availability. But there are rules by which we can achieve confidentiality and
+132840	138360	integrity. Those are referred to as security models. And some of these I'm sure
+138360	145280	you've heard of, Bellapagela, Biba, Clark Wilson, Brewer Nash are the major
+145280	150680	models that we need to focus on as far as the exam is concerned. Now what you
+150680	155560	need to remember is that there are really two types of models that only exist.
+155560	162920	Latest-based and rule-based. Only two types of models. Latest-based and rule-based.
+162920	168120	There are only two Latest-based models that we need to concern ourselves with.
+168120	173440	And the difference between them will be very apparent for you. But basically one
+173440	180000	addresses confidentiality only. The other one addresses integrity only. That's the
+180000	184720	difference between the two Latest-based models. So if you see questions on the
+184720	190760	exam that talk about what is the Latest-based model, then you know that the
+190760	196440	answer can only be one of two choices. Bellapagela only addresses confidentiality
+196440	202320	and Biba only addresses integrity. So first of all, let's look at what a
+202320	207600	Latest is. So if I say the word Latest, what comes to your mind? You may
+207600	212080	picture something that you see on your screen here as the slide. The best way to
+212080	217920	think of what a Latest-based model is is a layer-based model. So we've got
+217920	223600	different layers that provide different levels of security. So let's start, for
+223600	229240	example, with the first one, which is Bellapagela. The names of these models
+229240	233440	come from the people that came up with the rules in the first place. And this
+233440	239280	model actually dates back to the early 70s. But it was Bell and La Padilla that
+239280	244520	came up with the rules that we have to implement in order to address confidentiality.
+244520	248880	Now a lot of people think, why is it that we have to still think about these
+248880	253920	models, you know, decades later. Surely they've become obsolete. But the answer
+253920	257360	to that is something that all of us as security professionals should
+257360	262680	understand. And that is even though these models are very old, the fundamental
+262680	268360	concepts that they address and therefore the rules to achieve, for example,
+268360	273400	confidentiality are the same today as they were decades ago. And they will be
+273400	278400	the same decades from now. The fundamental rules and concepts are the same in
+278400	283360	how we dress confidentiality. Technology has changed, but the fundamental rules
+283360	287920	will never change. And so it's important for us to realize what those rules are
+287920	293200	that you need to implement in order to achieve confidentiality. So these two
+293200	298340	people thought, okay, if we want confidentiality to exist in any environment,
+298340	303340	what are the rules that need to exist? What are the rules that we need to enforce?
+303340	308700	And the first thing that they thought of is, okay, what happens in any architecture?
+308700	315700	There is always interaction between two entities. Those two entities are subjects
+315700	320340	and objects. I mean, when you look at any architecture, those are the two
+320340	325020	fundamental entities that will always interface with each other. And the
+325020	330020	difference between them, as we've learned before, is that subjects are always the
+330020	335140	active entity. The objects are going to be the passive entity. But if we want
+335140	341700	security to exist, we have to enforce rules between subjects and objects. So if you
+341700	348020	think of a lattice-based model, which is a layer-based model, this model only
+348020	354380	addresses confidentiality. So let's use a example. Let's say that we have three
+354380	361460	levels of confidentiality, high, medium, and low. And we have subjects, we have
+361460	366580	been placed in the medium layer. From a read perspective, what is it that
+366580	371780	subject should be able to do from a read perspective? So if we are in the
+371780	377580	medium layer, what can we read to enforce confidentiality and always have
+377580	383140	confidentiality requirements be addressed? Well, we can read anything that's in our
+383140	389020	layer. You can always do anything in our layer because that's the layer that
+389020	395100	we've been placed at. But we can also read anything that is below us. Because
+395100	401500	anything that is below us is less sensitive from a confidentiality perspective. So
+401500	407380	if you allow reading down, you are not breaking confidentiality requirements.
+407380	413580	However, we should not allow reading up because if we do, then you'd be
+413580	418940	allowing subjects to read sensitive information that they are not cleared for.
+418940	425060	That would break confidentiality. So the first rule of Bellapagela is actually
+425060	431820	if you have read capabilities, you can only read at your layer or down. Now
+431820	437420	what if we have right capabilities, right capabilities? Let's say we're in
+437420	442740	that medium layer. And so what is it that you can write to? Well, if you think
+442740	446540	about this from a confidentiality perspective, you can always do things that
+446540	452100	your own layer. So we can write to objects at our own layer, but to enforce
+452100	457580	confidentiality, what do we need to do? We need to allow either writing up or
+457580	463740	writing down to enforce confidentiality. However, you would allow writing up and
+463740	470220	not down. And here's why. If you allow writing down, we'd be taking knowledge
+470220	476220	that is available to us at the medium layer. And we'd be writing it down to a
+476220	481900	lower layer thereby disclosing confidential information to those people that are
+481900	487620	below us. That would break confidentiality. And therefore, writing down is not
+487620	492980	allowed. Writing up, however, is okay from a confidentiality perspective.
+492980	498940	Because those people above us can already read what exists in our own layer. So
+498940	504420	it's okay to take anything from our layer and write it up. That does not break
+504420	510300	confidentiality. So that's the second rule of the Bellapagela model. You can read
+510340	516660	at your layer or up, not down because that would break confidentiality. Now, the
+516660	523420	only last rule that exists here with Bellapagela is really combining both
+523420	529580	rules together. What if you have the ability to read and write? Well, based on the
+529580	534780	previous two rules, the only thing that you can do is read and write at your own
+534780	540180	layer. Nothing higher, nothing lower. And that's what we depict here as the last
+540340	546100	rule in the Bellapagela model. Now, one more thing to think about here before we move
+546100	551940	on to the next lattice-based model. But these guys, Bell and LaPagela, actually
+551940	558060	named each of these rules. The ability to be able to read is referred to as the
+558060	563940	simple security property. So if you see simple on the exam, it simply means the
+563940	570380	ability to read. The ability to write is referred to as the star property. So if you
+570380	574540	see star, it means the ability to write. And of course, we know that you can only
+574540	581140	write at your layer or higher. And the ability to read and write is referred to as the
+581140	587460	strong star property. So strong star means being able to read and write at the same
+587460	595940	time. Now, let's move on to the next lattice-based model, which of course is called Beba. Remember
+595940	603940	Bellapagela only addresses confidentiality. Beba only addresses integrity. All right, now
+603940	609620	the Beba model is something that only addresses integrity. This guy called Beba came along
+609620	616180	years after Bellapagela. Looked at the Bellapagela model and said, wow, this is a great model,
+616180	622980	but in my environment, Beba said, I'm only interested in integrity, not so much confidentiality.
+622980	630180	I'd like to have a model that is similar, but addresses integrity, not so much confidentiality.
+630180	636180	And so basically what he did is he took the Bellapagela model and adapted it to address
+636180	641980	integrity. Maybe he worked in a bank where something like integrity is very important.
+641980	646860	So what he did is he modified the rules to address integrity. Before we can understand
+646860	652540	this one, we have to just pause for a second and think about what integrity actually means
+652540	657020	from a security perspective. I think we've talked about this a few times, but integrity
+657020	666220	means meaningfulness, timeliness, currency, but accuracy is something that integrity really
+666220	672380	addresses. And if we think of integrity as addressing accuracy, it allows us to understand
+672380	679740	this model really easily. So instead of having three layers, let's say, of confidentiality,
+679740	687500	like Bellapagela addresses, this one addresses layers of integrity accuracy. So let's say we have
+687500	693500	three layers of accuracy, high, medium, and low. And just like before, we've been placed in
+693660	700540	the medium layer. Now, from a read perspective, what should we be able to read? Well, if you think
+700540	707420	about this, because we are reading layers of accuracy, it's going to be the opposite of Bellapagela.
+707420	713900	We should not be able to read anything that is lower than us. Because if you allow that,
+713900	720380	you are allowing people to read information that is less accurate. And so what you want is you
+720380	728540	want people to be able to read levels of higher accuracy, because reading higher accuracy information
+728540	734940	allows us to become more accurate, more knowledgeable, more current, more accurate in our knowledge.
+734940	742140	So in this case, we allow reading up, not down, because if you allow reading down, you'd be allowing
+742140	748220	people to read less accurate information. But if they can read up, they can read more accurate
+748220	753980	information, which obviously allows them to be more accurate in the decisions that they actually
+753980	762780	make. So the Bibel model is actually the opposite of Bellapagela. We do allow reading up and not
+762780	770540	down. And similarly, if you have right capabilities, what should you be able to write to? Well, you can
+770540	775500	write to your own layer, because you can always do things at your own layer. But in this case,
+775500	782220	we allow writing down, because you're taking information from our layer, which is more accurate
+782220	789820	than the layer below us. So by taking knowledge of information from our layer and writing it down
+789820	797260	to a lower layer, you are improving that layer with more accurate information, which is a goal of
+797260	804780	accuracy and integrity. So again, this is the opposite. We allow writing down, we should not allow
+804780	810940	writing up, because again, that layer is already more accurate. If we allowed writing up, you'd be
+810940	818940	contaminating that layer with less accurate information. So the second rule of Biba is you can write
+818940	826620	down, not up. And then the third rule is combining these together, right? That's called the strong
+826620	832940	star property as well, which means you can only do things at your own layer, nothing higher, nothing
+833660	839580	lower. Now, there is a third rule or a fourth rule, basically, that is called the invocation
+839580	846940	property. Invocation properly simply means that you cannot send information to someone that is
+846940	853740	rated at a higher layer of integrity than you are, because again, you'd be contaminating their
+853740	860220	knowledge with less accurate information. So it's almost like the ability to write rule that we
+860220	867100	just described. Now, what you need to remember about the Biba model as well is that he kept the same
+867100	875100	names that Belapagela came up with. In other words, simple star and strong star, but the difference
+875100	882300	here is the second word. This is going to help you on the exam. If you look for the second word
+882300	889180	after the words simple star and strong star, it's going to tell you whether the exam is talking about
+889180	895500	the Belapagela model or the Biba model. Because if the second word says integrity, for example,
+895500	903820	simple integrity property or the star integrity property or the strong star integrity property,
+903820	909580	then obviously they're talking about the Biba model. If it says anything else like the simple
+909580	915740	security property, then they're talking about the Belapagela model. That's how you distinguish
+915740	924300	between the two. So that essentially is the Biba model. Now, what if you're an organization
+924860	933900	where confidentiality and integrity are requirements like most organizations today? So you may want to
+933900	941260	implement both Belapagela and Biba. But if you look at the rules that they each enforce,
+941260	947020	you see that they're the opposite of each other. So if you implement both Belapagela and Biba,
+947020	952060	you'd have models that really cancel each other out, which would mean that nobody would have
+952060	958940	access to anything, which I suppose would be very secure, but not very practical. And so how do you
+958940	965340	implement both Belapagela and Biba together? Which obviously are requirements of most organizations
+965820	972460	today. Well, the way that you do it is called the Lippner implementation, named after this guy
+972460	980140	called Lippner, who was able to take both Belapagela and Biba and put them together. And it's not
+980140	986940	really considered to be a model on its own. The Lippner is referred to as a implementation
+986940	993660	and not a model, but he was able to take both Belapagela and Biba and put them together and
+993660	1000060	actually make them work in an organization. It's called the Lippner implementation of both
+1000060	1010060	Belapagela and Biba.
