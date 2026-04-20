@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  7,
+  'dr_metrics',
+  'A global bank operates a core transaction processing system with an MTD of 2 hours. The current disaster recovery solution provides an RTO of 1 hour using hot site failover and an RPO of 15 minutes using synchronous replication. A recent BIA update reveals that the compliance team now requires 45 minutes to verify regulatory data integrity after restoration. What impact does this have on the recovery strategy?',
+  '["No impact because the RTO is still within the MTD", "The RPO needs to be reduced to compensate for the longer verification time", "The MTD should be increased to accommodate the new requirement", "The RTO must be reduced because RTO (1h) + WRT (45min) = 1h 45min approaches the 2h MTD with minimal buffer"]'::jsonb,
+  3,
+  'MTD = RTO + WRT. With the new WRT of 45 minutes: RTO (60 min) + WRT (45 min) = 105 minutes out of a 120-minute MTD. This leaves only a 15-minute buffer, which is dangerously thin for a critical banking system. The organization should either reduce RTO or find ways to streamline the verification process. MTD is determined by business impact and cannot be arbitrarily changed.',
+  'MTD = RTO + WRT. When WRT increases, RTO must decrease to stay within MTD. The clock doesn''t stretch.',
+  'apply',
+  'scenario',
+  'hard',
+  1.50, 2.00, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'incident_response',
+  'Your organization''s network monitoring detects encrypted traffic from an internal server to a known APT command-and-control infrastructure. Log analysis reveals the server has been compromised for approximately 90 days. The server processes sensitive government contract data. As the incident commander, what should be your FIRST priority?',
+  '["Assemble a cross-functional response team including legal, management, and government liaison before taking technical action", "Immediately disconnect the server and begin forensic analysis", "Deploy network-level blocks for the C2 IP addresses across all firewalls", "Notify the government contracting agency about the potential data compromise"]'::jsonb,
+  0,
+  'With a long-dwell-time APT involving government contract data, the first priority is assembling a cross-functional team. This is not a routine incident — it has legal, contractual, regulatory, and potentially national security implications. Hasty technical actions (disconnecting, blocking) could alert the attacker and destroy evidence. Government notification is required but must be coordinated through legal counsel first.',
+  'APT + government data = assemble the team FIRST. This is bigger than IT. Legal, management, and government liaisons needed before any technical moves.',
+  'analyze',
+  'first_action',
+  'hard',
+  1.70, 2.40, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'containment_strategies',
+  'During an active incident, the IR team identifies that an attacker has compromised the domain controller and created a new domain admin account. Network logs show the attacker is actively moving laterally to access database servers. The organization''s SIEM, EDR, and authentication systems all depend on the compromised domain controller. What is the MOST effective containment strategy?',
+  '["Reset all domain admin passwords and disable the rogue account", "Shut down the domain controller immediately to stop the attacker", "Isolate the database servers at the network level while establishing an out-of-band communication channel for incident coordination, then address the domain controller compromise", "Deploy endpoint protection updates to all systems on the network"]'::jsonb,
+  1,
+  'With a compromised domain controller, the attacker controls the identity infrastructure that security tools depend on. Simply resetting passwords may not work if the attacker has planted additional backdoors. Shutting down the DC disrupts all authentication. The best approach is to first protect the crown jewels (database servers) through network isolation while establishing out-of-band communications that don''t rely on the compromised infrastructure.',
+  NULL,
+  'analyze',
+  'scenario',
+  'hard',
+  1.70, 2.30, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'drp_testing',
+  'As the CISO of a publicly traded company, you are presenting the annual disaster recovery program status to the board of directors. The organization has successfully completed tabletop, simulation, and parallel tests over the past two years. The board asks what the next step should be to improve DR readiness. What is your BEST recommendation?',
+  '["Continue performing parallel tests annually since they are sufficient", "Outsource all DR operations to a managed service provider", "Conduct a full-interruption test with executive sponsorship to validate actual recovery capability under realistic conditions", "Reduce the DR budget since the plan has been validated through testing"]'::jsonb,
+  2,
+  'The natural progression of DRP testing goes from least to most disruptive: checklist, tabletop, simulation, parallel, then full-interruption. Having completed the first four types, the next logical step is a full-interruption test, which is the only way to validate actual recovery under realistic conditions. This requires management approval because it affects production. As CISO, recommend it with proper controls and executive sponsorship.',
+  'DRP test progression: Read, Walk, Simulate, Parallel, FULL. After passing all lower tests, graduate to the real thing.',
+  'apply',
+  'tlatm',
+  'hard',
+  1.70, 2.30, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'backup_strategies',
+  'An organization uses electronic vaulting, remote journaling, and remote mirroring for different systems based on their criticality. How do these three data replication strategies compare in terms of data currency and cost?',
+  '["Electronic vaulting provides the most current data at the lowest cost", "Remote journaling and remote mirroring are identical in both data currency and cost", "Electronic vaulting is the most expensive because it requires dedicated communication lines", "Remote mirroring provides the most current data but at the highest cost, while electronic vaulting provides the least current data at the lowest cost"]'::jsonb,
+  3,
+  'Remote mirroring replicates data in real-time (most current, near-zero RPO) but requires high-bandwidth dedicated connections (most expensive). Remote journaling ships transaction logs periodically (moderate currency, minutes to hours RPO, moderate cost). Electronic vaulting transfers batch data to a remote location (least current, hours RPO, lowest cost). Cost and data currency are directly proportional.',
+  'Data replication cost vs. currency: Mirror > Journal > Vault. More current = more expensive. Real-time mirror is the Cadillac, e-vault is the economy car.',
+  'analyze',
+  'comparison',
+  'hard',
+  1.60, 2.20, 0.22,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

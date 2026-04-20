@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  5,
+  'credential_attacks',
+  'A red team assessment reveals that several service accounts in Active Directory have Service Principal Names (SPNs) registered and use weak passwords. The red team requests Kerberos service tickets for these accounts and then takes the encrypted tickets offline to crack them. Which specific Kerberos attack technique is being demonstrated?',
+  '["Golden ticket attack, which forges TGTs using the KRBTGT account hash", "Pass-the-ticket attack, which reuses stolen Kerberos tickets from memory", "Kerberoasting, which requests service tickets encrypted with service account passwords for offline cracking", "ASREPRoast, which targets accounts configured without Kerberos preauthentication"]'::jsonb,
+  2,
+  'Kerberoasting exploits the fact that Kerberos service tickets are encrypted with the service account''s password hash. Any authenticated domain user can request service tickets for accounts with SPNs. The attacker takes these tickets offline and cracks the encryption to recover the service account password. Weak service account passwords make this attack trivially successful.',
+  'Kerberoasting = request service tickets + crack offline. Targets SPNs with weak passwords. Any domain user can request tickets.',
+  'apply',
+  'scenario',
+  'hard',
+  1.50, 2.00, 0.20,
+  'ai_generated', true
+),
+(
+  5,
+  'identity_lifecycle',
+  'A CISO is presenting the annual identity governance report to the board. The report shows that access reviews are being completed on time but the rejection rate for inappropriate access is less than 1%, which is statistically improbable for an organization of 5,000 employees with frequent role changes. What should the CISO recommend?',
+  '["Accept the results since the low rejection rate indicates strong provisioning practices", "Increase the frequency of access reviews from quarterly to monthly to catch more issues", "Replace the access review tool with a more advanced platform that uses machine learning", "Investigate whether managers are rubber-stamping reviews without genuinely examining access, and implement attestation controls with spot audits"]'::jsonb,
+  3,
+  'A near-zero rejection rate in a large organization with frequent role changes is a strong indicator that managers are rubber-stamping access reviews without proper examination. The management recommendation is to investigate, implement attestation controls requiring managers to justify approvals, and conduct spot audits to verify review quality. Simply increasing frequency without addressing the underlying behavior is ineffective.',
+  'Think Like a Manager: A 1% rejection rate in 5,000 users = rubber-stamping. Address the behavior, not just the schedule.',
+  'analyze',
+  'tlatm',
+  'hard',
+  1.90, 2.60, 0.20,
+  'ai_generated', true
+),
+(
+  5,
+  'access_control_models',
+  'An intelligence agency is designing an access control system for a classified project. Documents are labeled with both a hierarchical classification (Confidential, Secret, Top Secret) and compartment codes (ALPHA, BRAVO, CHARLIE) representing different projects. An analyst with Top Secret clearance and ALPHA compartment access attempts to read a Secret/BRAVO document. Should access be granted?',
+  '["No, because although the analyst''s clearance dominates the document''s classification level, the analyst lacks BRAVO compartment access, which is required independently", "Yes, because Top Secret clearance dominates Secret classification, granting access to all lower-classified documents regardless of compartment", "No, because analysts cannot access documents below their clearance level under the no-read-down rule", "Yes, because compartment codes are informational labels that do not restrict access for cleared personnel"]'::jsonb,
+  0,
+  'In a hybrid MAC environment combining hierarchy and compartments, both conditions must be satisfied. The analyst has sufficient clearance (TS > S) but lacks BRAVO compartment access. Compartments are independent security domains that enforce need-to-know. Having high clearance does not grant cross-compartment access. The no-read-down rule is from Biba (integrity), not the scenario described.',
+  'MAC hybrid: BOTH clearance level AND compartment must match. High clearance alone is not enough without compartment access.',
+  'analyze',
+  'scenario',
+  'hard',
+  1.70, 2.30, 0.20,
+  'ai_generated', true
+),
+(
+  5,
+  'access_control_attacks',
+  'An incident responder discovers that an attacker has used Mimikatz to extract the KRBTGT account hash from a domain controller. The attacker can now forge Ticket Granting Tickets that grant access to any resource in the domain for up to 10 years. After resetting the KRBTGT password twice, what should the team do FIRST to address the broader compromise?',
+  '["Restore the domain controller from a backup taken before the compromise", "Audit all privileged accounts and service accounts for signs of persistence, reset their passwords, and review for unauthorized group memberships", "Rebuild the entire Active Directory forest from scratch to ensure complete remediation", "Deploy a new SIEM solution to improve detection capabilities for future attacks"]'::jsonb,
+  1,
+  'After invalidating golden tickets by resetting KRBTGT twice, the FIRST step is to audit all privileged and service accounts for persistence mechanisms. The attacker likely established multiple backdoors: unauthorized admin accounts, modified group memberships, and additional credential harvesting. Rebuilding from scratch may be necessary later but auditing first determines the scope. Restoring from backup may reintroduce the compromise.',
+  'After golden ticket containment: audit ALL privileged accounts for persistence. Attackers rarely use just one method.',
+  'apply',
+  'first_action',
+  'hard',
+  1.50, 2.10, 0.20,
+  'ai_generated', true
+),
+(
+  5,
+  'biometrics',
+  'A biometric fingerprint scanner is being evaluated. During testing with 500 authorized users and 500 unauthorized users, the scanner incorrectly rejected 15 authorized users and incorrectly accepted 10 unauthorized users. What is the False Acceptance Rate (FAR)?',
+  '["3.0% because 15 out of 500 authorized users were incorrectly handled", "2.5% because 25 total errors occurred out of 1,000 total attempts", "2.0% because 10 out of 500 unauthorized attempts were incorrectly accepted", "1.0% because 10 out of 1,000 total attempts resulted in false acceptance"]'::jsonb,
+  2,
+  'FAR = (Number of false acceptances / Total unauthorized authentication attempts) x 100 = (10 / 500) x 100 = 2.0%. FAR is calculated only against unauthorized attempts, not total attempts. The 15 false rejections are used to calculate FRR, which is separate: FRR = 15/500 = 3.0%. Understanding this distinction is critical for the exam.',
+  'FAR = false accepts / UNAUTHORIZED attempts. FRR = false rejects / AUTHORIZED attempts. Each uses its own denominator.',
+  'apply',
+  'calculation',
+  'hard',
+  1.60, 2.20, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

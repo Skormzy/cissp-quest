@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  8,
+  'advanced_testing',
+  'A software module contains 12,000 lines of code. After extensive testing, 18 confirmed defects have been identified. What is the defect density, and how does it compare to an industry benchmark of 2 defects per KLOC?',
+  '["1.5 defects per KLOC, which is below the benchmark and indicates higher quality", "2.0 defects per KLOC, which exactly meets the industry benchmark", "3.0 defects per KLOC, which exceeds the benchmark and indicates lower quality", "0.5 defects per KLOC, which is significantly below the benchmark"]'::jsonb,
+  0,
+  'Defect density = Number of defects / Size in KLOC. Here: 18 defects / 12 KLOC = 1.5 defects per KLOC. Since the industry benchmark is 2 defects per KLOC, this module is below the benchmark, indicating relatively higher code quality. Lower defect density is desirable.',
+  'Defect Density = Defects / KLOC. LOWER is BETTER. Think: fewer bugs per thousand lines = cleaner code.',
+  'apply',
+  'calculation',
+  'hard',
+  1.60, 2.20, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'devsecops',
+  'As the security director, you are reviewing the organization''s software assurance program. The development teams have strong SAST and DAST tools, but vulnerabilities in third-party libraries account for 60% of production security incidents. The development teams argue that they cannot control third-party code quality. What is the MOST effective management action?',
+  '["Ban all third-party libraries and require developers to write all code from scratch", "Implement mandatory Software Composition Analysis (SCA) in the CI/CD pipeline with automated blocking of builds containing known vulnerable dependencies", "Accept the risk since third-party libraries are necessary for modern development", "Assign a single developer to manually review all third-party library source code before use"]'::jsonb,
+  1,
+  'As a manager, the most effective action is implementing Software Composition Analysis (SCA) tools that automatically scan for known vulnerabilities in third-party dependencies and block builds that include vulnerable versions. This is automated, scalable, and addresses the specific risk. Banning all libraries is impractical, accepting the risk is negligent, and manual review does not scale.',
+  NULL,
+  'analyze',
+  'tlatm',
+  'hard',
+  1.90, 2.60, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'api_security',
+  'A financial technology company exposes a REST API for third-party payment integrations. During a security review, the team discovers that the API accepts XML input and processes it using a parser that resolves external entities. An attacker could craft an XML payload with an external entity reference to read local files from the server. What vulnerability category is this, and what is the PRIMARY fix?',
+  '["SQL injection; implement parameterized queries to separate code from data", "Cross-site scripting; implement output encoding on all API responses", "XML External Entity (XXE) injection; disable external entity resolution in the XML parser configuration", "Server-side request forgery; implement URL allowlisting for all outbound connections"]'::jsonb,
+  2,
+  'This is an XML External Entity (XXE) injection vulnerability. When an XML parser resolves external entities, attackers can reference local files, internal network resources, or trigger denial-of-service conditions. The primary fix is disabling external entity resolution (and DTD processing) in the XML parser configuration. This is a common vulnerability in APIs that accept XML input.',
+  'XXE = XML External Entity. Fix: disable external entity resolution in the XML parser. If you do not need external entities, turn them OFF.',
+  'analyze',
+  'scenario',
+  'hard',
+  1.70, 2.30, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'secure_sdlc',
+  'An organization is evaluating its software assurance practices using OWASP SAMM. The assessment reveals that the Governance business function is at maturity level 1, while Implementation is at level 3. The security manager observes that developers have excellent secure coding skills but there are no organizational policies governing how security is integrated into projects. What does this imbalance indicate?',
+  '["The organization is performing well because implementation skills matter more than governance", "The assessment methodology is flawed because governance and implementation cannot be measured separately", "The organization should reduce its implementation maturity to match governance", "The organization has strong tactical security skills but lacks strategic direction, creating inconsistent security outcomes across projects"]'::jsonb,
+  3,
+  'SAMM assesses five business functions (Governance, Design, Implementation, Verification, Operations) independently. A high implementation score with low governance indicates strong individual skills but no organizational framework to ensure consistency. Without governance (policies, standards, metrics), security outcomes depend on individual developer competence rather than organizational processes.',
+  'SAMM balance matters: strong coding skills + weak governance = inconsistent security. You need the policies AND the skills.',
+  'apply',
+  'scenario',
+  'hard',
+  1.50, 2.00, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'secure_coding',
+  'A security review of a high-traffic e-commerce application reveals multiple vulnerabilities: stored XSS in product reviews, SQL injection in the search function, CSRF on the account settings page, and insecure direct object references in order history. Limited developer resources mean fixes must be prioritized. Which vulnerability should be remediated FIRST?',
+  '["SQL injection in the search function, because it provides direct access to the database and can lead to complete data breach", "Stored XSS in product reviews, because it affects all users who view the reviews", "CSRF on account settings, because it allows unauthorized account modifications", "Insecure direct object references, because they allow users to access other users'' order data"]'::jsonb,
+  0,
+  'SQL injection should be fixed first because it provides the most severe potential impact — direct database access that can lead to data extraction, modification, deletion, or even command execution on the database server. While all four vulnerabilities are serious, SQL injection has the highest potential for catastrophic data breach and system compromise.',
+  'Prioritize by IMPACT: SQLi = database access = highest impact. Fix the vulnerability that can cause the most damage first.',
+  'analyze',
+  'first_action',
+  'hard',
+  1.70, 2.40, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  8,
+  'shift_left',
+  'A new application development project is kicking off. The security team wants to adopt a shift-left approach. What should they prioritize FIRST?',
+  '["Including security requirements in the initial requirements gathering phase alongside functional requirements", "Purchasing and deploying a runtime application self-protection tool for production", "Scheduling a penetration test for the week before the planned go-live date", "Hiring an external firm to conduct a security audit after the first release"]'::jsonb,
+  0,
+  'Shifting left means moving security to the earliest possible phase. The very first opportunity to integrate security is during requirements gathering, where security requirements are defined alongside functional and business requirements. RASP, penetration testing, and external audits all occur much later in the lifecycle — they represent a traditional right-side approach.',
+  'Shift LEFT = Requirements are the LEFT-most phase. Start there. If you wait until pen testing, you have already shifted right.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'secure_coding',
+  'A security team discovers that a web application accepts user-supplied HTML in comment fields and renders it directly in other users'' browsers without sanitization. An attacker has injected a script that steals session cookies from visitors. Which vulnerability category does this represent?',
+  '["SQL injection, because the attacker is injecting malicious code into the application", "Stored Cross-Site Scripting (XSS), because malicious scripts persist in the database and execute in victims'' browsers", "Cross-Site Request Forgery (CSRF), because the attack exploits the user''s authenticated session", "Server-Side Request Forgery (SSRF), because the server is making unauthorized requests"]'::jsonb,
+  1,
+  'This is a Stored (Persistent) XSS attack. The malicious script is stored in the database (via the comment field) and served to every user who views the page, executing in their browser. Unlike reflected XSS (which requires a crafted URL), stored XSS persists and affects all visitors. The defense is output encoding and input validation.',
+  'Stored XSS = the malicious script is STORED in the database and SERVED to every visitor like a poison meal.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'api_security',
+  'What is the KEY difference between REST and SOAP APIs from a security perspective?',
+  '["REST APIs cannot use encryption while SOAP APIs require mandatory TLS encryption", "REST APIs are inherently more secure because they are newer and more modern", "REST is lightweight and supports multiple data formats while SOAP is XML-only with built-in error handling and WS-Security standards", "SOAP APIs are faster and more efficient while REST APIs have better security features"]'::jsonb,
+  2,
+  'REST APIs are lightweight, use HTTP methods, and support multiple output formats (JSON, XML, CSV). SOAP APIs are XML-only, more rigid, but include built-in standards like WS-Security for message-level security and stronger error handling. Neither is inherently more secure — they have different security characteristics. REST relies on transport-level security (TLS) while SOAP can provide message-level security.',
+  'REST = Relaxed and flexible (multiple formats). SOAP = Strict and structured (XML only, built-in security standards).',
+  'understand',
+  'comparison',
+  'medium',
+  1.10, 0.10, 0.22,
+  'ai_generated', true
+),
+(
+  8,
+  'change_management',
+  'As the IT security manager, you learn that a developer bypassed the change management process to push an "urgent" patch directly to production over the weekend. The patch resolved a customer-reported issue but was not reviewed or tested. No incident resulted from the patch. How should you respond?',
+  '["Commend the developer for their initiative in resolving the customer issue quickly", "Ignore the situation since no security incident occurred and the customer is satisfied", "Immediately roll back the patch and restore the previous version of the software", "Document the violation, review the patch through the standard process, and reinforce change management procedures"]'::jsonb,
+  3,
+  'As a manager, the correct response balances accountability with pragmatism. The unauthorized change should be documented, the patch should be retroactively reviewed through the proper process, and the team should be reminded of change management requirements. Simply rolling back could cause a new issue. Ignoring it sets a dangerous precedent. The focus should be on process improvement.',
+  NULL,
+  'apply',
+  'tlatm',
+  'medium',
+  1.70, 0.80, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'advanced_testing',
+  'A development team is using a structured code review process where specific roles are assigned: a moderator guides the review, the author presents the code, reviewers examine it methodically, and a recorder documents all findings. Formal entry and exit criteria are defined. What is this process called?',
+  '["Fagan inspection, which is a formal structured code review with defined roles and criteria", "Pair programming, where two developers write code together at one workstation", "Smoke testing, which quickly verifies core application functionality", "Black-box testing, which tests the application from an external perspective"]'::jsonb,
+  0,
+  'A Fagan inspection is a formal, highly structured code review process with defined roles (moderator, author, reviewers, recorder), formal entry and exit criteria, and a systematic approach to finding defects. It is one of the most rigorous forms of code review and is distinguished from informal peer reviews by its strict process and role definitions.',
+  'FAGAN inspection = Formal And Governed ANalysis. Structured roles, formal criteria, documented findings.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

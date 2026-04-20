@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  6,
+  'false_positives',
+  'A penetration testing firm delivers a report containing 15 critical findings to a client. Upon review, the client''s internal security team determines that 8 of the findings cannot actually be exploited due to compensating controls the pen testers were unaware of. From the client''s perspective, how should these 8 findings be classified?',
+  '["True positives that should be remediated immediately", "False negatives that the pen testers missed", "Findings that are technically accurate but mitigated by compensating controls, requiring documentation rather than remediation", "Scanner errors that indicate the pen testing tools are outdated"]'::jsonb,
+  2,
+  'These findings are technically accurate — the vulnerabilities exist — but compensating controls prevent exploitation. They are not false positives (the vulnerabilities are real) nor false negatives (they were found). The appropriate response is to document the compensating controls as mitigating factors and maintain them. The risk is accepted through the compensating controls rather than direct remediation.',
+  'Real vuln + compensating control = mitigated risk. Document the compensating control; do not ignore the finding.',
+  'understand',
+  'scenario',
+  'medium',
+  1.20, 0.20, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'security_metrics',
+  'During software testing, the QA team discovered 45 defects. After the software was released to production, users reported 15 additional defects that were missed during testing. What is the defect detection effectiveness?',
+  '["25%", "33%", "45%", "75%"]'::jsonb,
+  3,
+  'Defect Detection Effectiveness = (Defects found during testing / Total defects found) x 100. Total defects = 45 (found during testing) + 15 (found in production) = 60. Effectiveness = (45 / 60) x 100 = 75%. This means the testing process caught 75% of all defects before release, while 25% escaped to production.',
+  'DDE = Testing defects / All defects x 100. Found 45 of 60 total = 75%. Higher is better — you caught more bugs before release.',
+  'apply',
+  'calculation',
+  'medium',
+  1.60, 0.70, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'code_review',
+  'All of the following are recognized code review methods EXCEPT:',
+  '["Boundary value analysis of application input fields", "Fagan inspection with formal entry and exit criteria", "Peer review where developers examine each other''s code", "Automated static analysis tool scanning for insecure patterns"]'::jsonb,
+  0,
+  'Boundary value analysis is a software testing technique for input validation, not a code review method. Recognized code review methods include Fagan inspections (the most formal, with six phases), peer reviews (developers reviewing each other''s work), code walkthroughs, senior developer sign-off, and automated review tools. Code review examines the source code itself, while boundary value analysis tests application behavior at input boundaries.',
+  'Code review methods: Fagan (formal), peer review, walkthrough, automated tools. BVA is input testing, not code review.',
+  'understand',
+  'except_not',
+  'medium',
+  0.90, 0.20, 0.25,
+  'ai_generated', true
+),
+(
+  6,
+  'credentialed_scanning',
+  'A vulnerability scan report shows that a Windows server has a critical SMB vulnerability. The scan was performed without credentials from outside the network. When the security team logs into the server, they discover the SMB service is disabled and the relevant ports are blocked at the firewall. What has MOST LIKELY occurred?',
+  '["The server was compromised and the attacker disabled SMB after exploitation", "The uncredentialed scan produced a false positive because it could not verify the actual service state", "The firewall is misconfigured and allowing SMB traffic intermittently", "The vulnerability database used by the scanner is outdated and reporting retired CVEs"]'::jsonb,
+  1,
+  'Uncredentialed scans cannot authenticate to verify the actual state of services and configurations on target systems. The scanner likely detected the SMB port or inferred its presence from the Windows OS fingerprint and assumed the vulnerability existed. Since SMB is actually disabled and blocked, this is a false positive — a common outcome of uncredentialed scanning where the scanner cannot verify its assumptions.',
+  'Uncredentialed scan says it is there, but it is not = false positive. No credentials means more guessing, more false positives.',
+  'apply',
+  'most_likely',
+  'medium',
+  1.40, 0.40, 0.22,
+  'ai_generated', true
+),
+(
+  6,
+  'audit_standards',
+  'Your organization relies on a payroll processing service provider. The external auditors request evidence that the provider''s controls over financial transaction processing are effective. As the security manager, which SOC report should you request from the provider?',
+  '["SOC 2 Type I covering security and availability trust services", "SOC 3 report for public distribution to stakeholders", "SOC 1 Type II covering controls relevant to financial reporting over a period of time", "SOC 2 Type II covering all five trust services criteria"]'::jsonb,
+  2,
+  'SOC 1 reports focus specifically on controls relevant to financial reporting — which is exactly what payroll processing financial transactions require. Type II provides assurance that controls are not just designed properly but are operating effectively over a period of time. SOC 2 covers broader trust services criteria and while useful, does not specifically address financial reporting control requirements that auditors need for payroll processing assurance.',
+  'Payroll = financial transactions = SOC 1. SOC 1 = Financial focus. SOC 2 = Security/trust focus. Match the report to the need.',
+  'analyze',
+  'tlatm',
+  'medium',
+  1.90, 1.10, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

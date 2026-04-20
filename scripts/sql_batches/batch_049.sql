@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  7,
+  'evidence_types',
+  'During a forensic investigation, an analyst recovers deleted emails from a suspect''s computer showing discussions about stealing trade secrets. These emails directly establish the suspect''s involvement without requiring any inference. What type of evidence do these emails represent?',
+  '["Direct evidence because they directly prove the suspect''s involvement without need for inference", "Circumstantial evidence because they were recovered from a digital device", "Hearsay evidence because the analyst did not personally witness the emails being written", "Corroborative evidence because they support other evidence in the case"]'::jsonb,
+  0,
+  'Direct evidence speaks for itself and requires no inference or interpretation to establish a fact. Emails explicitly discussing theft of trade secrets directly prove involvement. Circumstantial evidence would only suggest involvement through inference. The emails are not hearsay because they are the suspect''s own statements (business records exception). Corroborative evidence merely supports other evidence.',
+  'DIRECT = Directly proves the point, no thinking required. If it SHOWS the crime, it''s direct.',
+  'understand',
+  'scenario',
+  'medium',
+  1.20, 0.20, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'containment_strategies',
+  'A security team discovers that a malware infection has spread from a workstation to a file server containing sensitive intellectual property. The malware appears to be actively encrypting files on the file server. What should be the FIRST containment action?',
+  '["Restore the file server from the most recent backup", "Disconnect the file server from the network to stop the encryption and prevent further spread", "Run anti-malware software on the file server to remove the infection", "Shut down all workstations on the same network segment"]'::jsonb,
+  1,
+  'With active encryption in progress, the most urgent action is to disconnect the file server from the network immediately. This stops the malware from continuing to encrypt files and prevents it from spreading to other systems. Restoring from backup is a recovery step that comes later. Running anti-malware takes time and the encryption continues during the scan. Shutting down all workstations is too broad.',
+  'Active attack = STOP THE BLEEDING FIRST. Disconnect to halt the damage, then investigate and recover.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'wrt_mtd',
+  'What is the KEY difference between RTO and RPO?',
+  '["RTO measures data loss while RPO measures system downtime", "RTO applies to hardware while RPO applies to software", "RTO is set by IT while RPO is set by management", "RTO measures time to restore systems while RPO measures maximum acceptable data loss in time"]'::jsonb,
+  3,
+  'RTO (Recovery Time Objective) measures the maximum acceptable time to restore systems to a defined service level after a disruption. RPO (Recovery Point Objective) measures the maximum acceptable amount of data loss, expressed as a time period (e.g., RPO of 4 hours means you can lose up to 4 hours of data). RTO focuses on system availability; RPO focuses on data currency.',
+  'RTO = Recovery TIME Objective (how long to get back up). RPO = Recovery POINT Objective (how much data can you lose, measured as the point in time you recover TO).',
+  'understand',
+  'comparison',
+  'medium',
+  1.10, 0.10, 0.22,
+  'ai_generated', true
+),
+(
+  7,
+  'logging_monitoring',
+  'A SIEM is generating a high volume of alerts, many of which are false positives. The SOC team is overwhelmed and critical alerts are being missed. What is the BEST approach to address this issue?',
+  '["Tune the SIEM correlation rules and thresholds to reduce false positives while maintaining detection of genuine threats", "Disable alerting for lower-severity events to reduce the overall alert volume", "Hire additional SOC analysts to handle the increased alert volume", "Replace the SIEM with a different vendor''s product"]'::jsonb,
+  0,
+  'SIEM tuning is an ongoing operational requirement. Adjusting correlation rules, thresholds, and filters reduces false positives while maintaining effective detection. Disabling lower-severity alerts creates blind spots. Hiring more staff treats the symptom, not the cause. Replacing the SIEM entirely is expensive and the new system would need the same tuning process.',
+  'SIEM requires constant TUNING. Too many false positives? Adjust the rules, don''t throw out the tool.',
+  'analyze',
+  'best_answer',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'incident_response',
+  'As a security manager, the CEO asks why the incident response team did not launch a counterattack against the hackers who breached your network last month. What is the BEST response?',
+  '["The team lacked the technical skills to perform a counterattack", "Counterattacks are only effective against nation-state attackers", "Counterattacks are legally prohibited and could result in criminal liability for our organization", "The team was too focused on containment to consider offensive action"]'::jsonb,
+  2,
+  'Organizations must never launch counterattacks (hack back) against attackers. This is a fundamental principle of incident response. Counterattacks can violate computer crime laws, potentially harm innocent third parties whose systems are being used as intermediaries, and expose the organization to criminal and civil liability. The correct approach is to work with law enforcement.',
+  'NEVER hack back. No counterattack, ever. Work with law enforcement instead — let the authorities handle offense.',
+  'apply',
+  'tlatm',
+  'medium',
+  1.70, 0.80, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

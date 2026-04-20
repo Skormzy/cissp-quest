@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  8,
+  'change_management',
+  'All of the following are components of formal change management EXCEPT:',
+  '["Request control, where change requests are formally submitted and documented", "Change control, where the Change Advisory Board reviews and approves changes", "Release control, where acceptance testing validates changes before production deployment", "Configuration audit, which verifies that system components match documented baselines"]'::jsonb,
+  3,
+  'Configuration audit is a component of configuration management, not change management. The three components of formal change management are: request control (submitting changes), change control (reviewing and approving changes via the CAB), and release control (acceptance testing before deployment). Configuration management and change management are related but distinct processes.',
+  'Change management = REQUEST, CHANGE, RELEASE. Configuration audit belongs to CONFIGURATION management, not change management.',
+  'analyze',
+  'except_not',
+  'hard',
+  1.40, 2.30, 0.25,
+  'ai_generated', true
+),
+(
+  8,
+  'containerization',
+  'A security architect is reviewing a Kubernetes deployment for a healthcare application handling PHI. The review reveals that containers share a host kernel, container images include unnecessary system utilities, secrets are stored as environment variables in plaintext, and inter-container communication is unencrypted on the internal network. Which finding poses the GREATEST risk?',
+  '["Secrets stored as plaintext environment variables, because any process in the container or host can read them and they appear in logs and configuration dumps", "Containers sharing a host kernel, because this is the standard Kubernetes architecture and cannot be changed", "Container images including unnecessary utilities, because this slightly increases the attack surface", "Unencrypted inter-container communication, because internal network traffic is typically trusted"]'::jsonb,
+  0,
+  'Storing secrets as plaintext environment variables is the greatest risk because they are easily exposed through process listings, container inspection, logging, crash dumps, and orchestration API queries. Any compromise of the container or host immediately reveals all credentials. Kubernetes provides Secrets objects and integration with external vaults specifically to address this risk.',
+  'NEVER store secrets in plaintext env vars. Use Kubernetes Secrets or external vaults. Env vars are NOT secret — they leak everywhere.',
+  'apply',
+  'scenario',
+  'hard',
+  1.50, 2.00, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'oop_security',
+  'A security analyst reviewing an object-oriented application discovers that a subclass has overridden a security validation method from its parent class. The overridden method accepts all input without validation, effectively bypassing the security controls inherited from the parent. This vulnerability is MOST LIKELY a consequence of which OOP concept being misused?',
+  '["Encapsulation, because internal data is not properly hidden from external access", "Inheritance combined with polymorphism, because the subclass overrides inherited security behavior with weaker controls", "Abstraction, because the security complexity is hidden from the developer", "Cohesion, because the class is performing too many unrelated functions"]'::jsonb,
+  1,
+  'This is a misuse of inheritance and polymorphism together. Inheritance allows the subclass to receive the parent''s security method, but polymorphism allows the subclass to override it with different behavior. When the override weakens security controls, it creates a vulnerability. This is why security-critical methods should be marked as final/sealed to prevent override.',
+  'Inheritance gives you the security method. Polymorphism lets you OVERRIDE it. Mark security methods as FINAL to prevent weakening.',
+  'analyze',
+  'most_likely',
+  'hard',
+  1.60, 2.20, 0.22,
+  'ai_generated', true
+),
+(
+  8,
+  'owasp_top_10',
+  'A penetration test against a web application reveals that the server returns different error messages for valid usernames with wrong passwords versus completely invalid usernames. An attacker could use this to enumerate valid user accounts before attempting credential attacks. What should the development team fix FIRST?',
+  '["Implement account lockout after five failed login attempts to prevent brute force attacks", "Add CAPTCHA to the login page to slow down automated enumeration attempts", "Return identical generic error messages for all failed login attempts regardless of whether the username exists", "Enable multi-factor authentication for all user accounts to add a second verification layer"]'::jsonb,
+  2,
+  'The most direct fix for username enumeration is ensuring the application returns identical error messages for all failed login attempts, whether the username is valid or not. This eliminates the information leakage that enables enumeration. Account lockout, CAPTCHA, and MFA are all valuable defense-in-depth controls but do not address the root cause of the enumeration vulnerability.',
+  'Username enumeration fix: make ALL login failures look IDENTICAL. "Invalid credentials" — never reveal which part was wrong.',
+  'apply',
+  'first_action',
+  'hard',
+  1.50, 2.10, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'advanced_testing',
+  'A software development organization wants to adopt a formal code review process. They require specific roles including a moderator, reader, author, and inspector. The process has defined entry criteria (code compiles, meets coding standards), individual preparation, a group review meeting, and formal exit criteria. Defect metrics are tracked and analyzed. Which process does this BEST describe?',
+  '["Pair programming, where two developers write and review code simultaneously at one workstation", "Ad hoc peer review, where developers informally review each other''s code as time permits", "Walkthrough, where the code author presents their code and explains the logic to the team", "Fagan inspection, which is a formal structured review process with defined roles, entry and exit criteria, and defect tracking"]'::jsonb,
+  3,
+  'A Fagan inspection is the most formal type of code review, characterized by defined roles (moderator, reader, author, inspector), formal entry and exit criteria, mandatory individual preparation, structured group review meetings, and systematic defect tracking. It is distinguished from walkthroughs (author-led, less formal) and ad hoc reviews (informal, no structure).',
+  'FAGAN = the FORMAL version of code review. Defined roles + entry/exit criteria + metrics = Fagan inspection.',
+  'analyze',
+  'scenario',
+  'hard',
+  1.70, 2.30, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

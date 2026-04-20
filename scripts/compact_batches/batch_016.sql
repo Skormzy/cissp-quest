@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  5,
+  'sso_federation',
+  'An architect is choosing between SAML and OpenID Connect for a new federation implementation. The organization needs to support both web browser SSO and native mobile applications, and prefers lightweight data formats. Which comparison is MOST accurate for making this decision?',
+  '["SAML is better for mobile because XML is more structured than JSON", "Both protocols are equivalent for mobile applications and use the same token formats", "SAML is preferred when using REST APIs because XML integrates better with modern microservices", "OIDC is better for mobile and API scenarios because it uses lightweight JSON/JWT tokens and RESTful endpoints, while SAML is better suited for traditional web browser SSO with XML assertions"]'::jsonb,
+  3,
+  'OIDC uses JSON Web Tokens and RESTful APIs, making it lightweight and well-suited for mobile applications and modern API architectures. SAML uses heavier XML assertions and was designed primarily for web browser SSO via HTTP redirects and POST bindings. While SAML excels at enterprise web federation, OIDC is the preferred choice for mobile, single-page applications, and microservices.',
+  'OIDC = JSON + REST + mobile-friendly. SAML = XML + browser redirects + enterprise web SSO. Match the protocol to the use case.',
+  'analyze',
+  'comparison',
+  'hard',
+  1.60, 2.20, 0.22,
+  'ai_generated', true
+),
+(
+  5,
+  'zero_trust',
+  'A multinational corporation is implementing Zero Trust and must decide on the trust algorithm''s behavior when a software engineer''s laptop reports a critical unpatched vulnerability while the engineer is mid-session working on a production deployment. The deployment cannot be easily paused. How should the trust algorithm respond?',
+  '["Dynamically reduce the session''s access scope to only the minimum resources needed for the current deployment while quarantining general access, and flag for immediate remediation", "Allow the session to continue unchanged because disrupting a production deployment poses greater risk than the vulnerability", "Terminate the session immediately because any device with a critical vulnerability must be completely denied access", "Ignore the vulnerability report until the deployment is complete, then force the engineer to patch before next login"]'::jsonb,
+  0,
+  'Zero Trust calls for continuous evaluation and adaptive response. The best approach dynamically adjusts access scope rather than using binary allow/deny. Reducing to only deployment-necessary resources contains the risk while allowing critical work to continue. Full termination may cause production damage, but ignoring the vulnerability or allowing full access violates Zero Trust principles.',
+  'Zero Trust = continuous evaluation + adaptive response. Not just allow/deny but dynamic scope adjustment.',
+  'apply',
+  'scenario',
+  'hard',
+  1.50, 2.00, 0.20,
+  'ai_generated', true
+),
+(
+  5,
+  'access_control_models',
+  'All of the following statements about Mandatory Access Control (MAC) are correct EXCEPT:',
+  '["MAC requires classification labels on both subjects and objects", "MAC allows resource owners to modify access permissions at their discretion", "MAC uses a lattice-based model with hierarchical and compartmental elements", "MAC is primarily used in government and military environments"]'::jsonb,
+  1,
+  'In MAC, the system enforces access based on labels, NOT the resource owner. The ability for owners to modify permissions at their discretion is the defining characteristic of Discretionary Access Control (DAC). MAC requires labels on both subjects and objects, uses a lattice-based model, and is primarily used in government/military. This is one of the most common exam traps.',
+  'MAC = system decides based on labels. DAC = owner decides at their Discretion. If the owner controls access, it''s DAC, not MAC.',
+  'analyze',
+  'except_not',
+  'hard',
+  1.40, 2.30, 0.25,
+  'ai_generated', true
+),
+(
+  5,
+  'credential_attacks',
+  'During a penetration test, an ethical hacker discovers that several user accounts in Active Directory are configured with the "Do not require Kerberos preauthentication" flag. The tester requests AS-REP messages for these accounts and takes them offline for password cracking. Which specific attack is being performed?',
+  '["Kerberoasting, targeting service accounts through SPN-registered tickets", "Silver ticket attack, forging service tickets using the service account hash", "ASREPRoast, targeting accounts without preauthentication to obtain crackable AS-REP data", "Pass-the-ticket, replaying captured Kerberos tickets for lateral movement"]'::jsonb,
+  2,
+  'ASREPRoast targets user accounts with Kerberos preauthentication disabled. Normally, preauthentication requires the user to prove identity before the KDC issues an AS-REP. Without it, anyone can request an AS-REP containing data encrypted with the user''s password hash, enabling offline cracking. This differs from Kerberoasting, which targets service tickets for SPN-registered accounts.',
+  'ASREPRoast = no preauthentication flag + crack AS-REP offline. Kerberoasting = SPN accounts + crack service tickets offline.',
+  'apply',
+  'scenario',
+  'hard',
+  1.50, 2.00, 0.20,
+  'ai_generated', true
+),
+(
+  5,
+  'authorization_mechanisms',
+  'A cloud-native application needs to implement authorization that can evaluate policies such as "Allow access if the user is a manager, the request originates from a corporate device, it is during business hours, and the data sensitivity is medium or lower." Which technology standard BEST supports expressing these complex attribute-based policies?',
+  '["LDAP directory queries that check user group memberships against resource ACLs", "OAuth 2.0 scopes that define the boundaries of delegated resource access", "SAML authorization assertions that specify what resources a user can access", "XACML, which defines a standardized policy language for expressing attribute-based access control rules across multiple attributes and conditions"]'::jsonb,
+  3,
+  'XACML (eXtensible Access Control Markup Language) is an OASIS standard specifically designed for expressing ABAC policies. It supports complex rules evaluating multiple attributes (user role, device type, time, data sensitivity) and provides a standardized architecture with policy decision points and policy enforcement points. LDAP handles identity lookup, OAuth handles delegation, and SAML handles federation assertions.',
+  'XACML = the policy language for ABAC. When you need multi-attribute rules expressed as policies, XACML is the standard.',
+  'analyze',
+  'best_answer',
+  'hard',
+  1.50, 2.10, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

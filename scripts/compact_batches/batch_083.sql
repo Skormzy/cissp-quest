@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  2,
+  'data_sovereignty',
+  'As the Chief Privacy Officer of a global SaaS company, you learn that a new data protection law in Brazil requires all Brazilian customer data to be stored within Brazilian borders. Your platform currently uses a US-based cloud provider with data centers in Virginia and Ireland only. The engineering team proposes three options: migrate Brazilian data to a new Brazilian data center, implement encryption where only Brazilian staff hold keys, or exit the Brazilian market. From a governance perspective, what is the MOST appropriate recommendation?',
+  '["Negotiate with the cloud provider to establish a Brazilian region and migrate the data, while evaluating the cost impact against Brazilian market revenue", "Implement encryption with Brazilian-held keys since encrypted data is not considered personal data under most frameworks", "Exit the Brazilian market to avoid the complexity of data residency compliance", "Continue current operations and challenge the law through legal proceedings in Brazilian courts"]'::jsonb,
+  0,
+  'Data sovereignty laws require physical residency of data, not just encryption. The governance approach weighs compliance cost against business value. Establishing a Brazilian region directly addresses the legal requirement. Encryption does not satisfy data residency requirements — the data physically resides in the US regardless of who holds keys. Exiting a market should be a last resort after cost-benefit analysis. Challenging the law is expensive, uncertain, and doesn''t address near-term compliance. The business case drives the decision.',
+  'Data sovereignty = data must PHYSICALLY be there. Encryption doesn''t change WHERE data lives. Assess cost vs. market value.',
+  'analyze',
+  'tlatm',
+  'very_hard',
+  1.90, 3.00, 0.20,
+  'ai_generated', true
+),
+(
+  2,
+  'data_destruction',
+  'An organization is decommissioning 500 laptop hard drives that contained classified government data at the Secret level. The organization wants to reuse the drives in unclassified systems. Which data destruction method would allow the drives to be safely reused while meeting federal requirements for Secret-level media?',
+  '["Performing a single-pass overwrite using a DoD-approved wiping utility", "Formatting the drives using the operating system''s built-in format tool", "Encrypting the entire drive and then deleting the encryption keys", "The drives cannot be reused for unclassified systems; they must be physically destroyed when downgrading from Secret classification"]'::jsonb,
+  3,
+  'For government classified data at the Secret level, NSA/CSS Policy Manual 9-12 and NIST SP 800-88 require physical destruction (degaussing followed by physical destruction, or just physical destruction) when media will be used outside the classified environment. Overwriting is not sufficient for classified data — data remanence concerns at the magnetic level mean overwriting cannot guarantee complete removal. Formatting only removes file system references. Crypto-shredding is not approved for government classified data declassification. Classified media going to lower classification must be destroyed.',
+  'CLASSIFIED government data = physical destruction. No shortcuts. You can''t "wipe" Secret-level media for reuse outside.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  2,
+  'casb',
+  'A CASB deployment reveals that employees across 12 departments are using 47 unauthorized cloud storage services to share work files. The data includes customer PII, financial records, and intellectual property. The IT security team wants to immediately block all unauthorized cloud services. What should the security manager do FIRST?',
+  '["Block all 47 unauthorized services immediately and deal with the business impact afterward", "Classify the shadow IT services by risk level and data sensitivity, then work with business units to migrate critical workflows to approved alternatives before blocking high-risk services", "Report the finding to legal counsel and wait for their guidance before taking any action", "Send a company-wide email reminding employees of the acceptable use policy and monitor for compliance"]'::jsonb,
+  1,
+  'Immediately blocking 47 services that 12 departments depend on would cause massive business disruption and likely push users to even harder-to-detect alternatives. The strategic approach is to classify the risk, understand the business needs driving shadow IT, provide approved alternatives, then block. This ensures business continuity while reducing risk. Waiting for legal delays risk remediation. An email alone provides no enforcement. Risk-based prioritization is the management approach.',
+  'Shadow IT = users found a need you didn''t fill. Classify risk, provide alternatives, THEN block. Don''t just cut the cord.',
+  'analyze',
+  'first_action',
+  'hard',
+  1.70, 2.40, 0.20,
+  'ai_generated', true
+),
+(
+  3,
+  'pki_certificates',
+  'A security team discovers that a certificate authority in their PKI hierarchy has been compromised. The compromised CA had issued certificates for 200 internal web servers and 50 external-facing services. The security team needs to respond. Which aspect of the response is MOST critical to address first?',
+  '["Revoke all certificates issued by the compromised CA and publish updated CRLs or OCSP responses immediately to prevent trust of fraudulent certificates", "Generate new key pairs for all 250 services before revoking the compromised CA certificates", "Contact the root CA vendor to request a new intermediate CA certificate", "Notify all external customers that the organization''s certificates may be compromised"]'::jsonb,
+  0,
+  'When a CA is compromised, the immediate priority is revoking all certificates it issued and publishing updated revocation information. Until certificates are revoked, an attacker with the compromised CA''s private key can issue fraudulent certificates that will be trusted. Generating new keys before revocation leaves the window of trust exploitation open. Getting a new CA cert is important but secondary to stopping trust of compromised certificates. Customer notification comes after the technical response is initiated.',
+  'Compromised CA = REVOKE first. Every second those certs are trusted is a second the attacker can forge identities.',
+  'analyze',
+  'scenario',
+  'hard',
+  1.70, 2.30, 0.20,
+  'ai_generated', true
+),
+(
+  3,
+  'cloud_security',
+  'An organization is migrating its application stack to the cloud. The application tier will run on IaaS virtual machines, the database will use a PaaS managed database service, and file storage will use a SaaS collaboration platform. Which statement BEST describes the organization''s security responsibilities?',
+  '["The organization is responsible for security at all layers across all three service models since it owns the data", "The cloud provider is responsible for all infrastructure security, and the organization only needs to manage user access", "The organization must secure the OS and applications on IaaS VMs, configure database security settings on PaaS, and manage user access and data classification on SaaS", "The organization should apply the same security controls uniformly across all three service models"]'::jsonb,
+  2,
+  'The shared responsibility model varies by service type. With IaaS, the customer manages everything from the OS up (patching, hardening, application security). With PaaS, the provider manages the OS and runtime, but the customer configures database access controls and security settings. With SaaS, the customer manages user access and data governance. Each model has different responsibility boundaries. Uniform controls ignore these differences. The provider doesn''t handle everything, and customer responsibility varies by model.',
+  'IaaS = you manage the MOST. PaaS = provider manages OS/runtime. SaaS = you manage LEAST (just users and data). Responsibility DECREASES up the stack.',
+  'apply',
+  'best_answer',
+  'medium',
+  1.30, 0.30, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

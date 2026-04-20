@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  8,
+  'secure_sdlc',
+  'A large defense contractor is developing a mission-critical weapons guidance system. Requirements are well-defined and unlikely to change, but the project involves significant technical risk due to novel algorithms. The system must pass formal certification before deployment. The project manager wants to use Agile for speed, but the security team has concerns. Which development methodology is MOST appropriate?',
+  '["Pure Agile with two-week sprints, because speed of delivery is the primary business driver", "Waterfall, because the sequential approach guarantees all phases are completed before deployment", "Spiral, because it combines iterative prototyping with risk analysis at every cycle for high-risk projects", "Extreme Programming, because pair programming will catch algorithmic errors more quickly"]'::jsonb,
+  2,
+  'The Spiral model is ideal for large, complex, high-risk projects with stable requirements but significant technical risk. It iterates through planning, risk analysis, engineering, and evaluation in each cycle, making risk management central. Waterfall lacks iterative risk analysis. Agile and XP are better for evolving requirements, not rigid certification-required environments.',
+  'SPIRAL = best for high-RISK, high-COMPLEXITY projects. Risk analysis is baked into every cycle.',
+  'analyze',
+  'scenario',
+  'hard',
+  1.70, 2.30, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'devsecops',
+  'A financial services company with 200 developers is experiencing a high rate of security vulnerabilities reaching production despite having SAST tools in their pipeline. Analysis shows developers often ignore SAST findings because of a 40% false positive rate, and no one reviews the results systematically. The pipeline does not block builds on security findings. What should the security team do FIRST?',
+  '["Replace the current SAST tool with a more expensive enterprise solution from a different vendor", "Add DAST testing to the pipeline to catch what SAST misses in the running application", "Remove the SAST tool entirely since developers are ignoring it and it adds no value", "Tune the SAST tool rules to reduce false positives and configure the pipeline to block builds on high-severity findings"]'::jsonb,
+  3,
+  'The root cause is that high false positive rates have eroded developer trust, and the lack of enforcement means findings can be ignored. The first step is tuning the tool to reduce false positives (improving signal quality) and adding pipeline gates that block builds on high-severity findings (adding enforcement). This addresses both the trust problem and the enforcement gap.',
+  'Security tools must be TUNED and ENFORCED. A tool that cries wolf too often gets ignored. Reduce noise, then enforce.',
+  'analyze',
+  'first_action',
+  'hard',
+  1.70, 2.40, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'software_acquisition',
+  'As the CISO, your organization is evaluating whether to use a COTS product or build a custom solution for a sensitive intelligence analysis platform. The COTS product is mature and well-reviewed but the vendor will not provide source code. A custom solution would take two years and cost three times as much. How should you advise the executive team?',
+  '["Recommend the COTS product with a source code escrow agreement, independent security assessment, and strong contractual SLA protections as risk mitigations", "Recommend the custom solution because security-sensitive systems should never use COTS products", "Recommend the COTS product without additional mitigations since vendor reputation is sufficient assurance", "Defer the decision until the vendor agrees to open-source their product for your organization"]'::jsonb,
+  0,
+  'A manager balances cost, risk, and timeline. The COTS product with proper mitigations (escrow, security assessment, SLAs) provides acceptable risk at lower cost and faster delivery. Building custom is not always more secure and costs significantly more. The key is implementing appropriate risk mitigations rather than avoiding COTS entirely or accepting it without controls.',
+  NULL,
+  'analyze',
+  'tlatm',
+  'hard',
+  1.90, 2.60, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'secure_coding',
+  'During a security audit, a critical covert timing channel is discovered in a multi-tenant SaaS application. An attacker on one tenant can measure the response time of shared database queries to infer whether another tenant''s records exist for specific search criteria. What should the development team address FIRST?',
+  '["Implement database encryption to prevent direct access to other tenants'' data", "Normalize response times across all queries to eliminate timing-based information leakage", "Add additional logging to detect when timing analysis is being performed", "Deploy a web application firewall with timing-attack detection signatures"]'::jsonb,
+  1,
+  'Covert timing channels exploit variations in processing time to leak information. The most direct first fix is normalizing response times so that queries take the same duration regardless of whether matching data exists. This eliminates the timing signal the attacker relies on. Encryption does not prevent timing analysis, logging is detective not preventive, and WAFs cannot reliably detect timing attacks.',
+  'Covert TIMING channels = time differences leak secrets. Fix = make ALL responses take the SAME time.',
+  'apply',
+  'first_action',
+  'hard',
+  1.50, 2.10, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'database_security',
+  'A government intelligence agency uses a multilevel security database. An analyst with SECRET clearance queries a personnel table for an employee record. The system returns a record showing the employee''s cover assignment. However, at the TOP SECRET level, the same employee ID shows a different classified assignment. An administrator reviews audit logs and sees that the lower-cleared analyst has been systematically querying records and correlating results with publicly available information. What database security techniques are being used and attacked?',
+  '["Database normalization is protecting data while SQL injection is being used to attack it", "Cell suppression is hiding values while a buffer overflow is being used to bypass controls", "Polyinstantiation is protecting data at different levels while an inference attack is being used to derive classified information", "Database views are restricting access while an aggregation attack is combining permitted queries"]'::jsonb,
+  2,
+  'Polyinstantiation is the protection mechanism — providing different versions of the same record at different classification levels. The attack is inference — the analyst uses logical deduction, correlating query results with external information to derive classified data. This is sophisticated because the analyst never directly accesses classified data but reasons their way to it.',
+  'Polyinstantiation PROTECTS by showing different versions. Inference ATTACKS by deducing what the hidden version contains.',
+  'analyze',
+  'scenario',
+  'hard',
+  1.70, 2.30, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  6,
+  'fuzz_testing',
+  'A security team is testing an IoT device''s firmware update mechanism. The update protocol uses a proprietary binary format with specific header structures, checksums, and encrypted payload sections. Which fuzzing strategy BEST maximizes the chance of discovering exploitable vulnerabilities in the update parser?',
+  '["Random byte generation with no protocol awareness", "Generational fuzzing that understands the header structure and can generate valid checksums while malforming payload content", "Mutation fuzzing that randomly flips bits in captured valid update packages", "Static analysis of the firmware binary without any dynamic testing"]'::jsonb,
+  1,
+  'For a proprietary binary protocol with specific structure requirements, generational fuzzing is most effective because it can create inputs that pass initial parsing checks (valid headers, correct checksums) while intentionally malforming deeper payload content. Mutation fuzzing would likely fail initial validation checks because random modifications would corrupt checksums and headers, preventing the fuzzer from reaching deeper code paths.',
+  'Complex protocols need intelligent fuzzing. Generational = passes the front door checks, then breaks things inside.',
+  'apply',
+  'best_answer',
+  'hard',
+  1.30, 1.80, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'credentialed_scanning',
+  'An organization performs quarterly vulnerability scans using both credentialed and uncredentialed methods. The latest credentialed scan found 50 high-severity vulnerabilities, while the uncredentialed scan found 120 high-severity vulnerabilities on the same systems. Upon investigation, 85 of the uncredentialed findings are confirmed false positives, while 15 vulnerabilities found by the uncredentialed scan were NOT detected by the credentialed scan. What does this analysis reveal about the scanning program?',
+  '["The credentialed scan is unreliable and should be replaced", "The uncredentialed scan is more accurate and should be the primary method", "Both scan types provide complementary value — credentialed scans are more accurate while uncredentialed scans may catch externally visible issues missed by internal inspection", "The vulnerability database needs updating since both scans produce different results"]'::jsonb,
+  2,
+  'This scenario demonstrates that credentialed and uncredentialed scans serve complementary purposes. Credentialed scans are more accurate (fewer false positives) because they verify actual configurations, but uncredentialed scans test from an external perspective and may identify issues visible only from outside the system. Using both provides the most comprehensive assessment — a defense-in-depth approach to vulnerability management.',
+  'Credentialed = fewer false positives, deeper insight. Uncredentialed = attacker view, catches external issues. Use BOTH for best coverage.',
+  'analyze',
+  'scenario',
+  'hard',
+  1.70, 2.30, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'testing_approaches',
+  'The security team discovers that a critical web application has never undergone any security testing. The application handles sensitive customer data, processes financial transactions, and has been in production for two years. Resources are limited and the team can only perform one type of testing immediately. What should they do FIRST?',
+  '["Conduct a full Fagan inspection of the entire application source code", "Perform generational fuzz testing against all input fields", "Schedule a red team exercise simulating an advanced persistent threat", "Run a credentialed vulnerability assessment to identify the most critical known weaknesses quickly"]'::jsonb,
+  3,
+  'With limited resources and no prior security testing on a critical production application, a credentialed vulnerability assessment provides the fastest path to identifying known critical weaknesses. It is automated, relatively fast (hours rather than days or weeks), produces actionable results, and when credentialed, provides accurate findings with fewer false positives. This establishes a baseline from which to prioritize further testing such as penetration testing or code review.',
+  'First time testing? Start with vulnerability assessment. Fast, automated, establishes baseline. Then layer on pen testing and code review.',
+  'apply',
+  'first_action',
+  'hard',
+  1.50, 2.10, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'log_management',
+  'A forensic investigation reveals that an attacker compromised a web server three weeks ago but the earliest available logs are only seven days old. The server uses circular overwrite with a 10-day retention window, and the SIEM was not configured to collect logs from this particular server. What is MOST LIKELY the root cause of the evidence gap?',
+  '["Inadequate log retention policy combined with incomplete SIEM onboarding that left the web server''s logs uncollected centrally", "The attacker deleted all logs as part of the compromise", "The circular overwrite feature malfunctioned and deleted logs prematurely", "The forensic team is looking at the wrong server for evidence"]'::jsonb,
+  0,
+  'The evidence gap has two contributing factors: the circular overwrite policy only retains 10 days of logs (and the breach occurred 21 days ago), and the SIEM was not collecting logs from this server. Even with circular overwrite, if logs had been forwarded to the SIEM, they would have been retained according to the SIEM''s retention policy. This highlights the importance of both adequate retention policies and comprehensive SIEM coverage.',
+  'Two failures: short retention + incomplete SIEM coverage. Either one alone might have preserved evidence. Defense in depth applies to logging too.',
+  'analyze',
+  'most_likely',
+  'hard',
+  1.60, 2.20, 0.22,
+  'ai_generated', true
+),
+(
+  6,
+  'team_exercises',
+  'An organization conducts a security exercise where the red team launches a simulated phishing campaign and attempts network exploitation. The blue team is unaware the exercise is occurring and responds to alerts as real incidents. Senior management observes from a dedicated war room and documents the timeline of events and team decisions. Which exercise configuration is being described?',
+  '["Blind penetration test with white team oversight", "Double-blind exercise with red, blue, and white team roles where only senior management and white team are aware", "Purple team collaboration exercise with shared objectives", "Tabletop exercise with theoretical scenario discussion"]'::jsonb,
+  1,
+  'This is a double-blind exercise because the blue team is unaware testing is occurring (both teams are "blind"). The red team simulates attacks, the blue team responds genuinely, and the white team (senior management observing from the war room) documents lessons learned. Double-blind exercises provide the most realistic assessment of detection and response capabilities.',
+  'Double-blind = everyone is in the dark except the watchers. Red attacks, blue defends for real, white watches and records.',
+  'apply',
+  'scenario',
+  'hard',
+  1.50, 2.00, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

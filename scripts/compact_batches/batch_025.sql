@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  6,
+  'security_metrics',
+  'As the newly appointed CISO, you are reviewing the security program''s metrics dashboard. Several metrics are reported quarterly, but few appear tied to business objectives. From a management perspective, what is the MOST important action to improve the metrics program?',
+  '["Align metrics to the SMART framework ensuring each is relevant to business strategy", "Increase the number of metrics reported to provide more comprehensive coverage", "Replace all technical metrics with financial metrics for executive understanding", "Outsource metrics collection to a third-party managed security provider"]'::jsonb,
+  0,
+  'SMART metrics (Specific, Measurable, Achievable/Actionable, Relevant, Timely) provide a framework for ensuring security metrics drive business value. The R in SMART stands for Relevant, meaning metrics must align to business strategy. A CISO should focus on connecting security measurements to organizational objectives rather than simply increasing volume or eliminating technical detail.',
+  'SMART metrics: Specific, Measurable, Achievable, Relevant, Timely. The R is key — metrics must matter to the business.',
+  'analyze',
+  'tlatm',
+  'medium',
+  1.90, 1.10, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'log_management',
+  'A security operations center discovers that critical security log files on a high-traffic web server are being overwritten every 4 hours because the log partition has reached its maximum size and the server is configured to use circular overwrite. During an incident investigation, analysts need logs from 12 hours ago. What is the PRIMARY concern with the current configuration?',
+  '["The log format is incompatible with the SIEM normalization engine", "Critical evidence for incident investigation may have been permanently lost due to circular overwrite", "The web server performance is degraded because of excessive logging", "The log partition size exceeds the recommended industry benchmark"]'::jsonb,
+  1,
+  'Circular overwrite replaces the oldest log entries when maximum storage is reached. In this scenario, with logs overwriting every 4 hours, any evidence older than 4 hours has been permanently lost. This is a significant concern for incident investigation and forensic analysis. Organizations must balance log retention requirements with storage capacity to ensure critical evidence is preserved.',
+  'Circular overwrite = oldest logs eaten by newest. Great for space, terrible for forensics.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'cve_cvss',
+  'A vulnerability scanner reports a finding with a CVSS base score of 9.2. How would this vulnerability MOST LIKELY be classified?',
+  '["Low severity requiring routine patching", "Medium severity requiring evaluation within 30 days", "Critical severity requiring immediate remediation", "Informational finding requiring no action"]'::jsonb,
+  2,
+  'CVSS scores range from 0.0 to 10.0, with severity ratings as follows: None (0.0), Low (0.1-3.9), Medium (4.0-6.9), High (7.0-8.9), and Critical (9.0-10.0). A score of 9.2 falls in the Critical range, meaning the vulnerability represents a severe risk that should be prioritized for immediate remediation.',
+  'CVSS severity: Low <4, Medium 4-6.9, High 7-8.9, Critical 9-10. Higher = Hotter = Handle now.',
+  'understand',
+  'most_likely',
+  'medium',
+  1.10, 0.10, 0.22,
+  'ai_generated', true
+),
+(
+  6,
+  'testing_approaches',
+  'Management has decided to conduct a double-blind penetration test of the organization''s network. In addition to limiting the tester''s knowledge, what FIRST distinguishes this from a standard blind test?',
+  '["The penetration testers must sign additional non-disclosure agreements", "The test must be conducted from an external network only", "The testers are required to use only open-source tools", "The internal security team is not informed that a test is taking place"]'::jsonb,
+  3,
+  'The key distinction of a double-blind test is that neither the penetration testers nor the internal security team know the test is happening — only senior management is aware. In a standard blind test, the testers have minimal information but the internal security team knows testing will occur. Double-blind tests provide the most realistic assessment of both detection and response capabilities.',
+  'Blind = tester is blind. Double-blind = BOTH tester AND defenders are blind. Only senior management knows.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'soc_reports',
+  'A cloud-based SaaS provider presents your organization with a SOC 1 Type II report as evidence of their security posture. Your organization is primarily concerned about the confidentiality and availability of data stored in the provider''s environment. Why is this report INSUFFICIENT for your needs?',
+  '["SOC 1 reports focus on financial reporting controls, not on security trust services criteria like confidentiality and availability", "SOC 1 Type II reports are only valid for 30 days after issuance", "SOC 1 reports are not recognized by any regulatory framework", "SOC 1 Type II only covers control design, not operational effectiveness"]'::jsonb,
+  0,
+  'SOC 1 reports are designed to evaluate controls relevant to financial reporting, not the broader trust services criteria. For concerns about confidentiality and availability, your organization should request a SOC 2 report, which covers the five trust services criteria: security, availability, confidentiality, processing integrity, and privacy. Type II is correct for assessing operational effectiveness over time, but the SOC type (1 vs. 2) matters more here.',
+  'SOC 1 = Financial focus. SOC 2 = Security focus (five trust services). Wrong SOC type = wrong assurance.',
+  'analyze',
+  'scenario',
+  'medium',
+  1.70, 0.80, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

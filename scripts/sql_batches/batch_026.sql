@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  6,
+  'vulnerability_assessment',
+  'During a credentialed vulnerability scan of a Linux server, the scanner identifies a critical OpenSSL vulnerability with a CVSS score of 9.8. The server hosts a public-facing customer portal. What should be the FIRST remediation step?',
+  '["Immediately take the server offline to prevent exploitation", "Verify the finding is not a false positive by confirming the OpenSSL version installed", "Replace OpenSSL with a proprietary encryption library", "Reformat and rebuild the server from a known-good image"]'::jsonb,
+  1,
+  'Before taking any remediation action, the first step is to verify that the finding is not a false positive. Even credentialed scans can produce false positives. Confirming the installed OpenSSL version against the CVE details ensures resources are not wasted on non-existent vulnerabilities. Once confirmed, appropriate remediation such as patching can proceed based on change management procedures.',
+  'Before you fix, verify. Even credentialed scans can be wrong. Confirm first, then remediate.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'penetration_testing',
+  'How does a vulnerability assessment fundamentally differ from a penetration test in terms of methodology?',
+  '["Vulnerability assessments are manual while penetration tests are automated", "Vulnerability assessments require written authorization while penetration tests do not", "Vulnerability assessments identify weaknesses without exploitation while penetration tests actively exploit them", "Vulnerability assessments take longer to complete than penetration tests"]'::jsonb,
+  2,
+  'The fundamental difference is that vulnerability assessments stop at identifying and reporting vulnerabilities without attempting exploitation, while penetration tests go further by actively exploiting discovered vulnerabilities to prove they can be leveraged. Both require authorization, but penetration tests are more manual, take longer (days to weeks vs. minutes to hours), and carry greater risk of impacting systems.',
+  'Vuln assessment = find the unlocked doors. Pen test = walk through them and prove what is at risk.',
+  'understand',
+  'comparison',
+  'medium',
+  1.10, 0.10, 0.22,
+  'ai_generated', true
+),
+(
+  6,
+  'fuzz_testing',
+  'A development team is building a custom network protocol parser. The lead security engineer recommends fuzz testing and wants to generate test inputs that follow the protocol''s message format structure, including valid headers but malformed payload fields. Which fuzzing approach is MOST appropriate?',
+  '["Mutation fuzzing using the zzuf tool on captured network packets", "Static analysis of the parser source code for buffer overflow patterns", "Manual code review with focus on input validation routines", "Generational fuzzing that creates inputs based on the protocol specification"]'::jsonb,
+  3,
+  'Generational (intelligent) fuzzing creates test inputs from scratch based on understanding of the expected data format or protocol specification. This allows the fuzzer to generate structurally valid messages with targeted malformation in specific fields. Mutation fuzzing randomly modifies existing inputs without understanding the format, making it less effective for protocol-specific testing.',
+  'Generational = Generate from spec (smart). Mutation = Mangle randomly (dumb). Know the format? Go generational.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'audit_standards',
+  'The board of directors asks the CISO whether the organization''s cloud service provider has adequate security controls. The provider offers a SOC 2 Type I report from six months ago. As a security manager, what is your BEST recommendation to the board?',
+  '["Request a SOC 2 Type II report to verify both control design and operational effectiveness over time", "Accept the Type I report since it confirms controls are properly designed", "Commission an independent SOC 3 report for more detailed information", "Require the provider to undergo a SOC 1 audit for comprehensive coverage"]'::jsonb,
+  0,
+  'A SOC 2 Type I report only assesses control design at a point in time, not whether controls are actually operating effectively. A Type II report covers both design and operational effectiveness over a period of time (typically 6-12 months), providing much stronger assurance. SOC 3 is less detailed than SOC 2, and SOC 1 focuses on financial controls, not security trust services.',
+  'Type I = designed right (snapshot). Type II = designed AND operating right (movie). Type II always provides more assurance.',
+  'analyze',
+  'tlatm',
+  'medium',
+  1.90, 1.10, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'sast_dast_iast',
+  'A mature development organization wants to integrate security testing directly into their CI/CD pipeline so that code is analyzed for vulnerabilities each time a developer commits changes. Which approach BEST fits this requirement?',
+  '["Dynamic Application Security Testing run against the production environment", "Static Application Security Testing integrated into the development environment", "Quarterly penetration testing conducted by an external firm", "Annual code review performed by the compliance team"]'::jsonb,
+  1,
+  'SAST is the best fit for CI/CD pipeline integration because it analyzes source code or compiled binaries without requiring the application to run. It can be integrated directly into development environments and triggered automatically on each commit. DAST requires a running application, and both penetration testing and annual reviews are too infrequent for continuous integration workflows.',
+  'SAST = shift-left security. It checks code before it runs, perfect for CI/CD pipelines.',
+  'apply',
+  'best_answer',
+  'medium',
+  1.30, 0.30, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

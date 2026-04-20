@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  8,
+  'software_acquisition',
+  'Your organization is evaluating a commercial off-the-shelf (COTS) application for handling sensitive financial data. The vendor refuses to provide source code access. What should you do FIRST to mitigate this risk?',
+  '["Negotiate a source code escrow agreement with a trusted third party", "Reject the COTS product and build a custom solution in-house", "Accept the risk since COTS products are generally well-tested by vendors", "Require the vendor to open-source their product before purchase"]'::jsonb,
+  0,
+  'When a COTS vendor will not provide source code access, a source code escrow agreement is the primary mitigation. A neutral third party holds the source code and releases it to the buyer if the vendor goes out of business or fails to maintain the product. This protects the buyer without requiring the vendor to expose proprietary code.',
+  'ESCROW = Emergency Source Code Reserve for Operational Workarounds.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'toctou_race_conditions',
+  'A security analyst discovers that a banking application checks a user''s account balance before processing a withdrawal, but there is a brief gap between the balance check and the actual deduction. An attacker could potentially submit multiple withdrawal requests during this gap. What type of vulnerability is this?',
+  '["Buffer overflow exploiting memory allocation weaknesses", "TOCTOU race condition exploiting the gap between the check and the use", "SQL injection manipulating the database query logic", "Cross-site request forgery tricking the user''s browser"]'::jsonb,
+  1,
+  'This is a classic TOCTOU (Time-of-Check to Time-of-Use) race condition. The vulnerability exists in the time gap between when the system checks a condition (account balance is sufficient) and when it uses that checked value (deducting funds). An attacker can change the state during this window. Mitigations include locking mechanisms, atomic operations, and mutex controls.',
+  'TOCTOU = Time Of Check vs. Time Of Use. The gap between looking and acting is where attackers strike.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'shift_left',
+  'What does the concept of "shifting left" mean in the context of software security?',
+  '["Moving security responsibilities from the development team to the operations team", "Reducing the number of security testing tools in the pipeline", "Moving security activities earlier in the development lifecycle to catch issues sooner", "Shifting from automated testing to manual code review processes"]'::jsonb,
+  2,
+  'Shifting left means moving security activities to the earliest possible stages of the software development lifecycle. The term comes from a timeline where early phases are on the left. By addressing security during requirements and design rather than testing or production, organizations catch issues when they are cheaper and easier to fix.',
+  'Think of a timeline arrow: LEFT = early, RIGHT = late. SHIFT LEFT = do security EARLY.',
+  'understand',
+  'best_answer',
+  'medium',
+  1.00, 0.00, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'secure_coding',
+  'A penetration tester discovers that a web application is vulnerable to SQL injection through its login form. The development team is asked to remediate the issue. What should they implement FIRST?',
+  '["A web application firewall to filter malicious SQL patterns at the network perimeter", "Client-side input validation using JavaScript to check for SQL special characters", "Database encryption to protect data even if SQL injection succeeds", "Parameterized queries on the server side to separate SQL code from user-supplied data"]'::jsonb,
+  3,
+  'The most effective first remediation for SQL injection is implementing parameterized queries (prepared statements) on the server side. This fundamentally separates SQL code structure from user data, making injection impossible regardless of input. WAFs are defense-in-depth but can be bypassed. Client-side validation is easily circumvented. Database encryption does not prevent the injection itself.',
+  'SQL injection fix priority: PARAMETERIZE first, then add WAF as defense in depth. Fix the root cause, not the symptom.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'advanced_testing',
+  'A QA team is testing a file upload feature by submitting files with random binary content, extremely long filenames, null bytes in filenames, and files with mismatched extensions and content types. The goal is to discover unexpected crashes or error-handling failures. What type of testing is this?',
+  '["Fuzz testing, which sends random or malformed inputs to discover unexpected behaviors", "Regression testing, which verifies that previously working features still function", "User acceptance testing, which validates the system meets business requirements", "Unit testing, which tests individual modules in isolation"]'::jsonb,
+  0,
+  'Fuzz testing (fuzzing) involves providing random, unexpected, or deliberately malformed inputs to an application to discover crashes, memory leaks, assertion failures, and other vulnerabilities. It is particularly effective at finding input-handling bugs that manual testing would miss. The randomized nature makes it good at exploring edge cases.',
+  'FUZZ = Feed Unexpected Zany Stuff. Random garbage in, bugs out.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

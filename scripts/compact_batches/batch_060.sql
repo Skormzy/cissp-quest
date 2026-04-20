@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  7,
+  'malware_types',
+  'A system administrator discovers that a critical server has been compromised. Analysis reveals that the malware replaced system utilities like ls, ps, and netstat with modified versions that hide specific processes and network connections from administrators. What type of malware is MOST likely responsible?',
+  '["A rootkit that has replaced legitimate system binaries to conceal its presence", "A Trojan horse that installed additional backdoor applications on the system", "A polymorphic virus that changes its code to evade detection by security tools", "A worm that propagated through the network and modified system files on each host"]'::jsonb,
+  0,
+  'Replacing system utilities (ls, ps, netstat) with modified versions that hide activity is the hallmark of a rootkit. Rootkits specifically target operating system components to mask their presence and maintain persistent access. A Trojan might install a backdoor but doesn''t typically replace core system utilities. Polymorphic viruses change their own code but don''t replace system binaries. Worms focus on self-propagation rather than concealing their presence through utility replacement.',
+  'Rootkit = ROOT access + hiding KIT. Replaces system tools to become invisible. Hardest malware to detect and remove.',
+  'remember',
+  'most_likely',
+  'very_hard',
+  0.90, 2.10, 0.22,
+  'ai_generated', true
+),
+(
+  7,
+  'bia_process',
+  'A manufacturing company completed its BIA six months ago, setting an MTD of 48 hours for its ERP system. Since then, the company won a major defense contract that requires just-in-time delivery with contractual penalties of $500,000 per day for late shipments. The ERP system manages all production scheduling and logistics. The current DR plan provisions a warm site with an estimated RTO of 36 hours and WRT of 10 hours. What is the MOST critical issue with the current recovery strategy?',
+  '["The warm site should be upgraded to a hot site to improve recovery speed", "The WRT of 10 hours is too long for an ERP system of this complexity", "The company should purchase cyber insurance to cover the contractual penalties", "The total recovery time of 46 hours plus the new contractual obligations means the original 48-hour MTD is likely no longer valid and must be reassessed"]'::jsonb,
+  3,
+  'The fundamental issue is that the BIA''s MTD was set before the defense contract changed the business context. With $500K/day penalties, the actual business impact of downtime has dramatically increased, meaning the MTD should be much shorter. The current plan barely fits (RTO 36 + WRT 10 = 46 hours against 48-hour MTD), leaving only 2 hours of margin. The business change demands a BIA reassessment. Upgrading to a hot site might be part of the solution but addresses symptoms, not the root governance issue. The BIA drives all recovery planning.',
+  'Business changes = BIA changes. Always reassess MTD when the BUSINESS IMPACT changes, not just the technology.',
+  'analyze',
+  'scenario',
+  'very_hard',
+  1.70, 3.00, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'patch_management',
+  'A critical zero-day vulnerability is announced affecting the web server software used across your organization''s 200+ production servers. A vendor patch is available but has not been tested in your environment. The vulnerability is actively being exploited in the wild. Your change management process requires 48 hours for standard testing and CAB approval. What should you do FIRST?',
+  '["Apply the patch immediately to all 200 production servers to close the vulnerability as fast as possible", "Wait for the standard 48-hour testing and CAB approval process to ensure stability", "Submit an emergency change request, apply the patch to a small pilot group, validate functionality, then rapidly deploy to all servers", "Disable the affected web server software on all production servers until the patch can be properly tested"]'::jsonb,
+  2,
+  'An actively exploited zero-day requires urgency beyond standard change management, but not reckless deployment. The emergency change process exists for exactly this situation — it accelerates approval while maintaining governance. Patching a pilot group first validates the fix won''t break production, then rapid rollout follows. Patching all 200 servers untested risks a self-inflicted outage. Waiting 48 hours leaves systems exposed to active exploitation. Disabling all web servers is a disproportionate business disruption.',
+  'Zero-day + active exploitation = EMERGENCY change. But even emergencies get a pilot test. Fast AND smart.',
+  'apply',
+  'first_action',
+  'very_hard',
+  1.50, 3.00, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'failure_modes',
+  'A building''s electronic access control system experiences a complete power failure. The system was configured in fail-secure mode. Fire marshals arrive and need to enter the building. What should the facility manager do FIRST?',
+  '["Wait for backup power to restore the access control system before allowing entry", "Use manual override keys to unlock the doors for the fire marshals while maintaining security logs", "Switch the system to fail-safe mode remotely from the security operations center", "Contact the access control vendor for emergency technical support to restore the system"]'::jsonb,
+  1,
+  'Fail-secure means doors remain locked during a failure to maintain security. However, life safety always overrides security — fire marshals responding to an emergency must be granted entry. The facility manager should use manual override keys, which all fail-secure systems must have for exactly this situation. Waiting for power restoration could endanger lives. Remote switching isn''t possible during a power failure. Vendor support is too slow for an active emergency.',
+  'LIFE SAFETY always wins over SECURITY. Fail-secure locks doors, but manual override keys exist for emergencies.',
+  'remember',
+  'first_action',
+  'very_hard',
+  1.00, 2.30, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'recovery_sites',
+  'An organization activated their contractual hot site after a regional disaster. The hot site was operational within 2 hours with replicated data. However, after 3 weeks of continuous operation, the organization begins experiencing significant performance degradation and the hot site provider is pressuring them to vacate. What is the MOST likely root cause of this situation?',
+  '["The hot site hardware is inferior to the organization''s primary data center equipment", "The hot site provider is deliberately throttling performance to force the organization to leave", "The organization exceeded the data replication capacity of the hot site''s storage infrastructure", "The hot site contract likely specifies a maximum usage period, and the organization lacks a plan for transitioning to a permanent recovery facility or rebuilding the primary site"]'::jsonb,
+  3,
+  'Hot site contracts typically specify maximum usage periods (often 2-6 weeks) because the provider needs the facility available for other customers. Performance degradation after extended use, combined with pressure to vacate, indicates the contracted period is ending. Organizations must plan for transitioning beyond the initial hot site recovery — either rebuilding the primary site or establishing longer-term alternative facilities. Hardware differences are unlikely in a contractual hot site. Deliberate throttling would be a contract violation. Storage capacity issues would appear immediately.',
+  'Hot sites are TEMPORARY — weeks, not months. Plan your exit strategy BEFORE you need it: rebuild primary or find long-term space.',
+  'analyze',
+  'most_likely',
+  'very_hard',
+  1.60, 3.00, 0.22,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

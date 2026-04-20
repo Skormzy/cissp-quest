@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  6,
+  'security_metrics',
+  'A security team is establishing account management metrics. They need to verify that only authorized users have access to a financial application used by 5,000 employees. Reviewing every account is not feasible within the audit timeline. What should be the FIRST approach to conducting the access review?',
+  '["Skip the review and accept the risk until the next audit cycle", "Select a random sample of accounts for review to represent the population", "Review only the accounts that have been inactive for over 90 days", "Review only executive-level accounts since they have the most privilege"]'::jsonb,
+  1,
+  'When reviewing the entire population is not feasible, random sampling is the accepted audit approach. The sample must be truly random to be representative of the population. Sampling allows the team to make reasonable inferences about the overall access control posture. Reviewing only inactive or executive accounts introduces bias and does not represent the full population.',
+  'Sampling must be RANDOM to be valid. Not convenience, not targeted — random. Random sample = representative population.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'sast_dast_iast',
+  'A software company wants to deploy a security testing solution that monitors HTTP traffic, examines backend database connections, and analyzes application framework behavior — all while the application is running and with access to its source code. Which technology BEST meets these requirements?',
+  '["Static Application Security Testing (SAST)", "Web Application Firewall (WAF)", "Interactive Application Security Testing (IAST)", "Network Intrusion Detection System (NIDS)"]'::jsonb,
+  2,
+  'IAST combines real-time runtime analysis (like DAST) with source code visibility (like SAST). It specifically analyzes HTTP/HTTPS traffic, application frameworks, and backend connections while the application runs. This hybrid approach provides comprehensive coverage that neither SAST (static, no runtime) nor DAST (runtime, no code access) can achieve alone.',
+  'IAST = Inside + Active. It sees the code AND watches it run. Best of both SAST and DAST worlds.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'log_management',
+  'All of the following are components of the log lifecycle EXCEPT:',
+  '["Generation and transmission of log events", "Collection and normalization of log data", "Analysis and correlation of log entries", "Encryption and digital signing of each individual log entry at the source"]'::jsonb,
+  3,
+  'The log lifecycle consists of generation, transmission, collection, normalization, analysis, retention, and disposal. While log integrity is important, the standard log lifecycle does not include encrypting and digitally signing each individual log entry at the source as a lifecycle phase. Some organizations may implement log signing for integrity, but it is not a standard lifecycle phase.',
+  'Log lifecycle: Generate, Transmit, Collect, Normalize, Analyze, Retain, Dispose. GTCNARD.',
+  'remember',
+  'except_not',
+  'medium',
+  0.70, -0.30, 0.25,
+  'ai_generated', true
+),
+(
+  6,
+  'testing_approaches',
+  'After deploying a major update to a customer-facing web application, the operations team needs to quickly verify that core functionality like login, search, and checkout are still working. They need the fastest possible validation. Which testing approach BEST meets this need?',
+  '["Smoke tests targeting the most critical user workflows", "Full regression test suite covering all application features", "Comprehensive penetration test of the updated components", "Complete Fagan inspection of all changed code modules"]'::jsonb,
+  0,
+  'Smoke tests are quick tests of critical functionality designed to verify that the most essential features are working after a deployment. They provide rapid validation without the time investment of a full regression suite. Full regression testing, penetration testing, and Fagan inspections are all more thorough but take significantly longer and are not suitable for quick post-deployment verification.',
+  'Smoke test = quick sniff test. Does it catch fire? Check the critical stuff fast. Like a smoke detector — quick alert.',
+  'remember',
+  'best_answer',
+  'medium',
+  0.80, -0.50, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'vulnerability_assessment',
+  'A security analyst is designing a testing strategy for a new hybrid cloud environment that includes on-premise servers, AWS cloud resources, and connectivity between them. The analyst must ensure security controls are validated across all components. Which area should the analyst prioritize FIRST beyond standard on-premise or cloud testing?',
+  '["Individual server patch levels in the on-premise data center", "The integration points, data flows, and access management between on-premise and cloud environments", "The physical security of the cloud provider''s data center", "The source code of the cloud provider''s management console"]'::jsonb,
+  1,
+  'Hybrid environments require special attention to the integration points between on-premise and cloud resources. This includes access management integration, data flow security controls, API connections, and identity federation. While individual component testing is important, the unique risk in hybrid environments lies at the boundaries where the two environments connect and exchange data.',
+  'Hybrid = where two worlds meet. The integration points are where risk hides. Test the seams, not just the fabric.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

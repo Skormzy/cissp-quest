@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  5,
+  'access_control_attacks',
+  'A security analyst notices that multiple user accounts across different departments have been locked out within a 10-minute window. Each account experienced exactly three failed login attempts using the same incorrect password. What type of attack is MOST likely occurring, and what should be done FIRST?',
+  '["This is a brute-force attack; increase the account lockout threshold to reduce disruption", "This is a credential stuffing attack; block the source IP addresses in the firewall", "This is a dictionary attack; enforce mandatory password changes for all affected accounts", "This is a password spraying attack; identify and block the source of the authentication attempts"]'::jsonb,
+  3,
+  'Password spraying uses the same password against many accounts, staying below the lockout threshold per account. The pattern of multiple accounts, same password, short timeframe is the signature of password spraying. The FIRST action is to identify the source and block the authentication attempts. Brute-force targets one account with many passwords. Credential stuffing uses unique stolen pairs.',
+  'Same password + many accounts + stays below lockout = password SPRAYING. Identify and block the source.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  5,
+  'sso_federation',
+  'How does OAuth 2.0 differ from OpenID Connect (OIDC) in terms of their primary functions?',
+  '["OAuth 2.0 provides authorization only while OIDC adds an authentication layer on top of OAuth 2.0", "OAuth 2.0 uses XML tokens while OIDC uses JSON Web Tokens for data exchange", "OAuth 2.0 is maintained by OASIS while OIDC is maintained by the IETF", "OAuth 2.0 is designed for internal networks while OIDC is designed for cloud environments"]'::jsonb,
+  0,
+  'OAuth 2.0 is strictly an authorization framework that allows third-party applications to access resources without sharing credentials. OpenID Connect adds an authentication layer on top of OAuth 2.0, providing identity verification through ID tokens (JSON Web Tokens). Both use JSON-based tokens, and both are web/cloud protocols. OAuth 2.0 is maintained by IETF, OIDC by the OpenID Foundation.',
+  'OAuth = Authorization Only. OIDC = OAuth + IDentity (authentication). OIDC builds ON TOP of OAuth.',
+  'understand',
+  'comparison',
+  'medium',
+  1.10, 0.10, 0.22,
+  'ai_generated', true
+),
+(
+  5,
+  'privilege_escalation',
+  'A penetration tester gains initial access to a Linux server through a web application vulnerability and obtains a shell as the www-data user. The tester discovers that the www-data account has an entry in the sudoers file allowing it to run the vi text editor as root without a password. How can this be exploited for vertical privilege escalation?',
+  '["Use vi to directly modify the /etc/shadow file and change the root password hash", "Run vi as root via sudo, then escape to a root shell from within the editor", "Use the www-data account to create a new user with root privileges in /etc/passwd", "Modify the web application''s configuration files to disable authentication"]'::jsonb,
+  1,
+  'When sudo allows running vi (or similar editors) as root, the attacker can spawn a root shell from within the editor using the :!/bin/bash command. This is vertical privilege escalation because the attacker moves from a low-privilege user to root. This is why sudoers entries should be carefully restricted and editors should not be allowed with root privileges.',
+  'Vertical = going UP (user to root). sudo + editor = shell escape to root. Never allow sudo on editors.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  5,
+  'least_privilege_sod',
+  'An organization implements separation of duties for its financial processes. The CFO wants to ensure that no single employee can initiate, approve, and disburse a payment. Which implementation BEST achieves this goal while remaining operationally efficient?',
+  '["Require three different employees to each enter the same payment information independently", "Have one employee handle all three steps but require management review of a random sample", "Assign each step to a different role with system-enforced controls preventing any user from performing more than one step", "Rotate employees through all three roles monthly so no one person controls any step permanently"]'::jsonb,
+  2,
+  'The BEST implementation assigns each step (initiation, approval, disbursement) to a different role and uses system-enforced controls to prevent any user from performing more than one step. This is true separation of duties with technical enforcement. Random sampling is detective, not preventive. Rotation does not prevent one person from doing all steps during their rotation. Triple data entry is inefficient.',
+  'Separation of Duties = Different people for each step + System enforcement. Prevent, don''t just detect.',
+  'analyze',
+  'best_answer',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  5,
+  'access_control_attacks',
+  'An attacker obtains NTLM password hashes from a compromised Windows workstation using Mimikatz. Instead of cracking the hashes, the attacker sends them directly to other systems on the network to authenticate. What attack technique is this MOST LIKELY?',
+  '["Kerberoasting, which involves requesting and cracking service tickets", "Credential stuffing, which tests stolen credentials across multiple services", "Password spraying, which tries common passwords against many accounts", "Pass-the-hash, which uses captured hashes directly for authentication without cracking them"]'::jsonb,
+  3,
+  'Pass-the-hash (PtH) attacks use captured NTLM hashes directly to authenticate to other Windows systems without ever cracking the password. Mimikatz is the primary tool used for this attack. Kerberoasting targets Kerberos service tickets. Credential stuffing uses actual username/password pairs from breaches. Password spraying tries common passwords against many accounts.',
+  'Pass-the-HASH = send the HASH itself as proof. No cracking needed. Mimikatz is the go-to tool.',
+  'remember',
+  'most_likely',
+  'medium',
+  0.90, -0.40, 0.22,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

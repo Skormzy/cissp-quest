@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useUserStore } from '@/stores/useUserStore';
 import { createClient } from '@/lib/supabase/client';
@@ -10,13 +11,43 @@ import { CHAPTERS, DOMAINS, ACHIEVEMENTS } from '@/lib/constants';
 import { StoryModeProgress, SpacedRepetitionSchedule } from '@/lib/story-types';
 import { getDomainStatus } from '@/lib/story-constants';
 
+// ─── Dynamic imports (client-only widgets) ───────────────────────────────────
+
+const ExamCountdown = dynamic(
+  () => import('@/components/dashboard/ExamCountdown'),
+  { ssr: false },
+);
+
+const DailyBrief = dynamic(
+  () => import('@/components/dashboard/DailyBrief'),
+  { ssr: false },
+);
+
+const ForensicTimeline = dynamic(
+  () => import('@/components/story/ForensicTimeline'),
+  { ssr: false },
+);
+
 export default function DashboardPage() {
   const { user } = useUserStore();
   const [stats, setStats] = useState({ totalAnswered: 0, accuracy: 0, dueReviews: 0 });
   const [storyProgress, setStoryProgress] = useState<Record<number, StoryModeProgress>>({});
   const [earnedBadges, setEarnedBadges] = useState<string[]>([]);
   const [reviewNudges, setReviewNudges] = useState<SpacedRepetitionSchedule[]>([]);
+  const [examDate, setExamDate] = useState<string | null>(() => {
+    if (typeof window === 'undefined') return null;
+    return localStorage.getItem('cissp_exam_date');
+  });
   const supabase = createClient();
+
+  const handleSetExamDate = (date: string) => {
+    if (date) {
+      localStorage.setItem('cissp_exam_date', date);
+    } else {
+      localStorage.removeItem('cissp_exam_date');
+    }
+    setExamDate(date || null);
+  };
 
   useEffect(() => {
     if (!user) return;
@@ -145,6 +176,12 @@ export default function DashboardPage() {
             <span className="text-xs" style={{ color: '#64748b' }}>{levelProgress.current}/{levelProgress.needed} XP</span>
           </div>
         </div>
+      </div>
+
+      {/* Exam Countdown + Daily Brief row */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <ExamCountdown examDate={examDate} onSetDate={handleSetExamDate} />
+        <DailyBrief />
       </div>
 
       {/* Stats Row */}
@@ -316,6 +353,22 @@ export default function DashboardPage() {
           </Link>
         )}
 
+        {/* Practice Exam CTA */}
+        <Link
+          href="/app/quiz/practice-exam"
+          className="rounded-xl p-4 flex items-center gap-4 transition-all hover:scale-[1.02]"
+          style={{ background: 'linear-gradient(135deg, #1a1400 0%, #2a2000 100%)', border: '1px solid #ffd70055' }}
+        >
+          <div className="text-3xl">📋</div>
+          <div className="flex-1 min-w-0">
+            <div className="text-sm font-bold" style={{ color: '#ffd700' }}>Practice Exam</div>
+            <div className="text-xs" style={{ color: '#a08020' }}>250 Q · 6 hrs · Full CISSP simulation</div>
+          </div>
+          <div className="text-xs font-bold px-2 py-1 rounded" style={{ background: '#ffd70022', color: '#ffd700', border: '1px solid #ffd70044' }}>
+            START →
+          </div>
+        </Link>
+
         {/* Quick Actions */}
         <div className="grid grid-cols-2 gap-3">
           <Link
@@ -361,6 +414,16 @@ export default function DashboardPage() {
             <div className="text-2xl mb-2">🎯</div>
             <div className="text-sm font-bold" style={{ color: '#e2e8f0' }}>Custom Quiz</div>
             <div className="text-xs" style={{ color: '#64748b' }}>Build your own</div>
+          </Link>
+
+          <Link
+            href="/app/readiness"
+            className="rounded-xl p-4 text-center transition-all hover:scale-105 col-span-2"
+            style={{ background: 'rgba(0,232,255,0.05)', border: '1px solid rgba(0,232,255,0.2)' }}
+          >
+            <div className="text-2xl mb-2">📊</div>
+            <div className="text-sm font-bold" style={{ color: '#00e8ff' }}>Exam Readiness</div>
+            <div className="text-xs" style={{ color: '#4a7a8a' }}>IRT-based score by domain</div>
           </Link>
         </div>
       </div>
@@ -411,6 +474,83 @@ export default function DashboardPage() {
               </div>
             );
           })}
+        </div>
+      </div>
+
+      {/* Forensic Timeline */}
+      <div className="rounded-xl overflow-hidden" style={{ border: '1px solid #7f1d1d33' }}>
+        <ForensicTimeline
+          unlockedDomains={
+            Object.entries(storyProgress)
+              .filter(([, p]) => p.act1_completed)
+              .map(([id]) => parseInt(id))
+          }
+        />
+      </div>
+
+      {/* New Features */}
+      <div className="rounded-xl p-6" style={{ background: '#111a2e', border: '1px solid rgba(0,232,255,0.2)', boxShadow: '0 0 20px rgba(0,232,255,0.04)' }}>
+        <div className="flex items-center gap-2 mb-4">
+          <span className="text-lg">✨</span>
+          <h2 className="text-lg font-bold" style={{ color: '#e2e8f0' }}>New Features</h2>
+          <span
+            className="text-[10px] font-bold px-2 py-0.5 rounded-full ml-1"
+            style={{ background: 'rgba(0,232,255,0.12)', color: '#00e8ff', border: '1px solid rgba(0,232,255,0.3)' }}
+          >
+            LATEST
+          </span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {/* Dr. Tanaka's Notebook */}
+          <Link
+            href="/app/story/tanaka-notebook"
+            className="rounded-xl p-4 transition-all hover:scale-[1.02] group"
+            style={{ background: '#0d1220', border: '1px solid rgba(6,182,212,0.3)' }}
+          >
+            <div className="text-2xl mb-2">📓</div>
+            <div className="text-sm font-bold mb-1 group-hover:text-[#06b6d4] transition-colors" style={{ color: '#e2e8f0' }}>
+              Dr. Tanaka&apos;s Notebook
+            </div>
+            <div className="text-xs" style={{ color: '#64748b' }}>
+              Annotated case notes from the Meridian breach investigation
+            </div>
+          </Link>
+
+          {/* Evidence Constellation */}
+          <Link
+            href="/app/tools/constellation"
+            className="rounded-xl p-4 transition-all hover:scale-[1.02] group"
+            style={{ background: '#0d1220', border: '1px solid rgba(139,92,246,0.3)' }}
+          >
+            <div className="text-2xl mb-2">🕸️</div>
+            <div className="text-sm font-bold mb-1 group-hover:text-[#8b5cf6] transition-colors" style={{ color: '#e2e8f0' }}>
+              Evidence Constellation
+            </div>
+            <div className="text-xs" style={{ color: '#64748b' }}>
+              Interactive CISSP domain knowledge map — see how concepts connect
+            </div>
+          </Link>
+
+          {/* Ghost's POV — Premium */}
+          <Link
+            href="/app/story/ghost-pov"
+            className="rounded-xl p-4 transition-all hover:scale-[1.02] group relative overflow-hidden"
+            style={{ background: '#0d1220', border: '1px solid rgba(100,116,139,0.3)' }}
+          >
+            <div
+              className="absolute top-2 right-2 text-[10px] font-bold px-2 py-0.5 rounded-full"
+              style={{ background: 'rgba(255,215,0,0.15)', color: '#ffd700', border: '1px solid rgba(255,215,0,0.4)' }}
+            >
+              PREMIUM
+            </div>
+            <div className="text-2xl mb-2">👤</div>
+            <div className="text-sm font-bold mb-1 group-hover:text-[#94a3b8] transition-colors" style={{ color: '#e2e8f0' }}>
+              Ghost&apos;s POV
+            </div>
+            <div className="text-xs" style={{ color: '#64748b' }}>
+              The Meridian breach told from the attacker&apos;s perspective
+            </div>
+          </Link>
         </div>
       </div>
     </div>

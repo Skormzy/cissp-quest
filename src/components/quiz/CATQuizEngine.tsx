@@ -129,6 +129,8 @@ export default function CATQuizEngine({ config, onPass, onFail }: CATQuizEngineP
             topic_cluster: row.topic_cluster as string,
             cognitive_level: row.cognitive_level as IRTItem['cognitive_level'],
             question_type: row.question_type as IRTItem['question_type'],
+            difficulty_rating: (row.difficulty_rating as IRTItem['difficulty_rating']) || 'medium',
+            times_administered: (row.times_administered as number) || 0,
           };
         });
 

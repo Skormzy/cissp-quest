@@ -1,0 +1,19 @@
+'use client';
+
+import IRCommander from '@/components/tools/IRCommander';
+import { ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
+
+export default function IRCommanderPage() {
+  return (
+    <div className="min-h-screen" style={{ background: '#080c14' }}>
+      <div className="max-w-3xl mx-auto px-4 py-8 space-y-6">
+        <Link href="/app/tools" className="flex items-center gap-2 text-sm transition-colors hover:text-slate-200" style={{ color: '#64748b' }}>
+          <ArrowLeft size={14} />
+          Back to Tools
+        </Link>
+        <IRCommander />
+      </div>
+    </div>
+  );
+}

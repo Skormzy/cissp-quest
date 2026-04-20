@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  5,
+  'zero_trust',
+  'All of the following are evaluated by the trust algorithm in a Zero Trust architecture EXCEPT:',
+  '["The subject''s verified identity and authentication status", "The device''s security posture and compliance with organizational policies", "Current threat intelligence feeds and SIEM behavioral analytics", "The physical location of the data center hosting the requested resource"]'::jsonb,
+  3,
+  'The Zero Trust trust algorithm evaluates the subject''s identity, device security posture, requested resource sensitivity, threat intelligence, and behavioral analytics. The physical location of the data center is an infrastructure concern, not an access decision factor. Zero Trust focuses on the requestor''s context and risk signals, not the physical hosting location of resources.',
+  NULL,
+  'understand',
+  'calculation',
+  'medium',
+  1.30, 0.40, 0.20,
+  'ai_generated', true
+),
+(
+  5,
+  'credential_attacks',
+  'An attacker compromises a popular gaming website and obtains millions of username/password combinations. The attacker then uses automated tools to test these exact credential pairs against banking websites, email providers, and social media platforms. What attack technique is this MOST LIKELY?',
+  '["Credential stuffing, which exploits password reuse by testing stolen credential pairs across multiple sites", "Password spraying, which tries common passwords against many accounts on a single site", "A dictionary attack, which uses a word list to guess passwords for specific accounts", "A brute-force attack, which systematically tries all possible password combinations"]'::jsonb,
+  0,
+  'Credential stuffing uses specific username/password pairs stolen from one breach and tests them against other services, exploiting the common practice of password reuse. Unlike password spraying (same password, many accounts, one site), credential stuffing uses unique pairs across many sites. The defense is unique passwords per site (password managers) and MFA.',
+  'Credential STUFFING = STUFF stolen credentials from Site A into Sites B, C, D. Exploits password reuse.',
+  'remember',
+  'most_likely',
+  'medium',
+  0.90, -0.40, 0.22,
+  'ai_generated', true
+),
+(
+  5,
+  'access_control_models',
+  'A database administrator creates a view that shows sales employees only the customer records for their assigned region. The underlying table contains all customer records globally, but the view filters based on the logged-in user''s region assignment. What type of access control is being implemented through this database view?',
+  '["Context-dependent control because access depends on the sequence of database operations", "Content-dependent control because access is restricted based on the actual data content within the records", "Rule-based access control because the view applies a global rule to all sales employees", "Mandatory access control because the database system enforces the restriction automatically"]'::jsonb,
+  1,
+  'This is content-dependent access control because the access decision is based on the content (data values) within the records -- specifically, the region field. Database views are a classic example of content-dependent controls. Context-dependent controls are based on activity sequence, time, or location rather than data content. The view filters by data content, not by a global rule.',
+  'Content-dependent = access based on WHAT the data CONTAINS. Database views = classic content-dependent control.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  5,
+  'biometrics',
+  'Which biometric technology is considered the MOST accurate but also raises privacy concerns because it can reveal medical conditions?',
+  '["Fingerprint scanning because minutiae patterns can indicate genetic conditions", "Iris scanning because the colored pattern contains health-related markers", "Retina scanning because the blood vessel pattern can reveal conditions like hypertension and pregnancy", "Facial recognition because it can determine a person''s emotional state and health"]'::jsonb,
+  2,
+  'Retina scanning is the most accurate biometric technology because the blood vessel pattern at the back of the eye is highly unique. However, it raises privacy concerns because retinal patterns can reveal medical conditions such as hypertension, diabetes, and pregnancy. Iris scanning is the second most accurate and less intrusive. Fingerprints do not reveal medical conditions.',
+  'Retina = most accurate but most invasive (reveals medical conditions). Iris = second most accurate, less intrusive.',
+  'understand',
+  'best_answer',
+  'medium',
+  1.00, 0.00, 0.20,
+  'ai_generated', true
+),
+(
+  5,
+  'password_policy',
+  'A company processes credit card payments and must comply with PCI DSS v4.0. Their current password policy requires 8-character passwords changed every 180 days with no history enforcement. A security consultant recommends changes to meet compliance. Which password policy change is required by PCI DSS v4.0?',
+  '["Remove password expiration requirements as recommended by NIST SP 800-63B", "Allow passwords of any length as long as they include special characters", "Implement passwordless authentication using FIDO2 hardware keys", "Require minimum 12-character passwords with 90-day rotation and at least 4-password history"]'::jsonb,
+  3,
+  'PCI DSS v4.0 requires minimum 12-character passwords, 90-day rotation, numeric and alphabetic characters, and 4-password history. This differs from NIST guidance which recommends no forced expiration. The CISSP exam tests knowledge of which standard applies in which context. PCI DSS requirements are stricter than NIST recommendations for password rotation.',
+  'PCI DSS v4.0: 12+ chars, 90-day rotation, alpha+numeric, 4-history. Different from NIST (no expiration).',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

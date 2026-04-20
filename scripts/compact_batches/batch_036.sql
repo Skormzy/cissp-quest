@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  6,
+  'testing_approaches',
+  'An application accepts a numeric input field for quantity with a valid range of 1 to 999. The QA team decides to test with values -1, 0, 1, 2, 500, 998, 999, 1000, and 1001. The team also tests the input with letter characters and special symbols. Which combination of testing techniques is the team employing?',
+  '["Boundary value analysis combined with equivalence partitioning and negative testing", "Fuzz testing combined with stress testing and performance benchmarking", "Regression testing combined with acceptance testing and load testing", "Decision table analysis combined with state-based testing and unit testing"]'::jsonb,
+  0,
+  'The team is using boundary value analysis (testing at edges: -1, 0, 1, 999, 1000, 1001), equivalence partitioning (testing representatives from valid and invalid ranges: 2, 500, 998), and negative testing (testing with letters and special symbols to verify graceful error handling). These three techniques together provide comprehensive input validation coverage.',
+  'Boundaries = edges (0, 1, 999, 1000). Equivalence = middle representatives. Negative = bad inputs. Three complementary techniques.',
+  'analyze',
+  'scenario',
+  'hard',
+  1.70, 2.30, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'log_review_siem',
+  'A financial institution needs to ensure that its security logs can be used as evidence in legal proceedings. The logs must demonstrate integrity, authenticity, and an unbroken chain of custody. Which approach BEST supports the admissibility of log evidence?',
+  '["Store logs on the same server that generates them with standard file permissions", "Implement centralized log collection with write-once storage, cryptographic hashing, and access controls documenting the chain of custody", "Email log summaries daily to the legal department for filing", "Print critical log entries and store them in a physical safe"]'::jsonb,
+  1,
+  'For logs to be admissible as legal evidence, they must demonstrate integrity (not tampered with), authenticity (from the claimed source), and chain of custody (documented handling from creation to presentation). Centralized collection with write-once storage prevents tampering, cryptographic hashing proves integrity, and documented access controls maintain the chain of custody.',
+  'Legal evidence needs: Integrity (hashing), Authenticity (source verified), Chain of custody (documented handling). Write-once = tamper-proof.',
+  'apply',
+  'best_answer',
+  'hard',
+  1.30, 1.80, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'cve_cvss',
+  'Two vulnerabilities are identified in the same web application. Vulnerability A has a CVSS base score of 7.5 but affects a development test server with no customer data. Vulnerability B has a CVSS base score of 5.5 but affects the production payment processing server handling millions of transactions daily. When prioritizing remediation, how should these be compared?',
+  '["Vulnerability A should be fixed first because it has a higher CVSS base score", "Both should be remediated simultaneously since they are in the same application", "Vulnerability B should be prioritized because CVSS environmental scoring and business context make it a higher actual risk", "Neither requires immediate action since neither score reaches the critical threshold"]'::jsonb,
+  2,
+  'While CVSS base scores provide a standardized severity measure, remediation prioritization must also consider the environmental context and business impact. Vulnerability B on the production payment server represents a much higher actual risk despite its lower base score because of the asset criticality, data sensitivity, and transaction volume. CVSS environmental metrics exist specifically to adjust base scores for organizational context.',
+  'CVSS base score is not the whole story. Business context matters. A medium vuln on your crown jewel outranks a high vuln on a test box.',
+  'analyze',
+  'comparison',
+  'hard',
+  1.60, 2.20, 0.22,
+  'ai_generated', true
+),
+(
+  6,
+  'pentest_methodology',
+  'A penetration testing team is conducting an engagement against a large enterprise. During the exploitation phase, the team gains access to an internal server and discovers it connects to a database containing personally identifiable information (PII) of customers. The original scope authorization only covered network infrastructure testing, not database or PII access. What should the team do FIRST?',
+  '["Proceed to extract a sample of PII records to demonstrate the severity of the finding", "Modify the database permissions to prevent further unauthorized access", "Continue testing other network targets and mention the database in the report", "Stop testing the database immediately, document the finding, and contact the client to discuss expanding the scope"]'::jsonb,
+  3,
+  'Penetration testers must operate strictly within the authorized scope. Accessing PII beyond the scope could violate privacy regulations and the engagement agreement. The correct action is to stop, document what was found, and immediately contact the client. The client can then decide whether to expand the scope with proper authorization. Extracting PII or modifying systems would exceed the authorized boundaries.',
+  'Stay in scope. When you find something outside your lane, stop and call the client. Never exceed authorized boundaries.',
+  'apply',
+  'first_action',
+  'hard',
+  1.50, 2.10, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'audit_standards',
+  'During an internal audit, the audit team discovers that several critical security controls documented in the organization''s security policy are not actually implemented. The system owners acknowledge the gap but argue that compensating controls adequately address the risk. What should the internal auditor do FIRST?',
+  '["Document the findings objectively, noting both the control gaps and the claimed compensating controls, for management review", "Accept the system owners'' explanation and close the audit finding", "Immediately implement the missing controls without management approval", "Report the system owners to external regulators for non-compliance"]'::jsonb,
+  0,
+  'The auditor''s role is to document findings objectively and present them to management, not to make remediation decisions. The auditor should note the policy-to-implementation gap, document the compensating controls claimed by the system owners, and present both to management for a decision. Remediation accountability rests with system owners and management, not with the auditor.',
+  'Auditor = document and report. Management = decide and fix. The auditor does not remediate — they inform decision-makers.',
+  'analyze',
+  'first_action',
+  'hard',
+  1.70, 2.40, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

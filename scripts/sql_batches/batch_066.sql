@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  8,
+  'database_security',
+  'What is the KEY difference between an aggregation attack and an inference attack on a database?',
+  '["Aggregation exploits SQL injection while inference exploits buffer overflows", "Aggregation combines multiple low-sensitivity items to derive sensitive information while inference uses logical deduction on accessible data", "Aggregation targets NoSQL databases while inference targets relational databases", "Aggregation requires administrative access while inference can be performed by any user"]'::jsonb,
+  1,
+  'Aggregation attacks combine multiple pieces of individually non-sensitive data to derive information at a higher classification level, often using SQL aggregate functions. Inference attacks use logical deduction and reasoning on accessible data to determine restricted information. Both are database attacks but use different mechanisms — aggregation is mathematical, inference is logical.',
+  'AGGREGATION = Adding up small pieces. INFERENCE = INFERring from clues. One is math, the other is detective work.',
+  'understand',
+  'comparison',
+  'medium',
+  1.10, 0.10, 0.22,
+  'ai_generated', true
+),
+(
+  8,
+  'secure_sdlc',
+  'As the CISO of a financial services company, you learn that the development team has been deploying code directly to production without any formal review process. Development velocity has been high, but two security incidents occurred last quarter from unreviewed code changes. What is your BEST course of action?',
+  '["Immediately halt all deployments until a full security audit of all production code is completed", "Terminate the development team lead for failing to follow security procedures", "Implement a formal change management process with mandatory security review gates in the CI/CD pipeline", "Purchase a comprehensive application firewall to compensate for the lack of code review"]'::jsonb,
+  2,
+  'As a CISSP, think like a manager. The best approach is implementing process controls (formal change management with security review gates) rather than reactive measures. Halting all deployments is too disruptive, termination does not fix the process gap, and a WAF does not address the root cause of unreviewed code reaching production.',
+  NULL,
+  'apply',
+  'tlatm',
+  'medium',
+  1.70, 0.80, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'containerization',
+  'A development team is deploying microservices using Docker containers. Each container runs a single service with its own dependencies. A security review reveals that several containers are running as the root user and using base images that have not been updated in six months. Which security concern should be addressed FIRST?',
+  '["The microservices architecture creates too many network connections to monitor effectively", "Docker containers provide sufficient isolation and do not need additional hardening", "Using separate containers for each service unnecessarily increases the attack surface", "Containers running as root violate the principle of least privilege and should use non-root users"]'::jsonb,
+  3,
+  'Running containers as root is a critical security violation because if an attacker compromises the container, they have root-level access that could potentially escape the container isolation. Applying least privilege by running containers as non-root users is the most urgent fix. Outdated base images are also important but the root privilege issue is more immediately dangerous.',
+  'Containers + Root = Risky. Least privilege applies INSIDE containers too. Run as non-root, always.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'api_security',
+  'Which security control BEST protects REST APIs from abuse through excessive request volumes?',
+  '["API rate limiting and throttling to restrict the number of requests per time period", "Encrypting all API responses with AES-256 to prevent data exposure", "Requiring SOAP protocol instead of REST for all external communications", "Using HTTP Basic Authentication for all API endpoints"]'::jsonb,
+  0,
+  'API rate limiting and throttling are the primary defenses against API abuse through excessive requests. Rate limiting caps the number of requests a client can make within a time window, preventing denial-of-service attacks and brute-force attempts. Encryption protects data in transit but does not address volume. SOAP is a different protocol, not a volume control.',
+  'Rate Limiting = speed limit for API traffic. Too many requests = slow down or get blocked.',
+  'understand',
+  'best_answer',
+  'medium',
+  1.00, 0.00, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'buffer_overflow',
+  'A security scan has identified multiple buffer overflow vulnerabilities in a legacy C application that processes financial transactions. The application cannot be immediately replaced. What should the team implement FIRST as a mitigation while a long-term fix is developed?',
+  '["Rewrite the entire application in a memory-safe language like Rust or Java", "Enable Address Space Layout Randomization (ASLR) to make exploitation more difficult", "Deploy a network intrusion detection system to monitor for buffer overflow exploits", "Add additional logging to detect when buffer overflows are attempted"]'::jsonb,
+  1,
+  'ASLR (Address Space Layout Randomization) randomizes the memory addresses where executables and libraries are loaded, making it much harder for attackers to predict where to redirect execution flow. It is a quick mitigation that does not require code changes. Rewriting in another language is a long-term solution, not a first step. NIDS and logging detect but do not prevent.',
+  'ASLR = Address Scramble = makes the attacker''s target a moving one. Quick defense while you fix the code.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

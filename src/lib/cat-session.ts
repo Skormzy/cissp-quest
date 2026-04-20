@@ -22,7 +22,7 @@ import {
 
 export interface CATConfig {
   // Session identity
-  sessionType: 'field_test' | 'boss_battle' | 'final_boss' | 'gauntlet' | 'custom';
+  sessionType: 'field_test' | 'boss_battle' | 'final_boss' | 'gauntlet' | 'custom' | 'practice_exam';
   title: string;
   subtitle: string;
   theme: 'cyan' | 'gold' | 'red';
@@ -54,7 +54,7 @@ export interface CATState {
   // Ability tracking
   theta: number;
   se: number;
-  method: 'MLE' | 'EAP';
+  method: 'MLE' | 'EAP' | 'WLE';
 
   // Progress
   correct: number;
@@ -129,7 +129,7 @@ export interface CATResults {
 
   // Session metadata
   sessionType: string;
-  estimationMethod: 'MLE' | 'EAP';
+  estimationMethod: 'MLE' | 'EAP' | 'WLE';
 }
 
 // ─── CAT Session Class ──────────────────────────────────
@@ -146,7 +146,7 @@ export class CATSession {
   private currentItem: IRTItem | null;
   private theta: number;
   private se: number;
-  private method: 'MLE' | 'EAP';
+  private method: 'MLE' | 'EAP' | 'WLE';
   private streak: number;
   private xpEarned: number;
   private startedAt: number;
@@ -391,9 +391,8 @@ export class CATSession {
   private selectNext(): IRTItem | null {
     const constraints: ItemSelectionConstraints = {
       excludeIds: this.administeredIds,
-      topicClusterHistory: this.topicHistory,
+      topicHistory: this.topicHistory,
       domainFilter: this.config.domainFilter,
-      domainWeights: this.config.domainWeights,
       cognitiveFloor: this.config.cognitiveFloor,
     };
 
@@ -479,5 +478,20 @@ export const CAT_CONFIGS = {
     cutScore: 0.0,
     domainFilter: options.domainFilter,
     cognitiveFloor: options.cognitiveFloor,
+  }),
+
+  practice_exam: (): CATConfig => ({
+    sessionType: 'practice_exam',
+    title: 'CISSP Practice Exam',
+    subtitle: 'Full 250-question simulation — 6 hours — all 8 domains',
+    theme: 'gold',
+    minQuestions: 200,
+    maxQuestions: 250,
+    seThreshold: 0.25,
+    timeLimitMinutes: 360,
+    initialTheta: 0.0,
+    cutScore: 0.7,
+    domainWeights: { 1: 0.15, 2: 0.10, 3: 0.13, 4: 0.13, 5: 0.13, 6: 0.12, 7: 0.13, 8: 0.11 },
+    cognitiveFloor: 'understand',
   }),
 };

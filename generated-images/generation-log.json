@@ -1,0 +1,572 @@
+{
+  "npc_tanaka_neutral": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/EdjbwVAKnX45Olz6FlPnjfNzI3Ks9yFFKia3oWMEKAkQYEOLA/tmpscb90u3a.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_tanaka_neutral.webp",
+    "timestamp": "2026-04-18T01:10:58.275Z",
+    "cost": 0.04
+  },
+  "npc_tanaka_serious": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/1pffdMK3Gupu3USufiN71jamgW7lIb7TVP9j6QUy8hIghR4sA/tmp5xgq3h6e.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_tanaka_serious.webp",
+    "timestamp": "2026-04-18T01:11:13.119Z",
+    "cost": 0.04
+  },
+  "npc_tanaka_concerned": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/z2nfNGaf8Dlx2Esf3KzvjpxiVgDyW3wDKe8oBGjZi9w8DjwZB/tmpg046nvsa.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_tanaka_concerned.webp",
+    "timestamp": "2026-04-18T01:11:28.164Z",
+    "cost": 0.04
+  },
+  "npc_tanaka_approving": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/Q7SJXDJq0yayJ1P72GN2f3jcMYv62IffRWJhtu9snbufEjwZB/tmpz0bpzt9d.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_tanaka_approving.webp",
+    "timestamp": "2026-04-18T01:11:43.679Z",
+    "cost": 0.04
+  },
+  "npc_tanaka_teaching": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/eWLfJb6Eo7l28kfHEaY3qYSJEPu1Eowj2beMVYcbAC38FjwZB/tmpr0nxhlhc.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_tanaka_teaching.webp",
+    "timestamp": "2026-04-18T01:12:00.590Z",
+    "cost": 0.04
+  },
+  "npc_webb_neutral": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/W16B1p5Hu1LXI5n6ZtgNTRGvKeCwdxqRbCe1MBcsveeAHjwZB/tmprqqbwwee.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_webb_neutral.webp",
+    "timestamp": "2026-04-18T01:12:17.266Z",
+    "cost": 0.04
+  },
+  "npc_webb_excited": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/wxTe0CdpvBVnCavKtwtyMfuM6Z6w9SDtCrmTLXR6ZoVByIcWA/tmptc25k6rf.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_webb_excited.webp",
+    "timestamp": "2026-04-18T01:12:33.900Z",
+    "cost": 0.04
+  },
+  "npc_webb_focused": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/OYGQbGsAfhSgOS2nVPFnZoupe02eLz1i13ZfbXb7bV4EJjwZB/tmpjqcecdzs.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_webb_focused.webp",
+    "timestamp": "2026-04-18T01:12:50.492Z",
+    "cost": 0.04
+  },
+  "npc_webb_explaining": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/JWSc9vkPd2rlBtvaXnU4p1Aot3v4e3CmUMA6IKdEKLKRZEOLA/tmpu_k5ujb4.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_webb_explaining.webp",
+    "timestamp": "2026-04-18T01:13:07.057Z",
+    "cost": 0.04
+  },
+  "npc_webb_concerned": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/pWKDgBEPoJoeKCC5FTj8YBBXA8rSAPWDorhvCZRjzeTzyIcWA/tmpbogvfiu1.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_webb_concerned.webp",
+    "timestamp": "2026-04-18T01:13:23.552Z",
+    "cost": 0.04
+  },
+  "npc_sharma_neutral": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/lMj20ULCBf0UJ6L2R6uEvY4Uh4WnHoNuUWTUyTrxLqgOaEOLA/tmpq8ixenpe.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_sharma_neutral.webp",
+    "timestamp": "2026-04-18T01:15:10.628Z",
+    "cost": 0.04
+  },
+  "npc_sharma_defensive": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/4YtAEd03Ylb0Dd6N34qeBje3UYll3er3FeUfAHtTvQ07ZGhzC/tmpead9c1yf.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_sharma_defensive.webp",
+    "timestamp": "2026-04-18T01:13:51.764Z",
+    "cost": 0.04
+  },
+  "npc_sharma_ashamed": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/hfi0x6DclqwQGSVBNsdNDxscQfWQk8U3yb4Cpto0edzfNjwZB/tmp3jf1shay.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_sharma_ashamed.webp",
+    "timestamp": "2026-04-18T01:14:08.465Z",
+    "cost": 0.04
+  },
+  "npc_sharma_determined": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/1LMdQY5hTq4UA5rCeVHfndUqkiDmvRdr8fWMt6Jf7X06OjwZB/tmpmod5y9mv.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_sharma_determined.webp",
+    "timestamp": "2026-04-18T01:14:23.365Z",
+    "cost": 0.04
+  },
+  "npc_sharma_professional": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/cRY8V0rvrBbNI9VfTlyKN7eT3k6xThd3PudvjdXGk3O9zIcWA/tmpr00tzkvv.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_sharma_professional.webp",
+    "timestamp": "2026-04-18T01:14:38.008Z",
+    "cost": 0.04
+  },
+  "npc_ghost_neutral": {
+    "status": "error",
+    "error": "url.startsWith is not a function",
+    "timestamp": "2026-04-18T00:57:15.927Z"
+  },
+  "npc_ghost_evasive": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/SeB0PifOQYrtlkxeCzGGKnQNee7Y0HfYcstJ9kMBuwdKDNCnF/tmpb7euau7y.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_ghost_evasive.webp",
+    "timestamp": "2026-04-18T01:14:53.151Z",
+    "cost": 0.04
+  },
+  "npc_ghost_calculating": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/JTDx1fxR3S0GB6x8RhQctYuTrPjkY7SVaBmNmNhRCwcXaEOLA/tmp0td8t50c.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_ghost_calculating.webp",
+    "timestamp": "2026-04-18T01:15:26.966Z",
+    "cost": 0.04
+  },
+  "npc_ghost_vulnerable": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/cbo4YrCO5OY4NJNfVyW88Pp7Ja2t25KaJyD87iEL9lVf0IcWA/tmpkegqnkwh.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_ghost_vulnerable.webp",
+    "timestamp": "2026-04-18T01:15:43.363Z",
+    "cost": 0.04
+  },
+  "npc_ghost_resigned": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/DoDT6TutwGpsClnTu7lhAHhoNGMEHXtXLTZbIUBNynmqNCnF/tmpcuwdhfgx.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_ghost_resigned.webp",
+    "timestamp": "2026-04-18T01:17:30.917Z",
+    "cost": 0.04
+  },
+  "npc_vasquez_neutral": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/SNieeVocJvrA1kg9vCpckPJw860EPF50aSUQNDSILwGW3IcWA/tmpbbya0mp4.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_vasquez_neutral.webp",
+    "timestamp": "2026-04-18T01:18:14.928Z",
+    "cost": 0.04
+  },
+  "npc_vasquez_authoritative": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/vfoTQMse7NiKlEQCY1hBO9eNNhnXleuNfDi2yengoaZ38NCnF/tmps6a5nrd2.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_vasquez_authoritative.webp",
+    "timestamp": "2026-04-18T01:18:44.730Z",
+    "cost": 0.04
+  },
+  "npc_vasquez_concerned": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/7ym5moKZaIanIZP9PEWjX46JDmWkzVG6fYtLmekyrZLO4IcWA/tmprzfm7h1_.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_vasquez_concerned.webp",
+    "timestamp": "2026-04-18T01:19:12.026Z",
+    "cost": 0.04
+  },
+  "npc_vasquez_firm": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/xaPyrLSJYb5kFhxhkosfw38KMKWLtjsU7UdEf1kqIJAFlIcWA/tmpspk22j3a.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_vasquez_firm.webp",
+    "timestamp": "2026-04-18T00:58:46.260Z",
+    "cost": 0.04
+  },
+  "bg_act1_hq_day": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/Mis3Xwqa5iI7N5IWV7gc9WLRLzcCfbdpBn1BU7fcNiihlIcWA/tmpeuronui8.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act1_hq_day.webp",
+    "timestamp": "2026-04-18T00:59:13.775Z",
+    "cost": 0.04
+  },
+  "bg_act1_hq_night": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/reZmCZbIWehfUoNdcRMezDaCydyxPJ8nVq3Lap45R1TdvjwZB/tmpttf9_9ua.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act1_hq_night.webp",
+    "timestamp": "2026-04-18T01:23:03.669Z",
+    "cost": 0.04
+  },
+  "bg_act1_war_room": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/ye2QS48Dw32FBa1OodDcfZjpLYeEDLr6QSqSHiEFENu5LR4sA/tmpx31b3ayt.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act1_war_room.webp",
+    "timestamp": "2026-04-18T00:59:41.178Z",
+    "cost": 0.04
+  },
+  "bg_act1_office_lobby": {
+    "status": "error",
+    "error": "Request to https://api.replicate.com/v1/models/black-forest-labs/flux-1.1-pro/predictions failed with status 429 Too Many Requests: {\"detail\":\"Request was throttled. Your rate limit for creating predictions is reduced to 6 requests per minute with a burst of 1 requests while you have less than $5.0 in credit. Your rate limit resets in ~10s.\",\"status\":429,\"retry_after\":10}\n.",
+    "timestamp": "2026-04-18T01:25:48.059Z"
+  },
+  "bg_act2_london_hq_lobby": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/qTRuCV4tER5tOlItaGffxiKbtzRMd5xtwyBstktuf4cY9R4sA/tmpe7mh38kf.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act2_london_hq_lobby.webp",
+    "timestamp": "2026-04-18T01:26:05.074Z",
+    "cost": 0.04
+  },
+  "bg_act2_data_center": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/tswHNR6JlfwsAqm8M5sa30Mv0eMiyNtdDI8kV4zzI0LYmIcWA/tmphl1pd626.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act2_data_center.webp",
+    "timestamp": "2026-04-18T01:00:08.650Z",
+    "cost": 0.04
+  },
+  "bg_act2_london_office": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/y8ZI3YkhNL6iPFzqlj7U1oK5QM6DhfPffXK1GuDIDcKQNR4sA/tmpd9c4e1gw.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act2_london_office.webp",
+    "timestamp": "2026-04-18T01:00:25.564Z",
+    "cost": 0.04
+  },
+  "bg_act3_munich_exterior": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/rorRsB947k4UCVG262sP0ETx93SIiQZjD29jVYsJUFgyPCnF/tmpt0lz71ig.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act3_munich_exterior.webp",
+    "timestamp": "2026-04-18T01:26:35.390Z",
+    "cost": 0.04
+  },
+  "bg_act3_munich_lab": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/M6oz39FkokYOOdmzTgrBoWf6l6WhKcXAFZzxQHVneifzejwZB/tmpi3cn111b.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act3_munich_lab.webp",
+    "timestamp": "2026-04-18T01:26:50.561Z",
+    "cost": 0.04
+  },
+  "bg_act3_server_physical": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/rf6YCBxxmaTxbyY06GEQbAAi6f5agFM8VcCpkXBI5pnGnIcWA/tmpd2ha29zh.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act3_server_physical.webp",
+    "timestamp": "2026-04-18T01:00:55.022Z",
+    "cost": 0.04
+  },
+  "bg_act3_crypto_lab": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/OLXj41EdfSzBEimZ6xp269jZRjUQ75IdJOj30ZkTe40qfR4sA/tmprjkj93yo.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act3_crypto_lab.webp",
+    "timestamp": "2026-04-18T01:27:07.262Z",
+    "cost": 0.04
+  },
+  "bg_act4_singapore_dc_exterior": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/BziebNAQdiR5Lapf16diq0yLp0RrD0nFSLlYGTRBBdphnIcWA/tmpkws5l9kz.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act4_singapore_dc_exterior.webp",
+    "timestamp": "2026-04-18T01:01:22.464Z",
+    "cost": 0.04
+  },
+  "bg_act4_singapore_dc_interior": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/fikF7fElwQiaj0byQS0epq8owK8lpURYNAHulMuTyFevfHhzC/tmp02559g4q.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act4_singapore_dc_interior.webp",
+    "timestamp": "2026-04-18T01:27:24.227Z",
+    "cost": 0.04
+  },
+  "bg_act4_noc": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/XOI206JsBr67A5g5pr3kwpqso7UX1JiASEu7ek69UIuHgEOLA/tmp6wkwya2b.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act4_noc.webp",
+    "timestamp": "2026-04-18T01:27:44.345Z",
+    "cost": 0.04
+  },
+  "bg_act4_cable_room": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/1UOcNcEp7CoTC1qj7ubVuyho6Vou1xjve86w8S9Y7eJfPR4sA/tmp7zq_ujaq.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act4_cable_room.webp",
+    "timestamp": "2026-04-18T01:01:52.465Z",
+    "cost": 0.04
+  },
+  "bg_act5_ny_financial": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/yJ8pqNUcsXLXPFPBELS2vsgBLrytULjQg4zDIiDFc9NIQCnF/tmpqthcrs29.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act5_ny_financial.webp",
+    "timestamp": "2026-04-18T01:28:01.101Z",
+    "cost": 0.04
+  },
+  "bg_act5_interview_room": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/zdRXng9eBtREbqaT6IiwgKfF82x6jwAI9VX46TthDj6xAJcWA/tmpgb02utoy.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act5_interview_room.webp",
+    "timestamp": "2026-04-18T01:28:17.600Z",
+    "cost": 0.04
+  },
+  "bg_act5_access_logs": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/YUJMy9FMG9Z0DVnJp51gbygQcNE87yXI7Q8qaf3rcehBBJcWA/tmp96hukvag.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act5_access_logs.webp",
+    "timestamp": "2026-04-18T01:28:34.432Z",
+    "cost": 0.04
+  },
+  "bg_act6_sentinel_lab": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/39sPKUxXr3aFBZU1UJ1Q4O3dbRAveJjElkdKBoV92UpUUEOLA/tmpofoxaxqr.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act6_sentinel_lab.webp",
+    "timestamp": "2026-04-18T01:02:34.249Z",
+    "cost": 0.04
+  },
+  "bg_act6_cloud_abstract": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/nnMN86LoMnL4HpOppEuuNuc6R4QzRCFRjB24csfGeElSBJcWA/tmp1gad3sgy.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act6_cloud_abstract.webp",
+    "timestamp": "2026-04-18T01:28:51.157Z",
+    "cost": 0.04
+  },
+  "bg_act6_assessment_results": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/WNBeUPeUyDqSI0mUyUiALGoxelG2SSATBadQ7qtSkofbkiwZB/tmpi6uyribo.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act6_assessment_results.webp",
+    "timestamp": "2026-04-18T01:03:02.643Z",
+    "cost": 0.04
+  },
+  "bg_act7_tokyo_soc": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/lsbselsNjgWcKClUuVrB6UeZZV3nDLudzbQerBM6XFUGDS4sA/tmpij7nqg91.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act7_tokyo_soc.webp",
+    "timestamp": "2026-04-18T01:29:08.162Z",
+    "cost": 0.04
+  },
+  "bg_act7_tokyo_exterior": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/y0coUy0wcMoqB1wf1DSx1DyWUFYwE3rD48KbWkgpzNfyBJcWA/tmpirqv10m0.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act7_tokyo_exterior.webp",
+    "timestamp": "2026-04-18T01:29:23.215Z",
+    "cost": 0.04
+  },
+  "bg_act7_forensics_lab": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/5SwViLa6Ss4ONxG7AdngJFdqrbjVxG8ke0SK9fJbs6QhpIcWA/tmpkx36e9u2.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act7_forensics_lab.webp",
+    "timestamp": "2026-04-18T01:03:30.159Z",
+    "cost": 0.04
+  },
+  "bg_act8_sf_office": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/QVlGaTrvIY6wDZSlr1DxZFuRIIcrOT8ZOI3sD1qsfnuBhEOLA/tmpm7jrfdmg.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act8_sf_office.webp",
+    "timestamp": "2026-04-18T01:29:39.714Z",
+    "cost": 0.04
+  },
+  "bg_act8_code_review": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/EHxE9wOETpJMJpfHUyadb59AGiaIhsoJE2nUmzKt22vepIcWA/tmprb7fsg1l.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act8_code_review.webp",
+    "timestamp": "2026-04-18T01:03:57.729Z",
+    "cost": 0.04
+  },
+  "bg_act8_git_history": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/n5I4SoCxjMraO9Q6KBqLGykeF6J75XM5V4KoitZW3qTKhEOLA/tmpz906jjim.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\bg_act8_git_history.webp",
+    "timestamp": "2026-04-18T01:29:57.016Z",
+    "cost": 0.04
+  },
+  "evidence_ir_plan_blank": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/vKW3R5ozjzYAJt5DoJKwo70Luyf0eC0o9hdOsTZB1s2ZqIcWA/tmpbe9sp1ar.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\evidence_ir_plan_blank.webp",
+    "timestamp": "2026-04-18T01:04:26.091Z",
+    "cost": 0.04
+  },
+  "evidence_risk_register": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/k0JXHGb3yAJzCVeqQ7YQYdE84zR3oXKIiB2ewfxgtNAHFS4sA/tmpvri4mwyg.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\evidence_risk_register.webp",
+    "timestamp": "2026-04-18T01:30:12.063Z",
+    "cost": 0.04
+  },
+  "evidence_ghost_access_profile": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/A8LTOWhG0wLoGJPbPNxP7wLroq9WIbTjbv1k6IUea33ZhEOLA/tmpo8be3_kd.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\evidence_ghost_access_profile.webp",
+    "timestamp": "2026-04-18T01:30:28.445Z",
+    "cost": 0.04
+  },
+  "evidence_packet_capture": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/ych51kI7mAriDV0BHjZKqIFK1JxyviW60XupBZdsrngtKCnF/tmpaeq0nfhx.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\evidence_packet_capture.webp",
+    "timestamp": "2026-04-18T01:04:55.285Z",
+    "cost": 0.04
+  },
+  "evidence_expired_cert": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/yVtnBEXusVaDLFOHhz3ePjpSe3jjaeEOFSCzNXZMTZVJGS4sA/tmppohrft22.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\evidence_expired_cert.webp",
+    "timestamp": "2026-04-18T01:30:45.191Z",
+    "cost": 0.04
+  },
+  "evidence_flat_network": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/YE5hmcgcqf1xCSuO4KHX53Xro5inaeRsYDSJ14Yeo3RjWR4sA/tmpe094ksuh.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\evidence_flat_network.webp",
+    "timestamp": "2026-04-18T01:05:22.503Z",
+    "cost": 0.04
+  },
+  "evidence_vuln_report_cover": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/CBeMfXN8T7tNXUwIC0l0fgWBmRxTAgSfc8Joz5z2Tl6WNkwZB/tmpw1hdsamg.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\evidence_vuln_report_cover.webp",
+    "timestamp": "2026-04-18T01:31:01.864Z",
+    "cost": 0.04
+  },
+  "diagram_osi_model": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/hPQRqDLXmeX4bqTmTvhmJsRFP6fADBNL9BjuHJOsyrdmDJcWA/tmpqc1vbrrk.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\diagram_osi_model.webp",
+    "timestamp": "2026-04-18T01:31:18.556Z",
+    "cost": 0.04
+  },
+  "diagram_cia_triad": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/IWKju9CwyQ7SLd6VTsr8jp2ecWjTuwLgozj8fKAsXhjurIcWA/tmpw3so3tbv.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\diagram_cia_triad.webp",
+    "timestamp": "2026-04-18T01:05:51.294Z",
+    "cost": 0.04
+  },
+  "diagram_kill_chain": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/RPp9JtVK0Dp9Ipwh2ezjCaWsSnSNm9EbayAeYhaxAAV2DJcWA/tmp4mxuj61a.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\diagram_kill_chain.webp",
+    "timestamp": "2026-04-18T01:31:34.807Z",
+    "cost": 0.04
+  },
+  "diagram_ir_lifecycle": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/XwWNCfctEPwCCau4rd4AifPiqD7JbnoyU2ecHOALG7epwiwZB/tmpenophuje.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\diagram_ir_lifecycle.webp",
+    "timestamp": "2026-04-18T01:06:18.829Z",
+    "cost": 0.04
+  },
+  "diagram_access_models": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/cJMrEigIMgJaMBSaeqA0JKH84WSjsjHFxiBXeIe7yWoNIS4sA/tmpowyrmap4.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\diagram_access_models.webp",
+    "timestamp": "2026-04-18T01:31:51.708Z",
+    "cost": 0.04
+  },
+  "diagram_sdlc_security": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/K8vfrbm6cOVnY6KzJMYqRtStf5zAD1qzOJfWFdfu7NxcRkwZB/tmphw08ki49.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\diagram_sdlc_security.webp",
+    "timestamp": "2026-04-18T01:32:08.601Z",
+    "cost": 0.04
+  },
+  "diagram_crypto_comparison": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/jPIEWQaYf5ULVy5TX8fZ4JeNPvbTnKhPBeUhxufDwhdpkFhzC/tmp5zmfbg9n.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\diagram_crypto_comparison.webp",
+    "timestamp": "2026-04-18T01:06:46.225Z",
+    "cost": 0.04
+  },
+  "diagram_bell_lapudula": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/9AocJnNP97JvM1KkQdbl6zFPjEkNkgENMLjcoOxMiCMKRCnF/tmp9piguxbh.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\diagram_bell_lapudula.webp",
+    "timestamp": "2026-04-18T01:32:25.354Z",
+    "cost": 0.04
+  },
+  "diagram_biba": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/I4b0NHCfcrTbSSHFFF5PpvBZIVEfkAYzVAI49RDuG5ewJS4sA/tmpjd209z_0.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\diagram_biba.webp",
+    "timestamp": "2026-04-18T01:32:41.356Z",
+    "cost": 0.04
+  },
+  "diagram_risk_matrix": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/r38sdSoxBCrFElKy1ZBCqKfNx3O7Sfnr6Pyxi2ImygCTtIcWA/tmpe0psr_p9.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\diagram_risk_matrix.webp",
+    "timestamp": "2026-04-18T01:07:32.574Z",
+    "cost": 0.04
+  },
+  "diagram_data_lifecycle": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/qFWAASeq2GRcPiIAYN5kkItsneojSodhCWRF4bZeAMKSKS4sA/tmpkwxd3vpi.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\diagram_data_lifecycle.webp",
+    "timestamp": "2026-04-18T01:32:57.689Z",
+    "cost": 0.04
+  },
+  "ui_world_map": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/QXS9cInMqP6oPdWZr5SJKJ76IWkFffAEjATV8U6VWMwaFJcWA/tmpudat84zw.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\ui_world_map.webp",
+    "timestamp": "2026-04-18T01:33:15.348Z",
+    "cost": 0.04
+  },
+  "ui_title_screen": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/afOoArzTyJWjcCinbCWXKrmYCekwP2BlJ76FXbOfxqPibR4sA/tmpha4p635e.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\ui_title_screen.webp",
+    "timestamp": "2026-04-18T01:08:01.967Z",
+    "cost": 0.04
+  },
+  "ui_dashboard_hero": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/zJp5b8mftepkHEDL8RewsYc8CRm3bvonvfvL9fl6KwdctIhzC/tmpb8fz7u1z.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\ui_dashboard_hero.webp",
+    "timestamp": "2026-04-18T01:33:31.943Z",
+    "cost": 0.04
+  },
+  "ui_achievement_bg": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/Mf62H435j2VkFK6fFtjcjNBnye8xMpOamJPQoM6WtYrZcR4sA/tmp7tfg1g89.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\ui_achievement_bg.webp",
+    "timestamp": "2026-04-18T01:08:29.551Z",
+    "cost": 0.04
+  },
+  "ui_act_card_locked": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/XXt829ZYAeWFAi8YXrSg9BOjB5lkkw7Y6UzhQfXS2ma9FJcWA/tmp1a5icb9i.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\ui_act_card_locked.webp",
+    "timestamp": "2026-04-18T01:33:49.916Z",
+    "cost": 0.04
+  },
+  "loading_screen_1": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/UCfCJMzMB7yKKyEsn4rjjgcXatKmflKeIqsevmdtmDB3YkwZB/tmpzrlfxp0y.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\loading_screen_1.webp",
+    "timestamp": "2026-04-18T01:34:06.066Z",
+    "cost": 0.04
+  },
+  "loading_screen_2": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/gYCLO0dErCZzBNnETwAItI8ANdbxQVf0mnjBUwEatf1ouIcWA/tmpyxwe2d28.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\loading_screen_2.webp",
+    "timestamp": "2026-04-18T01:08:57.389Z",
+    "cost": 0.04
+  },
+  "loading_screen_3": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/sqbKejWaAYUJFK4x7dwSUgTfKamAdffWeA0410kDlW4P3FhzC/tmpsu3onwpc.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\loading_screen_3.webp",
+    "timestamp": "2026-04-18T01:09:13.992Z",
+    "cost": 0.04
+  },
+  "landing_hero": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/3IJmi1psSeSySSFJkEBjYCPmaiePIVMeGnhyXMkJ7JD5MS4sA/tmpkz4gw964.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\landing_hero.webp",
+    "timestamp": "2026-04-18T01:34:21.220Z",
+    "cost": 0.04
+  },
+  "tanaka_notebook_style": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/ri8pDAzfsPUed0Aw2WIQ6vw8FzpG1Ypm31EHESDG4aWrGJcWA/tmpodzsu1cb.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\tanaka_notebook_style.webp",
+    "timestamp": "2026-04-18T01:34:36.714Z",
+    "cost": 0.04
+  },
+  "epilogue_exam_room": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/jKyUOqG2NJbaHpvNeszgPA7Dl4SeOLIfy1o2563Jk7n3NS4sA/tmpjhakjdz7.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\epilogue_exam_room.webp",
+    "timestamp": "2026-04-18T01:34:51.728Z",
+    "cost": 0.04
+  },
+  "epilogue_celebration": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/GZ3bATMze62mAqeb1FeCU7eQtwLBoRbRZuvxZj8z7B4NeFhzC/tmp09tuxwzx.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\epilogue_celebration.webp",
+    "timestamp": "2026-04-18T01:09:55.594Z",
+    "cost": 0.04
+  },
+  "npc_vasquez_explaining": {
+    "status": "success",
+    "url": "https://replicate.delivery/xezq/Wzw8SQCY4j4eNyoNpjIVzasqI3D8Fdxnl3VmtWiTyNhxjEOLA/tmpq9fwiln1.webp",
+    "localPath": "C:\\Projects\\cissp-quest\\generated-images\\npc_vasquez_explaining.webp",
+    "timestamp": "2026-04-18T01:35:31.937Z",
+    "cost": 0.04
+  }
+}

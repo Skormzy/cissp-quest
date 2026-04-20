@@ -2,12 +2,18 @@
 
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { useUserStore } from '@/stores/useUserStore';
 import { createClient } from '@/lib/supabase/client';
 import { DOMAIN_COLORS } from '@/lib/story-constants';
 import { DOMAINS } from '@/lib/constants';
 import CATQuizEngine from '@/components/quiz/CATQuizEngine';
 import { CAT_CONFIGS, CATResults } from '@/lib/cat-session';
+
+const IPassedCeremony = dynamic(
+  () => import('@/components/quiz/IPassedCeremony'),
+  { ssr: false },
+);
 
 export default function FinalBossPage() {
   const { user } = useUserStore();
@@ -74,20 +80,17 @@ export default function FinalBossPage() {
 
   if (result === 'pass') {
     return (
-      <div className="max-w-2xl mx-auto text-center py-10">
-        <div className="rounded-xl p-8" style={{ background: 'linear-gradient(135deg, #1a1a00, #2a2a10)', border: '2px solid #ffd700' }}>
-          <div className="text-6xl mb-4">🎓</div>
-          <h2 className="text-3xl font-bold mb-2" style={{ color: '#ffd700' }}>CISSP LEGEND</h2>
-          <p className="text-lg font-bold mb-4" style={{ color: '#e2e8f0' }}>{Math.round(score)}%</p>
-          <p className="text-sm mb-6" style={{ color: '#94a3b8' }}>
-            You have defeated the Final Boss and proven mastery across all 8 CISSP domains.
-            The title of CISSP Legend is yours.
-          </p>
-          <Link href="/app/story/final" className="inline-block px-8 py-3 rounded-xl text-sm font-bold" style={{ background: '#ffd700', color: '#080c14' }}>
-            Return to Final Chapter
-          </Link>
-        </div>
-      </div>
+      <IPassedCeremony
+        score={Math.round(score)}
+        domainsCompleted={8}
+        totalXP={user?.xp ?? 0}
+        streakDays={user?.streak_count ?? 1}
+        onContinue={() => setResult('idle')}
+        onShare={() => {
+          const text = `I just defeated the CISSP Quest Final Boss — ${Math.round(score)}% across all 8 domains! 🏆 Preparing for my actual CISSP exam with @CISSPQuest #CISSP #CyberSecurity`;
+          navigator.clipboard?.writeText(text).catch(() => {});
+        }}
+      />
     );
   }
 

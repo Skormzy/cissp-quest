@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  8,
+  'database_security',
+  'Which database integrity rule BEST ensures that every foreign key value in a child table corresponds to an existing primary key value in the parent table?',
+  '["Entity integrity, which requires primary keys to be unique and non-null", "Referential integrity, which requires foreign keys to match valid primary keys in referenced tables", "Semantic integrity, which ensures data values are meaningful and logically correct", "Domain integrity, which restricts values to defined data types and ranges"]'::jsonb,
+  1,
+  'Referential integrity ensures that foreign key values in a child table always reference valid primary key values in the parent table. This prevents orphaned records and maintains relationships between tables. Entity integrity governs primary keys (unique, non-null). The exam frequently tests the distinction between entity and referential integrity.',
+  'REFERENTIAL integrity = REFERENCES must be valid. Foreign keys must REFER to real primary keys.',
+  'understand',
+  'best_answer',
+  'medium',
+  1.00, 0.00, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'containerization',
+  'Your organization is adopting container-based deployment for the first time. The infrastructure team has created Docker images for several services. Before deploying to production, what should the security team do FIRST?',
+  '["Monitor container network traffic using a traditional network-based intrusion detection system", "Conduct a penetration test against the container orchestration management interface", "Scan all container base images for known vulnerabilities and verify they follow security hardening guidelines", "Deploy containers to a staging environment and perform user acceptance testing"]'::jsonb,
+  2,
+  'Before deploying containers to production, the first security step is scanning base images for known vulnerabilities and verifying they follow hardening guidelines (non-root users, minimal packages, no secrets in images). Vulnerable or misconfigured base images are the foundation of every container — if the base is insecure, everything built on it is insecure.',
+  'Container security starts at the BASE. Scan and harden the BASE IMAGE first — it is the foundation for everything.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'secure_coding',
+  'A web application''s firewall fails during a maintenance window. The application is designed to continue accepting all user requests without any security filtering until the firewall is restored. This behavior is MOST LIKELY an example of which design flaw?',
+  '["Defense in depth, because the application has multiple layers of protection", "Fail-secure, because the application locks down access during the failure", "Input validation bypass, because the application skips checking user input", "Fail-open, because the application defaults to a permissive state when a control fails"]'::jsonb,
+  3,
+  'Fail-open means a system defaults to allowing access when a security control fails. This is generally considered a security flaw because it removes protection precisely when something has gone wrong. The preferred approach is fail-secure (fail-closed), where the system denies access when a control fails. Fail-open is rarely appropriate except in specific safety scenarios.',
+  'Fail-OPEN = the door OPENS when the lock breaks. Fail-SECURE = the door LOCKS when the lock breaks. Almost always choose fail-secure.',
+  'understand',
+  'most_likely',
+  'medium',
+  1.10, 0.10, 0.22,
+  'ai_generated', true
+),
+(
+  8,
+  'owasp_top_10',
+  'A security analyst reviewing a healthcare web application discovers that the application constructs database queries by concatenating user-supplied search terms directly into SQL strings. For example, the search field value is placed directly into: "SELECT * FROM patients WHERE name = ''" + userInput + "''". What is the PRIMARY risk of this coding practice?',
+  '["SQL injection, because user input is treated as executable SQL code rather than data", "Cross-site scripting, because the user input is rendered in the browser without encoding", "Buffer overflow, because the concatenated string may exceed memory allocation", "Denial of service, because large search terms could consume excessive database resources"]'::jsonb,
+  0,
+  'Direct string concatenation of user input into SQL queries is the classic SQL injection vulnerability. An attacker can input values like '' OR 1=1 -- to manipulate the query logic, potentially accessing, modifying, or deleting data. The fix is parameterized queries, which separate the SQL structure from user data.',
+  'String concatenation + SQL = SQL injection recipe. NEVER concatenate user input into SQL. Use PARAMETERIZED queries.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'development_methodologies',
+  'All of the following are characteristics of Agile development EXCEPT:',
+  '["Welcoming changing requirements, even late in development", "Requiring comprehensive documentation before any coding begins", "Delivering working software frequently in short iterations", "Valuing individuals and interactions over rigid processes and tools"]'::jsonb,
+  1,
+  'The Agile Manifesto explicitly values working software over comprehensive documentation. Agile methodologies intentionally minimize upfront documentation in favor of delivering working software in short iterations. Requiring comprehensive documentation before coding is a characteristic of Waterfall, not Agile. Agile welcomes change, delivers frequently, and values people over process.',
+  'Agile values: Individuals over process, Working software over documentation, Collaboration over contracts, Responding over following a plan.',
+  'understand',
+  'except_not',
+  'medium',
+  0.90, 0.20, 0.25,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

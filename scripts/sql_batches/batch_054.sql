@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  7,
+  'backup_strategies',
+  'An organization follows the 3-2-1 backup rule for its critical data. Which implementation correctly follows this rule?',
+  '["Three copies of data on the same NAS device using three different folders", "Two copies of data stored on two different cloud providers", "Three copies of data stored on two different media types with one copy at an offsite location", "One full backup stored in three separate locations"]'::jsonb,
+  2,
+  'The 3-2-1 rule specifies: 3 copies of data (original + 2 backups), stored on 2 different media types (e.g., hard drive + tape, or local disk + cloud), with 1 copy stored offsite. This protects against single device failure (multiple copies), media-specific failures (different types), and site-level disasters (offsite copy).',
+  '3-2-1 = 3 copies, 2 media types, 1 offsite. Three, Two, One — like a countdown to data protection.',
+  'understand',
+  'scenario',
+  'medium',
+  1.20, 0.20, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'incident_response',
+  'All of the following are valid methods for detecting security incidents EXCEPT:',
+  '["Intrusion detection system alerts", "End user reports of suspicious activity", "SIEM correlation rule triggers", "Performing annual penetration tests"]'::jsonb,
+  3,
+  'IDS alerts, end user reports, and SIEM correlation rules are all real-time or near-real-time methods for detecting security incidents as they occur. Annual penetration tests are a proactive security assessment activity, not a detection method for actual incidents. Penetration tests simulate attacks to find vulnerabilities but are scheduled assessments, not incident detection mechanisms.',
+  'Incident DETECTION = real-time awareness. IDS, SIEM, user reports, DLP — all watch for incidents as they happen.',
+  'apply',
+  'except_not',
+  'medium',
+  1.20, 0.50, 0.25,
+  'ai_generated', true
+),
+(
+  7,
+  'forensic_imaging',
+  'During a forensic investigation, an analyst needs to examine a suspect''s running laptop. The laptop has encrypted volumes and active network connections. Before powering down the system, what critical evidence should the analyst capture FIRST?',
+  '["Volatile data including RAM contents, running processes, network connections, and logged-in users", "A list of all installed software applications", "The browser bookmarks and saved passwords", "The desktop wallpaper and screen resolution settings"]'::jsonb,
+  0,
+  'Volatile data exists only in memory and will be lost when the system is powered off. This includes RAM contents (which may contain encryption keys for mounted encrypted volumes), running processes, active network connections, logged-in users, and clipboard contents. This follows the order of volatility — capture the most volatile data first. Non-volatile data on disk can be imaged later.',
+  'Volatile = Vanishes when power goes off. Capture RAM FIRST — it holds encryption keys, running processes, and active connections. Follow order of volatility.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'patch_management',
+  'As a security manager, you learn that a zero-day vulnerability affecting your organization''s web servers has been publicly disclosed but no vendor patch is available yet. What is the BEST management decision?',
+  '["Wait for the vendor to release a patch before taking any action", "Implement compensating controls such as WAF rules, network segmentation, and enhanced monitoring while awaiting the patch", "Shut down all affected web servers until the patch is available", "Assign the development team to create a custom patch internally"]'::jsonb,
+  1,
+  'When no patch exists for a zero-day, a manager should implement compensating controls to reduce risk while awaiting the vendor patch. This includes WAF rules to filter attack patterns, network segmentation to limit exposure, and enhanced monitoring to detect exploitation attempts. Waiting without action is negligent. Shutting down servers disrupts business unnecessarily. Custom patches risk introducing new issues.',
+  'No patch available? COMPENSATE. Layer defenses to buy time until the fix arrives.',
+  'apply',
+  'tlatm',
+  'medium',
+  1.70, 0.80, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'incident_response',
+  'An organization experiences a security breach that affects customer payment card data. The incident response team has contained the breach and is planning the reporting phase. The organization is subject to PCI DSS requirements. Which stakeholder notification sequence is MOST appropriate?',
+  '["Notify customers first, then the payment card brands, then law enforcement", "Notify law enforcement first, then the media, then customers", "Notify internal management and legal first, then the payment card brands and acquiring bank, then affected customers as required by law", "Notify the media first to demonstrate transparency, then customers and regulators"]'::jsonb,
+  2,
+  'The proper notification sequence starts with internal stakeholders (management and legal counsel) to coordinate the response and ensure compliance. Next, notify the payment card brands and acquiring bank as required by PCI DSS. Then notify affected customers as required by breach notification laws. Media communication should be handled by a designated spokesperson only after internal coordination.',
+  'Notification order: INTERNAL first (management, legal), then REGULATORS/CARD BRANDS, then CUSTOMERS, then PUBLIC. Inside out.',
+  'analyze',
+  'scenario',
+  'medium',
+  1.70, 0.80, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

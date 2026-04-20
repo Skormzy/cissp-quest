@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  8,
+  'software_acquisition',
+  'Your organization is considering migrating a critical application to a SaaS provider. As the security manager, the CTO asks you to evaluate the proposal. Several departments are enthusiastic about reduced infrastructure costs. What is the MOST important factor you should evaluate?',
+  '["The SaaS provider''s stock price and market capitalization as indicators of stability", "Whether the provider uses Agile or Waterfall development methodology internally", "The shared responsibility model and whether the provider''s security controls meet your compliance requirements", "How many other customers use the same SaaS platform for similar workloads"]'::jsonb,
+  2,
+  'When evaluating a SaaS provider, the most critical security factor is understanding the shared responsibility model — what the provider secures versus what the organization must secure — and verifying their controls meet your compliance requirements. SOC reports, security assessments, and contractual SLAs are key evaluation tools. Cost savings are secondary to security adequacy.',
+  NULL,
+  'apply',
+  'tlatm',
+  'medium',
+  1.70, 0.80, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'secure_coding',
+  'All of the following are secure coding best practices EXCEPT:',
+  '["Validating all user input on the server side before processing", "Using parameterized queries to prevent SQL injection attacks", "Implementing proper error handling that logs details internally", "Displaying detailed stack traces and SQL error messages to end users for transparency"]'::jsonb,
+  3,
+  'Displaying detailed error messages (stack traces, SQL errors, file paths) to end users is a security anti-pattern, not a best practice. Attackers use this information to understand internal system structure and craft targeted attacks. Secure applications show generic error messages to users while logging technical details to internal monitoring systems.',
+  'Error messages to users should be BORING and GENERIC. Save the details for your internal logs.',
+  'understand',
+  'except_not',
+  'medium',
+  0.90, 0.20, 0.25,
+  'ai_generated', true
+),
+(
+  8,
+  'devsecops',
+  'A DevSecOps team discovers that their CI/CD pipeline occasionally deploys code that contains hardcoded API keys and database passwords. These secrets are committed directly into the source code repository. The team wants to prevent this from happening automatically. Which control is MOST effective?',
+  '["Integrating a secret scanning tool into the CI/CD pipeline that blocks builds containing hardcoded credentials", "Sending a monthly reminder email to developers about not committing secrets", "Adding a note in the developer handbook about credential management best practices", "Conducting quarterly security awareness training sessions on secure coding"]'::jsonb,
+  0,
+  'Automated secret scanning integrated into the CI/CD pipeline is the most effective control because it provides real-time, automated prevention. It scans commits for patterns matching API keys, passwords, and tokens, blocking the pipeline before secrets reach production. Training and documentation are important but insufficient as sole controls — automation catches what humans miss.',
+  'Automate the boring stuff. Secret scanners in the pipeline catch what tired developers miss at 2 AM.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'maturity_models',
+  'An organization has repeatable processes on individual projects, but different project teams use different approaches. Processes succeed based on individual competence rather than organizational standards. At which SW-CMM level is this organization MOST LIKELY operating?',
+  '["Level 1 — Initial, where processes are chaotic and ad hoc", "Level 2 — Repeatable, where project-level processes exist but are not standardized organization-wide", "Level 3 — Defined, where processes are documented and consistent across the organization", "Level 4 — Managed, where processes are quantitatively measured and controlled"]'::jsonb,
+  1,
+  'SW-CMM Level 2 (Repeatable) is characterized by processes that succeed on a project-by-project basis, often depending on individual talent rather than organizational standards. Projects can repeat past successes but the organization has not yet standardized processes across all teams. Level 3 is where organization-wide standardization occurs.',
+  'Level 2 = Repeatable = "We can repeat success on one project, but each team does it differently."',
+  'understand',
+  'most_likely',
+  'medium',
+  1.10, 0.10, 0.22,
+  'ai_generated', true
+),
+(
+  8,
+  'database_security',
+  'A medical records database uses the ACID properties to ensure transaction integrity. During a system crash, a transaction that was transferring patient records between departments was only partially completed. Which ACID property ensures this partial transaction is automatically reversed?',
+  '["Durability, because committed transactions must survive system failures", "Consistency, because the database must maintain all integrity rules", "Atomicity, because the transaction must either complete fully or be entirely rolled back", "Isolation, because transactions must be invisible to others until complete"]'::jsonb,
+  2,
+  'Atomicity ensures that a transaction is an indivisible unit — either all operations within the transaction complete successfully, or none of them take effect. When a crash interrupts a transaction, atomicity guarantees the partial changes are rolled back, returning the database to its pre-transaction state. This prevents partial updates that could corrupt data.',
+  'ATOMICITY = ALL or NOTHING. If the transaction crashes halfway, everything rolls back. No partial commits.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

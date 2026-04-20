@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  8,
+  'database_security',
+  'A hospital database system experiences a failure during a batch update that was modifying insurance information for 500 patient records. When the system recovers, the database administrator finds that 247 records were updated and 253 were not. The DBA expected either all 500 or zero records to be updated. Which ACID property has been violated?',
+  '["Durability, because the committed changes did not persist through the failure", "Atomicity, because the transaction was partially completed instead of being all-or-nothing", "Isolation, because other transactions could see the partial update during the failure", "Consistency, because the database rules were violated by having mixed update states"]'::jsonb,
+  1,
+  'Atomicity requires that a transaction is an indivisible unit — either all operations complete or none do. Having 247 of 500 records updated represents a partial transaction, which violates atomicity. A properly implemented atomic transaction would have rolled back all changes when the failure occurred, leaving zero records updated. The database recovery mechanism should enforce this.',
+  'ATOMICITY violation = partial completion. ALL 500 or NONE. 247 out of 500 = atomicity failure.',
+  'apply',
+  'scenario',
+  'hard',
+  1.50, 2.00, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'sast_dast_iast',
+  'A security manager is building a comprehensive application security testing program and needs to understand the tradeoffs between SAST, DAST, IAST, and RASP. Which statement MOST accurately compares their roles in a defense-in-depth strategy?',
+  '["SAST and DAST are redundant — organizations should choose one based on whether they have source code access", "RASP replaces the need for SAST and DAST because it provides real-time protection in production", "SAST finds code-level flaws during development, DAST finds runtime issues in staging, IAST combines both during QA, and RASP provides runtime defense in production — they are complementary across the lifecycle", "IAST is always superior to SAST and DAST individually and should be the only testing tool used"]'::jsonb,
+  2,
+  'Each testing approach has a specific role in the application lifecycle and they are complementary, not redundant. SAST catches code issues early in development (shift-left). DAST finds runtime and configuration issues in staging. IAST provides comprehensive coverage during QA testing. RASP provides real-time production defense. A mature program uses all four at appropriate lifecycle stages.',
+  'SAST/DAST/IAST/RASP = different tools for different lifecycle stages. Like security guards at different doors of the building.',
+  'analyze',
+  'comparison',
+  'hard',
+  1.60, 2.20, 0.22,
+  'ai_generated', true
+),
+(
+  8,
+  'buffer_overflow',
+  'All of the following are effective mitigations against buffer overflow attacks EXCEPT:',
+  '["Address Space Layout Randomization (ASLR) to randomize memory addresses of executables", "Input validation and bounds checking to prevent writing beyond allocated memory", "Using memory-safe programming languages like Java or Rust instead of C/C++", "Implementing output encoding to prevent malicious scripts from executing in browsers"]'::jsonb,
+  3,
+  'Output encoding is a defense against Cross-Site Scripting (XSS), not buffer overflows. Buffer overflow mitigations include ASLR (randomizing memory addresses), input validation and bounds checking (preventing oversized input), memory-safe languages (which manage memory automatically), stack canaries, and Data Execution Prevention (DEP). Output encoding addresses a completely different vulnerability class.',
+  'Output encoding = XSS defense. Buffer overflow defenses = ASLR, bounds checking, safe languages, DEP, stack canaries.',
+  'analyze',
+  'except_not',
+  'hard',
+  1.40, 2.30, 0.25,
+  'ai_generated', true
+),
+(
+  8,
+  'development_methodologies',
+  'A software organization has been using ad hoc development processes. After a costly project failure, management decides to improve. They hire a process improvement consultant who recommends a five-phase approach: first understand the current situation, then diagnose problems, establish improvement plans, carry out the improvements, and finally capture lessons learned. Which improvement model does this align with?',
+  '["The IDEAL model with its five phases: Initiating, Diagnosing, Establishing, Acting, and Learning", "The PDCA cycle with its four phases: Plan, Do, Check, Act", "The CMMI staged representation with its five maturity levels", "The Agile retrospective process conducted at the end of each sprint"]'::jsonb,
+  0,
+  'The IDEAL model consists of five phases: Initiating (understanding the current situation and building sponsorship), Diagnosing (assessing current practices and identifying improvements), Establishing (planning the improvement actions), Acting (implementing the improvements), and Learning (capturing lessons and refining the approach). It is specifically designed for process improvement initiatives.',
+  'IDEAL = Initiating, Diagnosing, Establishing, Acting, Learning. Five phases of process improvement.',
+  'apply',
+  'scenario',
+  'hard',
+  1.50, 2.00, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'secure_coding',
+  'A development team uses code obfuscation to protect intellectual property in a distributed desktop application. They applied lexical obfuscation (renaming variables), data obfuscation (restructuring data types), and control flow obfuscation (reordering execution logic). An attacker successfully deobfuscates the application after moderate effort. Which obfuscation technique MOST LIKELY failed first, enabling further analysis?',
+  '["Control flow obfuscation, because reordered logic is easiest to reverse-engineer", "Lexical obfuscation, because cosmetic changes like variable renaming are the weakest and easiest to undo", "Data obfuscation, because restructured data types are trivial to reconstruct", "All three failed simultaneously because obfuscation provides no meaningful protection"]'::jsonb,
+  1,
+  'Lexical obfuscation is the weakest form because it only makes cosmetic changes (renaming variables, removing comments). These changes do not alter program logic and can be partially reversed through automated analysis. Once variables are given meaningful names again, the code becomes readable. Data obfuscation is stronger, and control flow obfuscation is the strongest of the three.',
+  'Obfuscation strength: Lexical (weakest, cosmetic) < Data (moderate, structural) < Control Flow (strongest, logic reordering).',
+  'analyze',
+  'most_likely',
+  'hard',
+  1.60, 2.20, 0.22,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

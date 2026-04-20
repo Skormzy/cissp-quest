@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  8,
+  'secure_sdlc',
+  'A software company completes the requirements phase and moves into architecture and design. The security architect recommends performing threat modeling at this stage. A junior developer asks why threat modeling cannot wait until the testing phase. What is the BEST response?',
+  '["Threat modeling is only effective when performed by architects, not testers", "Regulatory frameworks require threat modeling before any code is written", "Threat modeling during testing allows more accurate results because the code exists", "Identifying threats during design allows security to be built into the architecture rather than patched in later"]'::jsonb,
+  3,
+  'Threat modeling during the design phase allows security controls to be incorporated into the system architecture from the beginning. This aligns with the shift-left principle — finding and addressing threats early is far less expensive and more effective than discovering them during testing or after deployment.',
+  'Threat model at DESIGN time = build the fortress walls BEFORE the castle, not after the enemy arrives.',
+  'understand',
+  'scenario',
+  'medium',
+  1.20, 0.20, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'sast_dast_iast',
+  'A security team wants to find SQL injection and buffer overflow vulnerabilities in a Java application before deployment. They have full access to the source code and want to analyze it without running the application. Which testing approach should they use?',
+  '["SAST, because it analyzes source code without executing the application", "DAST, because it simulates real-world attacks against the application", "IAST, because it combines both static and dynamic analysis simultaneously", "Fuzz testing, because it sends malformed inputs to discover crashes"]'::jsonb,
+  0,
+  'SAST (Static Application Security Testing) is the correct choice because it analyzes source code, bytecode, or binary code without executing the application. It can identify code-level vulnerabilities like SQL injection and buffer overflows during development. DAST requires a running application, IAST requires execution with code visibility, and fuzz testing requires a running target.',
+  'SAST = Static = Scans Source = no execution needed. If you have the code and it is not running, use SAST.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'change_management',
+  'A critical production system is experiencing a known bug that causes intermittent data corruption. Multiple teams have proposed different fixes. According to formal change management, what should happen FIRST?',
+  '["The development team should immediately deploy the most promising fix to stop data loss", "A change request should be submitted through the request control process", "The Change Advisory Board should convene an emergency meeting to select a fix", "The operations team should roll back to the previous version of the software"]'::jsonb,
+  1,
+  'Even in urgent situations, formal change management requires that changes begin with a request through the request control process. Request control is the first of three change management components (request control, change control, release control). The CAB reviews requests during change control, and deployment occurs during release control.',
+  'Change management order: REQUEST it, CHANGE-control it, RELEASE it. Always start with the REQUEST.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'database_views',
+  'A database administrator needs to ensure that users in the marketing department can only see customer records from their own region. The underlying customer table contains records for all regions. Which database security mechanism is MOST appropriate?',
+  '["Encrypting the entire customer table with AES-256 encryption", "Implementing database normalization to separate regional data into tables", "Creating a database view that filters records based on the user''s assigned region", "Adding a trigger that logs all access attempts to the customer table"]'::jsonb,
+  2,
+  'Database views are virtual tables that present a subset of data from underlying tables. By creating a view filtered by region and granting marketing users access only to their regional view (not the base table), the DBA restricts access without duplicating data. This is a classic use of views for access control.',
+  'VIEWS = Virtual windows. Each user sees only what their window shows, not the whole house.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'development_methodologies',
+  'How does the Spiral model fundamentally differ from the Waterfall model in its approach to software development?',
+  '["The Spiral model eliminates the need for requirements gathering entirely", "The Spiral model only works for small projects while Waterfall handles large ones", "The Spiral model skips testing to accelerate delivery timelines", "The Spiral model is risk-driven and iterates through planning, risk analysis, engineering, and evaluation cycles"]'::jsonb,
+  3,
+  'The Spiral model is fundamentally risk-driven, cycling through four phases (planning, risk analysis, engineering, evaluation) in each iteration. It is considered a metamodel that can wrap around other methodologies like waterfall. Unlike the linear Waterfall approach, Spiral uses iterative prototyping and makes risk analysis central to every cycle.',
+  'SPIRAL = SPIN through risk analysis every cycle. Waterfall = FALL straight down once.',
+  'understand',
+  'comparison',
+  'medium',
+  1.10, 0.10, 0.22,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

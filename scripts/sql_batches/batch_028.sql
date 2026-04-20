@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  6,
+  'credentialed_scanning',
+  'An organization runs both credentialed and uncredentialed vulnerability scans against the same set of servers. The uncredentialed scan reports 45 high-severity findings, while the credentialed scan reports only 12 high-severity findings on the same systems. What is the MOST likely explanation for this discrepancy?',
+  '["The uncredentialed scan produced many false positives because it could not verify actual system configurations", "The credentialed scan missed vulnerabilities because it had too much access", "The uncredentialed scan is more thorough because it tests from an attacker perspective", "The credentialed scan was configured with an outdated vulnerability database"]'::jsonb,
+  0,
+  'Uncredentialed scans cannot authenticate to target systems, so they make assumptions about software versions and configurations based on external responses. These assumptions frequently lead to false positives. Credentialed scans can verify actual installed versions, patch levels, and configurations, resulting in more accurate and fewer false-positive findings.',
+  'No credentials = more guessing = more false positives. Credentials = verified info = accurate results.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'testing_approaches',
+  'Which testing technique BEST describes sending intentionally malformed, unexpected, or random data as inputs to an application to discover crashes and vulnerabilities?',
+  '["Regression testing", "Fuzz testing", "Acceptance testing", "Synthetic transaction monitoring"]'::jsonb,
+  1,
+  'Fuzz testing is a specialized dynamic testing technique that sends malformed, unexpected, or random data as inputs to discover crashes, buffer overflows, and other vulnerabilities. It can be either mutation-based (modifying valid inputs) or generational (creating inputs from scratch). Regression testing checks for broken functionality, acceptance testing validates requirements, and synthetic monitoring simulates user transactions.',
+  'Fuzz = Flood with Funny data. Random junk in, crashes out.',
+  'understand',
+  'best_answer',
+  'medium',
+  1.00, 0.00, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'audit_standards',
+  'Your organization is preparing for its first external security audit. The audit firm has been selected and the engagement letter is signed. What should be the FIRST step in the audit planning process?',
+  '["Begin collecting evidence and documentation for all security controls", "Schedule interviews with all department heads simultaneously", "Define the audit objective and scope to establish clear boundaries", "Start remediating all known vulnerabilities before the auditors arrive"]'::jsonb,
+  2,
+  'The first step in audit planning is defining the audit objective and scope. Without clear boundaries, the audit team cannot determine what to examine, what evidence to collect, or what controls to evaluate. The audit plan components begin with defining the objective, then the scope, then goals, before moving to team selection, planning, execution, and documentation.',
+  'Audit planning starts with OSD: Objective, Scope, then Details. You must know what you are auditing before you audit it.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'sast_dast_iast',
+  'A security team needs to test a production web application for SQL injection and cross-site scripting vulnerabilities without access to the application''s source code. The application is running and accessible via a web browser. Which testing approach should they use?',
+  '["Static Application Security Testing to analyze the compiled binaries", "Interactive Application Security Testing requiring code instrumentation", "Manual source code review by senior developers", "Dynamic Application Security Testing using a web vulnerability scanner"]'::jsonb,
+  3,
+  'DAST is the appropriate approach because it tests running applications without requiring access to source code. It operates as a black box test, scanning the application externally for vulnerabilities like SQL injection and XSS. SAST requires code access, IAST requires code instrumentation, and manual source code review requires the source code which is not available in this scenario.',
+  'No code access + running app = DAST. DAST = Dynamic = tests from the outside while the app runs.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'vulnerability_assessment',
+  'An organization uses Nessus for automated vulnerability scanning and Nmap for network discovery. What role do these tools MOST LIKELY serve in the security assessment process?',
+  '["Identifying known vulnerabilities and mapping the network attack surface without exploitation", "Exploiting vulnerabilities and maintaining persistent access to compromised systems", "Performing source code analysis and identifying insecure coding patterns", "Conducting full penetration tests including social engineering attacks"]'::jsonb,
+  0,
+  'Nessus is a vulnerability scanner that identifies known vulnerabilities, while Nmap is a network discovery and port scanning tool. Together, they help map the attack surface and identify weaknesses without attempting exploitation. These are assessment tools, not exploitation frameworks. Penetration testing tools like Metasploit are used for exploitation, and SAST tools handle code analysis.',
+  'Nessus = finds vulnerabilities. Nmap = maps the network. Both FIND problems but do not EXPLOIT them.',
+  'remember',
+  'most_likely',
+  'medium',
+  0.90, -0.40, 0.22,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

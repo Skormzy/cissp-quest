@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  7,
+  'change_management',
+  'A critical vulnerability is discovered in your organization''s primary web application framework. The vendor has released an emergency patch. As the change manager, what should be your FIRST step?',
+  '["Deploy the patch immediately to production servers", "Submit an emergency change request and convene the ECAB for expedited review", "Wait for the next scheduled maintenance window to apply the patch", "Roll back the web application to the previous version"]'::jsonb,
+  1,
+  'Even emergency changes must follow a process. The first step is to submit an emergency change request and convene the Emergency Change Advisory Board (ECAB) for expedited review and approval. This is a streamlined version of the normal change process for urgent situations. Deploying without any review risks breaking production. Waiting for a scheduled window leaves the vulnerability exposed too long.',
+  'Emergency changes still need approval — just faster. ECAB = Express CAB for emergencies.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'logging_monitoring',
+  'What is the PRIMARY difference between an Intrusion Detection System (IDS) and an Intrusion Prevention System (IPS)?',
+  '["An IDS uses signatures while an IPS uses anomaly detection", "An IDS monitors internal traffic while an IPS monitors external traffic", "An IDS passively alerts on threats while an IPS actively blocks them", "An IDS is software-based while an IPS is hardware-based"]'::jsonb,
+  2,
+  'The primary difference is that an IDS is passive — it detects and alerts on suspicious activity but does not take action to stop it. An IPS is active — it can detect, alert, AND automatically block or prevent malicious traffic. Both can use either signature-based or anomaly-based detection methods, and both can be network-based or host-based.',
+  'IDS = I Detect Stuff (passive, just watching). IPS = I Prevent Stuff (active, takes action).',
+  'understand',
+  'comparison',
+  'medium',
+  1.10, 0.10, 0.22,
+  'ai_generated', true
+),
+(
+  7,
+  'bia_process',
+  'As the CISO, you are reviewing the results of the Business Impact Analysis. The BIA team has identified that the customer relationship management (CRM) system has an MTD of 24 hours, but the current disaster recovery capability provides an RTO of 36 hours. What is the BEST management decision?',
+  '["Accept the gap as residual risk since disasters are unlikely", "Reduce the MTD to 48 hours to match current capabilities", "Conduct another BIA to verify the MTD calculation", "Invest in improving recovery capabilities to bring RTO below 24 hours"]'::jsonb,
+  3,
+  'As a manager, you must ensure RTO never exceeds MTD. If the current RTO (36h) exceeds the MTD (24h), the organization cannot recover in time to avoid unacceptable business impact. The correct management decision is to invest in improving recovery capabilities. You cannot arbitrarily change MTD — it is determined by business impact. Accepting this gap is negligent given the clear risk.',
+  'Golden rule: RTO must ALWAYS be less than MTD. If it''s not, fix the RTO — you can''t negotiate with MTD.',
+  'apply',
+  'tlatm',
+  'medium',
+  1.70, 0.80, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'chain_of_custody',
+  'What is the BEST description of the purpose of chain of custody documentation?',
+  '["To track who handled evidence, when, where, and what actions were taken throughout its lifecycle", "To prove that the evidence is authentic and has not been fabricated", "To ensure law enforcement is immediately notified of all evidence collection", "To guarantee that evidence will be admissible in court proceedings"]'::jsonb,
+  0,
+  'Chain of custody documentation tracks the complete journey of evidence — who handled it, when they handled it, where it was stored, and what was done with it. While proper chain of custody supports admissibility, it does not guarantee it. Chain of custody focuses on documenting control and integrity of evidence throughout its lifecycle from collection to presentation.',
+  'Chain of Custody = the WHO, WHEN, WHERE, and WHAT of evidence handling. It''s the evidence''s travel diary.',
+  'understand',
+  'best_answer',
+  'medium',
+  1.00, 0.00, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'backup_strategies',
+  'An organization performs a full backup every Sunday night. On Monday through Saturday, they perform backups that copy only files changed since the last full backup without resetting the archive bit. On Thursday, a server failure occurs and data must be restored. How many backup sets are needed?',
+  '["Four sets: Sunday full plus Monday, Tuesday, and Wednesday backups", "Two sets: Sunday full plus Wednesday backup", "Five sets: Sunday full plus Monday through Thursday backups", "One set: Wednesday backup only"]'::jsonb,
+  1,
+  'The scenario describes differential backups (changed since last full, archive bit NOT reset). Because differential backups always capture all changes since the last full backup, each differential contains all previous changes. To restore, you only need the last full backup (Sunday) plus the most recent differential (Wednesday). This is a key advantage of differential over incremental.',
+  'Differential restore = Full + Latest Diff (just 2 sets). Incremental restore = Full + ALL incrementals since. Diff is fewer sets to restore.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

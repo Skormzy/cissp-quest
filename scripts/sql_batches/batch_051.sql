@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  7,
+  'failure_modes',
+  'What is the PRIMARY difference between fail-secure and fail-safe modes?',
+  '["Fail-secure prioritizes maintaining security controls, while fail-safe prioritizes human safety", "Fail-secure allows traffic through, while fail-safe blocks all traffic", "Fail-secure is used for software, while fail-safe is used for hardware", "Fail-secure is cheaper to implement than fail-safe"]'::jsonb,
+  0,
+  'Fail-secure (also called fail-closed) prioritizes maintaining security even during a failure — for example, a firewall that blocks all traffic when it fails. Fail-safe prioritizes human safety — for example, doors that unlock during a fire to allow evacuation. The distinction is critical: security vs. safety. Both reduce functionality but protect different values.',
+  'Fail-SECURE = SECURITY wins. Fail-SAFE = SAFETY wins. What do you protect when things break?',
+  'remember',
+  'comparison',
+  'medium',
+  0.90, -0.40, 0.22,
+  'ai_generated', true
+),
+(
+  7,
+  'logging_monitoring',
+  'An IDS configured with anomaly-based detection begins generating a large number of alerts after the organization deploys a new cloud-based collaboration platform. Analysts confirm the alerts are false positives caused by the new application''s network traffic patterns. What is the MOST LIKELY root cause?',
+  '["The IDS signature database needs to be updated with new attack signatures", "The IDS behavioral baseline does not include the new application''s normal traffic patterns", "The new collaboration platform contains malware that is triggering the alerts", "The IDS hardware is insufficient to handle the increased network traffic"]'::jsonb,
+  1,
+  'Anomaly-based IDS works by comparing current behavior against an established baseline of normal activity. When a new application is deployed, its traffic patterns are unknown to the baseline and appear anomalous, triggering false positives. The solution is to update the baseline to include the new application''s normal traffic patterns. Signature updates address signature-based detection, not anomaly-based.',
+  'Anomaly IDS = baseline comparison. New app = new patterns = false positives until baseline updated.',
+  'analyze',
+  'most_likely',
+  'medium',
+  1.60, 0.70, 0.22,
+  'ai_generated', true
+),
+(
+  7,
+  'chain_of_custody',
+  'A forensic analyst creates a bit-for-bit image of a hard drive from a terminated employee''s workstation. After imaging, the analyst places the original drive in a sealed evidence bag, labels it with the date, case number, and her name, and stores it in a locked evidence room. She then begins analysis on the forensic copy. Which principle is she PRIMARILY following?',
+  '["Separation of duties", "Least privilege", "Need-to-know", "Chain of custody"]'::jsonb,
+  3,
+  'The analyst is following chain of custody procedures by documenting who handled the evidence (her name), when (date), what case it belongs to (case number), and securing it properly (sealed bag, locked room). Working from the forensic copy rather than the original preserves the integrity of the original evidence. Chain of custody ensures evidence reliability throughout its lifecycle.',
+  'Chain of custody = Document WHO, WHEN, WHERE, WHAT for every piece of evidence. Seal it, label it, lock it, log it.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'incident_response',
+  'A security analyst notices that a production database server is actively being accessed by an unauthorized external IP address. Log analysis shows the attacker has been exfiltrating records for the past 30 minutes. What should the analyst do FIRST?',
+  '["Begin a full forensic analysis of the database server", "Notify the database administrator to change all passwords", "Contain the breach by blocking the attacker''s IP and isolating the affected server", "File an incident report with the regulatory authority"]'::jsonb,
+  2,
+  'With an active, ongoing exfiltration, the immediate priority is containment — stopping the data loss. Blocking the attacker''s IP address and isolating the server prevents further exfiltration. Forensic analysis is important but the active breach must be stopped first. Changing passwords is a remediation step. Regulatory notification is required but is not the first action during an active incident.',
+  'Active breach = CONTAIN FIRST. Stop the bleeding, then diagnose the wound.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'drp_testing',
+  'Which type of DRP test activates recovery systems at the alternate site while production systems continue to run, ensuring no disruption to business operations?',
+  '["Parallel test", "Full-interruption test", "Tabletop exercise", "Simulation test"]'::jsonb,
+  0,
+  'A parallel test activates the disaster recovery plan at the alternate recovery site, bringing systems online in parallel with the production environment. Production systems are not affected, making it a safe way to validate that recovery procedures actually work. A full-interruption test disrupts production. A tabletop is discussion-only. A simulation walks through a scenario but stops short of actually activating systems.',
+  'PARALLEL = production keeps running PARALLEL to the DR test. Both run side by side — safe testing.',
+  'understand',
+  'best_answer',
+  'medium',
+  1.00, 0.00, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

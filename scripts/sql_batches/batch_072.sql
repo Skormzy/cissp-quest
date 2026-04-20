@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  8,
+  'secure_coding',
+  'What is the KEY difference between compiled and interpreted programming languages from a security perspective?',
+  '["Compiled languages are always more secure because they produce optimized machine code", "Interpreted languages cannot be used for web applications due to security limitations", "Compiled languages require an interpreter at runtime which adds attack surface", "Compiled languages distribute binary executables making code harder to inspect, while interpreted languages distribute readable source code"]'::jsonb,
+  3,
+  'From a security perspective, compiled languages produce binary executables that are harder for users to inspect or reverse-engineer, which can hide malicious code (backdoors). Interpreted languages distribute the source code itself, allowing inspection but also making modification (tampering) easier. Neither approach is inherently more secure — they have different risk profiles.',
+  'Compiled = binary blob (hard to inspect, easy to hide backdoors). Interpreted = readable source (easy to inspect, easy to tamper).',
+  'understand',
+  'comparison',
+  'medium',
+  1.10, 0.10, 0.22,
+  'ai_generated', true
+),
+(
+  8,
+  'devsecops',
+  'A DevSecOps team has just set up their first CI/CD pipeline. They want to catch security vulnerabilities as early as possible. Where in the pipeline should they place their FIRST automated security check?',
+  '["At the commit stage, scanning code changes as developers push to the repository", "At the deployment stage, running security tests just before production release", "At the monitoring stage, analyzing application behavior after deployment", "At the user acceptance testing stage, when business users validate functionality"]'::jsonb,
+  0,
+  'The shift-left principle dictates placing security checks as early as possible. The commit stage is the earliest point in the CI/CD pipeline — scanning code at commit time catches vulnerabilities before they propagate further. Pre-commit hooks for secret scanning and SAST integration at the build stage provide the earliest automated feedback to developers.',
+  'Shift LEFT in the pipeline = commit is the LEFTMOST stage. Catch issues at the SOURCE before they travel downstream.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'database_security',
+  'A university research database contains individual student grades that are classified as confidential. However, an analyst with access only to aggregate grade reports discovers they can determine a specific student''s grade by requesting the average for a class of two students and knowing one grade already. What type of attack is this?',
+  '["Aggregation attack, combining multiple data items to derive higher-sensitivity information", "Inference attack, using logical deduction on accessible data to derive restricted information", "SQL injection attack, manipulating database queries to access unauthorized data", "Polyinstantiation violation, accessing data at a classification level above the user''s clearance"]'::jsonb,
+  1,
+  'This is an inference attack. The analyst uses logical deduction — knowing the average of two values and one of the values allows calculating the other. Inference attacks use accessible data plus reasoning to determine restricted information. An aggregation attack would involve combining many low-sensitivity items, not deducing from a known relationship.',
+  'INFERENCE = using logic and known facts to INFER hidden information. Like a detective solving a puzzle with clues.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'development_methodologies',
+  'A development team holds daily 15-minute meetings where each member answers three questions: What did I do yesterday? What will I do today? What obstacles are in my way? This practice is MOST LIKELY part of which methodology?',
+  '["Waterfall, which uses milestone reviews at the end of each sequential phase", "Cleanroom, which focuses on formal verification and statistical quality control", "Scrum, which uses daily stand-ups (scrums) to synchronize team progress", "Spiral, which uses iterative risk analysis and prototyping cycles"]'::jsonb,
+  2,
+  'The daily stand-up meeting (daily scrum) with its three standard questions is a hallmark of the Scrum methodology. These brief, time-boxed meetings keep the team synchronized, identify impediments quickly, and maintain sprint momentum. The Scrum Master facilitates these meetings and helps remove obstacles identified by team members.',
+  'SCRUM = daily Stand-up, three questions, 15 minutes max. Quick sync, not a status report meeting.',
+  'understand',
+  'most_likely',
+  'medium',
+  1.10, 0.10, 0.22,
+  'ai_generated', true
+),
+(
+  8,
+  'buffer_overflow',
+  'A security researcher is analyzing a C program and discovers that the function uses strcpy() to copy user-supplied input into a fixed-size character array of 256 bytes without bounds checking. The researcher crafts an input of 300 bytes containing a NOP sled and shellcode. What attack is being prepared?',
+  '["SQL injection to manipulate the backend database through the application", "Cross-site scripting to execute malicious code in other users'' browsers", "Integer overflow to cause arithmetic errors in memory allocation calculations", "Stack-based buffer overflow to overwrite the return address and redirect execution to the shellcode"]'::jsonb,
+  3,
+  'This is a classic stack-based buffer overflow attack. The strcpy() function does not check bounds, so 300 bytes written into a 256-byte buffer overflows onto the stack, overwriting the return address. The NOP sled provides a landing zone, and the shellcode executes when the function returns to the attacker-controlled address. Using strncpy() or similar bounded functions prevents this.',
+  'strcpy = UNSAFE (no bounds check). strncpy = SAFE (bounds checked). Always check the SIZE of your buffers.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

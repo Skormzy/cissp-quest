@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  1,
+  'risk_treatment',
+  'A global retail company identifies a risk that its e-commerce platform could experience a distributed denial-of-service attack during the holiday shopping season. The estimated annual loss from such an attack is $2 million. The company can purchase DDoS mitigation services for $500,000 annually, which would reduce the impact by approximately 80%. Alternatively, they can purchase cyber insurance covering DDoS losses for $300,000 annually with a $200,000 deductible. From a risk management perspective, which approach provides the BEST risk treatment strategy?',
+  '["Purchase the cyber insurance because it has the lowest annual cost at $300,000", "Implement the DDoS mitigation service because it directly reduces the technical risk", "Combine the DDoS mitigation service with cyber insurance for the residual risk that mitigation cannot address", "Accept the risk because the annual cost of either control exceeds 25% of the potential loss"]'::jsonb,
+  2,
+  'The best approach combines risk mitigation (DDoS service reducing 80% of impact) with risk transfer (insurance for residual risk). The mitigation service reduces the expected loss from $2M to $400K, but the remaining $400K risk still exists. Insurance alone doesn''t prevent the operational disruption and reputational damage. Accepting a $2M risk when cost-effective controls exist is negligent. Defense in depth applies to risk treatment too — layer your responses.',
+  'Risk treatment isn''t one-or-the-other. MITIGATE the bulk, TRANSFER the residual. Layer your risk responses.',
+  'analyze',
+  'scenario',
+  'medium',
+  1.70, 0.80, 0.20,
+  'ai_generated', true
+),
+(
+  1,
+  'bcp_drp',
+  'A multinational corporation''s primary data center in Dallas experiences a catastrophic failure due to a tornado. The BCP coordinator has been activated. Business units are reporting critical system outages. The media is calling for statements. Employees are asking whether to report to work. What should the BCP coordinator do FIRST?',
+  '["Activate the crisis management team and follow the pre-established communication plan to coordinate all response activities", "Begin failing over critical systems to the disaster recovery site to restore operations", "Issue a press release acknowledging the disaster and providing a timeline for recovery", "Send employees instructions to work from home until further notice"]'::jsonb,
+  0,
+  'In a major disaster, the BCP coordinator''s first action is activating the crisis management team, which then coordinates all response streams — IT recovery, communications, personnel safety, and business continuity. Jumping straight to technical failover without crisis management coordination risks uncoordinated actions. Media response must go through the designated spokesperson after the team assembles. Employee communications come after the team establishes the response posture. The crisis management team is the command center.',
+  'Crisis = activate the TEAM first. The team coordinates everything else. Don''t freelance in a disaster.',
+  'apply',
+  'first_action',
+  'hard',
+  1.50, 2.10, 0.20,
+  'ai_generated', true
+),
+(
+  1,
+  'security_governance',
+  'As the newly hired CISO of a healthcare organization, you discover that the security team reports to the IT director, security policies haven''t been updated in three years, and there is no formal risk register. The CEO asks you to present your top priority for the first 90 days. What should you PRIMARILY focus on?',
+  '["Conduct a comprehensive penetration test to identify all technical vulnerabilities", "Establish proper governance structure with direct reporting to executive leadership and initiate a risk assessment", "Deploy advanced security tools including SIEM, EDR, and DLP solutions", "Hire additional security analysts to staff a 24/7 security operations center"]'::jsonb,
+  1,
+  'Governance before technology. The reporting structure issue means security decisions are subordinated to IT priorities — a fundamental governance failure. Establishing proper reporting ensures security has executive visibility. A risk assessment identifies what actually needs protecting. Penetration testing finds technical issues but doesn''t fix structural governance gaps. Tools without governance produce alerts without action. Staff without governance direction work without strategic alignment. Fix the foundation first.',
+  'GOVERNANCE first, TOOLS second. You can''t buy your way to security — structure and process come before products.',
+  'apply',
+  'tlatm',
+  'medium',
+  1.70, 0.80, 0.20,
+  'ai_generated', true
+),
+(
+  1,
+  'threat_modeling',
+  'A software development team is designing a new customer-facing web application that will process credit card payments. The security architect recommends performing threat modeling before development begins. The development manager asks which threat modeling framework would be MOST appropriate for identifying threats specific to this application''s design. Which framework should the security architect recommend?',
+  '["DREAD, because it provides a quantitative risk scoring system for each identified threat", "OCTAVE, because it focuses on organizational risk assessment and asset identification", "NIST RMF, because it provides a comprehensive framework for managing security risks", "STRIDE, because it systematically identifies threats by category — spoofing, tampering, repudiation, information disclosure, denial of service, and elevation of privilege"]'::jsonb,
+  3,
+  'STRIDE is specifically designed for application threat modeling and maps directly to the security properties developers need to address. Each STRIDE category maps to a security property: Spoofing (Authentication), Tampering (Integrity), Repudiation (Non-repudiation), Information Disclosure (Confidentiality), Denial of Service (Availability), Elevation of Privilege (Authorization). DREAD is a risk rating model, not a threat identification framework. OCTAVE focuses on organizational risk, not application design. NIST RMF is an enterprise risk management framework.',
+  'STRIDE = 6 threat types for SOFTWARE. Each maps to a security property. Perfect for application threat modeling.',
+  'analyze',
+  'scenario',
+  'medium',
+  1.70, 0.80, 0.20,
+  'ai_generated', true
+),
+(
+  1,
+  'intellectual_property',
+  'As a security manager at a pharmaceutical company, your R&D department has developed a new drug formulation process. The legal team asks for your input on which intellectual property protection is MOST appropriate. The process relies on a specific combination of commonly known ingredients mixed in a proprietary sequence. What should you recommend?',
+  '["Patent protection, which provides 20 years of exclusive rights with public disclosure of the process", "Copyright protection, which automatically applies to the written documentation of the process", "Trade secret protection, because the value lies in the secret combination and sequence that competitors cannot easily reverse-engineer", "Trademark protection to brand the unique formulation process"]'::jsonb,
+  2,
+  'Trade secret protection is optimal here because the proprietary value lies in the specific combination sequence, not in novel invention. A patent requires full public disclosure — competitors would learn the exact process. Since the ingredients are commonly known, the secret is HOW they''re combined. Copyright protects written expression, not processes. Trademarks protect brand names, not manufacturing processes. Coca-Cola''s formula is the classic example of trade secret over patent.',
+  'If the VALUE is in the SECRET: trade secret. If the VALUE is in the NOVELTY: patent. Secret process = trade secret.',
+  'analyze',
+  'tlatm',
+  'hard',
+  1.90, 2.60, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

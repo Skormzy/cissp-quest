@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  6,
+  'validation_verification',
+  'A development team has completed building a new inventory management system. The system functions correctly according to the technical specifications, but during user acceptance testing, warehouse staff report that it does not support their barcode scanning workflow. Which quality process MOST LIKELY failed?',
+  '["Verification failed because the code contains technical defects", "Validation failed because business requirements were not properly captured", "Integration testing failed because modules do not communicate", "Regression testing failed because a previous feature was broken"]'::jsonb,
+  1,
+  'Validation asks "Are we building the right product?" — it ensures business requirements are correctly captured before development begins. If the system works technically but does not meet user needs, validation failed. Verification confirms the product is built correctly (which it was, per the technical specs). The issue is that the wrong requirements were built, not that they were built incorrectly.',
+  'Validation = right product (did we capture what users need?). Verification = product right (did we build it correctly?).',
+  'apply',
+  'best_answer',
+  'medium',
+  1.30, 0.30, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'false_positives',
+  'As a security manager, your vulnerability scanning team reports 200 high-severity findings to IT operations. The operations team pushes back, stating the scanner detected vulnerabilities in packages already patched through backporting by the Linux distribution. From a management perspective, what is the BEST course of action to resolve this conflict?',
+  '["Side with the operations team and dismiss all findings without further investigation", "Side with the security team and mandate immediate patching of all 200 findings", "Direct the teams to collaborate on verifying findings against actual patch status, and implement credentialed scanning to reduce future false positives", "Replace the vulnerability scanning tool with one that never produces false positives"]'::jsonb,
+  2,
+  'A security manager should facilitate collaboration between teams rather than siding with either. Linux distributions often backport security patches without changing version numbers, causing version-based scanners to produce false positives. The management solution is to verify findings against actual patch status and improve the scanning process by implementing credentialed scans that check real configurations rather than just version numbers.',
+  'Backporting = patching without upgrading version. Manager solution: verify, then improve the process with credentialed scanning.',
+  'analyze',
+  'tlatm',
+  'medium',
+  1.90, 1.10, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'log_management',
+  'A newly hired security analyst is tasked with establishing a centralized log management program. Multiple systems across the network generate logs in different formats. What should be the FIRST step in building the log management infrastructure?',
+  '["Install a SIEM and begin collecting all available logs immediately", "Create custom dashboards for executive reporting", "Develop advanced correlation rules for threat detection", "Identify which systems and events are relevant based on risk assessment"]'::jsonb,
+  3,
+  'The first step in establishing a log management program is to identify what should be logged, guided by risk management. Not all logs are equally valuable, and collecting everything without prioritization leads to excessive storage costs and noise. A risk-based approach determines which systems and events are most critical, ensuring the log management program aligns with organizational security objectives.',
+  'Log management starts with: What matters? Let risk guide what you log. Log what is relevant, not everything.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'testing_approaches',
+  'What is the PRIMARY distinction between positive testing and negative testing?',
+  '["Positive testing verifies expected behavior with valid inputs while negative testing verifies graceful handling of invalid inputs", "Positive testing is performed by the development team while negative testing is performed by the security team", "Positive testing uses automated tools while negative testing requires manual execution", "Positive testing occurs during development while negative testing occurs only in production"]'::jsonb,
+  0,
+  'Positive testing validates that an application works correctly under normal usage scenarios with expected, valid inputs. Negative testing verifies that the application handles error conditions, improper inputs, and unexpected situations gracefully without crashing or exposing sensitive information. Both are essential for comprehensive security testing.',
+  'Positive = does it work right? Negative = does it fail gracefully? Both test the app, different perspectives.',
+  'remember',
+  'comparison',
+  'medium',
+  0.90, -0.40, 0.22,
+  'ai_generated', true
+),
+(
+  6,
+  'team_exercises',
+  'After a red team exercise reveals several critical vulnerabilities, the CISO decides that the offensive and defensive teams should work together to improve detection and response. The teams will share attack techniques, discuss defensive gaps, and collaboratively develop mitigations. What type of team exercise is the CISO establishing?',
+  '["A white team observation exercise", "A purple team collaboration exercise", "A tabletop exercise for senior management", "A capture-the-flag competition"]'::jsonb,
+  1,
+  'A purple team exercise combines red team (offensive) and blue team (defensive) capabilities in a collaborative effort. Rather than operating independently, the teams share knowledge about attack techniques and defensive gaps to improve overall organizational security. This collaborative approach ensures that lessons learned from red team findings are effectively translated into defensive improvements.',
+  'Purple = Red + Blue working together. Not adversarial — collaborative. Sharing knowledge to improve defense.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

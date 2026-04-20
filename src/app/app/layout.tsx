@@ -2,12 +2,12 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import Navbar from '@/components/nav/Navbar';
+import AppShell from '@/components/layout/AppShell';
 import { useUserStore } from '@/stores/useUserStore';
 import { createClient } from '@/lib/supabase/client';
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
-  const { user, setUser, setLoading } = useUserStore();
+  const { setUser, setLoading } = useUserStore();
   const router = useRouter();
   const supabase = createClient();
 
@@ -31,7 +31,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           router.push('/app/create-character');
         }
       } else {
-        // Create user profile if it doesn't exist
         const { data: newProfile } = await supabase
           .from('users')
           .insert({ id: authUser.id, display_name: authUser.email })
@@ -55,14 +54,8 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     });
 
     return () => subscription.unsubscribe();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    <div className="min-h-screen" style={{ background: '#080c14' }}>
-      <Navbar />
-      <main className="max-w-7xl mx-auto px-4 py-6">
-        {children}
-      </main>
-    </div>
-  );
+  return <AppShell>{children}</AppShell>;
 }

@@ -85,6 +85,24 @@ function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
+function extractUrl(val: unknown): string {
+  if (typeof val === 'string') return val
+  if (val && typeof (val as Record<string, unknown>).url === 'function') {
+    const u = (val as Record<string, unknown>).url as () => unknown
+    const result = u()
+    if (typeof result === 'string') return result
+    if (result && typeof (result as { href: string }).href === 'string') {
+      return (result as { href: string }).href
+    }
+  }
+  if (val && typeof (val as { href: string }).href === 'string') {
+    return (val as { href: string }).href
+  }
+  const str = String(val)
+  if (str.startsWith('http')) return str
+  throw new Error(`Cannot extract URL from: ${str.substring(0, 100)}`)
+}
+
 async function generateImage(
   replicate: Replicate,
   spec: ImageSpec,
@@ -102,36 +120,51 @@ async function generateImage(
     return { key: spec.key }
   }
 
-  try {
-    const output = await replicate.run(FLUX_MODEL as `${string}/${string}`, {
-      input: {
-        prompt,
-        negative_prompt: manifest.negativePrompt,
-        width: dimensions.width,
-        height: dimensions.height,
-        num_inference_steps: 28,
-        guidance_scale: 3.5,
-        output_format: 'webp',
-        output_quality: 90,
-        disable_safety_checker: false,
-      },
-    }) as unknown
+  const MAX_RETRIES = 5
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      const output = await replicate.run(FLUX_MODEL as `${string}/${string}`, {
+        input: {
+          prompt,
+          negative_prompt: manifest.negativePrompt,
+          width: dimensions.width,
+          height: dimensions.height,
+          num_inference_steps: 28,
+          guidance_scale: 3.5,
+          output_format: 'webp',
+          output_quality: 90,
+          disable_safety_checker: false,
+        },
+      }) as unknown
 
-    const imageUrl = Array.isArray(output) ? (output[0] as string) : (output as string)
+      const raw = Array.isArray(output) ? output[0] : output
+      const imageUrl = extractUrl(raw)
 
-    const localPath = path.join(OUTPUT_DIR, `${spec.key}.webp`)
-    await downloadImage(imageUrl, localPath)
+      const localPath = path.join(OUTPUT_DIR, `${spec.key}.webp`)
+      await downloadImage(imageUrl, localPath)
 
-    console.log(`  ✓ Saved to ${localPath}`)
+      console.log(`  ✓ Saved to ${localPath}`)
+      return { key: spec.key, url: imageUrl, localPath, cost: 0.04 }
+    } catch (error) {
+      const errMsg = error instanceof Error ? error.message : String(error)
+      const is429 = errMsg.includes('429') || errMsg.includes('throttled')
+      // Extract retry_after from error message if present
+      const retryMatch = errMsg.match(/resets in ~(\d+)s/)
+      const retryAfter = retryMatch ? parseInt(retryMatch[1]) + 2 : 15
 
-    // FLUX 1.1 Pro costs ~$0.04 per image at 1MP
-    const cost = 0.04
-    return { key: spec.key, url: imageUrl, localPath, cost }
-  } catch (error) {
-    const errMsg = error instanceof Error ? error.message : String(error)
-    console.error(`  ✗ Error: ${errMsg}`)
-    return { key: spec.key, error: errMsg }
+      if (is429 && attempt < MAX_RETRIES) {
+        const waitSec = Math.max(retryAfter, attempt * 15)
+        console.log(`  ⏳ Rate limited (attempt ${attempt}/${MAX_RETRIES}), waiting ${waitSec}s...`)
+        await sleep(waitSec * 1000)
+        continue
+      }
+
+      console.error(`  ✗ Error: ${errMsg}`)
+      return { key: spec.key, error: errMsg }
+    }
   }
+
+  return { key: spec.key, error: 'Max retries exceeded' }
 }
 
 async function main() {
@@ -157,7 +190,10 @@ async function main() {
   if (keyFilter) images = images.filter(i => i.key === keyFilter)
 
   if (skipExisting) {
-    images = images.filter(i => !fs.existsSync(path.join(OUTPUT_DIR, `${i.key}.webp`)))
+    images = images.filter(i => {
+      const p = path.join(OUTPUT_DIR, `${i.key}.webp`)
+      return !fs.existsSync(p) || fs.statSync(p).size < 1000  // skip only real files
+    })
     console.log(`Skipping ${manifest.images.length - images.length} already-generated images`)
   }
 
@@ -195,8 +231,8 @@ async function main() {
 
     fs.writeFileSync(LOG_FILE, JSON.stringify(log, null, 2))
 
-    // Rate limiting: FLUX allows ~10 concurrent, we'll go 1/sec to be safe
-    if (!dryRun) await sleep(1000)
+    // Rate limiting: throttled to 6/min on accounts with <$5 credit; 12s = ~5/min
+    if (!dryRun) await sleep(12000)
   }
 
   console.log('\n=== GENERATION COMPLETE ===')

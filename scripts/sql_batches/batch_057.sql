@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  7,
+  'incident_response',
+  'A healthcare organization detects that an attacker has been exfiltrating patient records through an encrypted tunnel to an external server for the past 72 hours. The attacker still has active sessions on three database servers. Operational teams want to immediately sever the network connection, while legal counsel wants to preserve evidence of the breach for regulatory reporting. What should the incident commander do FIRST?',
+  '["Immediately disconnect all affected servers from the network to stop data loss", "Implement targeted containment by blocking the external destination while preserving forensic evidence on the active sessions", "Allow the exfiltration to continue while law enforcement is contacted for guidance", "Shut down the three database servers completely and restore from clean backups"]'::jsonb,
+  1,
+  'The correct approach balances stopping the ongoing breach with preserving evidence. Blocking the external destination stops further exfiltration while keeping the systems running preserves volatile forensic evidence in memory. Immediately severing network connections is too aggressive and may destroy evidence. Allowing continued exfiltration violates the duty to protect patient data. Shutting down servers destroys volatile evidence needed for the investigation and regulatory reporting.',
+  'CONTAIN smartly: Block the EXIT, preserve the EVIDENCE. Don''t nuke the crime scene.',
+  'analyze',
+  'first_action',
+  'hard',
+  1.70, 2.40, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'backup_strategies',
+  'An organization performs a full backup every Sunday and differential backups Monday through Saturday. On Thursday morning, the storage administrator notices that Wednesday''s differential backup is nearly the same size as the full Sunday backup. What is the MOST likely explanation?',
+  '["The backup software has switched to performing full backups automatically", "The differential backup tape from Sunday was accidentally overwritten", "Network congestion caused the backup to include duplicate data blocks", "A large volume of data was modified or created since the last full backup, possibly indicating ransomware activity"]'::jsonb,
+  3,
+  'Differential backups capture everything changed since the last full backup. If Wednesday''s differential approaches the size of the full backup, it means nearly all data has been modified since Sunday. This pattern is a strong indicator of ransomware encrypting files, which changes all file contents. Backup software switching modes would be visible in logs. Tape overwriting would cause errors, not size changes. Network issues don''t affect backup content size.',
+  'Differential grows from Sunday. If it''s HUGE mid-week, something touched ALL your data — think RANSOMWARE.',
+  'analyze',
+  'most_likely',
+  'hard',
+  1.60, 2.20, 0.22,
+  'ai_generated', true
+),
+(
+  7,
+  'drp_testing',
+  'What is the PRIMARY difference between a parallel test and a full-interruption test of a disaster recovery plan?',
+  '["In a parallel test, production systems continue operating while recovery systems are activated alongside them; in a full-interruption test, production systems are actually shut down", "A parallel test only involves documentation review while a full-interruption test involves hands-on recovery activities", "A parallel test validates individual component recovery while a full-interruption test validates only communication procedures", "A parallel test is conducted by external auditors while a full-interruption test is conducted by internal staff"]'::jsonb,
+  0,
+  'The critical distinction is operational risk. In a parallel test, the organization activates recovery systems and processes alongside the still-running production environment, verifying that recovery works without risking actual operations. A full-interruption test actually shuts down production systems and relies entirely on the recovery plan, creating real operational risk but providing the highest assurance. Both involve hands-on activities. Both can be conducted by internal staff.',
+  'PARALLEL = run BOTH side by side. FULL-INTERRUPTION = shut down production for real. More risk = more realistic.',
+  'analyze',
+  'comparison',
+  'hard',
+  1.60, 2.20, 0.22,
+  'ai_generated', true
+),
+(
+  7,
+  'evidence_types',
+  'All of the following are requirements for evidence to be admissible in court EXCEPT:',
+  '["The evidence must be authentic and verifiable as genuine", "The evidence must have been collected by a certified forensic examiner", "The evidence must be accurate and free from modification", "The evidence must be complete and present the whole picture"]'::jsonb,
+  1,
+  'The five rules of evidence require it to be authentic, accurate, complete, convincing, and admissible. While forensic examiners are preferred, there is no legal requirement that only certified forensic examiners can collect evidence. What matters is proper chain of custody and collection procedures, not the specific certification of the collector. Any trained personnel following proper procedures can collect admissible evidence.',
+  'Evidence rules: A-A-C-C-A — Authentic, Accurate, Complete, Convincing, Admissible. No ''certified collector'' requirement.',
+  'remember',
+  'except_not',
+  'hard',
+  0.70, 1.20, 0.25,
+  'ai_generated', true
+),
+(
+  7,
+  'change_management',
+  'During a scheduled maintenance window, a network engineer applies an approved firewall change. Within minutes, the monitoring team reports that a critical business application has become unreachable for external customers. The change advisory board had approved this change after reviewing the implementation plan. What should the engineer do FIRST?',
+  '["Contact the application owner to verify if the outage is related to the firewall change", "Open an emergency change request to document the situation before taking action", "Analyze the firewall logs to determine exactly which rule is blocking the traffic", "Execute the rollback procedure documented in the approved change request"]'::jsonb,
+  3,
+  'Every approved change request should include a rollback procedure for exactly this situation. When an approved change causes immediate service disruption, the first action is to execute the pre-planned rollback to restore service. Contacting the application owner adds delay while customers are impacted. Opening a change request is administrative overhead during an outage. Log analysis is useful but secondary to restoring service. Rollback first, investigate later.',
+  'Change goes wrong? ROLL BACK first, investigate second. That''s why every change needs a rollback plan.',
+  'analyze',
+  'first_action',
+  'hard',
+  1.70, 2.40, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

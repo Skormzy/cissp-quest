@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  5,
+  'access_control_attacks',
+  'A help desk technician receives a phone call from someone claiming to be the CFO who is traveling and urgently needs a password reset for a critical financial system. The caller knows the CFO''s employee ID and email address. What should the technician do FIRST?',
+  '["Verify the caller''s identity through an established out-of-band verification method before resetting the password", "Reset the password immediately since the caller knows the employee ID and the request is urgent", "Transfer the call to the security team because password resets are outside help desk scope", "Ask the caller three security questions and reset the password if they answer correctly"]'::jsonb,
+  0,
+  'The FIRST step is identity verification through an established out-of-band method such as calling the CFO back on their registered phone number or using a secondary communication channel. Social engineers often know basic information like employee IDs. Urgency is a classic social engineering tactic. Help desk password resets are a top identity attack vector.',
+  'FIRST verify identity through a DIFFERENT channel. Urgency = social engineering red flag.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  5,
+  'least_privilege_sod',
+  'A security manager discovers that several IT administrators have been using their privileged accounts for everyday tasks such as reading email and browsing the web. Budget constraints prevent hiring additional staff. What is the BEST management decision to address this risk?',
+  '["Accept the risk since the administrators need their privileges for daily operations", "Require each administrator to maintain two separate accounts: one standard account for daily tasks and one privileged account for administrative duties", "Revoke all administrative privileges and require managers to approve each administrative action individually", "Implement full disk encryption on all administrator workstations to protect against compromise"]'::jsonb,
+  1,
+  'The management best practice is to require separate accounts for standard and administrative work. This limits the exposure window for privileged credentials. Using admin accounts for email and web browsing exposes those credentials to phishing and drive-by attacks. Individual approval for each action is operationally infeasible, and disk encryption does not address the privilege misuse.',
+  'Think Like a Manager: Two accounts = separation of daily work from admin power. Balance security with practicality.',
+  'analyze',
+  'tlatm',
+  'medium',
+  1.90, 1.10, 0.20,
+  'ai_generated', true
+),
+(
+  5,
+  'sso_federation',
+  'A web application allows users to log in using their Google account. When a user clicks "Sign in with Google," they are redirected to Google''s authorization server, authenticate there, and are then returned to the application with a JSON Web Token containing their identity information. Which protocol is being used?',
+  '["SAML because the user is being redirected to an identity provider for authentication", "OAuth 2.0 because the application is receiving an access token from Google", "OpenID Connect because it provides authentication via JWT on top of OAuth 2.0", "Kerberos because Google is acting as a Key Distribution Center issuing tickets"]'::jsonb,
+  2,
+  'OpenID Connect (OIDC) is the authentication layer built on top of OAuth 2.0. It returns a JSON Web Token (JWT) containing identity information (ID token). OAuth 2.0 alone is only for authorization, not authentication. SAML uses XML assertions, not JWT. Kerberos uses encrypted tickets for internal network SSO, not web-based federation.',
+  'OIDC = OAuth + Identity. JWT = JSON identity token. SAML = XML. OAuth alone = authorization only.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  5,
+  'authorization_mechanisms',
+  'How do Access Control Lists (ACLs) differ from capability lists in their approach to managing permissions?',
+  '["ACLs are used only in MAC systems while capability lists are used only in DAC systems", "ACLs grant permissions dynamically while capability lists use static assignments", "ACLs are maintained by users while capability lists are maintained by administrators", "ACLs are object-centric listing who can access a resource while capability lists are subject-centric listing what a user can access"]'::jsonb,
+  3,
+  'ACLs are attached to objects (files, resources) and list which subjects have access. Capability lists are attached to subjects (users) and list which objects they can access. Both can be used in DAC and other models. ACLs answer "who can access this file?" while capability lists answer "what can this user access?"',
+  'ACL = Attached to the object (who can access THIS?). Capability = Carried by the subject (what can I access?).',
+  'understand',
+  'comparison',
+  'medium',
+  1.10, 0.10, 0.22,
+  'ai_generated', true
+),
+(
+  5,
+  'privilege_escalation',
+  'A Linux system administrator notices that a regular user account has been added to the sudoers file without authorization. Log analysis shows the modification occurred during off-hours. What should the administrator do FIRST?',
+  '["Remove the unauthorized entry from the sudoers file and review audit logs for commands executed with elevated privileges", "Delete the compromised user account and all associated files immediately", "Shut down the server to prevent further unauthorized access until a full investigation is completed", "Change the root password and restart all services running on the system"]'::jsonb,
+  0,
+  'The FIRST action is to remove the unauthorized sudoers entry to stop the privilege escalation, then review logs to assess what commands were run with elevated privileges. Deleting the account may destroy evidence. Shutting down the server disrupts operations unnecessarily. Changing the root password alone does not address the sudoers modification.',
+  'FIRST remove the unauthorized access, THEN investigate. Contain before you analyze.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  7,
+  'malware_types',
+  'Security scans on a compromised server reveal that all system tools (ls, ps, netstat) have been replaced with modified versions that hide certain processes and network connections from administrators. What type of malware is MOST LIKELY installed?',
+  '["Polymorphic virus", "Rootkit", "Ransomware", "Macro virus"]'::jsonb,
+  1,
+  'Rootkits replace legitimate system tools and utilities with modified versions that hide the attacker''s presence. By replacing commands like ls, ps, and netstat, the rootkit ensures administrators cannot see the attacker''s processes, files, or connections. Rootkits are the hardest malware to detect because they subvert the very tools used for detection. They provide persistent privileged access.',
+  'ROOTKIT = hides at the ROOT level. It replaces your eyes (system tools) so you can''t see the intruder.',
+  'apply',
+  'most_likely',
+  'medium',
+  1.40, 0.40, 0.22,
+  'ai_generated', true
+),
+(
+  7,
+  'incident_response',
+  'During the post-incident review of a ransomware attack, the team discovers the following: the initial infection vector was a phishing email, the malware spread laterally using unpatched SMB vulnerabilities, the backup system was on the same network segment as production, and the IR team had no playbook for ransomware. Which finding represents the MOST significant gap in the organization''s security posture?',
+  '["The phishing email bypassed email security controls", "The SMB vulnerabilities were not patched in a timely manner", "The backup system was not segmented from the production network, allowing the ransomware to encrypt backups", "The IR team lacked a ransomware-specific playbook"]'::jsonb,
+  2,
+  'While all findings are significant, the backup system being on the same network as production is the most critical gap. Backups are the primary recovery mechanism for ransomware — if the attacker can encrypt backups along with production data, the organization loses its ability to recover without paying the ransom. Network segmentation of backups is a fundamental protection against ransomware.',
+  NULL,
+  'analyze',
+  'scenario',
+  'medium',
+  1.70, 0.80, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'investigation_types',
+  'What is the KEY difference between a criminal investigation and a civil investigation?',
+  '["Criminal investigations are conducted by internal auditors while civil investigations use law enforcement", "Criminal investigations focus on policy violations while civil investigations focus on regulatory compliance", "Criminal investigations require less evidence than civil investigations", "Criminal investigations require proof beyond reasonable doubt while civil investigations require preponderance of evidence"]'::jsonb,
+  3,
+  'The fundamental difference is the standard of proof. Criminal investigations require proof beyond reasonable doubt (the highest standard) and can result in imprisonment and fines. Civil investigations require preponderance of evidence (more likely than not, greater than 50%) and result in monetary damages. Criminal cases are prosecuted by the state; civil cases are disputes between parties.',
+  'Criminal = Beyond Reasonable Doubt (very high bar). Civil = Preponderance (51% likely). Criminal puts you in jail; civil takes your money.',
+  'understand',
+  'comparison',
+  'medium',
+  1.10, 0.10, 0.22,
+  'ai_generated', true
+),
+(
+  7,
+  'logging_monitoring',
+  'An organization deploys a darknet — an unused IP address space on their internal network with no legitimate servers or services. The security team receives an alert that traffic has been detected originating from within the network and directed at the darknet addresses. What does this indicate?',
+  '["A system on the internal network is likely compromised and performing reconnaissance or lateral movement", "The darknet configuration is incorrect and needs to be recalibrated", "External attackers have bypassed the firewall and are scanning the network", "The alert is a false positive caused by routine network broadcasts"]'::jsonb,
+  0,
+  'Any traffic directed at a darknet is suspicious by definition because there are no legitimate hosts or services in that address space. Traffic originating internally and targeting the darknet strongly indicates an internal system is compromised and conducting reconnaissance or lateral movement. This is a key advantage of darknets — any traffic hitting them is automatically suspicious, reducing false positives.',
+  'DARKNET = Dark means nothing should be there. Any traffic to the dark = something is wrong. Zero false positives by design.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  7,
+  'wrt_mtd',
+  'An organization''s BIA determines that a critical application has an MTD of 8 hours. The IT team estimates that system restoration will take 5 hours (RTO) and data verification will take 2 hours (WRT). What is the remaining buffer time, and is the current recovery capability acceptable?',
+  '["3 hours buffer, acceptable", "0 hours buffer, acceptable", "1 hour buffer, acceptable", "The recovery capability is not acceptable because RTO + WRT exceeds MTD"]'::jsonb,
+  2,
+  'MTD = RTO + WRT. In this case: RTO (5h) + WRT (2h) = 7 hours total recovery time. MTD is 8 hours. The buffer is 8 - 7 = 1 hour. Since the total recovery time (7h) is less than MTD (8h), the recovery capability is acceptable, though with only a 1-hour buffer, the organization may want to consider improving either RTO or WRT for additional margin.',
+  'MTD = RTO + WRT. Calculate: 5 + 2 = 7 < 8. One hour to spare. Acceptable but tight.',
+  'apply',
+  'calculation',
+  'medium',
+  1.60, 0.70, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

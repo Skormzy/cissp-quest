@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  6,
+  'log_review_siem',
+  'A junior analyst notices that the SIEM is correlating events from multiple servers, but the timestamps are hours apart even though the events are clearly related. The security team suspects the events happened simultaneously. What is the MOST likely cause of this discrepancy?',
+  '["The SIEM software has a known bug in timestamp rendering", "The servers lack proper NTP synchronization, causing clock drift", "The log retention policy is deleting entries out of order", "The firewall is delaying log transmission between network segments"]'::jsonb,
+  1,
+  'Network Time Protocol (NTP) synchronization is critical for accurate log correlation and forensic analysis. When servers have unsynchronized clocks, related events appear to occur at different times, making incident investigation extremely difficult. NTP ensures all systems share a consistent time reference.',
+  'NTP = No Time Problems. Without NTP, your logs tell different stories about when things happened.',
+  'understand',
+  'scenario',
+  'easy',
+  1.20, -1.30, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'credentialed_scanning',
+  'Your organization wants to perform a vulnerability scan that provides the deepest level of inspection with the fewest false positives. The security team has administrative access to all target systems. Which scanning approach should they use?',
+  '["Unauthenticated external scan from outside the firewall", "Passive network monitoring with packet capture analysis", "Credentialed scan using administrative credentials on target systems", "Port scanning followed by manual banner grabbing"]'::jsonb,
+  2,
+  'Credentialed (authenticated) scans provide the deepest level of inspection because the scanner can log into the target system and examine configurations, installed software, and patch levels directly. This approach produces fewer false positives compared to uncredentialed scans because the scanner has verified access to accurate system information rather than guessing from external responses.',
+  'Credentialed = deeper + fewer false positives. Like checking someone''s medicine cabinet vs. asking what pills they take.',
+  'apply',
+  'scenario',
+  'easy',
+  1.50, -1.00, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'code_review',
+  'An organization requires the MOST formal and rigorous code review process for a safety-critical medical device application. Which review method are they MOST LIKELY to use?',
+  '["Informal peer review between two developers", "Automated static analysis tool scan", "Code walkthrough led by a senior developer", "Fagan inspection with defined entry and exit criteria"]'::jsonb,
+  3,
+  'A Fagan inspection is the most formal code review methodology, consisting of six phases: planning, overview, preparation, inspection, rework, and follow-up. It has defined entry and exit criteria between stages and is specifically designed for high-criticality environments such as medical devices and safety-critical systems.',
+  'FAGAN = Formal And Governed And Noted. Six phases: P-O-P-I-R-F (Pop In, Review, Follow-up).',
+  'understand',
+  'most_likely',
+  'easy',
+  1.10, -1.40, 0.22,
+  'ai_generated', true
+),
+(
+  6,
+  'pentest_methodology',
+  'A penetration testing team has just been authorized to begin testing a client''s external network. What should be their FIRST step?',
+  '["Perform reconnaissance to gather information about the target", "Attempt to exploit known vulnerabilities on the web server", "Install backdoors to maintain persistent access", "Write the final report documenting their methodology"]'::jsonb,
+  0,
+  'The penetration testing methodology follows a structured sequence: reconnaissance, enumeration, vulnerability analysis, execution/exploitation, and documentation. Reconnaissance is always the first step, where testers gather publicly available information about the target including DNS records, IP ranges, and organizational structure before any active testing begins.',
+  'Pen test phases: REVED = Recon, Enumerate, Vulnerability analysis, Exploit, Document.',
+  'apply',
+  'first_action',
+  'easy',
+  1.50, -0.90, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'fuzz_testing',
+  'A development team wants to test their file parser for unexpected crashes by modifying known valid input files with random bit changes. Which type of fuzz testing BEST describes this approach?',
+  '["Generational fuzzing that creates inputs based on protocol specifications", "Mutation fuzzing that randomly modifies existing valid inputs", "Boundary value analysis testing at the edges of input ranges", "Equivalence partitioning that divides inputs into behavioral groups"]'::jsonb,
+  1,
+  'Mutation fuzzing (also called dumb fuzzing) takes known valid inputs and randomly modifies them through techniques like bit flipping or appending data. It does not require understanding of the input format. Generational fuzzing, by contrast, creates inputs from scratch based on understanding of the expected data format or protocol specification.',
+  'Mutation = Mangle existing input (dumb). Generational = Generate from scratch (intelligent).',
+  'apply',
+  'best_answer',
+  'easy',
+  1.30, -1.20, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

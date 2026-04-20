@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  6,
+  'soc_reports',
+  'A multinational bank is evaluating a cloud service provider for storing customer financial data. The provider presents a SOC 2 Type II report that includes security and availability trust services criteria but excludes confidentiality and processing integrity. The bank''s compliance team also needs assurance about the provider''s financial transaction processing controls. What combination of reports should the bank request?',
+  '["The existing SOC 2 Type II report is sufficient since it covers security", "A SOC 3 report for public distribution plus a SOC 1 Type I for financial controls", "A new SOC 2 Type I report that includes all five trust services criteria", "A SOC 2 Type II report including confidentiality and processing integrity, plus a SOC 1 Type II for financial reporting controls"]'::jsonb,
+  3,
+  'The bank needs comprehensive assurance. The current SOC 2 Type II excludes confidentiality and processing integrity, which are critical for financial data. A complete SOC 2 Type II including these criteria addresses the trust services gap. Additionally, a SOC 1 Type II specifically covers financial reporting controls over time, addressing the compliance team''s concern about financial transaction processing that SOC 2 does not cover.',
+  'Financial data needs: SOC 2 with confidentiality + processing integrity for security, SOC 1 for financial controls. Both Type II for operational effectiveness.',
+  'apply',
+  'scenario',
+  'hard',
+  1.50, 2.00, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'penetration_testing',
+  'During an authorized penetration test, the testing team discovers evidence of an actual ongoing breach by an external threat actor — including active command-and-control communications and data exfiltration from a database server. The pen test scope does not address incident response. What should be the FIRST action?',
+  '["Immediately stop the penetration test and notify the organization''s incident response team of the active breach", "Continue the penetration test and document the breach findings in the final report", "Attempt to block the threat actor''s command-and-control channel to help the client", "Contact law enforcement directly without informing the client first"]'::jsonb,
+  0,
+  'Discovering an active breach during a pen test is a critical situation that takes priority over the engagement scope. The first action is to stop testing and immediately notify the client''s incident response team. Continuing to test could interfere with the breach or the subsequent investigation. The pen testers should not attempt remediation themselves or contact law enforcement without client authorization.',
+  'Active breach trumps pen test scope. Stop testing, notify the client immediately. Do not play hero — let IR handle it.',
+  'analyze',
+  'first_action',
+  'hard',
+  1.70, 2.40, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'sast_dast_iast',
+  'A healthcare software company is developing a HIPAA-compliant patient portal. The security team has implemented SAST in the CI/CD pipeline and DAST scanning against the staging environment. Despite these measures, a security incident reveals that a vulnerability was exploitable only when specific framework middleware processed patient data in a particular sequence. Which additional testing approach would have been MOST effective at catching this type of vulnerability?',
+  '["More frequent DAST scans of the production environment", "IAST that monitors framework behavior and data flow during runtime with code visibility", "Manual penetration testing by an external firm", "Additional unit tests for the patient data processing module"]'::jsonb,
+  1,
+  'IAST is uniquely suited to detect vulnerabilities that manifest through framework middleware behavior during runtime. By combining code visibility (like SAST) with runtime monitoring (like DAST), IAST can trace data flow through frameworks and middleware, identifying vulnerabilities that emerge from specific processing sequences. SAST alone cannot see runtime behavior, and DAST alone cannot see internal code and framework interactions.',
+  'IAST fills the gap between SAST and DAST. When the vulnerability lives in the framework layer during runtime, IAST sees it from both sides.',
+  'apply',
+  'scenario',
+  'hard',
+  1.50, 2.00, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'security_metrics',
+  'The board of directors reviews the annual security report and notes that the organization achieved a 99.5% vulnerability remediation rate. However, the CISO knows that 70% of remediated vulnerabilities were low-severity informational findings, while several critical vulnerabilities remained unpatched for over 120 days. From a management perspective, what does this situation BEST illustrate?',
+  '["The security program is highly effective based on the remediation percentage", "The vulnerability management program needs more automated scanning tools", "The reported metric is misleading because it does not account for severity weighting, and KRIs should supplement KPIs to show risk exposure", "The remaining 0.5% of unpatched vulnerabilities is an acceptable level of residual risk"]'::jsonb,
+  2,
+  'This scenario illustrates a common metrics trap where a high-level KPI (99.5% remediation rate) masks underlying risk. Without severity weighting, remediating many low-severity findings inflates the metric while critical vulnerabilities persist. A manager should recognize that KPIs alone are insufficient and should be supplemented with KRIs that show the actual risk exposure, such as the age and severity of unpatched vulnerabilities.',
+  'Metrics can lie. A high remediation rate means nothing if critical vulns linger. Weight by severity. Combine KPIs with KRIs.',
+  'analyze',
+  'tlatm',
+  'hard',
+  1.90, 2.50, 0.20,
+  'ai_generated', true
+),
+(
+  6,
+  'vulnerability_assessment',
+  'A security researcher discovers a zero-day vulnerability in a widely used open-source encryption library that could allow remote code execution. The researcher has verified the vulnerability is exploitable. Following ethical disclosure principles, what should be the FIRST action?',
+  '["Publish the vulnerability details on a public security mailing list to warn all users", "Develop and release a proof-of-concept exploit to demonstrate the severity", "Present the findings at the next security conference for maximum visibility", "Privately notify the library maintainers and provide them reasonable time to develop a patch"]'::jsonb,
+  3,
+  'Ethical disclosure (also called responsible disclosure) requires that the researcher first privately notify the vendor or maintainers, providing them reasonable time to develop and release a patch before any public disclosure. Public disclosure before a patch is available would expose all users to exploitation. Only if the vendor fails to act within a reasonable timeframe should the researcher consider public disclosure.',
+  'Ethical disclosure = private first, public later. Give the vendor time to fix it before telling the world.',
+  'apply',
+  'first_action',
+  'hard',
+  1.50, 2.10, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

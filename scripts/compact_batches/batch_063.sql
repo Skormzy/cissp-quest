@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  8,
+  'oop_security',
+  'An object-oriented developer wants to hide internal implementation details and expose only necessary interfaces. Which OOP principle is MOST LIKELY being applied?',
+  '["Polymorphism, which allows objects to take multiple forms", "Inheritance, which enables code reuse through parent-child relationships", "Encapsulation, which restricts direct access to an object''s internal data", "Delegation, which forwards requests to helper objects"]'::jsonb,
+  2,
+  'Encapsulation (also called data hiding or the black-box approach) restricts direct access to an object''s internal state and exposes only defined interfaces. This is fundamental to OOP security because it prevents unauthorized manipulation of internal data. Polymorphism handles multiple forms, inheritance handles code reuse, and delegation handles request forwarding.',
+  'ENCAPSULATION = data in a CAPSULE. You can only interact through the approved opening.',
+  'understand',
+  'most_likely',
+  'easy',
+  1.10, -1.40, 0.22,
+  'ai_generated', true
+),
+(
+  8,
+  'devsecops',
+  'A company is transitioning from traditional DevOps to DevSecOps. What should they do FIRST to embed security into the pipeline?',
+  '["Replace all manual testing with automated penetration testing tools", "Hire a dedicated security operations center to monitor the pipeline", "Purchase an enterprise-grade web application firewall for production", "Integrate automated security testing tools into the existing CI/CD pipeline"]'::jsonb,
+  3,
+  'The first step in transitioning to DevSecOps is integrating security testing tools (such as SAST, dependency scanning, and secret detection) directly into the existing CI/CD pipeline. This embodies the shift-left principle by catching security issues early and automatically. Buying a WAF or hiring a SOC addresses production, not the development pipeline.',
+  'DevSecOps = Dev + SEC + Ops. SEC goes IN THE MIDDLE of the pipeline, not bolted on at the end.',
+  'apply',
+  'first_action',
+  'easy',
+  1.50, -0.90, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'maturity_models',
+  'At which SW-CMM level does an organization first establish documented, standardized processes across the entire organization?',
+  '["Level 3 — Defined", "Level 2 — Repeatable", "Level 4 — Managed", "Level 5 — Optimizing"]'::jsonb,
+  0,
+  'SW-CMM Level 3 (Defined) is where an organization establishes standardized, documented processes across the entire organization. Level 2 (Repeatable) has processes that succeed on a project-by-project basis but are not yet standardized organization-wide. Level 4 (Managed) adds quantitative measurement, and Level 5 (Optimizing) focuses on continuous improvement.',
+  'SW-CMM: 1-Initial (chaos), 2-Repeatable (project success), 3-Defined (org-wide standards), 4-Managed (measured), 5-Optimizing (improving).',
+  'understand',
+  'best_answer',
+  'easy',
+  1.00, -1.50, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'secure_coding',
+  'A web application displays a generic error message saying "An error occurred. Please contact support." when a database query fails, instead of showing the SQL error details. Which secure coding principle does this demonstrate?',
+  '["Input validation by filtering dangerous characters from user submissions", "Proper error handling that avoids revealing internal system details to users", "Session management by terminating the user session after an error", "Defense in depth by applying multiple layers of security controls"]'::jsonb,
+  1,
+  'Displaying generic error messages instead of detailed technical errors is a key secure coding practice for error handling. Verbose error messages can reveal database structure, query syntax, file paths, and other internal details that attackers can use to craft targeted attacks. Proper error handling logs details internally while showing users only generic messages.',
+  'Errors to users = GENERIC. Errors to logs = SPECIFIC. Never show your cards to the attacker.',
+  'apply',
+  'scenario',
+  'easy',
+  1.50, -1.00, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'database_security',
+  'Which database property ensures that a transaction either completes entirely or not at all?',
+  '["Consistency", "Isolation", "Atomicity", "Durability"]'::jsonb,
+  2,
+  'Atomicity is the ACID property that guarantees a transaction is treated as a single, indivisible unit — it either completes fully or is completely rolled back. If any part of the transaction fails, all changes are reversed. Consistency ensures rules are maintained, Isolation keeps transactions invisible until complete, and Durability ensures committed data persists.',
+  'ATOMICITY = like an ATOM, it cannot be split. All or nothing.',
+  'remember',
+  'best_answer',
+  'easy',
+  0.80, -2.00, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

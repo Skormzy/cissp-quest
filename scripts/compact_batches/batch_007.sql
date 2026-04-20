@@ -1,0 +1,72 @@
+INSERT INTO cat_questions (domain_id,topic_cluster,question_text,options,correct_index,explanation,mnemonic_hint,cognitive_level,question_type,difficulty_rating,irt_a,irt_b,irt_c,source,is_active) VALUES
+(
+  5,
+  'access_control_models',
+  'A software company uses Active Directory groups to manage access to development tools. When a new developer joins, they are added to the "Developers" group, which automatically grants them access to the code repository, CI/CD pipeline, and testing environments. A senior developer is additionally placed in the "Release Managers" group. Which access control model does this BEST represent?',
+  '["Discretionary Access Control because the team lead decides who joins each group", "Mandatory Access Control because the system enforces group-based restrictions", "Role-Based Access Control because permissions are assigned to groups that mirror job functions", "Rule-Based Access Control because the system applies group membership rules automatically"]'::jsonb,
+  2,
+  'This is Role-Based Access Control (RBAC) because permissions are assigned to groups (roles) that correspond to job functions, not to individual users. When users join a group, they inherit that group''s permissions. RBAC mirrors organizational hierarchy and helps enforce least privilege. While a person decides group membership, the model itself is RBAC because permissions flow from role assignment.',
+  'RBAC = Roles mirror Real job functions. Add user to role = inherit permissions.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  5,
+  'sso_federation',
+  'All of the following are components of a SAML-based federation EXCEPT:',
+  '["An identity provider that authenticates users and issues assertions", "A service provider that relies on assertions to grant access to resources", "A principal who is the user requesting access to the service", "An access token issued by an OAuth authorization server for API access"]'::jsonb,
+  3,
+  'SAML federation involves three entities: the principal (user), the identity provider (IdP), and the service provider (SP). SAML uses XML-based assertions, not OAuth access tokens. OAuth access tokens are part of the OAuth 2.0 framework, which is a separate authorization protocol. SAML and OAuth serve different purposes and use different data formats.',
+  'SAML = 3 entities (Principal, IdP, SP) + XML assertions. OAuth tokens are NOT part of SAML.',
+  'understand',
+  'except_not',
+  'medium',
+  0.90, 0.20, 0.25,
+  'ai_generated', true
+),
+(
+  5,
+  'credential_attacks',
+  'An attacker has obtained a database of password hashes from a breached website. The hashes were generated using MD5 without salting. The attacker wants to reverse as many passwords as possible in the shortest time. What attack technique is MOST LIKELY to be used?',
+  '["A rainbow table attack using precomputed hash-to-password mappings for rapid lookup", "A brute-force attack trying every possible character combination against each hash", "A dictionary attack using a word list and hashing each word for comparison", "A birthday attack searching for two inputs that produce the same hash output"]'::jsonb,
+  0,
+  'Rainbow table attacks use precomputed databases of hash-to-password mappings, making them extremely fast for reversing unsalted hashes. MD5 without salt is particularly vulnerable because identical passwords always produce the same hash. Salting defeats rainbow tables by making each hash unique. Brute-force and dictionary attacks require hashing each guess, making them slower.',
+  'Rainbow tables = precomputed hash lookup tables. No salt = rainbow tables work. Salt = rainbow tables fail.',
+  'remember',
+  'most_likely',
+  'medium',
+  0.90, -0.40, 0.22,
+  'ai_generated', true
+),
+(
+  5,
+  'zero_trust',
+  'Which statement BEST describes the core philosophy of Zero Trust architecture?',
+  '["All internal network traffic is trusted while external traffic requires verification", "Trust is established once at the network perimeter and maintained throughout the session", "No implicit trust is granted based on network location and every access request must be continuously validated", "Zero Trust eliminates the need for authentication by relying entirely on network segmentation"]'::jsonb,
+  1,
+  'Zero Trust assumes no implicit trust regardless of network location. Every access request must be verified, and validation is continuous throughout the session. This contrasts with traditional perimeter-based security that trusts internal traffic. Zero Trust does not eliminate authentication; it strengthens it through continuous validation, device posture assessment, and contextual policies.',
+  NULL,
+  'understand',
+  'best_answer',
+  'medium',
+  1.00, 0.00, 0.20,
+  'ai_generated', true
+),
+(
+  5,
+  'device_authentication',
+  'A hospital deploys 802.1X port-based authentication on its wired network. When a medical device is plugged into a network port, it must present a valid digital certificate before being granted network access. If the certificate is invalid or missing, the device is placed on a quarantine VLAN with limited connectivity. What security concept does the quarantine VLAN represent?',
+  '["Multifactor authentication because the device needs both a physical connection and a certificate", "Single sign-on because one authentication grants access to the entire network", "Network Access Control with posture assessment, placing non-compliant devices in a restricted segment", "Federated identity management because the device authenticates across network boundaries"]'::jsonb,
+  2,
+  'This is Network Access Control (NAC) with posture assessment. 802.1X authenticates devices at the port level, and non-compliant devices are quarantined in a restricted VLAN rather than being given full access or completely denied. This approach balances security with availability by providing limited access for remediation while protecting the production network.',
+  '802.1X = port-based authentication. Fail authentication = quarantine VLAN, not full access.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;

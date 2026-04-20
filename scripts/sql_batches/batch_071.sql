@@ -1,0 +1,76 @@
+INSERT INTO cat_questions (
+  domain_id, topic_cluster, question_text, options, correct_index,
+  explanation, mnemonic_hint, cognitive_level, question_type,
+  difficulty_rating, irt_a, irt_b, irt_c, source, is_active
+) VALUES
+(
+  8,
+  'database_security',
+  'A financial application processes thousands of concurrent transactions. Two transactions simultaneously read the same account balance, each calculates a new balance after a withdrawal, and both write their results. The first transaction''s update is overwritten by the second. What concurrency problem has occurred?',
+  '["Dirty read, where a transaction reads uncommitted data from another transaction", "Incorrect summary, where an aggregate function reads partially updated data", "Lost update, where two transactions read and update the same data and one overwrites the other", "Phantom read, where new rows appear during a transaction due to another insert"]'::jsonb,
+  2,
+  'A lost update occurs when two transactions read the same data, each independently calculates a new value, and the second write overwrites the first. The first transaction''s changes are lost. This is a classic concurrency problem prevented by proper locking mechanisms such as exclusive locks or optimistic concurrency control.',
+  'LOST UPDATE = two people editing the same document and one saves over the other''s work. Use LOCKING to prevent.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'secure_sdlc',
+  'An organization has just experienced a data breach caused by a vulnerability in their custom web application. Post-incident analysis reveals that security was only considered during the final testing phase. What should the organization do FIRST to prevent similar incidents in future projects?',
+  '["Purchase more advanced penetration testing tools for the QA team", "Hire additional security testers to increase testing coverage", "Implement runtime application self-protection on all production applications", "Integrate security requirements and threat modeling into the earliest phases of the SDLC"]'::jsonb,
+  3,
+  'The root cause was that security was only considered late in the development process. The most effective first step is integrating security requirements and threat modeling into the earliest SDLC phases (requirements and design). This shift-left approach addresses the systemic issue rather than just adding more testing at the end.',
+  'The lesson: security bolted on at the end FAILS. SHIFT LEFT — weave security in from the very first phase.',
+  'apply',
+  'first_action',
+  'medium',
+  1.50, 0.60, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'sast_dast_iast',
+  'Which testing approach BEST describes a tool that instruments the application during execution, combining real-time code analysis with runtime behavior observation to identify vulnerabilities?',
+  '["IAST, which combines code visibility with runtime testing during application execution", "SAST, which analyzes source code without executing the application", "DAST, which tests the running application from an external perspective without code access", "Regression testing, which verifies unchanged behavior after code modifications"]'::jsonb,
+  0,
+  'IAST (Interactive Application Security Testing) combines elements of both SAST and DAST. It instruments the application during execution so it can observe code-level behavior while the application runs. This gives it the advantages of both approaches — it can see the source code context AND observe runtime behavior, making it effective at finding both code-level and runtime vulnerabilities.',
+  'IAST = Inside + Active = instrumented inside the app while it actively runs. Best of SAST and DAST combined.',
+  'understand',
+  'best_answer',
+  'medium',
+  1.00, 0.00, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'maturity_models',
+  'As the VP of Engineering, you have been asked by the board to demonstrate that your software development processes are quantitatively measured, statistically controlled, and predictable. Which maturity level should your organization target to meet this requirement?',
+  '["SW-CMM Level 3 — Defined, where processes are standardized and documented", "SW-CMM Level 4 — Managed, where processes are quantitatively measured and controlled", "SW-CMM Level 2 — Repeatable, where individual projects have repeatable processes", "SW-CMM Level 5 — Optimizing, where continuous process improvement is practiced"]'::jsonb,
+  1,
+  'SW-CMM Level 4 (Managed) is characterized by quantitative process management. At this level, the organization collects detailed metrics on process performance, uses statistical methods to control processes, and can predict outcomes with measurable confidence. Level 3 standardizes processes, and Level 5 adds continuous improvement, but Level 4 is specifically about measurement and control.',
+  NULL,
+  'apply',
+  'tlatm',
+  'medium',
+  1.70, 0.80, 0.20,
+  'ai_generated', true
+),
+(
+  8,
+  'secure_coding',
+  'A development team is building a web application that processes credit card payments. During a code review, the reviewer notices that the application stores the full credit card number, expiration date, and CVV in a plaintext log file for debugging purposes. What is the MOST significant security concern?',
+  '["The log file may consume excessive disk space as transactions increase", "The debugging information may slow down the application''s response time", "Storing sensitive payment data in plaintext logs violates PCI DSS requirements and exposes card data to unauthorized access", "The log rotation policy may delete useful debugging information prematurely"]'::jsonb,
+  2,
+  'Storing full credit card numbers and CVVs in plaintext logs is a severe violation of PCI DSS requirements and creates a major data exposure risk. PCI DSS specifically prohibits storing CVVs after authorization. Secure coding practices require that sensitive data never be written to log files, and when debugging is needed, data should be masked or tokenized.',
+  'NEVER log sensitive data in plaintext. CVV must NEVER be stored after authorization. PCI DSS is strict on this.',
+  'apply',
+  'scenario',
+  'medium',
+  1.50, 0.50, 0.20,
+  'ai_generated', true
+)
+ON CONFLICT (question_text) DO NOTHING;
