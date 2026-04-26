@@ -4,6 +4,8 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import CharacterPortrait from './portraits/CharacterPortrait';
 import { DialogueNode } from '@/lib/story-types';
 import { NPC_REGISTRY } from '@/lib/story-characters';
+import { useUserStore } from '@/stores/useUserStore';
+import { substituteTokens } from '@/lib/player-tokens';
 
 interface DialogueRendererProps {
   node: DialogueNode;
@@ -17,18 +19,32 @@ interface DialogueRendererProps {
 const CHAR_DELAY = 12; // ms per character
 
 export default function DialogueRenderer({ node, playerName, onAdvance, onChoice, onTypingStateChange, skipSignal }: DialogueRendererProps) {
+  const profile = useUserStore((s) => s.profile);
   const [displayedText, setDisplayedText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
 
   const typingCallbackRef = useRef(onTypingStateChange);
   typingCallbackRef.current = onTypingStateChange;
 
-  // Ref to the running interval so we can clear it from click/skip handlers
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  // Tracks the text that was manually skipped, so the useEffect won't restart it
   const skippedTextRef = useRef<string | null>(null);
 
-  const fullText = node.text.replace(/{player}/g, playerName);
+  const tokens = profile
+    ? {
+        display_name:       profile.display_name,
+        pronoun_subject:    profile.pronoun_subject,
+        pronoun_object:     profile.pronoun_object,
+        pronoun_possessive: profile.pronoun_possessive,
+        pronoun_reflexive:  profile.pronoun_reflexive,
+      }
+    : {
+        display_name:       playerName,
+        pronoun_subject:    'they',
+        pronoun_object:     'them',
+        pronoun_possessive: 'their',
+        pronoun_reflexive:  'themself',
+      };
+  const fullText = substituteTokens(node.text.replace(/\{player\}/g, tokens.display_name), tokens);
 
   // Shared skip logic: clear interval, mark text as skipped, show full text
   const skipTypewriter = useCallback(() => {
@@ -90,7 +106,7 @@ export default function DialogueRenderer({ node, playerName, onAdvance, onChoice
   }, [isTyping, skipTypewriter, node.choices, onAdvance]);
 
   const speakerNpc = NPC_REGISTRY[node.speaker === 'player' ? 'player' : node.speaker] || null;
-  const speakerName = node.speaker === 'player' ? playerName : (speakerNpc?.name || node.speaker);
+  const speakerName = node.speaker === 'player' ? tokens.display_name : (speakerNpc?.name || node.speaker);
   const accentColor = speakerNpc?.accentColor || '#00e8ff';
 
   return (

@@ -1,8 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
+import { format } from 'date-fns';
+import { CalendarIcon } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { useUserStore } from '@/stores/useUserStore';
 import CharacterAvatar, {
@@ -10,12 +12,26 @@ import CharacterAvatar, {
   SKIN_TONES,
   HAIR_COLORS,
   OUTFITS,
+  EYE_COLORS,
 } from '@/components/character/CharacterAvatar';
+import {
+  avatarGenderToDb,
+  dbGenderToAvatar,
+  defaultPronounsFor,
+  type AvatarGender,
+  type PronounSet,
+} from '@/lib/player-tokens';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Calendar } from '@/components/ui/calendar';
+import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover';
+import { cn } from '@/lib/utils';
 
-const STEPS = ['Gender', 'Skin', 'Eyes', 'Hair', 'Outfit', 'Name'] as const;
+const STEPS = ['Gender', 'Pronouns', 'Skin', 'Eyes', 'Hair', 'Outfit', 'Identity'] as const;
 type StepName = (typeof STEPS)[number];
 
-const GENDER_OPTIONS: { value: CharacterConfig['gender']; label: string }[] = [
+const GENDER_OPTIONS: { value: AvatarGender; label: string }[] = [
   { value: 'Man',        label: 'Man'        },
   { value: 'Woman',      label: 'Woman'      },
   { value: 'Non-binary', label: 'Non-binary' },
@@ -29,6 +45,14 @@ const EYE_SHAPES = [
 ];
 
 const SUGGESTED_NAMES = ['CipherFox', 'NullByte', 'HexWarden', 'SignalOps', 'IronCrypt'];
+const NAME_MIN = 1;
+const NAME_MAX = 40;
+const PROFANITY = ['fuck', 'shit', 'cunt', 'asshole', 'bitch', 'nigger', 'faggot', 'retard'];
+
+function isCleanName(name: string): boolean {
+  const lower = name.toLowerCase();
+  return !PROFANITY.some((w) => lower.includes(w));
+}
 
 const DEFAULT_CONFIG: CharacterConfig = {
   gender:    'Man',
@@ -37,35 +61,57 @@ const DEFAULT_CONFIG: CharacterConfig = {
   hairStyle: 1,
   hairColor: HAIR_COLORS[1].hex,
   outfit:    5,
+  eyeColor:  EYE_COLORS[2].hex,
 };
 
 export default function CreateCharacterPage() {
-  const router  = useRouter();
+  const router = useRouter();
   const supabase = createClient();
-  const { user, setUser } = useUserStore();
+  const { profile, setProfile } = useUserStore();
 
   const [stepIndex, setStepIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [config, setConfig] = useState<CharacterConfig>(DEFAULT_CONFIG);
   const [name, setName] = useState('');
+  const [examDate, setExamDate] = useState<Date | undefined>(undefined);
+  const [pronouns, setPronouns] = useState<PronounSet>(defaultPronounsFor('Man'));
+  const [pronounsTouched, setPronounsTouched] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    if (user?.character_name) {
-      setIsEditing(true);
-      setName(user.character_name);
-      setConfig({
-        gender:    (user.character_gender as CharacterConfig['gender']) ?? 'Man',
-        skinTone:  user.character_skin ?? 4,
-        eyeShape:  user.character_eye_shape ?? 1,
-        hairStyle: user.character_hair ?? 1,
-        hairColor: user.character_hair_color ?? HAIR_COLORS[1].hex,
-        outfit:    user.character_outfit ?? 5,
-      });
+    if (!pronounsTouched) {
+      setPronouns(defaultPronounsFor(config.gender));
     }
-  }, [user]);
+  }, [config.gender, pronounsTouched]);
+
+  // Prefill once when the async-loaded profile arrives. The ref guards against
+  // re-runs that would clobber in-progress wizard edits if profile updates later.
+  const hasPrefilledRef = useRef(false);
+  useEffect(() => {
+    if (!profile || hasPrefilledRef.current) return;
+    hasPrefilledRef.current = true;
+    setName(profile.display_name);
+    if (profile.exam_date) {
+      setExamDate(new Date(profile.exam_date + 'T00:00:00'));
+    }
+    setPronouns({
+      subject:    profile.pronoun_subject as PronounSet['subject'],
+      object:     profile.pronoun_object as PronounSet['object'],
+      possessive: profile.pronoun_possessive as PronounSet['possessive'],
+      reflexive:  profile.pronoun_reflexive as PronounSet['reflexive'],
+    });
+    setPronounsTouched(true);
+    setConfig({
+      gender:    dbGenderToAvatar(profile.gender),
+      skinTone:  profile.skin_tone,
+      eyeShape:  profile.eye_shape,
+      eyeColor:  profile.eye_color ?? EYE_COLORS[2].hex,
+      hairStyle: profile.hair_style,
+      hairColor: profile.hair_color,
+      outfit:    profile.outfit,
+    });
+  }, [profile]);
 
   function advance() {
     setDirection(1);
@@ -81,34 +127,52 @@ export default function CreateCharacterPage() {
     setConfig((c) => ({ ...c, ...update }));
   }
 
+  function patchPronoun<K extends keyof PronounSet>(key: K, value: string) {
+    setPronounsTouched(true);
+    setPronouns((p) => ({ ...p, [key]: value as PronounSet[K] }));
+  }
+
   async function handleSave() {
-    if (!name.trim()) { setError('Enter your agent codename'); return; }
+    const trimmed = name.trim();
+    if (trimmed.length < NAME_MIN) { setError('Display name is required.'); return; }
+    if (trimmed.length > NAME_MAX) { setError(`Display name must be ${NAME_MAX} characters or fewer.`); return; }
+    if (!isCleanName(trimmed)) { setError('Please choose a different display name.'); return; }
+    if (examDate && examDate.getTime() <= Date.now()) {
+      setError('Exam date must be in the future.');
+      return;
+    }
+
     setLoading(true);
     setError('');
 
     const { data: { user: authUser } } = await supabase.auth.getUser();
-    if (!authUser) { setError('Not authenticated'); setLoading(false); return; }
+    if (!authUser) { setError('Not authenticated.'); setLoading(false); return; }
 
     const payload = {
-      id:                  authUser.id,
-      character_name:      name.trim(),
-      character_gender:    config.gender,
-      character_skin:      config.skinTone,
-      character_eye_shape: config.eyeShape,
-      character_hair:      config.hairStyle,
-      character_hair_color: config.hairColor,
-      character_outfit:    config.outfit,
-      display_name:        name.trim(),
+      user_id:            authUser.id,
+      display_name:       trimmed,
+      gender:             avatarGenderToDb(config.gender),
+      pronoun_subject:    pronouns.subject,
+      pronoun_object:     pronouns.object,
+      pronoun_possessive: pronouns.possessive,
+      pronoun_reflexive:  pronouns.reflexive,
+      skin_tone:          config.skinTone,
+      eye_shape:          config.eyeShape,
+      eye_color:          config.eyeColor ?? null,
+      hair_style:         config.hairStyle,
+      hair_color:         config.hairColor,
+      outfit:             config.outfit,
+      exam_date:          examDate ? format(examDate, 'yyyy-MM-dd') : null,
     };
 
     const { data, error: dbError } = await supabase
-      .from('users')
-      .upsert(payload)
+      .from('player_profile')
+      .upsert(payload, { onConflict: 'user_id' })
       .select()
       .single();
 
     if (dbError) { setError(dbError.message); setLoading(false); return; }
-    if (data) setUser(data);
+    if (data) setProfile(data);
     router.push('/app/dashboard');
   }
 
@@ -116,22 +180,21 @@ export default function CreateCharacterPage() {
   const isFirst = stepIndex === 0;
   const isLast  = stepIndex === STEPS.length - 1;
 
+  const previewSentence =
+    `Tanaka watches ${pronouns.object} prove ${pronouns.reflexive}.`;
+
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center px-4 py-10"
       style={{ background: '#080c14' }}
     >
-      {/* ── Header ── */}
       <div className="w-full max-w-2xl text-center mb-6">
         <p className="text-xs font-mono tracking-widest uppercase mb-1" style={{ color: '#00e8ff' }}>
           Sentinel Dynamics · Personnel File
         </p>
-        <h1 className="text-2xl font-bold" style={{ color: '#e2e8f0' }}>
-          {isEditing ? 'Edit Agent Profile' : 'Create Your Agent'}
-        </h1>
+        <h1 className="text-2xl font-bold" style={{ color: '#e2e8f0' }}>Create Your Agent</h1>
       </div>
 
-      {/* ── Step Indicator ── */}
       <div className="w-full max-w-2xl flex items-center justify-center gap-1 mb-8">
         {STEPS.map((step, i) => (
           <div key={step} className="flex items-center">
@@ -149,7 +212,7 @@ export default function CreateCharacterPage() {
               <div
                 className="transition-all duration-500"
                 style={{
-                  width: 28,
+                  width: 22,
                   height: 2,
                   background: i < stepIndex ? '#00e8ff' : '#1e2d4a',
                   margin: '0 2px',
@@ -160,16 +223,14 @@ export default function CreateCharacterPage() {
         ))}
       </div>
 
-      {/* ── Main Layout ── */}
       <div className="w-full max-w-2xl flex flex-col md:flex-row gap-6">
-        {/* Left: Avatar preview */}
         <div className="md:w-48 flex flex-col items-center gap-3 shrink-0">
           <div
             className="w-full rounded-2xl p-6 flex flex-col items-center gap-3"
             style={{ background: '#0d1220', border: '1px solid #1e2d4a' }}
           >
             <motion.div
-              key={`${config.gender}-${config.skinTone}-${config.eyeShape}-${config.hairStyle}-${config.hairColor}-${config.outfit}`}
+              key={`${config.gender}-${config.skinTone}-${config.eyeShape}-${config.hairStyle}-${config.hairColor}-${config.outfit}-${config.eyeColor}`}
               initial={{ scale: 0.9, opacity: 0.6 }}
               animate={{ scale: 1,   opacity: 1   }}
               transition={{ duration: 0.22 }}
@@ -185,27 +246,17 @@ export default function CreateCharacterPage() {
             </p>
           </div>
 
-          {/* Mini outline */}
           <div
             className="w-full rounded-xl p-3 text-xs space-y-1"
             style={{ background: '#0a0f1a', border: '1px solid #111a2e', color: '#334155' }}
           >
-            <div className="flex justify-between">
-              <span>Eyes</span>
-              <span style={{ color: '#4a5568' }}>{EYE_SHAPES.find(e => e.id === config.eyeShape)?.label}</span>
-            </div>
-            <div className="flex justify-between">
-              <span>Hair</span>
-              <span style={{ color: '#4a5568' }}>Style {config.hairStyle}</span>
-            </div>
-            <div className="flex justify-between">
-              <span>Outfit</span>
-              <span style={{ color: '#4a5568' }}>{OUTFITS.find(o => o.id === config.outfit)?.label}</span>
-            </div>
+            <div className="flex justify-between"><span>Pronouns</span><span style={{ color: '#4a5568' }}>{pronouns.subject}/{pronouns.object}</span></div>
+            <div className="flex justify-between"><span>Eyes</span><span style={{ color: '#4a5568' }}>{EYE_SHAPES.find(e => e.id === config.eyeShape)?.label}</span></div>
+            <div className="flex justify-between"><span>Hair</span><span style={{ color: '#4a5568' }}>Style {config.hairStyle}</span></div>
+            <div className="flex justify-between"><span>Outfit</span><span style={{ color: '#4a5568' }}>{OUTFITS.find(o => o.id === config.outfit)?.label}</span></div>
           </div>
         </div>
 
-        {/* Right: Step content */}
         <div className="flex-1 flex flex-col">
           <div className="relative overflow-hidden">
             <AnimatePresence mode="wait" custom={direction}>
@@ -226,27 +277,27 @@ export default function CreateCharacterPage() {
                   className="rounded-2xl p-5"
                   style={{ background: '#0d1220', border: '1px solid #1e2d4a' }}
                 >
-                  {/* Step title */}
                   <div className="mb-4">
                     <h2 className="text-base font-bold" style={{ color: '#e2e8f0' }}>
-                      {currentStep === 'Gender'  && 'Who are you?'}
-                      {currentStep === 'Skin'    && 'Skin Tone'}
-                      {currentStep === 'Eyes'    && 'Eye Shape'}
-                      {currentStep === 'Hair'    && 'Hair'}
-                      {currentStep === 'Outfit'  && 'Field Outfit'}
-                      {currentStep === 'Name'    && 'Your Codename'}
+                      {currentStep === 'Gender'   && 'Who are you?'}
+                      {currentStep === 'Pronouns' && 'How do NPCs refer to you?'}
+                      {currentStep === 'Skin'     && 'Skin Tone'}
+                      {currentStep === 'Eyes'     && 'Eye Shape & Color'}
+                      {currentStep === 'Hair'     && 'Hair'}
+                      {currentStep === 'Outfit'   && 'Field Outfit'}
+                      {currentStep === 'Identity' && 'Codename & Exam Date'}
                     </h2>
                     <p className="text-xs mt-0.5" style={{ color: '#334155' }}>
-                      {currentStep === 'Gender'  && 'Your identity on the mission'}
-                      {currentStep === 'Skin'    && '8 tones representing the full human spectrum'}
-                      {currentStep === 'Eyes'    && 'Small detail, significant character'}
-                      {currentStep === 'Hair'    && 'Style and color — your signature look'}
-                      {currentStep === 'Outfit'  && 'Your Sentinel Dynamics field kit'}
-                      {currentStep === 'Name'    && 'What the team will call you in the field'}
+                      {currentStep === 'Gender'   && 'Your identity on the mission'}
+                      {currentStep === 'Pronouns' && 'These are how NPCs will refer to you in dialogue. You can change them later.'}
+                      {currentStep === 'Skin'     && '8 tones representing the full human spectrum'}
+                      {currentStep === 'Eyes'     && 'Shape and color — small details, significant character'}
+                      {currentStep === 'Hair'     && 'Style and color — your signature look'}
+                      {currentStep === 'Outfit'   && 'Your Sentinel Dynamics field kit'}
+                      {currentStep === 'Identity' && 'What the team will call you and when you sit the exam'}
                     </p>
                   </div>
 
-                  {/* ── Gender ── */}
                   {currentStep === 'Gender' && (
                     <div className="grid grid-cols-3 gap-3">
                       {GENDER_OPTIONS.map(({ value, label }) => (
@@ -271,7 +322,59 @@ export default function CreateCharacterPage() {
                     </div>
                   )}
 
-                  {/* ── Skin ── */}
+                  {currentStep === 'Pronouns' && (
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <Label htmlFor="p-subject" className="text-xs uppercase tracking-widest text-slate-500">Subject</Label>
+                          <Input
+                            id="p-subject"
+                            value={pronouns.subject}
+                            onChange={(e) => patchPronoun('subject', e.target.value)}
+                            maxLength={12}
+                            className="mt-1"
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="p-object" className="text-xs uppercase tracking-widest text-slate-500">Object</Label>
+                          <Input
+                            id="p-object"
+                            value={pronouns.object}
+                            onChange={(e) => patchPronoun('object', e.target.value)}
+                            maxLength={12}
+                            className="mt-1"
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="p-possessive" className="text-xs uppercase tracking-widest text-slate-500">Possessive</Label>
+                          <Input
+                            id="p-possessive"
+                            value={pronouns.possessive}
+                            onChange={(e) => patchPronoun('possessive', e.target.value)}
+                            maxLength={12}
+                            className="mt-1"
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="p-reflexive" className="text-xs uppercase tracking-widest text-slate-500">Reflexive</Label>
+                          <Input
+                            id="p-reflexive"
+                            value={pronouns.reflexive}
+                            onChange={(e) => patchPronoun('reflexive', e.target.value)}
+                            maxLength={14}
+                            className="mt-1"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        className="rounded-xl p-3 text-sm italic"
+                        style={{ background: '#080c14', border: '1px solid #1e2d4a', color: '#94a3b8' }}
+                      >
+                        Preview: &quot;{previewSentence}&quot;
+                      </div>
+                    </div>
+                  )}
+
                   {currentStep === 'Skin' && (
                     <div className="grid grid-cols-4 gap-3">
                       {SKIN_TONES.map((tone) => (
@@ -291,10 +394,7 @@ export default function CreateCharacterPage() {
                               boxShadow: config.skinTone === tone.id ? `0 0 14px ${tone.hex}99` : 'none',
                             }}
                           />
-                          <span
-                            className="text-xs"
-                            style={{ color: config.skinTone === tone.id ? '#00e8ff' : '#4a5568' }}
-                          >
+                          <span className="text-xs" style={{ color: config.skinTone === tone.id ? '#00e8ff' : '#4a5568' }}>
                             {tone.label}
                           </span>
                         </button>
@@ -302,35 +402,50 @@ export default function CreateCharacterPage() {
                     </div>
                   )}
 
-                  {/* ── Eyes ── */}
                   {currentStep === 'Eyes' && (
-                    <div className="grid grid-cols-2 gap-3">
-                      {EYE_SHAPES.map((eye) => (
-                        <button
-                          key={eye.id}
-                          onClick={() => patch({ eyeShape: eye.id })}
-                          className="flex flex-col items-center gap-2 p-4 rounded-xl transition-all duration-200"
-                          style={{
-                            background: config.eyeShape === eye.id ? 'rgba(0,232,255,0.1)' : '#080c14',
-                            border: `2px solid ${config.eyeShape === eye.id ? '#00e8ff' : '#1e2d4a'}`,
-                          }}
-                        >
-                          <CharacterAvatar config={{ ...config, eyeShape: eye.id }} size={72} />
-                          <div className="text-center">
-                            <p
-                              className="text-sm font-medium"
-                              style={{ color: config.eyeShape === eye.id ? '#00e8ff' : '#e2e8f0' }}
-                            >
-                              {eye.label}
-                            </p>
-                            <p className="text-xs" style={{ color: '#334155' }}>{eye.description}</p>
-                          </div>
-                        </button>
-                      ))}
+                    <div className="space-y-4">
+                      <p className="text-xs font-medium uppercase tracking-widest" style={{ color: '#334155' }}>Shape</p>
+                      <div className="grid grid-cols-2 gap-3">
+                        {EYE_SHAPES.map((eye) => (
+                          <button
+                            key={eye.id}
+                            onClick={() => patch({ eyeShape: eye.id })}
+                            className="flex flex-col items-center gap-2 p-4 rounded-xl transition-all duration-200"
+                            style={{
+                              background: config.eyeShape === eye.id ? 'rgba(0,232,255,0.1)' : '#080c14',
+                              border: `2px solid ${config.eyeShape === eye.id ? '#00e8ff' : '#1e2d4a'}`,
+                            }}
+                          >
+                            <CharacterAvatar config={{ ...config, eyeShape: eye.id }} size={72} />
+                            <div className="text-center">
+                              <p className="text-sm font-medium" style={{ color: config.eyeShape === eye.id ? '#00e8ff' : '#e2e8f0' }}>
+                                {eye.label}
+                              </p>
+                              <p className="text-xs" style={{ color: '#334155' }}>{eye.description}</p>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+
+                      <p className="text-xs font-medium uppercase tracking-widest pt-1" style={{ color: '#334155' }}>Color</p>
+                      <div className="grid grid-cols-6 gap-2">
+                        {EYE_COLORS.map((color) => (
+                          <button
+                            key={color.hex}
+                            onClick={() => patch({ eyeColor: color.hex })}
+                            title={color.label}
+                            className="w-9 h-9 rounded-full transition-all duration-200 mx-auto"
+                            style={{
+                              background: color.hex,
+                              border: `3px solid ${config.eyeColor === color.hex ? '#00e8ff' : 'transparent'}`,
+                              boxShadow: config.eyeColor === color.hex ? `0 0 12px ${color.hex}88` : 'none',
+                            }}
+                          />
+                        ))}
+                      </div>
                     </div>
                   )}
 
-                  {/* ── Hair ── */}
                   {currentStep === 'Hair' && (
                     <div className="space-y-4">
                       <p className="text-xs font-medium uppercase tracking-widest" style={{ color: '#334155' }}>Style</p>
@@ -369,7 +484,6 @@ export default function CreateCharacterPage() {
                     </div>
                   )}
 
-                  {/* ── Outfit ── */}
                   {currentStep === 'Outfit' && (
                     <div className="grid grid-cols-3 gap-3">
                       {OUTFITS.map((outfit) => (
@@ -385,10 +499,7 @@ export default function CreateCharacterPage() {
                           <CharacterAvatar config={{ ...config, outfit: outfit.id }} size={72} />
                           <div className="flex items-center gap-1.5">
                             <div className="w-2.5 h-2.5 rounded-full" style={{ background: outfit.secondary }} />
-                            <span
-                              className="text-xs font-medium"
-                              style={{ color: config.outfit === outfit.id ? '#00e8ff' : '#64748b' }}
-                            >
+                            <span className="text-xs font-medium" style={{ color: config.outfit === outfit.id ? '#00e8ff' : '#64748b' }}>
                               {outfit.label}
                             </span>
                           </div>
@@ -397,44 +508,71 @@ export default function CreateCharacterPage() {
                     </div>
                   )}
 
-                  {/* ── Name ── */}
-                  {currentStep === 'Name' && (
-                    <div className="space-y-4">
-                      <input
-                        type="text"
-                        value={name}
-                        onChange={(e) => { setName(e.target.value); setError(''); }}
-                        maxLength={20}
-                        placeholder="Enter your codename..."
-                        autoFocus
-                        onKeyDown={(e) => e.key === 'Enter' && !loading && handleSave()}
-                        className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-colors"
-                        style={{
-                          background: '#080c14',
-                          border: `1px solid ${error ? '#ef4444' : '#1e2d4a'}`,
-                          color: '#e2e8f0',
-                        }}
-                      />
-                      {error && (
-                        <p className="text-xs" style={{ color: '#ef4444' }}>{error}</p>
-                      )}
-                      <p className="text-xs" style={{ color: '#334155' }}>Quick picks:</p>
-                      <div className="flex flex-wrap gap-2">
-                        {SUGGESTED_NAMES.map((n) => (
-                          <button
-                            key={n}
-                            onClick={() => { setName(n); setError(''); }}
-                            className="px-3 py-1.5 rounded-lg text-xs font-mono transition-all hover:opacity-80"
-                            style={{
-                              background: 'rgba(0,232,255,0.07)',
-                              border: '1px solid rgba(0,232,255,0.2)',
-                              color: '#00e8ff',
-                            }}
-                          >
-                            {n}
-                          </button>
-                        ))}
+                  {currentStep === 'Identity' && (
+                    <div className="space-y-5">
+                      <div>
+                        <Label htmlFor="cc-name" className="text-xs uppercase tracking-widest text-slate-500">Display name</Label>
+                        <Input
+                          id="cc-name"
+                          value={name}
+                          onChange={(e) => { setName(e.target.value); setError(''); }}
+                          maxLength={NAME_MAX}
+                          placeholder="Enter your codename..."
+                          autoFocus
+                          onKeyDown={(e) => e.key === 'Enter' && !loading && handleSave()}
+                          className="mt-1"
+                        />
+                        <div className="mt-2 flex flex-wrap gap-2">
+                          {SUGGESTED_NAMES.map((n) => (
+                            <button
+                              key={n}
+                              onClick={() => { setName(n); setError(''); }}
+                              className="px-3 py-1.5 rounded-lg text-xs font-mono transition-all hover:opacity-80"
+                              style={{
+                                background: 'rgba(0,232,255,0.07)',
+                                border: '1px solid rgba(0,232,255,0.2)',
+                                color: '#00e8ff',
+                              }}
+                            >
+                              {n}
+                            </button>
+                          ))}
+                        </div>
                       </div>
+
+                      <div>
+                        <Label className="text-xs uppercase tracking-widest text-slate-500">CISSP exam date (optional)</Label>
+                        <Popover>
+                          <PopoverTrigger
+                            render={
+                              <Button
+                                variant="outline"
+                                className={cn(
+                                  'mt-1 w-full justify-start text-left font-normal',
+                                  !examDate && 'text-muted-foreground'
+                                )}
+                              >
+                                <CalendarIcon className="mr-2 h-4 w-4" />
+                                {examDate ? format(examDate, 'PPP') : 'Pick a date'}
+                              </Button>
+                            }
+                          />
+                          <PopoverContent className="w-auto p-0" align="start">
+                            <Calendar
+                              mode="single"
+                              selected={examDate}
+                              onSelect={(d) => { setExamDate(d); setError(''); }}
+                              disabled={(d) => d.getTime() <= Date.now()}
+                              autoFocus
+                            />
+                          </PopoverContent>
+                        </Popover>
+                        <p className="text-xs mt-1" style={{ color: '#334155' }}>
+                          Optional. Powers your dashboard countdown and adaptive study pacing.
+                        </p>
+                      </div>
+
+                      {error && <p className="text-xs text-red-400">{error}</p>}
                     </div>
                   )}
                 </div>
@@ -442,34 +580,16 @@ export default function CreateCharacterPage() {
             </AnimatePresence>
           </div>
 
-          {/* ── Nav buttons ── */}
           <div className="flex gap-3 mt-4">
             {!isFirst && (
-              <button
-                onClick={retreat}
-                className="px-5 py-2.5 rounded-xl text-sm font-medium transition-all hover:opacity-80"
-                style={{ border: '1px solid #1e2d4a', color: '#64748b' }}
-              >
-                ← Back
-              </button>
+              <Button variant="outline" onClick={retreat}>← Back</Button>
             )}
             {isLast ? (
-              <button
-                onClick={handleSave}
-                disabled={loading}
-                className="flex-1 py-2.5 rounded-xl text-sm font-bold transition-all hover:opacity-90 disabled:opacity-50"
-                style={{ background: '#00e8ff', color: '#080c14' }}
-              >
-                {loading ? 'Deploying agent...' : isEditing ? 'Save Changes' : 'Deploy to Sentinel Dynamics →'}
-              </button>
+              <Button onClick={handleSave} disabled={loading} className="flex-1">
+                {loading ? 'Deploying agent...' : 'Deploy to Sentinel Dynamics →'}
+              </Button>
             ) : (
-              <button
-                onClick={advance}
-                className="flex-1 py-2.5 rounded-xl text-sm font-bold transition-all hover:opacity-90"
-                style={{ background: '#00e8ff', color: '#080c14' }}
-              >
-                Continue →
-              </button>
+              <Button onClick={advance} className="flex-1">Continue →</Button>
             )}
           </div>
         </div>

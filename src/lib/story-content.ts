@@ -12,7 +12,7 @@ import {
 const TORONTO_BG = LOCATION_GRADIENTS_V2['toronto'];
 
 const domain1Scenes: StoryScene[] = [
-  // ── Scene 1: Alex arrives at Meridian Global Toronto HQ ─────────────────
+  // ── Scene 1: {playerName} arrives at Meridian Global Toronto HQ ─────────────────
   {
     id: 'd1-s01',
     type: 'narration',
@@ -20,7 +20,7 @@ const domain1Scenes: StoryScene[] = [
     background: TORONTO_BG,
     speaker: 'narrator',
     dialogue:
-      'Meridian Global HQ — Bay Street Tower, Toronto. 06:42 local time. Alex Mercer, senior consultant at Sentinel Dynamics, has just landed on a red-eye from Vancouver. The call came at midnight: Meridian — a Fortune 500 financial services firm — has been breached.',
+      'Meridian Global HQ — Bay Street Tower, Toronto. 06:42 local time. {playerName}, senior consultant at Sentinel Dynamics, has just landed on a red-eye from Vancouver. The call came at midnight: Meridian — a Fortune 500 financial services firm — has been breached.',
   },
 
   // ── Scene 2: Meet Dr. Tanaka ─────────────────────────────────────────────
@@ -33,7 +33,7 @@ const domain1Scenes: StoryScene[] = [
     rightNPC: 'alex',
     speaker: 'tanaka',
     dialogue:
-      'Alex. Thank you for coming so quickly. I\'m Dr. Keiko Tanaka — I lead risk management here. I wish our first meeting were under better circumstances. Meridian was breached thirty-six hours ago. Someone got in, accessed sensitive client data, and nearly erased the evidence trail. We\'re still piecing it together.',
+      '{playerName}. Thank you for coming so quickly. I\'m Dr. Keiko Tanaka — I lead risk management here. I wish our first meeting were under better circumstances. Meridian was breached thirty-six hours ago. Someone got in, accessed sensitive client data, and nearly erased the evidence trail. We\'re still piecing it together.',
   },
 
   // ── Scene 3: Breach overview — risk management framing ───────────────────
@@ -316,7 +316,7 @@ const domain1Scenes: StoryScene[] = [
     rightNPC: 'alex',
     speaker: 'tanaka',
     dialogue:
-      'You\'ve done well, Alex. Today you learned the CIA Triad — the three vault locks of security. Risk management: ALE calculations, risk treatment options, GRC as the corporate immune system. Security governance: policy hierarchy from constitution to suggestions. BCP and DRP fundamentals. Legal frameworks and IP protection. And the Think Like a Manager lens that the CISSP exam demands. Tomorrow you fly to London. Priya Sharma — Meridian\'s CISO — needs you to assess the data classification failure that made this breach possible. And keep Ghost Holloway in mind. That access log anomaly bothers me.',
+      'You\'ve done well, {playerName}. Today you learned the CIA Triad — the three vault locks of security. Risk management: ALE calculations, risk treatment options, GRC as the corporate immune system. Security governance: policy hierarchy from constitution to suggestions. BCP and DRP fundamentals. Legal frameworks and IP protection. And the Think Like a Manager lens that the CISSP exam demands. Tomorrow you fly to London. Priya Sharma — Meridian\'s CISO — needs you to assess the data classification failure that made this breach possible. And keep Ghost Holloway in mind. That access log anomaly bothers me.',
     xpReward: 500,
   },
 ];
@@ -331,7 +331,7 @@ const domain2Scenes: StoryScene[] = [
     background: LOCATION_GRADIENTS_V2['london'],
     speaker: 'narrator',
     dialogue:
-      'Meridian Global EMEA HQ — Canary Wharf, London. Priya Sharma, CISO, meets Alex in the data governance war room. Half of Meridian\'s client data was misclassified as "Internal" when it should have been "Restricted." That misclassification is why the attacker could exfiltrate it without triggering a single DLP alert.',
+      'Meridian Global EMEA HQ — Canary Wharf, London. Priya Sharma, CISO, meets {playerName} in the data governance war room. Half of Meridian\'s client data was misclassified as "Internal" when it should have been "Restricted." That misclassification is why the attacker could exfiltrate it without triggering a single DLP alert.',
   },
   {
     id: 'd2-s02',
@@ -342,7 +342,7 @@ const domain2Scenes: StoryScene[] = [
     rightNPC: 'alex',
     speaker: 'sharma',
     dialogue:
-      'Alex. I\'m Priya Sharma. The breach in Toronto was possible because nobody here enforced proper data classification. We\'ve had a classification policy for three years. What we didn\'t have was a data owner who actually reviewed classification assignments. The data owners signed off without reading the documents. That\'s where Asset Security breaks down.',
+      '{playerName}. I\'m Priya Sharma. The breach in Toronto was possible because nobody here enforced proper data classification. We\'ve had a classification policy for three years. What we didn\'t have was a data owner who actually reviewed classification assignments. The data owners signed off without reading the documents. That\'s where Asset Security breaks down.',
   },
   {
     id: 'd2-s03',
@@ -462,7 +462,7 @@ const domain2Scenes: StoryScene[] = [
     rightNPC: 'alex',
     speaker: 'sharma',
     dialogue:
-      'The investigation is pointing east. The data destruction pattern — the way they overwrote logs — matches a technique documented in a Munich incident two years ago. The architecture team at our Munich office may have seen something similar. I\'m sending you there next. Watch your back, Alex. Ghost Holloway has contacts in Munich.',
+      'The investigation is pointing east. The data destruction pattern — the way they overwrote logs — matches a technique documented in a Munich incident two years ago. The architecture team at our Munich office may have seen something similar. I\'m sending you there next. Watch your back, {playerName}. Ghost Holloway has contacts in Munich.',
     xpReward: 300,
   },
 ];
@@ -836,7 +836,7 @@ const domain5Scenes: StoryScene[] = [
     background: LOCATION_GRADIENTS_V2['new-york'],
     speaker: 'narrator',
     dialogue:
-      'Meridian Global Americas SOC — Midtown Manhattan. Marcus Webb has been running Meridian\'s Security Operations Center for four years. He\'s been cooperating fully with the investigation. Too fully, some would say. He volunteered access to every system before Alex could ask. That\'s either innocent transparency — or someone who already cleaned up their tracks.',
+      'Meridian Global Americas SOC — Midtown Manhattan. Marcus Webb has been running Meridian\'s Security Operations Center for four years. He\'s been cooperating fully with the investigation. Too fully, some would say. He volunteered access to every system before {playerName} could ask. That\'s either innocent transparency — or someone who already cleaned up their tracks.',
   },
   {
     id: 'd5-s02',
@@ -847,7 +847,7 @@ const domain5Scenes: StoryScene[] = [
     rightNPC: 'alex',
     speaker: 'webb',
     dialogue:
-      'Alex. I\'ve been expecting you. Whatever you need — logs, access records, system configs — you have it. I want to find out what happened as much as you do. The identity and access management on this platform is my responsibility. If someone exploited a gap, I need to know.',
+      '{playerName}. I\'ve been expecting you. Whatever you need — logs, access records, system configs — you have it. I want to find out what happened as much as you do. The identity and access management on this platform is my responsibility. If someone exploited a gap, I need to know.',
   },
   {
     id: 'd5-s03',
@@ -897,7 +897,7 @@ const domain5Scenes: StoryScene[] = [
     rightNPC: 'alex',
     speaker: 'webb',
     dialogue:
-      'Alex confronts Webb with the reactivation log. Webb goes quiet for a long moment. "I reactivated Jordan Kim\'s account. Holloway came to me eight months ago — said he needed it temporarily to run a data migration script. He was a senior developer. The request looked legitimate. I approved a 72-hour window. I should have set an automated expiry. I didn\'t. The account never got disabled. That\'s on me." His voice is steady. Confessional, almost rehearsed. Alex notes the timestamp: the reactivation happened six days before the data migration project was even created in the project management system.',
+      '{playerName} confronts Webb with the reactivation log. Webb goes quiet for a long moment. "I reactivated Jordan Kim\'s account. Holloway came to me eight months ago — said he needed it temporarily to run a data migration script. He was a senior developer. The request looked legitimate. I approved a 72-hour window. I should have set an automated expiry. I didn\'t. The account never got disabled. That\'s on me." His voice is steady. Confessional, almost rehearsed. {playerName} notes the timestamp: the reactivation happened six days before the data migration project was even created in the project management system.',
   },
 
   // ── Scene 6: OAuth 2.0 flows — memory hack ────────────────────────────────
@@ -1268,7 +1268,7 @@ const domain7Scenes: StoryScene[] = [
     rightNPC: 'alex',
     speaker: 'webb',
     dialogue:
-      'Alex — I need to tell you something. About Holloway. About what I know. Three years ago, Holloway asked me to approve an access request that didn\'t follow the least-privilege policy. He said it was temporary. For a project. I approved it as a one-time exception. I never followed up to revoke it. That account permission — the one I approved — is in the forensic trail. I\'m the gap in the control.',
+      '{playerName} — I need to tell you something. About Holloway. About what I know. Three years ago, Holloway asked me to approve an access request that didn\'t follow the least-privilege policy. He said it was temporary. For a project. I approved it as a one-time exception. I never followed up to revoke it. That account permission — the one I approved — is in the forensic trail. I\'m the gap in the control.',
   },
   {
     id: 'd7-s04',
@@ -1337,7 +1337,7 @@ const domain7Scenes: StoryScene[] = [
     rightNPC: 'alex',
     speaker: 'webb',
     dialogue:
-      'Alex lays out the timeline. The access approvals. The disabled correlation rule. The reactivated Kim account. All pointing to Webb. Webb doesn\'t deny any of it. "I didn\'t know what Holloway was doing. I made bad decisions — rushed approvals, disabled rules to stop alert fatigue, forgot to follow up on exceptions. I\'m not a conspirator. I\'m a manager who cut too many corners. And because of that, I was the gap that made everything else possible." He slides his access badge across the table. "Investigating myself was always going to end here."',
+      '{playerName} lays out the timeline. The access approvals. The disabled correlation rule. The reactivated Kim account. All pointing to Webb. Webb doesn\'t deny any of it. "I didn\'t know what Holloway was doing. I made bad decisions — rushed approvals, disabled rules to stop alert fatigue, forgot to follow up on exceptions. I\'m not a conspirator. I\'m a manager who cut too many corners. And because of that, I was the gap that made everything else possible." He slides his access badge across the table. "Investigating myself was always going to end here."',
     xpReward: 50,
   },
 
@@ -1607,7 +1607,7 @@ const domain8Scenes: StoryScene[] = [
     rightNPC: 'alex',
     speaker: 'tanaka',
     dialogue:
-      'Dr. Tanaka has flown in from Toronto. She looks exhausted but satisfied. "You traced the whole thing, Alex. From the risk register entry that nobody acted on, to the governance failure that let an exception become a permanent privilege, to the architecture flaw, to the network attack, to the code that should never have passed review. And now: the dependency confusion attack hiding in the build pipeline that nobody was watching. Ghost Holloway didn\'t find gaps. He exploited gaps that already existed — in our process, our culture, and our assumptions. This is what CISSP mastery looks like in the real world. Not a certification. A way of thinking." She hands Alex a document: Meridian\'s security transformation roadmap. "Now help us fix it."',
+      'Dr. Tanaka has flown in from Toronto. She looks exhausted but satisfied. "You traced the whole thing, {playerName}. From the risk register entry that nobody acted on, to the governance failure that let an exception become a permanent privilege, to the architecture flaw, to the network attack, to the code that should never have passed review. And now: the dependency confusion attack hiding in the build pipeline that nobody was watching. Ghost Holloway didn\'t find gaps. He exploited gaps that already existed — in our process, our culture, and our assumptions. This is what CISSP mastery looks like in the real world. Not a certification. A way of thinking." She hands {playerName} a document: Meridian\'s security transformation roadmap. "Now help us fix it."',
     xpReward: 500,
   },
 ];

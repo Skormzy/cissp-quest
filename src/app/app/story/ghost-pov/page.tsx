@@ -113,7 +113,7 @@ function AdversaryWatermark() {
 // ─── Page ──────────────────────────────────────────────────
 
 export default function GhostPOVPage() {
-  const { user, updateXp } = useUserStore();
+  const { user, profile, updateXp } = useUserStore();
   const [activeScene, setActiveScene] = useState(0);
   const [completedScenes, setCompletedScenes] = useState<number[]>([]);
   const [xpTotal, setXpTotal] = useState(0);
@@ -271,7 +271,7 @@ export default function GhostPOVPage() {
               key={`vne-${activeScene}-${sceneKeys[activeScene]}`}
               chapter={chapter}
               initialSceneIndex={0}
-              playerName={user?.character_name || 'Alex'}
+              playerName={profile?.display_name || user?.character_name || 'Agent'}
               onChapterComplete={handleChapterComplete}
               onXPEarned={handleXPEarned}
             />

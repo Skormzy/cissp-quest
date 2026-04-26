@@ -143,7 +143,7 @@ function CompletionScreen({
 export default function MeridianDomainPage() {
   const params = useParams();
   const domainId = parseInt(params.domain as string);
-  const { user, updateXp } = useUserStore();
+  const { user, profile, updateXp } = useUserStore();
 
   const chapter = getMeridianChapter(domainId);
   const domain = DOMAINS.find((d) => d.id === domainId);
@@ -389,7 +389,7 @@ export default function MeridianDomainPage() {
               ? gatePassedSceneIndex
               : initialSceneIndex
           }
-          playerName={user?.character_name || 'Alex'}
+          playerName={profile?.display_name || user?.character_name || 'Agent'}
           onSceneComplete={handleSceneComplete}
           onChapterComplete={handleChapterComplete}
           onXPEarned={handleXPEarned}

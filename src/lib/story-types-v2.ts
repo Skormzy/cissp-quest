@@ -59,7 +59,7 @@ export const NPC_REGISTRY_V2: Record<NPCId, NPC> = {
   },
   alex: {
     id: 'alex',
-    name: 'Alex Mercer',
+    name: '{playerName}',
     role: 'Security Consultant — Sentinel Dynamics',
     color: '#00e8ff',
     emoji: '🧑‍🔍',

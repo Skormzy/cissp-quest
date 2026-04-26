@@ -306,7 +306,7 @@ export const GHOST_SCENE_C: DomainChapter = {
       leftNPC: 'tanaka',
       speaker: 'tanaka',
       dialogue:
-        'Alex, this is why ethics is Domain 1, not an afterthought. Ghost knew the right thing to do. He had the knowledge, the evidence, and the legal pathway. But ninety days of silence from his organisation eroded his trust in the system until he made a choice that destroyed his career while trying to protect strangers he had never met. Security is not just about firewalls and protocols. It is about the humans inside the systems — and the organisations that either support them or fail them.',
+        '{playerName}, this is why ethics is Domain 1, not an afterthought. Ghost knew the right thing to do. He had the knowledge, the evidence, and the legal pathway. But ninety days of silence from his organisation eroded his trust in the system until he made a choice that destroyed his career while trying to protect strangers he had never met. Security is not just about firewalls and protocols. It is about the humans inside the systems — and the organisations that either support them or fail them.',
       xpReward: 50,
     },
   ],

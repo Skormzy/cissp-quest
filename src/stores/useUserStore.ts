@@ -1,12 +1,14 @@
 'use client';
 
 import { create } from 'zustand';
-import { User } from '@/lib/types';
+import { User, PlayerProfile } from '@/lib/types';
 
 interface UserState {
   user: User | null;
+  profile: PlayerProfile | null;
   isLoading: boolean;
   setUser: (user: User | null) => void;
+  setProfile: (profile: PlayerProfile | null) => void;
   setLoading: (loading: boolean) => void;
   updateXp: (amount: number) => void;
   updateStreak: (count: number) => void;
@@ -14,8 +16,15 @@ interface UserState {
 
 export const useUserStore = create<UserState>((set) => ({
   user: null,
+  profile: null,
   isLoading: true,
-  setUser: (user) => set({ user, isLoading: false }),
+  setUser: (user) =>
+    set((state) => ({
+      user,
+      profile: user && state.user?.id === user.id ? state.profile : null,
+      isLoading: false,
+    })),
+  setProfile: (profile) => set({ profile }),
   setLoading: (isLoading) => set({ isLoading }),
   updateXp: (amount) =>
     set((state) => {

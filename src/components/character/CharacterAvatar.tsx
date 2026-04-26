@@ -7,7 +7,17 @@ export interface CharacterConfig {
   hairStyle: number;   // 1–12
   hairColor: string;   // hex
   outfit: number;      // 1–6
+  eyeColor?: string;   // optional hex; if omitted, derived from skinTone
 }
+
+export const EYE_COLORS = [
+  { hex: '#1a1a2e', label: 'Onyx'   },
+  { hex: '#3d2008', label: 'Hazel'  },
+  { hex: '#4a2f1a', label: 'Brown'  },
+  { hex: '#2e5d3a', label: 'Forest' },
+  { hex: '#1e4a6e', label: 'Ocean'  },
+  { hex: '#6e4a8e', label: 'Violet' },
+] as const;
 
 // ── Skin Tones ─────────────────────────────────────────────────────────
 // 8 tones covering the full human spectrum, explicitly diverse
@@ -190,7 +200,7 @@ export default function CharacterAvatar({ config, size = 120, className = '', an
   // Derived colors
   const shadowColor = `${skinColor}88`;
   const lipColor = config.skinTone >= 6 ? '#c4847a' : '#d4756b';
-  const irisColor = config.skinTone >= 7 ? '#3d2008' : '#1a1a2e';
+  const irisColor = config.eyeColor ?? (config.skinTone >= 7 ? '#3d2008' : '#1a1a2e');
 
   return (
     <svg

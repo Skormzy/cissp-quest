@@ -1,6 +1,8 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
+const ONBOARDING_PATH = '/app/create-character';
+
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
 
@@ -13,7 +15,7 @@ export async function updateSession(request: NextRequest) {
           return request.cookies.getAll();
         },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) =>
+          cookiesToSet.forEach(({ name, value }) =>
             request.cookies.set(name, value)
           );
           supabaseResponse = NextResponse.next({ request });
@@ -29,18 +31,38 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // Protected routes: redirect to login if not authenticated
-  if (!user && request.nextUrl.pathname.startsWith('/app')) {
+  const pathname = request.nextUrl.pathname;
+
+  if (!user && pathname.startsWith('/app')) {
     const url = request.nextUrl.clone();
     url.pathname = '/login';
     return NextResponse.redirect(url);
   }
 
-  // Redirect authenticated users away from auth pages
-  if (user && (request.nextUrl.pathname === '/login' || request.nextUrl.pathname === '/signup')) {
+  if (user && (pathname === '/login' || pathname === '/signup')) {
     const url = request.nextUrl.clone();
     url.pathname = '/app/dashboard';
     return NextResponse.redirect(url);
+  }
+
+  if (
+    user &&
+    pathname.startsWith('/app') &&
+    pathname !== ONBOARDING_PATH &&
+    !pathname.startsWith('/api') &&
+    !pathname.startsWith('/auth')
+  ) {
+    const { data: profile } = await supabase
+      .from('player_profile')
+      .select('user_id')
+      .eq('user_id', user.id)
+      .maybeSingle();
+
+    if (!profile) {
+      const url = request.nextUrl.clone();
+      url.pathname = ONBOARDING_PATH;
+      return NextResponse.redirect(url);
+    }
   }
 
   return supabaseResponse;

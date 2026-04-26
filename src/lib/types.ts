@@ -1,5 +1,24 @@
 // Database types for CISSP Quest
 
+export interface PlayerProfile {
+  user_id: string;
+  display_name: string;
+  gender: 'male' | 'female' | 'nonbinary';
+  pronoun_subject: string;
+  pronoun_object: string;
+  pronoun_possessive: string;
+  pronoun_reflexive: string;
+  skin_tone: number;
+  eye_shape: number;
+  eye_color: string | null;
+  hair_style: number;
+  hair_color: string;
+  outfit: number;
+  exam_date: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
 export interface User {
   id: string;
   display_name: string | null;

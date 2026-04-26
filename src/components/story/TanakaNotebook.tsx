@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Lock } from 'lucide-react';
+import { useUserStore } from '@/stores/useUserStore';
+import { substituteTokens, type PlayerProfileTokens } from '@/lib/player-tokens';
 
 // ─── Types ─────────────────────────────────────────────────
 
@@ -40,7 +42,7 @@ export const NOTEBOOK_ENTRIES: NotebookEntry[] = [
     title: 'Act 1 — Security & Risk Management',
     location: 'Toronto, Sentinel Dynamics HQ',
     date: 'Day 1 of the Meridian Investigation',
-    tanakaVoice: `Alex, the first thing you must understand about Meridian's failure is that it was not a technology failure — it was a governance failure. Nobody owned the risk. Nobody had signed off on an acceptable level of exposure. When there is no risk register, there is no accountability, and when there is no accountability, attackers can move undetected for months. I have seen this pattern at three Fortune 500 companies before Meridian.
+    tanakaVoice: `{playerName}, the first thing you must understand about Meridian's failure is that it was not a technology failure — it was a governance failure. Nobody owned the risk. Nobody had signed off on an acceptable level of exposure. When there is no risk register, there is no accountability, and when there is no accountability, attackers can move undetected for months. I have seen this pattern at three Fortune 500 companies before Meridian.
 
 The CISSP exam will test whether you understand this fundamental truth: security is a business function, not an IT function. The CISO reports to the board. Risk appetite is set by executives, not engineers. When Meridian's board approved the Taipei acquisition without a due diligence security assessment, they were making a risk decision — they just did not know they were making it.
 
@@ -212,7 +214,7 @@ The OSI model is not just an academic exercise. When an attacker sends a malform
     title: 'Act 5 — Identity & Access Management',
     location: 'New York, Meridian Americas Division',
     date: 'Day 19 — The Insider Threat Discovery',
-    tanakaVoice: `This is where Ghost Holloway entered our investigation, Alex. When Marcus Webb pulled the access logs for the New York division, we found something deeply troubling: a contractor account that had been terminated six months earlier was still actively authenticating to Meridian's production systems. Not because of a sophisticated bypass — because nobody had deprovisioned the account. Identity and access management failure at its most basic.
+    tanakaVoice: `This is where Ghost Holloway entered our investigation, {playerName}. When Marcus Webb pulled the access logs for the New York division, we found something deeply troubling: a contractor account that had been terminated six months earlier was still actively authenticating to Meridian's production systems. Not because of a sophisticated bypass — because nobody had deprovisioned the account. Identity and access management failure at its most basic.
 
 IAM is the guardian of every resource in your organisation. When it fails, it does not fail loudly. There is no explosion, no alarm, no obvious breach indicator. An orphaned account, a misconfigured role, an overprivileged service account — these are silent vulnerabilities that can persist for years. Ghost exploited exactly this silence.
 
@@ -560,7 +562,7 @@ export default function TanakaNotebook({
                 style={{ transformOrigin: 'left center', transformStyle: 'preserve-3d' }}
               >
                 {unlockedDomains.includes(activeDomain) ? (
-                  <NotebookPageContent entry={entry} />
+                  <NotebookPageContentWithTokens entry={entry} />
                 ) : (
                   <LockedPage domain={activeDomain} />
                 )}
@@ -606,6 +608,39 @@ function LockedPage({ domain }: { domain: number }) {
 }
 
 // ─── Page Content ──────────────────────────────────────────
+
+function NotebookPageContentWithTokens({ entry }: { entry: NotebookEntry }) {
+  const profile = useUserStore((s) => s.profile);
+  const tokens: PlayerProfileTokens = profile
+    ? {
+        display_name:       profile.display_name,
+        pronoun_subject:    profile.pronoun_subject,
+        pronoun_object:     profile.pronoun_object,
+        pronoun_possessive: profile.pronoun_possessive,
+        pronoun_reflexive:  profile.pronoun_reflexive,
+      }
+    : {
+        display_name:       'Agent',
+        pronoun_subject:    'they',
+        pronoun_object:     'them',
+        pronoun_possessive: 'their',
+        pronoun_reflexive:  'themself',
+      };
+  const substituted: NotebookEntry = {
+    ...entry,
+    tanakaVoice: substituteTokens(entry.tanakaVoice, tokens),
+    trapWarning: substituteTokens(entry.trapWarning, tokens),
+    memoryHacks: entry.memoryHacks.map((h) => ({
+      ...h,
+      trick: substituteTokens(h.trick, tokens),
+    })),
+    examObjectives: entry.examObjectives.map((o) => ({
+      ...o,
+      tanakaTip: substituteTokens(o.tanakaTip, tokens),
+    })),
+  };
+  return <NotebookPageContent entry={substituted} />;
+}
 
 function NotebookPageContent({ entry }: { entry: NotebookEntry }) {
   return (
