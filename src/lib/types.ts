@@ -10,11 +10,12 @@ export interface PlayerProfile {
   pronoun_reflexive: string;
   skin_tone: number;
   eye_shape: number;
-  eye_color: string | null;
+  eye_color: string;
   hair_style: number;
   hair_color: string;
   outfit: number;
   exam_date: string | null;
+  onboarding_completed_at: string;
   created_at: string;
   updated_at: string;
 }
