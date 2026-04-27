@@ -71,6 +71,7 @@ const domain1Scenes: StoryScene[] = [
         'Conduct a full forensic investigation to determine exactly how the breach occurred',
       ],
       correctIndex: 1,
+      diagram: 'nist-ir-cycle',
       explanation:
         'Containment comes first — every minute the breach is active, more data is at risk. PR, accountability decisions, and forensic investigations all follow containment. The IR plan exists precisely so leadership does not have to improvise in a crisis.',
       memoryHack:
@@ -187,6 +188,7 @@ const domain1Scenes: StoryScene[] = [
         '$1,000,000',
       ],
       correctIndex: 1,
+      diagram: 'ale-formula',
       explanation:
         'Step 1 — SLE = Asset Value × Exposure Factor = $8,000,000 × 0.50 = $4,000,000. Step 2 — ALE = SLE × ARO = $4,000,000 × 0.5 = $2,000,000. The ALE is the expected annual cost if this risk materializes.',
       memoryHack:
@@ -436,6 +438,7 @@ const domain2Scenes: StoryScene[] = [
         'Formatting — perform a full disk format',
       ],
       correctIndex: 2,
+      diagram: 'sanitization-levels',
       explanation:
         'Restricted data on media that will not be reused requires destruction — physical shredding, incineration, or disintegration. Clearing only removes logical data (recoverable). Purging removes magnetic data but leaves the physical media potentially reusable. Formatting is not a security sanitization method.',
       memoryHack:
@@ -508,6 +511,7 @@ const domain3Scenes: StoryScene[] = [
         'Brewer-Nash — which enforces conflict of interest controls',
       ],
       correctIndex: 1,
+      diagram: 'bell-lapadula',
       explanation:
         'Bell-LaPadula enforces confidentiality. Its Simple Security Property ("no read up") prevents subjects from reading above their clearance. A lower-clearance process reading higher-classified data violates this rule directly.',
       memoryHack:
@@ -545,6 +549,7 @@ const domain3Scenes: StoryScene[] = [
         'Bell-LaPadula\'s "no write down" rule',
       ],
       correctIndex: 1,
+      diagram: 'biba',
       explanation:
         'Biba\'s "no write up" rule (Star Integrity Property) prevents low-integrity subjects from writing to high-integrity objects. A compromised low-integrity process writing to a high-integrity audit log is exactly what this rule blocks. BLP governs confidentiality, not integrity.',
       memoryHack:
@@ -595,6 +600,7 @@ const domain3Scenes: StoryScene[] = [
         'Separation of duties — critical tasks require multiple people',
       ],
       correctIndex: 2,
+      diagram: 'defense-in-depth',
       explanation:
         'Defense in depth requires multiple independent layers of control. A flat VM network means the hypervisor escape bypassed a single boundary and immediately accessed production — no additional layer blocked the lateral movement. Each environment (dev, staging, prod) should be isolated behind its own control layer.',
       memoryHack:
@@ -654,6 +660,7 @@ const domain4Scenes: StoryScene[] = [
         'Layer 7 — Application (because it affects application traffic)',
       ],
       correctIndex: 1,
+      diagram: 'osi-stack',
       explanation:
         'ARP (Address Resolution Protocol) resolves IP addresses to MAC addresses and operates at Layer 2 — the Data Link layer. Even though ARP deals with IP addresses, it functions below the Network layer and is used to build Layer 2 forwarding tables.',
       memoryHack:
@@ -691,6 +698,7 @@ const domain4Scenes: StoryScene[] = [
         'TLS 1.3 encrypts the certificate exchange to prevent fingerprinting',
       ],
       correctIndex: 1,
+      diagram: 'tls-handshake',
       explanation:
         'TLS 1.3 removes legacy weak cipher suites (RSA key exchange, RC4, DES, 3DES) entirely and mandates ephemeral Diffie-Hellman for all sessions, providing Perfect Forward Secrecy. This means even if a long-term private key is later compromised, past session recordings cannot be decrypted.',
       memoryHack:
@@ -806,6 +814,7 @@ const domain4Scenes: StoryScene[] = [
         'MAC address filtering combined with WPA2-Enterprise',
       ],
       correctIndex: 2,
+      diagram: 'wireless-auth',
       explanation:
         '802.1X with EAP-TLS provides mutual authentication using per-user/per-device certificates. There is no shared secret to steal or crack. WPA3-SAE improves on WPA2-Personal but still relies on a shared passphrase. MAC filtering alone is trivially bypassed by spoofing.',
       memoryHack:
@@ -869,6 +878,7 @@ const domain5Scenes: StoryScene[] = [
         'Need to know — information should be compartmentalized',
       ],
       correctIndex: 1,
+      diagram: 'least-privilege',
       explanation:
         'Least privilege dictates that users receive only the minimum permissions required for their specific job function. A developer has no legitimate need for HR or financial data access. Least privilege violations are the most common contributor to insider threat incidents.',
       memoryHack:
@@ -936,6 +946,7 @@ const domain5Scenes: StoryScene[] = [
         'The TGS encrypts network traffic between the client and the service it is accessing',
       ],
       correctIndex: 2,
+      diagram: 'kerberos-flow',
       explanation:
         'The Kerberos flow is: (1) Client authenticates to the Authentication Server (AS) and receives a TGT encrypted with the KDC\'s secret key. (2) Client presents the TGT to the Ticket Granting Service (TGS) along with the service it needs. (3) TGS issues a service ticket specific to that resource. (4) Client presents the service ticket to the target service. The user\'s password is only used in step 1.',
       memoryHack:
@@ -978,6 +989,7 @@ const domain5Scenes: StoryScene[] = [
         'The Crossover Error Rate (CER) automatically adjusts to maintain equal FAR and FRR regardless of tuning',
       ],
       correctIndex: 1,
+      diagram: 'biometric-curve',
       explanation:
         'FAR and FRR trade off against each other. Lowering sensitivity (to reduce FRR — fewer false rejections of legitimate users) means the system accepts fuzzier matches — which increases FAR (more false acceptances of unauthorized users). The Crossover Error Rate (CER/EER) is where FAR = FRR and represents the optimal balance point.',
       memoryHack:
@@ -1061,6 +1073,7 @@ const domain6Scenes: StoryScene[] = [
         'Immediately run antivirus software to remove any malware present',
       ],
       correctIndex: 2,
+      diagram: 'evidence-volatility',
       explanation:
         'The first step in forensic examination is always to create a verified bit-for-bit image using a write-blocker. This preserves the original evidence in its exact state and maintains chain of custody. All analysis is performed on the copy, never the original.',
       memoryHack:
@@ -1156,6 +1169,7 @@ const domain6Scenes: StoryScene[] = [
         'Code review — manually inspect database query code with the development team',
       ],
       correctIndex: 1,
+      diagram: 'sast-dast-iast',
       explanation:
         'DAST tests the running application from the outside, which is appropriate for a deployed staging environment. SAST requires source code access and runs before deployment. RASP is a production control, not a testing method. Manual code review is valuable but not the most efficient for a deployed application.',
       memoryHack:
@@ -1253,6 +1267,7 @@ const domain7Scenes: StoryScene[] = [
         'Notify all stakeholders → Contain the spread → Eradicate the threat → Recover systems',
       ],
       correctIndex: 1,
+      diagram: 'nist-ir-cycle',
       explanation:
         'NIST IR lifecycle phase 3 order: Containment first — stop the bleeding. Eradication second — remove the cause. Recovery third — restore systems. This order is critical because eradicating without containing first may drive the attacker to open new vectors or destroy evidence.',
       memoryHack:
@@ -1303,6 +1318,7 @@ const domain7Scenes: StoryScene[] = [
         'SIEM covers network traffic; SOAR covers endpoint activity',
       ],
       correctIndex: 0,
+      diagram: 'siem-soar',
       explanation:
         'SIEM = collect, normalize, correlate, and alert on log data from across the environment. SOAR = automate the response workflow when an alert fires (create ticket, isolate endpoint, notify analyst, block IP). SIEM tells you what happened; SOAR acts on it. Most modern platforms combine both.',
       memoryHack:
@@ -1404,6 +1420,7 @@ const domain7Scenes: StoryScene[] = [
         'Simulation exercise — team responds to a mock crisis scenario in a dedicated test environment',
       ],
       correctIndex: 2,
+      diagram: 'dr-test-ladder',
       explanation:
         'Full interruption testing (also called a full cutover test) is the most realistic: production is actually shut down and recovery systems must carry the full load. It finds gaps that parallel and tabletop tests miss, but it creates real downtime risk. Organizations should have a mature plan and high confidence in DR readiness before attempting a full interruption test.',
       memoryHack:
@@ -1442,6 +1459,7 @@ const domain8Scenes: StoryScene[] = [
         'Implementing a Web Application Firewall to block SQL injection attempts',
       ],
       correctIndex: 1,
+      diagram: 'sast-dast-iast',
       explanation:
         'SAST analyzes source code before it executes, catching injection vulnerabilities at the point of introduction — before they reach production. Penetration testing finds it later (more expensive to fix). Security awareness training is preventive but not a technical control. WAFs are compensating controls, not source-level prevention.',
       memoryHack:
@@ -1490,6 +1508,7 @@ const domain8Scenes: StoryScene[] = [
         'Implement code signing on all internal packages to verify authenticity',
       ],
       correctIndex: 1,
+      diagram: 'devsecops-pipeline',
       explanation:
         'Dependency confusion is prevented by configuring the package manager to use a private registry (Artifactory, Azure Artifacts, npm Enterprise) as the exclusive source for internal package namespaces. When the build server only resolves internal package names from the private registry, there is no path to the malicious public package. Code signing is a secondary control; the private registry is the primary prevention.',
       memoryHack:
@@ -1534,6 +1553,7 @@ const domain8Scenes: StoryScene[] = [
         'A07 — Identification and Authentication Failures',
       ],
       correctIndex: 2,
+      diagram: 'owasp-top-10',
       explanation:
         'OWASP Top 10 2021 ranks Broken Access Control (#1) as the most widespread vulnerability — found in 94% of tested applications. It moved up from #5 in the 2017 list. Broken Access Control includes IDOR (Insecure Direct Object Reference), missing authorization checks, and privilege escalation. Injection dropped to #3 from the top spot it held for over a decade.',
       memoryHack:

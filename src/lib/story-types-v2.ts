@@ -81,6 +81,10 @@ export interface KnowledgeCheckData {
   correctIndex: number;
   explanation: string;
   memoryHack?: string;
+  // Optional concept key from src/components/diagrams/ConceptDiagram.tsx.
+  // When present, the knowledge-check UI renders the matching diagram
+  // beside the question for spatial / dual-coding memory reinforcement.
+  diagram?: string;
 }
 
 // ─── Core Scene Type ──────────────────────────────────────
