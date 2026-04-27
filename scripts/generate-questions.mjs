@@ -149,13 +149,24 @@ try {
   let cleaned = text.trim();
   const fence = cleaned.match(/```(?:json)?\s*([\s\S]+?)```/);
   if (fence) cleaned = fence[1].trim();
-  // If the CLI added any preamble, find the first '{' and last '}'.
   const firstBrace = cleaned.indexOf('{');
   const lastBrace = cleaned.lastIndexOf('}');
   if (firstBrace >= 0 && lastBrace > firstBrace) {
     cleaned = cleaned.slice(firstBrace, lastBrace + 1);
   }
-  parsed = JSON.parse(cleaned);
+  // Try strict parse first.
+  try {
+    parsed = JSON.parse(cleaned);
+  } catch (e) {
+    // Recover from the most common Claude output bug: using single quotes
+    // around JSON STRING VALUES (not keys). Convert single-quoted values
+    // to double-quoted, escaping any existing double quotes inside.
+    const fixed = cleaned.replace(/:\s*'([^'\\]*(?:\\.[^'\\]*)*)'/g, (_, val) => {
+      const escaped = val.replace(/"/g, '\\"');
+      return `: "${escaped}"`;
+    });
+    parsed = JSON.parse(fixed);
+  }
 } catch (err) {
   console.error('Failed to parse JSON from Claude CLI:', err.message);
   console.error('Raw response (first 800 chars):', text.slice(0, 800));
