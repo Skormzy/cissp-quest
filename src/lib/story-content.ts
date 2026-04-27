@@ -1463,10 +1463,11 @@ const domain8Scenes: StoryScene[] = [
     type: 'dialogue',
     location: 'San Francisco',
     background: LOCATION_GRADIENTS_V2['san-francisco'],
-    leftNPC: 'alex',
-    speaker: 'alex',
+    leftNPC: 'vasquez',
+    rightNPC: 'alex',
+    speaker: 'vasquez',
     dialogue:
-      'Ghost Holloway is in custody. The full picture: he introduced the SQL injection vulnerability, exploited it with credentials obtained through ARP poisoning of the Singapore management network, used a covert timing channel to exfiltrate data past the security model, and covered his tracks by reactivating a deprovisioned account through the IAM backlog gap Marcus Webb left open. Every domain in the CISSP curriculum — in one breach.',
+      'Elena Vasquez calls in from the forensic lab. The CI/CD pipeline review is producing more findings than the SQL injection alone. The build pipeline ran without artifact signing, without provenance tracking, and pulled dependencies straight from public registries with no allow-list. {playerName} — Holloway\'s manual code change is only the tip. Something earlier was sitting in the pipeline. We need to talk about software supply chain.',
   },
 
   // ── Scene 5: The dependency confusion attack — root cause revealed ─────────
