@@ -9,6 +9,9 @@ import { createClient } from '@/lib/supabase/client';
 import { useUserStore } from '@/stores/useUserStore';
 import { LibraryTopic, Question } from '@/lib/types';
 import { DOMAINS } from '@/lib/constants';
+import ConceptDiagram from '@/components/diagrams/ConceptDiagram';
+import { mapTopicToConcept } from '@/lib/library-concept-map';
+import LibraryFlashcard from '@/components/library/LibraryFlashcard';
 
 export default function TopicPage() {
   const params = useParams();
@@ -142,12 +145,41 @@ export default function TopicPage() {
         )}
       </div>
 
+      {/* Concept Diagram (if mapped) */}
+      {(() => {
+        const concept = mapTopicToConcept(topic);
+        return concept ? (
+          <div className="rounded-xl p-4" style={{ background: '#0a0f1a', border: '1px solid #1e2d4a' }}>
+            <p className="text-[10px] font-mono uppercase tracking-widest mb-3" style={{ color: '#00e8ff' }}>
+              Visual Anchor
+            </p>
+            <div className="flex justify-center">
+              <ConceptDiagram concept={concept} width={520} height={360} />
+            </div>
+            <p className="text-xs italic text-center mt-3" style={{ color: '#64748b' }}>
+              Spatial / dual-coding memory technique. Picture the diagram while reading below.
+            </p>
+          </div>
+        ) : null;
+      })()}
+
       {/* Main Content */}
       <div className="rounded-xl p-6 prose-cissp" style={{ background: '#111a2e', border: '1px solid #1e2d4a' }}>
         <ReactMarkdown remarkPlugins={[remarkGfm]}>
           {topic.content_markdown || ''}
         </ReactMarkdown>
       </div>
+
+      {/* Flashcards (auto-generated from quiz questions if available) */}
+      {quizQuestions.length > 0 && (
+        <LibraryFlashcard
+          title="Flashcard Practice"
+          cards={quizQuestions.map((q) => ({
+            front: q.question_text,
+            back: `${String.fromCharCode(65 + q.correct_index)}. ${q.options[q.correct_index]}\n\n${q.explanation}`,
+          }))}
+        />
+      )}
 
       {/* Key Formulas */}
       {topic.key_formulas && topic.key_formulas.length > 0 && (
