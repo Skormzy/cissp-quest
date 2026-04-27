@@ -184,7 +184,7 @@ const DOMAIN_ACCENT: Record<number, string> = {
   5: '#f59e0b',
   6: '#a855f7',
   7: '#ef4444',
-  8: '#06b6d4',
+  8: '#14b8a6', // teal — distinct from D1 cyan; mirrors --domain-8
 };
 
 export function getDomainAccent(domain: number | undefined | null): string {
