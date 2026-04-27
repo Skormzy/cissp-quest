@@ -6,6 +6,8 @@ import { useUserStore } from '@/stores/useUserStore';
 import { createClient } from '@/lib/supabase/client';
 import CATQuizEngine from '@/components/quiz/CATQuizEngine';
 import { CAT_CONFIGS, CATResults } from '@/lib/cat-session';
+import { awardXpClient } from '@/lib/award-xp-client';
+import { XP_REWARDS } from '@/lib/xp-rewards';
 
 export default function GauntletPage() {
   const { user } = useUserStore();
@@ -25,6 +27,8 @@ export default function GauntletPage() {
       .eq('user_id', user.id)
       .single();
 
+    const wasAlreadyCompleted = !!existing;
+
     if (existing) {
       await supabase
         .from('final_chapter_progress')
@@ -41,6 +45,12 @@ export default function GauntletPage() {
           tlatm_gauntlet_completed: true,
           tlatm_gauntlet_score: results.accuracy,
         });
+    }
+
+    // Pay TLATM_GAUNTLET_PASSED only on the first pass; subsequent retries
+    // do not re-pay the bounty.
+    if (!wasAlreadyCompleted) {
+      await awardXpClient(XP_REWARDS.TLATM_GAUNTLET_PASSED, 'tlatm-gauntlet-passed');
     }
   }, [user, supabase]);
 

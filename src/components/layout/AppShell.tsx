@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   Home, BookOpen, Zap, Library, Users, Trophy, User as UserIcon,
   Bell, Settings, Volume2, VolumeX, ChevronRight, LogOut, X,
@@ -11,9 +11,9 @@ import {
 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { useUserStore } from '@/stores/useUserStore';
-import { xpToNextLevel, getTitleForLevel } from '@/lib/xp';
+import { xpProgressToNext } from '@/lib/leveling';
 import CharacterAvatar, { type CharacterConfig } from '@/components/character/CharacterAvatar';
-import type { User } from '@/lib/types';
+import type { PlayerProfile } from '@/lib/types';
 import { Progress } from '@/components/ui/progress';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Badge } from '@/components/ui/badge';
@@ -63,21 +63,28 @@ const MOBILE_NAV: NavItem[] = [
   { href: '/app/profile',   label: 'Profile',   icon: UserIcon },
 ];
 
-function buildAvatarConfig(user: User): CharacterConfig {
+const GENDER_TO_AVATAR: Record<PlayerProfile['gender'], CharacterConfig['gender']> = {
+  male: 'Man',
+  female: 'Woman',
+  nonbinary: 'Non-binary',
+};
+
+function buildAvatarConfig(profile: PlayerProfile): CharacterConfig {
   return {
-    gender: (user.character_gender as CharacterConfig['gender']) ?? 'Man',
-    skinTone: user.character_skin || 1,
-    hairStyle: user.character_hair || 1,
-    hairColor: user.character_hair_color || '#2d1b00',
-    eyeShape: user.character_eye_shape || 1,
-    outfit: user.character_outfit || 1,
+    gender: GENDER_TO_AVATAR[profile.gender] ?? 'Man',
+    skinTone: profile.skin_tone || 1,
+    hairStyle: profile.hair_style || 1,
+    hairColor: profile.hair_color || '#2d1b00',
+    eyeShape: profile.eye_shape || 1,
+    eyeColor: profile.eye_color,
+    outfit: profile.outfit || 1,
   };
 }
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
-  const { user } = useUserStore();
+  const { user, profile } = useUserStore();
   const supabase = createClient();
 
   const [notifCount, setNotifCount] = useState(0);
@@ -109,9 +116,13 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
     router.push('/');
   };
 
-  const xpProgress = user ? xpToNextLevel(user.xp) : { current: 0, needed: 100, progress: 0 };
-  const title = user ? getTitleForLevel(user.level) : '';
-  const avatarConfig = user ? buildAvatarConfig(user) : null;
+  const xpProgress = profile
+    ? xpProgressToNext(profile.xp)
+    : { current: 0, needed: 100, percentage: 0, totalXp: 0, level: 1, nextLevelTotal: 100 };
+  const rankTitle = profile?.rank_title ?? 'Recruit';
+  const currentLevel = profile?.current_level ?? 1;
+  const avatarConfig = profile ? buildAvatarConfig(profile) : null;
+  const displayName = profile?.display_name ?? user?.display_name ?? 'Agent';
 
   return (
     <div className="flex h-screen overflow-hidden" style={{ background: '#080c14' }}>
@@ -144,7 +155,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* User XP block */}
-        {user && (
+        {profile && (
           <div className="px-3 py-4 border-b" style={{ borderColor: '#1e2d4a' }}>
             <div className={`flex ${sidebarCollapsed ? 'justify-center' : 'items-center gap-3'}`}>
               {avatarConfig && (
@@ -156,9 +167,9 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
               {!sidebarCollapsed && (
                 <div className="flex-1 min-w-0">
                   <div className="text-sm font-bold truncate" style={{ color: '#e2e8f0' }}>
-                    {user.character_name ?? user.display_name ?? 'Agent'}
+                    {displayName}
                   </div>
-                  <div className="text-xs" style={{ color: '#00e8ff' }}>{title}</div>
+                  <div className="text-xs" style={{ color: '#00e8ff' }}>{rankTitle}</div>
                 </div>
               )}
             </div>
@@ -166,20 +177,15 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             {!sidebarCollapsed && (
               <div className="mt-3 space-y-1">
                 <div className="flex justify-between text-xs">
-                  <span style={{ color: '#ffd700' }}>⚡ Lv.{user.level}</span>
+                  <span style={{ color: '#ffd700' }}>⚡ Lv.{currentLevel}</span>
                   <span style={{ color: '#64748b' }}>
                     {xpProgress.current}/{xpProgress.needed} XP
                   </span>
                 </div>
-                <div className="relative h-2 rounded-full overflow-hidden" style={{ background: '#1e2d4a' }}>
-                  <motion.div
-                    className="absolute inset-y-0 left-0 rounded-full"
-                    style={{ background: 'linear-gradient(90deg, #00e8ff, #00b8cc)' }}
-                    initial={{ width: 0 }}
-                    animate={{ width: `${xpProgress.progress}%` }}
-                    transition={{ duration: 0.8, ease: 'easeOut' }}
-                  />
-                </div>
+                <Progress
+                  value={xpProgress.percentage}
+                  className="h-2 bg-[#1e2d4a]"
+                />
               </div>
             )}
           </div>
@@ -337,14 +343,16 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
                     <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#4a5568' }}>
                       Account
                     </p>
-                    {user && (
+                    {(profile || user) && (
                       <div className="space-y-2">
                         <div className="text-sm" style={{ color: '#94a3b8' }}>
-                          {user.display_name ?? 'Agent'}
+                          {displayName}
                         </div>
-                        <div className="text-xs" style={{ color: '#4a5568' }}>
-                          {user.subscription_tier} tier
-                        </div>
+                        {user && (
+                          <div className="text-xs" style={{ color: '#4a5568' }}>
+                            {user.subscription_tier} tier
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>

@@ -9,6 +9,8 @@ import { DOMAINS } from '@/lib/constants';
 import { DOMAIN_COLORS, ACT_XP_REWARDS } from '@/lib/story-constants';
 import { getActData } from '@/data/story';
 import VisualNovelEngine from '@/components/story/VisualNovelEngine';
+import { awardXpClient } from '@/lib/award-xp-client';
+import { XP_REWARDS } from '@/lib/xp-rewards';
 
 function getProgressKey(domainId: number, actNumber: number) {
   return `story_progress_d${domainId}_act${actNumber}_node`;
@@ -75,13 +77,25 @@ export default function ActPlayerPage() {
 
   const handleSceneComplete = async (sceneId: string) => {
     if (!user) return;
-    // Upsert scene unlock
+    // Award SCENE_COMPLETED only on the FIRST unlock of this scene; replays
+    // are tracked via replay_count separately and do not re-pay XP.
+    const { data: existing } = await supabase
+      .from('scene_unlocks')
+      .select('id')
+      .eq('user_id', user.id)
+      .eq('scene_id', sceneId)
+      .maybeSingle();
+
     await supabase.from('scene_unlocks').upsert({
       user_id: user.id,
       scene_id: sceneId,
       domain_number: domainId,
       act_number: actNumber,
     }, { onConflict: 'user_id,scene_id' });
+
+    if (!existing) {
+      await awardXpClient(XP_REWARDS.SCENE_COMPLETED, `scene:${sceneId}`);
+    }
   };
 
   const handleActComplete = async () => {
@@ -146,9 +160,18 @@ export default function ActPlayerPage() {
       // The next act page will re-check the gate anyway.
     }
 
-    // Award XP
+    // Award XP via awardXp service (player_profile is canonical).
+    // Final act of the domain (act 4) fires DOMAIN_UNLOCKED; earlier acts fire
+    // SCENE_COMPLETED as a per-act milestone. xpReward retained for the local
+    // popup/animation totals only — it no longer writes to legacy users.xp.
+    const reward =
+      actNumber === 4 ? XP_REWARDS.DOMAIN_UNLOCKED : XP_REWARDS.SCENE_COMPLETED;
+    const reason =
+      actNumber === 4
+        ? `domain-unlocked:d${domainId}`
+        : `act-complete:d${domainId}:act${actNumber}`;
+    await awardXpClient(reward, reason);
     updateXp(xpReward);
-    await supabase.from('users').update({ xp: (user.xp || 0) + xpReward }).eq('id', user.id);
 
     // Clear saved progress since act is complete
     localStorage.removeItem(getProgressKey(domainId, actNumber));

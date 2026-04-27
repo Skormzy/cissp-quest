@@ -11,6 +11,8 @@ import { DOMAINS } from '@/lib/constants';
 import { Question, QuizAnswer } from '@/lib/types';
 import CATQuizEngine from '@/components/quiz/CATQuizEngine';
 import { CAT_CONFIGS, CATResults } from '@/lib/cat-session';
+import { awardXpClient } from '@/lib/award-xp-client';
+import { quizReward } from '@/lib/xp-rewards';
 
 export default function QuizPageWrapper() {
   return (
@@ -298,33 +300,18 @@ function QuizPage() {
     quiz.selectAnswer(index);
     quiz.recordAnswer(answer);
 
-    if (isCorrect && xpResult.totalXp > 0) {
+    if (xpResult.totalXp > 0) {
       updateXp(xpResult.totalXp);
       setXpPopup({ amount: xpResult.totalXp, critical: xpResult.isCriticalHit });
       setTimeout(() => setXpPopup(null), 2000);
-
-      await supabase
-        .from('users')
-        .update({
-          xp: (user.xp || 0) + xpResult.totalXp,
-          level: Math.floor(1 + Math.sqrt(((user.xp || 0) + xpResult.totalXp) / 100)),
-        })
-        .eq('id', user.id);
     }
 
-    // Save to user_answers
-    await supabase.from('user_answers').insert({
-      user_id: user.id,
-      question_id: question.id,
-      selected_index: index,
-      is_correct: isCorrect,
-      time_spent_seconds: timeSpent,
-      xp_earned: xpResult.totalXp,
-      session_id: quiz.sessionId,
-    });
+    await awardXpClient(
+      quizReward(isCorrect, question.difficulty),
+      `quiz:${question.difficulty}:${isCorrect ? 'correct' : 'incorrect'}`,
+    );
 
-    // Save to user_question_history (new detailed history table)
-    await supabase.from('user_question_history').insert({
+    await supabase.from('player_question_history').insert({
       user_id: user.id,
       question_id: question.id,
       domain_id: question.domain_id,

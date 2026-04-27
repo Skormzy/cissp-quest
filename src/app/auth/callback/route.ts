@@ -10,16 +10,32 @@ export async function GET(request: Request) {
     const supabase = await createClient();
     const { error } = await supabase.auth.exchangeCodeForSession(code);
     if (!error) {
-      // Check if user has created a character
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
-        const { data: profile } = await supabase
+        // Ensure a minimal users row exists. player_profile (canonical
+        // identity + progression) is created by the character creator;
+        // do NOT seed character_*/xp/level here.
+        const { data: existingUser } = await supabase
           .from('users')
-          .select('character_name')
+          .select('id')
           .eq('id', user.id)
-          .single();
+          .maybeSingle();
 
-        if (!profile?.character_name) {
+        if (!existingUser) {
+          await supabase
+            .from('users')
+            .insert({ id: user.id, display_name: user.email });
+        }
+
+        // Onboarding gate: send to character creator unless player_profile
+        // exists AND onboarding has been completed.
+        const { data: profile } = await supabase
+          .from('player_profile')
+          .select('onboarding_completed_at')
+          .eq('user_id', user.id)
+          .maybeSingle();
+
+        if (!profile?.onboarding_completed_at) {
           return NextResponse.redirect(`${origin}/app/create-character`);
         }
       }

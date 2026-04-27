@@ -10,6 +10,8 @@ import { DOMAIN_COLORS } from '@/lib/story-constants';
 import { getMeridianChapter } from '@/lib/story-content';
 import { DomainChapter } from '@/lib/story-types-v2';
 import VisualNovelEngineV2 from '@/components/story/VisualNovelEngineV2';
+import { awardXpClient } from '@/lib/award-xp-client';
+import { XP_REWARDS } from '@/lib/xp-rewards';
 
 // ─── Progress persistence ─────────────────────────────────
 
@@ -183,6 +185,15 @@ export default function MeridianDomainPage() {
       // Persist scene unlock to Supabase if user is logged in
       if (!user) return;
       const supabase = createClient();
+
+      // Award SCENE_COMPLETED only on first unlock; replays don't re-pay.
+      const { data: existing } = await supabase
+        .from('scene_unlocks')
+        .select('id')
+        .eq('user_id', user.id)
+        .eq('scene_id', sceneId)
+        .maybeSingle();
+
       await supabase.from('scene_unlocks').upsert(
         {
           user_id: user.id,
@@ -192,6 +203,10 @@ export default function MeridianDomainPage() {
         },
         { onConflict: 'user_id,scene_id' },
       );
+
+      if (!existing) {
+        await awardXpClient(XP_REWARDS.SCENE_COMPLETED, `meridian-scene:${sceneId}`);
+      }
     },
     [domainId, user, showActGate],
   );
@@ -211,13 +226,10 @@ export default function MeridianDomainPage() {
     if (!user) return;
     const supabase = createClient();
 
-    // Award any remaining XP
-    if (xpTotal > 0) {
-      await supabase
-        .from('users')
-        .update({ xp: (user.xp || 0) + xpTotal })
-        .eq('id', user.id);
-    }
+    // Domain conquered — fire DOMAIN_UNLOCKED. The xpTotal accumulator was
+    // historically written to legacy users.xp; it's now superseded by
+    // awardXp grants fired at each scene unlock.
+    await awardXpClient(XP_REWARDS.DOMAIN_UNLOCKED, `meridian-domain-complete:d${domainId}`);
 
     // Mark domain as having the Meridian chapter completed
     const { data: existing } = await supabase

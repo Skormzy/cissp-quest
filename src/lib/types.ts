@@ -16,6 +16,9 @@ export interface PlayerProfile {
   outfit: number;
   exam_date: string | null;
   onboarding_completed_at: string;
+  xp: number;
+  current_level: number;
+  rank_title: string;
   created_at: string;
   updated_at: string;
 }

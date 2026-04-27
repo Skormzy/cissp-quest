@@ -6,6 +6,8 @@ import { Question } from '@/lib/types';
 import { calculateQuestionXp, getGrade } from '@/lib/xp';
 import { useUserStore } from '@/stores/useUserStore';
 import { createClient } from '@/lib/supabase/client';
+import { awardXpClient } from '@/lib/award-xp-client';
+import { quizReward } from '@/lib/xp-rewards';
 
 interface AnswerRecord {
   questionId: string;
@@ -147,20 +149,22 @@ export default function StoryQuizEngine({ config, onPass, onFail }: StoryQuizEng
       updateXp(xpResult.totalXp);
     }
 
-    // Save to DB
     if (user) {
-      await supabase.from('user_answers').insert({
+      await supabase.from('player_question_history').insert({
         user_id: user.id,
         question_id: question.id,
-        selected_index: index,
+        domain_id: question.domain_id,
+        difficulty: question.difficulty,
+        selected_answer: index,
+        correct_answer: question.correct_index,
         is_correct: isCorrect,
         time_spent_seconds: Math.round(timeSpent),
-        xp_earned: xpResult.totalXp,
-        session_id: sessionId.current,
       });
 
-      // Update user XP in DB
-      await supabase.from('users').update({ xp: (user.xp || 0) + xpResult.totalXp }).eq('id', user.id);
+      await awardXpClient(
+        quizReward(isCorrect, question.difficulty),
+        `story-quiz:${question.difficulty}:${isCorrect ? 'correct' : 'incorrect'}`,
+      );
     }
   };
 

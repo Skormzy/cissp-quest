@@ -1,558 +1,415 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
+import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
+import { differenceInDays, format, parseISO } from 'date-fns';
+import {
+  BookOpen, Zap, NotebookPen, CalendarIcon, X, Target, Library as LibraryIcon, Award, Map,
+} from 'lucide-react';
 import { useUserStore } from '@/stores/useUserStore';
 import { createClient } from '@/lib/supabase/client';
-import CharacterAvatar from '@/components/character/CharacterAvatar';
-import { xpToNextLevel, getTitleForLevel } from '@/lib/xp';
-import { CHAPTERS, DOMAINS, ACHIEVEMENTS } from '@/lib/constants';
-import { StoryModeProgress, SpacedRepetitionSchedule } from '@/lib/story-types';
-import { getDomainStatus } from '@/lib/story-constants';
+import { xpProgressToNext, levelsToNextRank } from '@/lib/leveling';
+import CharacterAvatar, { type CharacterConfig } from '@/components/character/CharacterAvatar';
+import type { PlayerProfile } from '@/lib/types';
+import { Card } from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Calendar } from '@/components/ui/calendar';
+import { Button } from '@/components/ui/button';
+import { DOMAINS } from '@/lib/constants';
 
-// ─── Dynamic imports (client-only widgets) ───────────────────────────────────
+const GENDER_TO_AVATAR: Record<PlayerProfile['gender'], CharacterConfig['gender']> = {
+  male: 'Man',
+  female: 'Woman',
+  nonbinary: 'Non-binary',
+};
 
-const ExamCountdown = dynamic(
-  () => import('@/components/dashboard/ExamCountdown'),
-  { ssr: false },
-);
+function buildAvatarConfig(profile: PlayerProfile): CharacterConfig {
+  return {
+    gender: GENDER_TO_AVATAR[profile.gender] ?? 'Man',
+    skinTone: profile.skin_tone || 1,
+    hairStyle: profile.hair_style || 1,
+    hairColor: profile.hair_color || '#2d1b00',
+    eyeShape: profile.eye_shape || 1,
+    eyeColor: profile.eye_color,
+    outfit: profile.outfit || 1,
+  };
+}
 
-const DailyBrief = dynamic(
-  () => import('@/components/dashboard/DailyBrief'),
-  { ssr: false },
-);
+interface RecentAnswer {
+  id: string;
+  question_id: string;
+  domain_id: number;
+  difficulty: 'easy' | 'medium' | 'hard';
+  is_correct: boolean;
+  created_at: string;
+}
 
-const ForensicTimeline = dynamic(
-  () => import('@/components/story/ForensicTimeline'),
-  { ssr: false },
-);
+interface DashStats {
+  questionsAnswered: number;
+  accuracy: number;
+  scenesCompleted: number;
+  domainsUnlocked: number;
+  recent: RecentAnswer[];
+}
+
+const EMPTY_STATS: DashStats = {
+  questionsAnswered: 0,
+  accuracy: 0,
+  scenesCompleted: 0,
+  domainsUnlocked: 0,
+  recent: [],
+};
+
+function urgencyForDays(days: number): { color: string; label: string } {
+  if (days < 15) return { color: '#ef4444', label: 'Crunch time' };
+  if (days <= 60) return { color: '#f59e0b', label: 'Sprint' };
+  return { color: '#10b981', label: 'On track' };
+}
 
 export default function DashboardPage() {
-  const { user } = useUserStore();
-  const [stats, setStats] = useState({ totalAnswered: 0, accuracy: 0, dueReviews: 0 });
-  const [storyProgress, setStoryProgress] = useState<Record<number, StoryModeProgress>>({});
-  const [earnedBadges, setEarnedBadges] = useState<string[]>([]);
-  const [reviewNudges, setReviewNudges] = useState<SpacedRepetitionSchedule[]>([]);
-  const [examDate, setExamDate] = useState<string | null>(() => {
-    if (typeof window === 'undefined') return null;
-    return localStorage.getItem('cissp_exam_date');
-  });
+  const { profile, setProfile } = useUserStore();
   const supabase = createClient();
+  const [stats, setStats] = useState<DashStats>(EMPTY_STATS);
+  const [savingDate, setSavingDate] = useState(false);
+  const [calendarOpen, setCalendarOpen] = useState(false);
 
-  const handleSetExamDate = (date: string) => {
-    if (date) {
-      localStorage.setItem('cissp_exam_date', date);
-    } else {
-      localStorage.removeItem('cissp_exam_date');
-    }
-    setExamDate(date || null);
-  };
+  const loadStats = useCallback(async () => {
+    if (!profile) return;
+    const userId = profile.user_id;
+
+    const [historyRes, scenesRes, storyRes, recentRes] = await Promise.all([
+      supabase
+        .from('player_question_history')
+        .select('is_correct', { count: 'exact' })
+        .eq('user_id', userId),
+      supabase
+        .from('scene_unlocks')
+        .select('id', { count: 'exact', head: true })
+        .eq('user_id', userId),
+      supabase
+        .from('story_progress')
+        .select('domain_number, domain_conquered, act4_completed')
+        .eq('user_id', userId),
+      supabase
+        .from('player_question_history')
+        .select('id, question_id, domain_id, difficulty, is_correct, created_at')
+        .eq('user_id', userId)
+        .order('created_at', { ascending: false })
+        .limit(5),
+    ]);
+
+    const allAnswers = historyRes.data ?? [];
+    const correct = allAnswers.filter((a) => a.is_correct).length;
+    const total = historyRes.count ?? allAnswers.length;
+    const accuracy = total === 0 ? 0 : Math.round((correct / total) * 100);
+
+    const scenesCompleted = scenesRes.count ?? 0;
+    const domainsUnlocked = (storyRes.data ?? []).filter(
+      (r) => r.domain_conquered || r.act4_completed,
+    ).length;
+
+    setStats({
+      questionsAnswered: total,
+      accuracy,
+      scenesCompleted,
+      domainsUnlocked,
+      recent: (recentRes.data ?? []) as RecentAnswer[],
+    });
+  }, [profile, supabase]);
 
   useEffect(() => {
-    if (!user) return;
-
-    const loadStats = async () => {
-      // Load answer stats
-      const { data: answers } = await supabase
-        .from('user_answers')
-        .select('is_correct')
-        .eq('user_id', user.id);
-
-      if (answers) {
-        const total = answers.length;
-        const correct = answers.filter((a) => a.is_correct).length;
-        setStats((s) => ({
-          ...s,
-          totalAnswered: total,
-          accuracy: total > 0 ? Math.round((correct / total) * 100) : 0,
-        }));
-      }
-
-      // Load story mode progress
-      const { data: progress } = await supabase
-        .from('story_progress')
-        .select('*')
-        .eq('user_id', user.id);
-
-      if (progress) {
-        const map: Record<number, StoryModeProgress> = {};
-        progress.forEach((p: StoryModeProgress) => { map[p.domain_number] = p; });
-        setStoryProgress(map);
-      }
-
-      // Load achievements
-      const { data: badges } = await supabase
-        .from('achievements')
-        .select('badge_id')
-        .eq('user_id', user.id);
-
-      if (badges) {
-        setEarnedBadges(badges.map((b) => b.badge_id));
-      }
-
-      // Load due reviews count
-      const today = new Date().toISOString().split('T')[0];
-      const { count } = await supabase
-        .from('user_question_schedule')
-        .select('*', { count: 'exact', head: true })
-        .eq('user_id', user.id)
-        .lte('next_review', today);
-
-      setStats((s) => ({ ...s, dueReviews: count || 0 }));
-
-      // Load spaced repetition nudges
-      const now = new Date().toISOString();
-      const { data: nudges } = await supabase
-        .from('spaced_repetition_schedule')
-        .select('*')
-        .eq('user_id', user.id)
-        .eq('nudge_dismissed', false)
-        .lte('next_review_at', now)
-        .limit(5);
-
-      if (nudges) {
-        setReviewNudges(nudges);
-      }
-    };
-
     loadStats();
-  }, [user]);
+  }, [loadStats]);
 
-  if (!user) {
+  const handleExamDateChange = async (next: Date | undefined) => {
+    if (!profile) return;
+    setSavingDate(true);
+    const iso = next ? format(next, 'yyyy-MM-dd') : null;
+    const { error } = await supabase
+      .from('player_profile')
+      .update({ exam_date: iso })
+      .eq('user_id', profile.user_id);
+    if (!error) {
+      setProfile({ ...profile, exam_date: iso });
+    }
+    setSavingDate(false);
+    setCalendarOpen(false);
+  };
+
+  if (!profile) {
     return (
-      <div className="flex items-center justify-center min-h-[60vh]">
-        <div className="text-center">
-          <div className="w-10 h-10 rounded-full border-2 border-t-transparent animate-spin mx-auto mb-4" style={{ borderColor: '#00e8ff', borderTopColor: 'transparent' }} />
-          <p style={{ color: '#64748b' }}>Loading dashboard...</p>
-        </div>
+      <div className="text-center py-20" style={{ color: '#64748b' }}>
+        Loading agent dossier…
       </div>
     );
   }
 
-  const levelProgress = xpToNextLevel(user.xp);
-  const title = getTitleForLevel(user.level);
+  const xpProgress = xpProgressToNext(profile.xp);
+  const nextRank = levelsToNextRank(profile.current_level);
+  const avatarConfig = buildAvatarConfig(profile);
 
-  // Find next uncompleted domain
-  const nextChapter = CHAPTERS.find((ch) => !storyProgress[ch.domainId]?.domain_conquered);
-  // Check if ALL 8 domains are conquered
-  const allChaptersComplete = CHAPTERS.every((ch) => storyProgress[ch.domainId]?.domain_conquered);
-  const completedCount = CHAPTERS.filter((ch) => storyProgress[ch.domainId]?.domain_conquered).length;
-
-  // Find current in-progress chapter
-  const currentInProgress = CHAPTERS.find((ch) => {
-    const p = storyProgress[ch.domainId];
-    return p && !p.domain_conquered;
-  });
+  const examDate = profile.exam_date ? parseISO(profile.exam_date) : null;
+  const daysToExam = examDate ? differenceInDays(examDate, new Date()) : null;
+  const urgency = daysToExam !== null ? urgencyForDays(daysToExam) : null;
 
   return (
     <div className="space-y-6">
-      {/* Character Header */}
-      <div className="rounded-xl p-6 flex flex-col sm:flex-row items-center gap-6" style={{ background: '#111a2e', border: '1px solid #1e2d4a' }}>
-        <CharacterAvatar
-          config={{
-            gender: user.character_gender === 'Woman' || user.character_gender === 'Female' ? 'Woman'
-              : user.character_gender === 'Non-binary' ? 'Non-binary' : 'Man',
-            skinTone:  user.character_skin      || 4,
-            eyeShape:  user.character_eye_shape || 1,
-            hairStyle: user.character_hair      || 1,
-            hairColor: user.character_hair_color || '#2d1b00',
-            outfit:    user.character_outfit    || 5,
-          }}
-          size={100}
-        />
-        <div className="text-center sm:text-left flex-1">
-          <h1 className="text-2xl font-bold" style={{ color: '#e2e8f0' }}>{user.character_name}</h1>
-          <p className="text-sm mb-3" style={{ color: '#00e8ff' }}>{title}</p>
-          {/* Level Progress */}
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-bold" style={{ color: '#ffd700' }}>Lv.{user.level}</span>
-            <div className="flex-1 h-3 rounded-full overflow-hidden" style={{ background: '#0d1220' }}>
-              <div
-                className="h-full rounded-full transition-all"
-                style={{ width: `${levelProgress.progress}%`, background: 'linear-gradient(90deg, #00e8ff, #00b8cc)' }}
-              />
-            </div>
-            <span className="text-xs" style={{ color: '#64748b' }}>{levelProgress.current}/{levelProgress.needed} XP</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Exam Countdown + Daily Brief row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <ExamCountdown examDate={examDate} onSetDate={handleSetExamDate} />
-        <DailyBrief />
-      </div>
-
-      {/* Stats Row */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        {[
-          { label: 'Total XP', value: user.xp.toLocaleString(), icon: '⚡', color: '#ffd700' },
-          { label: 'Streak', value: `${user.streak_count} days`, icon: '🔥', color: '#f97316' },
-          { label: 'Accuracy', value: `${stats.accuracy}%`, icon: '🎯', color: '#22c55e' },
-          { label: 'Answered', value: stats.totalAnswered.toString(), icon: '📝', color: '#06b6d4' },
-        ].map((stat, i) => (
-          <div key={i} className="rounded-xl p-4 text-center" style={{ background: '#111a2e', border: '1px solid #1e2d4a' }}>
-            <div className="text-2xl mb-1">{stat.icon}</div>
-            <div className="text-lg font-bold" style={{ color: stat.color }}>{stat.value}</div>
-            <div className="text-xs" style={{ color: '#64748b' }}>{stat.label}</div>
-          </div>
-        ))}
-      </div>
-
-      {/* Story Mode Progress Card */}
-      <div className="rounded-xl p-6" style={{ background: '#111a2e', border: '1px solid #00e8ff33', boxShadow: '0 0 20px rgba(0, 232, 255, 0.05)' }}>
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <h2 className="text-lg font-bold" style={{ color: '#e2e8f0' }}>Operation Shadow Protocol</h2>
-            <span className="text-xs" style={{ color: '#64748b' }}>{completedCount}/8 Domains Conquered</span>
-          </div>
-          <Link
-            href="/app/story"
-            className="px-3 py-1.5 rounded-lg text-xs font-bold"
-            style={{ background: '#00e8ff22', color: '#00e8ff', border: '1px solid #00e8ff33' }}
-          >
-            Story Hub
-          </Link>
-        </div>
-
-        {/* Progress bar */}
-        <div className="h-2 rounded-full overflow-hidden mb-4" style={{ background: '#0d1220' }}>
+      {/* ── Hero ───────────────────────────────────────────────────────── */}
+      <Card className="p-6 border-0" style={{ background: 'linear-gradient(135deg, #0d1220 0%, #111a2e 100%)', borderColor: '#1e2d4a' }}>
+        <div className="flex flex-col md:flex-row md:items-center gap-6">
           <div
-            className="h-full rounded-full transition-all"
-            style={{ width: `${(completedCount / 8) * 100}%`, background: 'linear-gradient(90deg, #00e8ff, #22c55e)' }}
-          />
+            className="flex-shrink-0 w-24 h-24 rounded-2xl overflow-hidden mx-auto md:mx-0"
+            style={{ border: '2px solid #00e8ff44', boxShadow: '0 0 32px rgba(0,232,255,0.15)' }}
+          >
+            <CharacterAvatar config={avatarConfig} size={96} />
+          </div>
+          <div className="flex-1 text-center md:text-left">
+            <div className="text-xs font-semibold uppercase tracking-widest" style={{ color: '#00e8ff' }}>
+              {profile.rank_title}
+            </div>
+            <h1 className="text-2xl md:text-3xl font-bold mt-1" style={{ color: '#e2e8f0' }}>
+              {profile.display_name}
+            </h1>
+            <div className="text-sm mt-1" style={{ color: '#94a3b8' }}>
+              Lv.{profile.current_level} · {profile.xp.toLocaleString()} XP
+              {nextRank && (
+                <span style={{ color: '#64748b' }}>
+                  {' · '}{nextRank.levelsRemaining} to {nextRank.nextRank}
+                </span>
+              )}
+            </div>
+          </div>
         </div>
+      </Card>
 
-        {/* Current chapter in progress */}
-        {currentInProgress && (
-          <Link
-            href={`/app/story/${currentInProgress.domainId}`}
-            className="flex items-center gap-3 p-3 rounded-lg transition-all hover:scale-[1.01]"
-            style={{ background: '#0d1220', border: '1px solid #1e2d4a' }}
-          >
-            <span className="text-xl">{currentInProgress.emoji}</span>
-            <div className="flex-1">
-              <div className="text-sm font-bold" style={{ color: '#e2e8f0' }}>
-                {currentInProgress.title}
-              </div>
-              <div className="text-xs" style={{ color: '#64748b' }}>
-                {getDomainStatus(storyProgress[currentInProgress.domainId])} — {currentInProgress.location}
-              </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        {/* ── Exam Countdown ─────────────────────────────────────────── */}
+        <Card className="p-5 lg:col-span-1" style={{ background: '#0d1220', borderColor: '#1e2d4a' }}>
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest" style={{ color: '#94a3b8' }}>
+              <CalendarIcon className="w-3.5 h-3.5" />
+              Exam Countdown
             </div>
-            <span className="text-xs font-bold px-3 py-1 rounded-lg" style={{ background: '#00e8ff', color: '#080c14' }}>
-              Continue
-            </span>
-          </Link>
-        )}
+            {examDate && (
+              <button
+                onClick={() => handleExamDateChange(undefined)}
+                disabled={savingDate}
+                className="p-1 rounded hover:bg-[#1e2d4a] transition-colors disabled:opacity-50"
+                aria-label="Clear exam date"
+              >
+                <X className="w-3.5 h-3.5" style={{ color: '#64748b' }} />
+              </button>
+            )}
+          </div>
 
-        {allChaptersComplete && (
-          <Link
-            href="/app/story/final"
-            className="flex items-center gap-3 p-3 rounded-lg"
-            style={{ background: 'rgba(255, 215, 0, 0.05)', border: '1px solid #ffd70033' }}
-          >
-            <span className="text-xl">🏆</span>
-            <div className="flex-1">
-              <div className="text-sm font-bold" style={{ color: '#ffd700' }}>Final Chapter Available</div>
-              <div className="text-xs" style={{ color: '#94a3b8' }}>TLATM Gauntlet + Final Boss</div>
+          {daysToExam !== null && urgency ? (
+            <div>
+              <div className="text-4xl font-bold" style={{ color: urgency.color }}>
+                {daysToExam < 0 ? `${Math.abs(daysToExam)}d ago` : `${daysToExam}d`}
+              </div>
+              <div className="text-xs mt-1" style={{ color: urgency.color }}>{urgency.label}</div>
+              <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
+                <PopoverTrigger
+                  render={
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="mt-3 text-xs h-7 px-2"
+                      style={{ color: '#64748b' }}
+                    />
+                  }
+                >
+                  {examDate ? format(examDate, 'PPP') : 'Set exam date'}
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0">
+                  <Calendar
+                    mode="single"
+                    selected={examDate ?? undefined}
+                    onSelect={handleExamDateChange}
+                    disabled={(date) => date < new Date()}
+                  />
+                </PopoverContent>
+              </Popover>
             </div>
-            <span className="text-xs font-bold px-3 py-1 rounded-lg" style={{ background: '#ffd700', color: '#080c14' }}>
-              Enter
+          ) : (
+            <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
+              <PopoverTrigger
+                render={
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start"
+                    style={{ background: 'transparent', borderColor: '#1e2d4a', color: '#94a3b8' }}
+                  />
+                }
+              >
+                <CalendarIcon className="w-4 h-4 mr-2" />
+                Set exam date
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0">
+                <Calendar
+                  mode="single"
+                  onSelect={handleExamDateChange}
+                  disabled={(date) => date < new Date()}
+                />
+              </PopoverContent>
+            </Popover>
+          )}
+        </Card>
+
+        {/* ── XP Card ─────────────────────────────────────────────────── */}
+        <Card className="p-5 lg:col-span-2" style={{ background: '#0d1220', borderColor: '#1e2d4a' }}>
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest" style={{ color: '#94a3b8' }}>
+              <Zap className="w-3.5 h-3.5" />
+              Experience
+            </div>
+            <span className="text-xs" style={{ color: '#ffd700' }}>Lv.{profile.current_level}</span>
+          </div>
+          <div className="flex items-baseline gap-2 mb-2">
+            <span className="text-3xl font-bold" style={{ color: '#e2e8f0' }}>
+              {xpProgress.current.toLocaleString()}
             </span>
-          </Link>
-        )}
+            <span className="text-sm" style={{ color: '#64748b' }}>
+              / {xpProgress.needed.toLocaleString()} XP to Lv.{profile.current_level + 1}
+            </span>
+          </div>
+          <Progress value={xpProgress.percentage} className="h-2 bg-[#1e2d4a]" />
+          <div className="text-xs mt-2" style={{ color: '#64748b' }}>
+            {xpProgress.percentage}% to next level
+            {nextRank && ` · ${nextRank.levelsRemaining} levels to ${nextRank.nextRank}`}
+          </div>
+        </Card>
       </div>
 
-      {/* Spaced Repetition Nudges */}
-      {reviewNudges.length > 0 && (
-        <div className="rounded-xl p-6" style={{ background: '#111a2e', border: '1px solid #f59e0b33' }}>
-          <div className="flex items-center gap-2 mb-4">
-            <span className="text-lg">🔄</span>
-            <h2 className="text-lg font-bold" style={{ color: '#f59e0b' }}>Review Recommended</h2>
-            <span className="text-xs px-1.5 py-0.5 rounded-full" style={{ background: '#f59e0b22', color: '#f59e0b' }}>
-              {reviewNudges.length}
-            </span>
+      {/* ── Progress Overview ─────────────────────────────────────────── */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <StatCard
+          icon={<Target className="w-4 h-4" />}
+          label="Questions"
+          value={stats.questionsAnswered}
+          sub={`${stats.accuracy}% correct`}
+          color="#00e8ff"
+        />
+        <StatCard
+          icon={<BookOpen className="w-4 h-4" />}
+          label="Scenes"
+          value={stats.scenesCompleted}
+          sub="completed"
+          color="#a78bfa"
+        />
+        <StatCard
+          icon={<Map className="w-4 h-4" />}
+          label="Domains"
+          value={`${stats.domainsUnlocked}/8`}
+          sub="unlocked"
+          color="#ffd700"
+        />
+        <StatCard
+          icon={<LibraryIcon className="w-4 h-4" />}
+          label="Library"
+          value="0/77"
+          sub="topics read"
+          color="#10b981"
+        />
+      </div>
+
+      {/* ── Activity + Quick Actions ──────────────────────────────────── */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <Card className="p-5 lg:col-span-2" style={{ background: '#0d1220', borderColor: '#1e2d4a' }}>
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#94a3b8' }}>
+            <Award className="w-3.5 h-3.5" />
+            Recent Activity
+          </div>
+          {stats.recent.length === 0 ? (
+            <div className="text-sm py-8 text-center" style={{ color: '#64748b' }}>
+              No questions answered yet. Jump into the Quiz Arena to start logging activity.
+            </div>
+          ) : (
+            <ul className="space-y-2">
+              {stats.recent.map((a) => {
+                const domain = DOMAINS.find((d) => d.id === a.domain_id);
+                return (
+                  <li
+                    key={a.id}
+                    className="flex items-center justify-between text-sm py-2 px-3 rounded-lg"
+                    style={{ background: '#111a2e' }}
+                  >
+                    <div className="flex items-center gap-3 min-w-0">
+                      <span
+                        className="w-2 h-2 rounded-full flex-shrink-0"
+                        style={{ background: a.is_correct ? '#10b981' : '#ef4444' }}
+                      />
+                      <span className="truncate" style={{ color: '#e2e8f0' }}>
+                        {domain?.name ?? `Domain ${a.domain_id}`}
+                      </span>
+                      <span
+                        className="text-[10px] uppercase font-semibold px-1.5 py-0.5 rounded"
+                        style={{ background: '#1e2d4a', color: '#94a3b8' }}
+                      >
+                        {a.difficulty}
+                      </span>
+                    </div>
+                    <span className="text-xs flex-shrink-0" style={{ color: '#64748b' }}>
+                      {format(parseISO(a.created_at), 'MMM d, HH:mm')}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </Card>
+
+        <Card className="p-5" style={{ background: '#0d1220', borderColor: '#1e2d4a' }}>
+          <div className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#94a3b8' }}>
+            Jump back in
           </div>
           <div className="space-y-2">
-            {reviewNudges.map((nudge) => (
-              <Link
-                key={nudge.id}
-                href={`/app/story/replay/${nudge.scene_id}?from=/app/dashboard`}
-                className="flex items-center gap-3 p-3 rounded-lg transition-all hover:scale-[1.01]"
-                style={{ background: '#0d1220', border: '1px solid #1e2d4a' }}
-              >
-                <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: '#f59e0b11', border: '1px solid #f59e0b33' }}>
-                  <span className="text-xs" style={{ color: '#f59e0b' }}>🔄</span>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-sm font-bold truncate" style={{ color: '#e2e8f0' }}>
-                    {nudge.concept_name}
-                  </div>
-                  <div className="text-[10px]" style={{ color: '#64748b' }}>
-                    Last reviewed: {new Date(nudge.last_reviewed_at).toLocaleDateString()}
-                  </div>
-                </div>
-                <span className="text-xs" style={{ color: '#f59e0b' }}>Replay</span>
-              </Link>
-            ))}
+            <QuickAction href="/app/story" icon={<BookOpen className="w-4 h-4" />} label="Continue Story" />
+            <QuickAction href="/app/quiz" icon={<Zap className="w-4 h-4" />} label="Quiz Arena" />
+            <QuickAction
+              href="/app/story/tanaka-notebook"
+              icon={<NotebookPen className="w-4 h-4" />}
+              label="Tanaka's Notebook"
+            />
           </div>
-        </div>
-      )}
-
-      {/* World Map Progress */}
-      <div className="rounded-xl p-6" style={{ background: '#111a2e', border: '1px solid #1e2d4a' }}>
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-bold" style={{ color: '#e2e8f0' }}>World Map</h2>
-          <span className="text-xs" style={{ color: '#64748b' }}>{completedCount}/8 chapters complete</span>
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {CHAPTERS.map((ch) => {
-            const progress = storyProgress[ch.domainId] || null;
-            const isComplete = progress?.domain_conquered;
-            const isNext = nextChapter?.id === ch.id;
-            const status = getDomainStatus(progress);
-
-            return (
-              <Link
-                key={ch.id}
-                href={`/app/story/${ch.domainId}`}
-                className="rounded-lg p-3 text-center transition-all hover:scale-105"
-                style={{
-                  background: isComplete ? 'rgba(34, 197, 94, 0.1)' : isNext ? 'rgba(0, 232, 255, 0.1)' : '#0d1220',
-                  border: `1px solid ${isComplete ? '#22c55e' : isNext ? '#00e8ff' : '#1e2d4a'}`,
-                }}
-              >
-                <div className="text-2xl mb-1">{ch.emoji}</div>
-                <div className="text-xs font-bold" style={{ color: isComplete ? '#22c55e' : isNext ? '#00e8ff' : '#94a3b8' }}>
-                  D{ch.domainId}
-                </div>
-                <div className="text-[10px]" style={{ color: '#64748b' }}>{ch.location.split(',')[0]}</div>
-                <div className="text-[10px] mt-0.5" style={{ color: isComplete ? '#22c55e' : '#64748b' }}>
-                  {status}
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Action Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* Continue Story */}
-        {nextChapter && (
-          <Link
-            href="/app/story"
-            className="rounded-xl p-6 transition-all hover:scale-[1.02]"
-            style={{ background: 'linear-gradient(135deg, #111a2e, #1a2540)', border: '1px solid #00e8ff', boxShadow: '0 0 20px rgba(0, 232, 255, 0.1)' }}
-          >
-            <div className="text-3xl mb-2">🎬</div>
-            <h3 className="font-bold mb-1" style={{ color: '#00e8ff' }}>Continue Story</h3>
-            <p className="text-sm" style={{ color: '#94a3b8' }}>Operation Shadow Protocol</p>
-            <p className="text-xs mt-1" style={{ color: '#64748b' }}>{completedCount}/8 domains conquered</p>
-          </Link>
-        )}
-
-        {/* Practice Exam CTA */}
-        <Link
-          href="/app/quiz/practice-exam"
-          className="rounded-xl p-4 flex items-center gap-4 transition-all hover:scale-[1.02]"
-          style={{ background: 'linear-gradient(135deg, #1a1400 0%, #2a2000 100%)', border: '1px solid #ffd70055' }}
-        >
-          <div className="text-3xl">📋</div>
-          <div className="flex-1 min-w-0">
-            <div className="text-sm font-bold" style={{ color: '#ffd700' }}>Practice Exam</div>
-            <div className="text-xs" style={{ color: '#a08020' }}>250 Q · 6 hrs · Full CISSP simulation</div>
-          </div>
-          <div className="text-xs font-bold px-2 py-1 rounded" style={{ background: '#ffd70022', color: '#ffd700', border: '1px solid #ffd70044' }}>
-            START →
-          </div>
-        </Link>
-
-        {/* Quick Actions */}
-        <div className="grid grid-cols-2 gap-3">
-          <Link
-            href="/app/quiz?mode=quick&count=10"
-            className="rounded-xl p-4 text-center transition-all hover:scale-105"
-            style={{ background: '#111a2e', border: '1px solid #1e2d4a' }}
-          >
-            <div className="text-2xl mb-2">⚡</div>
-            <div className="text-sm font-bold" style={{ color: '#e2e8f0' }}>Quick Quiz</div>
-            <div className="text-xs" style={{ color: '#64748b' }}>10 questions</div>
-          </Link>
-
-          <Link
-            href="/app/domains"
-            className="rounded-xl p-4 text-center transition-all hover:scale-105"
-            style={{ background: '#111a2e', border: '1px solid #1e2d4a' }}
-          >
-            <div className="text-2xl mb-2">🗺️</div>
-            <div className="text-sm font-bold" style={{ color: '#e2e8f0' }}>Study Domain</div>
-            <div className="text-xs" style={{ color: '#64748b' }}>Pick a domain</div>
-          </Link>
-
-          <Link
-            href="/app/quiz?mode=review"
-            className="rounded-xl p-4 text-center transition-all hover:scale-105 relative"
-            style={{ background: '#111a2e', border: '1px solid #1e2d4a' }}
-          >
-            <div className="text-2xl mb-2">🔄</div>
-            <div className="text-sm font-bold" style={{ color: '#e2e8f0' }}>Review</div>
-            <div className="text-xs" style={{ color: '#64748b' }}>Weak areas</div>
-            {stats.dueReviews > 0 && (
-              <span className="absolute top-2 right-2 text-[10px] font-bold px-1.5 py-0.5 rounded-full" style={{ background: '#ef4444', color: 'white' }}>
-                {stats.dueReviews}
-              </span>
-            )}
-          </Link>
-
-          <Link
-            href="/app/quiz/custom"
-            className="rounded-xl p-4 text-center transition-all hover:scale-105"
-            style={{ background: '#111a2e', border: '1px solid #1e2d4a' }}
-          >
-            <div className="text-2xl mb-2">🎯</div>
-            <div className="text-sm font-bold" style={{ color: '#e2e8f0' }}>Custom Quiz</div>
-            <div className="text-xs" style={{ color: '#64748b' }}>Build your own</div>
-          </Link>
-
-          <Link
-            href="/app/readiness"
-            className="rounded-xl p-4 text-center transition-all hover:scale-105 col-span-2"
-            style={{ background: 'rgba(0,232,255,0.05)', border: '1px solid rgba(0,232,255,0.2)' }}
-          >
-            <div className="text-2xl mb-2">📊</div>
-            <div className="text-sm font-bold" style={{ color: '#00e8ff' }}>Exam Readiness</div>
-            <div className="text-xs" style={{ color: '#4a7a8a' }}>IRT-based score by domain</div>
-          </Link>
-        </div>
-      </div>
-
-      {/* Daily Challenges */}
-      <div className="rounded-xl p-6" style={{ background: '#111a2e', border: '1px solid #1e2d4a' }}>
-        <h2 className="text-lg font-bold mb-4" style={{ color: '#e2e8f0' }}>Daily Challenges</h2>
-        <div className="space-y-3">
-          {[
-            { task: 'Answer 10 questions', reward: '50 XP', icon: '📝', progress: Math.min(stats.totalAnswered, 10), max: 10 },
-            { task: 'Read 3 library topics', reward: '30 XP', icon: '📖', progress: 0, max: 3 },
-            { task: 'Get a 5-question streak', reward: '75 XP', icon: '🔥', progress: Math.min(user.streak_count, 5), max: 5 },
-          ].map((challenge, i) => (
-            <div key={i} className="flex items-center gap-3 p-3 rounded-lg" style={{ background: '#0d1220' }}>
-              <span className="text-xl">{challenge.icon}</span>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-sm" style={{ color: '#e2e8f0' }}>{challenge.task}</span>
-                  <span className="text-xs font-medium" style={{ color: '#ffd700' }}>{challenge.reward}</span>
-                </div>
-                <div className="h-1.5 rounded-full overflow-hidden" style={{ background: '#1e2d4a' }}>
-                  <div
-                    className="h-full rounded-full"
-                    style={{ width: `${(challenge.progress / challenge.max) * 100}%`, background: '#00e8ff' }}
-                  />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Achievement Badges */}
-      <div className="rounded-xl p-6" style={{ background: '#111a2e', border: '1px solid #1e2d4a' }}>
-        <h2 className="text-lg font-bold mb-4" style={{ color: '#e2e8f0' }}>Achievements</h2>
-        <div className="grid grid-cols-4 sm:grid-cols-6 gap-3">
-          {ACHIEVEMENTS.slice(0, 12).map((badge) => {
-            const earned = earnedBadges.includes(badge.id);
-            return (
-              <div
-                key={badge.id}
-                className="text-center p-2 rounded-lg transition-all"
-                style={{ opacity: earned ? 1 : 0.3 }}
-                title={`${badge.name}: ${badge.description}`}
-              >
-                <div className="text-2xl mb-1">{badge.icon}</div>
-                <div className="text-[10px]" style={{ color: earned ? '#ffd700' : '#64748b' }}>{badge.name}</div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Forensic Timeline */}
-      <div className="rounded-xl overflow-hidden" style={{ border: '1px solid #7f1d1d33' }}>
-        <ForensicTimeline
-          unlockedDomains={
-            Object.entries(storyProgress)
-              .filter(([, p]) => p.act1_completed)
-              .map(([id]) => parseInt(id))
-          }
-        />
-      </div>
-
-      {/* New Features */}
-      <div className="rounded-xl p-6" style={{ background: '#111a2e', border: '1px solid rgba(0,232,255,0.2)', boxShadow: '0 0 20px rgba(0,232,255,0.04)' }}>
-        <div className="flex items-center gap-2 mb-4">
-          <span className="text-lg">✨</span>
-          <h2 className="text-lg font-bold" style={{ color: '#e2e8f0' }}>New Features</h2>
-          <span
-            className="text-[10px] font-bold px-2 py-0.5 rounded-full ml-1"
-            style={{ background: 'rgba(0,232,255,0.12)', color: '#00e8ff', border: '1px solid rgba(0,232,255,0.3)' }}
-          >
-            LATEST
-          </span>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {/* Dr. Tanaka's Notebook */}
-          <Link
-            href="/app/story/tanaka-notebook"
-            className="rounded-xl p-4 transition-all hover:scale-[1.02] group"
-            style={{ background: '#0d1220', border: '1px solid rgba(6,182,212,0.3)' }}
-          >
-            <div className="text-2xl mb-2">📓</div>
-            <div className="text-sm font-bold mb-1 group-hover:text-[#06b6d4] transition-colors" style={{ color: '#e2e8f0' }}>
-              Dr. Tanaka&apos;s Notebook
-            </div>
-            <div className="text-xs" style={{ color: '#64748b' }}>
-              Annotated case notes from the Meridian breach investigation
-            </div>
-          </Link>
-
-          {/* Evidence Constellation */}
-          <Link
-            href="/app/tools/constellation"
-            className="rounded-xl p-4 transition-all hover:scale-[1.02] group"
-            style={{ background: '#0d1220', border: '1px solid rgba(139,92,246,0.3)' }}
-          >
-            <div className="text-2xl mb-2">🕸️</div>
-            <div className="text-sm font-bold mb-1 group-hover:text-[#8b5cf6] transition-colors" style={{ color: '#e2e8f0' }}>
-              Evidence Constellation
-            </div>
-            <div className="text-xs" style={{ color: '#64748b' }}>
-              Interactive CISSP domain knowledge map — see how concepts connect
-            </div>
-          </Link>
-
-          {/* Ghost's POV — Premium */}
-          <Link
-            href="/app/story/ghost-pov"
-            className="rounded-xl p-4 transition-all hover:scale-[1.02] group relative overflow-hidden"
-            style={{ background: '#0d1220', border: '1px solid rgba(100,116,139,0.3)' }}
-          >
-            <div
-              className="absolute top-2 right-2 text-[10px] font-bold px-2 py-0.5 rounded-full"
-              style={{ background: 'rgba(255,215,0,0.15)', color: '#ffd700', border: '1px solid rgba(255,215,0,0.4)' }}
-            >
-              PREMIUM
-            </div>
-            <div className="text-2xl mb-2">👤</div>
-            <div className="text-sm font-bold mb-1 group-hover:text-[#94a3b8] transition-colors" style={{ color: '#e2e8f0' }}>
-              Ghost&apos;s POV
-            </div>
-            <div className="text-xs" style={{ color: '#64748b' }}>
-              The Meridian breach told from the attacker&apos;s perspective
-            </div>
-          </Link>
-        </div>
+        </Card>
       </div>
     </div>
+  );
+}
+
+function StatCard({
+  icon, label, value, sub, color,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string | number;
+  sub: string;
+  color: string;
+}) {
+  return (
+    <Card className="p-4" style={{ background: '#0d1220', borderColor: '#1e2d4a' }}>
+      <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest mb-2" style={{ color }}>
+        {icon}
+        {label}
+      </div>
+      <div className="text-2xl font-bold" style={{ color: '#e2e8f0' }}>{value}</div>
+      <div className="text-xs mt-0.5" style={{ color: '#64748b' }}>{sub}</div>
+    </Card>
+  );
+}
+
+function QuickAction({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) {
+  return (
+    <Link
+      href={href}
+      className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors hover:bg-[#1e2d4a]"
+      style={{ color: '#e2e8f0', background: '#111a2e' }}
+    >
+      <span style={{ color: '#00e8ff' }}>{icon}</span>
+      <span className="flex-1">{label}</span>
+      <span className="text-xs" style={{ color: '#64748b' }}>→</span>
+    </Link>
   );
 }
