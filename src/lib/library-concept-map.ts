@@ -27,7 +27,7 @@ const KEYWORD_MAP: { keywords: string[]; key: ConceptKey }[] = [
   { keywords: ['kerberos', 'tgt', 'tgs', 'ticket granting'],              key: 'kerberos-flow' },
   { keywords: ['least privilege', 'minimum access', 'privilege management'], key: 'least-privilege' },
   { keywords: ['zero trust'],                                              key: 'zero-trust' },
-  { keywords: ['biometric', 'far frr', 'crossover error rate', 'cer'],     key: 'biometric-curve' },
+  { keywords: ['biometric', 'far frr', 'crossover error rate'],            key: 'biometric-curve' },
   { keywords: ['evidence acquisition', 'volatility', 'order of volatility', 'rfc 3227'], key: 'evidence-volatility' },
   { keywords: ['penetration test', 'pentest', 'ptes'],                     key: 'pentest-phases' },
   { keywords: ['sast', 'dast', 'iast', 'rasp'],                            key: 'sast-dast-iast' },
@@ -44,6 +44,15 @@ const KEYWORD_MAP: { keywords: string[]; key: ConceptKey }[] = [
   { keywords: ['cap theorem'],                                              key: 'cap-theorem' },
 ];
 
+// Word-boundary aware match. Avoids false positives like "certificate"
+// matching "cer" or "Class AAA" matching "aaa".
+function wordBoundaryMatch(haystack: string, needle: string): boolean {
+  // Escape regex metacharacters in the needle.
+  const escaped = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`(^|[^a-z0-9])${escaped}([^a-z0-9]|$)`, 'i');
+  return re.test(haystack);
+}
+
 export function mapTopicToConcept(topic: TopicLike): ConceptKey | null {
   const haystack = [topic.id, topic.title]
     .filter(Boolean)
@@ -52,7 +61,7 @@ export function mapTopicToConcept(topic: TopicLike): ConceptKey | null {
   if (!haystack) return null;
   for (const { keywords, key } of KEYWORD_MAP) {
     for (const kw of keywords) {
-      if (haystack.includes(kw)) return key;
+      if (wordBoundaryMatch(haystack, kw)) return key;
     }
   }
   return null;

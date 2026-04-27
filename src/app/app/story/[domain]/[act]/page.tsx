@@ -1,33 +1,18 @@
-'use client';
-
-// V1 act route. Replaced with a redirect to the V2 Meridian engine, which
-// is now the single source of truth for story playback.
+// V1 act route. Redirects to V2 Meridian engine. Server component for
+// zero-flash redirect, no JS shipped, no spinner state.
 //
-// The original V1 implementation is preserved in
-// src/legacy/v1-backup/v1-act-route.bak/ for reference.
+// Original V1 implementation preserved at
+// src/legacy/v1-backup/v1-act-route.bak/.
 
-import { useEffect } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
-export default function V1ActRedirect() {
-  const params = useParams();
-  const router = useRouter();
-
-  useEffect(() => {
-    const domainId = parseInt(params.domain as string, 10);
-    if (!Number.isFinite(domainId) || domainId < 1 || domainId > 8) {
-      router.replace('/app/story');
-      return;
-    }
-    router.replace(`/app/story/meridian/${domainId}`);
-  }, [params, router]);
-
-  return (
-    <div className="flex items-center justify-center min-h-[60vh]">
-      <div
-        className="w-10 h-10 rounded-full border-2 border-t-transparent animate-spin"
-        style={{ borderColor: '#00e8ff', borderTopColor: 'transparent' }}
-      />
-    </div>
-  );
+export default async function V1ActRedirect({
+  params,
+}: {
+  params: Promise<{ domain: string; act: string }>;
+}) {
+  const { domain } = await params;
+  const id = parseInt(domain, 10);
+  if (!Number.isFinite(id) || id < 1 || id > 8) redirect('/app/story');
+  redirect(`/app/story/meridian/${id}`);
 }

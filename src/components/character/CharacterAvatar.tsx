@@ -156,12 +156,48 @@ const HAIR_PATHS: Record<string, string[]> = {
 };
 
 // ── Helpers ────────────────────────────────────────────────────────────
+// HSL-based shade adjuster. Positive percent darkens, negative brightens.
+// Using HSL (not RGB-multiply) so pure black brightens correctly and pure
+// white darkens correctly. Falls back to identity for non-#RRGGBB input.
 function darken(hex: string, percent: number): string {
-  const m = hex.replace('#', '').match(/.{2}/g);
-  if (!m) return hex;
-  const [r, g, b] = m.map((s) => parseInt(s, 16));
-  const f = 1 - percent;
-  const out = [r, g, b].map((c) => Math.max(0, Math.min(255, Math.round(c * f))));
+  const norm = hex.startsWith('#') ? hex.slice(1) : hex;
+  const expanded = norm.length === 3
+    ? norm.split('').map((c) => c + c).join('')
+    : norm;
+  const m = expanded.match(/.{2}/g);
+  if (!m || m.length !== 3) return hex;
+  const [r, g, b] = m.map((s) => parseInt(s, 16) / 255);
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const l0 = (max + min) / 2;
+  const d = max - min;
+  let h = 0;
+  let s = 0;
+  if (d !== 0) {
+    s = l0 > 0.5 ? d / (2 - max - min) : d / (max + min);
+    if (max === r) h = ((g - b) / d + (g < b ? 6 : 0));
+    else if (max === g) h = ((b - r) / d + 2);
+    else h = ((r - g) / d + 4);
+    h /= 6;
+  }
+  const l = Math.max(0, Math.min(1, l0 - percent));
+  if (s === 0) {
+    const v = Math.round(l * 255);
+    const hv = v.toString(16).padStart(2, '0');
+    return `#${hv}${hv}${hv}`;
+  }
+  const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+  const p = 2 * l - q;
+  const hueToRgb = (t: number) => {
+    if (t < 0) t += 1;
+    if (t > 1) t -= 1;
+    if (t < 1 / 6) return p + (q - p) * 6 * t;
+    if (t < 1 / 2) return q;
+    if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+    return p;
+  };
+  const out = [hueToRgb(h + 1 / 3), hueToRgb(h), hueToRgb(h - 1 / 3)]
+    .map((c) => Math.max(0, Math.min(255, Math.round(c * 255))));
   return `#${out.map((c) => c.toString(16).padStart(2, '0')).join('')}`;
 }
 
@@ -192,8 +228,18 @@ export default function CharacterAvatar({ config, size = 120, className = '', an
   const irisColor = config.eyeColor ?? (config.skinTone >= 7 ? '#3d2008' : '#1a1a2e');
   const irisHighlight = darken(irisColor, -0.35);
 
-  // Stable per-config gradient ids so we can have multiple avatars on screen.
-  const seed = `${config.gender}-${config.skinTone}-${config.eyeShape}-${config.hairStyle}-${config.outfit}`;
+  // Stable per-config gradient ids so multiple avatars on the same page
+  // do not collide. Includes hair color, eye color, and skin tone so
+  // two avatars sharing only structural attributes still get unique ids.
+  const seed = [
+    config.gender,
+    config.skinTone,
+    config.eyeShape,
+    (config.eyeColor ?? 'd').replace('#', ''),
+    config.hairStyle,
+    config.hairColor.replace('#', ''),
+    config.outfit,
+  ].join('-');
   const idSkin = `cs-skin-${seed}`;
   const idHair = `cs-hair-${seed}`;
   const idIris = `cs-iris-${seed}`;

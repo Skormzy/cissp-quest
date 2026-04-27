@@ -5,7 +5,7 @@
 // "known / unsure / unknown" so the user gets a sense of progress
 // without DB persistence (intentional - low-stakes practice).
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface FlashcardData {
@@ -22,14 +22,16 @@ interface Props {
 type Mark = 'unknown' | 'unsure' | 'known';
 
 export default function LibraryFlashcard({ cards, title }: Props) {
+  // ALL hooks live at the top level — no early return between them.
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [marks, setMarks] = useState<Record<number, Mark>>({});
+  const advanceTimer = useRef<number | null>(null);
 
   const safeCards = useMemo(() => cards.filter((c) => c?.front && c?.back), [cards]);
-  if (safeCards.length === 0) return null;
+  const safeIndex = safeCards.length > 0 ? index % safeCards.length : 0;
+  const card = safeCards[safeIndex];
 
-  const card = safeCards[index];
   const counts = useMemo(() => {
     let known = 0, unsure = 0, unknown = 0;
     for (const m of Object.values(marks)) {
@@ -37,21 +39,37 @@ export default function LibraryFlashcard({ cards, title }: Props) {
       else if (m === 'unsure') unsure++;
       else unknown++;
     }
-    return { known, unsure, unknown, remaining: safeCards.length - Object.keys(marks).length };
+    const total = known + unsure + unknown;
+    return { known, unsure, unknown, remaining: Math.max(0, safeCards.length - total) };
   }, [marks, safeCards.length]);
 
+  // Cleanup any pending advance timer on unmount or before scheduling a new one.
+  useEffect(() => () => {
+    if (advanceTimer.current !== null) window.clearTimeout(advanceTimer.current);
+  }, []);
+
   const next = () => {
+    if (safeCards.length === 0) return;
     setFlipped(false);
     setIndex((i) => (i + 1) % safeCards.length);
   };
   const prev = () => {
+    if (safeCards.length === 0) return;
     setFlipped(false);
     setIndex((i) => (i - 1 + safeCards.length) % safeCards.length);
   };
   const mark = (m: Mark) => {
-    setMarks((prev) => ({ ...prev, [index]: m }));
-    setTimeout(next, 220);
+    if (safeCards.length === 0) return;
+    setMarks((prev) => ({ ...prev, [safeIndex]: m }));
+    if (advanceTimer.current !== null) window.clearTimeout(advanceTimer.current);
+    advanceTimer.current = window.setTimeout(() => {
+      advanceTimer.current = null;
+      next();
+    }, 220);
   };
+
+  // Now safe to early-return — no hooks declared below.
+  if (safeCards.length === 0 || !card) return null;
 
   return (
     <div
@@ -64,7 +82,7 @@ export default function LibraryFlashcard({ cards, title }: Props) {
             🃏 {title ?? 'Flashcards'}
           </h3>
           <p className="text-[10px] font-mono uppercase tracking-widest" style={{ color: '#64748b' }}>
-            Click card to flip · {index + 1} of {safeCards.length}
+            Click card to flip · {safeIndex + 1} of {safeCards.length}
           </p>
         </div>
         <div className="flex items-center gap-2 text-[10px] font-mono">
@@ -83,7 +101,7 @@ export default function LibraryFlashcard({ cards, title }: Props) {
       <div className="relative" style={{ perspective: 1200, height: 240 }}>
         <AnimatePresence mode="wait">
           <motion.button
-            key={`${index}-${flipped}`}
+            key={`${safeIndex}-${flipped}`}
             onClick={() => setFlipped((f) => !f)}
             className="absolute inset-0 w-full h-full rounded-2xl text-left p-6 flex items-center justify-center text-center transition-colors"
             style={{

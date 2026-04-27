@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { KnowledgeCheckData } from '@/lib/story-types-v2';
 import ConceptDiagram, { ConceptKey } from '@/components/diagrams/ConceptDiagram';
@@ -49,8 +49,33 @@ export default function KnowledgeCheck({
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
   const [showXP, setShowXP] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
   const isCorrect = selectedIndex === data.correctIndex;
   const concept = isConceptKey(data.diagram) ? data.diagram : null;
+
+  // Focus management: capture prior focus on mount, restore on unmount,
+  // focus the dialog so the keyboard reaches the question content.
+  useEffect(() => {
+    previousFocusRef.current = (document.activeElement as HTMLElement) ?? null;
+    dialogRef.current?.focus();
+    return () => {
+      previousFocusRef.current?.focus?.();
+    };
+  }, []);
+
+  // Escape closes the modal as if the user finished. Only allowed once
+  // the user has answered, otherwise Escape is a no-op (prevents
+  // accidental dismiss before reading the question).
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && revealed) {
+        onComplete(isCorrect);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [revealed, isCorrect, onComplete]);
 
   const handleSelect = (index: number) => {
     if (revealed) return;
@@ -83,7 +108,13 @@ export default function KnowledgeCheck({
         transition={{ duration: 0.2 }}
       >
         <motion.div
-          className="relative w-full max-w-5xl rounded-2xl overflow-hidden my-8"
+          ref={dialogRef}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="kc-title"
+          aria-describedby="kc-question"
+          tabIndex={-1}
+          className="relative w-full max-w-5xl rounded-2xl overflow-hidden my-8 outline-none"
           initial={{ scale: 0.94, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.94, y: 20 }}
           transition={{ type: 'spring', stiffness: 320, damping: 28 }}
           style={{
@@ -98,7 +129,7 @@ export default function KnowledgeCheck({
           <div className="px-6 py-4 flex items-center gap-3" style={{ background: 'rgba(0,232,255,0.06)', borderBottom: '1px solid rgba(30,45,74,0.8)' }}>
             <div className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold" style={{ background: 'rgba(0,232,255,0.15)', color: '#00e8ff' }}>?</div>
             <div>
-              <p className="text-xs font-bold" style={{ color: '#00e8ff' }}>Knowledge Check</p>
+              <p id="kc-title" className="text-xs font-bold" style={{ color: '#00e8ff' }}>Knowledge Check</p>
               <p className="text-[10px]" style={{ color: '#64748b' }}>No penalty for wrong answers</p>
             </div>
             <div className="ml-auto text-xs font-bold px-2 py-1 rounded-full" style={{ background: 'rgba(255,215,0,0.1)', color: '#ffd700' }}>
@@ -120,7 +151,7 @@ export default function KnowledgeCheck({
 
             {/* Question + options + reveal */}
             <div className="space-y-4 min-w-0">
-              <p className="text-sm leading-relaxed font-medium" style={{ color: '#e2e8f0' }}>
+              <p id="kc-question" className="text-sm leading-relaxed font-medium" style={{ color: '#e2e8f0' }}>
                 {data.question}
               </p>
 

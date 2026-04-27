@@ -389,7 +389,7 @@ function BellLaPadula({ width, height, reduce, className, highlight }: DiagramPr
         animate={{ opacity: 1 }}
         transition={{ delay: reduce ? 0 : 0.5 }}
       >
-        <line x1={x - 130} y1={250} x2={x - 130} y2={75} stroke={highlight === 'no-read-up' ? COLORS.bad : COLORS.bad} strokeWidth="2" markerEnd="url(#arrow-bad)" strokeDasharray="6 3" />
+        <line x1={x - 130} y1={250} x2={x - 130} y2={75} stroke={highlight === 'no-read-up' ? COLORS.warn : COLORS.bad} strokeWidth="2" markerEnd="url(#arrow-bad)" strokeDasharray="6 3" />
         <text x={x - 175} y={160} fontSize="10" fontWeight="bold" fill={COLORS.bad}>NO</text>
         <text x={x - 175} y={172} fontSize="9" fill={COLORS.bad}>READ</text>
         <text x={x - 175} y={184} fontSize="9" fill={COLORS.bad}>UP</text>
