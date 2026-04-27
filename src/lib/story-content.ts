@@ -308,6 +308,108 @@ const domain1Scenes: StoryScene[] = [
     ],
   },
 
+  // ── Scene 15B: ISC2 Code of Ethics ──────────────────────────────────────
+  {
+    id: 'd1-s15b',
+    type: 'dialogue',
+    location: 'Toronto',
+    background: TORONTO_BG,
+    leftNPC: 'tanaka',
+    rightNPC: 'alex',
+    speaker: 'tanaka',
+    speakerExpression: 'teaching',
+    dialogue:
+      'Before I let you fly to London — one more thing. Every CISSP swears to the ISC2 Code of Ethics. Not optional. Four canons, in priority order: Protect society first, the common good, public trust. Act honorably, honestly, justly, responsibly, and lawfully. Provide diligent and competent service to principals. Advance and protect the profession. The ORDER matters: society > honor > principals > profession. If your client asks you to bury a breach to protect the share price, society wins.',
+    knowledgeCheck: {
+      question:
+        'A client demands you suppress disclosure of a serious breach to protect their stock price. Per the ISC2 Code of Ethics, which canon takes precedence?',
+      options: [
+        'Provide diligent and competent service to principals',
+        'Protect society, the common good, necessary public trust and confidence',
+        'Advance and protect the profession',
+        'Act honorably, honestly, justly, responsibly, and lawfully',
+      ],
+      correctIndex: 1,
+      explanation:
+        'The four canons are in priority order. Canon 1 (society) outranks Canon 3 (principals/clients). When client interest conflicts with public safety, the ethical CISSP holder protects society first.',
+      memoryHack:
+        'Order = "Society, Honor, Principals, Profession" → mnemonic: "Some Holders Pursue Professionalism." Society always wins ties.',
+    },
+  },
+
+  // ── Scene 15C: Threat Modeling — STRIDE ─────────────────────────────────
+  {
+    id: 'd1-s15c',
+    type: 'dialogue',
+    location: 'Toronto',
+    background: TORONTO_BG,
+    leftNPC: 'tanaka',
+    rightNPC: 'alex',
+    speaker: 'tanaka',
+    speakerExpression: 'teaching',
+    dialogue:
+      'Before any architecture review — threat modeling. The most-tested framework is STRIDE: Spoofing identity, Tampering with data, Repudiation, Information disclosure, Denial of service, Elevation of privilege. Six attack categories. PASTA is process-centric (seven stages). DREAD scores risk. STRIDE asks "what can go wrong?" PASTA asks "in what order should we worry?" DREAD asks "how bad?" — but DREAD is largely deprecated due to subjective scoring.',
+    knowledgeCheck: {
+      question:
+        'A threat modeling exercise asks: "Could an attacker pose as another user?" Which STRIDE category does this question address?',
+      options: [
+        'Tampering — modifying data',
+        'Spoofing — impersonating identity',
+        'Information disclosure — exposing data',
+        'Repudiation — denying actions',
+      ],
+      correctIndex: 1,
+      explanation:
+        'Spoofing means an attacker poses as a legitimate identity (user, system, or process). Tampering modifies data integrity. Repudiation means denying you did something. Information disclosure leaks data. STRIDE is the systematic checklist - for every component you ask all six questions.',
+      memoryHack:
+        'STRIDE = "Spoofing Tampering Repudiation Information-disclosure DoS Elevation." Each maps inversely to a CIA-plus property: Spoofing→Authentication, Tampering→Integrity, Repudiation→Non-repudiation, ID→Confidentiality, DoS→Availability, Elevation→Authorization.',
+    },
+  },
+
+  // ── Scene 15D: Control Categories and Functions matrix ──────────────────
+  {
+    id: 'd1-s15d',
+    type: 'memory_hack',
+    location: 'Toronto',
+    background: TORONTO_BG,
+    speaker: 'narrator',
+    dialogue:
+      'Every security control is classified two ways: by CATEGORY (Administrative / Technical / Physical) and by FUNCTION (Preventive / Detective / Corrective / Deterrent / Recovery / Compensating / Directive). The exam loves "what type of control is X?" — answer needs both.',
+    memoryHack: {
+      title: 'Control Matrix — Two Axes, Seven Functions',
+      body: 'CATEGORY (3) — who or what implements:\n• Administrative — policies, procedures, training, background checks, separation of duties\n• Technical (Logical) — firewalls, encryption, IAM, IDS, MFA\n• Physical — locks, fences, guards, CCTV, mantraps\n\nFUNCTION (7) — what it accomplishes:\n• Preventive — stops the incident (firewall, locked door, MFA)\n• Detective — discovers the incident (IDS, audit log, CCTV review)\n• Corrective — fixes after the fact (patch, rebuild, backup restore)\n• Deterrent — discourages would-be attackers (warning sign, visible camera)\n• Recovery — restores capability post-incident (DR site, hot spare)\n• Compensating — alternate when primary control infeasible (manager review where 4-eyes is too costly)\n• Directive — directs subjects (policy, procedure, signage)\n\nMemory hook: a CCTV camera is BOTH Detective (sees) AND Deterrent (visible). A backup is Recovery, restoring it is Corrective. A policy is Administrative + Directive.',
+    },
+    xpReward: 50,
+  },
+
+  // ── Scene 15E: Personnel security controls ──────────────────────────────
+  {
+    id: 'd1-s15e',
+    type: 'dialogue',
+    location: 'Toronto',
+    background: TORONTO_BG,
+    leftNPC: 'tanaka',
+    rightNPC: 'alex',
+    speaker: 'tanaka',
+    dialogue:
+      'Last piece. Personnel security controls. Three pillars the auditors will ask about: separation of duties (no single person controls a critical end-to-end process — initiate, approve, record), job rotation (so nobody hides fraud in their corner forever), and mandatory vacation (so the relief person finds anomalies). The Holloway pattern thrives on weak versions of all three.',
+    knowledgeCheck: {
+      question:
+        'A finance clerk both initiates wire transfers and reconciles the bank statement. Which personnel control is most directly violated?',
+      options: [
+        'Job rotation — no rotation between roles',
+        'Mandatory vacation — clerk has not taken time off',
+        'Separation of duties — same person initiates and reconciles',
+        'Background check — clerk was not screened',
+      ],
+      correctIndex: 2,
+      explanation:
+        'Separation of duties (SoD) splits incompatible activities across different people. Initiating a transaction and reconciling its record are textbook incompatible duties — the same person can hide fraud by adjusting both sides. Job rotation and mandatory vacation are detective; SoD is preventive.',
+      memoryHack:
+        'SoD = "no single person can both commit AND conceal a fraud." If one role can do both, you have a control gap regardless of how trustworthy the person is.',
+    },
+  },
+
   // ── Scene 16: Domain debrief + XP reward + teaser ───────────────────────
   {
     id: 'd1-s16',
@@ -318,7 +420,7 @@ const domain1Scenes: StoryScene[] = [
     rightNPC: 'alex',
     speaker: 'tanaka',
     dialogue:
-      'You\'ve done well, {playerName}. Today you learned the CIA Triad — the three vault locks of security. Risk management: ALE calculations, risk treatment options, GRC as the corporate immune system. Security governance: policy hierarchy from constitution to suggestions. BCP and DRP fundamentals. Legal frameworks and IP protection. And the Think Like a Manager lens that the CISSP exam demands. Tomorrow you fly to London. Priya Sharma — Meridian\'s CISO — needs you to assess the data classification failure that made this breach possible. And keep Ghost Holloway in mind. That access log anomaly bothers me.',
+      'You\'ve done well, {playerName}. Today you learned the CIA Triad — the three vault locks of security. Risk management: ALE calculations, risk treatment options, GRC as the corporate immune system. Security governance: policy hierarchy from constitution to suggestions. BCP and DRP fundamentals. Legal frameworks and IP protection. The ISC2 Code of Ethics — society first. STRIDE threat modeling. The control category-and-function matrix. Personnel security — separation of duties, rotation, mandatory vacation. And the Think Like a Manager lens. Tomorrow you fly to London. Priya Sharma needs you to assess the data classification failure. Keep Ghost Holloway in mind.',
     xpReward: 500,
   },
 ];
@@ -467,6 +569,48 @@ const domain2Scenes: StoryScene[] = [
     dialogue:
       'The investigation is pointing east. The data destruction pattern — the way they overwrote logs — matches a technique documented in a Munich incident two years ago. The architecture team at our Munich office may have seen something similar. I\'m sending you there next. Watch your back, {playerName}. Ghost Holloway has contacts in Munich.',
     xpReward: 300,
+  },
+  // ── Scene 11: Sanitization edge cases (SSD vs degaussing) ──────────────
+  {
+    id: 'd2-s11',
+    type: 'dialogue',
+    location: 'London',
+    background: LOCATION_GRADIENTS_V2['london'],
+    leftNPC: 'sharma',
+    rightNPC: 'alex',
+    speaker: 'sharma',
+    dialogue:
+      'One trap on this one. Degaussing — running a strong magnetic field over media — only works on MAGNETIC media. Tape, spinning disk. SSDs are flash; degaussing does nothing. The crypto-shredding alternative throws away the key that decrypted the data, rendering the ciphertext useless without ever touching the disk. For SSDs holding Restricted data, the choice is crypto-shredding or physical destruction — never degaussing.',
+    knowledgeCheck: {
+      question:
+        'An organization needs to decommission 200 SSDs that held client PII. Which sanitization approach is appropriate?',
+      options: [
+        'Degauss each SSD with a NIST-approved degausser',
+        'Reformat each SSD using a quick format',
+        'Crypto-shred (destroy the encryption key) or physically destroy each SSD',
+        'Overwrite with three passes of random data using DBAN',
+      ],
+      correctIndex: 2,
+      explanation:
+        'SSDs are flash storage — degaussing has no effect because there is no magnetic charge to disrupt. Overwriting is also unreliable on SSDs because the wear-leveling controller may keep old blocks alive. Crypto-shredding (destroying the key used to encrypt the data) or physical destruction (shredding, incineration) are the appropriate methods.',
+      memoryHack:
+        'Degaussing = magnets. Magnets only affect magnetic media. SSDs are NOT magnetic. For SSDs: crypto-shred or destroy.',
+    },
+  },
+  // ── Scene 12: NIST 800-53 baselines ─────────────────────────────────────
+  {
+    id: 'd2-s12',
+    type: 'memory_hack',
+    location: 'London',
+    background: LOCATION_GRADIENTS_V2['london'],
+    speaker: 'narrator',
+    dialogue:
+      'Selecting controls to apply to a system is not arbitrary. NIST SP 800-53 publishes baselines you can adopt and tailor.',
+    memoryHack: {
+      title: 'NIST 800-53 Baselines',
+      body: 'Four baselines to know:\n\n• LOW — minimal impact if breached. Public-facing brochureware.\n• MODERATE — most enterprise systems. Default for non-critical business apps.\n• HIGH — significant impact. National security, financial systems handling material non-public information, critical infrastructure.\n• PRIVACY — overlay applied when the system handles personally identifiable information (PII).\n\nSCOPING — narrowing the baseline by removing controls that do not apply to your environment.\nTAILORING — adjusting controls (parameter values, frequency, applicability) so they fit your specific risk context.\n\nMemory hook: "Pick a Floor, then Tailor and Scope." Pick the baseline (Low/Mod/High), then trim it to fit.',
+    },
+    xpReward: 50,
   },
 ];
 
@@ -618,6 +762,21 @@ const domain3Scenes: StoryScene[] = [
     dialogue:
       'The cryptographic implementation also has issues. The system uses RSA-1024 for key exchange — deprecated since 2015. And the session keys are derived from a weak seed. Someone on the inside would have known where the weakness was. The Singapore operations center handles the key management infrastructure. That\'s your next stop.',
     xpReward: 300,
+  },
+  // ── Scene 10: PKI + Digital Signatures ─────────────────────────────────
+  {
+    id: 'd3-s10',
+    type: 'memory_hack',
+    location: 'Munich',
+    background: LOCATION_GRADIENTS_V2['munich'],
+    speaker: 'narrator',
+    dialogue:
+      'The crypto failure here also exposes a PKI gap. Understanding the public-key infrastructure stack is mandatory CISSP knowledge.',
+    memoryHack: {
+      title: 'PKI · Trust Stack and Digital Signatures',
+      body: 'PUBLIC KEY INFRASTRUCTURE (PKI) makes asymmetric crypto usable at scale.\n\n• Certificate Authority (CA) — root of trust. Issues certs. Browser trust stores ship with hundreds.\n• Registration Authority (RA) — verifies identity before the CA issues a cert.\n• Certificate (X.509) — binds a public key to an identity, signed by the CA.\n• Certificate Revocation List (CRL) — list of revoked certs (pull-model, slow).\n• OCSP — Online Certificate Status Protocol. Real-time check (push or stapled).\n\nLIFECYCLE: Enrollment → Issuance → Use → Renewal → Revocation → Expiration.\n\nDIGITAL SIGNATURE workflow:\n1. Sender hashes the message (SHA-256).\n2. Sender encrypts the hash with their PRIVATE key → signature.\n3. Sender sends message + signature.\n4. Receiver hashes the received message.\n5. Receiver decrypts the signature with sender\'s PUBLIC key → original hash.\n6. If hashes match → signature is valid (authenticity + integrity + non-repudiation).\n\nMemory hook: "Sign with PRIVATE, verify with PUBLIC. Encrypt to recipient with their PUBLIC, decrypt with their PRIVATE." Backwards is wrong.',
+    },
+    xpReward: 50,
   },
 ];
 
@@ -835,6 +994,21 @@ const domain4Scenes: StoryScene[] = [
       'One last finding from Singapore before New York. The C2 server used DNS-over-HTTPS to hide exfiltration traffic in encrypted DNS lookups — bypassing the corporate DNS resolver entirely. Meridian had deployed DNSSEC to validate DNS responses, but had not blocked DoH to unauthorized resolvers. DNSSEC protects the integrity of DNS records using cryptographic signatures — it prevents DNS spoofing and cache poisoning. But it doesn\'t help if the attacker bypasses your resolver completely. Security controls are only effective if they\'re part of a closed system. Ghost Holloway knew every gap in the architecture. That takes insider knowledge.',
     xpReward: 300,
   },
+  // ── Scene 11: Firewalls + IDS / IPS ────────────────────────────────────
+  {
+    id: 'd4-s11',
+    type: 'memory_hack',
+    location: 'Singapore',
+    background: LOCATION_GRADIENTS_V2['singapore'],
+    speaker: 'narrator',
+    dialogue:
+      'Stepping back to the perimeter. The firewall and detection layer Meridian had was generations behind, and the exam tests this taxonomy hard.',
+    memoryHack: {
+      title: 'Firewalls + IDS / IPS / WAF — by Generation',
+      body: 'FIREWALL GENERATIONS:\n• 1st gen — Packet filter. Looks at headers (src/dst IP, port). No state. Fast, dumb.\n• 2nd gen — Stateful inspection. Tracks connection state (TCP handshakes, sessions). Blocks packets that don\'t belong to an established connection.\n• 3rd gen — Application-layer proxy. Understands HTTP, FTP, etc. Inspects payloads. Slow but thorough.\n• Next-Gen Firewall (NGFW) — combines stateful inspection + IPS + app-awareness + identity + threat intelligence.\n\nDETECTION LAYER:\n• IDS — Intrusion DETECTION System. Watches and alerts. Out-of-band.\n• IPS — Intrusion PREVENTION System. Watches and BLOCKS. Inline.\n• Network IDS/IPS (NIDS/NIPS) — sees network traffic.\n• Host IDS/IPS (HIDS/HIPS) — sees one host\'s logs / file integrity / process tree.\n• WAF — Web Application Firewall. Layer-7-only. Blocks SQLi, XSS, CSRF specifically.\n\nDETECTION METHODS:\n• Signature-based — matches known patterns. Misses zero-days.\n• Anomaly-based — flags deviations from baseline. Higher false-positive rate.\n• Behavior-based — tracks sequences (e.g., user normally logs in from US, suddenly Russia).\n\nMemory hook: "IDS Detects, IPS Prevents." WAF lives at L7 in front of the app.',
+    },
+    xpReward: 50,
+  },
 ];
 
 const domain5Scenes: StoryScene[] = [
@@ -857,6 +1031,62 @@ const domain5Scenes: StoryScene[] = [
     speaker: 'webb',
     dialogue:
       '{playerName}. I\'ve been expecting you. Whatever you need — logs, access records, system configs — you have it. I want to find out what happened as much as you do. The identity and access management on this platform is my responsibility. If someone exploited a gap, I need to know.',
+  },
+  // ── Scene 2B: Authentication Factor Taxonomy ────────────────────────────
+  {
+    id: 'd5-s02b',
+    type: 'dialogue',
+    location: 'New York',
+    background: LOCATION_GRADIENTS_V2['new-york'],
+    leftNPC: 'webb',
+    rightNPC: 'alex',
+    speaker: 'webb',
+    speakerExpression: 'teaching',
+    dialogue:
+      'Before we dig in — auth factor basics, because the exam tests this with traps. Three factor TYPES. Type 1: something you KNOW (password, PIN, security question). Type 2: something you HAVE (smart card, hardware token, phone with TOTP). Type 3: something you ARE (fingerprint, iris, face). Sometimes a fourth gets called out: somewhere you ARE (geolocation) or somewhere you DO (behavior). MFA requires factors from DIFFERENT TYPES. Two passwords is not MFA. A password plus a security question is not MFA — both are Type 1.',
+    knowledgeCheck: {
+      question:
+        'A login flow asks for a password AND a PIN AND a security question. Is this multi-factor authentication?',
+      options: [
+        'Yes — three independent inputs satisfy multi-factor',
+        'Yes — but only barely; security questions are weak',
+        'No — all three are Type 1 (something you know)',
+        'No — multi-factor requires at least four factors',
+      ],
+      correctIndex: 2,
+      explanation:
+        'MFA requires factors from DIFFERENT types. Password + PIN + security question are all Type 1 (knowledge). This is "three-step single-factor authentication," not MFA. Real MFA combines at least two of: know / have / are. A password plus an SMS code is MFA (know + have). A fingerprint plus a hardware token is MFA (are + have).',
+      memoryHack:
+        'Three factor types: Know · Have · Are. MFA requires at least TWO of these THREE. Adding more knowledge factors is "stronger single-factor," not multi-factor.',
+    },
+  },
+  // ── Scene 2C: Access Control Models comparison ─────────────────────────
+  {
+    id: 'd5-s02c',
+    type: 'dialogue',
+    location: 'New York',
+    background: LOCATION_GRADIENTS_V2['new-york'],
+    leftNPC: 'webb',
+    rightNPC: 'alex',
+    speaker: 'webb',
+    speakerExpression: 'teaching',
+    dialogue:
+      'Five access control models you need to compare cold. DAC — Discretionary: the OWNER of the resource grants access. Linux file permissions, most consumer file shares. Flexible, sprawls. MAC — Mandatory: the SYSTEM enforces access based on labels and clearances. Government / military. Rigid, secure. RBAC — Role-Based: access tied to JOB ROLE, not the individual. Most enterprise IAM. ABAC — Attribute-Based: access decided by ATTRIBUTES of the subject, object, action, and environment (department, location, time, sensitivity). Modern cloud / Zero Trust. Rule-Based: access decided by RULES applied uniformly (firewall ACLs, "no logins after 11pm"). Independent of user identity.',
+    knowledgeCheck: {
+      question:
+        'A hospital wants access decisions based on the user\'s department, the patient\'s assigned doctor, the time of day, and whether the request comes from a hospital IP. Which access control model fits best?',
+      options: [
+        'DAC — let department heads grant access discretionarily',
+        'MAC — assign clearance levels to clinicians and labels to records',
+        'RBAC — define roles (Doctor, Nurse, Admin) and assign access by role',
+        'ABAC — evaluate subject, object, action, and environmental attributes per request',
+      ],
+      correctIndex: 3,
+      explanation:
+        'ABAC evaluates a policy against attributes at request time: subject (department, role), object (record type, patient relationship), action (read/write), environment (time, network). Multi-attribute policies that change context-by-context are exactly what ABAC was designed for. RBAC alone cannot capture "this nurse, but only for this patient, only during this shift, only from this network."',
+      memoryHack:
+        'DAC = Discretionary (Owner decides). MAC = Mandatory (System enforces with labels). RBAC = Role-Based (your job title). ABAC = Attribute-Based (evaluate the situation). Rule-Based = uniform Rules regardless of who.',
+    },
   },
   {
     id: 'd5-s03',
@@ -1488,6 +1718,22 @@ const domain8Scenes: StoryScene[] = [
       'Elena Vasquez calls in from the forensic lab. The CI/CD pipeline review is producing more findings than the SQL injection alone. The build pipeline ran without artifact signing, without provenance tracking, and pulled dependencies straight from public registries with no allow-list. {playerName} — Holloway\'s manual code change is only the tip. Something earlier was sitting in the pipeline. We need to talk about software supply chain.',
   },
 
+  // ── Scene 4B: SDLC methodologies ─────────────────────────────────────
+  {
+    id: 'd8-s04b',
+    type: 'memory_hack',
+    location: 'San Francisco',
+    background: LOCATION_GRADIENTS_V2['san-francisco'],
+    speaker: 'narrator',
+    dialogue:
+      'Before pulling the build pipeline apart, the methodology matters. Each SDLC model treats security gates differently.',
+    memoryHack: {
+      title: 'SDLC Methodologies',
+      body: 'WATERFALL — sequential phases (Requirements → Design → Build → Test → Deploy → Maintain). Hard gates between phases. Security review happens late and is expensive to act on.\n\nSPIRAL — iterative loops, each loop ending with risk assessment and prototyping. Risk-driven — security gets re-evaluated every loop. Heavy ceremony.\n\nAGILE / SCRUM — short sprints (typically 2 weeks), continuous delivery, retrospectives. Embedded security via DevSecOps gates inside the pipeline; threat modeling at design huddle.\n\nDEVOPS — continuous integration + continuous deployment. Security as code (IaC scanning, SAST/DAST gates, RASP in production). DevSecOps shifts security LEFT into the developer\'s loop.\n\nMaturity models — measure how disciplined your SDLC is:\n• CMMI (1-5: Initial → Managed → Defined → Quantitatively Managed → Optimizing)\n• SAMM (Software Assurance Maturity Model — OWASP)\n• BSIMM (Building Security In Maturity Model — observational, what real firms do)\n• IDEAL (Initiating, Diagnosing, Establishing, Acting, Learning)\n\nMemory hook: "Waterfall = Walk. Spiral = Spiral. Agile = Sprint. DevOps = Stream." The cadence tells you where the security gates fit.',
+    },
+    xpReward: 50,
+  },
+
   // ── Scene 5: The dependency confusion attack — root cause revealed ─────────
   {
     id: 'd8-s05',
@@ -1558,6 +1804,22 @@ const domain8Scenes: StoryScene[] = [
         'OWASP Top 10 2021 ranks Broken Access Control (#1) as the most widespread vulnerability — found in 94% of tested applications. It moved up from #5 in the 2017 list. Broken Access Control includes IDOR (Insecure Direct Object Reference), missing authorization checks, and privilege escalation. Injection dropped to #3 from the top spot it held for over a decade.',
       memoryHack:
         'OWASP 2021 Top 3: "Access, Crypto, Inject." A01 Broken Access Control → A02 Cryptographic Failures → A03 Injection. The old king (Injection) got dethroned by Access Control failures because they\'re everywhere and easy to exploit without technical sophistication.',
+    },
+    xpReward: 50,
+  },
+
+  // ── Scene 7B: OWASP Top 10 expansion (XSS, CSRF, SSRF) ───────────────
+  {
+    id: 'd8-s07b',
+    type: 'memory_hack',
+    location: 'San Francisco',
+    background: LOCATION_GRADIENTS_V2['san-francisco'],
+    speaker: 'narrator',
+    dialogue:
+      'A03 Injection covered SQLi. The next OWASP categories all live in the same neighborhood — input handling. Meridian had A05 (misconfig), A07 (auth failures) and A08 (data integrity failures) sitting alongside.',
+    memoryHack: {
+      title: 'OWASP Top 10 — Input-Handling Trio',
+      body: 'XSS — Cross-Site Scripting (under A03 Injection in 2021).\n• Stored — attacker payload saved to DB, served to every viewer.\n• Reflected — payload echoed in URL/response, requires victim click.\n• DOM-based — payload modifies the page client-side without server round-trip.\nDefense: output encoding, Content Security Policy (CSP), HTTPOnly cookies.\n\nCSRF — Cross-Site Request Forgery (under A01 Broken Access Control in 2021).\nVictim is logged in to bank.com. Visits attacker.com. Attacker.com submits a hidden form to bank.com/transfer. Browser auto-attaches bank.com cookie. Transfer happens.\nDefense: anti-CSRF tokens, SameSite=Lax/Strict cookies, double-submit cookie.\n\nSSRF — Server-Side Request Forgery (A10 in 2021).\nApp accepts a URL from the user (image fetch, webhook) and the server fetches it. Attacker passes http://169.254.169.254/ to read AWS instance metadata.\nDefense: allow-list outbound destinations, block link-local + RFC1918 ranges, drop redirects.\n\nMemory hook: "XSS = inject into the BROWSER. SQLi = inject into the DATABASE. SSRF = make the SERVER fetch what attacker wants. CSRF = ride the user\'s SESSION."',
     },
     xpReward: 50,
   },

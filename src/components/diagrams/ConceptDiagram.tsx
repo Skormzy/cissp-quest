@@ -7,6 +7,7 @@
 //   <ConceptDiagram concept="cia-triad" />
 //   <ConceptDiagram concept="bell-lapadula" highlight="no-read-up" />
 
+import { useId } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 export type ConceptKey =
@@ -364,6 +365,7 @@ function ALEFormula({ width, height, reduce, className }: DiagramProps) {
 // ─────────────────────────────────────────────────────────────────────
 function BellLaPadula({ width, height, reduce, className, highlight }: DiagramProps) {
   const x = width / 2;
+  const arrowId = `arrow-blp-${useId().replace(/:/g, '')}`;
   return (
     <Frame width={width} height={height} reduce={reduce} className={className} title="Bell-LaPadula · Confidentiality">
       {[
@@ -389,17 +391,17 @@ function BellLaPadula({ width, height, reduce, className, highlight }: DiagramPr
         animate={{ opacity: 1 }}
         transition={{ delay: reduce ? 0 : 0.5 }}
       >
-        <line x1={x - 130} y1={250} x2={x - 130} y2={75} stroke={highlight === 'no-read-up' ? COLORS.warn : COLORS.bad} strokeWidth="2" markerEnd="url(#arrow-bad)" strokeDasharray="6 3" />
+        <line x1={x - 130} y1={250} x2={x - 130} y2={75} stroke={highlight === 'no-read-up' ? COLORS.warn : COLORS.bad} strokeWidth="2" markerEnd={`url(#${arrowId})`} strokeDasharray="6 3" />
         <text x={x - 175} y={160} fontSize="10" fontWeight="bold" fill={COLORS.bad}>NO</text>
         <text x={x - 175} y={172} fontSize="9" fill={COLORS.bad}>READ</text>
         <text x={x - 175} y={184} fontSize="9" fill={COLORS.bad}>UP</text>
-        <line x1={x + 130} y1={70} x2={x + 130} y2={245} stroke={COLORS.bad} strokeWidth="2" markerEnd="url(#arrow-bad)" strokeDasharray="6 3" />
+        <line x1={x + 130} y1={70} x2={x + 130} y2={245} stroke={COLORS.bad} strokeWidth="2" markerEnd={`url(#${arrowId})`} strokeDasharray="6 3" />
         <text x={x + 145} y={160} fontSize="10" fontWeight="bold" fill={COLORS.bad}>NO</text>
         <text x={x + 145} y={172} fontSize="9" fill={COLORS.bad}>WRITE</text>
         <text x={x + 145} y={184} fontSize="9" fill={COLORS.bad}>DOWN</text>
       </motion.g>
       <defs>
-        <marker id="arrow-bad" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <marker id={arrowId} markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
           <polygon points="0 0, 6 3, 0 6" fill={COLORS.bad} />
         </marker>
       </defs>
@@ -412,6 +414,7 @@ function BellLaPadula({ width, height, reduce, className, highlight }: DiagramPr
 // ─────────────────────────────────────────────────────────────────────
 function Biba({ width, height, reduce, className }: DiagramProps) {
   const x = width / 2;
+  const arrowId = `arrow-biba-${useId().replace(/:/g, '')}`;
   return (
     <Frame width={width} height={height} reduce={reduce} className={className} title="Biba · Integrity">
       {[
@@ -433,17 +436,17 @@ function Biba({ width, height, reduce, className }: DiagramProps) {
         </motion.g>
       ))}
       <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: reduce ? 0 : 0.5 }}>
-        <line x1={x - 130} y1={75} x2={x - 130} y2={250} stroke={COLORS.bad} strokeWidth="2" markerEnd="url(#arrow-bad-2)" strokeDasharray="6 3" />
+        <line x1={x - 130} y1={75} x2={x - 130} y2={250} stroke={COLORS.bad} strokeWidth="2" markerEnd={`url(#${arrowId})`} strokeDasharray="6 3" />
         <text x={x - 175} y={160} fontSize="10" fontWeight="bold" fill={COLORS.bad}>NO</text>
         <text x={x - 175} y={172} fontSize="9" fill={COLORS.bad}>READ</text>
         <text x={x - 175} y={184} fontSize="9" fill={COLORS.bad}>DOWN</text>
-        <line x1={x + 130} y1={245} x2={x + 130} y2={75} stroke={COLORS.bad} strokeWidth="2" markerEnd="url(#arrow-bad-2)" strokeDasharray="6 3" />
+        <line x1={x + 130} y1={245} x2={x + 130} y2={75} stroke={COLORS.bad} strokeWidth="2" markerEnd={`url(#${arrowId})`} strokeDasharray="6 3" />
         <text x={x + 145} y={160} fontSize="10" fontWeight="bold" fill={COLORS.bad}>NO</text>
         <text x={x + 145} y={172} fontSize="9" fill={COLORS.bad}>WRITE</text>
         <text x={x + 145} y={184} fontSize="9" fill={COLORS.bad}>UP</text>
       </motion.g>
       <defs>
-        <marker id="arrow-bad-2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <marker id={arrowId} markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
           <polygon points="0 0, 6 3, 0 6" fill={COLORS.bad} />
         </marker>
       </defs>

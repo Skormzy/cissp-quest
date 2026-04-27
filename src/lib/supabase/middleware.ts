@@ -8,16 +8,19 @@ const ONBOARDING_PATH = '/app/create-character';
 // middleware. Never trust user-supplied data with this client; never write
 // with it. RLS bypass is intentional here so a flaky SSR cookie context
 // can't bounce a user with a real profile back to onboarding.
-let adminClientCache: ReturnType<typeof createClient> | null = null;
-function getAdminClient() {
-  if (adminClientCache) return adminClientCache;
+//
+// Created PER-REQUEST. We do NOT cache across invocations - sharing a
+// supabase-js client between concurrent requests is a footgun (auth
+// state, refresh timers, fetch plumbing). The cost of constructing a
+// fresh client per request is negligible compared to the network round
+// trip we're about to make anyway.
+function makeAdminClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !serviceKey) return null;
-  adminClientCache = createClient(url, serviceKey, {
+  return createClient(url, serviceKey, {
     auth: { persistSession: false, autoRefreshToken: false },
   });
-  return adminClientCache;
 }
 
 export async function updateSession(request: NextRequest) {
@@ -72,7 +75,7 @@ export async function updateSession(request: NextRequest) {
     // Use the admin client to bypass RLS for the existence check. This avoids
     // a class of bug where a row exists but the SSR cookie context fails to
     // propagate auth.uid() to RLS, returning a false-negative null.
-    const admin = getAdminClient();
+    const admin = makeAdminClient();
     const client = admin ?? supabase;
 
     const { data: profile, error } = await client
