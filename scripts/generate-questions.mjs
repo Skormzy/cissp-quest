@@ -183,7 +183,7 @@ const inserts = parsed.questions.map((q) => {
   const diff = ['easy', 'medium', 'hard'].includes(q.difficulty) ? q.difficulty : 'medium';
   return `INSERT INTO public.questions (
     domain_id, library_topic_id, question_text, options, correct_index,
-    explanation, memory_hack, difficulty, is_active
+    explanation, mnemonic_hint, difficulty, is_active
   ) VALUES (
     ${topic.domain_id},
     '${topic.id}'::uuid,
