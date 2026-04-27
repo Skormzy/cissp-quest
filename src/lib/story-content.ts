@@ -3253,6 +3253,399 @@ const domain8Scenes: StoryScene[] = [
   },
 ];
 
+// ─── Sprint G: 100% Coverage Closeout ─────────────────────────────────
+// Every specialty topic that surfaces on the CISSP exam, even niche ones.
+// Each domain gets a tail array appended to its main scenes via the
+// chapter registry below.
+
+const _domain1ClosingScenes: StoryScene[] = [
+  {
+    id: 'd1-c01',
+    type: 'memory_hack',
+    location: 'Toronto',
+    background: TORONTO_BG,
+    speaker: 'narrator',
+    dialogue: 'Governance, audit, and IT-management frameworks beyond the basics.',
+    memoryHack: {
+      title: 'COBIT · ITIL · Capability Maturity',
+      body: 'COBIT (Control Objectives for Information and Related Technology) — ISACA-published. IT GOVERNANCE framework. Goals cascade: enterprise → IT → process → control. Five principles, seven enablers. Common in audit-heavy industries.\n\nITIL (IT Infrastructure Library) — IT SERVICE MANAGEMENT. Four publications: Service Strategy → Service Design → Service Transition → Service Operation, with Continual Service Improvement wrapping all four. Change management lives in Service Transition.\n\nCAPABILITY MATURITY MODEL — describes process maturity. Levels 1-5: Initial → Repeatable → Defined → Managed → Optimizing. Used to benchmark security programs against peers.\n\nMemory hook: "COBIT = Control / governance. ITIL = Service / operations. CMM = Maturity / 5 levels."',
+    },
+    xpReward: 30,
+  },
+  {
+    id: 'd1-c02',
+    type: 'dialogue',
+    location: 'Toronto',
+    background: TORONTO_BG,
+    leftNPC: 'tanaka',
+    rightNPC: 'alex',
+    speaker: 'tanaka',
+    dialogue:
+      'Procurement security: third-party / vendor risk lifecycle. Pre-contract: SIG / VSA questionnaires, SOC 2 review, financial check. Contract: SLAs (uptime, response), Right-to-Audit clause, breach notification timelines, data return / destruction on termination, indemnification, security addenda mapped to your control framework. Operational: continuous monitoring, periodic reassessment, incident notification path. Termination: data return certificate, system access revocation across SaaS tenant, contract close-out review.',
+    knowledgeCheck: {
+      question:
+        'Which contractual clause obligates a vendor to permit your auditors on-site review of their security controls?',
+      options: [
+        'SLA — Service Level Agreement',
+        'Right-to-Audit clause',
+        'Acceptable Use Policy',
+        'Master Service Agreement only',
+      ],
+      correctIndex: 1,
+      explanation:
+        'The Right-to-Audit clause is what makes SOC 2 supplementary. Without it, a vendor can refuse access to controls; with it, you can verify directly. Pair with periodic SOC 2 review, pen test summaries, and breach notification SLAs.',
+      memoryHack:
+        'Vendor risk = pre-contract (questionnaire) + contract (right-to-audit, SLA, breach SLA) + ongoing (monitor) + exit (data return).',
+    },
+  },
+  {
+    id: 'd1-c03',
+    type: 'memory_hack',
+    location: 'Toronto',
+    background: TORONTO_BG,
+    speaker: 'narrator',
+    dialogue: 'Specialized regulations and frameworks not yet covered.',
+    memoryHack: {
+      title: 'Specialty Regulations',
+      body: '• ITAR / EAR — US export control. Defense articles + dual-use tech. Licensing required for export.\n• Wassenaar Arrangement — multilateral export control on dual-use goods (cryptography included historically).\n• 23 NYCRR 500 — NY DFS cybersecurity for financial institutions. CISO required, annual report, encryption.\n• OCC, FFIEC — US bank regulators. Supervisory letters, IT examination handbook.\n• CMMC — Cybersecurity Maturity Model Certification. US DoD contractor framework, levels 1-3 (formerly 5). Replaces NIST 800-171 self-attestation.\n• BSI C5 — German cloud cybersecurity catalog.\n• PIPL — China Personal Information Protection Law. GDPR-style + data localization.\n• APEC CBPR — Asia-Pacific privacy framework.\n• FedRAMP / StateRAMP — US government cloud authorization.\n• HiTrust — health combined framework.\n\nMemory hook: "ITAR = defense exports. NYDFS 500 = NY finance. CMMC = DoD contractors. PIPL = China. FedRAMP = US gov cloud."',
+    },
+    xpReward: 50,
+  },
+];
+
+const _domain2ClosingScenes: StoryScene[] = [
+  {
+    id: 'd2-c01',
+    type: 'memory_hack',
+    location: 'London',
+    background: LOCATION_GRADIENTS_V2['london'],
+    speaker: 'narrator',
+    dialogue: 'Data discovery and classification automation.',
+    memoryHack: {
+      title: 'Data Discovery & Auto-Classification',
+      body: 'Modern environments cannot manually classify exabytes. Tools automate:\n\n• DATA DISCOVERY — finds where sensitive data lives (file shares, databases, cloud buckets, SaaS). Tools: Microsoft Purview, BigID, Varonis, Spirion.\n• AUTO-CLASSIFICATION — applies labels based on content patterns (regex), context (location, owner), and ML.\n• DATA TAGGING — attaches sensitivity metadata that travels with the file.\n• POLICY-DRIVEN PROTECTION — labels drive automated controls (encryption, DLP, retention).\n\nCloud-specific:\n• AWS Macie — S3 sensitive data discovery.\n• Azure Purview — multi-source classification.\n• GCP Cloud DLP — pattern-based scanning.\n\nDARK DATA — uninventoried data in the org. Source of breaches because it is not protected. Discovery + remediation projects target this first.\n\nMemory hook: "Discover → Classify → Label → Protect → Govern. Without discovery, classification is theater."',
+    },
+    xpReward: 50,
+  },
+  {
+    id: 'd2-c02',
+    type: 'dialogue',
+    location: 'London',
+    background: LOCATION_GRADIENTS_V2['london'],
+    leftNPC: 'sharma',
+    rightNPC: 'alex',
+    speaker: 'sharma',
+    dialogue:
+      'Cross-border transfer mechanisms under GDPR. ADEQUACY DECISIONS — EU Commission says a country protects data adequately (UK post-Brexit, Switzerland, Japan, South Korea, Canada commercial sector). Transfer is then unrestricted. SCCs (Standard Contractual Clauses) — EU-approved contract templates that bind the importer to GDPR-equivalent protections. BCRs (Binding Corporate Rules) — internal rules for multinationals; approved by lead supervisory authority. Schrems II killed Privacy Shield; replaced by EU-US Data Privacy Framework (2023). DEROGATIONS — narrow exceptions: explicit consent, contract necessity, vital interests, public interest. Cannot be used routinely.',
+    knowledgeCheck: {
+      question:
+        'A US-headquartered SaaS company processes EU resident data and uses Subprocessors in India. What mechanisms must be in place for GDPR-compliant transfer to the US and India?',
+      options: [
+        'Adequacy decision for both countries',
+        'Privacy Shield certification',
+        'EU-US Data Privacy Framework + SCCs (or BCRs) for India',
+        'Explicit consent from every data subject',
+      ],
+      correctIndex: 2,
+      explanation:
+        'US transfers post-Schrems II rely on the EU-US Data Privacy Framework (companies must self-certify) plus appropriate technical/organizational measures. India lacks an adequacy decision, so SCCs or BCRs are required to bind the Indian processor. Explicit consent is a derogation, not a routine basis.',
+      memoryHack:
+        'GDPR transfer hierarchy: Adequacy > SCCs/BCRs > Derogations. Schrems II ended Privacy Shield; EU-US DPF replaced it. India and most non-adequacy countries need SCCs.',
+    },
+  },
+];
+
+const _domain3ClosingScenes: StoryScene[] = [
+  {
+    id: 'd3-c01',
+    type: 'memory_hack',
+    location: 'Munich',
+    background: LOCATION_GRADIENTS_V2['munich'],
+    speaker: 'narrator',
+    dialogue: 'Enterprise security architecture frameworks.',
+    memoryHack: {
+      title: 'SABSA · TOGAF · Zachman',
+      body: 'SABSA (Sherwood Applied Business Security Architecture) — security-specific. SIX layers (Contextual, Conceptual, Logical, Physical, Component, Operational) crossed with WHAT/WHY/HOW/WHO/WHERE/WHEN. Risk-driven from business attributes.\n\nTOGAF (The Open Group Architecture Framework) — broader enterprise architecture. ADM (Architecture Development Method) phases A through H.\n\nZACHMAN — taxonomy / ontology of architecture artifacts. Six rows × six columns. Old (1987), influential, less prescriptive.\n\nNIST 800-160 — Systems Security Engineering. Engineering-discipline approach to security architecture.\n\nMemory hook: "SABSA = security architecture. TOGAF = enterprise architecture. Zachman = artifact taxonomy. NIST 800-160 = systems security engineering."',
+    },
+    xpReward: 50,
+  },
+  {
+    id: 'd3-c02',
+    type: 'memory_hack',
+    location: 'Munich',
+    background: LOCATION_GRADIENTS_V2['munich'],
+    speaker: 'narrator',
+    dialogue: 'Hardware roots of trust and trusted execution.',
+    memoryHack: {
+      title: 'TPM · HSM · Secure Boot · TEE',
+      body: 'TPM (Trusted Platform Module) — chip on motherboard. Stores measurements (PCRs), generates keys, supports attestation. TPM 2.0 standard. Used by BitLocker, Windows Hello, secure boot.\n\nSECURE BOOT — verifies bootloader signature against a trusted key in firmware. Stops bootkits and rootkits. Each stage measures the next; measurements stored in TPM PCRs.\n\nMEASURED BOOT — extends secure boot. Each component is hashed and recorded; remote attestation can prove the boot sequence was clean.\n\nHSM (Hardware Security Module) — dedicated crypto appliance. FIPS 140-2/3 Levels 1-4 (4 = tamper-active enclosures). Stores keys in tamper-protected memory; signs/decrypts inside HSM. Used for CA root keys, payment HSMs (PCI), code signing.\n\nTEE (Trusted Execution Environment) — CPU-level isolation. Intel SGX (enclaves), AMD SEV-SNP (encrypted VMs), ARM TrustZone, Apple Secure Enclave. Used for confidential computing, key custody, attested workloads.\n\nFIPS 140-3 Levels: 1 (basic), 2 (tamper-evident), 3 (tamper-resistant), 4 (tamper-active, environmental sensors).\n\nMemory hook: "TPM = motherboard chip. HSM = appliance. TEE = CPU enclave. FIPS 140 = crypto module assurance level."',
+    },
+    xpReward: 50,
+  },
+  {
+    id: 'd3-c03',
+    type: 'memory_hack',
+    location: 'Munich',
+    background: LOCATION_GRADIENTS_V2['munich'],
+    speaker: 'narrator',
+    dialogue: 'Side-channel attacks and physical crypto attacks.',
+    memoryHack: {
+      title: 'Side-Channel Attacks',
+      body: '• TIMING — measure how long an operation takes. Different inputs = different times = key leakage. Defense: constant-time crypto.\n• POWER ANALYSIS — measure power consumption (SPA simple, DPA differential). Defense: power-line filtering, dummy operations.\n• ELECTROMAGNETIC (TEMPEST) — capture EM emanations from CPU, monitor, cable. Defense: shielding (Faraday cage), filtering.\n• ACOUSTIC — keyboard click analysis, CPU coil whine. Defense: acoustic isolation.\n• OPTICAL — LED status lights, hard drive activity LEDs leak data. Defense: cover or remove.\n• FAULT INJECTION — voltage glitching, clock glitching, laser pulses to skip instructions. Defense: redundant computation, glitch detectors.\n• CACHE TIMING — Spectre, Meltdown, Foreshadow, ZombieLoad, Retbleed. CPU-microarchitectural side channels. Defense: microcode + OS patches, KPTI.\n\nCOLD BOOT ATTACK — RAM contents persist for seconds after power off. Freeze the chip, extract DRAM, recover keys. Defense: full-memory encryption (AMD SME, Intel TME).\n\nEVIL MAID — physical access for a few minutes. Tamper bootloader to capture pre-boot password. Defense: tamper-evident seals, FDE with TPM-bound key.\n\nMemory hook: "Side channels = physics leaking secrets. Time, Power, EM, Sound, Light, Faults."',
+    },
+    xpReward: 50,
+  },
+  {
+    id: 'd3-c04',
+    type: 'memory_hack',
+    location: 'Munich',
+    background: LOCATION_GRADIENTS_V2['munich'],
+    speaker: 'narrator',
+    dialogue: 'Quantum and post-quantum cryptography.',
+    memoryHack: {
+      title: 'Post-Quantum Crypto (PQC)',
+      body: 'Quantum computers (when scaled) break:\n• RSA — Shor\'s algorithm factors integers in polynomial time.\n• ECC — Shor\'s extends to discrete log.\n• Diffie-Hellman — same, broken.\n\nQuantum DOES NOT trivially break:\n• Symmetric crypto (AES) — Grover\'s algorithm halves effective key length. AES-128 → 64-bit security. Move to AES-256 to maintain margin.\n• Hashes (SHA-2/3) — also affected by Grover; double output size.\n\nNIST PQC COMPETITION (2016-2024) selected:\n• ML-KEM (CRYSTALS-Kyber) — key encapsulation. Replaces RSA/DH key exchange.\n• ML-DSA (CRYSTALS-Dilithium) — digital signatures. Replaces RSA/ECDSA signatures.\n• SLH-DSA (SPHINCS+) — hash-based signature backup.\n• FN-DSA (Falcon) — alternative signature.\n\nFAMILIES OF PQC:\n• Lattice-based (Kyber, Dilithium, Falcon) — winners.\n• Hash-based (SPHINCS+, XMSS, LMS) — proven secure, large signatures.\n• Code-based (Classic McEliece) — large keys but secure.\n• Multivariate, Isogeny — research / abandoned.\n\nMIGRATION: hybrid mode (classical + PQC) is current practice. "Harvest now, decrypt later" attacks force urgency for long-secret data.\n\nMemory hook: "Shor breaks RSA/ECC. Grover halves AES. NIST picks: Kyber (KEM), Dilithium (sig). Hybrid migration now."',
+    },
+    xpReward: 50,
+  },
+  {
+    id: 'd3-c05',
+    type: 'memory_hack',
+    location: 'Munich',
+    background: LOCATION_GRADIENTS_V2['munich'],
+    speaker: 'narrator',
+    dialogue: 'Advanced cryptographic primitives the CISSP exam touches.',
+    memoryHack: {
+      title: 'Advanced Crypto Primitives',
+      body: '• HMAC — Hash-based Message Authentication Code. Symmetric key + hash → integrity + authenticity. Common: HMAC-SHA-256.\n• AEAD — Authenticated Encryption with Associated Data. Bundles encryption + MAC in one operation. AES-GCM, ChaCha20-Poly1305.\n• KDF — Key Derivation Function. Stretches a low-entropy secret (password) into a usable key. PBKDF2, scrypt, bcrypt, Argon2id (current best).\n• HKDF — HMAC-based KDF. Used in TLS 1.3 to derive keys from a shared secret.\n• Diffie-Hellman — key AGREEMENT, not encryption. Two parties generate a shared secret over a public channel.\n• Ephemeral DH (DHE / ECDHE) — fresh keys per session = forward secrecy.\n• Digital signatures — RSA-PSS, ECDSA, EdDSA (Ed25519, Ed448).\n• Zero-Knowledge Proofs (ZKP) — prove a fact without revealing the secret. Used in privacy-preserving auth, blockchain.\n• Secret sharing (Shamir) — split a secret into N pieces; any K reconstruct. Used for break-glass keys, multi-party signing.\n• Threshold cryptography — distributed signing without reconstructing the key.\n• Homomorphic encryption — compute on ciphertext (FHE / partial / somewhat).\n• Format-preserving encryption (FPE) — output looks like input format (encrypted credit card looks like a credit card).\n\nMemory hook: "HMAC = MAC. AEAD = encrypt + MAC together. KDF = stretch password → key. Argon2id current best for passwords."',
+    },
+    xpReward: 50,
+  },
+];
+
+const _domain4ClosingScenes: StoryScene[] = [
+  {
+    id: 'd4-c01',
+    type: 'memory_hack',
+    location: 'Singapore',
+    background: LOCATION_GRADIENTS_V2['singapore'],
+    speaker: 'narrator',
+    dialogue: 'TCP details and port scanning techniques the exam tests.',
+    memoryHack: {
+      title: 'TCP Internals + Port Scanning',
+      body: 'TCP 3-WAY HANDSHAKE: SYN → SYN-ACK → ACK. Connection established. Termination: FIN → FIN-ACK → ACK + FIN-ACK.\n\nTCP STATE MACHINE: CLOSED → LISTEN → SYN-SENT → SYN-RECEIVED → ESTABLISHED → FIN-WAIT-1/2 → TIME-WAIT → CLOSED.\n\nPORT SCAN TYPES (nmap-speak):\n• TCP SYN (half-open) — sends SYN, sees SYN-ACK = open, RST = closed. Stealthier than full connect.\n• TCP CONNECT — full handshake. Logged everywhere. Loud.\n• UDP scan — send UDP packet, ICMP "port unreachable" = closed; no response = open|filtered.\n• FIN, NULL, XMAS — send unusual flag combinations to bypass simple filters.\n• ACK scan — maps firewall rules (filtered vs unfiltered).\n• Idle scan (zombie) — uses an idle host\'s IP ID sequence for stealth.\n• Service version detection (-sV) — banner grabbing + protocol probe.\n• OS detection (-O) — TCP/IP fingerprinting.\n\nDEFENSE:\n• Hide unused services.\n• Drop unsolicited packets (default deny).\n• Rate-limit half-open connections.\n• IDS / IPS detection of scan patterns.\n• Stateful firewalls drop FIN/NULL/XMAS as invalid.\n\nMemory hook: "SYN scan = half-open stealth. NULL/FIN/XMAS = bypass tricks. UDP scan = slow + noisy."',
+    },
+    xpReward: 50,
+  },
+  {
+    id: 'd4-c02',
+    type: 'memory_hack',
+    location: 'Singapore',
+    background: LOCATION_GRADIENTS_V2['singapore'],
+    speaker: 'narrator',
+    dialogue: 'IPv6 specifics and the address types that trip exam-takers.',
+    memoryHack: {
+      title: 'IPv6 Essentials',
+      body: 'IPv6 = 128 bits = 2^128 addresses. Written as eight 16-bit groups in hex, separated by colons. Leading zeros omitted; one consecutive run of zeros compressed to ::.\n\nADDRESS TYPES:\n• Unicast — one-to-one.\n• Multicast — one-to-many. ff00::/8 prefix.\n• Anycast — one-to-nearest. Same address on multiple hosts; routed to nearest.\n• NO BROADCAST — replaced by multicast.\n\nSPECIAL ADDRESSES:\n• ::1/128 — loopback.\n• ::/128 — unspecified.\n• fe80::/10 — link-local (auto-assigned, like APIPA but mandatory).\n• fc00::/7 — unique local (private equivalent of RFC 1918).\n• 2000::/3 — global unicast (the public internet).\n• ff02::1 — all nodes on the link.\n• ff02::2 — all routers on the link.\n\nFEATURES:\n• Auto-configuration via SLAAC (Stateless Address Auto-Configuration) using RA messages from routers.\n• Mandatory IPSec support (in spec; not enforced at deployment).\n• Larger header but simpler — fewer fields.\n• No NAT needed (huge address space).\n• Privacy extensions (RFC 4941) randomize the host portion to prevent tracking.\n\nDUAL STACK / TUNNELING / TRANSLATION are common transition methods (6to4, Teredo, NAT64).\n\nMemory hook: "IPv6 = 128-bit. fe80 = link-local. fc00 = private. 2000 = public. No broadcast — use multicast ff02::1."',
+    },
+    xpReward: 50,
+  },
+  {
+    id: 'd4-c03',
+    type: 'memory_hack',
+    location: 'Singapore',
+    background: LOCATION_GRADIENTS_V2['singapore'],
+    speaker: 'narrator',
+    dialogue: 'Storage networking and SDN concepts that appear in newer exam pools.',
+    memoryHack: {
+      title: 'Storage Networking + SDN',
+      body: 'STORAGE PROTOCOLS:\n• iSCSI — SCSI over TCP/IP. Block-level storage over Ethernet. Common ports 3260.\n• FCoE — Fibre Channel over Ethernet. Lossless DCB-enabled networks.\n• NFS — file-level network share (UNIX/Linux).\n• SMB / CIFS — Windows file share. SMB 3.x adds encryption.\n• NVMe-oF — NVMe over Fabrics. Latest, lowest-latency block over TCP / RDMA / FC.\n\nSAN vs NAS:\n• SAN — block storage at network-fabric scale. Looks like a local disk to the OS.\n• NAS — file storage. Looks like a network share.\n\nSDN (Software-Defined Networking):\n• Separates CONTROL PLANE (decisions) from DATA PLANE (forwarding).\n• OpenFlow protocol for controller-to-switch communication.\n• Programmable, centralized control.\n• Use cases: micro-segmentation, dynamic policy, network virtualization.\n\nSD-WAN — see Sprint C scene. SDN applied to WAN.\n\nNFV (Network Function Virtualization) — running firewalls, routers, load balancers as virtual instances on commodity hardware. Often paired with SDN.\n\nMemory hook: "SAN = block. NAS = file. SDN = controller separates control from data plane."',
+    },
+    xpReward: 50,
+  },
+  {
+    id: 'd4-c04',
+    type: 'memory_hack',
+    location: 'Singapore',
+    background: LOCATION_GRADIENTS_V2['singapore'],
+    speaker: 'narrator',
+    dialogue: 'Network forensics, NAT/PAT, MPLS, and other infra topics.',
+    memoryHack: {
+      title: 'Network Forensics + Legacy Tech',
+      body: 'NETWORK FORENSICS:\n• Packet capture (Wireshark, tcpdump) — full content; need disk space.\n• Flow data (NetFlow / IPFIX / sFlow) — metadata only; smaller.\n• Full-fidelity capture appliances — Corelight, Endace.\n• Capture in promiscuous mode requires SPAN port or network tap.\n• Encrypted traffic — TLS forensics requires either MITM with cert (controlled environments) or metadata analysis (JA3 fingerprints, SNI, DNS).\n\nNAT / PAT:\n• NAT — Network Address Translation. Maps private IP ↔ public IP. Hides internal addresses, conserves IPv4 space.\n• PAT — Port Address Translation. Many-to-one NAT using port ranges. What home routers do.\n• Static NAT — 1:1 mapping. Used for inbound services.\n• NAT64 — IPv6 to IPv4 translation.\n• NAT BREAKS: IPSec AH (integrity covers IP header), some VoIP, peer-to-peer.\n\nMPLS — Multi-Protocol Label Switching. Carrier service, Layer 2.5. Labels swap at each hop. Used for site-to-site WAN with QoS guarantees. Being replaced by SD-WAN over commodity broadband.\n\nFRAME RELAY / X.25 — legacy WAN protocols. Recognize for the exam; rarely deployed.\n\nNETWORK TAPS vs SPAN PORTS:\n• Tap — physical inline split. Fail-safe, no packet loss.\n• SPAN port — switch mirror port. Cheaper but can drop under load.\n\nMemory hook: "NAT = 1:1, PAT = many:1 via ports. MPLS = label-switched WAN. Tap = better than SPAN."',
+    },
+    xpReward: 50,
+  },
+];
+
+const _domain5ClosingScenes: StoryScene[] = [
+  {
+    id: 'd5-c01',
+    type: 'memory_hack',
+    location: 'New York',
+    background: LOCATION_GRADIENTS_V2['new-york'],
+    speaker: 'narrator',
+    dialogue: 'Just-in-Time access, Just-Enough-Admin, and modern privileged-access patterns.',
+    memoryHack: {
+      title: 'JIT · JEA · Privileged Access Patterns',
+      body: 'JIT (Just-In-Time) Access — privileges granted on REQUEST and EXPIRE automatically. No standing admin. Approval workflow + time-box (e.g., 4 hours). Tools: Microsoft PIM, Okta PAM, CyberArk.\n\nJEA (Just-Enough-Administration) — restricts WHAT an admin can do, not just whether they have access. PowerShell JEA endpoints expose only specific cmdlets. Used in tiered admin models.\n\nTIERED ADMIN MODEL (Microsoft):\n• Tier 0 — domain controllers, identity infrastructure. Only Tier 0 admins touch.\n• Tier 1 — server admins. Member servers, applications.\n• Tier 2 — workstation admins. End-user devices.\n\nNO ACCOUNT CROSSES TIERS. A Tier 0 admin has no Tier 1/2 credentials; a Tier 2 admin cannot escalate to Tier 0.\n\nLAPS (Local Administrator Password Solution) — randomizes local admin password per machine, stores in AD with ACL. Stops pass-the-hash spread between machines.\n\nPAM Workflow:\n1. Admin requests JIT access via PAM portal.\n2. Approver(s) review.\n3. Time-bound credential issued (or session brokered).\n4. Session recorded.\n5. Credential auto-rotated on session end.\n\nMemory hook: "JIT = WHEN you get access (timed). JEA = WHAT you can do. Tiered admin = no credential reuse across tiers."',
+    },
+    xpReward: 50,
+  },
+  {
+    id: 'd5-c02',
+    type: 'memory_hack',
+    location: 'New York',
+    background: LOCATION_GRADIENTS_V2['new-york'],
+    speaker: 'narrator',
+    dialogue: 'MFA bypass attacks — what every IAM operator must know.',
+    memoryHack: {
+      title: 'MFA Bypass Attacks',
+      body: 'Just because MFA is enabled does NOT mean it cannot be bypassed.\n\n• MFA FATIGUE / PUSH BOMBING — attacker has password, sends push prompts repeatedly until user accepts. Defense: number matching, push throttling, user education.\n• SIM SWAPPING — attacker convinces carrier to port the victim\'s number. Now receives all SMS codes. Defense: avoid SMS as MFA factor; use TOTP, push, or FIDO2.\n• REAL-TIME PHISHING (AiTM / Adversary-in-the-Middle) — Evilginx-style proxy captures session cookie post-MFA. Defense: FIDO2 (origin-bound), conditional access (device compliance, location).\n• OAUTH CONSENT PHISHING — user grants permissions to a malicious app; no MFA challenge for subsequent API access. Defense: app consent governance, restrict third-party app registration.\n• SESSION TOKEN THEFT — stealing a valid session cookie via malware bypasses MFA. Defense: token binding, short token lifetimes, device-attested sessions.\n• PASSWORD SPRAY ON MFA-OPT-OUT ACCOUNTS — service accounts often skip MFA. Defense: enforce MFA universally; modern alternatives for service accounts (managed identities).\n• MFA RESET ATTACKS — social-engineering help desk to disable MFA. Defense: out-of-band verification before MFA reset.\n\nFIDO2 / WebAuthn / Passkeys are PHISHING-RESISTANT because the authenticator signs the origin. AiTM proxies fail.\n\nMemory hook: "MFA fatigue, SIM swap, AiTM, OAuth consent, session theft, MFA reset. FIDO2 stops phishing-class attacks."',
+    },
+    xpReward: 50,
+  },
+  {
+    id: 'd5-c03',
+    type: 'memory_hack',
+    location: 'New York',
+    background: LOCATION_GRADIENTS_V2['new-york'],
+    speaker: 'narrator',
+    dialogue: 'Lockout, session, and password policy specifics.',
+    memoryHack: {
+      title: 'Account Lockout + Session Policy',
+      body: 'ACCOUNT LOCKOUT POLICY:\n• Threshold (e.g., 5 failed attempts).\n• Duration (e.g., 15 min) or admin-unlock-only.\n• Counter reset window.\n• Risk: aggressive lockout becomes a self-DoS attack vector.\n• Modern alternative: progressive delays, CAPTCHA, IP reputation, behavioral risk scoring.\n\nSESSION TIMEOUT TYPES:\n• ABSOLUTE — session expires N minutes after auth regardless of activity.\n• IDLE / INACTIVITY — expires after N minutes of inactivity.\n• MAXIMUM CONCURRENT SESSIONS — limit per user.\n• REAUTHENTICATION FOR SENSITIVE ACTIONS — require fresh auth for password change, MFA enrollment, payment.\n\nNIST SP 800-63B PASSWORD GUIDANCE (current):\n• Length 8+ minimum, 64+ supported.\n• No mandatory periodic rotation (rotate on evidence of compromise).\n• Block common passwords + previously-breached passwords.\n• Allow paste, allow long passphrases.\n• Discourage password hints / security questions (treat as Type 1 factor).\n\nPCI DSS 4.0 (separate from NIST):\n• 12+ char passwords (or risk-based shorter with MFA).\n• Rotation every 90 days OR risk-based monitoring.\n\nMemory hook: "NIST: length > complexity, no mandatory rotation. PCI: 12+ char, rotate or monitor. Lockout = DoS risk; prefer progressive delays."',
+    },
+    xpReward: 50,
+  },
+];
+
+const _domain6ClosingScenes: StoryScene[] = [
+  {
+    id: 'd6-c01',
+    type: 'memory_hack',
+    location: 'Remote Lab',
+    background: LOCATION_GRADIENTS_V2['remote-lab'],
+    speaker: 'narrator',
+    dialogue: 'Third-party attestations and assessment scope.',
+    memoryHack: {
+      title: 'Third-Party Attestations',
+      body: 'SOC 1 Type II — controls relevant to financial reporting. ISAE 3402 international equivalent.\nSOC 2 Type II — five trust services criteria: Security (mandatory), Availability, Confidentiality, Processing Integrity, Privacy. Most cloud SaaS report.\nSOC 3 — public-facing summary of SOC 2.\nSOC for Cybersecurity — entity-wide cybersecurity risk management examination.\n\nISO 27001 — formal ISMS certification. Three-year cycle.\nISO 27017 — cloud-specific control extensions.\nISO 27018 — cloud PII protection.\nISO 27701 — privacy information management (PIMS) on top of 27001.\n\nFEDRAMP — US federal cloud authorization. Three impact levels (Low / Moderate / High). 3PAO assesses.\nSTATERAMP — state government equivalent.\nFEDRAMP HIGH — cleared for high-impact federal data.\nIMPACT LEVELS — FIPS 199 categorizes systems Low / Moderate / High based on potential impact (CIA).\n\nBSI C5 (Germany) — cloud security catalog.\nESCALA / ISO 27001 + national overlays — country-specific.\n\nPCI ATTESTATION:\n• AOC — Attestation of Compliance (signed summary).\n• ROC — Report on Compliance (full QSA report).\n• SAQ — Self-Assessment Questionnaire (smaller merchants).\n\nMemory hook: "SOC 1 = $$, SOC 2 = security trust criteria, SOC 3 = public version. ISO 27001 = ISMS, +27017 cloud, +27018 PII, +27701 privacy. FedRAMP = US gov cloud."',
+    },
+    xpReward: 50,
+  },
+  {
+    id: 'd6-c02',
+    type: 'memory_hack',
+    location: 'Remote Lab',
+    background: LOCATION_GRADIENTS_V2['remote-lab'],
+    speaker: 'narrator',
+    dialogue: 'Bug bounty programs and vulnerability disclosure.',
+    memoryHack: {
+      title: 'Vulnerability Disclosure + Bug Bounty',
+      body: 'COORDINATED VULNERABILITY DISCLOSURE (CVD) — researcher reports privately, vendor patches, then both publish. Standard for ethical disclosure.\n\nFULL DISCLOSURE — researcher publishes immediately. Forces a fix; risks active exploitation.\n\nRESPONSIBLE / 90-DAY WINDOW — common: reporter gives vendor 90 days; publishes after patch or window expiry.\n\nBUG BOUNTY PROGRAMS:\n• Public — open to all. HackerOne, Bugcrowd, Intigriti.\n• Private — invite-only researchers.\n• Self-managed — direct submissions to a security@ inbox + scoped policy.\n\nKEY POLICY ELEMENTS:\n• Scope (in-scope assets, out-of-scope).\n• Rules of engagement (no DoS, no social engineering, no destructive testing).\n• Safe harbor — legal protection for good-faith research. CFAA / DMCA exemptions.\n• Severity-based payouts (CVSS-aligned).\n• SLA for triage and patch.\n\nVDP (Vulnerability Disclosure Policy) — minimum: a security@ contact, a scope, safe harbor language. Expected by NIST 800-53, ISO 27001, FedRAMP.\n\nCERT / CSIRT COORDINATION — CERT-CC, US-CERT, national CERTs. Coordinate disclosure for industry-wide issues.\n\nMemory hook: "CVD = coordinated. 90-day window common. Bounty needs scope + rules + safe harbor. VDP minimum: security@ + scope."',
+    },
+    xpReward: 50,
+  },
+];
+
+const _domain7ClosingScenes: StoryScene[] = [
+  {
+    id: 'd7-c01',
+    type: 'memory_hack',
+    location: 'Tokyo',
+    background: LOCATION_GRADIENTS_V2['tokyo'],
+    speaker: 'narrator',
+    dialogue: 'Resource provisioning, capacity, and service-level management.',
+    memoryHack: {
+      title: 'Resource & Capacity Operations',
+      body: 'RESOURCE PROVISIONING — predicting and allocating compute / storage / network. In cloud: auto-scaling groups, Kubernetes Horizontal Pod Autoscaler, serverless. On-prem: capacity planning, lead-time procurement.\n\nCAPACITY MANAGEMENT (ITIL):\n• Business Capacity Management — match resource to business demand.\n• Service Capacity Management — performance per service.\n• Component Capacity Management — individual hardware.\n\nKEY METRICS:\n• Utilization — % of capacity in use.\n• Saturation — queueing, contention.\n• Errors / latency — symptoms of saturation.\n• Headroom — spare capacity for spikes.\n\nSERVICE LEVEL MANAGEMENT:\n• SLA — Service Level Agreement (external, contractual).\n• OLA — Operational Level Agreement (internal team-to-team).\n• UC — Underpinning Contract (third-party support).\n• SLO — Service Level Objective (target, e.g., 99.9% availability).\n• SLI — Service Level Indicator (measured, e.g., monthly uptime %).\n• ERROR BUDGET — 1 - SLO. The "spend" of acceptable failures.\n\nCSIRT (Computer Security Incident Response Team):\n• Internal team OR external contracted.\n• Structure: Manager, IR Lead, Forensics, Comms, Legal liaison.\n• Activation criteria documented in IR plan.\n• Coordinated with external partners: ISACs (Information Sharing and Analysis Centers, e.g., FS-ISAC for finance), national CERTs.\n\nMemory hook: "Capacity = match supply to demand. SLA external, OLA internal, SLO target, SLI measured. CSIRT = your IR team."',
+    },
+    xpReward: 50,
+  },
+  {
+    id: 'd7-c02',
+    type: 'memory_hack',
+    location: 'Tokyo',
+    background: LOCATION_GRADIENTS_V2['tokyo'],
+    speaker: 'narrator',
+    dialogue: 'Personnel safety and physical OPS the exam tests.',
+    memoryHack: {
+      title: 'Personnel Safety + Facility Operations',
+      body: 'PERSONNEL SAFETY (Life-safety overrides ALL other security):\n• Emergency evacuation routes, drills, assembly points.\n• Fire suppression that is safe for occupied spaces (clean agents, NOT CO2 in occupied rooms).\n• Duress codes / panic buttons.\n• Travel security: high-risk regions, executive protection, data minimization on devices.\n• Workplace violence prevention.\n• Active-shooter response training.\n\nFACILITY OPERATIONS:\n• Visitor management — pre-registration, escort, badge return, audit logs.\n• Mail handling — separate room, X-ray for high-target organizations.\n• Loading dock controls — separate from main entry.\n• Cleaning / maintenance — escorted, badged, after-hours access logged.\n• Pest control, snow / weather contingency.\n\nFAIL-SAFE vs FAIL-SECURE (recap):\n• Fire doors must FAIL-SAFE / FAIL-OPEN — life over assets.\n• Server room doors typically FAIL-SECURE / FAIL-CLOSED — assets unless life is at risk.\n• Many jurisdictions REQUIRE fire-rated doors to fail-open by code.\n\nENVIRONMENTAL:\n• Temperature 64-80°F / 18-27°C.\n• Humidity 40-60%.\n• Static electricity risk above 60% humidity becoming a problem; below 40% generates static.\n• Power: line conditioners, UPS, generator. ATS (automatic transfer switch) handles failover.\n\nMemory hook: "Life > Assets > Data. Fire doors fail OPEN. Server doors fail CLOSED. 64-80°F, 40-60% humidity."',
+    },
+    xpReward: 50,
+  },
+  {
+    id: 'd7-c03',
+    type: 'memory_hack',
+    location: 'Tokyo',
+    background: LOCATION_GRADIENTS_V2['tokyo'],
+    speaker: 'narrator',
+    dialogue: 'Honeypots, deception technology, and defensive operations.',
+    memoryHack: {
+      title: 'Deception + Honeypots',
+      body: 'HONEYPOT — a decoy system designed to attract attackers. Generates high-fidelity alerts because legitimate users have no reason to touch it.\n\nINTERACTION LEVELS:\n• Low-interaction — emulates services (Honeyd, Cowrie). Cheap, limited intel.\n• High-interaction — full real systems. Rich intel, but escape risk.\n• Medium — partial emulation.\n\nVARIANTS:\n• HONEYNET — multiple honeypots forming a network.\n• HONEYTOKEN — fake credentials, files, database rows. Triggers alert if used.\n• CANARY TOKENS — same idea: fake AWS keys, files, DNS queries. Anyone touching them = compromise signal.\n\nDECEPTION PLATFORMS — Illusive, TrapX, Attivo. Deploy honey-credentials and lures across the real environment so attackers reaching for lateral movement hit a tripwire.\n\nLEGAL CONSIDERATIONS:\n• Entrapment is a defendant doctrine; civil suits are about reasonable expectation. Honeypots are generally legal but document the policy.\n• ENTICEMENT vs ENTRAPMENT: enticement (offering an opportunity) is OK; entrapment (inducing a crime) is not.\n• Logging policy must cover decoy systems.\n\nUSE CASES:\n• Detection of insider threats / lateral movement.\n• Threat intelligence on attacker TTPs.\n• Slowing attackers (waste their time on fakes).\n\nMemory hook: "Honeypot = decoy. Honeytoken = fake credential. Canary = tripwire. Detect at the top of the kill chain by salting the environment."',
+    },
+    xpReward: 50,
+  },
+];
+
+const _domain8ClosingScenes: StoryScene[] = [
+  {
+    id: 'd8-c01',
+    type: 'memory_hack',
+    location: 'San Francisco',
+    background: LOCATION_GRADIENTS_V2['san-francisco'],
+    speaker: 'narrator',
+    dialogue: 'Software maturity models in detail.',
+    memoryHack: {
+      title: 'Maturity Models — Levels and Differences',
+      body: 'CMMI (Capability Maturity Model Integration) — five levels:\n1. INITIAL — chaotic, ad hoc.\n2. MANAGED — basic project tracking; process exists per project.\n3. DEFINED — organization-wide standardized processes.\n4. QUANTITATIVELY MANAGED — process measurements drive decisions.\n5. OPTIMIZING — continuous improvement using metrics.\n\nIDEAL — improvement model (Initiating, Diagnosing, Establishing, Acting, Learning). Phased rollout.\n\nSAMM (Software Assurance Maturity Model) — OWASP. Four business functions × three security practices each:\n• Governance — Strategy & Metrics, Policy & Compliance, Education & Guidance.\n• Design — Threat Assessment, Security Requirements, Security Architecture.\n• Implementation — Secure Build, Secure Deployment, Defect Management.\n• Verification — Architecture Assessment, Requirements-Driven Testing, Security Testing.\n• Operations — Incident Management, Environment Management, Operational Management.\nMaturity 1-3 per practice.\n\nBSIMM (Building Security In Maturity Model) — DESCRIPTIVE (what real firms do, surveyed). 12 practices across four domains: Governance, Intelligence, SSDL Touchpoints, Deployment.\n\nCMM (older) — predecessor to CMMI. Same five levels.\n\nNIST SSDF (Secure Software Development Framework, SP 800-218) — practices PO (Prepare Org), PS (Protect Software), PW (Produce Well-Secured Software), RV (Respond to Vulnerabilities). Mandated by Executive Order 14028 for federal software.\n\nMemory hook: "CMMI = 5 levels (Initial→Optimizing). SAMM = OWASP prescriptive. BSIMM = observational. NIST SSDF = federal-mandated."',
+    },
+    xpReward: 50,
+  },
+  {
+    id: 'd8-c02',
+    type: 'memory_hack',
+    location: 'San Francisco',
+    background: LOCATION_GRADIENTS_V2['san-francisco'],
+    speaker: 'narrator',
+    dialogue: 'Mobile + IoT + container security specifics.',
+    memoryHack: {
+      title: 'Mobile · Container · Serverless Security',
+      body: 'MOBILE APP SECURITY (OWASP MASVS — Mobile Application Security Verification Standard):\n• L1 — standard. Most apps.\n• L2 — defense-in-depth. Sensitive apps (banking).\n• L1+R / L2+R — adds resiliency against reverse engineering.\nKey controls: certificate pinning, secure storage (Keychain / Keystore), no hard-coded secrets, jailbreak/root detection, anti-debugging, SSL/TLS validation, no plaintext PII in logs.\n\nMOBILE DEVICE MANAGEMENT (MDM) / MAM:\n• MDM — full device control. Wipe, push apps, enforce policy.\n• MAM — app-level. Containerize work apps; do not touch personal data.\n• BYOD — user-owned device, MAM more common.\n\nCONTAINER SECURITY:\n• Image scanning (Trivy, Aqua, Snyk Container).\n• Minimal base images (distroless, Alpine, Chainguard).\n• Non-root user inside container.\n• Read-only root filesystem.\n• No privileged containers; no host network unless necessary.\n• Pod Security Standards (Restricted / Baseline / Privileged) in Kubernetes.\n• Runtime: Falco, Sysdig, Aqua for behavior detection.\n• Service mesh (Istio, Linkerd) for mTLS between services.\n\nSERVERLESS (FaaS) SECURITY:\n• Function privilege boundaries — least IAM.\n• Cold-start performance vs reuse — concurrency limits.\n• Event-source validation.\n• Dependency review per function (often more deps than monoliths).\n• Logging into central platform.\n\nMICROSERVICES SECURITY:\n• mTLS service-to-service.\n• Service mesh as policy plane.\n• OAuth 2.0 token propagation across hops.\n• Circuit breakers for resilience.\n\nMemory hook: "MASVS L1/L2 + R for mobile. Containers: scan, minimal, non-root. Serverless: least IAM per function."',
+    },
+    xpReward: 50,
+  },
+  {
+    id: 'd8-c03',
+    type: 'memory_hack',
+    location: 'San Francisco',
+    background: LOCATION_GRADIENTS_V2['san-francisco'],
+    speaker: 'narrator',
+    dialogue: 'Software-related secure coding standards and quality practices.',
+    memoryHack: {
+      title: 'Secure Coding Standards',
+      body: 'CERT SECURE CODING STANDARDS — Carnegie Mellon. Language-specific (C, C++, Java, Perl, Android). Rules + recommendations + examples of insecure-vs-secure.\n\nMISRA — Motor Industry Software Reliability Association. Strict C / C++ subset for safety-critical (automotive). Often required by AUTOSAR.\n\nOWASP ASVS (Application Security Verification Standard) — three levels (1 opportunistic, 2 standard, 3 advanced). Used to drive security testing requirements.\n\nOWASP TESTING GUIDE — companion to ASVS. Specific test cases for each requirement.\n\nNIST SSDF (recap) — federal-mandated practices, EO 14028.\n\nSOFTWARE COMPOSITION POLICY:\n• License compatibility — block GPL in commercial closed-source if applicable.\n• Vulnerability gates — fail build on Critical CVEs.\n• Maintainer activity — abandoned packages = supply-chain risk.\n• Typosquatting / dependency confusion — namespace verification.\n\nCODE SIGNING:\n• Authenticode (Windows), notarization (macOS), Android APK signing (v3 minimum).\n• Sigstore (cosign) — keyless signing for OSS, OIDC-bound, audit log via Rekor.\n• SLSA (Supply-chain Levels for Software Artifacts) — provenance + build integrity, four levels.\n\nINTEGRATED THREAT MODELING during design:\n• STRIDE for what-can-go-wrong.\n• PASTA for process-driven prioritization.\n• LINDDUN for privacy threats.\n• Trike for risk-based.\n\nMemory hook: "CERT = secure coding rules. MISRA = automotive-strict C. OWASP ASVS = verification standard. NIST SSDF = federal mandate."',
+    },
+    xpReward: 50,
+  },
+  {
+    id: 'd8-c04',
+    type: 'memory_hack',
+    location: 'San Francisco',
+    background: LOCATION_GRADIENTS_V2['san-francisco'],
+    speaker: 'narrator',
+    dialogue: 'Blockchain, smart contract, and Web3 security.',
+    memoryHack: {
+      title: 'Blockchain + Smart Contract Security',
+      body: 'CONSENSUS ALGORITHMS:\n• Proof of Work (PoW) — Bitcoin. Energy-intensive, slow.\n• Proof of Stake (PoS) — Ethereum 2.0 onward. Validators stake tokens.\n• Delegated PoS (DPoS) — voted-in validators.\n• PBFT / Tendermint — Byzantine Fault Tolerant variants. Permissioned chains.\n• Proof of Authority (PoA) — known validators. Enterprise chains.\n\nCRYPTOGRAPHY:\n• ECDSA (secp256k1 in Bitcoin / Ethereum).\n• SHA-256 (Bitcoin), Keccak-256 (Ethereum).\n• Merkle trees for transaction roots.\n\nSMART CONTRACT VULNERABILITIES (DASP Top 10 / SWC Registry):\n• REENTRANCY — DAO hack 2016. Defense: checks-effects-interactions pattern, ReentrancyGuard.\n• INTEGER OVERFLOW / UNDERFLOW — Solidity 0.8+ checks by default.\n• ACCESS CONTROL — missing onlyOwner.\n• ORACLE MANIPULATION — flash-loan price manipulation.\n• FRONT-RUNNING / MEV — txpool visibility lets attackers reorder.\n• TIMESTAMP DEPENDENCE — miners can adjust block timestamp ±15 sec.\n• DELEGATECALL TO UNTRUSTED — code reuse can rewrite caller storage.\n\nAUDITS:\n• Formal verification (Certora, Mythril).\n• Manual review by specialized firms (Trail of Bits, OpenZeppelin, ConsenSys Diligence).\n• Bug bounty programs on smart contracts (Immunefi).\n\nWALLET SECURITY:\n• Hot wallet — online, convenient, exposed.\n• Cold wallet — offline / hardware (Ledger, Trezor).\n• Multi-sig — N-of-M signature requirements.\n• Seed phrase = the only secret. Steal it, take everything.\n\nMemory hook: "PoW vs PoS. Reentrancy = DAO hack. Cold wallet > hot wallet. Multi-sig for treasuries."',
+    },
+    xpReward: 50,
+  },
+];
+
 // ─── Domain Chapter Registry ──────────────────────────────
 
 export const MERIDIAN_CHAPTERS: Record<number, DomainChapter> = {
@@ -3263,7 +3656,7 @@ export const MERIDIAN_CHAPTERS: Record<number, DomainChapter> = {
     locationEmoji: '🍁',
     background: LOCATION_GRADIENTS_V2['toronto'],
     primaryNPC: 'tanaka',
-    scenes: domain1Scenes,
+    scenes: [...domain1Scenes, ..._domain1ClosingScenes],
   },
   2: {
     domainId: 2,
@@ -3272,7 +3665,7 @@ export const MERIDIAN_CHAPTERS: Record<number, DomainChapter> = {
     locationEmoji: '🏛️',
     background: LOCATION_GRADIENTS_V2['london'],
     primaryNPC: 'sharma',
-    scenes: domain2Scenes,
+    scenes: [...domain2Scenes, ..._domain2ClosingScenes],
   },
   3: {
     domainId: 3,
@@ -3281,7 +3674,7 @@ export const MERIDIAN_CHAPTERS: Record<number, DomainChapter> = {
     locationEmoji: '🏰',
     background: LOCATION_GRADIENTS_V2['munich'],
     primaryNPC: 'vasquez',
-    scenes: domain3Scenes,
+    scenes: [...domain3Scenes, ..._domain3ClosingScenes],
   },
   4: {
     domainId: 4,
@@ -3290,7 +3683,7 @@ export const MERIDIAN_CHAPTERS: Record<number, DomainChapter> = {
     locationEmoji: '🌐',
     background: LOCATION_GRADIENTS_V2['singapore'],
     primaryNPC: 'alex',
-    scenes: domain4Scenes,
+    scenes: [...domain4Scenes, ..._domain4ClosingScenes],
   },
   5: {
     domainId: 5,
@@ -3299,7 +3692,7 @@ export const MERIDIAN_CHAPTERS: Record<number, DomainChapter> = {
     locationEmoji: '🗽',
     background: LOCATION_GRADIENTS_V2['new-york'],
     primaryNPC: 'webb',
-    scenes: domain5Scenes,
+    scenes: [...domain5Scenes, ..._domain5ClosingScenes],
   },
   6: {
     domainId: 6,
@@ -3308,7 +3701,7 @@ export const MERIDIAN_CHAPTERS: Record<number, DomainChapter> = {
     locationEmoji: '🔬',
     background: LOCATION_GRADIENTS_V2['remote-lab'],
     primaryNPC: 'vasquez',
-    scenes: domain6Scenes,
+    scenes: [...domain6Scenes, ..._domain6ClosingScenes],
   },
   7: {
     domainId: 7,
@@ -3317,7 +3710,7 @@ export const MERIDIAN_CHAPTERS: Record<number, DomainChapter> = {
     locationEmoji: '🗼',
     background: LOCATION_GRADIENTS_V2['tokyo'],
     primaryNPC: 'webb',
-    scenes: [...domain7Scenes, ..._domain7TailScenes],
+    scenes: [...domain7Scenes, ..._domain7TailScenes, ..._domain7ClosingScenes],
   },
   8: {
     domainId: 8,
@@ -3326,7 +3719,7 @@ export const MERIDIAN_CHAPTERS: Record<number, DomainChapter> = {
     locationEmoji: '🌉',
     background: LOCATION_GRADIENTS_V2['san-francisco'],
     primaryNPC: 'alex',
-    scenes: [...domain8Scenes, ..._domain8TailScenes],
+    scenes: [...domain8Scenes, ..._domain8TailScenes, ..._domain8ClosingScenes],
   },
 };
 
