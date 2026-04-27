@@ -1,16 +1,19 @@
-// CISSP question generator. Takes a library topic, asks Claude to
-// produce N exam-style questions, returns SQL inserts ready to apply.
+// CISSP question generator. Uses the local Claude Code CLI (Max
+// subscription) — NO Anthropic API key required, NO per-token spend.
 //
 // Usage:
 //   node scripts/generate-questions.mjs --topic 1.6 --count 20 [--out batch.sql]
 //
-// Reads .env.local for ANTHROPIC_API_KEY + SUPABASE_ACCESS_TOKEN.
-// Writes SQL to stdout (or --out file) without applying — use
-// scripts/apply-migrations.mjs to apply.
+// Reads .env.local for SUPABASE_ACCESS_TOKEN to look up the topic's
+// content from the live DB (so questions are grounded in what the app
+// actually teaches). Then shells out to `claude -p "..."` and parses
+// the JSON response. Writes SQL inserts ready to apply via
+// scripts/apply-migrations.mjs (or the orchestrator applies inline).
 
 import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
+import { spawn } from 'node:child_process';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -39,16 +42,11 @@ function parseArgs() {
 }
 
 const env = { ...loadEnv(), ...process.env };
-const ANTHROPIC_KEY = env.ANTHROPIC_API_KEY;
 const SUPABASE_TOKEN = env.SUPABASE_ACCESS_TOKEN;
 const SUPABASE_URL = env.NEXT_PUBLIC_SUPABASE_URL;
 
-if (!ANTHROPIC_KEY) {
-  console.error('Missing ANTHROPIC_API_KEY in .env.local');
-  process.exit(1);
-}
 if (!SUPABASE_TOKEN || !SUPABASE_URL) {
-  console.error('Missing SUPABASE_ACCESS_TOKEN or NEXT_PUBLIC_SUPABASE_URL');
+  console.error('Missing SUPABASE_ACCESS_TOKEN or NEXT_PUBLIC_SUPABASE_URL in .env.local');
   process.exit(1);
 }
 
@@ -69,11 +67,11 @@ async function dbQuery(sql) {
   return JSON.parse(await res.text());
 }
 
-// Look up the topic by topic_number to get its title, content, and id.
-const escapedTopic = args.topic.replace(/'/g, "''");
+// Look up the topic.
+const escaped = args.topic.replace(/'/g, "''");
 const topicRows = await dbQuery(
-  `SELECT id, domain_id, topic_number, title, one_liner, content_markdown, exam_tips, memory_hack, key_formulas
-   FROM library_topics WHERE topic_number = '${escapedTopic}' LIMIT 1`,
+  `SELECT id, domain_id, topic_number, title, one_liner, content_markdown, exam_tips, memory_hack
+   FROM library_topics WHERE topic_number = '${escaped}' LIMIT 1`,
 );
 
 if (!Array.isArray(topicRows) || topicRows.length === 0) {
@@ -103,7 +101,7 @@ Generate exactly ${args.count} CISSP-style multiple-choice questions. Each quest
 - Vary in difficulty: roughly 30% easy / 50% medium / 20% hard${args.difficulty && args.difficulty !== 'mixed' ? ` (this batch: ${args.difficulty} only)` : ''}
 - Avoid trick questions about wording; test understanding
 
-Return ONLY valid JSON in this exact shape (no prose, no markdown fences):
+Return ONLY valid JSON (no prose, no markdown fences) in this exact shape:
 {
   "questions": [
     {
@@ -112,49 +110,55 @@ Return ONLY valid JSON in this exact shape (no prose, no markdown fences):
       "correct_index": 0,
       "explanation": "...",
       "memory_hack": "...",
-      "difficulty": "easy" | "medium" | "hard"
+      "difficulty": "easy"
     }
   ]
 }
 
 The "explanation" field should explain WHY the correct answer is right and WHY each common distractor is wrong.
-The "memory_hack" field should be 1-2 sentences with a memorable analogy or mnemonic.`;
+The "memory_hack" field should be 1-2 sentences with a memorable analogy or mnemonic.
+Difficulty must be exactly one of: easy, medium, hard.`;
 
-console.error('Calling Claude API...');
-const apiRes = await fetch('https://api.anthropic.com/v1/messages', {
-  method: 'POST',
-  headers: {
-    'x-api-key': ANTHROPIC_KEY,
-    'anthropic-version': '2023-06-01',
-    'content-type': 'application/json',
-  },
-  body: JSON.stringify({
-    model: 'claude-sonnet-4-5-20250929',
-    max_tokens: 16000,
-    messages: [{ role: 'user', content: prompt }],
-  }),
-});
+console.error('Calling local Claude CLI...');
 
-if (!apiRes.ok) {
-  console.error(`API error ${apiRes.status}: ${await apiRes.text()}`);
-  process.exit(1);
+// Spawn `claude -p <prompt>`. The CLI authenticates via the Max
+// subscription session — no API key in env.
+function callClaude(prompt) {
+  return new Promise((resolve, reject) => {
+    const child = spawn('claude', ['-p', prompt, '--output-format', 'text'], {
+      stdio: ['ignore', 'pipe', 'pipe'],
+      shell: false,
+    });
+    let stdout = '';
+    let stderr = '';
+    child.stdout.on('data', (d) => { stdout += d.toString(); });
+    child.stderr.on('data', (d) => { stderr += d.toString(); });
+    child.on('error', reject);
+    child.on('close', (code) => {
+      if (code !== 0) reject(new Error(`claude CLI exit ${code}: ${stderr}`));
+      else resolve(stdout);
+    });
+  });
 }
 
-const apiBody = await apiRes.json();
-const text = apiBody.content?.[0]?.text;
-if (!text) {
-  console.error('Empty API response');
-  process.exit(1);
-}
+const text = await callClaude(prompt);
 
 let parsed;
 try {
-  // Strip optional markdown fences
-  const cleaned = text.replace(/^```json\s*/i, '').replace(/```\s*$/, '').trim();
+  // Strip optional markdown fences and any preamble before the first '{'.
+  let cleaned = text.trim();
+  const fence = cleaned.match(/```(?:json)?\s*([\s\S]+?)```/);
+  if (fence) cleaned = fence[1].trim();
+  // If the CLI added any preamble, find the first '{' and last '}'.
+  const firstBrace = cleaned.indexOf('{');
+  const lastBrace = cleaned.lastIndexOf('}');
+  if (firstBrace >= 0 && lastBrace > firstBrace) {
+    cleaned = cleaned.slice(firstBrace, lastBrace + 1);
+  }
   parsed = JSON.parse(cleaned);
 } catch (err) {
-  console.error('Failed to parse JSON from API:', err.message);
-  console.error('Raw response:', text.slice(0, 500));
+  console.error('Failed to parse JSON from Claude CLI:', err.message);
+  console.error('Raw response (first 800 chars):', text.slice(0, 800));
   process.exit(1);
 }
 
@@ -194,7 +198,7 @@ const inserts = parsed.questions.map((q) => {
 }).filter(Boolean);
 
 const sql = `-- Generated for topic ${topic.topic_number} ${topic.title}
--- ${inserts.length} questions
+-- ${inserts.length} questions (Claude CLI / Max subscription)
 BEGIN;
 ${inserts.join('\n')}
 COMMIT;
