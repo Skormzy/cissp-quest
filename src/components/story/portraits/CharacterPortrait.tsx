@@ -1,7 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import { NPC_REGISTRY } from '@/lib/story-characters';
 import { NPCExpression } from '@/lib/story-types';
+import { getCharacterPortrait } from '@/lib/imagery';
 
 interface CharacterPortraitProps {
   characterId: string;
@@ -9,6 +11,17 @@ interface CharacterPortraitProps {
   size?: number;
   flipped?: boolean;
 }
+
+// Map V1 expression names → FLUX image expression keys
+const V1_EXPR_TO_FLUX: Record<string, string> = {
+  neutral: 'neutral',
+  serious: 'serious',
+  smile: 'approving',
+  worried: 'concerned',
+  angry: 'firm',
+  surprised: 'excited',
+  thinking: 'teaching',
+};
 
 // Expression-driven facial features
 function getEyebrows(expression: NPCExpression): string {
@@ -69,9 +82,41 @@ export default function CharacterPortrait({
   size = 80,
   flipped = false,
 }: CharacterPortraitProps) {
+  const [imgError, setImgError] = useState(false);
+  // Try FLUX image first (handles tanaka/webb/sharma/ghost/vasquez)
+  const fluxExpr = V1_EXPR_TO_FLUX[expression] ?? 'neutral';
+  const fluxUrl = !imgError ? getCharacterPortrait(characterId, fluxExpr) : null;
+
+  if (fluxUrl) {
+    const npc = NPC_REGISTRY[characterId];
+    const accent = npc?.accentColor ?? '#00e8ff';
+    const portraitName = npc?.name ?? characterId;
+    return (
+      <div
+        className="relative flex-shrink-0 overflow-hidden rounded-xl"
+        style={{
+          width: size,
+          height: size * 1.17,
+          transform: flipped ? 'scaleX(-1)' : undefined,
+          border: `2px solid ${accent}55`,
+          boxShadow: `0 0 12px ${accent}33`,
+        }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={fluxUrl}
+          alt={portraitName}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover object-top"
+          onError={() => setImgError(true)}
+        />
+      </div>
+    );
+  }
+
   const npc = NPC_REGISTRY[characterId];
   if (!npc) return null;
-
   const color = npc.silhouetteColor;
   const accent = npc.accentColor;
 

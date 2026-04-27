@@ -10,7 +10,8 @@
     "generate-images": "dotenv -e .env.local -- tsx scripts/generate-images.ts",
     "generate-images:dry": "npx tsx scripts/generate-images.ts --dry-run",
     "generate-images:characters": "dotenv -e .env.local -- tsx scripts/generate-images.ts --type=character",
-    "generate-images:backgrounds": "dotenv -e .env.local -- tsx scripts/generate-images.ts --type=background"
+    "generate-images:backgrounds": "dotenv -e .env.local -- tsx scripts/generate-images.ts --type=background",
+    "catalog:art": "tsx scripts/catalog-existing-art.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.78.0",

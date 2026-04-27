@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import {
   StoryScene,
   DomainChapter,
@@ -9,6 +9,13 @@ import {
   NPCId,
 } from '@/lib/story-types-v2';
 import KnowledgeCheck from './KnowledgeCheck';
+import {
+  getCharacterPortrait,
+  getSceneArt,
+  getDomainGradient,
+  getDomainAccent,
+  kenBurnsForScene,
+} from '@/lib/imagery';
 
 // ─── NPC Portrait ─────────────────────────────────────────
 
@@ -21,23 +28,23 @@ interface NPCPortraitProps {
 
 function getNPCPortraitSrc(npcId: NPCId, expression?: string): string | undefined {
   if (npcId === 'alex') return undefined; // player character — no portrait
-  const expr = expression || 'neutral';
-  return `/images/story/npc_${npcId}_${expr}.webp`;
+  return getCharacterPortrait(npcId, expression) ?? undefined;
 }
 
 function NPCPortrait({ npcId, side, isActive, expression }: NPCPortraitProps) {
   const npc = NPC_REGISTRY_V2[npcId];
-  const [fallbackToNeutral, setFallbackToNeutral] = useState(false);
+  // Two-stage fallback: requested expression → neutral → emoji silhouette.
+  const [stage, setStage] = useState<'expr' | 'neutral' | 'emoji'>('expr');
 
   // Reset fallback when expression changes
   const prevExprRef = useRef(expression);
   if (prevExprRef.current !== expression) {
     prevExprRef.current = expression;
-    if (fallbackToNeutral) setFallbackToNeutral(false);
+    if (stage !== 'expr') setStage('expr');
   }
 
-  const activeExpression = fallbackToNeutral ? undefined : expression;
-  const portraitSrc = getNPCPortraitSrc(npcId, activeExpression);
+  const activeExpression = stage === 'expr' ? expression : undefined;
+  const portraitSrc = stage === 'emoji' ? undefined : getNPCPortraitSrc(npcId, activeExpression);
   const useImage = !!portraitSrc;
 
   return (
@@ -66,8 +73,10 @@ function NPCPortrait({ npcId, side, isActive, expression }: NPCPortraitProps) {
           <img
             src={portraitSrc}
             alt={npc.name}
+            loading="lazy"
+            decoding="async"
             onError={() => {
-              if (!fallbackToNeutral) setFallbackToNeutral(true);
+              setStage((s) => (s === 'expr' ? 'neutral' : 'emoji'));
             }}
             className="w-full h-full object-cover object-top"
           />
@@ -435,6 +444,7 @@ export default function VisualNovelEngineV2({
   const [showKnowledgeCheck, setShowKnowledgeCheck] = useState(false);
   const [kcCompleted, setKcCompleted] = useState(false);
   const [chapterDone, setChapterDone] = useState(false);
+  const prefersReducedMotion = useReducedMotion() ?? false;
 
   const scenes = chapter.scenes;
   const scene = scenes[currentIndex];
@@ -628,23 +638,65 @@ export default function VisualNovelEngineV2({
       </div>
 
       {/* Scene container */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentIndex}
-          className="rounded-2xl overflow-hidden"
-          style={{
-            background: scene.background,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            border: '1px solid rgba(30,45,74,0.8)',
-            minHeight: '420px',
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
-        >
+      <div
+        className="relative rounded-2xl overflow-hidden"
+        style={{
+          background: getDomainGradient(chapter.domainId),
+          border: `1px solid ${getDomainAccent(chapter.domainId)}33`,
+          boxShadow: `0 0 40px ${getDomainAccent(chapter.domainId)}11`,
+          minHeight: '480px',
+        }}
+      >
+        {/* Full-bleed scene art with Ken Burns slow zoom (own AnimatePresence
+            so prior scene fades while new scene zooms in — true crossfade). */}
+        <AnimatePresence initial={false}>
+          {(() => {
+            const sceneArtUrl = getSceneArt({
+              sceneId: scene.id,
+              domain: chapter.domainId,
+              sceneOrder: currentIndex + 1,
+            });
+            if (!sceneArtUrl) return null;
+            const kb = prefersReducedMotion
+              ? { scale: [1, 1] as [number, number], x: ['0%', '0%'] as [string, string], y: ['0%', '0%'] as [string, string] }
+              : kenBurnsForScene(currentIndex);
+            const motionDur = prefersReducedMotion ? 0 : 14;
+            return (
+              <motion.div
+                key={sceneArtUrl}
+                className="absolute inset-0 will-change-transform"
+                style={{
+                  backgroundImage: `url(${sceneArtUrl})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                }}
+                initial={{ opacity: 0, scale: kb.scale[0] }}
+                animate={{
+                  opacity: 1,
+                  scale: kb.scale,
+                  x: kb.x,
+                  y: kb.y,
+                }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  opacity: { duration: prefersReducedMotion ? 0.15 : 0.6, ease: 'easeOut' },
+                  scale: { duration: motionDur, ease: 'linear', repeat: Infinity, repeatType: 'mirror' },
+                  x: { duration: motionDur, ease: 'linear', repeat: Infinity, repeatType: 'mirror' },
+                  y: { duration: motionDur, ease: 'linear', repeat: Infinity, repeatType: 'mirror' },
+                }}
+              />
+            );
+          })()}
+        </AnimatePresence>
+          {/* Vignette overlay for legibility */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                'radial-gradient(ellipse at center, rgba(4,8,16,0.10) 0%, rgba(4,8,16,0.45) 70%, rgba(4,8,16,0.85) 100%)',
+            }}
+          />
           {/* Location badge */}
           <div className="absolute top-4 left-4 z-10">
             <div
@@ -785,8 +837,7 @@ export default function VisualNovelEngineV2({
               </div>
             </div>
           </div>
-        </motion.div>
-      </AnimatePresence>
+      </div>
 
       {/* Nav: back/forward arrows below scene on mobile */}
       <div className="flex justify-between items-center mt-3 md:hidden">

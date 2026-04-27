@@ -5,6 +5,8 @@ import { VisualNovelEngineProps, StorySceneNode, EvidenceBoardItem } from '@/lib
 import { LOCATION_GRADIENTS, DOMAIN_LOCATIONS } from '@/lib/story-characters';
 import { useStoryModeStore } from '@/stores/useStoryModeStore';
 import DialogueRenderer from './DialogueRenderer';
+import { getSceneArt, getDomainAccent, kenBurnsForScene } from '@/lib/imagery';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import EvidencePanel from './EvidencePanel';
 import KnowledgeCheckPopup from './KnowledgeCheckPopup';
 import TimedDecisionOverlay from './TimedDecisionOverlay';
@@ -72,6 +74,7 @@ export default function VisualNovelEngine({
   const [showCompletion, setShowCompletion] = useState(false);
   const [isNodeTyping, setIsNodeTyping] = useState(false);
   const [skipSignal, setSkipSignal] = useState(0);
+  const prefersReducedMotion = useReducedMotion() ?? false;
 
   const { evidenceBoardItems, showEvidence, addToEvidenceBoard, toggleEvidenceBoard } =
     useStoryModeStore();
@@ -263,13 +266,54 @@ export default function VisualNovelEngine({
 
         {/* Scene container */}
         <div
-          className="flex-1 min-w-0 rounded-xl p-6 min-h-[400px]"
+          className="flex-1 min-w-0 rounded-xl min-h-[400px] relative overflow-hidden"
           style={{
             background: bgGradient,
-            border: '1px solid #1e2d4a',
+            border: `1px solid ${getDomainAccent(domainId)}33`,
+            boxShadow: `0 0 40px ${getDomainAccent(domainId)}11`,
           }}
           onClick={handleSceneClick}
         >
+          {/* Full-bleed scene art with Ken Burns; AnimatePresence keyed on
+              URL gives true crossfade between scenes. */}
+          <AnimatePresence initial={false}>
+            {(() => {
+              const url = getSceneArt({ sceneId: currentNode?.id, domain: domainId, sceneOrder: currentIndex + 1 });
+              if (!url) return null;
+              const kb = prefersReducedMotion
+                ? { scale: [1, 1] as [number, number], x: ['0%', '0%'] as [string, string], y: ['0%', '0%'] as [string, string] }
+                : kenBurnsForScene(currentIndex);
+              const motionDur = prefersReducedMotion ? 0 : 14;
+              return (
+                <motion.div
+                  key={`d-${url}`}
+                  className="absolute inset-0 will-change-transform"
+                  style={{
+                    backgroundImage: `url(${url})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                  initial={{ opacity: 0, scale: kb.scale[0] }}
+                  animate={{ opacity: 1, scale: kb.scale, x: kb.x, y: kb.y }}
+                  exit={{ opacity: 0 }}
+                  transition={{
+                    opacity: { duration: prefersReducedMotion ? 0.15 : 0.6, ease: 'easeOut' },
+                    scale: { duration: motionDur, ease: 'linear', repeat: Infinity, repeatType: 'mirror' },
+                    x: { duration: motionDur, ease: 'linear', repeat: Infinity, repeatType: 'mirror' },
+                    y: { duration: motionDur, ease: 'linear', repeat: Infinity, repeatType: 'mirror' },
+                  }}
+                />
+              );
+            })()}
+          </AnimatePresence>
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                'radial-gradient(ellipse at center, rgba(4,8,16,0.10) 0%, rgba(4,8,16,0.50) 70%, rgba(4,8,16,0.85) 100%)',
+            }}
+          />
+          <div className="relative p-6">
           {/* Choice response overlay */}
           {choiceResponse && (
             <div
@@ -291,6 +335,7 @@ export default function VisualNovelEngine({
             onTypingStateChange: setIsNodeTyping,
             skipSignal,
           })}
+          </div>
         </div>
 
         <NavArrow direction="right" onClick={handleNavigateForward} visible={showRightArrow} />
@@ -300,13 +345,52 @@ export default function VisualNovelEngine({
       <div className="md:hidden">
         {/* Scene container */}
         <div
-          className="rounded-xl p-6 min-h-[400px]"
+          className="rounded-xl min-h-[400px] relative overflow-hidden"
           style={{
             background: bgGradient,
-            border: '1px solid #1e2d4a',
+            border: `1px solid ${getDomainAccent(domainId)}33`,
+            boxShadow: `0 0 30px ${getDomainAccent(domainId)}11`,
           }}
           onClick={handleSceneClick}
         >
+          <AnimatePresence initial={false}>
+            {(() => {
+              const url = getSceneArt({ sceneId: currentNode?.id, domain: domainId, sceneOrder: currentIndex + 1 });
+              if (!url) return null;
+              const kb = prefersReducedMotion
+                ? { scale: [1, 1] as [number, number], x: ['0%', '0%'] as [string, string], y: ['0%', '0%'] as [string, string] }
+                : kenBurnsForScene(currentIndex);
+              const motionDur = prefersReducedMotion ? 0 : 14;
+              return (
+                <motion.div
+                  key={`m-${url}`}
+                  className="absolute inset-0 will-change-transform"
+                  style={{
+                    backgroundImage: `url(${url})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                  initial={{ opacity: 0, scale: kb.scale[0] }}
+                  animate={{ opacity: 1, scale: kb.scale, x: kb.x, y: kb.y }}
+                  exit={{ opacity: 0 }}
+                  transition={{
+                    opacity: { duration: prefersReducedMotion ? 0.15 : 0.6, ease: 'easeOut' },
+                    scale: { duration: motionDur, ease: 'linear', repeat: Infinity, repeatType: 'mirror' },
+                    x: { duration: motionDur, ease: 'linear', repeat: Infinity, repeatType: 'mirror' },
+                    y: { duration: motionDur, ease: 'linear', repeat: Infinity, repeatType: 'mirror' },
+                  }}
+                />
+              );
+            })()}
+          </AnimatePresence>
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                'radial-gradient(ellipse at center, rgba(4,8,16,0.10) 0%, rgba(4,8,16,0.50) 70%, rgba(4,8,16,0.85) 100%)',
+            }}
+          />
+          <div className="relative p-6">
           {/* Choice response overlay */}
           {choiceResponse && (
             <div
@@ -328,6 +412,7 @@ export default function VisualNovelEngine({
             onTypingStateChange: setIsNodeTyping,
             skipSignal,
           })}
+          </div>
         </div>
 
         {/* Bottom arrow row */}
