@@ -139,8 +139,22 @@ export default function DashboardPage() {
 
   if (!profile) {
     return (
-      <div className="text-center py-20" style={{ color: '#64748b' }}>
-        Loading agent dossier…
+      <div className="space-y-6 animate-pulse" aria-busy="true" aria-label="Loading agent dossier">
+        <Card className="p-6 border-0" style={{ background: '#0d1220', borderColor: '#1e2d4a' }}>
+          <div className="flex flex-col md:flex-row md:items-center gap-6">
+            <div className="w-24 h-24 rounded-2xl mx-auto md:mx-0" style={{ background: '#111a2e' }} />
+            <div className="flex-1 space-y-3">
+              <div className="h-3 w-32 rounded" style={{ background: '#111a2e' }} />
+              <div className="h-6 w-56 rounded" style={{ background: '#111a2e' }} />
+              <div className="h-2 w-full rounded" style={{ background: '#111a2e' }} />
+            </div>
+          </div>
+        </Card>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[0, 1, 2, 3].map((i) => (
+            <Card key={i} className="p-4 border-0 h-24" style={{ background: '#0d1220', borderColor: '#1e2d4a' }} />
+          ))}
+        </div>
       </div>
     );
   }

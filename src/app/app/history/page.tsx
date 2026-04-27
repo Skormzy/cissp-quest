@@ -237,7 +237,7 @@ export default function HistoryPage() {
                 </div>
 
                 {/* Question text */}
-                <p className="text-sm mb-2" style={{ color: '#e2e8f0' }}>{questionText}</p>
+                <p className="text-sm mb-2 wrap-break-word" style={{ color: '#e2e8f0', overflowWrap: 'anywhere' }}>{questionText}</p>
 
                 {/* Answers */}
                 <div className="flex flex-col gap-1 text-xs">
