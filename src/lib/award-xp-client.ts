@@ -8,8 +8,8 @@
 // response. Failures are logged; the user sees no error toast (XP grants
 // are non-critical UX).
 
-import { toast } from 'sonner';
 import { useUserStore } from '@/stores/useUserStore';
+import { emitLevelUp } from '@/components/effects/LevelUpOverlay';
 
 export interface AwardXpResponse {
   ok: boolean;
@@ -42,13 +42,14 @@ export async function awardXpClient(
 
     useUserStore.getState().applyProgression(data.newXp, data.newLevel, data.newRank);
 
-    if (data.rankedUp) {
-      toast.success(`Rank up! You are now ${data.newRank}`, {
-        description: `Lv.${data.newLevel} · ${data.newXp.toLocaleString()} XP total`,
-      });
-    } else if (data.leveledUp) {
-      toast.success(`Level up! Lv.${data.newLevel}`, {
-        description: `${data.newXp.toLocaleString()} XP total`,
+    // Cinematic overlay handles level-up / rank-up celebration. Toast is
+    // intentionally suppressed to avoid double-notification (overlay +
+    // corner toast restating the same event).
+    if (data.leveledUp || data.rankedUp) {
+      emitLevelUp({
+        newLevel: data.newLevel,
+        newRank: data.newRank,
+        rankedUp: data.rankedUp,
       });
     }
 

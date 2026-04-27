@@ -2,15 +2,12 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
 import { DOMAINS } from '@/lib/constants';
+import { emitXp } from '@/components/effects/XpToast';
 import {
   CheckCircle,
   XCircle,
-  Clock,
   SkipForward,
-  Zap,
   Flame,
   Brain,
   ChevronRight,
@@ -82,28 +79,6 @@ function TimerBar({ totalSeconds, onExpire }: { totalSeconds: number; onExpire: 
   );
 }
 
-// ─── Floating XP Animation ────────────────────────────────────────────────
-
-function FloatingXP({ xp, visible }: { xp: number; visible: boolean }) {
-  return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          className="absolute top-4 right-4 flex items-center gap-1 font-bold text-sm pointer-events-none z-20"
-          style={{ color: '#00e8ff' }}
-          initial={{ opacity: 0, y: 0, scale: 0.8 }}
-          animate={{ opacity: 1, y: -40, scale: 1.1 }}
-          exit={{ opacity: 0, y: -70 }}
-          transition={{ duration: 0.9, ease: 'easeOut' }}
-        >
-          <Zap size={14} />
-          +{xp} XP
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-}
-
 // ─── Option Button ────────────────────────────────────────────────────────
 
 interface OptionButtonProps {
@@ -111,7 +86,7 @@ interface OptionButtonProps {
   index: number;
   selected: boolean;
   correct: number | null; // null = not revealed yet; number = correct answer index
-  onClick: () => void;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   disabled: boolean;
 }
 
@@ -193,40 +168,69 @@ export default function QuizCard({
 }: QuizCardProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
-  const [showXP, setShowXP] = useState(false);
   const startTime = useRef(Date.now());
+  const timeoutsRef = useRef<Set<number>>(new Set());
 
   const domain = DOMAINS.find((d) => d.id === question.domain_id);
   const diff = DIFFICULTY_CONFIG[question.difficulty_rating];
 
-  // Reset state when question changes
+  const trackTimeout = useCallback((fn: () => void, ms: number) => {
+    const t = window.setTimeout(() => {
+      timeoutsRef.current.delete(t);
+      fn();
+    }, ms);
+    timeoutsRef.current.add(t);
+    return t;
+  }, []);
+
+  // Reset state when question changes; cancel any pending timeouts.
   useEffect(() => {
+    const timeouts = timeoutsRef.current;
+    timeouts.forEach((t) => window.clearTimeout(t));
+    timeouts.clear();
     setSelectedIndex(null);
     setRevealed(false);
-    setShowXP(false);
     startTime.current = Date.now();
   }, [question.id]);
 
+  // Final cleanup on unmount.
+  useEffect(() => {
+    const timeouts = timeoutsRef.current;
+    return () => {
+      timeouts.forEach((t) => window.clearTimeout(t));
+      timeouts.clear();
+    };
+  }, []);
+
   const handleSelect = useCallback(
-    (idx: number) => {
+    (idx: number, originX?: number, originY?: number) => {
       if (revealed) return;
       const timeSpent = (Date.now() - startTime.current) / 1000;
       setSelectedIndex(idx);
       setRevealed(true);
       const isCorrect = idx === question.correct_index;
       if (isCorrect) {
-        setShowXP(true);
-        setTimeout(() => setShowXP(false), 1200);
+        emitXp(DIFFICULTY_CONFIG[question.difficulty_rating].xp, {
+          x: originX,
+          y: originY,
+          variant: streak >= 3 ? 'critical' : 'normal',
+        });
       }
       // Let parent know after a short reveal delay
-      setTimeout(() => onAnswer(idx, timeSpent), 1600);
+      trackTimeout(() => onAnswer(idx, timeSpent), 1600);
     },
-    [revealed, question.correct_index, onAnswer],
+    [revealed, question.correct_index, question.difficulty_rating, streak, onAnswer, trackTimeout],
   );
 
   const handleTimerExpire = useCallback(() => {
-    if (!revealed) handleSelect(question.correct_index + 999); // guaranteed wrong
-  }, [revealed, handleSelect, question.correct_index]);
+    if (revealed) return;
+    const timeSpent = (Date.now() - startTime.current) / 1000;
+    setSelectedIndex(null);
+    setRevealed(true);
+    // Sentinel -1 = timeout / no answer. Parent must treat this distinctly
+    // from a real selection.
+    trackTimeout(() => onAnswer(-1, timeSpent), 1600);
+  }, [revealed, onAnswer, trackTimeout]);
 
   const showStreak = streak >= 3;
 
@@ -238,9 +242,6 @@ export default function QuizCard({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
     >
-      {/* Floating XP */}
-      <FloatingXP xp={diff.xp} visible={showXP} />
-
       {/* Card */}
       <div
         className="rounded-2xl overflow-hidden"
@@ -318,7 +319,10 @@ export default function QuizCard({
               index={idx}
               selected={selectedIndex === idx}
               correct={revealed ? question.correct_index : null}
-              onClick={() => handleSelect(idx)}
+              onClick={(e) => {
+                const r = e.currentTarget.getBoundingClientRect();
+                handleSelect(idx, r.left + r.width / 2, r.top + r.height / 2);
+              }}
               disabled={revealed}
             />
           ))}

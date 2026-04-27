@@ -209,7 +209,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
                   boxShadow: active ? '4px 0 12px rgba(0,232,255,0.08)' : 'none',
                 }}
               >
-                <Icon className="w-4 h-4 flex-shrink-0" />
+                <Icon className="w-4 h-4 flex-shrink-0 transition-transform duration-200 group-hover:scale-110" />
                 {!sidebarCollapsed && (
                   <span className="flex items-center gap-2 flex-1">
                     {item.label}

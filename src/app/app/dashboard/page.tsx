@@ -389,7 +389,7 @@ function StatCard({
   color: string;
 }) {
   return (
-    <Card className="p-4" style={{ background: '#0d1220', borderColor: '#1e2d4a' }}>
+    <Card className="p-4 lift-hover" style={{ background: '#0d1220', borderColor: '#1e2d4a' }}>
       <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest mb-2" style={{ color }}>
         {icon}
         {label}
@@ -404,7 +404,7 @@ function QuickAction({ href, icon, label }: { href: string; icon: React.ReactNod
   return (
     <Link
       href={href}
-      className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors hover:bg-[#1e2d4a]"
+      className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors hover:bg-[#1e2d4a] lift-hover"
       style={{ color: '#e2e8f0', background: '#111a2e' }}
     >
       <span style={{ color: '#00e8ff' }}>{icon}</span>

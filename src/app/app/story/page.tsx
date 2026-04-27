@@ -1,12 +1,74 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
+import { motion, useMotionValue, useSpring, useReducedMotion } from 'framer-motion';
 import { useUserStore } from '@/stores/useUserStore';
 import { createClient } from '@/lib/supabase/client';
 import { DOMAINS } from '@/lib/constants';
 import { DOMAIN_CHAPTERS, DOMAIN_COLORS, getDomainStatus } from '@/lib/story-constants';
 import { StoryModeProgress } from '@/lib/story-types';
+
+// Mouse-tracked 3D tilt card. Honors prefers-reduced-motion by disabling
+// the tilt math entirely (still renders the same content; just static).
+// Caches the bounding rect on enter so we don't force a layout flush on
+// every mouse-move event (8 cards × 60fps would be brutal otherwise).
+function TiltCard({
+  href,
+  children,
+  borderColor,
+  background,
+}: {
+  href: string;
+  children: React.ReactNode;
+  borderColor: string;
+  background: string;
+}) {
+  const reduce = useReducedMotion() ?? false;
+  const ref = useRef<HTMLDivElement>(null);
+  const rectRef = useRef<DOMRect | null>(null);
+  const rx = useMotionValue(0);
+  const ry = useMotionValue(0);
+  const sRx = useSpring(rx, { stiffness: 220, damping: 22 });
+  const sRy = useSpring(ry, { stiffness: 220, damping: 22 });
+
+  return (
+    <Link href={href} className="block">
+      <motion.div
+        ref={ref}
+        onMouseEnter={() => {
+          if (reduce) return;
+          rectRef.current = ref.current?.getBoundingClientRect() ?? null;
+        }}
+        onMouseMove={(e) => {
+          const r = rectRef.current;
+          if (reduce || !r) return;
+          const px = (e.clientX - r.left) / r.width - 0.5;
+          const py = (e.clientY - r.top) / r.height - 0.5;
+          ry.set(px * 8);
+          rx.set(-py * 8);
+        }}
+        onMouseLeave={() => {
+          rx.set(0);
+          ry.set(0);
+          rectRef.current = null;
+        }}
+        whileHover={reduce ? {} : { scale: 1.02 }}
+        className="group rounded-xl p-5 will-change-transform"
+        style={{
+          rotateX: reduce ? 0 : sRx,
+          rotateY: reduce ? 0 : sRy,
+          transformPerspective: 900,
+          transformStyle: 'preserve-3d',
+          background,
+          border: `1px solid ${borderColor}`,
+        }}
+      >
+        {children}
+      </motion.div>
+    </Link>
+  );
+}
 
 export default function StoryHubPage() {
   const { user } = useUserStore();
@@ -78,16 +140,15 @@ export default function StoryHubPage() {
           const isConquered = p?.domain_conquered;
 
           return (
-            <Link
+            <TiltCard
               key={ch.domainId}
               href={`/app/story/${ch.domainId}`}
-              className="rounded-xl p-5 transition-all hover:scale-[1.02] group"
-              style={{
-                background: isConquered
+              borderColor={isConquered ? color : '#1e2d4a'}
+              background={
+                isConquered
                   ? `linear-gradient(135deg, ${color}08, ${color}15)`
-                  : '#111a2e',
-                border: `1px solid ${isConquered ? color : '#1e2d4a'}`,
-              }}
+                  : '#111a2e'
+              }
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-2">
@@ -112,7 +173,7 @@ export default function StoryHubPage() {
                   {status}
                 </span>
               </div>
-            </Link>
+            </TiltCard>
           );
         })}
       </div>

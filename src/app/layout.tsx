@@ -3,6 +3,8 @@ import { Space_Grotesk, JetBrains_Mono, Inter } from 'next/font/google';
 import './globals.css';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from '@/components/ui/sonner';
+import XpToastHost from '@/components/effects/XpToast';
+import LevelUpHost from '@/components/effects/LevelUpOverlay';
 
 // Display: Space Grotesk for headlines, mission cards, level-up moments.
 // Body: Inter for dialogue, paragraphs, dense reading.
@@ -45,6 +47,8 @@ export default function RootLayout({
         <TooltipProvider delay={300}>
           {children}
         </TooltipProvider>
+        <XpToastHost />
+        <LevelUpHost />
         <Toaster
           position="bottom-right"
           toastOptions={{

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Lock } from 'lucide-react';
 import { useUserStore } from '@/stores/useUserStore';
 import { substituteTokens, type PlayerProfileTokens } from '@/lib/player-tokens';
@@ -460,6 +460,7 @@ export default function TanakaNotebook({
   const [activeDomain, setActiveDomain] = useState(unlockedDomains[0] ?? 1);
   const [prevDomain, setPrevDomain] = useState<number | null>(null);
   const [isFlipping, setIsFlipping] = useState(false);
+  const reduce = useReducedMotion();
 
   const entry = NOTEBOOK_ENTRIES.find((e) => e.domain === activeDomain);
 
@@ -551,24 +552,38 @@ export default function TanakaNotebook({
           </div>
 
           {/* Page flip animation wrapper */}
-          <AnimatePresence mode="wait">
-            {!isFlipping && (
-              <motion.div
-                key={activeDomain}
-                initial={{ opacity: 0, rotateY: -15, x: -20 }}
-                animate={{ opacity: 1, rotateY: 0, x: 0 }}
-                exit={{ opacity: 0, rotateY: 15, x: 20 }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
-                style={{ transformOrigin: 'left center', transformStyle: 'preserve-3d' }}
-              >
-                {unlockedDomains.includes(activeDomain) ? (
-                  <NotebookPageContentWithTokens entry={entry} />
-                ) : (
-                  <LockedPage domain={activeDomain} />
-                )}
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <div style={{ perspective: reduce ? undefined : 1400 }}>
+            <AnimatePresence mode="wait">
+              {!isFlipping && (
+                <motion.div
+                  key={activeDomain}
+                  initial={
+                    reduce
+                      ? { opacity: 0 }
+                      : { opacity: 0, rotateY: -75, x: -30, boxShadow: '0 18px 30px -10px rgba(0,0,0,0.55)' }
+                  }
+                  animate={
+                    reduce
+                      ? { opacity: 1 }
+                      : { opacity: 1, rotateY: 0, x: 0, boxShadow: '0 0 0 rgba(0,0,0,0)' }
+                  }
+                  exit={
+                    reduce
+                      ? { opacity: 0 }
+                      : { opacity: 0, rotateY: 75, x: 30, boxShadow: '0 18px 30px -10px rgba(0,0,0,0.55)' }
+                  }
+                  transition={{ duration: reduce ? 0.15 : 0.45, ease: [0.2, 0, 0, 1] }}
+                  style={{ transformOrigin: 'left center', transformStyle: 'preserve-3d' }}
+                >
+                  {unlockedDomains.includes(activeDomain) ? (
+                    <NotebookPageContentWithTokens entry={entry} />
+                  ) : (
+                    <LockedPage domain={activeDomain} />
+                  )}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </div>
